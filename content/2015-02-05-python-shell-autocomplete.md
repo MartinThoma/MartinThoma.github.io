@@ -9,7 +9,7 @@ category: Code
 tags: Python, Shell, Software Engineering
 featured_image: logos/python.png
 ---
-One feature I really miss in Pythons interactive shell is tab autocompletion.
+One feature I really miss in Python's interactive shell is tab autocompletion.
 Thanks to [blog.e-shell.org](http://blog.e-shell.org/221) I know how to get it:
 
 ```python-repl

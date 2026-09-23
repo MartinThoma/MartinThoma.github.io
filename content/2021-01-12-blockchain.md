@@ -48,8 +48,6 @@ Hence, the ledger is just a database of all transactions.
 
 ## How to get rid of the Bank
 
-![Photo by [the blowup](https://unsplash.com/@theblowup) on [Unsplash](https://unsplash.com)](../images/2021/01/blockchain-3.jpg)*Photo by [the blowup](https://unsplash.com/@theblowup) on [Unsplash](https://unsplash.com)*
-
 Anna, Bob, and Charlie are unhappy with their bank. They don’t like that it typically takes two working days until the booked transaction actually takes place. They are unhappy with paying fees. They wonder what would happen if their bank suddenly closed or maybe even manipulated the numbers.
 
 As Anna, Bob, and Charlie live in the same apartment and they spend their money on stuff for the apartment (soap, toilet paper, dishwasher tabs, …), they put a list on the fridge. They simply make it public who made which transaction. They don’t have complete trust in each other, though.
@@ -59,8 +57,6 @@ For example, Bob might write in the ledger that he got $20 from Charlie — alth
 They also want to make sure that **nobody can erase any transaction**. The solution is simple: Every transaction gets an incrementing transaction number.
 
 ## Let’s make it digital!
-
-![Photo by [Joshua Sortino](https://unsplash.com/@sortino) on [Unsplash](https://unsplash.com)](../images/2021/01/blockchain-4.jpg)*Photo by [Joshua Sortino](https://unsplash.com/@sortino) on [Unsplash](https://unsplash.com)*
 
 Anna, Bob, and Charlie want to be certain they will never lose their ledger. Instead of having a single central ledger, they decide to **distribute** it. They all want to have a copy of it.
 
@@ -143,8 +139,6 @@ Rene is an awesome educator; check out his [introductory video about electronic
 cash](https://www.youtube.com/watch?v=TrF9RmfyLbw).
 
 ## Bitcoin vs Blockchain
-
-![Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog) on [Unsplash](https://unsplash.com)](../images/2021/01/blockchain-7.jpg)*Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog) on [Unsplash](https://unsplash.com)*
 
 Bitcoin is an application that uses the blockchain. As an analogy, think of
 email. Email is an application that uses the internet.

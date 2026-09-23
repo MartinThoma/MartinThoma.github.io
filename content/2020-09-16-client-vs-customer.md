@@ -10,7 +10,8 @@ tags: Terminology
 featured_image: logos/education.png
 medium_url: https://medium.com/plain-and-simple/client-vs-customer-df3d6a9011a8
 ---
-![Photo by [You X Ventures](https://unsplash.com/@youxventures) on [Unsplash](https://unsplash.com)](../images/2020/09/client-vs-customer-1.jpg)*Photo by [You X Ventures](https://unsplash.com/@youxventures) on [Unsplash](https://unsplash.com)*
+
+![Customer: buys goods or services. Client: uses professional advice or services.](../images/2020/09/client-vs-customer.svg)*Both are on the other side of a transaction, but the word depends on what is being bought. Image by Martin Thoma*
 
 A [customer](https://en.wiktionary.org/wiki/customer) is somebody who buys goods, e.g. in a supermarket. Or somebody who buys services, like at a hairdresser.
 

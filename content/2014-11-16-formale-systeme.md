@@ -571,7 +571,7 @@ Siehe [Klausurtermine-Seite](http://www.informatik.kit.edu/klausuren.php) für
 zukünftige Termine.
 
 **Datum**: Freitag, den 6. März 2015 von 11:00 bis 12:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415)).<br/>
-**Ort**: Gerthsen ([30.21](http://www.kithub.de/map/2287)) und HSaF ([50.35](http://www.kithub.de/map/2222)) - vgl. [Anmeldeliste](http://formal.iti.kit.edu/teaching/FormSysWS1415/klausur1.html)<br/>
+**Ort**: Gerthsen ([30.21](https://www.kit.edu/campusplan/)) und HSaF ([50.35](https://www.kit.edu/campusplan/)) - vgl. [Anmeldeliste](http://formal.iti.kit.edu/teaching/FormSysWS1415/klausur1.html)<br/>
 **Punkte**: 60<br/>
 **Punkteverteilung**: ? (Stand: 06.03.2015)<br/>
 **Bestehensgrenze**: ? (Stand: 06.03.2015)<br/>

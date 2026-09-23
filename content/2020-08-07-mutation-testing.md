@@ -19,7 +19,6 @@ In this article, you will learn what mutation testing is and how it can help you
 to write better tests. The examples are for Python, but the concepts hold in
 general, and at the end I have a list of tools in other languages.
 
-
 ## Why do we need mutation testing?
 
 Unit tests have the issue that it’s unclear when your tests are good enough. Do
@@ -42,7 +41,6 @@ mutation test as an alternative to test coverage. In contrast to test coverage,
 the mutation testing toolkit can directly show you places and types of mistakes
 you would not cover right now.
 
-
 ## Which mutation testing tools are there?
 
 There are a couple of tools like cosmic-ray, but Anders Hovmöller did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.
@@ -62,7 +60,6 @@ In other languages, you might want to try these:
 * Ruby: [mutant](https://github.com/mbj/mutant)
 * Rust: [mutagen](https://github.com/llogiq/mutagen)
 * Swift: [muter](https://github.com/muter-mutation-testing/muter)
-
 
 ## Why isn’t branch and line coverage enough?
 
@@ -158,7 +155,6 @@ In the end, you will see how many mutants were successfully killed (🎉), how
 many received a timeout (⏰), and which ones survived (🙁). Especially the timeout
 ones are annoying as they make the mutmut runs slower, but the code and the
 tests might still be fine.
-
 
 ## Which mutations are applied?
 

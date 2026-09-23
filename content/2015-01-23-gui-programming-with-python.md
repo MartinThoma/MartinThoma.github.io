@@ -17,7 +17,7 @@ Multiple GUI toolkits exist and the only one I have ever used is
 [Tk](https://en.wikipedia.org/wiki/Tk_(software)) for a very, very simple GUI.
 
 In this article, I want to share some of my thoughts about GUI development with
-Python as a beginner. I might update this in future.
+Python as a beginner. I might update this in the future.
 
 
 ## GUI toolkits
@@ -36,7 +36,7 @@ I am only interested in GUI toolkits
 
 * which work on Ubuntu 12.04+,
 * which have a Python binding,
-* which are OpenSource and have a good license,
+* which are open source and have a good license,
 * which are used by others (and hence have enough documentation and examples)
 
 It seems to me that only the following four toolkits fulfill these requirements:
@@ -123,7 +123,7 @@ one. Please let me know if I should add something, replace something:
     <tr>
         <th class="border-right">License</th>
         <td>LGPL 2.1&nbsp;</td>
-        <td>LGLP 3.0 (mutliple</td>
+        <td>LGPL 3.0 (multiple licenses)</td>
         <td>BSD-style</td>
         <td>wxWindows License</td>
     </tr>

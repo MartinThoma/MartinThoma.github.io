@@ -43,7 +43,7 @@ was drawn and improves the drawing. <a href="https://www.autodraw.com/">autodraw
 does so:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/autodraw.com" alt="autodraw.com: I wanted to draw a mouse (the animal)" style="width: 512px;"/>
+    <img src="../images/2017/12/autodraw.png" alt="autodraw.com: I wanted to draw a mouse (the animal)" style="width: 512px;"/>
     <figcaption class="text-center">autodraw.com: I wanted to draw a mouse (the animal)</figcaption>
 </figure>
 

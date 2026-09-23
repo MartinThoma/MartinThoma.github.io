@@ -5,7 +5,7 @@ slug: terror-in-paris
 lang: en
 author: Martin Thoma
 date: 2015-11-15 10:29
-category: My Bits and Bytes
+category: My bits and bytes
 tags: Politics, Society
 featured_image: logos/france.png
 ---
@@ -18,8 +18,8 @@ happened on the evening of 13&nbsp;November&nbsp;2015.
 What happened and the reactions I've seen so far make this the European /
 French equivalent of
 [September 11 attacks](https://en.wikipedia.org/wiki/September_11_attacks).
-A lot of people died or were injured, one of the most important cities were
-affected, politicians say we are in war, on Facebook people show condolence.
+A lot of people died or were injured, one of the most important cities was
+affected, politicians say we are at war, on Facebook people show condolence.
 
 
 ## Questions we need to ask
@@ -34,7 +34,7 @@ affected, politicians say we are in war, on Facebook people show condolence.
 ### The Terrorists
 
 [ISIS](https://en.wikipedia.org/wiki/Islamic_State_of_Iraq_and_the_Levant)
-claims they were responsible for the attacks. We could stop to think here and
+claims they were responsible for the attacks. We could stop thinking here and
 many certainly will. It is a terrorist organization and that is what terrorists
 do. The people were religiously motivated lunatics, so we don't need to
 understand them. Right?
@@ -44,14 +44,14 @@ Wrong.
 People are complicated. They don't always act consistently. Their environment
 is critical to form who they are. If you grew up in an environment where you
 didn't have reliable access to clean water, food, medical services, education,
-work, and a perspective on a good live in general, you would certainly be
+work, and a perspective on a good life in general, you would certainly be
 somebody else.
 
-Don't get me wrong here. I don't want to talk it little. Everybody has a choice
-what he can do in his live. What terrorists do is cruel. But just like after
-September&nbsp;11, I am pretty sure we (France, Germany, Europe) will spend a
-lot of time and money in reaction to the attacks. One reaction we will
-certainly get is demands for more spendings / actions in military and
+Don't get me wrong here. I don't want to play it down. Everybody has a choice
+about what they do with their life. What terrorists do is cruel. But just like
+after September&nbsp;11, I am pretty sure we (France, Germany, Europe) will
+spend a lot of time and money in reaction to the attacks. One reaction we will
+certainly get is demands for more spending / actions in military and
 surveillance. Demands for closing borders. What I want to say is that we are
 trying to intervene in a too late step of the "terror process". People are not
 born terrorists. They become terrorists during their lives. We should not
@@ -59,8 +59,8 @@ prevent terrorists from entering our countries, from blowing up what is
 important for us. We should prevent people from becoming terrorists.
 
 Now you might say that is easier said than done. But a very first step would be
-getting a detailed view of the terrorists lives. I don't mean the preparation,
-but their complete live. Their environment. And then change that.
+getting a detailed view of the terrorists' lives. I don't mean the preparation,
+but their complete lives. Their environment. And then change that.
 
 My assumption is that we could completely prevent generations of terrorists
 from being born when we "simply" make the world better.
@@ -70,27 +70,27 @@ from being born when we "simply" make the world better.
 
 According to the Paris prosecutor, the attackers wearing suicide vests used
 [TATP](https://en.wikipedia.org/wiki/Acetone_peroxide) as an explosive. This
-is easy to make from things of everyday live. So we can't prevent it from being
+is easy to make from things of everyday life. So we can't prevent it from being
 made and used by suicide bombers, except if we massively sacrifice privacy.
 I'm talking here about cameras in your bedroom kind of surveillance. "Only"
 the US way of surveillance will not change anything.
 
 However, I've also read that the terrorists used
-[AK-47 rifles](https://en.wikipedia.org/wiki/AK-47). They
-cannot be build by yourself, so we should find out where they came from. One
+[AK-47 rifles](https://en.wikipedia.org/wiki/AK-47). You
+cannot build them yourself, so we should find out where they came from. Not
 only the concrete path, but in general.
 
 
 ### Fast Reactions
 
 It is less than two days after the attacks, and we already know which type of
-explosive the bombing vests were made of, some people were put into arrest, and
+explosive the bombing vests were made of, some people were arrested, and
 we are sure that ISIS is responsible. This is astonishing. It feels as if the
-police was doing an extraordinary good job here. I wonder if it would be
+police did an extraordinarily good job here. I wonder if it would be
 that fast outside of Paris.
 
 At the same time, it feels too fast. When we get news that fast, we
-(unconciously) will expect such fast reactions with other attacks. This might
+(unconsciously) will expect such fast reactions with other attacks. This might
 not be possible and people might - too fast - ask for political changes. I just
 want to point out that such fast reactions and the quick, not very well
 investigated articles we get today (like this one... but I'm not a journalist)
@@ -111,7 +111,7 @@ I see three ways we, as a society, can react to terrorist attacks in general:
 I was positively surprised how the people from Norway reacted to the
 [2011 Norway attacks](https://en.wikipedia.org/wiki/2011_Norway_attacks). They
 didn't start new surveillance programs. They didn't increase their military
-spendings.
+spending.
 
 The Norwegians showed they are strong. They showed the world that they are
 united. They showed that they will not let terrorist attacks change the way they
@@ -124,27 +124,27 @@ When something happens, people want politicians to show they improve the
 situation. They want revenge. They want others to share their pain. They feel
 insecure and want to feel strong and secure again.
 
-This is a reason why spending more money in surveillance and military is a very
-understandable, logical reaction.
+This is a reason why spending more money on surveillance and the military is a
+very understandable, logical reaction.
 
-But be clear what you're doing when you ask for more spendings in military and
+But be clear what you're doing when you ask for more spending in military and
 surveillance. Be clear what you sacrifice when you want to expand the power of
-intelligence services. Think about how you let terrorists change your live.
+intelligence services. Think about how you let terrorists change your life.
 Which other dangers you might put your society into.
 
 I am a strong opponent of surveillance and also (not that much, but still) an
 opponent of military. One reason is that we are playing a stupid game (see
-[A Waste of Money and Time](https://www.schneier.com/essays/archives/2010/11/a_waste_of_money_and.html),
-a security expert). We see what terrorists did, like an attack with airplanes,
-and we as a society spend lots and lots of effort to prevent that. We accept
-being treated like criminals, hundred thousands of passengers, just to get a
-slight chance to catch a terrorist. The terrorists know that, so they can take
-the train and do exactly the same. We pick our defenses and they do something
-different.
+[A Waste of Money and Time](https://www.schneier.com/essays/archives/2010/11/a_waste_of_money_and.html)
+by Bruce Schneier, a security expert). We see what terrorists did, like an
+attack with airplanes, and we as a society spend lots and lots of effort to
+prevent that. We accept being treated like criminals, hundreds of thousands of
+passengers, just to get a slight chance to catch a terrorist. The terrorists
+know that, so they can take the train and do exactly the same. We pick our
+defenses and they do something different.
 
 I don't want to play such a stupid game.
 
-One way around is intelligence. But the bad thing is, that it doesn't make
+One way around this is intelligence. But the bad thing is that it doesn't make
 sense to use a little bit of intelligence. You have to go the full, Orwellian
 way to have a good chance of it being effective. Here is what I could think of:
 
@@ -155,7 +155,7 @@ way to have a good chance of it being effective. Here is what I could think of:
   of different things to build bombs.
 * Track everybody: With smartphones you can make detailed movement profiles.
   Even if you're not on Facebook, you can build a social graph. Who talked to
-  whom, who has how much contact to whom. Who is influential, who isn't.
+  whom, who has how much contact with whom. Who is influential, who isn't.
 * Get rid of privacy: We have surveillance equipment everywhere. Private
   smartphones, tablets, laptops usually have cameras and microphones. Most
   people use these devices to communicate. These devices, combined with
@@ -171,54 +171,53 @@ algorithms can - just like humans - make mistakes.
 Imagine the world we would live in if the
 [Gestapo](https://en.wikipedia.org/wiki/Gestapo) or the
 [Stasi](https://en.wikipedia.org/wiki/Stasi) had access to this kind of
-technology. Imagine how people would act differently when they know everything
-they did was recorded and could be hold against them later.
+technology. Imagine how people would act differently if they knew that
+everything they did was recorded and could be held against them later.
 
 On the positive side: This could decrease "normal" crime, too.
 
 
 ### Development aid
 
-Just as I began to write before, I would prefer if we spend more money on
-development aid. I am pretty sure there are many (potential) terrorists, which
-would not even consider that if they were in a better situation. We could
-massively improve the situation of the live of millions of people. Even if it
+As I wrote before, I would prefer if we spent more money on
+development aid. I am pretty sure there are many (potential) terrorists who
+would not even consider it if they were in a better situation. We could
+massively improve the lives of millions of people. Even if it
 would not work against terrorism, we would still do something inherently good.
 We would help the people. If we honestly want to improve their situation, if we
 don't use military but humanitarian aid, people will recognize this. People
-will have something good in their minds when they thought of us (see
-["Brot statt Bomben"](http://www.spiegel.de/politik/deutschland/friedensdemo-brot-statt-bomben-a-160073.html)). A positive side-effect would be that it would stop coming more refugees
-to Europe.
+will have something good in their minds when they think of us (see
+["Brot statt Bomben"](http://www.spiegel.de/politik/deutschland/friedensdemo-brot-statt-bomben-a-160073.html)). A positive side-effect would be that fewer refugees would come to Europe.
 
 Of course, just throwing money at the problem will not solve anything. We need
 to check if the money actually gets to the people. We need to check if it
 improves their lives. We need them to get in a situation where they are able
 to choose what to do with their lives. Not from equally bad situations, but
-giving people the possibility to make their live become good.
+giving people the possibility to make their lives good.
 
 We need to understand the problems of those countries. We have to work with
 the people there, not work for them. We have to support, not to lead.
 
 There are certainly a lot of organizations like [Engineers Without Borders](https://en.wikipedia.org/wiki/Engineers_Without_Borders) and [Doctors Without Borders](https://en.wikipedia.org/wiki/M%C3%A9decins_Sans_Fronti%C3%A8res)
-which have a very good idea what has to be done in a short-term perspective to
-improve the lives of many people. However, we should plan for a long-term
+which have a very good idea of what has to be done in a short-term perspective
+to improve the lives of many people. However, we should plan for a long-term
 perspective. We should get in contact with refugees who are willing to get back
 if the situation was better and try to figure out what they need to improve the
 situation.
 
-And we should finally stand to our word and reach the
-[Millennium Development Goals](https://en.wikipedia.org/wiki/Millennium_Development_Goals)
+And we should finally keep our word and reach the
+[Millennium Development Goals](https://en.wikipedia.org/wiki/Millennium_Development_Goals).
 I can't find the source, but the costs for reaching the MDGs were lower than
-I expected. Especially access to clean water significantly lower than
-20&nbsp;Billion&nbsp;US-Dollar, if I remember it correctly. The GDP of Europe
-is about 18,527,116&nbsp;Million US-Dollar. That means we would have to spend
+I expected. Especially access to clean water was significantly cheaper than
+20&nbsp;billion&nbsp;US dollars, if I remember it correctly. The GDP of Europe
+is about 18,527,116&nbsp;million US dollars. That means we would have to spend
 about 0.1&nbsp;% of our GDP for this goal. Now think of the money that was
-spend in the [European debt crisis](https://en.wikipedia.org/wiki/European_debt_crisis).
-It is hard to put numbers on here, but it was much more than 18&nbsp;Billion
-US-Dollar.
+spent in the [European debt crisis](https://en.wikipedia.org/wiki/European_debt_crisis).
+It is hard to put numbers on this, but it was much more than 18&nbsp;billion
+US dollars.
 
 
-## Hypocracy
+## Hypocrisy
 
 A fellow student recently pointed out that there were also
 [2015 Beirut bombings](https://en.wikipedia.org/wiki/2015_Beirut_bombings). I
@@ -230,14 +229,14 @@ talk about the MDGs. Not really.
 ## Some final words
 
 One main point of this mini-article is that I am pretty sure people will react
-to fast. No matter what we do, we should think about it thoroughly. This
-article is - like hundreds of blog articles, quite a bit of "professional"
+too fast. No matter what we do, we should think about it thoroughly. This
+article is - like hundreds of blog articles, quite a few "professional"
 journalist articles and surely some statements by politicians - not well
 investigated. It is only a quick, spontaneous reaction.
 
 The other important point is that we have alternatives to more military and
 surveillance spendings. We should really think about that. We should talk about
-it and evaluate it. Finally, it the question is: In which kind of society do
+it and evaluate it. Finally, the question is: In which kind of society do
 we want to live?
 
 

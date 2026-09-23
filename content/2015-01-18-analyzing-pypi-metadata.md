@@ -9,11 +9,11 @@ category: Code
 tags: Python, Community, SQL, PyPI, Database
 featured_image: logos/python.png
 ---
-<div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
+<div class="info">This is part one of a series. See <a href="../analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
 
 PyPI, the Python Package Index, gives a very crappy but simple interface to
-query metadata about its packages. I scrapped all of the packages metadata.
-53,533 packages were scrapped (date: 2015-01-18), because I wanted to
+query metadata about its packages. I scraped all of the packages' metadata.
+53,533 packages were scraped (date: 2015-01-18), because I wanted to
 see if there is malware on PyPI (related to
 [this question on security.SE](http://security.stackexchange.com/q/79326/3286)).
 
@@ -27,16 +27,16 @@ The database looks like this:
 
 ## Exploring the data
 
-When I scapped the data from PyPI, I made all database fields "varchar 255" as
+When I scraped the data from PyPI, I made all database fields "varchar 255" as
 there seems to be no information about the possible values. Then I explored
 the data
 
-* `name`: The longest package name is 80 characters long (`Aaaaaaaaaaa...`), the shortest packages have only one
+* `name`: The longest package name is 80 characters long (`Aaaaaaaaaaa...`), the shortest package names have only one
 character.
-* `author`: 911× "UNKOWN", 741× empty, 195× "None", 151× "Zope Foundation and
+* `author`: 911× "UNKNOWN", 741× empty, 195× "None", 151× "Zope Foundation and
   Contributors". There are about 22,000 different authors. There are 595
   authors who wrote more than 10 packages.
-* `author_email`: 2059× "UNKOWN", 932× empty, 323× "zope-dev@zope.org", 216×
+* `author_email`: 2059× "UNKNOWN", 932× empty, 323× "zope-dev@zope.org", 216×
   "None" and 204× "TODO".
 * `maintainer`: 46879× "None", 5507× empty, 17× [Paul Boddie](http://www.boddie.org.uk/paul/CV.html).
 * `requires_python`: 53467× "None", 3× "UNKNOWN", 2× ">=2.7,!=3.0,!=3.1", 2×
@@ -62,8 +62,9 @@ LIMIT
 
 gives
 
-|                                   | 1485 |
-| --------------------------------- | ---- |
+| Author                            | Packages |
+| --------------------------------- | -------- |
+| (empty)                           | 1485 |
 | UNKNOWN                           | 1150 |
 | None                              | 196  |
 | OpenStack                         | 188  |
@@ -228,7 +229,7 @@ We can see multiple problems here:
 
 * URLs: localhost / 127.0.0.1 is almost certainly not desired
 * `cheesecake_installability_id`, `cheesecake_documentation_id`, `cheesecake_code_kwalitee_id`
-  should have NULL and None should be casted to NULL. The data type is likely
+  should have NULL and None should be cast to NULL. The data type is likely
   to be numeric.
 * `_pypi_ordering` should be numeric
 * `_pypi_hidden` should be boolean
@@ -245,7 +246,7 @@ rarely used:
 
 ### Maintainer
 
-`maintainer` and `maintainer_email` is interesting for people who want to send
+`maintainer` and `maintainer_email` are interesting for people who want to send
 bug reports. If this is empty, I would guess the package is dead.
 
 
@@ -292,18 +293,18 @@ gives a little bit more information
 
 ### Bugtracker
 
-This one is very important. Users should have an easy possibility to report
-bugs. So please help them by added your bug tracker URL wherever it makes
+This one is very important. Users should have an easy way to report
+bugs. So please help them by adding your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:
 
 <figure class="aligncenter">
-            <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your packages PyPI page" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Go to your packages PyPI page</figcaption>
+            <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your package's PyPI page" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Go to your package's PyPI page</figcaption>
         </figure>
 
 <figure class="aligncenter">
-            <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker url" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Add your bugtracker / issue tracker url</figcaption>
+            <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker URL" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Add your bugtracker / issue tracker URL</figcaption>
         </figure>
 
 <figure class="aligncenter">
@@ -352,13 +353,13 @@ gives
 | GPLv3+                      | 258   |
 | LICENSE                     | 249   |
 
-and about 6500 other licenses. Most might be variants in writing, e.g.
+and about 6500 other licenses. Most might be spelling variants, e.g.
 
 * Apache License 2.0
 * Apache License, Version 2.0
 * Apache 2.0
 
-are all the same license. Some packages have no licence (`Unknown` and empty).
+are all the same license. Some packages have no license (`Unknown` and empty).
 Many are invalid values, like
 
 * LICENSE.txt
@@ -368,13 +369,13 @@ Many are invalid values, like
 
 These indicate that people have no idea what to input there.
 [tldrlegal.com](https://tldrlegal.com/) might help in that case. I think the
-Python community should try to eliminate variants in writing license names as
+Python community should try to eliminate spelling variants in license names as
 it makes finding, filtering and analyzing packages more difficult.
 
 
 ## Classifiers
 
-Python makes use of so called trove classifiers. They are defined in
+Python makes use of so-called trove classifiers. They are defined in
 [PEP 301](https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification)
 and listed [here](https://pypi.python.org/pypi?%3Aaction=list_classifiers).
 
@@ -394,7 +395,7 @@ The following table gives the TOP-10 most commonly used classifiers:
 | Programming Language :: Python :: 2.6                 | 0.1306     |
 
 When you analyze the licenses with the trove classifiers you get a different
-image:
+picture:
 
 ```sql
 SELECT
@@ -417,7 +418,7 @@ ORDER BY
 | License :: OSI Approved :: Apache Software License                             | 0.0460     |
 | License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL) | 0.0188     |
 
-There are 94 trove classifiers with five or less packages which use this
+There are 94 trove classifiers with five or fewer packages which use this
 classifier. I guess many of them are not in the official list of classifiers.
 
 
@@ -466,8 +467,8 @@ LIMIT 10
 
 gives
 
-| Package type                                              | Count    |
-| --------------------------------------------------------- | -------- |
+| Package                                                   | Downloads |
+| --------------------------------------------------------- | --------- |
 | [wincertstore](https://pypi.python.org/pypi/wincertstore) | 10026403 |
 | [ssl](https://pypi.python.org/pypi/ssl)                   | 8987455  |
 | [pyasn1](https://pypi.python.org/pypi/pyasn1)             | 8655361  |
@@ -496,8 +497,8 @@ ORDER BY
 LIMIT 10
 ```
 
-| Package type                                              | Count    |
-| --------------------------------------------------------- | -------- |
+| Package                                                   | Downloads |
+| --------------------------------------------------------- | --------- |
 | [setuptools](https://pypi.python.org/pypi/setuptools)     | 45485205 |
 | [requests](https://pypi.python.org/pypi/requests)         | 35446321 |
 | [virtualenv](https://pypi.python.org/pypi/virtualenv)     | 35039299 |
@@ -537,7 +538,7 @@ LIMIT 30
 | python-qt5                                            | 0.1.8         | 56237972  |
 | [pycalculix](https://pypi.python.org/pypi/pycalculix) | 0.92          | 56039839  |
 | [wltp](https://pypi.python.org/pypi/wltp)             | 0.0.9-alpha.3 | 55414544  |
-| [cefpython3](https://pypi.python.org/pypi/cefpython3) | 31.2          | 55163815
+| [cefpython3](https://pypi.python.org/pypi/cefpython3) | 31.2          | 55163815  |
 
 ## Code
 
@@ -564,5 +565,5 @@ See [github.com/MartinThoma/algorithms](https://github.com/MartinThoma/algorithm
     * Code duplication
 * Malicious package search:
    * Check which package names are prefixes of other package names.
-   * Find packages which upload data (dropbox?)
-   * Find pacakges which remove data from your file system
+   * Find packages which upload data (Dropbox?)
+   * Find packages which remove data from your file system

@@ -24,8 +24,6 @@ Let’s learn about the problems of this approach and the digital equivalent!
 
 Let’s first explore the issues of traditional signatures.
 
-![Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-1.jpg)*Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography) on [Unsplash](https://unsplash.com)*
-
 ### Problem #1: Connecting the signature with your identity
 
 Let’s assume that you want to fool a landlord. You sign, but you use a different signature. To be able to tell that this is a fake signature, your landlord needs an identity document. The signature itself is not enough. And the identity document needs to have a signature on it!
@@ -101,8 +99,6 @@ Please also note that if the file is signed by encrypting it with the private ke
 
 ## Application #1: Communication (E-Mail, SMS)
 
-![Photo by [freestocks](https://unsplash.com/@freestocks) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-3.jpg)*Photo by [freestocks](https://unsplash.com/@freestocks) on [Unsplash](https://unsplash.com)*
-
 When you write e-mails, you don’t need to trust your email provider in terms
 of privacy and tampering. You can encrypt the mail with the recipient’s public
 key and sign it on your side. This way the recipient knows for sure that there
@@ -124,8 +120,6 @@ same person. They need to be sure that your contribution was not changed. For
 this reason, you sign every contribution.
 
 ## Application #3: Software Updates
-
-![Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-5.jpg)*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com)*
 
 Think of your Smart TV / Alexa / FritzBox. All of those devices need updates.
 Let’s say that you can plug a USB stick with the update file in the device. As

@@ -9,24 +9,24 @@ category: Code
 tags: Python, Community, SQL, PyPI, Database
 featured_image: logos/python.png
 ---
-<div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
+<div class="info">This is part two of a series. See <a href="../analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
 
-I've recently got a request to expand my analysis of the Python Package Index
+I recently got a request to expand my analysis of the Python Package Index
 commonly known as PyPI. It is a repository of Python packages where everybody
 can upload packages; pretty much without any restriction. In the article
-[Analyzing PyPI Metadata](//martin-thoma.com/analyzing-pypi-metadata/)
+[Analyzing PyPI Metadata](../analyzing-pypi-metadata/)
 you can read some general stuff about the repository.
 
-This article is going a bit more deeper. This time I don't only analyze the
+This article goes a bit deeper. This time I don't only analyze the
 metadata, but the relationship of the packages themselves. I wanted to build
-a dependency graph. However, here is a downside of Pythons package structure:
+a dependency graph. However, here is a downside of Python's package structure:
 The file which defines the dependencies of a Python package is a Python script
 itself. This gives the package developer the highest flexibility, but it also
 gives them the power to execute arbitrary code when I only want to get the
 dependencies.
 
-As I am pretty sure there are some malicious packages in the repository
-(Although I've never heard of a single one there has to be one. Over
+I am pretty sure there are some malicious packages in the repository
+(although I've never heard of a single one, there has to be one. Over
 50&thinsp;000 packages by 2015 - there has to be one!). So I don't want to
 execute any code of the repository without having at least a clue what it
 should do. This means my analysis is very simple and thus prone to some errors.
@@ -89,7 +89,7 @@ which gives
 
 
 ### Weighted
-How often gets a single module included over all packages?
+How often does a single module get included over all packages?
 
 ```sql
 SELECT
@@ -147,8 +147,8 @@ which gives me about 2&nbsp;seconds later the following result:
 ## Non-functional packages
 
 Although there are many packages for Python which are very useful, there are
-also quite a lot which are not usefull at all. One possibility to identify such
-packages is by checking which packages get neither used by others nor use
+also quite a lot which are not useful at all. One possibility to identify such
+packages is to check which packages get neither used by others nor use
 other packages
 
 ```sql
@@ -185,8 +185,8 @@ One undesirable thing that could happen would be very similar names.
 ### Prefixes
 
 Let's see how many packages are prefixes of other packages. My thought was that
-this might be developers trying to get some accidential installs. However, it
-only showed some relationships. I wanted to make a Levensthein distance
+this might be developers trying to get some accidental installs. However, it
+only showed some relationships. I wanted to make a Levenshtein distance
 analysis, but I guess this is not worth it.
 
 Here are the top 10 strings which are prefixes of packages and packages
@@ -215,29 +215,29 @@ $ pip search "djan$"
 ## Graph analysis
 
 Analyzing the dependency graph is quite a challenge. Or at least that was what
-I initiallly thought. This graph has about 67&thinsp;582 nodes and
+I initially thought. This graph has about 67&thinsp;582 nodes and
 436&thinsp;980 edges. Quite a bit. Definitely much larger than what I have
 previously used.
 
-However, my friend Nilan who knows a lot about graphs send me a link to
+However, my friend Nilan, who knows a lot about graphs, sent me a link to
 StackOverflow: [Visualizing Undirected Graph That's Too Large for GraphViz?](http://stackoverflow.com/q/238724/562769)
 
-This lead me to [Gephi](http://gephi.org/) and the
+This led me to [Gephi](http://gephi.org/) and the
 [OpenOrd](https://marketplace.gephi.org/plugin/openord-layout/) layout plugin.
 It didn't work for the complete graph (see
-[issues/1207](https://github.com/gephi/gephi/issues/1207)), it worked after I
+[issues/1207](https://github.com/gephi/gephi/issues/1207)), but it worked after I
 removed the single nodes without edges.
 
 Now we can ask several standard questions about graphs:
 
 * How many connected components are there?
-* Are there any circles? (That would be bad... dependency graphs should not
-  have circles. Similar to family trees.)
+* Are there any cycles? (That would be bad... dependency graphs should not
+  have cycles. Similar to family trees.)
 * Which are the most central nodes?
 
 I didn't find the time to answer those, but I put the graph data in JSON
 format on [github.com/MartinThoma/pypi-dependencies](https://github.com/MartinThoma/pypi-dependencies).
-Please let me know when you do something interesting with the data.
+Please let me know if you do something interesting with the data.
 
 I've only got some crappy images with Gephi / GraphViz:
 
@@ -336,7 +336,7 @@ See [github.com/MartinThoma/algorithms](https://github.com/MartinThoma/algorithm
 
 ## What could come next
 
-I would like too measure the overall code quality on PyPI in another post. I
+I would like to measure the overall code quality on PyPI in another post. I
 think of the following measures:
 
 * [pyroma](https://pypi.python.org/pypi/pyroma): A 10-point score for packages
@@ -345,7 +345,7 @@ think of the following measures:
 * [pylint](https://pypi.python.org/pypi/pylint)
 * PEP8 conformance,
 * Lines of code (LOC) / documentation / whitespace
-* Docstring style (None, NumpyDoc, Sphinx, Google - see [Python Code Documentation](http://martin-thoma.com/python-code-documentation/))
+* Docstring style (None, NumpyDoc, Sphinx, Google - see [Python Code Documentation](../python-code-documentation/))
 * Usage of functions
 * Testing coverage
 * Look for URLs in the code and which are reachable / which are not

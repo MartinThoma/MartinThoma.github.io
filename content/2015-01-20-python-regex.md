@@ -3,21 +3,22 @@ layout: post
 title: Regular Expressions with Python
 slug: regular-expressions-with-python
 alias: python-re
+lang: en
 author: Martin Thoma
 date: 2015-01-20 13:35
 category: Code
 tags: Python, RegEx
 featured_image: logos/python.png
 ---
-Python supports regular expressions (RegEx) just as any other general purpose
-programming language. This mini article shows two examples how to use them.
+Python supports regular expressions (RegEx) just as any other general-purpose
+programming language. This mini article shows two examples of how to use them.
 
 The package which gives RegEx support is called
 [`re`](https://docs.python.org/3/library/re.html).
 
 ## Matches
 
-The simplest applicataion of `re` is to check if a pattern matches a text:
+The simplest application of `re` is to check if a pattern matches a text:
 
 ```python
 import re
@@ -65,7 +66,7 @@ replaced = re.sub("\s\s+", " ", text)
 
 To speed things up you can also
 [`compile`](https://docs.python.org/3/library/re.html#re.compile) the pattern.
-This has also the advantage that you can specify that you want to match newline
+This also has the advantage that you can specify that you want to match newline
 characters (`\n` and `\r`) with the dot by setting the
 [`re.DOTALL`](https://docs.python.org/3/library/re.html#re.DOTALL) flag.
 
@@ -144,7 +145,7 @@ nibh eu, venenatis auctor ex.
 matches = pattern.findall(text)
 ```
 
-Matches is the following list (breaked at some points for easier reading):
+Matches is the following list (broken at some points for easier reading):
 
 ```text
 ['Suspendisse porttitor risus et est consequat condimentum.\n
@@ -179,7 +180,7 @@ Matches is the following list (breaked at some points for easier reading):
 
 ### Email
 <strong>RegEx</strong>: `^((?:(?:(?:\w[\.\-\+]?)*)\w)+)\@((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$`
-Description: Not a 100% email validation. It doesn't work with IP-Adresses, but it's good for most common cases. At least I hope so.
+Description: Not a 100% email validation. It doesn't work with IP addresses, but it's good for most common cases. At least I hope so.
 <strong>Matches</strong>: a-b-c@d-e-f.com | a@b.ce | Me@my.museum
 <strong>Non-Matches</strong>: abc@def.g | a--b@c--d.fe | -abc@-def-.def
 <strong>Source</strong>: <a href="http://regexlib.com/REDetails.aspx?regexp_id=600">Sebastian Hiller</a>

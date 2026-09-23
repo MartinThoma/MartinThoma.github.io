@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bug Reporting - A users perspective
+title: Bug Reporting - A User's Perspective
 slug: bug-reporting
 lang: en
 author: Martin Thoma
@@ -9,16 +9,16 @@ category: Cyberculture
 tags: Bugs, Software Quality, Chrome, Software Engineering
 featured_image: logos/bug.png
 ---
-Bug reporting is extremely important. It helps developers to get aware of
-problems and hence get the possibility to do something against it. It is
+Bug reporting is extremely important. It helps developers to become aware of
+problems and hence get the possibility to do something about it. It is
 impossible to guarantee for any real, non-trivial software that it has no bugs.
-Even when you formally prove that it is correct, the prove might be wrong.
-However, when users report bugs one can get confident that the remaining bugs
-are appearing very rarely or causing not so much harm.
+Even when you formally prove that it is correct, the proof might be wrong.
+However, when users report bugs one can become confident that the remaining bugs
+appear very rarely or do not cause much harm.
 
 Reporting bugs is also important from a User Experience point of view. For me,
 it already helps to be able to report a bug / see that a bug was already
-reported. However, this is a pain in the ass for most software from a users
+reported. However, this is a pain in the ass for most software from a user's
 perspective.
 
 I've just had that experience for Caja (the file explorer of MATE).
@@ -30,11 +30,11 @@ I've just had that experience for Caja (the file explorer of MATE).
 Caja crashed. I just wanted to create a new text file. Then it froze for
 about two seconds and closed. After another one or two seconds I got a crash
 report window. (I forgot to make a screenshot of that, but it looks like
-in the Google Chrome example)
+the one in the Google Chrome example)
 
 I clicked on something like "examine locally" - whatever that means. This is
-the first point I have to critize. The user should always know or at least be
-able to get the information what such messages mean.
+the first point I have to criticize. The user should always know or at least be
+able to find out what such messages mean.
 
 I was curious, so I clicked on it. Then this appeared:
 
@@ -59,7 +59,7 @@ For example:
 * Is one option a superset of the other?
 * Might one option contain private / secret information which I should not share?
 
-Lets try 'Run gdb session'. By the way, 'gdb' is the GNU project debugger.
+Let's try 'Run gdb session'. By the way, 'gdb' is the GNU project debugger.
 
 <figure class="aligncenter">
             <a href="../images/2015/01/run-gdb-session.png"><img src="../images/2015/01/run-gdb-session.png" alt="Error creating child process" style="max-width:500px;" class=""/></a>
@@ -78,7 +78,7 @@ I check for a program version via *Help > About*:
         </figure>
 
 Nice! It is obvious which version I use and how the program is called
-(Caja 1.8.2). There is even a link to a website where I could eventually report
+(Caja 1.8.2). There is even a link to a website where I could possibly report
 the bug. It links to [www.mate-desktop.org](http://www.mate-desktop.org/).
 
 
@@ -100,8 +100,8 @@ repository, I have to click on 'issues'.
 
 Now I am stuck. I don't know how to find a better description than
 "it crashed". There is certainly more information on my system, but I don't
-know how to get to it and I don't see any instructions how to do so. I also
-don't want to waste my time searching for information how to get information
+know how to get to it and I don't see any instructions on how to do so. I also
+don't want to waste my time searching for information on how to get information
 about the crash.
 
 
@@ -177,18 +177,18 @@ Just a few images...
 
 Did you notice how complicated this is for a user? This should be easier. In
 fact, I think if the bug reporting process is done right it could enhance the
-trust a user has in software, speed the fixing process up and help develpers
-to proritize what is important. Some basic steps could be:
+trust a user has in software, speed the fixing process up and help developers
+to prioritize what is important. Some basic steps could be:
 
 * The automatic reporting tool should be created for non-developers.
 * It should automatically store crash information in a place where the user
   can easily find it (e.g. /home/myaccount/.bugreports/caja/yyyy-mm-dd-hh-mm.xml)
-* It should be stored in a format which the user can read (e.g. an xml file)
+* It should be stored in a format which the user can read (e.g. an XML file)
 * The bug reporting website should be hosted by somebody else.
 
 Now the last one is important in my opinion. It makes sure that users know
 their bugs are not deleted / removed from the public just because it makes
-the software look bad. One could add metrics how confident users are, e.g.
+the software look bad. One could add metrics for how confident users are, e.g.
 if you let users tell which software they use. In this case you can add graphs
 of how many users use the software and how many bugs / issues are reported.
 (The classification bugs and issues might also not be easy for users!)

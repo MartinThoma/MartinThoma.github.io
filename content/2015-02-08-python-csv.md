@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python and CSV
 slug: python-csv
+lang: en
 author: Martin Thoma
 date: 2015-02-08 12:48
 category: Code
@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 Python has a very nice module called
 [`csv`](https://docs.python.org/3/library/csv.html)
-which makes working with <abbr title="comma seperated values">CSV</abbr> very
+which makes working with <abbr title="comma separated values">CSV</abbr> very
 easy. This mini article is only a reminder for me so that I can easily find
 how to use it when I forget once again how it is used exactly.
 

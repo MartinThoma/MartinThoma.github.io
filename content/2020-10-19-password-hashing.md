@@ -25,8 +25,6 @@ Hashing is like cooking. Given the recipe (the hashing algorithm) and the ingred
 
 There are non-cryptographic hashing functions and cryptographic ones. Password hashing functions are additionally designed to be hard to compute. This means they take a lot of CPU power/time to apply. This is on purpose. If you need a few milliseconds to apply it on your (weak) server, the attacker hopefully also needs quite a while to apply it billions of times on huge dictionaries to crack the hashed passwords with brute force.
 
-![Photo by [American Heritage Chocolate](https://unsplash.com/@americanheritagechocolate) on [Unsplash](https://unsplash.com)](../images/2020/10/password-hashing-1.jpg)*Photo by [American Heritage Chocolate](https://unsplash.com/@americanheritagechocolate) on [Unsplash](https://unsplash.com)*
-
 ## Why it Matters
 
 There are [so many leaks](https://en.wikipedia.org/wiki/List_of_data_breaches) that it is hard to keep track of them.

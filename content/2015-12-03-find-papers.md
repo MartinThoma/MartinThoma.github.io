@@ -35,10 +35,10 @@ per field (see [Top publications in Computer Vision and Pattern Recognition](htt
 
 ### Algorithmic Ideas
 
-I've never tried it (on purpose), but the idea just came to my head: Use a
+I've never tried it (on purpose), but the idea just came to my mind: Use a
 random walk. You start with some paper of which you don't really know if it is
-good. Look at the references and try to weild out the ones which are obviously
-not work trying (e.g. because they are websites). Now take a random one to
+good. Look at the references and try to weed out the ones which are obviously
+not worth trying (e.g. because they are websites). Now take a random one to
 continue with. Do this a couple of times.
 
 The idea is that papers which are more important are much more often cited. So
@@ -61,12 +61,12 @@ There are a couple of key strategies:
 * Looking at the references of a paper
 * Looking at what else the same author published
 * Looking for similar titles
-* Reading Journals
+* Reading journals
 
-For all three of them, I can highly recommend
+For all of them, I can highly recommend
 [Google Scholar](https://scholar.google.com). They also offer a nice overview
 / statistics about authors so that you can get a feeling for their scientific
-activity. But don't let you fool you by those numbers: It is possible to fake
+activity. But don't let those numbers fool you: It is possible to fake
 them.
 
 The other nice thing is that Google Scholar makes citing publications
@@ -88,12 +88,12 @@ incredibly easy:
 The arXiv can be seen as THE "modern way" journal. Depending on the field, it
 has a VERY high reputation.
 
-For Pattern Recognition the reputation of the arXiv is amongst the highest ten
-journals, but it there are some fields like physics where it is THE top journal
+For Pattern Recognition, the arXiv is among the ten journals with the highest
+reputation, but there are some fields like physics where it is THE top journal
 in several subfields like cosmology or high energy physics.
 
 What makes the arXiv stand out is the fact that you can read new papers every
-day. I like to have a view at
+day. I like to have a look at
 [cs.CV/recent](http://arxiv.org/list/cs.CV/recent) to keep myself informed
 about new stuff. There are about&nbsp;20 new publications per day. On some
 days, there is nothing interesting, on other days like today quite a bit:
@@ -127,7 +127,7 @@ I filter publications like this:
 I guess many researchers filter like this. This is important to know when you
 write a paper.
 
-Recently, I've also got to know
+Recently, I also got to know
 [shortscience.org](http://www.shortscience.org/). It's a website where anybody
 can add summaries / remarks of papers. This is pretty awesome if you want to
 get the paper in context (especially of work which was released after the paper)
@@ -136,5 +136,5 @@ or if you just want to see what the key idea behind a paper is.
 
 ## See also
 
-* [Tools for Academia](https://martin-thoma.com/tools-for-academia/)
+* [Tools for Academia](../tools-for-academia/)
 * [trendingarxiv](https://trendingarxiv.smerity.com/)

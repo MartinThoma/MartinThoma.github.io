@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Execute Python on Apache2
 slug: execute-python-on-apache2
+lang: en
 author: Martin Thoma
 date: 2015-02-01 15:11
 category: Code
@@ -46,12 +46,12 @@ Create the following `test.py` file:
 # -*- coding: UTF-8 -*-
 
 print("Content-Type: text/html\n")
-print("Hello World! The answer to live, the universe and everything is %i." % (2 * 21))
+print("Hello World! The answer to life, the universe and everything is %i." % (2 * 21))
 ```
 
 Now call `http://localhost/test.py`.
 
-If that doesn't work, take a look at the apache log files:
+If that doesn't work, take a look at the Apache log files:
 
 ```bash
 $ tail -f /var/log/apache2/error.log

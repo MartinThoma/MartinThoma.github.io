@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dreamspark SDM Odysee
+title: Dreamspark SDM Odyssey
 slug: dreamspark-sdm-odysee
 lang: en
 author: Martin Thoma
@@ -10,8 +10,8 @@ tags: Microsoft
 featured_image: logos/microsoft.png
 ---
 I need to have Windows for work. As a student I *should* have free access to
-it. But when I try to download it, I have to use Microsofts
-"Secure Download Manager" (SDM). As a Ubuntu (Linux) user, this is easier
+it. But when I try to download it, I have to use Microsoft's
+"Secure Download Manager" (SDM). As an Ubuntu (Linux) user, this is easier
 said than done.
 
 ## TL;DR
@@ -26,7 +26,7 @@ What I've tried and what does not work:
 * VMs
 * Avoiding SDM
 
-What I am currently trying: Installing Windows 7 on another computer.*argh*
+What I am currently trying: Installing Windows 7 on another computer. *argh*
 
 **UPDATE: [How to bypass Secure Download Manager while downloading from Dreamspark](http://v3l0c1r4pt0r.tk/2014/06/01/how-to-download-from-dreamspark-bypassing-secure-download-manager/) looks very promising.**
 
@@ -94,7 +94,7 @@ After trying to fix it, I get
 
 ## Reverse Engineering ... a little bit
 
-Taking a look at the `1234567890ab.sdx` file reveals that it contains only a single url:
+Taking a look at the `1234567890ab.sdx` file reveals that it contains only a single URL:
 
 ```text
 http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&ws=12345678-1234-1234-1234-1234567890ab&uid=12345678-1234-1234-1234-1234567890ab&abc=5
@@ -128,10 +128,10 @@ It's a GET request which gets the response:
 ```
 
 Although I can download the `.sdc` file, I cannot use it. It is an encrypted
-file (which would give the `.iso`, but I don't know how to encrypt it.).
+file (which would give the `.iso`, but I don't know how to decrypt it).
 
 If you are interested in the file format, you might want to read
-[Secure Digital Container](https://en.wikipedia.org/wiki/Secure_Digital_Container)
+[Secure Digital Container](https://en.wikipedia.org/wiki/Secure_Digital_Container).
 
 
 ## VMs
@@ -162,4 +162,4 @@ I have to install drivers from http://www.helpjet.net/files-Acer-TravelMate-5735
 ## Related
 
 * [Install Windows 8.1 from Dreamspark download on Ubuntu](http://superuser.com/questions/734924/install-windows-8-1-from-dreamspark-download-on-ubuntu)
-* [Why are Microsoft products so User unfriendly?](//martin-thoma.com/why-are-microsoft-products-so-user-unfriendly/)
+* [Why are Microsoft products so User unfriendly?](../why-are-microsoft-products-so-user-unfriendly/)

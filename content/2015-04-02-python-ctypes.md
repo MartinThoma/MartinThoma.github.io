@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python ctypes
 slug: python-ctypes
+lang: en
 author: Martin Thoma
 date: 2015-04-02 22:06
 category: Code
@@ -65,7 +65,7 @@ Wouldn't it be great if we could call the Rust function from Python?
 I'll explain in the next chapters what is done, but at first you should see
 that there are only minor changes / overhead:
 
-**fibonacci.rt**:
+**fibonacci.rs**:
 
 ```rust
 #![crate_type = "dylib"]
@@ -80,7 +80,7 @@ pub extern fn fib(n: u32) -> u32 {
 }
 ```
 
-Call `rustc -O fibonacci.rt` to generate the library.
+Call `rustc -O fibonacci.rs` to generate the library.
 
 
 Python:
@@ -97,7 +97,7 @@ print("The %ith Fibonacci number is %i." % (n, fib(n)))
 
 ```
 
-Now, taking the Python code, it takes only 0.44 seconds!
+Now, running the Python code takes only 0.44 seconds!
 
 ## What happens
 

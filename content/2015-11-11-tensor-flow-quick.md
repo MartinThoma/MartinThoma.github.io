@@ -15,7 +15,7 @@ with a significant bit of Python.
 
 I guess the abstract of the
 [Whitepaper](http://download.tensorflow.org/paper/whitepaper2015.pdf) is a good
-description what TensorFlow is:
+description of what TensorFlow is:
 
 > TensorFlow is an interface for expressing machine learning algorithms, and an
 > implementation for executing such algorithms. A computation expressed using
@@ -37,10 +37,10 @@ description what TensorFlow is:
 
 The core seems to be written in C++, but it has a Python front end.
 
-By now, I couldn't test much because I just made my GPU machine unusable
+So far, I couldn't test much because I just made my GPU machine unusable
 (while trying to get the GPU General Computing practical software to run...).
 I'll try to expand this article as soon as possible, but I guess it might
-take several weeks until I have enough time. Lets see...
+take several weeks until I have enough time. Let's see...
 
 
 ## Installation
@@ -173,21 +173,21 @@ print(
 While looking at the MNIST example, I made a couple of observations. Let's
 begin with the nice parts:
 
-* Tensor Flow has a usable documentation (e.g. [The neural network part](http://tensorflow.org/api_docs/python/nn.md)). Not great, as Lasagne where you have lots of details (e.g. [activation functions](http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid))
+* Tensor Flow has usable documentation (e.g. [The neural network part](http://tensorflow.org/api_docs/python/nn.md)). Not as great as Lasagne, where you have lots of details (e.g. [activation functions](http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid))
 * Seems to be quite easy to use.
 * Seems to be well-tested by simply being used in many different projects by
   Google.
-* Just like Theano (and thus Lasagne), Tensor flow has automatic
-  differenciation.
+* Just like Theano (and thus Lasagne), Tensor Flow has automatic
+  differentiation.
 
 Not sure:
 
 * How easy is it to share trained models? In which format would you do so?
 * How easy is it to understand a shared model?
-* How easy is it to get something new to Tensor Flow like recurrent layers?
+* How easy is it to add something new to Tensor Flow, like recurrent layers?
   (Actually, this seems rather to show that either the Whitepaper is a bit
   misleading or the documentation / Google search is not that good. In the
-  whitepaper they write something about LTSM models, but I couldn't find any docs
+  whitepaper they write something about LSTM models, but I couldn't find any docs
   about that. Only by manually going through the manual,
   [I found it](http://tensorflow.org/tutorials/recurrent/index.md))
 
@@ -199,7 +199,7 @@ Not so nice:
   that there is a [Python style guide by Google](https://google.github.io/styleguide/pyguide.html),
   but it does not seem to follow that one either. See the next section for
   some more detailed feedback.
-* Just like the other Toolkits, you need CUDA. It doesn't work with OpenCL.
+* Just like the other toolkits, you need CUDA. It doesn't work with OpenCL.
 
 
 ### PEP8
@@ -208,16 +208,16 @@ Not so nice:
   * `W = tf.Variable(tf.zeros([784, 10]))` should be
     `W = tf.Variable(tf.zeros([784, 10]))`.
     Missing whitespaces happened quite often.
-  * Indent with 2&nbsp;spaces instead of 4&nbsp;spaces. The Google guide seems
-    also to use 4.
+  * Indent with 2&nbsp;spaces instead of 4&nbsp;spaces. The Google guide also
+    seems to use 4.
   * Newlines between functions are missing.
 * Print statement instead of a print function was used &rightarrow;
   only Python&nbsp;2, not Python&nbsp;3.
 * I'm not sure why `y_` has the trailing underscore. According to
   [PEP8](https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles),
   a single trailing underscore is used by convention to avoid conflicts with
-  Python keyword.
-* A mixture of different styles as pointed out on [Credric's Blog](http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/)
+  Python keywords.
+* A mixture of different styles as pointed out on [Cedric's Blog](http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/)
 
 
 ## Videos
@@ -231,19 +231,19 @@ Starting at 21m 2s:
 
 ## Alternatives / Similar software
 
-As I don't really know by now what Tensor Flow is doing, I can't pin-point
+As I don't really know yet what Tensor Flow is doing, I can't pin-point
 alternatives. But I have some educated guesses:
 
 * [Theano](http://deeplearning.net/software/theano/) has been around for quite
   a while and seems to have a similar approach with its computational graph.
   Enhanced by [Lasagne](http://lasagne.readthedocs.org/en/latest/), it is a
-  pretty good alternative when it comes to neural networks. Lasagne has an
+  pretty good alternative when it comes to neural networks. Lasagne has
   exceptionally good documentation, but parts of the tutorial could still be
   improved.
 * [Caffe](http://caffe.berkeleyvision.org/) was something I recently tried.
   I didn't like it too much due to the lack of documentation, but it certainly
   is a big project. Especially when it comes to images.
-* I haven't tried, but they look promising:
+* I haven't tried these, but they look promising:
   * [Chainer](http://chainer.org/)
   * [MXNet](http://mxnet.readthedocs.org/en/latest/)
   * [CGT](http://rll.berkeley.edu/cgt/)

@@ -22,10 +22,10 @@ Copy the following text to a text file `test.txt`:
 
 ```text
 Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
-Dort hat es momemtan 32°C.
+Dort hat es momentan 32°C.
 ```
 
-On Debian based systems you will get the information which type of encoding it
+On Debian-based systems you will get the information which type of encoding it
 has like this:
 
 ```text
@@ -70,7 +70,7 @@ The same code, executed via ZSH, gives:
 
 ```text
 Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
-Dort hat es momemtan 32�C.
+Dort hat es momentan 32�C.
 ```
 
 You can fix that by adjusting the code the following way:
@@ -98,9 +98,9 @@ print(content)
 The two important points are
 
 1. Specifying the encoding while opening the file
-2. Encode the content with UTF-8
+2. Encoding the content with UTF-8
 
-These three little steps helped me to deal with non-UTF-8 encodings.
+These two little steps helped me to deal with non-UTF-8 encodings.
 
 
 ## See also

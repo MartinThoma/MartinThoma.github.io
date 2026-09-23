@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Reading and Writing Files with Python
 slug: reading-files-with-python
+lang: en
 author: Martin Thoma
 date: 2015-02-12 22:11
 category: Code
@@ -29,7 +29,7 @@ file size         min       max    median   average
 100 MiB        0.0627    0.0778    0.0655    0.0663
 ```
 
-As you can see, reading files is quite fast. However, I would recommend the
+As you can see, reading files is quite fast. However, I would recommend that you
 start thinking if reading the complete file is appropriate when the file
 size exceeds 100 MiB as you might get different problems then. For example,
 the content of the file might not fit in your main memory (typically 4GiB,
@@ -37,7 +37,7 @@ type `cat /proc/meminfo | grep MemTotal` to get how much main memory your
 computer has).
 
 See [source code](https://gist.github.com/MartinThoma/eb1e56405009839804e7)
-for details how I measured it.
+for details on how I measured it.
 
 
 ### Completely
@@ -57,7 +57,7 @@ lines = content.split("\n")
 
 ### Line by line
 You can read a text file line by line, but keep in mind that this will still
-have the endline character `\n` in each `line`!
+have the newline character `\n` in each `line`!
 
 ```python
 with open("filename.txt") as f:
@@ -97,7 +97,7 @@ with open("file.txt", "w") as f:
 ```
 
 The [`print`](https://docs.python.org/3.0/library/functions.html#print)
-function has also a "end" parameter which defaults to `\n`. This means it adds
+function also has an "end" parameter which defaults to `\n`. This means it adds
 `\n` automatically at the end of each printed line. You might not want that
 e.g. in a Windows environment where it should be `\r\n`.
 
@@ -106,8 +106,8 @@ e.g. in a Windows environment where it should be `\r\n`.
 
 You might wonder what
 [`with`](https://docs.python.org/3/reference/datamodel.html#context-managers)
-does. My advice for newbees would be not to worry too much about it, it is
-just the way you juse I/O with Python. If you come from the C / C++ world, you
+does. My advice for newbies would be not to worry too much about it, it is
+just the way you use I/O with Python. If you come from the C / C++ world, you
 might know that you have to close files when you opened them. The `with`
 statement makes sure that the file is closed when the block is finished.
 
@@ -119,5 +119,5 @@ statement makes sure that the file is closed when the block is finished.
 * [`open`](https://docs.python.org/3.0/library/functions.html#open)
 * [`with`](https://docs.python.org/3/reference/datamodel.html#context-managers)
 * [File Objects](https://docs.python.org/2/library/stdtypes.html#file-objects)
-* [Python and CSV](//martin-thoma.com/python-csv/)
-* [How to parse command line arguments in Python](//martin-thoma.com/how-to-parse-command-line-arguments-in-python/)
+* [Python and CSV](../python-csv/)
+* [How to parse command line arguments in Python](../how-to-parse-command-line-arguments-in-python/)

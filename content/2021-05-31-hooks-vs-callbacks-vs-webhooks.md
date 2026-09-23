@@ -86,7 +86,6 @@ def send_email(email):
 So your hook receives an email object. It can modify this object in any way
 and overwrite the contents in any way.
 
-
 ## Webhooks
 
 Webhooks are hooks used in web services. Just like with normal hooks, you can

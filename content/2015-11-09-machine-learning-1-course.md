@@ -9,7 +9,7 @@ category: German posts
 tags: Klausur, Reinforcement Learning, Clustering, University, Machine Learning, AI
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a>.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="../machine-learning-2-course/">Machine Learning 2</a>.</div>
 
 ## Folien
 
@@ -286,7 +286,7 @@ Slide name: `MLI_01_Einfuehrung_slides1.pdf`
 * Wissensrepräsentation:
     * Assoziierte Paare (Eingangs- und Ausgangsvariablen)
     * Entscheidungsbäume (Klassen diskriminieren)
-    * Parameter in algebraischen ausdrücken
+    * Parameter in algebraischen Ausdrücken
     * Formale Grammatiken
     * Logikbasierte Ausdrücke
     * Taxonomien
@@ -318,20 +318,20 @@ Slide name: `MLI_02_InduktivesLernen_slides1.pdf`
 
 <dl>
     <dt><dfn>Version Space</dfn></dt>
-    <dd>Der Raum aller Hypotesen, welche mit den Trainingsbeispielen konsistent sind.</dd>
+    <dd>Der Raum aller Hypothesen, welche mit den Trainingsbeispielen konsistent sind.</dd>
     <dt><dfn>Version Space Algorithmus</dfn></dt>
     <dd>Der Version Space Algorithmus ist ein binärer Klassifikator für
         diskrete Feature-Spaces. Er startet mit der generellsten Hypothese
         $G = (?, \dots, ?)$ - alles ist wahr - und der speziellsten Hypothese
         $S = (\#, \dots, \#)$ - nichts ist wahr. Wenn ein Beispiel mit dem Label
         <code>true</code> gesehen wird, dann wird die speziellste Hypothese
-        angepasst und veralgemeinert. Wenn ein Beispiel mit dem Label
+        angepasst und verallgemeinert. Wenn ein Beispiel mit dem Label
         <code>false</code> gesehen wird, wird die generellste Hypothese spezialisiert.<br/>
         So kann man den Raum aller mit den Trainingsdaten konsistenten
         Hypothesen finden.</dd>
     <dt><dfn>Konzept</dfn></dt>
     <dd>Ein <i>Konzept</i> beschreibt eine Untermenge von Objekten oder
-        Ereignissen definiert auf einer größerer Menge.</dd>
+        Ereignissen definiert auf einer größeren Menge.</dd>
     <dt><dfn>Konsistenz</dfn></dt>
     <dd>Keine negativen Beispiele werden positiv klassifiziert.</dd>
     <dt><dfn>Vollständigkeit</dfn></dt>
@@ -342,7 +342,7 @@ Slide name: `MLI_02_InduktivesLernen_slides1.pdf`
     * Suche vom Allgemeinen zum Speziellen: Negative Beispiele führen zur Spezialisierung
     * Suche vom Speziellen zum Allgemeinen: Positive Beispiele führen zur Verallgemeinerung
     * [Version Space](https://de.wikipedia.org/wiki/Versionsraum): Beides gleichzeitig anwenden
-* Präzendenzgraphen: In welcher Reihenfolge werden Aktionen ausgeführt?
+* Präzedenzgraphen: In welcher Reihenfolge werden Aktionen ausgeführt?
 
 Version Space Algorithmus ist:
 
@@ -363,7 +363,7 @@ Weiteres
   <dt><dfn>Inductive bias</dfn></dt>
   <dd>Induktives Lernen benötigt Vorannahmen.</dd>
   <dt><dfn>Bias</dfn> ("Vorzugskriterium")</dt>
-  <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
+  <dd>Vorschrift, nach der Hypothesen gebildet werden.</dd>
 </dl>
 
 
@@ -379,7 +379,7 @@ Siehe auch:
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
-    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
+    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This explains TD-learning.
 * [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)
 * [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)
 
@@ -390,23 +390,23 @@ Siehe auch:
       <ul>
           <li>$S$ eine endliche Zustandsmenge (states),</li>
           <li>$A(s)$ eine Menge von möglichen Aktionen im Zustand $s$,</li>
-          <li>$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit
+          <li>$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit,
               im Zeitschritt $t+1$ im Zustand $s'$ zu sein, wenn man zum Zeitpunkt
               $t$ im Zustand $s$ ist und die Aktion $a$ ausführt</li>
-          <li>$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.</li>
+          <li>$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn man durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.</li>
           <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
       </ul>
 
-       Manchmal wird auch der Diskontierungsfaktor $\gamma \in [0, 1]$, welche
+       Manchmal wird auch der Diskontierungsfaktor $\gamma \in [0, 1]$, welcher
        die Bedeutung von direkten Belohnungen im Vergleich zu künftigen
        Belohnungen anzeigt, hier schon genannt. Allerdings finde ich das
-       an dieser Stelle eher unpassend, da $\gamma$ eher verwendet wird um
+       an dieser Stelle eher unpassend, da $\gamma$ eher verwendet wird, um
        die Lösung in der Praxis bestimmen zu können. Mit dem Problem hat
        $\gamma$ an sich nichts zu tun.
 
   </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Bestärkendes Lernen</a></dfn>)</dt>
-  <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
+  <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblem vor.
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
   <dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
@@ -498,13 +498,13 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in
   klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende
   Sachverhalt logisch folgt.</dd>
-  <dt><a href="" name="overfitting"></a><dfn>Overfitting</dfn></dt>
+  <dt><a name="overfitting"></a><dfn>Overfitting</dfn></dt>
   <dd>Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe
-      Generalisierungsfähgikeit</dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Structural_risk_minimization"><dfn>Structural Risc Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>
+      Generalisierungsfähigkeit</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Structural_risk_minimization"><dfn>Structural Risk Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>
   <dd>Unter <i>Structural risk minimization</i> versteht man die Abwägung
       zwischen einem einfachen Modell und einem komplexen Modell, welches
-      auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
+      auf den Trainingsdaten besser funktioniert, aber eventuell mehr unter
       Overfitting leidet.</dd>
   <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn id="vc-dimension">VC-Dimension</dfn>)</dt>
   <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
@@ -518,8 +518,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 
       Praktisch gesehen ist $X$, die Menge aller möglichen Features, sowie
       $H$, die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.
-      Die Frage ist ob man eine Teilmenge $X' \subseteq X$ findet mit
-      $|X'| = n$, sodass man für $X'$ jede Mögliche Teilung in zwei
+      Die Frage ist, ob man eine Teilmenge $X' \subseteq X$ findet mit
+      $|X'| = n$, sodass man für $X'$ jede mögliche Teilung in zwei
       Mengen durch $H$ realisieren kann.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>
   <dd>PAC macht eine Aussage über die Anzahl der benötigten Stichproben, wenn
@@ -528,7 +528,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 </dl>
 
 * Lernmaschine wird definiert durch Hypothesenraum $\{h_\alpha: \alpha \in A\}$
-  und Lernverfahren. Das Lernverfahren ist die Methode um $\alpha_{\text{opt}}$
+  und Lernverfahren. Das Lernverfahren ist die Methode, um $\alpha_{\text{opt}}$
   mit Hilfe von Lernbeispielen zu finden.
 * Probleme beim Lernen:
     * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
@@ -548,10 +548,10 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 #### Boosting
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Boosting"><dfn>Boosting</dfn></a></dt>
-  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen, indem
+  <dd>Kombiniere mehrere schwache Modelle, um ein gutes zu bekommen, indem
       Trainingsbeispiele unterschiedlich gewichtet werden.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
-  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
+  <dd>Kombiniere mehrere schwache Modelle, um ein gutes zu bekommen. Dabei
       bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
   <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>; see <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">YouTube</a>)</dt>
   <dd>Learn a classifier for data. Get examples where the classifier got it
@@ -564,7 +564,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
     * Stellt $W_k(i)$ die Wahrscheinlichkeit dar, dass Beispiel $i$ im $k$-ten
       Durchlauf für das Training verwendet wird?<br/>
       → Nein. $W_k(i)$ ist das Gewicht des $i$-ten Trainingsbeispiels
-      für den $k$-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
+      für den $k$-ten Klassifikator. Siehe Folie&nbsp;24 und folgende für
       ein Beispiel.
 
 
@@ -584,7 +584,7 @@ Weiteres:
     <dt><dfn id="stacking">Stacking</dfn></dt>
     <dd>A committee learner, usually OLS or LASSO</dd>
     <dt><dfn id="bagging">Bagging/Bragging</dfn></dt>
-    <dd>Learnier is fit, results are mean/median aggregated with the aim of reduction variance</dd>
+    <dd>Learner is fit, results are mean/median aggregated with the aim of reducing variance</dd>
     <dt><dfn>Boosting</dfn></dt>
     <dd>Build chain of learners.</dd>
 </dl>
@@ -609,7 +609,7 @@ Weiteres:
 Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 
 * Einsatzfelder:
-    * Klassifiktion: Spracherkennung, Schrifterkennung
+    * Klassifikation: Spracherkennung, Schrifterkennung
     * Funktionsapproximation
     * Mustervervollständigung: Kodierung, Bilderkennung (NODO: Warum zählt das nicht zu Klassifikation?)
 * Perzeptron von Rosenblatt (1960)
@@ -617,12 +617,12 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
 * Gradientenabstieg
 * Software:
-  * [Lasagne](http://lasagne.readthedocs.org/en/latest/index.html): Python, hat eine exzellente Dokumentation, die auch größtenteils auf explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.
-  * [Google TensorFlow](https://martin-thoma.com/tensor-flow-quick/)
+  * [Lasagne](http://lasagne.readthedocs.org/en/latest/index.html): Python, hat eine exzellente Dokumentation, die auch größtenteils explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.
+  * [Google TensorFlow](../tensor-flow-quick/)
 
 <dl>
     <dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
-    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
+    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum Erzeugen
         von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
         als typische multilayer Perceptrons. Bei Netzen, welche durch
         Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
@@ -642,12 +642,12 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 
         Bei jedem Gewichtsupdate wird überprüft, ob sich das Vorzeichen des
         Gradienten für dieses Gewicht geändert hat. Falls ja, wird das Gewicht
-        um $\eta \cdot \eta^+$ bzw $\eta \cdot \eta^-$ geändert. Außerdem
-        kann eine minimale bzw. eine Maximale Änderung gesetzt werden.
+        um $\eta \cdot \eta^+$ bzw. $\eta \cdot \eta^-$ geändert. Außerdem
+        kann eine minimale bzw. eine maximale Änderung gesetzt werden.
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
     <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur
-        einer Schicht. Sie ist ein Spezialfall des algemeineren
+        einer Schicht. Sie ist ein Spezialfall des allgemeineren
         Backpropagation-Algorithmus und lautet wie folgt:
         $$\Delta w_{ji} = \alpha (t_j - y_j) \varphi'(h_j) x_i$$
         wobei
@@ -669,7 +669,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     <dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus für
         differenzierbare Funktionen. Er startet an einer zufälligen Stelle $x_0$.
         Dann wird folgender Schritt mehrfach ausgeführt:
-        $$x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)$$
+        $$x_0 \gets x_0 - \alpha \cdot \text{grad} \, f (x_0)$$
         wobei $\alpha \in (0, 1]$ die Lernrate ist und $f$ die zu
         optimierende Funktion. Dabei könnte $\alpha$ mit der Zeit auch
         kleiner gemacht werden.
@@ -677,15 +677,15 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     <dt><dfn>Backpropagation</dfn> (siehe <a href="http://neuralnetworksanddeeplearning.com/chap2.html">neuralnetworksanddeeplearning.com</a>)</dt>
     <dd>Der Backpropagation-Algorithmus ist eine Variante des Gradient-Descent
         Algorithmus, welche für <abbr title="multilayer Perceptrons">MLPs</abbr>
-        angepasst wurde. Sie besteht aus drei Schritten:
+        angepasst wurde. Er besteht aus drei Schritten:
 
         <ul>
             <li><b>Forward-Pass</b>: Lege die Input-Features an das Netz an und erhalte den Output</li>
             <li><b>Fehlerberechnung</b>: Mache das für alle Daten</li>
-            <li><b>Backward-Pass</b>: Passe die Gewichte </li>
+            <li><b>Backward-Pass</b>: Passe die Gewichte an</li>
         </ul>
 
-        Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte
+        Im Grunde ist Backpropagation nur eine geschwindigkeitsoptimierte
         Variante des Gradient-Descent Algorithmus, da die Gradienten im
         Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Radiale_Basisfunktion"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>
@@ -699,13 +699,13 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Ein typisches Beispiel sind gaußsche RBFs:
         $f(x) = e^{-(a (x - c)^2)}$, wobei $a, c$ Konstanten sind.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Radial_basis_function_network"><dfn>Radial-Basis Funktion Netz</dfn></a> (<dfn>RBF-Netz</dfn>)</dt>
-    <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
+    <dd>Ein <i>Radial-Basis Funktion Netz</i> ist ein neuronales Netz,
         welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
-        für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
+        für jedes Neuron im Grunde zwei Parameter: der Radius und das Zentrum
         (vgl. Folie&nbsp;39 für die Gewichtsanpassung).
     </dd>
     <dt><a name="dda-algorithm"></a><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>
-    <dd>DDA ist ein konstruktiver Lernalgorithmus für RBF-Netze welcher
+    <dd>DDA ist ein konstruktiver Lernalgorithmus für RBF-Netze, welcher
         in [<a href="#ref-ber95" name="ref-ber95-anchor">Ber95</a>] vorgestellt
         wird.
 
@@ -730,7 +730,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 
 #### Siehe auch
 
-* [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+* [Neuronale Netze - Vorlesung](../neuronale-netze-vorlesung/)
 * [What are prototypes in RBF networks?](http://datascience.stackexchange.com/q/9869/8820)
 
 
@@ -751,7 +751,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
   <dt><dfn>Fall</dfn> im Kontext des CBR</dt>
   <dd>Ein Fall ist eine Abstraktion eines Ereignisses, die in Zeit und Raum
       begrenzt ist. Ein Fall enthält eine Problembeschreibung, eine Lösung und
-      ein Ergebnis. Zusätzlich kann ein Fall eine Erklärung enthalten warum
+      ein Ergebnis. Zusätzlich kann ein Fall eine Erklärung, warum
       das Ergebnis auftrat, Informationen über die Lösungsmethode, Verweise
       auf andere Fälle oder Güteinformationen enthalten.</dd>
 </dl>
@@ -762,7 +762,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
 * NODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
   eingeschränkter - was ist damit gemeint? Was sind fleißige Lernalgorithmen?
   Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo
-  aber das auswerten vergleichsweise billig ist?
+  aber das Auswerten vergleichsweise billig ist?
 
 
 ### <a name="svm"></a> SVM
@@ -770,7 +770,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
 Slide name: `MLI_07_SVM_slides1.pdf`
 
 Eine Erklärung von <abbr title="Support Vector Machines">SVMs</abbr>
-findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-sklearn/).
+findet sich im Artikel [Using SVMs with sklearn](../svm-with-sklearn/).
 
 * SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
   Dimension, falls die Klassen linear trennbar sind.
@@ -778,7 +778,7 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
   $L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)$
   wobei $\alpha_1, \dots, \alpha_N \geq 0$ Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
-* Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
+* Der Parameter $C$ dient der Regularisierung. Ist $C$ groß, gibt es wenige
   Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
   Margins größer.
 * Nichtlineare Kernelmethoden
@@ -795,16 +795,16 @@ $$E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(
 wobei gilt:
 
 <ul>
-    <li>$E(h_\alpha)$ ist der reale Fehler der mit der Hypothese $h_\alpha$
+    <li>$E(h_\alpha)$ ist der reale Fehler, der mit der Hypothese $h_\alpha$
         gemacht wird</li>
-    <li>$E_{emp}(h_\alpha)$ ist der empirische Fehler der mit der Hypothese $h_\alpha$
+    <li>$E_{emp}(h_\alpha)$ ist der empirische Fehler, der mit der Hypothese $h_\alpha$
         gemacht wird</li>
     <li>$VC(h_\alpha)$ ist die VC-Dimension der Lernmaschine</li>
     <li>$N$ ist die Anzahl der Lernbeispiele</li>
     <li>$0 \leq \eta \leq 1$</li>
 </ul>
 
-Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
+Dieser Term wird in der <i>Structural Risk Minimization</i> minimiert.
 </div>
 
 
@@ -825,7 +825,7 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
   <dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
   <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
-  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
+  <dd>C4.5 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
   <dt><dfn>Random Forest</dfn>, Quelle: <a href="https://de.wikipedia.org/wiki/Random_Forest">Wikipedia</a></dt>
   <dd>Ein Random Forest ist ein Klassifikationsverfahren, welches aus mehreren
   verschiedenen, unkorrelierten Entscheidungsbäumen besteht. Alle
@@ -835,20 +835,20 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
   entscheidet die endgültige Klassifikation.</dd>
 </dl>
 
-* Der Algorithmus ID5R dienen dem Aufbau eines Entscheidungsbaumes.
+* Der Algorithmus ID5R dient dem Aufbau eines Entscheidungsbaumes.
 * C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
-* Mögliches Qualtitätsmaß ist Entropie:<br/>
+* Mögliches Qualitätsmaß ist Entropie:<br/>
   $Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus$
   wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
   bezeichnet.
 * Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
   Ergebnis äquivalent ist?<br/>
   → ID5R kann inkrementell verwendet werden. Es ist bei ID5R - im Gegensatz
-  zu ID3 - also nicht nötig bei neuen Trainingsdaten neu zu trainieren.
+  zu ID3 - also nicht nötig, bei neuen Trainingsdaten neu zu trainieren.
 * Random Forest: Erstelle mehrere Entscheidungsbäume mit einer zufälligen
   Wahl an Attributen. Jeder Baum stimmt für eine Klasse und die Klasse, für die
-  die meisten Stimmen, wird gewählt.
+  die meisten Stimmen abgegeben wurden, wird gewählt.
 
 
 ### Bayes Lernen
@@ -857,7 +857,7 @@ Slide name: `MLI_09_BayesLernen_slides1.pdf`
 
 Siehe auch:
 
-* [Dynamische Bayesssche Netze](https://martin-thoma.com/machine-learning-2-course/#dynamic-bayes-networks) in ML2
+* [Dynamische Bayessche Netze](../machine-learning-2-course/#dynamic-bayes-networks) in ML2
 
 <dl>
   <dt><dfn>Satz von Bayes</dfn></dt>
@@ -872,7 +872,7 @@ Siehe auch:
   <dt><dfn>Produktregel</dfn></dt>
   <dd>$P(A \land B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)$</dd>
   <dt><dfn>Summenregel</dfn></dt>
-  <dd>$P(A \lor B) = P(A) + P(B) - P(A \land P)$</dd>
+  <dd>$P(A \lor B) = P(A) + P(B) - P(A \land B)$</dd>
   <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
   <dd>Es seien $A_1, \dots, A_n$ Ereignisse mit $i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n$ und $\sum_{i=1}^n A_i = 1$. Dann gilt:<br/>
       $P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)$</dd>
@@ -891,14 +891,14 @@ Siehe auch:
       $f\colon\mathbb{R}\to\mathbb{R}$, gegeben durch<br/>
       $f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$<br/>
       heißt $\mathcal N\left(\mu, \sigma^2\right)$-verteilt, normalverteilt
-      mit den Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
+      mit dem Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Minimum_Description_Length"><dfn>Prinzip der minimalen Beschreibungslänge</dfn></a></dt>
   <dd>Das Prinzip der minimalen Beschreibungslänge ist eine formale
       Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden
       Hypothesen bevorzugt, die zur besten Kompression gegebener Daten führen.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Gibbs-Sampling"><dfn>Gibbs-Algorithmus</dfn></a> (<a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
-  <dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten
+  <dd>Der Algorithmus von Gibbs ist eine Methode, um Stichproben von bedingten
       Verteilungen zu erzeugen.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit"><dfn>Bedingte Unabhängigkeit</dfn></a></dt>
@@ -909,7 +909,7 @@ Siehe auch:
   <dd>Unter Add-$k$-smoothing versteht man eine Technik, durch die
       sichergestellt wird, dass die geschätzte Wahrscheinlichkeit für kein
       Ereignis gleich null ist. Wenn man $d \in \mathbb{N}$ mögliche
-      Ergebnisse eines Experiments hat, $N \in \mathbb{N}$ experimente
+      Ergebnisse eines Experiments hat, $N \in \mathbb{N}$ Experimente
       durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem
       Ergebnis $i$ mit
       $$\hat{\theta_i} = \frac{x_i + k}{N+ kd}, $$
@@ -920,8 +920,8 @@ Siehe auch:
   <dd>Ein bayessches Netz ist ein Tupel $(G, \Theta)$ mit:
 
   <ul>
-      <li>$G = (\mathbf{X}, E)$ ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
-          der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei
+      <li>$G = (\mathbf{X}, E)$ ist ein <abbr title="Directed Acyclic Graph">DAG</abbr>,
+          der <b>Struktur</b> des Bayesschen Netzwerks genannt wird. Dabei
           ist $\mathbf{X} = \{X_1, X_2, \dots, X_n\}$ die Menge der Knoten.
           Jeder Knoten entspricht einer Zufallsvariablen (z.B. Attribut).<br/>
           <br/>
@@ -933,14 +933,14 @@ Siehe auch:
           welche in Abhängigkeit der Elternknoten beschrieben wird.</li>
   </ul>
 
-  In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:
+  In einem bayesschen Netz berechnet sich die gemeinsame Verteilung wie folgt:
 
   $$P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))$$
 
-  Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
+  Die Modellierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
   Expertenwissen. Alternativ kann die Struktur durch
   <abbr title="Markov Chain Monte Carlo">MCMC</abbr> bestimmt werden.
-  Sobald die Struktur gegeben ist wird die Menge der Verteilungen $\Theta$
+  Sobald die Struktur gegeben ist, wird die Menge der Verteilungen $\Theta$
   durch den Expectation Maximization Algorithmus bestimmt.
   </dd>
 </dl>
@@ -961,23 +961,23 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dt><dfn>Markov-Bedingung</dfn> (Beschränkter Horizont)</dt>
   <dd>$P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)$</dd>
   <dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>
-  <dd>Eine HMM ist ein Tupel $\lambda = (S, V, A, B, \Pi)$:
+  <dd>Ein HMM ist ein Tupel $\lambda = (S, V, A, B, \Pi)$:
       <ul>
           <li>$S = \{S_1, \dots, S_n\}$: Menge der Zustände</li>
           <li>$V = \{v_1, \dots, v_m\}$: Menge der Ausgabezeichen</li>
-          <li>$A \in [0,1]^{n \times n}$ = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand $i$ in Zustand $j$ zu kommen beinhaltet</li>
-          <li>$B = (b_{ik})$ die Emissionswahrscheinlichkeit $v_k$ im Zustand $S_i$ zu beobachten</li>
+          <li>$A = (a_{ij}) \in [0,1]^{n \times n}$: Übergangsmatrix, die die Wahrscheinlichkeit, von Zustand $i$ in Zustand $j$ zu kommen, beinhaltet</li>
+          <li>$B = (b_{ik})$ die Emissionswahrscheinlichkeit, $v_k$ im Zustand $S_i$ zu beobachten</li>
           <li>$\Pi = (\pi_i) = P(q_1 = i)$: Die Startverteilung, wobei $q_t$ den Zustand zum Zeitpunkt $t$ bezeichnet</li>
       </ul></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Forward-Algorithmus"><dfn>Vorwärts-Algorithmus</dfn></a></dt>
   <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu
-      dynamische Programmierung: Die Variablen $\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)$ gibt die Wahrscheinlichkeit
-      an zum Zeitpunkt $t \in 1 \leq t \leq T$ im Zustand $s_i \in S$ zu
+      dynamische Programmierung: Die Variablen $\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)$ geben die Wahrscheinlichkeit
+      an, zum Zeitpunkt $t$ mit $1 \leq t \leq T$ im Zustand $s_i \in S$ zu
       sein und die Sequenz $o_1 o_2 \dots o_t$ beobachtet zu haben. Diese
-      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt $t=1$, berechnet
-      die Wahrscheinlichkeit $o_1$ beobachtet zu haben für jeden Zustand.
+      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt $t=1$ und berechnet
+      für jeden Zustand die Wahrscheinlichkeit, $o_1$ beobachtet zu haben.
       <br/>
-      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM $\lambda$,
+      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben das HMM $\lambda$,
       ist dann einfach die Summe der $\alpha_i$ des letzten Zeitschritts.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"><dfn>Rückwärts-Algorithmus</dfn></a></dt>
   <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu
@@ -1006,7 +1006,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 
       Gesucht ist ein Modell
 
-      $$\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)$$
+      $$\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar \Pi\}} P(O_{\text{train}}|\lambda)$$
 
       Der Baum-Welch-Algorithmus geht wie folgt vor:
 
@@ -1020,7 +1020,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dt><dfn>Ergodisches Modell</dfn></dt>
   <dd>Unter dem <i>ergodischen Modell</i> versteht man im Kontext von
       <abbr title="Hidden Markov Models">HMMs</abbr> die vollverbundene
-      Topologie inclusive Schleifen.</dd>
+      Topologie inklusive Schleifen.</dd>
   <dt><dfn>Bakis-Modell</dfn> (<dfn>Links-nach-Rechts-Modell</dfn>)</dt>
   <dd>Unter dem <i>Bakis-Modell</i> versteht man im Kontext von
       <abbr title="Hidden Markov Models">HMMs</abbr> eine Links-nach-Rechts
@@ -1051,16 +1051,16 @@ Slides: `MLI_11-MLN_slides1`
 
 Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten $w_i$ und
 prädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
-aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
+Aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
 Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch "meistens"
 erfüllt sein. Das wird durch das Gewicht repräsentiert.
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
-  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln $L = (F_i, w_i)$, wobei $F_i$ eine Formel der Prädikatenlogik erster Ordnung und $w_i \in \mathbb{R}$ ein Gewicht ist.
+  <dd>Ein Markov Logik Netz ist eine Menge aus Tupeln $L = (F_i, w_i)$, wobei $F_i$ eine Formel der Prädikatenlogik erster Ordnung und $w_i \in \mathbb{R}$ ein Gewicht ist.
       Ein MLN ist eine Schablone für ein MRF.</dd>
   <dt><a name="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
-  <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>
+  <dd>Ein MRF ist ein ungerichtetes probabilistisches grafisches Modell.<br/>
       MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><a name="mln-jpd"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>
   <dd>$P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))$ wobei $f_i$ das $i$-te Feature und $w_i$ ein
@@ -1107,9 +1107,9 @@ Siehe auch:
     <dt><dfn>Selektion</dfn></dt>
     <dd>Auswahl der Hypothesen, welche die beste Problemlösung erzeugen.</dd>
     <dt><dfn>Evolutionäre Strategien</dfn></dt>
-    <dd>Das Wissen wird durch reele Zahlen und Vektoren repräsentiert.</dd>
+    <dd>Das Wissen wird durch reelle Zahlen und Vektoren repräsentiert.</dd>
     <dt><dfn>Genetische Programmierung</dfn></dt>
-    <dd>Das Wissen wird duch baumartige Strukturen repräsentiert.</dd>
+    <dd>Das Wissen wird durch baumartige Strukturen repräsentiert.</dd>
     <dt><dfn>Mutation</dfn></dt>
     <dd>Unter <i>Mutation</i> versteht man die zufällige Änderung einzelner
         Gene.
@@ -1117,7 +1117,7 @@ Siehe auch:
         Beispiele:
 
         <ul>
-            <li>Bit-Inversion: Zufällig Gleichverteilt pro Gen / Feste Anzahl,
+            <li>Bit-Inversion: Zufällig gleichverteilt pro Gen / Feste Anzahl,
                 aber zufällige Gene</li>
             <li>Translation: Verschieben von Teilsequenzen</li>
             <li>Invertiertes Einfügen</li>
@@ -1126,10 +1126,10 @@ Siehe auch:
     </dd>
     <dt><dfn>Rekombination</dfn></dt>
     <dd>Bei der <i>Rekombination</i> werden die Eigenschaften zweier Eltern
-        gemischt. Dies kann Diskret passieren, wenn manche Gene von einem
+        gemischt. Dies kann diskret passieren, wenn manche Gene von einem
         Elternteil übernommen werden und andere vom anderen Elternteil.
         Alternativ kann die Rekombination auch durch <i>intermediäre
-        Rekombination</i> passieren. Das bedeutet, das ein Gen gemittelt
+        Rekombination</i> passieren. Das bedeutet, dass ein Gen gemittelt
         wird.</dd>
 </dl>
 
@@ -1165,7 +1165,7 @@ Mating:
 
 Evolution:
 
-* Lamark'sche Evolution: Die Individuen ändern sich nach der Erzeugung. Sie
+* Lamarck'sche Evolution: Die Individuen ändern sich nach der Erzeugung. Sie
   lernen also. Dabei wird der Genotyp verändert und auch vererbt.
 * Baldwin'sche Evolution: Die Individuen ändern sich nach der Erzeugung, aber
   der Genotyp bleibt gleich
@@ -1176,7 +1176,7 @@ Anwendungen:
 
 * Traveling Salesman
 * Flugplanoptimierung
-* Mischung von Kaffesorten
+* Mischung von Kaffeesorten
 * Cybermotten: Motten müssen optimales Muster finden, um sich vor einer Fläche
                weißen Rauschens zu verbergen.
 * Snakebot (Ivan Tanev) [<a href="#ref-pro06" name="ref-pro06-anchor">Pro06</a>]
@@ -1186,7 +1186,7 @@ Anwendungen:
 
 Slides: `MLI_13_DeduktivesLernen_slides1.pdf`
 
-Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
+Siehe auch: [Formale Systeme](../formale-systeme/)
 
 <dl>
     <dt><dfn>Modus Ponens</dfn></dt>
@@ -1195,7 +1195,7 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
     <dd>The key insight behind explanation-based generalization is that it is
         possible to form a justified generalization of a single positive
         training example provided the learning system is endowed with some
-        <b>explanatory capabilitie</b>. In particular, the system must be able
+        <b>explanatory capabilities</b>. In particular, the system must be able
         to explain to itself <b>why the training example is an example of the
         concept</b> under study. Thus, the generalizer is presumed to possess a
         definition of the concept under study as well as <b>domain
@@ -1217,26 +1217,26 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
 
         Bei der EBG werden also Makro-Operatoren erzeugt.
 
-        Ein Beispiel für Software welche EBG benutzt ist
-        <abbr title="STanford Resarch Institute Problem Solver">STRIPS</abbr>.
+        Ein Beispiel für Software, welche EBG benutzt, ist
+        <abbr title="Stanford Research Institute Problem Solver">STRIPS</abbr>.
     </dd>
     <dt><dfn>KBANN</dfn> (<dfn>Knowledge-Based Artificial Neural Networks</dfn>)</dt>
-    <dd>KBANN ist ein hybrides Verfahren. Die Idee ist ein neuronales Netz
+    <dd>KBANN ist ein hybrides Verfahren. Die Idee ist, ein neuronales Netz
         geschickt zu konstruieren. Dieses wird dann wie gewohnt mit
         Gradient Descent durch Trainingsbeispiele verfeinert.
 
-        Der Algorithmus gibt eine Netzarchtiktur vor:
+        Der Algorithmus gibt eine Netzarchitektur vor:
         <ul>
              <li>Dabei wird pro Instanzattribut ein Netz-Input verwendet. Für
                  jede Klausel wird ein Neuron hinzugefügt.</li>
              <li>Dieses ist mit dem Instanzattribut durch das Gewicht $w$
-                 verbunden wenn es nicht negiert ist, sonst durch das Gewicht
+                 verbunden, wenn es nicht negiert ist, sonst durch das Gewicht
                  $-w$.</li>
              <li>Der Schwellwert der Aktivierungsfunktion wird auf
                  $-(n- 0.5)w$ gesetzt, wobei $n$ die Anzahl der nicht-negierten
                  Bedingungsteile ist.</li>
             <li>Verbinde die restlichen Neuronen von Schicht $i$ mit Schicht
-                $i+1$ indem zufällige kleine Gewichte gesetzt werden.</li>
+                $i+1$, indem zufällige kleine Gewichte gesetzt werden.</li>
          </ul>
 
          Angewendet werden kann KBANN:
@@ -1254,24 +1254,24 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
 <dl>
     <dt><dfn>$k$-means Clustering</dfn></dt>
-    <dd>Der $k$-means Clustering Algorithmus finden $k$ Cluster in einem
+    <dd>Der $k$-means Clustering Algorithmus findet $k$ Cluster in einem
         Datensatz. Dabei ist $k \in \mathbb{N}_{\geq 1}$ vom Benutzer zu
         wählen.
 
-        Zuerst initialisert $k$-means die Zentroiden, also zentrale Punkte
-        für Cluster, zufällig. Dann geht $k$-means geht iterativ vor:
+        Zuerst initialisiert $k$-means die Zentroiden, also zentrale Punkte
+        für Cluster, zufällig. Dann geht $k$-means iterativ vor:
 
         <ol>
             <li>Weise jeden Datenpunkt seinem nächsten Cluster zu.</li>
             <li>Verschiebe die $k$ Zentroide in ihr Clusterzentrum</li>
         </ol>
 
-        Siehe auch: <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
+        Siehe auch: <a href="../k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
     </dd>
     <dt><dfn>Fuzzy $k$-means</dfn></dt>
     <dd>Im Gegensatz zum $k$-means Algorithmus, wo jeder Datenpunkt in genau
-        einem Cluster ist, weißt der Fuzzy $k$-means Algorithmus jedem
-        Datenpunkte eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter
+        einem Cluster ist, weist der Fuzzy $k$-means Algorithmus jedem
+        Datenpunkt eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter
         der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher
         wird die Zugehörigkeit.
 
@@ -1291,7 +1291,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
     <dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung
         von Clustern zu größeren Clustern.
 
-        Ergebisse können durch ein Dendrogramm beschrieben werden.
+        Ergebnisse können durch ein Dendrogramm beschrieben werden.
 
         Anwendung: Einordnung von Schrauben in ein Ordnungssystem
     </dd>
@@ -1300,7 +1300,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
     Dabei ist ein Clusterdistanz-Schwellwert $t \in \mathbb{R}$ und eine
     minimale Cluster-Anzahl $k \in \mathbb{N}$ zu wählen. Auch ein Distanzmaß
-    für Cluster (nearest neighbor, farest neighor, mean distance, ...) ist
+    für Cluster (nearest neighbor, farthest neighbor, mean distance, ...) ist
     als Hyperparameter zu wählen.
 
     Dann geht AHC wie folgt vor:
@@ -1325,26 +1325,26 @@ do:
 until c = c'
     </code></pre>
     </div>
-        The result can be visualized as a Dendrogramm.
+        The result can be visualized as a dendrogram.
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Conceptual_clustering"><dfn>Begriffliche Ballung</dfn></a></dt>
-    <dd>Bei Algorithmen der Begrifflichen Ballung werden Konzeptbeschreibungen
+    <dd>Bei Algorithmen der begrifflichen Ballung werden Konzeptbeschreibungen
         generiert.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
     <dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch
         inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
         Attribute gestattet. Dabei wird ein Datenpunkt $x_i$ zum Cluster
         $c_j$ geclustert, wenn man die Attributwerte von $x_i$ durch die
-        Kentniss von $c_j$ gut vorhersagen kann (<span markdown="0">$P(x_i | c_j)$</span>,
+        Kenntnis von $c_j$ gut vorhersagen kann (<span markdown="0">$P(x_i | c_j)$</span>,
         predictability) und zugleich der Cluster gut vorhergesagt werden kann,
         wenn die Attributwerte gegeben sind (<span markdown="0">$P(c_j|x_i)$</span>, predictiveness).
 
-        Es soll also in inter-Klassenähnlichkeit minimiert und die
-        intra-Klassenähnlichkeit maximimiert werden. Dafür wird die
+        Es soll also die inter-Klassenähnlichkeit minimiert und die
+        intra-Klassenähnlichkeit maximiert werden. Dafür wird die
         Category Utility verwendet:
 
         <div>
-        $$\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})$$
+        $$\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_{ij} | C_k) \cdot P(C_k | A_i = V_{ij})$$
         </div>
 
         Dabei gilt:
@@ -1353,9 +1353,9 @@ until c = c'
             <li>$K$: Anzahl der Cluster</li>
             <li>$I$: Anzahl der Attribute</li>
             <li>$J(i)$: Anzahl der Attributwerte des $i$-ten Attributs</li>
-            <li>$V_{ji}$: $j$-ter möglicher Wert für Attribut $i$</li>
-            <li>$P(A_i = V_ij | C_k)$: Predictability</li>
-            <li>$P(C_k | A_i = V_{ij}$: Predictiveness</li>
+            <li>$V_{ij}$: $j$-ter möglicher Wert für Attribut $i$</li>
+            <li>$P(A_i = V_{ij} | C_k)$: Predictability</li>
+            <li>$P(C_k | A_i = V_{ij})$: Predictiveness</li>
         </ul>
 
         Anwendung: Interpretation von <abbr title="Elektromyographie">EMGs</abbr>
@@ -1367,11 +1367,11 @@ until c = c'
 ## Prüfungsfragen
 
 <ul>
-    <li>Was ist Induktives Lernen?<br/>
+    <li>Was ist induktives Lernen?<br/>
         → Eine große Menge an Beispielen wird gegeben. Der Lerner muss selbst
            das Konzept herausfinden.</li>
-    <li>Was ist Deduktives Lernen?<br/>
-        → Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept
+    <li>Was ist deduktives Lernen?<br/>
+        → Fakten werden gegeben. Der Lernende bekommt das allgemeine Konzept
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
     <li>SVMs
     <ul>
@@ -1379,8 +1379,8 @@ until c = c'
             → Dualität zwischen Feature- und Hypothesenraum: Radius der Hyperkugel
                wird minimiert.</li>
         <li>Warum lernen SVMs "korrekt"?<br/>
-            → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
-            eines Klassifiers, welcher Datenpunkte im $n$-Dimensionalen Raum
+            → Es gibt ein Theorem (TODO: Welches?), das besagt, dass die VC-Dimension
+            eines Klassifikators, welcher Datenpunkte im $n$-dimensionalen Raum
             innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
             mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
             beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
@@ -1393,10 +1393,10 @@ until c = c'
             <li>Wie lautet die Bellman-Gleichung?<br/>
                 → $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ wobei $\gamma$ ein
                 Diskontierungsfaktor ist, $s'$ der Zustand in den man kommt, wenn
-                man $a$ ausführt und $r$ der Reward nach ausführen von $a$ in
+                man $a$ ausführt und $r$ der Reward nach Ausführen von $a$ in
                 $s$ ist.</li>
             <li>Was ist Value Iteration und wie lautet die Formel?<br/>
-                → Schätzen der Value-Funktion durch iteratives anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$</li>
+                → Schätzen der Value-Funktion durch iteratives Anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$</li>
             <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
                 → Siehe <a href="#rl-eligibility-trace">oben</a></li>
             <li>Wie funktioniert Q-Learning?<br/>
@@ -1408,12 +1408,12 @@ until c = c'
             <li>Population / Individuen: Wie Individuen darstellen<br/>
                 → Durch Gene (Attribute), z.B. als Bitstring</li>
             <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
-            <li>Wie kann man Kombinieren?<br/>
+            <li>Wie kann man kombinieren?<br/>
                 → vgl. <i>Rekombination</i></li>
             <li>Fitness Function</li>
             <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br/>
-                → Mutation, Rekombination, Fittness-Funktion, Selektion</li>
-            <li>Was ist Landmarksche / Baldwinsche Evolution?</li>
+                → Mutation, Rekombination, Fitness-Funktion, Selektion</li>
+            <li>Was ist Lamarcksche / Baldwinsche Evolution?</li>
         </ul>
     </li>
     <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>
@@ -1421,7 +1421,7 @@ until c = c'
            und die VC-Dimension.</li>
     <li>Was versteht man unter Cascade Correlation?<br/>
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
-    <li>Welche übwerwachten Lernverfahren gibt es?<br/>
+    <li>Welche überwachten Lernverfahren gibt es?<br/>
         → Neuronale Netze, SVMs</li>
     <li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>
         → Siehe <a href="#mln-inference">oben</a></li>
@@ -1446,7 +1446,7 @@ until c = c'
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
    * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)
-* [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)
+* [Zusammenfassung der Vorlesung ML 2](../machine-learning-2-course/)
 * Udacity
   * [Knowledge-Based AI: Cognitive Systems](https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409): Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erklärungsbasierte Generalisierung)
 
@@ -1475,14 +1475,14 @@ Bonuspunkte.
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 Folgende Vorlesungen habe ich nicht gehört, könnten aber interessant sein:
 
@@ -1494,13 +1494,13 @@ Folgende Vorlesungen habe ich nicht gehört, könnten aber interessant sein:
 Noch kann ich folgende Veranstaltungen nicht einschätzen und würde mich über
 Feedback von dir freuen:
 
-* Beyerer: [Projektpraktikum: Bildauswertung und -fusion](https://www.kithub.de/vvz/22542/events/42519)
-* [Big Data @ BOSCH](https://www.kithub.de/vvz/22127/events/41442)
-* Cayoglu, Streit: [Big Data Tools](https://www.kithub.de/vvz/22260/events/44993)
-* Hartenstein: [Big Data Mining auf GPUs](https://www.kithub.de/vvz/22548/events/45543)
-* Hanebeck: [Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung](https://www.kithub.de/vvz/22544/events/43438)
-* Nakhaeizadeh: [Data Mining](https://www.kithub.de/vvz/21974/events/46245)
-* Studer (AIFB): [Knowledge Discovery](https://www.kithub.de/vvz/21970/events/44546)
+* Beyerer: Projektpraktikum: Bildauswertung und -fusion9)
+* Big Data @ BOSCH
+* Cayoglu, Streit: Big Data Tools
+* Hartenstein: Big Data Mining auf GPUs
+* Hanebeck: Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung
+* Nakhaeizadeh: Data Mining
+* Studer (AIFB): Knowledge Discovery
 
 
 ## Termine und Klausurablauf

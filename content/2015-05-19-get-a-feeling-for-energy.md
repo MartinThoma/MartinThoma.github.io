@@ -12,9 +12,9 @@ featured_image: logos/energy.png
 Have you heard of [GravityLight](https://www.indiegogo.com/projects/gravitylight-made-in-africa/x/7191655#/story)?
 
 It is a gravity-powered lamp designed as an alternative for off-grid families
-who would otherwise use kersene lamps. It is basically only a 12kg weight,
+who would otherwise use kerosene lamps. It is basically only a 12kg weight,
 lifted and put on the gravity light. When the weight goes down again it pulls a
-cord. This cord makes an electric motor which generates electricity for LEDs.
+cord. This cord drives an electric motor which generates electricity for LEDs.
 If you lift the weight 1.83m, the light lasts for about 20 minutes.
 
 I wondered how much weight I would need to lift (assuming 100% efficiency) to
@@ -38,12 +38,12 @@ m \cdot h &= \frac{E_{pot}}{g}\\
 &= 191.0 \cdot 10^3 kg \cdot m
 \end{align}
 
-This means I would have to lift 191&ensp;000 packages one liter of milk to a height
+This means I would have to lift 191&ensp;000 one-liter packages of milk to a height
 of 1 meter. Every day. Just to let my small laptop run.
 
-Or lets view it from another angle. I think lifting about 5 packages of milk
+Or let's view it from another angle. I think lifting about 5 packages of milk
 to a height of about 1.8m each hour would not be too exhausting. This would
 generate about $E_{pot} = 5kg \cdot 1.80m \cdot 9.80 \frac{m}{s^2} / (1h \cdot 60 \frac{min}{h} \cdot 60 \frac{s}{min}) = 0.0245 \frac{kg \cdot m^2}{s^3} = 0.0245 W$.
-Lets think what you can power with 0.0245 Watt...
+Let's think about what you can power with 0.0245 Watt...
 
-It is amazing about how much energy we have today.
+It is amazing how much energy we have today.

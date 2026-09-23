@@ -283,11 +283,6 @@ meant to be used in this order.
 
 ## Oracles
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/oracles.jpg"><img src="../images/2020/08/oracles.jpg" alt="Photo by Jen Theodore" style="width: 512px;"/></a>
-    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@jentheodore">Jen Theodore</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
-</figure>
-
 In complexity theory, an oracle is a black box which offers a solution to a
 problem instantly. In this context, it is just a second implementation
 which we trust to be correct. If you have a complex algorithmic problem, you

@@ -44,7 +44,7 @@ featured_image: logos/klausur.png
 
 **Einleitendes Kapitel** welches erklärt, was Klassifikation ist.
 
-* Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...
+* Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamanten, ...
 * Formalismen
   * Domäne $\Omega \subseteq$ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.
   * Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion
@@ -93,8 +93,8 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <td>~ Äquivalenz</td>
         <td>~ Äquivalenz<br/>Ordnung</td>
         <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition</td>
-        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
-        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multiplikation</td>
+        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multiplikation</td>
     </tr>
     <tr>
         <th>Zulässige Transformationen</th>
@@ -123,12 +123,12 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
 </table>
 
 Der Merkmalsraum ist häufig ein $\mathbb{R}^n$ mit $n>3$. Er kann auf
-vorhandene Strukturen analysiert werden, indem er auf einen 2- oder
+vorhandene Strukturen hin analysiert werden, indem er auf einen 2- oder
 3-dimensionalen Unterraum projiziert wird. Dies kann bei einfachen Projektionen
 jedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen schalenförmig
 um den Ursprung angeordnet sind.
 
-Um Stichproben im Merkmalsraum zu vergleichen können Metriken benutzt werden.
+Um Stichproben im Merkmalsraum zu vergleichen, können Metriken benutzt werden.
 Eine [Metrik](https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition)
 ist eine Abbildung $d(m_1, m_2)$, für die gilt:
 
@@ -147,7 +147,7 @@ für die gilt:
 
 Typische Normen sind die
 [euklidische Norm](https://de.wikipedia.org/wiki/Euklidische_Norm) und die
-Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
+Mahalanobis-Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 
 **Hauptkomponentenanalyse** (HKA, engl. PCA)
 
@@ -160,7 +160,7 @@ Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
     2. Berechnung des optimalen Richtungsvektors<br/>
        Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
 3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
-   welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.
+   welcher die Daten $D$ mit minimalem quadratischem Fehler repräsentiert.
 
 Siehe [gist](https://gist.github.com/MartinThoma/09799f5d143c09399eed) für
 eine kurze Python-Implementierung. Keine Garantie für die Korrektheit!
@@ -200,14 +200,14 @@ Bei der Parameterschätzung können folgende Fehler passieren:
 
 * Bayesscher Fehler: (TODO: Was ist das?)
 * Modellfehler: Unpassendes Modell gewählt (Falsche Verteilungsannahme?)
-* Schätzfehler: Zu wenige Daten um Parameter korrekt zu bestimmen
+* Schätzfehler: Zu wenige Daten, um Parameter korrekt zu bestimmen
 
 
 #### ME-Kap5_V31.pdf
 
 **Parameterfreie Methoden** heißen "parameterfrei", weil sie keine konkrete
 Wahrscheinlichkeitsverteilung parametrisieren und den Parameter schätzen.
-Die Parameterfreien Methoden können sehr wohl Parameter benutzen. Beispiele
+Die parameterfreien Methoden können sehr wohl Parameter benutzen. Beispiele
 sind:
 
 * [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)
@@ -226,8 +226,8 @@ sind:
 **Spezielle Klassifikatoren**:
 
 * Lineare Diskriminanzfunktionen: Linear bezieht sich hier auf die Kombination
-  der Merkmale. Man kann allerdings Merkmale wählen, die z.B. das quadrat eines
-  gemessenen wertes sind.
+  der Merkmale. Man kann allerdings Merkmale wählen, die z.B. das Quadrat eines
+  gemessenen Wertes sind.
 * Perzeptron
 * Lineare Regression
 * Künstliche Neuronale Netze
@@ -250,8 +250,8 @@ sind:
 **Klassifikatorunabhängige Prinzipien**:
 
 * Generalisierung / Generalisierungsfähigkeit
-* VC-Konfidenz / <a href="https://martin-thoma.com/machine-learning-1-course/#vc-dimension">VC-Dimension</a>
-* Structural Risc Minimization
+* VC-Konfidenz / <a href="../machine-learning-1-course/#vc-dimension">VC-Dimension</a>
+* Structural Risk Minimization
 * [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out
 * Boosting
 
@@ -265,19 +265,19 @@ sind:
 * Wie kann man die Dimension des Merkmalsraumes reduzieren?<br/>
   → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
   (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
-* Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
+* Wie viele Möglichkeiten gibt es, 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
 * Was ist Overfitting?<br/>
-  → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
+  → Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 * Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
   - Unterschiedliche Einheiten (→ Entdimensionalisieren)
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
 * Wie funktioniert MDA?<br/>
   → Sie maximiert <span markdown=0>$J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}$</span>
-  (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
+  (im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
 * Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
   Merkmalsauswahl?<br/>
-  → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale
+  → PCA/MDA sind klassifikatorunabhängig, aber der suboptimale
   Algorithmus benötigt bereits einen Klassifikator.
 * Wie lautet die Fundamentalformel der Bayesschen Klassifikation?<br/>
   → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
@@ -291,7 +291,7 @@ sind:
   → Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und
   radialer Streckung (Skalierung) machen
 * Wie lauten die Prinzipien (A) - (E) der SVMs?
-    - (A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
+    - (A) Lineare Trennung mit maximalem Abstand der Trennebenen zu den
           nächstgelegenen Stichproben (Support Vektoren)
     - (B) Duale Formulierung des linearen Klassifikators.
           (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)
@@ -305,9 +305,9 @@ sind:
           (Kernel-Trick).
     - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
           von Schlupfvariablen (slack variables).
-* Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
+* Wie lautet die Dichtefunktion der [$d$-dimensionalen Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
 * Wie lautet Mercers Theorem? → [wiki](https://de.wikipedia.org/wiki/Satz_von_Mercer)
-* Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) defininiert?
+* Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) definiert?
 
 ## Material und Links
 
@@ -326,20 +326,20 @@ Bonuspunkte.
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 
 ## Termine und Klausurablauf
 
 **Datum**: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)<br/>
-**Ort**: <a href="http://www.kithub.de/map/2287">Gerthsen-Hörsal</a><br/>
+**Ort**: <a href="https://www.kit.edu/campusplan/">Gerthsen-Hörsaal</a><br/>
 **Punkte**: 90<br/>
 **Zeit**: 90 min<br/>
 **Punkteverteilung**: ?<br/>
@@ -352,13 +352,13 @@ Folgende Vorlesungen sind ähnlich:
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Ergebnisse**: Am 30.09.2015 war die (vorläufige) Note im Notenauszug<br/>
-**Einsicht**: Montag 12.10.2015,  9:00-15:00 Uhr im <a href="https://www.kithub.de/map/2577">Geb. 50.21</a>, Raum 015.1<br/>
+**Einsicht**: Montag 12.10.2015,  9:00-15:00 Uhr im <a href="https://www.kit.edu/campusplan/">Geb. 50.21</a>, Raum 015.1<br/>
 **Erlaubte Hilfsmittel**: keine
 
 
 ## Notenverteilung
 
-Wenn ihr mir schreibt was ihr habt, kann ich das updaten:
+Wenn ihr mir schreibt, was ihr habt, kann ich das updaten:
 
 * 1,3: min 1
 * 2,0: min 1

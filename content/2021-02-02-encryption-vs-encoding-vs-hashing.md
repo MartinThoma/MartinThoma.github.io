@@ -17,8 +17,6 @@ This was my Twitter-length explanation. Let’s dive into details!
 
 ## Encoding
 
-![Photo by [Quino Al](https://unsplash.com/@quinoal) on [Unsplash](https://unsplash.com)](../images/2021/02/encryption-vs-encoding-vs-hashing-1.jpg)*Photo by [Quino Al](https://unsplash.com/@quinoal) on [Unsplash](https://unsplash.com)*
-
 Encoding is about data representation. For example, for icons on the web, we prefer not to store image files but have them directly on the web page. This prevents the client from creating many HTTP requests for little data.
 
 But then the binary data of the image has to be converted to text data. A common way to do that is [base64 encoding](https://en.wikipedia.org/wiki/Base64).
@@ -32,8 +30,6 @@ Please note that this does not keep the content secret. Base64 does not use a se
 Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF-8, ASCII, and Latin-1.
 
 ## Encryption
-
-![Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) on [Unsplash](https://unsplash.com)](../images/2021/02/encryption-vs-encoding-vs-hashing-3.jpg)*Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) on [Unsplash](https://unsplash.com)*
 
 Encryption is about keeping secrets. You don’t want to keep the method how you encrypt and decrypt secret. Instead, you should have a secret key that is necessary to decrypt. This is called Kerckhoffs’s principle.
 
@@ -107,8 +103,6 @@ if __name__ == "__main__":
 Modern encryption algorithms are a bit more complicated. The state of the art is AES — the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Notable mentions are Twofish, Serpent, [SM4](https://en.wikipedia.org/wiki/SM4_(cipher)), and [SEED](https://en.wikipedia.org/wiki/SEED).
 
 ## Hashing
-
-![Photo by [Immo Wegmann](https://unsplash.com/@macroman) on [Unsplash](https://unsplash.com)](../images/2021/02/encryption-vs-encoding-vs-hashing-4.jpg)*Photo by [Immo Wegmann](https://unsplash.com/@macroman) on [Unsplash](https://unsplash.com)*
 
 Hashing is about fingerprinting. You want to be able to uniquely identify a list of bytes (e.g. a string or a file), but you don’t want to store it. You either don’t need to be able to go back to the original or you don’t even want it. Just like with a fingerprint: You can take two fingerprints and conclude that they belong to the same person. But given only one fingerprint, you cannot reconstruct that person.
 

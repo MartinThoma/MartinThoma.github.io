@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Python Code Documentation
 slug: python-code-documentation
+lang: en
 author: Martin Thoma
 date: 2015-04-08 19:39
 category: Code
 tags: Python, Documentation
 featured_image: logos/python.png
 ---
-Documentating your code is important when you make non-trivial projects. The
+Documenting your code is important when you make non-trivial projects. The
 standard way to document Python code is with [Sphinx](http://sphinx-doc.org/).
 You write the documentation files with [reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html).
 
@@ -29,8 +29,8 @@ from typing import List
 def preprocessing(self, algorithms: List):
     """Apply preprocessing algorithms.
 
-    :param algorithms: Preprocessing allgorithms which get applied in order.
-    :type algorithms: a list objects
+    :param algorithms: Preprocessing algorithms which get applied in order.
+    :type algorithms: a list of objects
 
     >>> import preprocessing
     >>> a = HandwrittenData(...)
@@ -59,7 +59,7 @@ def preprocessing(self, algorithms: List):
     """Apply preprocessing algorithms.
 
     Args:
-      algorithms (a list objects): Preprocessing allgorithms which get
+      algorithms (a list of objects): Preprocessing algorithms which get
         applied in order.
 
     Examples:
@@ -79,7 +79,7 @@ def preprocessing(self, algorithms: List):
         algorithm(self)
 ```
 
-To get the google way render well in Sphinx, you need [Napoleon](https://pypi.python.org/pypi/sphinxcontrib-napoleon).
+To make the Google way render well in Sphinx, you need [Napoleon](https://pypi.python.org/pypi/sphinxcontrib-napoleon).
 
 
 ## The NumPyDoc Way
@@ -93,8 +93,8 @@ def preprocessing(self, algorithms: List):
 
     Parameters
     ----------
-    algorithms : a list objects
-        Preprocessing allgorithms which get applied in order.
+    algorithms : a list of objects
+        Preprocessing algorithms which get applied in order.
 
     Examples
     --------

@@ -24,6 +24,8 @@ Credential stuffing is a brute-force attack on a services’ user accounts. Not 
 
 ## How does a credential stuffing attack work?
 
+![Leaked credentials are replayed against many services; the login succeeds only where the password was reused](../images/2021/03/credential-stuffing-flow.svg)*Credentials from one breach are replayed everywhere; password reuse is what makes it work. Image by Martin Thoma*
+
 1. The attacker gets a **list of valid credentials**, e.g. (username, password) for millions of people. [There are many leaks](https://haveibeenpwned.com/).
 2. The attacker **tries them** on big services (Gmail, Facebook, Twitter, Banks, Reddit, …)
 

@@ -150,7 +150,6 @@ Python 3.9.1 (default, Jan 12 2021, 16:45:25)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import tempfile; a = tempfile.mkdtemp()
 
-
 $ sudo docker run --rm -i -v=myvol2:/tmp/v busybox find /tmp/v
 /tmp/v
 /tmp/v/tmpbhw8djco

@@ -99,23 +99,23 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
 
 <dl>
     <dt><dfn>Frame Buffer</dfn></dt>
-    <dd>Speichert Bilder zur direkten wiedergabe auf dem Bildschirm.</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Dithering_(Bildbearbeitung)"><dfn>Ditherhing</dfn> (<dfn>Fehlerdiffusion</dfn>)</a></dt>
-    <dd>Ditherhing ist eine Methode zur Illusion einer größeren Farbtiefe.</dd>
+    <dd>Speichert Bilder zur direkten Wiedergabe auf dem Bildschirm.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Dithering_(Bildbearbeitung)"><dfn>Dithering</dfn> (<dfn>Fehlerdiffusion</dfn>)</a></dt>
+    <dd>Dithering ist eine Methode zur Illusion einer größeren Farbtiefe.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Gammakorrektur"><dfn>Gamma-Korrektur</dfn></a></dt>
     <dd>$$I_{\text{out}} = I_{\text{in}}^\gamma$$</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
-    <dd>Eine Abbildung $f$ von Farbwerten auf Helligeit:
+    <dd>Eine Abbildung $f$ von Farbwerten auf Helligkeit:
         $$f: [0, N] \rightarrow [I_{\text{min}}, I_{\text{max}}]$$
         Diese Abbildung ist abhängig vom Display.</dd>
     <dt><dfn>Dynamikumfang</dfn></dt>
-    <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
+    <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegerätes (Bildschirm, Beamer):
         $$R_d = \frac{I_{\text{max}} + k}{I_{\text{min}} + k}$$
 
         $k$ ist dabei das Umgebungslicht, $I_{max} / I_{min}$ sind
         Konstanten des Displays und geben die maximale bzw. minimale Helligkeit
         an.</dd>
-    <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
+    <dt><dfn>Gamut</dfn> (<dfn>Farbgamut</dfn>)</dt>
     <dd>Der Gamut eines Monitors entspricht dem Spektrum der darauf
         darstellbaren Farben.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Farbtemperatur"><dfn>Farbtemperatur</dfn></a></dt>
@@ -123,8 +123,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
         Lichtquelle zu bestimmen.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Schwarzer_K%C3%B6rper"><dfn>Schwarzkörper</dfn></a>, <dfn>Schwarzkörperstrahlung</dfn></dt>
     <dd>Ein Schwarzkörper ist eine idealisierte thermische Strahlungsquelle.
-        Die idealisierung besteht darin, dass der Körper die komplette
-        auftretende Strahlung vollständig absorbiert. Gleichzeitig sendet er
+        Die Idealisierung besteht darin, dass der Körper die komplette
+        auftreffende Strahlung vollständig absorbiert. Gleichzeitig sendet er
         Wärmestrahlung (Schwarzkörperstrahlung) aus, welche nur von seiner
         Temperatur abhängig ist.</dd>
 </dl>
@@ -132,17 +132,17 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
 Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
 <dl>
-    <dt><dfn>Additive Farmbischung</dfn></dt>
+    <dt><dfn>Additive Farbmischung</dfn></dt>
     <dd>Grundfarben: Rot, Grün, Blau<br/>
         Anwendung: Bildschirm</dd>
     <dt><dfn>Subtraktive Farbmischung</dfn></dt>
     <dd>Grundfarben: Cyan, Magenta, Gelb<br/>
         Anwendung: Drucker</dd>
-    <dt><dfn>Graßmansche Gesetze</dfn></dt>
+    <dt><dfn>Graßmannsche Gesetze</dfn></dt>
     <dd>Jeder Farbeindruck kann mit 3 Grundgrößen beschrieben werden.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz"><dfn>Weber-Fechner-Gesetz</dfn></a></dt>
     <dd>Das Weber-Fechner-Gesetz macht eine Aussage über die subjektiv
-        empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
+        empfundene Stärke von Sinneseindrücken in Abhängigkeit von der
         Intensität des Helligkeitsunterschiedes:
 
         $$E = c \cdot \frac{R}{R_0}$$
@@ -153,7 +153,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
 * RGB-Farbraum: Addition der Spektren, wird bei CRT/LCD-Farbmonitoren verwendet.
 * CMY, CMYK: Subtraktive Farbmischung, wird bei Druckern verwendet. K (schwarz) nur aus praktischen Gründen.
-* HSV-Farbraum: Weder Additiv noch subtraktiv, wird bei Benutzerschnittstellen verwendet
+* HSV-Farbraum: Weder additiv noch subtraktiv, wird bei Benutzerschnittstellen verwendet
 * CIE Color Matching Functions
 * XYZ Color Space: Farbraum für Konversion zwischen Farbräumen
 * Chromatizität
@@ -165,16 +165,16 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
 ### Raytracing
 
-Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
+Slide: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
 <dl>
     <dt><dfn>Ray-Tracing</dfn></dt>
-    <dd>Ray-Tracing ist ein Verfahren zum Erzeugen Fotorealistischer Bilder.
+    <dd>Ray-Tracing ist ein Verfahren zum Erzeugen fotorealistischer Bilder.
         Dabei geht man prinzipiell wie folgt vor:
 
         <ol>
             <li><b>Strahlerzeugung</b>: Für jeden Pixel werden Sichtstrahlen erzeugt</li>
-            <li><b>Schnittberechnung</b>: Finde das primitiv (z.B. Dreieck) welches der Strahl schneidet und welches am nächsten zur Kamera ist und vor der Kamera liegt.</li>
+            <li><b>Schnittberechnung</b>: Finde das Primitiv (z.B. Dreieck), welches der Strahl schneidet und welches am nächsten zur Kamera ist und vor der Kamera liegt.</li>
             <li><b>Schattierung</b>: Beleuchtungsberechnung (shading)</li>
         </ol></dd>
     <dt><dfn>Phong-Beleuchtungsmodell</dfn></dt>
@@ -185,27 +185,27 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
             <li>Spekulare Beleuchtung: Materialkoeffizient $k_s$ sowie Phong-Exponent $n$. Unter spekularer Beleuchtung versteht man direkte Spiegelung der Lichtquelle (imperfekte Spiegelung)</li>
         </ul>
 
-        Das Ergibt folgende Formel für die Intensität $I$:
+        Das ergibt folgende Formel für die Intensität $I$:
 
        $$I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}$$
 
-       hierbei ist $I_L$ die Lichtintensität, die Richtung die das Licht nimmt $L$ sowie die Oberflächennormale $N$ und der Lichtreflektionsvektor $R_L$. Der Vektor $R_L$ liegt in der selben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
+       hierbei ist $I_L$ die Lichtintensität, $L$ die Richtung, die das Licht nimmt, sowie $N$ die Oberflächennormale und $R_L$ der Lichtreflexionsvektor. Der Vektor $R_L$ liegt in derselben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
     <dt><dfn>Z-Fighting</dfn></dt>
-    <dd>Polygone, welche in der selben Ebene liegen führen zu einem Flackern
+    <dd>Polygone, welche in derselben Ebene liegen, führen zu einem Flackern,
         welches der beiden Polygone nun angezeigt wird. Dies kann verhindert
         werden, indem eines der Polygone minimal verschoben wird.</dd>
     <dt><dfn>Tessellation</dfn></dt>
     <dd>Parkettierung, also das Füllen einer Fläche mit Primitiven.</dd>
     <dt><dfn>Distributed Ray Tracing</dfn></dt>
-    <dd>Bilder welche mit dem Whitted-Style Ray Tracing Verfahren gerendert
-        wurden sehen zu perfekt aus. Die perfekte Spiegelung und Trasmission,
+    <dd>Bilder, welche mit dem Whitted-Style Ray Tracing Verfahren gerendert
+        wurden, sehen zu perfekt aus. Die perfekte Spiegelung und Transmission,
         die harten Schattenkanten und die unendliche Schärfentiefe kennen wir
         von realen Kameras so nicht.
 
-        Distributed Ray Tracing ist eine alternative zu Whitted-Style Ray
+        Distributed Ray Tracing ist eine Alternative zu Whitted-Style Ray
         Tracing, welche diese Probleme zu lösen versucht. Dabei wird bei jeder
-        Spiegelung nicht ein Schattenstrahl verschickt, sondern viele welche
-        sich um den "Perfekten" Strahl konzentrieren.</dd>
+        Spiegelung nicht ein Schattenstrahl verschickt, sondern viele, welche
+        sich um den "perfekten" Strahl konzentrieren.</dd>
 </dl>
 
 * Nyquist-Shannon-Abtasttheorem
@@ -213,8 +213,8 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Parametrisierte Geraden- und Ebenendarstellung
 * Baryzentrische Koordinaten
 * Strahl-Kugel-Schnitt
-* Spekulare Reflektion
-* Diffuse (Lambertsche) Reflektion
+* Spekulare Reflexion
+* Diffuse (Lambertsche) Reflexion
 * BRDF - Bidirectional Reflectance Distribution Function
 * Phong Beleuchtungsmodell
 * Snellsches Brechungsgesetz
@@ -234,7 +234,7 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
     * Bresenham Algorithmus
 * Rasterisierung von Polygonen
 * Sichtbarkeitsproblem
-    * Maler-Algorithmus (Painters algorithm)
+    * Maler-Algorithmus (Painter's algorithm)
         * Vorgehen: Sortiere Dreiecke von hinten nach vorne und zeichne sie so.
         * Probleme: Abstandsmaß / Zyklen
 
@@ -269,11 +269,11 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
         ergänzt.</dd>
     <dt><dfn>Rotation</dfn></dt>
     <dd>Die Rotation um (0, 0) in homogenen Koordinaten geht wie folgt:
-        $$\begin{pmatrix}\cos \alpha & -\sin \alpha & 0\\ \sin \alpha & \cos \alpha & 0 \\ 0 '& 0 & 1\end{pmatrix}$$
+        $$\begin{pmatrix}\cos \alpha & -\sin \alpha & 0\\ \sin \alpha & \cos \alpha & 0 \\ 0 & 0 & 1\end{pmatrix}$$
     </dd>
     <dt><dfn>Skalierung</dfn></dt>
     <dd>Eine Skalierung in homogenen Koordinaten geht wie folgt:
-        $$\begin{pmatrix}s_x & 0 & 0 & 0\\ 0 & s_y & 0 & 0\\ 0 & 0 & s_x & 0\\ 0 & 0 & 0 & 1\end{pmatrix}$$
+        $$\begin{pmatrix}s_x & 0 & 0 & 0\\ 0 & s_y & 0 & 0\\ 0 & 0 & s_z & 0\\ 0 & 0 & 0 & 1\end{pmatrix}$$
     </dd>
     <dt><dfn>Scherung</dfn></dt>
     <dd>Eine Scherung in homogenen Koordinaten geht wie folgt:
@@ -287,7 +287,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
             <li>Kamerakoordinaten</li>
         </ul>
 
-        Der Ursprung des Welt-Koordiantensystems wird mit 0 bezeichnet.
+        Der Ursprung des Welt-Koordinatensystems wird mit 0 bezeichnet.
         Die Basisvektoren mit $x, y$.
 
         Das Modellkoordinatensystem hat den Ursprung $e$ und die Basisvektoren
@@ -317,14 +317,14 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 
         <ul>
             <li>Helligkeitsänderung</li>
-            <li>Kontraständerung (z.B. unschärfe (blur), schärfen (sharpen))</li>
+            <li>Kontraständerung (z.B. Unschärfe (blur), Schärfen (sharpen))</li>
             <li>Desaturierung</li>
             <li>Kantendetektion</li>
         </ul></dd>
     <dt><dfn>Linearer Filter</dfn></dt>
     <dd>Gewichtete Summe benachbarter Pixel-Werte.
 
-        Siehe <b><a href="https://martin-thoma.com/graphic-filters/">Interaktives Beispiel</a></b></dd>
+        Siehe <b><a href="../graphic-filters/">Interaktives Beispiel</a></b></dd>
     <dt><dfn>Morphologische Filter</dfn></dt>
     <dd>Strukturverändernde Operation (z.B. Dilatation, Erosion, Öffnung, Schließung)</dd>
 </dl>
@@ -340,7 +340,7 @@ Slide: `04_ Texturen.pdf`
 
     <ul>
         <li>Klassische Feinstrukturierung</li>
-        <li>Reflektionseigenschaften</li>
+        <li>Reflexionseigenschaften</li>
         <li>Farbe</li>
         <li>Normalenvektoren (Bump- oder Normal mapping)</li>
         <li>Beleuchtung
@@ -371,7 +371,7 @@ Slide: `04_ Texturen.pdf`
     <dt><dfn>Environment Map</dfn></dt>
     <dd>Eine Environment-Map ist eine Textur zur Darstellung der Umgebung.
 
-        Bei Einvironment-Maps nimmt man an, dass der Betrachter weit genug von
+        Bei Environment-Maps nimmt man an, dass der Betrachter weit genug von
         der Umgebung entfernt ist, sodass die Position keine Rolle spielt und
         ausschließlich die Blickrichtung wichtig ist.
 
@@ -401,39 +401,39 @@ Slide: `04_ Texturen.pdf`
     </dd>
     <dt><dfn>Cube Map</dfn></dt>
     <dd>Um den Hintergrund darzustellen, kann man die Szene in einen von
-        innen texturierten Cubus stecken. Ein Reflektionsrichtung $\mathbf{r} = (r_x, r_y, r_z)$
+        innen texturierten Kubus stecken. Eine Reflexionsrichtung $\mathbf{r} = (r_x, r_y, r_z)$
         bestimmt den Punkt auf dem Mantel des Würfels.
 
         Die betragsmäßig größte Komponente von $\mathbf{r}$ bestimmt, welche
         Würfelfläche (links, rechts, vorne, hinten, oben, unten) genommen wird.
 
-        Abhängig von der orientierung des koordinatensystems in bezug auf die
-        Cube map kann sich dann also folgende Regel ergeben:
+        Abhängig von der Orientierung des Koordinatensystems in Bezug auf die
+        Cube Map kann sich dann also folgende Regel ergeben:
         <ul>
             <li>Wenn $|r_x|$ am größten ist, ist es rechts (&lt; 0) oder links (&gt; 0),</li>
             <li>wenn $|r_y|$ am größten ist, ist es vorne (&lt; 0) oder hinten (&gt; 0)</li>
             <li>wenn $|r_z|$ am größten ist, ist es oben (&lt; 0) oder unten (&gt; 0)</li>
         </ul>
 
-        Die Texturkoordinaten $(s, t)$ werden z.B. für (right) wie folgt erechnet:
+        Die Texturkoordinaten $(s, t)$ werden z.B. für (right) wie folgt errechnet:
 
         $$s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}$$
         </dd>
     <dt><dfn>Mip-Map</dfn> (<dfn>Mip map</dfn>, <dfn>Mipmap</dfn>, <dfn>Auflösungspyramide</dfn>)</dt>
     <dd>Mip steht für lat. <i>multum in parvo</i> (viel in wenig). Eine
         Mip-Map ist eine Vorfilterung von Texturen. Mip-Mapping hilft, wenn man
-        in einem sehr flachem Winkel auf eine Ebene blickt.
+        in einem sehr flachen Winkel auf eine Ebene blickt.
 
 
         In einer Mip-Map wird die Original-Textur gespeichert, dann in der
-        ersten Stufe eine Textur welche in beiden Dimensionen auf die hälfte
+        ersten Stufe eine Textur, welche in beiden Dimensionen auf die Hälfte
         verkleinert wurde (also 1/4 der ursprünglichen Größe).
 
         Es wird diejenige Mip-Map Stufe $n$ gewählt, sodass gilt
 
-        $$\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < Texelgröße(n+1)$$
+        $$\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < \text{Texelgröße}(n+1)$$
 
-        Dann wird eine Trilineare Interpolation der 8 nächsten Texel durchgeführt:
+        Dann wird eine trilineare Interpolation der 8 nächsten Texel durchgeführt:
         <ul>
             <li>Bilinear auf Stufe $n$, bilinear auf Stufe $n+1$</li>
             <li>linear zwischen diesen beiden Farben</li>
@@ -446,8 +446,8 @@ Slide: `04_ Texturen.pdf`
         gleich ist.
 
         Anisotrope Texturfilterungen sind gewünscht, weil sie in die Tiefe
-        schärfe erhalten können, wohingegen isotrope Texturfilterung in die
-        ferne unscharf wirken können. RIPmaps sind anisotrope
+        Schärfe erhalten können, wohingegen isotrope Texturfilterungen in die
+        Ferne unscharf wirken können. RIPmaps sind anisotrope
         Texturfilterungen.</dd>
 </dl>
 
@@ -465,7 +465,7 @@ Slide: `04_ Texturen.pdf`
     Mögliche Lösung: Distributed Raytracing</dd>
     <dt><dfn>Stratified Supersampling</dfn></dt>
     <dd>Strahlen werden durch zufällige Superpixelpositionen geschossen,
-        aber möglichst gleichmäßig um Klumpen zu vermeiden.</dd>
+        aber möglichst gleichmäßig, um Klumpen zu vermeiden.</dd>
 </dl>
 
 * Transformationen
@@ -490,7 +490,7 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         <li>Hüllkörper
         <ul>
             <li>Axis-Aligned Bounding Boxes (AABB)</li>
-            <li>Bounding Volume Hierachies (BVH)</li>
+            <li>Bounding Volume Hierarchies (BVH)</li>
         </ul>
         </li>
         <li>Reguläre Gitter</li>
@@ -504,7 +504,7 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         parallel zu den Achsen des Koordinatensystems stehen. Sie werden als
         Hüllkörper verwendet.
 
-        Alles wichtige zu AABBs kann man in Folie 18 - 29 nachlesen.</dd>
+        Alles Wichtige zu AABBs kann man in Folie 18 - 29 nachlesen.</dd>
     <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
     <dd>Teile den Raum mithilfe von Ebenen in zwei Teile. Die Ebenen dürfen
         beliebig im Raum liegen.
@@ -514,21 +514,27 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
     <dt><a href="https://en.wikipedia.org/wiki/K-d_tree" name="kd-tree"><dfn>kD-Baum</dfn></a></dt>
     <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.
         Der Raum wird also mit achsenparallelen Hyperebenen geteilt; es
-        entsteht ein Binärbaum welcher den Raum partitioniert.</dd>
+        entsteht ein Binärbaum, welcher den Raum partitioniert.</dd>
     <dt><dfn>Surface Area Heuristic</dfn> (<dfn>SAH</dfn>)</dt>
     <dd>Wähle die Split-Ebene so, dass die Kosten der Traversierung minimiert
-        werden.</dd>
-    <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
+        werden.
+
+        Die SAH ist ein Kriterium zum Aufbau von BVHs / kD-Bäumen.
+
+        Im Mittel sollen zufällige Strahlen, die den betrachteten Knoten
+        schneiden, den gleichen Aufwand verursachen, egal welcher Kindknoten
+        traversiert wird.</dd>
+    <dt><dfn>Bounding-Volume-Hierarchies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
-        Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
+        Man hat also komplexe Objekte. Für diese Objekte muss man Schnitttests
         machen. Das bedeutet im einfachsten Fall, dass man für $n$ Dreiecke
-        und einen Strahl genau $n$ Schnittests machen muss.
+        und einen Strahl genau $n$ Schnitttests machen muss.
 
         Interessanterweise dürfen sich Hüllkörper überlappen.
 
         Nun könnte man aber - je nach den Objekten - diese in jeweils zwei
         Quader unterteilen. Wenn der Strahl nur einen Quader schneidet, dann muss
-        man auch nur für die Objekte in diesem Quader Schnittests durchführen.
+        man auch nur für die Objekte in diesem Quader Schnitttests durchführen.
         Innerhalb des Quaders kann man natürlich noch weiter die Objekte in
         Hüllkörper (üblicherweise Quader) unterteilen.
 
@@ -540,19 +546,12 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
             <li>OBB: Oriented Bounding Boxes</li>
             <li>Slabs: Schnitt von Paaren paralleler Halbebenen</li>
         </ul></dd>
-    <dd>Die SAH ist ein Kriterium zum aufbau von BVHs / kD-Bäumen.
-
-        Im Mittel sollen zufällige Strahlen, die den betrachteten Knoten
-        schneiden, den gleichen Aufwand verursachen, egal welcher Kindknoten
-        traversiert wird</dd>
     <dt><dfn>Oktalbäume</dfn> (<a href="https://en.wikipedia.org/wiki/Octree"><dfn>Octree</dfn></a>)</dt>
+    <dd>Ein Octree unterteilt einen Quader in 8 kleinere Quader. Diese können
+        wiederum in 8 kleinere Quader unterteilt werden.</dd>
     <dt><dfn>Gitter</dfn></dt>
     <dd>Schnitttests können beschleunigt werden, indem über den Raum ein
-        Gitter gelegt wird. Der Raum wird also in kleinere Teile zerlegt.
-
-        </dd>
-    <dd>Ein Octree unterteilt einen Quader in 8 kleiner Quader. Diese können
-        wiederum in 8 kleinere Quader unterteilt werden.</dd>
+        Gitter gelegt wird. Der Raum wird also in kleinere Teile zerlegt.</dd>
     <dt><dfn>Mailboxing</dfn></dt>
     <dd>Speichern des Ergebnisses eines Schnitttests mit einem Objekt, um
         erneute Schnitttests zu verhindern.</dd>
@@ -566,7 +565,7 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
 ### Rasterisierung, Clipping und Projektionstransformationen
 
-Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
+Slide: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 
 <dl>
     <dt><dfn>Tiefenpuffer</dfn> (<dfn>Z-Buffer</dfn>)</dt>
@@ -576,17 +575,17 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dd>Finden des Bildteiles, der für einen gegebenen Pixel am nächsten vor
         der Kamera ist.</dd>
     <dt><dfn>Clipping</dfn></dt>
-    <dd>Abschneiden von Linien und Poligonen, die außerhalb des sichtbaren
-        Bereichs liegen. Dies ist wichtig für die behandlung problematischer
+    <dd>Abschneiden von Linien und Polygonen, die außerhalb des sichtbaren
+        Bereichs liegen. Dies ist wichtig für die Behandlung problematischer
         Fälle bei Projektionen.</dd>
-    <dt><dfn>Algorithmus von Sutherland-Hodgeman</dfn></dt>
+    <dt><dfn>Algorithmus von Sutherland-Hodgman</dfn></dt>
     <dd>Dient dem Clipping von Polygonen.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Frustum"><dfn>Frustum</dfn></a></dt>
     <dd>Ein Frustum ist ein Kegelstumpf, wobei in der Computergrafik eher ein
         Pyramidenstumpf gemeint ist. Das <i>View Frustum</i> ist der Bereich
         der Szene, der sichtbar ist.</dd>
     <dt><dfn>Outcodes</dfn></dt>
-    <dd>Outcodes sind ein 4-Bit binärcode für die Bereiche um die Zeichenebene:
+    <dd>Outcodes sind ein 4-Bit-Binärcode für die Bereiche um die Zeichenebene:
         $$(x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})$$
     </dd>
 </dl>
@@ -605,9 +604,9 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dd>Der Cohen-Sutherland Algorithmus dient dem Clipping von Linien mit
         einem Rechteck.
 
-        Man unterteilt die Ebene, in der das Rechteck liegt in 9 Bereiche:
+        Man unterteilt die Ebene, in der das Rechteck liegt, in 9 Bereiche:
         (links oben, links mitte, links unten, mitte oben, mitte mitte,...).
-        Die Punkte bekommen nun jeweils einen "Outcode" der ihre Position
+        Die Punkte bekommen nun jeweils einen "Outcode", der ihre Position
         bzgl. dieser Bereiche bestimmt:
 
         $$\text{Outcode} = (x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})$$
@@ -629,7 +628,7 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
         Rechtecks.
 
         Ich habe den Algorithmus in <a href="https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L146">Python-Pseudocode</a> geschrieben.</dd>
-    <dt><dfn>Sutherland-Hodgeman Polygon Clipping</dfn></dt>
+    <dt><dfn>Sutherland-Hodgman Polygon Clipping</dfn></dt>
     <dd>Clipping wird Kante für Kante durchgeführt.</dd>
 </dl>
 
@@ -669,12 +668,12 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
     <dd>Berechne Parameter wie z.B. Farbe an den Eckpunkten; interpoliere
         innerhalb des Polygons.</dd>
     <dt><dfn><a href="https://de.wikipedia.org/wiki/Phong_Shading">Phong Shading</a></dfn></dt>
-    <dd>Beleuchtungsberechnung mit interpolierter Normalen.
+    <dd>Beleuchtungsberechnung mit interpolierter Normale.
 
         <span style="color: red; font-weight: bold;">Phong-Shading hat mit dem Phong-Beleuchtungsmodell inhaltlich nichts
         zu tun.</span></dd>
     <dt><dfn>Backface Culling</dfn></dt>
-    <dd>Dreiecke, auf deren Rückseite man blickt werden üblicherweise nicht
+    <dd>Dreiecke, auf deren Rückseite man blickt, werden üblicherweise nicht
         gezeichnet. (<code>glEnable(GL_CULL_FACE); glCullFace(GL_BACK);</code>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Stencilbuffer"><dfn>Stencil-Puffer</dfn></a></dt>
     <dd>Ein Stencil-Puffer ist eine Stanzmaske, welche für jeden Pixel im
@@ -699,7 +698,7 @@ OpenGL-Funktionen:
 </ul>
 
 
-Keyword in Shadern:
+Keywords in Shadern:
 
 <ul>
     <li><code>in</code>: Input-Variable</li>
@@ -738,7 +737,7 @@ Siehe auch:
         <li>Objekt-Koordinaten</li>
         <li>Welt-Koordinaten</li>
         <li>Kamera-Koordinaten</li>
-        <li>Clip Space Koordianten</li>
+        <li>Clip Space Koordinaten</li>
         <li>Normalisierte Geräte-Koordinaten</li>
         <li>Bildschirm-Koordinaten</li>
     </ul></dd>
@@ -847,7 +846,7 @@ Slides: `08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf`
 
 <dl>
     <dt><dfn>Turbulenz-Texturen</dfn></dt>
-    <dd>z.B. Diamon Square / Midpoint Displacement Algorithmus</dd>
+    <dd>z.B. Diamond Square / Midpoint Displacement Algorithmus</dd>
 </dl>
 
 * Prozedurale Shader
@@ -865,7 +864,7 @@ Slides: `09_ Kurven und Flachen.pdf`
     <dt><dfn>Kubische Bézierkurven</dfn></dt>
     <dd>Kubische Bézierkurven sind von der Form
         $$f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3$$
-        wobei $b_0, b_1, b_2 \in \mathbb{R}^n$ und $u \in [0, 1]$ gilt.
+        wobei $b_0, b_1, b_2, b_3 \in \mathbb{R}^n$ und $u \in [0, 1]$ gilt.
 
         Diese Faktoren (also $(1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3$)
         werden auch Bernstein-Polynome genannt. Genau wie die Monome sind sie
@@ -899,8 +898,8 @@ Slides: `09_ Kurven und Flachen.pdf`
 
 #### Blatt 1
 
-Das Framework bekommt man ohne VM unter Ubuntu 15.04 nach der Installtion
-folgender Pakete (vielleicht) zum laufen:
+Das Framework bekommt man ohne VM unter Ubuntu 15.04 nach der Installation
+folgender Pakete (vielleicht) zum Laufen:
 
 ```bash
 $ sudo apt-get install cmake xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev libglfw3
@@ -958,7 +957,7 @@ Außerdem:
 $ pacman -Syy
 ```
 
-ausführen. Dann bekommt man auch nicht mehr 404er wenn man mit
+ausführen. Dann bekommt man auch nicht mehr 404er, wenn man mit
 
 ```shell
 $ pacman -S vim
@@ -969,7 +968,7 @@ vim installieren will.
 In der VM sollte unter Settings → System → Acceleration die Option "Enable
 VT-x/AMD-V" aktiviert sein. Zusätzlich sollte im BIOS des Host-Systems (also
 von eurem Rechner) die "Intel Virtualization Technology" aktiviert sein.
-(Man Laptop hat das nicht - bei mir funktionieren die Beispiele in der VM
+(Mein Laptop hat das nicht - bei mir funktionieren die Beispiele in der VM
 aber auch nicht :-/)
 
 
@@ -989,7 +988,7 @@ Siehe auch
 
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
-* Martin Thoma: [**Interactive Graphic Filters example**](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
+* Martin Thoma: [**Interactive Graphic Filters example**](../html5/graphic-filters/graphic-filters.htm)
 * [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
 * Martin Thoma: [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
 * Martin Thoma: [**alpha-cliping pythonic pseudocode**](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L149)
@@ -1029,9 +1028,9 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 
 ## Termine und Klausurablauf
 
-**Datum**: Mittwoch, der 09.03.2015 von 14:00 Uhr (Quelle: [informatik.kit.edu](http://www.informatik.kit.edu/klausuren.php?kid=546.35))<br/>
+**Datum**: Mittwoch, der 09.03.2016 von 14:00 Uhr (Quelle: [informatik.kit.edu](http://www.informatik.kit.edu/klausuren.php?kid=546.35))<br/>
 
-* 08.02.2016: Die Klausur-Anmeldung wird freigeschalten
+* 08.02.2016: Die Klausur-Anmeldung wird freigeschaltet
 * 04.03.2016: Anmeldeschluss
 * 06.03.2016: Abmeldeschluss
 
@@ -1039,9 +1038,9 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Ort**:<br/>
 
 <ul>
-    <li>A... - Kon...: <a href="https://www.kithub.de/map/2086">Benz-Hörsaal Geb. 10.21</a></li>
-    <li>Kop... - Stumpf...: <a href="https://www.kithub.de/map/2086">Daimler-Hörsaal Geb. 10.21</a></li>
-    <li>Stumpp... - Z...: <a href="https://www.kithub.de/map/2310">Redtenbacher Hörsaal Geb. 10.91, Raum 050</a></li>
+    <li>A... - Kon...: <a href="https://www.kit.edu/campusplan/">Benz-Hörsaal Geb. 10.21</a></li>
+    <li>Kop... - Stumpf...: <a href="https://www.kit.edu/campusplan/">Daimler-Hörsaal Geb. 10.21</a></li>
+    <li>Stumpp... - Z...: <a href="https://www.kit.edu/campusplan/">Redtenbacher Hörsaal Geb. 10.91, Raum 050</a></li>
 </ul>
 
 **Punkte**: 120<br/>

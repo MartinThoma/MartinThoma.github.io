@@ -14,10 +14,7 @@ Static code analysis looks at the code without executing it. It is usually extre
 
 In this article, you will learn how to perform various types of static code analysis in Python. While the article focuses on Python, the types of analysis can be done in any programming language.
 
-
 ## Code Complexity
-
-![Photo by [John Barkiple](https://unsplash.com/@barkiple) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-1.jpg)*Photo by [John Barkiple](https://unsplash.com/@barkiple) on [Unsplash](https://unsplash.com)*
 
 One way to measure code complexity is the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity), also called McCabe complexity as defined in [A Complexity Measure](https://books.google.de/books?id=vtNWAAAAMAAJ&pg=PA3&redir_esc=y):
 
@@ -53,8 +50,6 @@ Besides radon, there are various other packages and Flake8 plugins:
 
 ## Style Guides
 
-![Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-2.jpg)*Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace) on [Unsplash](https://unsplash.com)*
-
 You might have heard the words “pythonic code”. It means to not only write correct Python code but also use the language's features as they are intended to be used ([source](https://stackoverflow.com/a/25011492/562769)). It is for sure an opinionated term, but there are a lot of plugins that show you what a large part of the community considers to be pythonic.
 
 Writing code in a similar style to other Python projects is valuable as people will have an easier time reading the code. This is important as we read software more often than we write it ([source](https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is)).
@@ -74,7 +69,7 @@ For pure code formatting, you should use an autoformatter. I grew to like [black
 
 ## Docstrings
 
-![Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-3.jpg)*Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97) on [Unsplash](https://unsplash.com)*
+Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation.
 
 For docstrings, there is [PEP-257](https://www.python.org/dev/peps/pep-0257/). All of those rules are widely accepted in the community, but they still allow a wide variety of docstrings. There are three commonly used styles:
 
@@ -196,8 +191,6 @@ An alternative to parts of Flake8 is [prospector](https://pypi.org/project/prosp
 
 ## Flake8: Security and Bugs
 
-![Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-4.jpg)*Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy) on [Unsplash](https://unsplash.com)*
-
 * [flake8-bandit](https://pypi.org/project/flake8-bandit/): Security Testing
 * [flake8-bugbear](https://pypi.org/project/flake8-bugbear/): finding likely bugs and design problems in your program — usually it’s silent, but when it’s not you should have a look 🐻
 * [flake8-requests](https://pypi.org/project/flake8-requests/): checks usage of the requests library
@@ -210,8 +203,6 @@ It has happened to me quite a few times: I’ve added some code while developing
 
 ## Let Dead Code Die
 
-![Photo by [Kenny Orr](https://unsplash.com/@greyharpoon) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-5.jpg)*Photo by [Kenny Orr](https://unsplash.com/@greyharpoon) on [Unsplash](https://unsplash.com)*
-
 Who hasn’t done it: You removed a functionality, but the code could be handy. So you comment it out. Or you add an `if False` block around it. Sometimes more sophisticated by adding a configuration option you don’t need.
 
 The clean solution is to have a single, clear commit that removes that feature. Maybe add a git tag so that you can find it later if you want to add it again.
@@ -222,8 +213,6 @@ And then there is code which is dead, but you forgot about it. Luckily, you can 
 * [vulture](https://pypi.org/project/vulture/): Finds unused code in Python programs
 
 ## Flake8: Nudging Yourself to use Good Style
-
-![Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-6.jpg)*Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle) on [Unsplash](https://unsplash.com)*
 
 Some plugins helped me to learn something about Python. For example, the following helped me to get rid of small little bugs and inconsistencies:
 
@@ -267,7 +256,7 @@ You can integrate type checking (e.g. via mypy) into your editor, but the type a
 
 ## Package Structure
 
-![Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart) on [Unsplash](https://unsplash.com)](../images/2020/08/static-code-analysis-9.jpg)*Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart) on [Unsplash](https://unsplash.com)*
+Check that your package looks fine before shipping it.
 
 [pyroma](https://github.com/regebro/pyroma) rates how well a Python project complies with the best practices of the Python packaging ecosystem.
 

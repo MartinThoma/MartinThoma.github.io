@@ -15,7 +15,7 @@ weather model: Either it is a rainy day (R) or a sunny day (S). On sunny days
 you have a probability of 0.8 that the next day will be sunny, too. On rainy
 days you have a probability of 0.6 that the next day will be rainy, too.
 As you have only two possible weather conditions, the probability that it
-changes from sunny do rainy is 0.2 and vice versa it is 0.4.
+changes from sunny to rainy is 0.2 and vice versa it is 0.4.
 
 You can visualize this with a graph like this:
 
@@ -24,8 +24,8 @@ You can visualize this with a graph like this:
             <figcaption class="text-center">Simple Markov chain weather model</figcaption>
         </figure>
 
-I am taking a course about markov chains this semester. Today, we've learned
-a bit how to use R (a programming language) to do very basic tasks.
+I am taking a course about Markov chains this semester. Today, we've learned
+a bit about how to use R (a programming language) to do very basic tasks.
 
 
 ## R vs Python
@@ -35,7 +35,7 @@ basic tasks. As an example, I'll use reproduction. The states are
 $S_1 = \{AA, AA\}$, $S_2 = \{AA, Aa\}$, $S_3 = \{AA, aa\}$, $S_4=\{Aa,Aa\}$,
 $S_5 = \{Aa, aa\}$ and $S_6 = \{aa, aa\}$.
 
-The idea is that each pair of parents give birth to two children. The parents
+The idea is that each pair of parents gives birth to two children. The parents
 $S_2 = \{AA, Aa\}$ can give birth to \{\{AA, AA\}, \{AA, Aa\}, \{Aa, Aa\}\}.
 This results in the following state transition matrix.
 
@@ -46,7 +46,7 @@ $$\begin{pmatrix}1 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1/4 & 1/2 & 1/4\\
 0 & 0 & 0 & 0 & 0 & 1\end{pmatrix}$$
 
-The rows mean from which state you start, the colums are the states you can get
+The rows mean from which state you start, the columns are the states you can get
 to.
 
 Now, how would you define this matrix with R?
@@ -208,11 +208,11 @@ treehmm                   - Variational Inference for tree-structured Hidden-Mar
 PyMarkov                  - Markov Chains made easy
 ```
 
-However, most of them are for hidden markov model training / evaluation.
-There seems to be no package which can visualize markov chains just by taking
+However, most of them are for hidden Markov model training / evaluation.
+There seems to be no package which can visualize Markov chains just by taking
 the state transition matrix.
 
-There seems also not to be any package which makes it easy to classify states
+There also seems to be no package which makes it easy to classify states
 as transient / recurrent, get the absorption time, ...
 
 If somebody is interested in that, we could make a little project for it ☺
@@ -221,7 +221,7 @@ If somebody is interested in that, we could make a little project for it ☺
 ### PyMarkovChain
 
 Source is on [github.com/TehMillhouse/PyMarkovChain](https://github.com/TehMillhouse/PyMarkovChain).
-It is less than 150 lines of code and probably no functionality.
+It is less than 150 lines of code and probably has no functionality.
 
 I asked the author to remove the package from PyPI (see [issue #13](https://github.com/TehMillhouse/PyMarkovChain/issues/13)).
 
@@ -248,7 +248,7 @@ See [PyPI](https://pypi.python.org/pypi/PyMarkov).
 ### Hidden Markov Models
 
 The following might be interesting, but I didn't take a close look at them
-because I was looking for "normal" markov models:
+because I was looking for "normal" Markov models:
 
 * hmmus
 * hmmlearn
@@ -256,4 +256,4 @@ because I was looking for "normal" markov models:
 * treehmm
 
 There are also quite a few other modules which seem to generate data with
-markov chains.
+Markov chains.

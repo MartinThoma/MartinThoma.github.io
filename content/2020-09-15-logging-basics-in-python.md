@@ -136,8 +136,6 @@ stdout_handler.addFilter(OnWeekendOnlyErrorsFilter())
 logger.addHandler(stdout_handler)
 ```
 
-![Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision) on [Unsplash](https://unsplash.com)](../images/2020/09/logging-basics-in-python-4.jpg)*Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision) on [Unsplash](https://unsplash.com)*
-
 ## Logging vs print vs exception
 
 I’ve been very confused about when I should simply print out information when I should log it, or when I should throw an exception.
@@ -145,8 +143,6 @@ I’ve been very confused about when I should simply print out information when 
 > You throw an exception in a library function so that the user of that function can catch the exception and show the end-user a meaningful error message. The end-user should never see a traceback.
 
 **Logging is meant for other systems or developers** who try to understand what happened to a system, whereas **print is for the user**. The confusing part is that log messages go to the standard error by default. You can easily do the same with print. I’ve used logging in the past to give the user feedback about what is currently happening, simply because logging had an easy way to include timestamps.
-
-![Photo by [Esteban Lopez](https://unsplash.com/@exxteban) on [Unsplash](https://unsplash.com)](../images/2020/09/logging-basics-in-python-5.jpg)*Photo by [Esteban Lopez](https://unsplash.com/@exxteban) on [Unsplash](https://unsplash.com)*
 
 ## warnings.warn vs logging.warning
 
@@ -156,8 +152,6 @@ According to [the official docs](https://docs.python.org/3/howto/logging.html#wh
 * [logging.warning()](https://docs.python.org/3/library/logging.html#logging.warning) if there is nothing the client application can do about the situation, but the event should still be noted
 
 A typical use case for warnings is [DeprecationWarning](https://docs.python.org/3/library/exceptions.html#DeprecationWarning) with which a library can tell its users to remove a certain type of usage. Or SciPy warning you that no BLAS library was found.
-
-![Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck) on [Unsplash](https://unsplash.com)](../images/2020/09/logging-basics-in-python-6.jpg)*Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck) on [Unsplash](https://unsplash.com)*
 
 ## What should I log?
 
@@ -170,8 +164,6 @@ It’s hard to find the right balance. Too many log messages make it hard to fin
 ## Best practices
 
 It’s a common practice for applications to create a log.py or a logger.py file in which the logger is initialized and log handlers and formatters are added. [OpenShot](https://github.com/OpenShot/openshot-qt) is doing it.
-
-![Photo by [Kristina Flour](https://unsplash.com/@tinaflour) on [Unsplash](https://unsplash.com)](../images/2020/09/logging-basics-in-python-7.jpg)*Photo by [Kristina Flour](https://unsplash.com/@tinaflour) on [Unsplash](https://unsplash.com)*
 
 ## Silencing loggers
 

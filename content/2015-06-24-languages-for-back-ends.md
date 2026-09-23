@@ -26,17 +26,17 @@ with web projects is very limited, I want to share a few thoughts.
 ## Definitions: Back End and Security
 
 Just for clarification: I am only talking about the back end. A back end is the
-data access layer which manages requests comming to the server. It needs to
-server **many requests** (&gt; 100 requests/second) **fast** (&lt; 300 ms in
+data access layer which manages requests coming to the server. It needs to
+serve **many requests** (&gt; 100 requests/second) **fast** (&lt; 300 ms on
 average). It should not execute computationally heavy jobs which can be
 pre-computed or do not need to be displayed instantly to the client. This can
 be done by another system which does not need to be programmed in the same
-language. The back end does also not deal with presentation to the user. This
+language. The back end also does not deal with presentation to the user. This
 is what the front end does. However, you should have more than a good idea in
 which form the front end gets the data. The cleanest approach I've seen so far
 is a pure RESTful API for all interactions between front end and back end.
 
-The backend language should also make it easy to validate / sanitize input
+The back end language should also make it easy to validate / sanitize input
 data, connect with databases, store/get stuff on/from the file system.
 
 In the following, I will write that some languages are "secure" or "not
@@ -64,9 +64,9 @@ are:
 
 There are also some errors which can be detected at runtime. The handling of
 those runtime errors differs from language to language. For example, C and C++
-fails silently (e.g. [this question](http://stackoverflow.com/q/671703/562769)).
+fail silently (e.g. [this question](http://stackoverflow.com/q/671703/562769)).
 This is bad. For example, there are some silent out-of-bounds errors in C / C++
-where Rust would fail loud (I think Heartbleed is one example; see
+where Rust would fail loudly (I think Heartbleed is one example; see
 [Would Rust have prevented Heartbleed? Another look](http://tonyarcieri.com/would-rust-have-prevented-heartbleed-another-look) if you're interested in that specific example).
 
 Of course, all of those problems can be detected with good testing. But the
@@ -85,7 +85,7 @@ case?
     * Java is taught at many universities and many people know at least a
       little bit of Java. So companies don't have problems finding developers.
       At least that might be the impression of people who don't realize that
-      there is a big differencee between people saying they know Java and
+      there is a big difference between people saying they know Java and
       developers who can actually work with it.
     * I guess the Java ecosystem is pretty mature:
         * [eclipse](http://en.wikipedia.org/wiki/Eclipse_%28software%29),
@@ -121,7 +121,7 @@ case?
 
 That was what we have on the positive side. What is not so good about Java?
 
-* VERY clumsy syntax. This is more than just a inconvenience. You have to type
+* VERY clumsy syntax. This is more than just an inconvenience. You have to type
   a lot to get things done which makes you slow. Of course, you can (and need
   to) use autocompletion, but it is still a lot to read. That makes maintaining
   the code a mess.
@@ -131,7 +131,7 @@ That was what we have on the positive side. What is not so good about Java?
 * A bit more secure than C/C++ as you cannot access out-of-bound arrays, you
   don't have pointers. So buffer overflows are almost impossible in Java (see [SO](http://stackoverflow.com/a/479738/562769) for more details). However, you buy this security with much
   less easy syntax and you don't get as much security as would be possible with
-  just a bit more effort. See rust for more details.
+  just a bit more effort. See Rust for more details.
 * Speed and memory usage: Again, Java might be better in speed than many other
   languages, but not as good as some others are. And Java seems to need A LOT
   of memory. However, I am not too sure if that is really a problem.
@@ -149,8 +149,8 @@ See also:
 ## JavaScript: Node.js
 
 [Node.js](http://en.wikipedia.org/wiki/Node.js) is a runtime environment which
-was initially released in 2009 and became quite popular since then. Node.js is
-asynchronous, event-driven and scalable. Node.js applications are written in
+was initially released in 2009 and has become quite popular since then. Node.js
+is asynchronous, event-driven and scalable. Node.js applications are written in
 JavaScript and hence have all the advantages of JavaScript:
 
 * They profit from heavy development in JavaScript engines / JIT compilers like
@@ -172,8 +172,8 @@ JavaScript and hence have all the advantages of JavaScript:
 What is still to say?
 
 * Node is FAST and scalable! (see [Performance Comparison Between Node.js and Java EE](http://java.dzone.com/articles/performance-comparison-between))
-* JavaScript is very insecure. Even simple syntax error will only get revealed
-  when they are actually executed. So Unit testing is very important.
+* JavaScript is very insecure. Even simple syntax errors will only get revealed
+  when they are actually executed. So unit testing is very important.
 * Node.js is used by LinkedIn, Yahoo!, Uber, PayPal ([source](https://nodejs.org/industry/))
 * There are quite a few people moving from Node.js to Go ([1](http://thenewstack.io/from-node-js-to-go-why-one-startup-made-the-switch/), [2](http://bowery.io/posts/Nodejs-to-Golang-Bowery/), [3](http://zef.me/blog/6191/the-march-towards-go), [4](https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b))
 
@@ -210,8 +210,8 @@ See also:
 ## C&#35;
 
 [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) is a
-compiled, statically typed language (with dynamic features, see [Understanding the Dynamic Keyword in C# 4](https://visualstudiomagazine.com/articles/2011/02/01/understanding-the-dynamic-keyword-in-c4.aspx)) developed by Microsoft. It was publically
-announced in 2000. The initial release of its web appliction framework
+compiled, statically typed language (with dynamic features, see [Understanding the Dynamic Keyword in C# 4](https://visualstudiomagazine.com/articles/2011/02/01/understanding-the-dynamic-keyword-in-c4.aspx)) developed by Microsoft. It was publicly
+announced in 2000. The initial release of its web application framework
 [ASP.NET](https://en.wikipedia.org/wiki/ASP.NET) was in 2002.
 
 The ecosystem seems to include:
@@ -226,8 +226,8 @@ The ecosystem seems to include:
 But I don't know enough about C&#35; / ASP.NET to write something meaningful
 about it.
 
-Coding Horror described why they use ASP.NET for StackOverflow and why he
-doesn't recommend it for OpenSource projects
+Coding Horror described why they use ASP.NET for StackOverflow and why they
+don't recommend it for open source projects
 ([source](http://blog.codinghorror.com/why-ruby/)). StackExchange also
 describes what they use
 ([1](http://blog.stackoverflow.com/2008/09/what-was-stack-overflow-built-with/),
@@ -242,7 +242,7 @@ This seems to change. Microsoft moved some important parts of their stack to
 GitHub (see [dotnet.github.io](http://dotnet.github.io/)). Most important seems
 to be that the compiler Roslyn is licensed under an Apache License. But there
 is also ASP.NET, the Entity Framework, and the .NET runtime. The
-[Visual Studio Community Edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) is not available for free (but only for Windows).
+[Visual Studio Community Edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) is available for free (but only for Windows).
 
 
 ## Python
@@ -252,9 +252,9 @@ the oldest programming languages which are still in use. It first appeared in
 1991. Python is dynamically typed, interpreted, object-oriented and includes
 functional programming features.
 
-Although I use Python for many projects, I didn't use it by now for a web
-project. So I might not know the important tools / frameworks. Please keep that
-in mind.
+Although I use Python for many projects, I haven't used it for a web
+project yet. So I might not know the important tools / frameworks. Please keep
+that in mind.
 
 * Ecosystem:
     * [pypi.python.org](https://pypi.python.org/pypi) and `pip`: Package
@@ -281,7 +281,7 @@ in mind.
     * Bitbucket, The Onion ([source](http://codecondo.com/popular-websites-django/))
 
 I think one of the main advantages of Python is that it is really easy to write
-code which is easy to read (because of docstrings, Pythons weird intendation
+code which is easy to read (because of docstrings, Python's weird indentation
 semantics and very nice syntax) and quite hard to write unreadable code. I am
 sure I have a biased view regarding Python, but I am also sure a lot of people
 share this subjective impression.
@@ -290,20 +290,20 @@ share this subjective impression.
 ## PHP
 
 [PHP](https://en.wikipedia.org/wiki/PHP) is a server-side scripting language
-which appeared first in 1995. It is dynamically typed.
+which first appeared in 1995. It is dynamically typed.
 
-* [Language inconsistencies](//martin-thoma.com/php-a-strange-language/)
+* [Language inconsistencies](../php-a-strange-language/)
   are really bad with PHP - see also
   [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
 * The ecosystem is ok:
-    * [PHPCI](https://www.phptesting.org/) for continuus integration.
+    * [PHPCI](https://www.phptesting.org/) for continuous integration.
     * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Symfony](https://en.wikipedia.org/wiki/Symfony)
-    * Smaller Frameworks like [CakePHP](http://cakephp.org/) and [Code Igniter](http://www.codeigniter.com/)
+    * Smaller frameworks like [CakePHP](http://cakephp.org/) and [Code Igniter](http://www.codeigniter.com/)
     * [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
     * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
     * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages
-    * [cruisecontrol](http://cruisecontrol.sourceforge.net/) for Continuus
-      Integration
+    * [cruisecontrol](http://cruisecontrol.sourceforge.net/) for continuous
+      integration
 
 A big advantage of PHP is that it is easy to learn. You can run PHP everywhere
 and hosting is cheap. Wikipedia makes use of PHP, so it is obviously possible
@@ -334,7 +334,8 @@ See also:
 
 ## Rust
 
-Rust is a very safe language, but seems not to be ready for productive usage.
+Rust is a very safe language, but it does not seem to be ready for production
+use.
 
 > I am a big fan of Rust, but as it aims to be a better C++, it is probably a
 > better fit for OS development, game engines, embedded systems, databases,
@@ -378,7 +379,7 @@ Thinking about it that carefully, I see three languages which seem to be
 suitable for back ends for me:
 
 * Go: Fast and compiled
-* node.js: Good scalability
+* Node.js: Good scalability
 * Python: It is the language I know best and of which I like the syntax best.
   Besides that, it has a very nice and clear syntax, good community-developed
   coding style standards and is very easy to read and well-documented.
@@ -387,19 +388,20 @@ Not suitable seem to be:
 
 * PHP: Because of the language inconsistencies which seem to make it pretty
   hard to make a reliable back end
-* C#: The technology stack is too Microsoft centered.
-* Java: Too clumsy syntax, too hard to get it work.
+* C#: The technology stack is too Microsoft-centered.
+* Java: Too clumsy syntax, too hard to get it to work.
 
 The other programming languages could be very good choices. I simply don't know
-it. I am very curious if rust will be used for back ends. Hack is very young,
+them. I am very curious if Rust will be used for back ends. Hack is very young,
 let's see if it will spread in a few years.
 
 
 ## Credits
 As I don't have much experience with web development, I asked a few friends to
-have a look at the different parts of the article. They looked especially at
-plain wrong statements, if I named "all" the important frameworks / tools. They
-might not completely agree with the comparison to other language (after all, I
+have a look at the different parts of the article. They looked especially for
+plain wrong statements and for whether I named "all" the important frameworks /
+tools. They
+might not completely agree with the comparison to other languages (after all, I
 wrote the article), but they helped me a lot to get things not too wrong:
 
 * [Sören Liebich](https://www.linkedin.com/pub/s%C3%B6ren-liebich/31/b2a/252)

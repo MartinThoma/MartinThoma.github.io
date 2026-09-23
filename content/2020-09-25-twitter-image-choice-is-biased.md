@@ -10,9 +10,10 @@ tags: Technology, Machine Learning, AI
 featured_image: logos/star.png
 medium_url: https://towardsdatascience.com/how-twitters-image-choice-is-biased-8d3f0ba63379
 ---
-![Photo by [Ravi Sharma](https://unsplash.com/@ravinepz) on [Unsplash](https://unsplash.com)](../images/2020/09/twitter-image-choice-is-biased-1.jpg)*Photo by [Ravi Sharma](https://unsplash.com/@ravinepz) on [Unsplash](https://unsplash.com)*
 
 Twitter shows preview images of shared images. If the aspect ratio is not the wanted one, the image needs to be cropped for the preview.
+
+![A tall image with two people; a saliency model picks one crop, so the preview shows only one of them](../images/2020/09/twitter-preview-crop.svg)*A preview cannot show everything, so a model decides what gets left out. Image by Martin Thoma*
 
 The way the cropping is done is supposedly not random. People seem to think that it is “smart” in the sense that it chooses an interesting or reasonable part of the image. Maybe a crop is chosen that maximizes clicks.
 

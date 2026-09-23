@@ -11,10 +11,6 @@ featured_image: logos/star.png
 subtitle: What is the difference and why does it matter?
 medium_url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/synchronous-asynchronous-concurrent-parallel-1.jpg"><img src="../images/2021/05/synchronous-asynchronous-concurrent-parallel-1.jpg" alt="Photo by Edurne Chopeitia on Unsplash" style="width: 512px;"/></a>
-    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@edurnetx">Edurne Chopeitia</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
-</figure>
 
 We developers like to throw around terms that feel natural to us, but are
 technical terms that most non-developers don’t use in the same way. This

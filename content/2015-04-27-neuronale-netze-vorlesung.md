@@ -28,7 +28,7 @@ featured_image: logos/klausur.png
 </tr>
 <tr>
     <td>21.04.2015</td>
-    <td>LVQ and related Techiques</td>
+    <td>LVQ and related Techniques</td>
     <td>k-Means, OLVQ1, kompetitives Lernen, Mode Seeker, PCA</td>
 </tr>
 <tr>
@@ -119,7 +119,7 @@ $$\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.$$</dd>
       $f\colon\mathbb{R}\to\mathbb{R}$, gegeben durch<br/>
       $f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$<br/>
       heißt $\mathcal N\left(\mu, \sigma^2\right)$-verteilt, normalverteilt
-      mit den Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
+      mit dem Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung"><dfn>Multivariate Normalverteilung</dfn></a></dt>
   <dd>Eine $p$-dimensionale reelle Zufallsvariable $X$ ist normalverteilt
       mit Erwartungswertvektor $\mu$ und  (positiv definiter) Kovarianzmatrix
@@ -129,11 +129,11 @@ besitzt. Man schreibt
 $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
   <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
   <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
-      ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
+      ausgeht, heißt <i>Gauß'scher Klassifizierer</i>.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis" name="pca"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
   <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
       Dimensionalitätsreduktion von ungelabelten Daten im $\mathbb{R}^n$.
-      Sie projeziert die Daten auf diejenige Hyperebene im
+      Sie projiziert die Daten auf diejenige Hyperebene im
       $\mathbb{R}^d$, die den durch die Projektion stattfindenden
       Datenverlust minimal hält.
       Dabei ist $d \in 1, \dots, n$ beliebig wählbar.
@@ -164,10 +164,10 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
 
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
-  <dd>Ein MLP-Neuron is ein Algorithmus zur binären Klassifizierung. Er hat
+  <dd>Ein MCP-Neuron ist ein Algorithmus zur binären Klassifizierung. Er hat
       $m+1$, mit $m \in \mathbb{N}_{> 0}$ inputs $x_i \in \{0, 1\}$. Davon
-      ist der erste (nullte) Konstant gleich Eins und wird <i>Bias</i> genannt.
-      Jeder Input wird mit eingem Gewicht $w_i \in \mathbb{R}$ multipliziert,
+      ist der erste (nullte) konstant gleich Eins und wird <i>Bias</i> genannt.
+      Jeder Input wird mit einem Gewicht $w_i \in \mathbb{R}$ multipliziert,
       alle gewichteten Inputs werden addiert und schließlich wird die
       Stufenfunktion
       $\varphi(x) = \begin{cases}1 &\text{falls } x > 0\\0 &\text{sonst} \end{cases}$
@@ -196,13 +196,13 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
   </dd>
   <dt><dfn>Pocket Perceptron Algorithm</dfn></dt>
   <dd>Ein Lernalgorithmus für ein Rosenblatt-Perzeptron. Dieser konvergiert zu
-      Gewichten, welche die wenigsten Beispiele falsch klassifiziert.
+      Gewichten, welche die wenigsten Beispiele falsch klassifizieren.
   </dd>
   <dt><dfn>Sigmoid-Funktion</dfn></dt>
   <dd>$\varphi(x) = \frac{1}{1+e^{-x}}$</dd>
   <dt><dfn>Softmax-Funktion</dfn></dt>
   <dd>$\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}}$ wobei $a_i$ die
-      Aktivierung des $i$-ten Neurons der selben Schicht ist.</dd>
+      Aktivierung des $i$-ten Neurons derselben Schicht ist.</dd>
   <dt><dfn>Perzeptron</dfn> / <dfn>Logistic Neuron</dfn></dt>
   <dd><abbr title="Mean Squared Error">MSE</abbr> + Sigmoid activation function</dd>
 </dl>
@@ -211,7 +211,7 @@ Fakten:
 
 * Das Rosenblatt-Perzeptron findet eine lineare Trenngrenze, wenn sie
   existiert.
-* Probleme vom Rosenblatt-Perzeptron:
+* Probleme des Rosenblatt-Perzeptrons:
   * Nicht-linear trennbare Daten wie z.B. das XOR-Problem
   * Nicht-trennbare Daten
   * Wahl der Lernrate und der Startgewichte
@@ -233,7 +233,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
   <dd>$\varphi(x) = \log(1 + e^x)$</dd>
   <dt><dfn>Feed Forward Neural Network</dfn></dt>
   <dd>A Feed Forward Neural Network is a learning algorithm which takes
-      a fixed-size input feature vector, applies varous matrix multiplications
+      a fixed-size input feature vector, applies various matrix multiplications
       and point-wise non-linear functions to obtain a fixed-size output
       vector.</dd>
   <dt><dfn>Multilayer Perceptron</dfn></dt>
@@ -241,8 +241,8 @@ Slide name: `V05_2015-04-29_Features.pdf`
       It consists of fully connected layers only.
 
       <figure class="wp-caption aligncenter">
-          <img src="//martin-thoma.com/images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
-          <figcaption>Figure 1: Draft of multilayer Perceptron (MLP). The bias units are
+          <img src="../images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
+          <figcaption>Figure 1: Draft of a multilayer Perceptron (MLP). The bias units are
                    grey, the input units are red, the hidden units are green
                    and the output unit is blue. The edges are directed from
                    input, to hidden, to output and from the bias to hidden / output.</figcaption>
@@ -252,7 +252,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
   <dd>Sei $X$ eine Menge und $d:X \times X \rightarrow \mathbb{R}$ eine
       Abbildung. $d$ heißt Metrik auf $X$, wenn gilt:
       <ul>
-          <li>$d(x, y) = 0 \geq x=y \;\;\; \forall x, y \in X$</li>
+          <li>$d(x, y) = 0 \Leftrightarrow x=y \;\;\; \forall x, y \in X$</li>
           <li>$d(x,y)=d(y,x)$</li>
           <li>$d(x,y) \leq d(x,z) + d(z,y)$</li>
       </ul>
@@ -298,7 +298,7 @@ Slide name: `V06_2015-05-05_Backpropagation.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Kreuzentropie"><dfn>Kreuzentropie Fehlerfunktion</dfn></a>
         (<dfn>Cross-Entropy</dfn>)</dt>
     <dd>$$E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]$$
-        wobei $x$ der Feature-Vektor ist, $k$ ein Neuron des letzen
+        wobei $x$ der Feature-Vektor ist, $k$ ein Neuron des letzten
         Layers, $t$ der wahre Wert (d.h. der gewünschte Output),
         $o$ der tatsächliche Output ist.</dd>
 </dl>
@@ -313,11 +313,11 @@ Slide name: `V07_12-05-2015_Feature_Learning.pdf`
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Autoencoder"><dfn>Autoencoder</dfn></a></dt>
-    <dd>Ein Autoencoder ist ein neuronales Netz, welches darauf trainiert wird
+    <dd>Ein Autoencoder ist ein neuronales Netz, welches darauf trainiert wird,
         die Input-Daten am Output wieder zu replizieren.</dd>
     <dt><dfn>Bottleneck Features</dfn></dt>
     <dd>Unter Bottleneck-Features versteht man eine Schicht in einem
-        neuronalem Netz, welche wesentlich kleiner ist als die vorhergehende
+        neuronalen Netz, welche wesentlich kleiner ist als die vorhergehende
         und nachfolgende Schicht.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"><dfn>Kullback-Leibler-Divergenz</dfn></a></dt>
     <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
@@ -325,7 +325,7 @@ Slide name: `V07_12-05-2015_Feature_Learning.pdf`
         diskrete Verteilungen ist sie definiert als:
         $$KL(P||Q) := \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$$</dd>
     <dt><dfn>Denoising Autoencoder</dfn></dt>
-    <dd>Ein Autoencoder, welcher trainiert wird rauschen zu entfernen.</dd>
+    <dd>Ein Autoencoder, welcher trainiert wird, Rauschen zu entfernen.</dd>
 </dl>
 
 Fakten:
@@ -334,7 +334,7 @@ Fakten:
   Bottleneck-Feature resultieren, die PCA ähnelt.
 * Fehlerfunktion:
   * <abbr title="Cross Entropy">CE</abbr> bei binären Ausgaben (d.h. Input-Features)
-  * <abbr title="Mean squared error">MSE</abbr> bei reelen Ausgaben (d.h. Input-Features)
+  * <abbr title="Mean squared error">MSE</abbr> bei reellen Ausgaben (d.h. Input-Features)
 
 Fragen:
 
@@ -363,7 +363,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dd>RProp is a learning rate scheduling method which is only based on the
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and decreases or resets it when the sign of the
-        gradient changes. Rprop has an own learning rate for every single
+        gradient changes. Rprop has its own learning rate for every single
         feature.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn id="adagrad"><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>$$\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}$$
@@ -391,15 +391,15 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><dfn>Convolutional Neural Networks</dfn> (<dfn>CNNs</dfn>)</dt>
     <dd>Feed-Forward Neuronale Netze, welche durch geteilte Gewichte (weight
         sharing) grafische Filter lernen. CNNs sind aktuell in der Computer
-        Vission Stand der Technik.</dd>
+        Vision Stand der Technik.</dd>
     <dt><dfn>Time-Delay Neural Networks</dfn> (<dfn>TDNNs</dfn>)</dt>
-    <dd>TDNNs wenden wie CNNs weight sharing an um Filter zu lernen. Sie
+    <dd>TDNNs wenden wie CNNs weight sharing an, um Filter zu lernen. Sie
         werden in der <abbr title="Automatic Speech Recognition">ASR</abbr>
         verwendet und lernen auch Filter. Allerdings wird hier über die Zeit
         hinweg gefaltet.</dd>
     <dt><dfn>Multi-State Time-Delay Neural Networks</dfn> (<dfn>MS-TDNNs</dfn>, siehe [<a href="#ref-haf92" name="ref-haf92-anchor">Haf92</a>])</dt>
     <dd>MS-TDNNs codieren die alignment-Suche im Netzwerk. Sie sind
-        hybride Netze (so wie HMM-DeepNN Hybrids von Mircosoft).</dd>
+        hybride Netze (so wie HMM-DeepNN Hybrids von Microsoft).</dd>
 </dl>
 
 <figure class="aligncenter">
@@ -417,7 +417,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     * Preprocessing
     * Initial Weights
 * MSE vs <a href="#dfn-cross-entropy"><abbr title="Cross Entropy">CE</abbr></a>:
-    * MSE penetalizes large differences much more than small ones
+    * MSE penalizes large differences much more than small ones
     * MSE works well for function approximation
     * CE works well on classification tasks
 
@@ -455,7 +455,7 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
             <ol>
                 <li>Get the reward $\hat{R}$ from that state on</li>
                 <li>$\hat{R} = \sum_{j=0}^\infty \gamma^j r_j$</li>
-                <li>$V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}$</li>
+                <li>$V_{k+1}^\pi (s) \leftarrow V_k^\pi (s) (1-\alpha)+\alpha \hat{R}$</li>
             </ol>
             </li>
         </ol>
@@ -508,8 +508,8 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     auf dem Gitter verbunden.
 
     <figure class="wp-caption aligncenter">
-          <img src="//martin-thoma.com/images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
-          <figcaption>Figure 2: Draft of self-organizing map (SOM).</figcaption>
+          <img src="../images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
+          <figcaption>Figure 2: Draft of a self-organizing map (SOM).</figcaption>
       </figure>
 
     Training:
@@ -552,20 +552,20 @@ Slide name: `V11_2015-05-27_RBMs`
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
         gleichzeitig als Ein- und Ausgabeschicht.
 
-        Hopfield-Netze werden in einem einzigen durchgang Trainiert. Dabei wird
+        Hopfield-Netze werden in einem einzigen Durchgang trainiert. Dabei wird
         auf das Gewicht von Neuron $i$ zu Neuron $j$ + 1 addiert, wenn
         das Bit $i$ des Trainingsmusters gleich ist. Falls das nicht der Fall
         ist, wird von dem Gewicht 1 subtrahiert:
 
         $$w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)$$
 
-        Jedes Gewicht ist zum start des Trainings 0. Das Training ist also
+        Jedes Gewicht ist zum Start des Trainings 0. Das Training ist also
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
 
       <figure class="wp-caption aligncenter">
-          <img src="//martin-thoma.com/images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
-          <figcaption>Figure 3: Draft of Hopfield network. Every node is an input node.
-                   The McCullogh-Pitts nodes are updated asynchronously. When
+          <img src="../images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
+          <figcaption>Figure 3: Draft of a Hopfield network. Every node is an input node.
+                   The McCulloch-Pitts nodes are updated asynchronously. When
                    the state of the node doesn't change any more, they contain
                    the output of the network. Learned are the weights between
                    the nodes.</figcaption>
@@ -574,8 +574,8 @@ Slide name: `V11_2015-05-27_RBMs`
         </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
      <dd>Boltzmann-Maschinen sind
-        stochastische neuronale Netzwerke, welche duch belibige ungerichtete
-        Graphen repräsentiert werden können. Die neuronen sind binär; sie
+        stochastische neuronale Netzwerke, welche durch beliebige ungerichtete
+        Graphen repräsentiert werden können. Die Neuronen sind binär; sie
         feuern also entweder oder nicht. Es gibt insbesondere keine
         Unterschiede in der Stärke mit der sie feuern.
 
@@ -587,25 +587,25 @@ Slide name: `V11_2015-05-27_RBMs`
       <abbr title="Markov Random Fields">MRFs</abbr>.
 
       Im Gegensatz zur Boltzmann-Maschine muss die Restricted Boltzmann-Machine
-      (RBM) aus einem bipartitem Graph bestehen. Dies erlaubt ein effizienteres
+      (RBM) aus einem bipartiten Graphen bestehen. Dies erlaubt ein effizienteres
       Trainingsverfahren (Contrastive Divergence).
 
       Die Energie des Netzwerkes ist
       $$- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i$$
       wobei $s_i, s_j$ die binären Zustände der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
-      wahrscheinlichkeiten zuweisen, die direkt Proportional zu $e^{-E}$)
-      sind.
+      Wahrscheinlichkeiten zuweisen, die direkt proportional zu $e^{-E}$
+      sind).
 
       <figure class="wp-caption aligncenter">
-          <img src="//martin-thoma.com/images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
+          <img src="../images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
           <figcaption>Figure 4: Draft of an RBM. The learned parameters are red.</figcaption>
       </figure>
 
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
       <br/>
-      Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
-      sowie <a href="https://www.youtube.com/watch?v=lekCh_i32iE">Interence in RBMs</a>
+      Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010
+      sowie <a href="https://www.youtube.com/watch?v=lekCh_i32iE">Inference in RBMs</a>.</dd>
   <dt><a name="contrastive-divergence"></a><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-$k$</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a>, <a href="https://www.youtube.com/watch?v=wMb7cads0go">2</a> von Hugo Larochelle)</dt>
   <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
 
@@ -618,8 +618,8 @@ Slide name: `V11_2015-05-27_RBMs`
           <li>Berechne die Wahrscheinlichkeit für jede Hidden Unit, dass diese gleich 1 ist. Setze sie mit dieser Wahrscheinlichkeit gleich 1.</li>
           <li>Berechne die Wahrscheinlichkeit für jeden Eingabeknoten, dass dieser gleich 1 ist. Setze ihn mit dieser Wahrscheinlichkeit gleich 1.</li>
           <li>Gehe zu Schritt 2. Wiederhole dies für $k$ Schritte (dies wird auch Gibbs-Sampling genannt).
-              Das, was nach dem $k$-fachem Gibbs-Sampling in der Eingabeschicht
-              steht wird auch "negative sample $\tilde x$" genannt.</li>
+              Das, was nach dem $k$-fachen Gibbs-Sampling in der Eingabeschicht
+              steht, wird auch "negative sample $\tilde x$" genannt.</li>
           <li>Update der Parameter:
             \begin{align}
                 W &\leftarrow W + \eta (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
@@ -636,7 +636,7 @@ Slide name: `V11_2015-05-27_RBMs`
       </ol>
 
       In der Praxis funktioniert es schon mit $k=1$ für Pre-Training. Wenn
-      $k$ groß ist konvergiert $\tilde x$ gegen den wahren Modellwert. Das
+      $k$ groß ist, konvergiert $\tilde x$ gegen den wahren Modellwert. Das
       wäre dann eine Monte-Carlo Estimation.
   </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn id="simulated-annealing">Simulated annealing</dfn></a></dt>
@@ -669,7 +669,7 @@ Anwendungen:
 Siehe auch:
 
 * Deeplearning.net: [Restricted Boltzmann Machines (RBM)](http://deeplearning.net/tutorial/rbm.html)
-* A. Barra, A. Bernacchia, E. Santucci und P. Contucci: [On the equivalence of Hopfield networks and Boltzmann Machines](http://www.sciencedirect.com/science/article/pii/S0893608012001608)in *Neural Networks*, 2012.
+* A. Barra, A. Bernacchia, E. Santucci und P. Contucci: [On the equivalence of Hopfield networks and Boltzmann Machines](http://www.sciencedirect.com/science/article/pii/S0893608012001608) in *Neural Networks*, 2012.
 
 
 ### V12: RNNs
@@ -695,8 +695,8 @@ Slide name: `V12_2015-06-02_RNNs.pdf`
         Ungenauigkeit kann dies sogar dazu führen, dass das Netz in den
         ersten Schichten nicht lernen kann.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Long_short-term_memory"><dfn>Long short-term memory</dfn></a> (<dfn>LSTM</dfn>)</dt>
-    <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das besondere an
-        LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen
+    <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das Besondere an
+        LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen,
         ob ein Wert gespeichert wird und wie lange.</dd>
 </dl>
 
@@ -728,9 +728,9 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
-        nimmt an, dass die Fehlerebene lokal durch eine parabel approximiert
+        nimmt an, dass die Fehlerebene lokal durch eine Parabel approximiert
         werden kann. Das Gewichtsupdate im Schritt $k$ ist demnach vom
-        Gradienten und dem Gewichtsupdate das vorherigen Schrittes abhängig:
+        Gradienten und dem Gewichtsupdate des vorherigen Schrittes abhängig:
 
         $$\Delta^{(k)} \, w_{ij} = \Delta^{(k-1)} \, w_{ij} \left ( \frac{\nabla_{ij} \, E^{(k)}}{\nabla_{ij} \, E^{(k-1)} - \nabla_{ij} \, E^{(k)}} \right)$$</dd>
     <dt><dfn>Weight Decay</dfn></dt>
@@ -738,13 +738,13 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dt><dfn>Weight Elimination</dfn></dt>
     <dd>Passe die Fehlerfunktion an: $E = MSE + \lambda \sum_{i,j} \frac{w_{ij}^2}{1+w_{ij}^2}$</dd>
     <dt><dfn>Optimal Brain Damage</dfn> (<dfn>OBD</dfn>)</dt>
-    <dd>Optimal Brain Damage entfernt nach dem Training Verbindungen die
+    <dd>Optimal Brain Damage entfernt nach dem Training Verbindungen, die
         sehr kleine $|w_{ij}|$ haben.
 
         Besser: Entferne Verbindungen, die geringen Einfluss auf die
         Fehlerfunktion haben.</dd>
     <dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
-    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
+    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum Erzeugen
         von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
         als typische multilayer Perceptrons. Bei Netzen, welche durch
         Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
@@ -757,7 +757,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: <a href="http://papers.nips.cc/paper/227-meiosis-networks.pdf">Meiosis Networks</a>)</dt>
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
-        "Unsicherheit" zu groß ist (vgl. paper für Kritierum; vgl. <a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/Hanson89#martinthoma">summary</a>).<br/>
+        "Unsicherheit" zu groß ist (vgl. Paper für Kriterium; vgl. <a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/Hanson89#martinthoma">summary</a>).<br/>
         </dd>
     <dt><dfn>Automatic Structure Optimization</dfn> (<dfn>ASO</dfn>, siehe [<a href="#ref-bod93" name="ref-bod93-anchor">Bod93</a>])</dt>
     <dd>Der ASO-Algorithmus passt folgende Hyperparameter im Training
@@ -765,8 +765,8 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
         <ul>
             <li>Anzahl der Hidden Units</li>
-            <li>Größe des Input-Fensers (ASR-Spezifisch)</li>
-            <li>Anzahl der Zustände, welche "Accoustic Events" repräsentieren</li>
+            <li>Größe des Input-Fensters (ASR-Spezifisch)</li>
+            <li>Anzahl der Zustände, welche "Acoustic Events" repräsentieren</li>
         </ul>
     </dd>
     <dt><dfn>Classification Figure of Merit</dfn> (<dfn>CFM</dfn>, siehe [<a href="#ref-ham90" name="ref-ham90-anchor">Ham90</a>])</dt>
@@ -776,7 +776,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         <ul>
             <li>$k$: Klasse</li>
             <li>$\alpha, \beta, \gamma$: Hyperparameter</li>
-            <li>$\Delta_k = o_t - o_k$: Differenz des wahren (true) nodes und des anderen Knotens.</li>
+            <li>$\Delta_k = o_t - o_k$: Differenz des wahren (true) Knotens und des anderen Knotens.</li>
         </ul>
     </dd>
 </dl>
@@ -787,7 +787,7 @@ Speed-ups des Trainings sind möglich durch:
 * Überspringen von bereits gut gelernten Beispielen
 * Dynamische Anpassung der Lernrate <span markdown="0">$\eta$</span>
 * Quickprop
-* Gute Initialisierung (z.b. <span markdown="0">$w \sim U(- 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}}, 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}})$</span>)
+* Gute Initialisierung (z.B. <span markdown="0">$w \sim U(- 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}}, 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}})$</span>)
 
 Lernen kann getweakt werden:
 
@@ -804,7 +804,7 @@ Lernen kann getweakt werden:
 * Schrittweise Netzkonstruktion
     * Cascade Correlation
     * Meiosis Netzwerke
-    * <abbr title="Automatic Structure Optimalization">ASO</abbr>
+    * <abbr title="Automatic Structure Optimization">ASO</abbr>
 
 
 ### V14: DNN CV
@@ -813,13 +813,13 @@ Slide name: `V14_2015-06-10_DNN_CV .pdf`
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform"><dfn>SIFT</dfn></a> (<dfn>Scale-invariant feature transform</dfn>)</dt>
     <dd>Unter SIFT versteht man bestimmte Features in der Bildverarbeitung,
-        welche invariant unter skalierung sind.</dd>
+        welche invariant unter Skalierung sind.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Texton"><dfn>Texton</dfn></a> (siehe <a href="http://vcla.stat.ucla.edu/old/Chengen_Research/texton.htm">UCLA</a>)</dt>
     <dd>Unter einem Texton versteht man grundlegende, kleine Features eines
-        Bildes. Diese Bilden die kleinsten als unterschiedlich wahrnehmbaren
+        Bildes. Diese bilden die kleinsten als unterschiedlich wahrnehmbaren
         Einheiten.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Convolutional_neural_network"><dfn>Convolutional Neural Network</dfn></a> (<dfn>CNN</dfn>)</dt>
-    <dd>Ein CNN ist ein Neuronales Netzwerk, welches mindestens eine Schicht
+    <dd>Ein CNN ist ein neuronales Netzwerk, welches mindestens eine Schicht
         hat, welche die Parameter eines Kernels für eine Faltung lernt.</dd>
     <dt><dfn>Feature Map</dfn></dt>
     <dd>Im Kontext von CNNs versteht man unter einer Feature-Map die Ausgabe
@@ -841,10 +841,10 @@ Slide name: `V15_2015-06-17_Speech-Independence.pdf`
 Häufig wird die Architektur neuronaler Netze grafisch dargestellt. Dabei ist
 mir folgendes aufgefallen:
 
-* Im Innenren von Neuronen wird die Aktivierungsfunktion "geplottet". Das heißt
-  bei der Sigmoidfunktion wird etwas S-Förmiges dargestellt, bei der
-  sign-Funktion etwas eckiges, bei ReLU ein horizontaler Strich gefolgt von
-  einem Strich im 45-Grad Winkel.
+* Im Inneren von Neuronen wird die Aktivierungsfunktion "geplottet". Das heißt
+  bei der Sigmoidfunktion wird etwas S-förmiges dargestellt, bei der
+  sign-Funktion etwas Eckiges, bei ReLU ein horizontaler Strich gefolgt von
+  einem Strich im 45-Grad-Winkel.
 * Typischerweise ist der Input links (oder alternativ unten) und der Output
   rechts (oder alternativ oben)
 
@@ -852,12 +852,12 @@ mir folgendes aufgefallen:
 ## Interpretation of errors
 
 <figure class="wp-caption aligncenter">
-    <img src="//martin-thoma.com/images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" />
+    <img src="../images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" />
     <figcaption>Figure 5: Training and Testing error over epochs. At some point overfitting happens.</figcaption>
 </figure>
 
 <figure class="wp-caption aligncenter">
-    <img src="//martin-thoma.com/images/2016/02/variance-bias.png" alt="Training and Testing error over training data" />
+    <img src="../images/2016/02/variance-bias.png" alt="Training and Testing error over training data" />
     <figcaption>Figure 6: Training and Testing error over training data. At some point overfitting happens.</figcaption>
 </figure>
 
@@ -902,7 +902,7 @@ training data will help you with your problem.
         <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">$\varphi'(x) = 0$</span></td>
         <td style="text-align: center;">No</td>
-        <td>McCullch-Pitts; Rosenblatt</td>
+        <td>McCulloch-Pitts; Rosenblatt</td>
     </tr>
     <tr>
         <td>Sigmoid</td>
@@ -1014,10 +1014,10 @@ See also:
 
 ## <a name="einordnung"></a> Einordnung
 
-Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
+Neuronale Netze kann man durch folgende Kriterien miteinander vergleichen:
 
-* **Deterministisch / Stochastisch**: Ist die Aktivierung der neuronen
-  stochastische oder deterministisch?
+* **Deterministisch / Stochastisch**: Ist die Aktivierung der Neuronen
+  stochastisch oder deterministisch?
 * **Inferenz**: Feed-Forward oder Rekurrent? Wie funktioniert die Auswertung?
 * **Training**: Wie lernt man?
 * **Verwendung**: Wo wird das Netzwerk typischerweise eingesetzt?
@@ -1038,14 +1038,14 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Supervised</td>
-        <td>Classification of linear separable data</td>
+        <td>Classification of linearly separable data</td>
     </tr>
     <tr>
         <th>Rosenblatt Perceptron</th>
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Supervised</td>
-        <td>Classification of linear separable data</td>
+        <td>Classification of linearly separable data</td>
     </tr>
     <tr>
         <th>Multilayer Perceptron</th>
@@ -1080,7 +1080,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Unsupervised (competitive learning)</td>
-        <td>Visualisierung / Dimensionalitätsreduktion: Mapping of high-dimensional data on 2D; <abbr title="Content-Based Image Retrival">CBIR</abbr>; <a href="https://www.youtube.com/watch?v=8tnxgfE6glI">TSP</a></td>
+        <td>Visualisierung / Dimensionalitätsreduktion: Mapping of high-dimensional data on 2D; <abbr title="Content-Based Image Retrieval">CBIR</abbr>; <a href="https://www.youtube.com/watch?v=8tnxgfE6glI">TSP</a></td>
     </tr>
     <tr>
         <th>Hopfield networks</th>
@@ -1148,10 +1148,10 @@ See also:
 <ul>
     <li>Was ist der Unterschied zwischen Backpropagation und Gradient descent?<br/>
         → Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
-           bei der es vermieden wird Berechnungen mehrfach durchzuführen.</li>
+           bei der es vermieden wird, Berechnungen mehrfach durchzuführen.</li>
     <li>Welche Typen von Neuronalen Netzen gibt es?<br/>
         → Siehe <a href="#einordnung">Einordnung</a></li>
-    <li>Welche Aktivierungsfuktionen gibt es?<br/>
+    <li>Welche Aktivierungsfunktionen gibt es?<br/>
         → Siehe <a href="#activations">Übersicht</a></li>
     <li>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?<br/>
         → Softmax wegen der Normierung; Maxout</li>
@@ -1162,12 +1162,12 @@ See also:
         Assoziativspeicher</li>
     <li>Welche Möglichkeiten zur Regularisierung gibt es?<br/>
         → L1, L2, Dropout, Weight Decay</li>
-    <li>Wie kann der Standard Gradient descent Algorithmus angepasst werden
+    <li>Wie kann der Standard Gradient descent Algorithmus angepasst werden,
         um den Lernvorgang zu beschleunigen?<br/>
         → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
            Newbob, AdaGrad, RProp</li>
     <li>Welche Alternativen zu standard Gradient Descent gibt es?<br/>
-        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="https://martin-thoma.com/optimization-basics">Optimization Basics</a>).</li>
+        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="../optimization-basics/">Optimization Basics</a>).</li>
     <li>Wie kann man Netztopologien aufbauen?<br/>
         → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a>).</li>
 </ul>
@@ -1191,7 +1191,7 @@ See also:
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp) [2](http://imgur.com/s25RsOr) on imgur.com by [Alec Radford](https://www.reddit.com/r/MachineLearning/comments/2gopfa/visualizing_gradient_optimization_techniques/cklhott)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
-* [Machine Learning 1](//martin-thoma.com/machine-learning-1-course/) und [Machine Learning 2](//martin-thoma.com/machine-learning-2-course/) am KIT
+* [Machine Learning 1](../machine-learning-1-course/) und [Machine Learning 2](../machine-learning-2-course/) am KIT
 * Coursera: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Geoffrey Hinton
 
 
@@ -1215,14 +1215,14 @@ See also:
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 
 ## Übungsbetrieb
@@ -1233,7 +1233,7 @@ Folgende Vorlesungen sind ähnlich:
 ## Termine und Klausurablauf
 
 **Datum**: nach Terminvereinbarung<br/>
-**Ort**: <a href="http://www.kithub.de/map/2210">Gebäude 50.20</a><br/>
+**Ort**: <a href="https://www.kit.edu/campusplan/">Gebäude 50.20</a><br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Erlaubte Hilfsmittel**: keine

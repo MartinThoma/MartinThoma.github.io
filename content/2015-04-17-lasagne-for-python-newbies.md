@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
-on nVidea GPUs with automatically generated CUDA code.
+on NVIDIA GPUs with automatically generated CUDA code.
 
 However, installing Lasagne is not that easy. Especially if you are not
 familiar with Python. This article aims to guide you through the installation
@@ -53,9 +53,9 @@ This should work without problems.
 
 Each classifier has a `fit` method and a `predict` method. See
 [iris example](http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html)
-to get a feeling how to use it. It provides a lot of useful functions like
+to get a feeling for how to use it. It provides a lot of useful functions like
 [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
-and has an awesome documentation.
+and has awesome documentation.
 
 You don't need this for Lasagne, but it might be good to use sklearn and
 Lasagne in combination.
@@ -63,7 +63,7 @@ Lasagne in combination.
 
 ## Graphics drivers and CUDA
 
-Make sure CUDA runs on your system by the following commands.
+Make sure CUDA runs on your system with the following commands.
 If it doesn't run, you could try the following guides:
 
 * [Installing and testing CUDA in Ubuntu 14.04](http://askubuntu.com/q/451672/10425)
@@ -227,7 +227,7 @@ device=gpu
 floatX=float32
 ```
 
-Note that `float32` is required, even if you have a 64bit system.
+Note that `float32` is required, even if you have a 64-bit system.
 
 To test your installation, save the following as `theanotest.py` and execute
 it with `python theanotest.py`:
@@ -269,7 +269,7 @@ Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
 Used the gpu
 ```
 
-Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
+Especially "used the gpu" is important. Theano code works on both CPU and GPU.
 If you have a GPU and it does not currently work on a task and it is configured
 correctly, then Theano should automatically use the GPU.
 
@@ -278,7 +278,7 @@ correctly, then Theano should automatically use the GPU.
 
 ## Lasagne
 
-Lasagne is hosted at Github: [https://github.com/Lasagne/Lasagne](https://github.com/Lasagne/Lasagne)
+Lasagne is hosted on GitHub: [https://github.com/Lasagne/Lasagne](https://github.com/Lasagne/Lasagne)
 
 Currently, it is not on pip as Sander wants to wait until we get to version
 1.0. So you have to install it manually:
@@ -293,7 +293,7 @@ Now you can test if it worked by executing the MNIST example in Lasagne
 ([MNIST](http://yann.lecun.com/exdb/mnist/) is a huge digit dataset). This
 might first take some time to download, but should then run quite fast. If
 your machine does not use the GPU it will take ages (e.g. on my laptop it takes
-about a minute for one epoch)
+about a minute for one epoch).
 
 ```text
 Lasagne/examples$ python mnist.py

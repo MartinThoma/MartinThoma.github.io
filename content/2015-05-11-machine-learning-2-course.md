@@ -9,7 +9,7 @@ category: German posts
 tags: Klausur, Machine Learning, Clustering, Reinforcement Learning, University, AI
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a>.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="../machine-learning-1-course/">Machine Learning 1</a>.</div>
 
 ## Behandelter Stoff
 
@@ -17,7 +17,7 @@ featured_image: logos/klausur.png
 
 Slides: <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=429607&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">`01_Einfu__hrung_MLII.pdf`</a>
 
-Rückblick auf [ML 1](//martin-thoma.com/machine-learning-1-course/).
+Rückblick auf [ML 1](../machine-learning-1-course/).
 MLNN steht übrigens für <i>Multi-Layer Neural Network</i>.
 
 
@@ -59,7 +59,7 @@ Slides: <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&amp;cmd=s
               Feature-Vektoren mit disjunkten Features auf.</li>
           <li>Trainiere zwei unterschiedliche Klassifizierer auf den beiden
               unterschiedlichen Feature-Mengen der gelabelten Daten.</li>
-          <li>Label mit den beiden Klassifizieren die ungelabelten Daten.</li>
+          <li>Label mit den beiden Klassifizierern die ungelabelten Daten.</li>
           <li>Füge ungelabelte Daten dem Trainingsdatensatz (also den
               gelabelten Daten) hinzu, falls die Klassifizierer für diese eine
               hohe Konfidenz aufweisen.</li>
@@ -71,12 +71,12 @@ Slides: <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&amp;cmd=s
           <li>Demokratisches Voting: Bei mehr als 2&nbsp;Klassifizierern.</li>
           <li>Schwellwert: Nur hinzufügen, wenn alle Klassifizierer jeweils
               eine Schwelle überschreiten.</li>
-          <li>Gewichtes Voting: Alle Klassifizierer zusammen müssen eine
+          <li>Gewichtetes Voting: Alle Klassifizierer zusammen müssen eine
               Schwelle überschreiten.</li>
       </ul>
   </dd>
   <dt><dfn>Low Density Separation</dfn></dt>
-  <dd>Methoden, welche Low Density separation benutze versuchen die
+  <dd>Methoden, welche Low Density Separation benutzen, versuchen die
       Entscheidungsgrenze in eine Region niedriger Dichte zu legen. Ein Beispiel
       ist die <i>Transductive SVM</i>.</dd>
 </dl>
@@ -87,9 +87,9 @@ Hier könnte ich mir gut vorstellen, dass man eine Bachelor / Master-Arbeit
 macht. Man könnte sich große gelabelte Datensätze suchen, einen gewissen Teil
 der Labels weglassen (also einige Trainingsdaten als "ungelabelt" behandeln)
 und die verschiedenen <abbr title="Semi-Supervised Learning">SSL</abbr>-Methoden
-untersuchen. Bis zu 20% gelabelte Daten hoch wäre es interessant; also z.B.
+untersuchen. Bis hoch zu 20% gelabelte Daten wäre es interessant; also z.B.
 (0.5%, 1%, 2%, 3%, 5%, 10%, 15%, 20% gelabelte Daten). Mit mehr gelabelten
-Daten könnte man argumentieren, dass man es sich vermutlich leisten könnte auch
+Daten könnte man argumentieren, dass man es sich vermutlich leisten könnte, auch
 den Rest noch zu labeln. Siehe Folie 28-31.
 
 
@@ -124,7 +124,7 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
   <dd>Selective Sampling ist eine Methode des aktiven Lernens. Dabei wird
       jede Runde $t$ dem Lerner ein Feature-Vektor $x_t \in \mathbb{R}^n$
       präsentiert. Der Lerner muss sich jede Runde entscheiden, ob er einen
-      Preis bezahlt um das Label zu sehen. Der Lerner hat also zwei Ziele, die
+      Preis bezahlt, um das Label zu sehen. Der Lerner hat also zwei Ziele, die
       miteinander in Konflikt stehen: Er will alles richtig klassifizieren,
       aber zugleich die Kosten so niedrig wie möglich halten.</dd>
   <dt><dfn id="pool-based-active-learning">Pool-Based Active Learning</dfn></dt>
@@ -143,23 +143,23 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
     Allgemeiner Ansatz:
     <ul>
         <li>Trainiere eine Menge $\mathcal{C}$ an Klassifikatoren</li>
-        <li>Wähle neue Daten, wenn die Hypothesen Wiedersprüchlich sind</li>
+        <li>Wähle neue Daten, wenn die Hypothesen widersprüchlich sind</li>
     </ul>
 
     Selektive Entnahme:
     <ol>
         <li>Beobachte neue Instanz $x$ und werte diese mit $\mathcal{C}$ aus</li>
-        <li>Frage das Label ab, falls es einen Wiederspruch in den Hypothesen
+        <li>Frage das Label ab, falls es einen Widerspruch in den Hypothesen
             von $\mathcal{C}$ für $x$ gibt.</li>
-        <li>Neu trainiren, zurück zu 1</li>
+        <li>Neu trainieren, zurück zu 1</li>
     </ol>
 
     Pool-based Active Learning:
     <ol>
-        <li>Messung des Wiederspruchs der Hypothesen für alle Instanzen $x$</li>
+        <li>Messung des Widerspruchs der Hypothesen für alle Instanzen $x$</li>
         <li>Ranking (z.B. Entropie)</li>
         <li>Abfrage der Labels für die $k$ widersprüchlichsten Instanzen</li>
-        <li>Neu trainiren, zurück zu 1</li>
+        <li>Neu trainieren, zurück zu 1</li>
     </ol>
   </dd>
 </dl>
@@ -176,13 +176,13 @@ Slides: `04_Reinforcement_Learning_II.pdf`
 
 Siehe auch:
 
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-4)
+* [Probabilistische Planung](../probabilistische-planung/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+* [Machine Learning 1](../machine-learning-1-course/#tocAnchor-1-1-4)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
-    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
+    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This explains TD-learning.
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
@@ -192,23 +192,23 @@ Siehe auch:
           <li>$S$ eine endliche Zustandsmenge,</li>
           <li>$A$ eine endliche Menge von Aktionen,</li>
           <li>$T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)$ die
-              Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
-              $s$ mit der Aktion $a$ in den Zustand $a'$ zu kommen
+              Wahrscheinlichkeit, zu einem beliebigen Zeitpunkt von Zustand
+              $s$ mit der Aktion $a$ in den Zustand $s'$ zu kommen,
               (engl. Transition),</li>
           <li>$r_a(s, s')$ ist die Belohnung (Reward), die man direkt
-              erhält wenn man erhält wenn man von Zustand $s$ mit Aktion
+              erhält, wenn man von Zustand $s$ mit Aktion
               $a$ in Zustand $s'$ kommt,</li>
           <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
       </ul>
   </dd>
   <dt><dfn>Partially observable Markov decision process</dfn> (<dfn>POMDP</dfn>)<a name="pomdp-definition"></a></dt>
   <dd>Ein <i>partially observable Markov decision process</i> ist ein
-      7-tupel <span markdown="0">$S, A, T, R, \Omega, O, \gamma$</span>, wobei
+      7-Tupel <span markdown="0">$S, A, T, R, \Omega, O, \gamma$</span>, wobei
 
       <ul>
           <li>$S$ die Zustandsmenge,</li>
           <li>$A$ die Aktionsmenge,</li>
-          <li>$T: S \times A \times S \rightarrow \mathbb{R}$ die probabilisitische Zustandsübergangsfunktion (transition function) ist,</li>
+          <li>$T: S \times A \times S \rightarrow \mathbb{R}$ die probabilistische Zustandsübergangsfunktion (transition function) ist,</li>
           <li>$R: S \times A \rightarrow \mathbb{R}$ die Reward-Funktion,</li>
           <li>$\Omega$ die Menge der möglichen Beobachtungen,</li>
           <li>$O$ die Wahrscheinlichkeit der Beobachtungen, gegeben ein Zustand und eine Aktion und</li>
@@ -217,7 +217,7 @@ Siehe auch:
       ist.
   </dd>
   <dt><dfn>Options</dfn></dt>
-  <dd>Eine <i>Option</i> ist wohl-definiertes Verhalten, welches im
+  <dd>Eine <i>Option</i> ist ein wohldefiniertes Verhalten, welches im
       hierarchischen <abbr title="Reinforcement Learning">RL</abbr> eingesetzt
       werden kann. Es ist ein Baustein für komplexe Pläne.
       Options werden in Semi-MDPs eingesetzt und ersetzen dort die
@@ -237,7 +237,7 @@ Siehe auch:
 
 Folie 35:
 
-* NODO: Was heißt hier "mit festen Knoten"?
+* TODO: Was heißt hier "mit festen Knoten"?
 
 
 ### <a name="dynamic-bayes-networks"></a>Dynamische Bayessche Netze
@@ -255,7 +255,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       $A = \sum_{i=1}^n A_i$. Dann gilt für jedes beliebige Ereignis $B$:
       $$P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Satz_von_Bayes"><dfn>Satz von Bayes</dfn></a></dt>
-  <dd>Seinen $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
+  <dd>Seien $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
       $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
 
       Hierbei heißt $P(A|B)$ die <i>a posteriori Wahrscheinlichkeit</i>,
@@ -263,13 +263,13 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       <i>a priori Verteilung über $A$</i> und $P(B)$ die
       <i>a priori Verteilung über $B$</i>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Siehe <a href="https://www.youtube.com/watch?v=VfyxPtlqZh4">Lecture 13: Bayes Nets</a>)</dt>
-  <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical
+  <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclic
       Graph">DAG</abbr>, bei dem die Knoten Zufallsvariablen und die Kanten
       bedingte Abhängigkeiten beschreiben.
 
       Bayessche Netze sind zur Modellierung kausaler Zusammenhänge geeignet.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Random_Field"><dfn>Markov Random Field</dfn></a></dt>
-  <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#mrf-definition">ML 1</a></dd>
+  <dd>Siehe <a href="../machine-learning-1-course/#mrf-definition">ML 1</a></dd>
   <dt><a href="https://en.wikipedia.org/wiki/Dynamic_Bayesian_network"><dfn>Dynamisches Bayessches Netz</dfn></a></dt>
   <dd><i>Dynamische Bayessche Netze</i> sind Bayessche Netze zur Beschreibung
       dynamischer Prozesse.</dd>
@@ -288,10 +288,10 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
   <dt><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering"><dfn>Naive Bayes Spam Filter</dfn></a></dt>
   <dd>Ein naiver Bayes Spamfilter nutzt häufig Bag-of-Words Features. Man berechnet die Wahrscheinlichkeit,
       dass eine gegebene E-Mail Spam ist. Dazu geht man davon aus, dass die
-      Wörter in einer E-Mail unabhängig von einander sind und nutzt den
+      Wörter in einer E-Mail unabhängig voneinander sind und nutzt den
       Satz von Bayes.
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
-      für eine detailiertere Beschreibung.</dd>
+      für eine detailliertere Beschreibung.</dd>
   <dt><dfn id="bayes-filter">Bayes Filter</dfn></dt>
   <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
       die $(x,y,z)$ Position eines GPS-Sensors sein. Diese Position ist
@@ -302,7 +302,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       <ul>
           <li><b>Filtern</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
               sage die aktuelle Position $X_t$ vorher. Also <i>filtere das
-              Rauschen</i> aus $Z_t$ unter berücksichtigung, dass wir uns
+              Rauschen</i> aus $Z_t$ unter Berücksichtigung, dass wir uns
               noch nicht teleportieren können:
               $$P(X_t | Z_t, \dots, Z_0)$$</li>
           <li><b>Prädizieren</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
@@ -315,17 +315,17 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Beispiele für Bayes-Filter sind
 
       <ul>
-          <li><a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a></li>
+          <li><a href="../kalman-filter/">Kalman-Filter</a></li>
           <li><abbr title="Hidden Markov Model">HMM</abbr></li>
-          <li>Partikel Filter</li>
+          <li>Partikelfilter</li>
       </ul>
 
       </dd>
   <dt><dfn>Naiver Bayes'scher Spam Filter</dfn></dt>
-  <dd>Ein probabilistischer Klassifikator welcher die Unabhängigkeit der
-      Features vorraussetzt wird <i>naiv</i> genannt.<br/>
+  <dd>Ein probabilistischer Klassifikator, welcher die Unabhängigkeit der
+      Features voraussetzt, wird <i>naiv</i> genannt.<br/>
       <br/>
-      Der naive bayessche Spam Filter nutzt Bayes Theorem um die
+      Der naive bayessche Spam Filter nutzt Bayes' Theorem, um die
       Wahrscheinlichkeit zu berechnen, dass eine E-Mail Spam ist.
       </dd>
   <dt><dfn>Kalman-Filter</dfn></dt>
@@ -341,39 +341,39 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
                measurement of this time step.</li>
        </ul>
 
-       Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter Artikel</a>
+       Siehe <a href="../kalman-filter/">Kalman-Filter Artikel</a>
        für Details.
     </dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" name="em-algorithmus"><dfn>Expectation Maximizaion Algorithm</dfn></a> (<dfn>EM-Algorithmus</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" name="em-algorithmus"><dfn>Expectation Maximization Algorithm</dfn></a> (<dfn>EM-Algorithmus</dfn>)</dt>
     <dd>
         Der EM-Algorithmus ist ein Clusteringalgorithmus mit weicher
         Clusterzugehörigkeit. Er findet die Parameter für gegebene Verteilungen
         (üblicherweise multivariate Normalverteilungen).
 
-        Er löst das Henne-Ei Problem
+        Er löst das Henne-Ei-Problem
         <ul>
-            <li>Wenn man weiß wie genau die Wahrscheinlichkeitsverteilungen
-                der Cluster parametrisiert sind ist es leicht die Daten den
+            <li>Wenn man weiß, wie genau die Wahrscheinlichkeitsverteilungen
+                der Cluster parametrisiert sind, ist es leicht, die Daten den
                 Clustern zuzuordnen.</li>
             <li>Wenn man die Daten einem Cluster zuordnen kann, dann ist es
-                leicht die Parameter der Wahrscheinlichkeitsverteilung zu
+                leicht, die Parameter der Wahrscheinlichkeitsverteilung zu
                 schätzen.</li>
         </ul>
 
         Wenn man sowohl Clusterzugehörigkeit als auch die Parameter der
-        Verteilung schätzen muss ist es schwer. Man kann "zufällig" die
+        Verteilung schätzen muss, ist es schwer. Man kann "zufällig" die
         initialen Parameter wählen, dann die Zuordnung machen.
 
-        Der EM-Algorithmus iteriert nach der initialisierung der Parameter:
+        Der EM-Algorithmus iteriert nach der Initialisierung der Parameter:
 
         <ul>
-            <li><b>Expectation</b>: Schätze für jeden Datenpunkte die
+            <li><b>Expectation</b>: Schätze für jeden Datenpunkt die
                 Clusterzugehörigkeit.</li>
             <li><strong>Maximization</strong>: Parameter der Cluster neu
                 berechnen. Also für jeden Cluster $A$
                 <ul>
                     <li>$\mu_A = \frac{\sum_{i=1}^N w_{i, A} \cdot x_i}{\sum_{i=1}^N w_{i, A}}$</li>
-                    <li>$\sigma_A^2 = \frac{\sum_{i=1}^N w_{i,A} (x_i + \mu_A)^2}{\sum_{i=1}^N w_{i,A}}$</li>
+                    <li>$\sigma_A^2 = \frac{\sum_{i=1}^N w_{i,A} (x_i - \mu_A)^2}{\sum_{i=1}^N w_{i,A}}$</li>
                 </ul>
                 wobei $w_{i,A}$ die Wahrscheinlichkeit der Zugehörigkeit des
                 Punktes $i$ zu Cluster $A$ ist.
@@ -390,7 +390,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
 Typische Fragestellungen:
 
 * Gegeben ist die Struktur eines Bayesschen Netzes: Wie lautet die Verteilung?
-  - Dies wird üblicherweise mit dem <abbr title="Expectation Maximimization">EM</abbr>-Algorithmus
+  - Dies wird üblicherweise mit dem <abbr title="Expectation Maximization">EM</abbr>-Algorithmus
   gelöst.
 
 Anwendungsfälle:
@@ -403,7 +403,7 @@ Anmerkungen: Die Folien sind hier sehr gut! Insbesondere Folie&nbsp;14-23
 sollte man sich ansehen.
 
 Es scheint folgende Beziehung zu gelten: HMMs, Kalman-Filter, Extended
-Kalman-Filter, Partikel Filter sind Beispiele für Bayes-Filter. Bayes-Filter
+Kalman-Filter, Partikelfilter sind Beispiele für Bayes-Filter. Bayes-Filter
 sind Beispiele für dynamische Bayessche Netze.
 
 Siehe auch:
@@ -438,7 +438,7 @@ Siehe auch:
 </ul>
 
 
-### Probablistisch Relationale Modelle
+### Probabilistisch Relationale Modelle
 
 Slides: `06_Probablistisch_Relationale_Modelle.pdf`
 
@@ -453,13 +453,13 @@ Siehe auch:
   10.1109/ICIF.2005.1592031
 
 <dl>
-  <dt><dfn>Objektorientierte Probablistisch Relationales Modelle</dfn> (<dfn>OPRM</dfn>)</dt>
+  <dt><dfn>Objektorientierte Probabilistisch Relationale Modelle</dfn> (<dfn>OPRM</dfn>)</dt>
   <dd>Ein OPRM besteht nach [<a href="#ref-schu15" name="ref-schu15-anchor">Schu15</a>] aus
 
   <ul>
-      <li>Eine Klassenmenge $\mathbf{C} = \{C_1, \dots, C_n\}$,</li>
+      <li>einer Klassenmenge $\mathbf{C} = \{C_1, \dots, C_n\}$,</li>
       <li>einer partiellen Ordnung über C, welche die Klassenhierarchie definiert,</li>
-      <li>einer Menge einfacher, nicht probabilisitscher Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}$,</li>
+      <li>einer Menge einfacher, nicht probabilistischer Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}$,</li>
       <li>einer Menge beschreibender Attribute $\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}$,</li>
       <li>einer Menge komplexer Attribute $\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}$.
           Die komplexen Attribute beschreiben funktionale Beziehungen zwischen Klassen.</li>
@@ -481,12 +481,12 @@ starting to read the slides.
 
 See also:
 
-* [Function Approximation](https://martin-thoma.com/function-approximation/)
+* [Function Approximation](../function-approximation/)
 * The Talking Machines: [OpenAI and Gaussian Processes](http://www.thetalkingmachines.com/blog/2016/1/28/openai-and-gaussian-processes)
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
-  <dd>Die lineare Regression ist ein Modell zur approximation von Datenpunkten
+  <dd>Die lineare Regression ist ein Modell zur Approximation von Datenpunkten
       $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
       lineare Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w$.
       Dabei ist $w \in \mathbb{R}^n$.<br/>
@@ -501,11 +501,11 @@ See also:
       sowie <a href="http://math.stackexchange.com/q/1626052/6876">Does a transformation + linear regression give the same regression as fitting a quadratic function?</a>
       </dd>
   <dt><dfn>Affine Regression</dfn></dt>
-  <dd>Die affine Regression ist ein Modell zur approximation von Datenpunkten
+  <dd>Die affine Regression ist ein Modell zur Approximation von Datenpunkten
       $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
       affine Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w + b$.
       Dabei ist $w \in \mathbb{R}^n, b \in \mathbb{R}$. Um das Problem auf
-      ein lineares zu reduzieren kann man den Feature-Vektor $x$ durch ein
+      ein lineares zu reduzieren, kann man den Feature-Vektor $x$ durch ein
       konstantes Feature $x_0 = 1$ erweitern.
       </dd>
   <dt><dfn>Korrelationskoeffizient</dfn></dt>
@@ -527,7 +527,7 @@ Slides: `08_DeepLearning.pdf`
 
 Siehe auch:
 
-* [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+* [Neuronale Netze Vorlesung](../neuronale-netze-vorlesung/)
 * Udacity: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Hinton.
 
 <dl>
@@ -544,15 +544,15 @@ Siehe auch:
 
       Man hat im Grunde zwei Netzwerke mit der gleichen Topologie, jedoch ist
       die Richtung vertauscht: Das eine Netz stellt die Hypothese aus den Daten
-      auf, das andere Netz geniert neue Daten aus einer gegebenen Hypothese.
+      auf, das andere Netz generiert neue Daten aus einer gegebenen Hypothese.
 
-      In der <b>wake phase</b> wird die Eingabe genutzt um die Hypothese zu
-      erzeugen. In dieser Phase werden die Gewichte für das Generative Modell
+      In der <b>wake phase</b> wird die Eingabe genutzt, um die Hypothese zu
+      erzeugen. In dieser Phase werden die Gewichte für das generative Modell
       trainiert. Dieses soll die Aktivierung der vorhergehenden Schicht
       rekonstruieren.
 
-      In der <b>sleep phase</b> wird das generative Modell genutzt um aus dem
-      Modell samples zu erzeugen. Dann trainiert man die Gewichte des
+      In der <b>sleep phase</b> wird das generative Modell genutzt, um aus dem
+      Modell Samples zu erzeugen. Dann trainiert man die Gewichte des
       erkennenden Netzes (also vergleichbar mit der wake phase, nur anders
       rum).
 
@@ -576,8 +576,8 @@ Siehe auch:
 #### Siehe auch
 
 * [MNIST Demo](http://www.cs.toronto.edu/~hinton/adi/index.htm) (Flash):
-  Neuronales Netz welches Ziffern generiert
-* Geoffry Hinton: [Deep Learning](https://www.youtube.com/watch?v=IcOMKXAw5VA)
+  Neuronales Netz, welches Ziffern generiert
+* Geoffrey Hinton: [Deep Learning](https://www.youtube.com/watch?v=IcOMKXAw5VA)
   on YouTube, 2015. 43&nbsp;minutes. (Topics: RBMs)
 
 
@@ -585,12 +585,12 @@ Siehe auch:
 
 Slides: `09_ConvolutionalNeuralNetworks.pdf`
 
-Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+Siehe auch: [Neuronale Netze Vorlesung](../neuronale-netze-vorlesung/)
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Convolutional_Neural_Network"><dfn>Convolutional Neural Networks</dfn></a> (<dfn>CNNs</dfn>)</dt>
   <dd><abbr title="Convolutional Neural Networks">CNNs</abbr> sind neuronale
-      Netze welche weight sharing einsetzen. Sie setzen eine diskrete Faltung
+      Netze, welche weight sharing einsetzen. Sie setzen eine diskrete Faltung
       um. Ein CNN muss mindestens einen <i>Convolutional Layer</i> haben.
       Dieser hat folgende Parameter:
       <ul>
@@ -625,7 +625,7 @@ Slides: `10_SpikingNeuralNets.pdf`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Gepulste_neuronale_Netze"><dfn>Spiking Neural Networks</dfn></a></dt>
-  <dd>Gepulste neuronale Netze versuchen natürliche neuronen realistisch
+  <dd>Gepulste neuronale Netze versuchen, natürliche Neuronen realistisch
       abzubilden. Das Hodgkin-Huxley Neuronenmodell wurde bereits 1952
       vorgestellt.</dd>
   <dt><dfn>Hodgkin-Huxley Neuronenmodell</dfn></dt>
@@ -666,9 +666,9 @@ Slides: `11_Evaluation.pdf`
   <dd>Klassifikationsgüte = 1 - Klassifikationsfehler</dd>
   <dt><dfn>False Alarm Rate</dfn> (<dfn>FA</dfn>, <dfn>Falsch Positiv Rate</dfn>, <dfn>FPR</dfn>)</dt>
   <dd>Es sei FP die Anzahl der False Positive Testdaten, also der Testdaten
-      für welche <i>Positive</i> vorhergesagt wurde, die aber negative sind. Weiter
+      für welche <i>Positive</i> vorhergesagt wurde, die aber negativ sind. Weiter
       sei TN die Anzahl der True Negatives, also der Testdaten, für welche
-      korrekterweise negative vorhergesagt wurde.
+      korrekterweise negativ vorhergesagt wurde.
 
       Dann ist die <i>FPR</i> definiert als
       $$\text{FPR} := \frac{FP}{FP + TN} \in [0, 1]$$
@@ -680,15 +680,15 @@ Slides: `11_Evaluation.pdf`
   <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
   <dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
 
-      Der Recall gibt den Anteil der erkannten positiven aus allen positiven
+      Der Recall gibt den Anteil der erkannten Positiven aus allen Positiven
       an.
 
       <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
   <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
   <dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
 
-      Die Precision gibt den Anteil der real positiven aus den als positiv
-      erkannten an.</dd>
+      Die Precision gibt den Anteil der real Positiven aus den als positiv
+      Erkannten an.</dd>
   <dt><dfn>ROC-Graph</dfn> (<dfn>Receiver-Operator Curve</dfn>)</dt>
   <dd>Der ROC-Graph gibt für einen Klassifikator, bei dem man einen Parameter
       einstellen kann, den Fehler an.
@@ -699,7 +699,7 @@ Slides: `11_Evaluation.pdf`
       ist definiert durch
       $$Spezifität = \frac{TN}{TN + FP} = 1 - FPR$$
 
-      Es ist eine Art recall für die negative Klasse. Im Beispiel eines
+      Es ist eine Art Recall für die negative Klasse. Im Beispiel eines
       medizinischen Tests wäre das der Anteil der Gesunden, bei denen
       tatsächlich auch die Diagnose "Gesund" gestellt wurde.</dd>
   <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
@@ -710,7 +710,7 @@ Slides: `11_Evaluation.pdf`
 
 Alternative:
 
-* Aufstellen einer Kostenfunktion und optimieren nach Kosten.
+* Aufstellen einer Kostenfunktion und Optimieren nach Kosten.
 * Plotten der Anzahl der Trainingsdaten (<span markdown="0">$x$</span>-Achse) und des Fehlers
   (<span markdown="0">$y$</span>-Achse). Die Kurven sollten der Test-Fehler sowie der Trainingsfehler
   sein. Damit lässt sich abschätzen, ob mehr Trainingsdaten ohne eine
@@ -743,7 +743,7 @@ Alternative:
 
 <ul>
     <li>Was versteht man unter einer "Transductive SVM"?<br/>
-    → Eine Transductive SVM ist eine <abbr title="Support Vector Machine">SVM</abbr>
+    → Eine Transductive SVM ist eine <abbr title="Support Vector Machine">SVM</abbr>,
        welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
        die Trennebene durch eine Region geringer Dichte zu legen.</li>
     <li>Wie lautet die Optimierungsformel der transductive SVM?<br/>
@@ -760,7 +760,7 @@ Alternative:
            nun bzgl. der Zeit?)</li>
     <li>Warum heißen POMDPs "Partially Observable"?<br/>
         → Weil der Agent zwar Feedback über die Umgebung bekommt, aber nicht
-           direkt erfährt in welchem Zustand er ist. Siehe
+           direkt erfährt, in welchem Zustand er ist. Siehe
            <a href="#pomdp-definition">Definition</a>.</li>
     <li>Welche Active Learning Techniken gibt es?<br/>
         → Query / Selective / Pool-based (vgl. <a href="#tocAnchor-1-1-4">Query-by-Committee</a>)</li>
@@ -769,20 +769,20 @@ Alternative:
     <li>Wie funktioniert aktives Lernen bei SVMs?<br/>
         → Bei SVMs gibt es die Dualität zwischen dem Feature-Space und dem
            Hypothesenraum. In dem Feature-Space stellen
-           die Achsen <span markdown="0">$x_i$</span> die Features dar, Trainingsdaten Punkte sind und
-           die SVM durch die Trennebene visualisiert wird. Im Hypothesenraum
+           die Achsen <span markdown="0">$x_i$</span> die Features dar, Trainingsdaten sind Punkte und
+           die SVM wird durch die Trennebene visualisiert. Im Hypothesenraum
            sind die Achsen <span markdown="0">$w_i$</span> zusammen der
            Normalenvektor der SVM, die verschiedenen Trennebenen der SVMs sind
            hier Punkte. Die Daten geben Bedingungen an die SVM vor, welche
            in diesem Raum als Hyperebenen dargestellt werden können. Der Margin ist
            in diesem Raum ein Kreis, der die Bedingungs-Hyperebenen berührt.
 
-           Beim aktiven lernen versucht man den Version-Space im Inneren der
-           Bedungungs-Hyperebenen so schnell zu verkleinern wie möglich.</li>
+           Beim aktiven Lernen versucht man, den Version-Space im Inneren der
+           Bedingungs-Hyperebenen so schnell wie möglich zu verkleinern.</li>
     <li>Was versteht man unter Transduktivem Lernen?<br/>
         → Unter Transduktiver Inferenz versteht man das Schließen von
-           Trainingsbeispielen direkt auf auf spezifische Testfälle.</li>
-    <li>Wie nennt man die Wahrscheinlichkeit des aktiellen Zustands in POMDPs?<br/>
+           Trainingsbeispielen direkt auf spezifische Testfälle.</li>
+    <li>Wie nennt man die Wahrscheinlichkeit des aktuellen Zustands in POMDPs?<br/>
         → Belief.</li>
 </ul>
 
@@ -791,7 +791,7 @@ Alternative:
 
 * [Vorlesungswebsite](http://tks.anthropomatik.kit.edu/28_176.php)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_429082.html): Ist passwortgeschützt
-* [Zusammenfassung der Vorlesung ML 1](//martin-thoma.com/machine-learning-1-course/)
+* [Zusammenfassung der Vorlesung ML 1](../machine-learning-1-course/)
 
 
 ## Literatur
@@ -817,14 +817,14 @@ Bonuspunkte.
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 
 ## Kontakt

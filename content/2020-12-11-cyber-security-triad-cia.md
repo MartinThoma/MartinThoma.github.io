@@ -11,7 +11,6 @@ featured_image: logos/cybersecurity.png
 subtitle: It’s the CIA 🕵 — but maybe not what you think
 medium_url: https://medium.com/plain-and-simple/the-cyber-security-triad-df9911f85955
 ---
-![Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) on [Unsplash](https://unsplash.com)](../images/2020/12/cyber-security-triad-cia-1.jpg)*Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) on [Unsplash](https://unsplash.com)*
 
 The Cyber Security Triad, also called the CIA triad, is a set of three goals:
 
@@ -21,6 +20,8 @@ The Cyber Security Triad, also called the CIA triad, is a set of three goals:
   authorized parties.
 * **Availability**: Systems are available to their users according to the
   service level agreements (SLAs).
+
+![A triangle with Confidentiality at the apex and Integrity and Availability at the base corners](../images/2020/12/cia-triad.svg)*The three goals of the CIA triad. Image by Martin Thoma*
 
 ## Email Example
 

@@ -215,10 +215,7 @@ It should work on every machine with every Python version.
 You should always distribute your code in the form of a source distribution and a
 wheel distribution. If you can, try to create and publish one universal wheel.
 
-
 ## Create a version support policy
-
-![Photo by [Sebastian Herrmann](https://unsplash.com/@officestock) on [Unsplash](https://unsplash.com)](../images/2020/08/python-2to3-library-2.jpg)*Photo by [Sebastian Herrmann](https://unsplash.com/@officestock) on [Unsplash](https://unsplash.com)*
 
 Library creators need to decide which Python versions they want to support.
 Newer versions of Python have killer features you want to have and supporting
@@ -230,8 +227,6 @@ You should also know that the Python release cycle was changed in [PEP-602](http
 
 ## Remove Python 2 Compatibility
 
-![Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots) on [Unsplash](https://unsplash.com)](../images/2020/08/python-2to3-library-3.jpg)*Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots) on [Unsplash](https://unsplash.com)*
-
 Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.
 
@@ -240,7 +235,6 @@ When you remove the support for a Python version, do it in one git commit so tha
 ```shell
 $ grep -rnI "support for Python 2"
 ```
-
 
 ## Use the new stuff!
 

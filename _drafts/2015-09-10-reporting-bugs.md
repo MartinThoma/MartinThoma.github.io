@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Bug reporting for developers
+slug: bug-reporting-for-developers
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
 tags:
-- Rating
 featured_image: logos/bug.png
+categories: Cyberculture
 ---
 
 Reporting bugs seems to be a problem for a lot of users and some developers.
@@ -58,7 +58,7 @@ When you made the example minimal, give your peers the following information
 ## See also
 
 * My articles
-    * [Bug Reporting - A users perspective](//martin-thoma.com/bug-reporting/)
+    * [Bug Reporting - A User's Perspective](//martin-thoma.com/bug-reporting/)
     * [Debugging a C program](//martin-thoma.com/debugging-a-c-program/)
     * [Profiling C programs](//martin-thoma.com/profiling-c-programs/)
 * StackOverflow
