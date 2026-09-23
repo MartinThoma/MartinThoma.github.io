@@ -119,14 +119,14 @@ reading a file takes (all times are in seconds, reading is executed 100 times):<
 10 MiB         0.0041    0.0079    0.0047    0.0049
 100 MiB        0.0627    0.0778    0.0655    0.0663
 </code></pre></div>
-<p>As you can see, reading files is quite fast. However, I would recommend the
+<p>As you can see, reading files is quite fast. However, I would recommend that you
 start thinking if reading the complete file is appropriate when the file
 size exceeds 100 MiB as you might get different problems then. For example,
 the content of the file might not fit in your main memory (typically 4GiB,
 type <code>cat /proc/meminfo | grep MemTotal</code> to get how much main memory your
 computer has).</p>
 <p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a>
-for details how I measured it.</p>
+for details on how I measured it.</p>
 <h3 id="completely">Completely</h3>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -137,7 +137,7 @@ for details how I measured it.</p>
 </code></pre></div>
 <h3 id="line-by-line">Line by line</h3>
 <p>You can read a text file line by line, but keep in mind that this will still
-have the endline character <code>\n</code> in each <code>line</code>!</p>
+have the newline character <code>\n</code> in each <code>line</code>!</p>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -162,14 +162,14 @@ files:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
 <p>The <a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a>
-function has also a "end" parameter which defaults to <code>\n</code>. This means it adds
+function also has an "end" parameter which defaults to <code>\n</code>. This means it adds
 <code>\n</code> automatically at the end of each printed line. You might not want that
 e.g. in a Windows environment where it should be <code>\r\n</code>.</p>
 <h2 id="with">with</h2>
 <p>You might wonder what
 <a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a>
-does. My advice for newbees would be not to worry too much about it, it is
-just the way you juse I/O with Python. If you come from the C / C++ world, you
+does. My advice for newbies would be not to worry too much about it, it is
+just the way you use I/O with Python. If you come from the C / C++ world, you
 might know that you have to close files when you opened them. The <code>with</code>
 statement makes sure that the file is closed when the block is finished.</p>
 <h2 id="see-also">See also</h2>
@@ -179,8 +179,8 @@ statement makes sure that the file is closed when the block is finished.</p>
 <li><a href="https://docs.python.org/3.0/library/functions.html#open"><code>open</code></a></li>
 <li><a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a></li>
 <li><a href="https://docs.python.org/2/library/stdtypes.html#file-objects">File Objects</a></li>
-<li><a href="//martin-thoma.com/python-csv/">Python and CSV</a></li>
-<li><a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">How to parse command line arguments in Python</a></li>
+<li><a href="../python-csv/">Python and CSV</a></li>
+<li><a href="../how-to-parse-command-line-arguments-in-python/">How to parse command line arguments in Python</a></li>
 </ul>
     
 </div>

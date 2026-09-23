@@ -116,7 +116,6 @@ MathJax.Hub.Queue(function() {
     <p><strong>Encryption is about keeping a secret</strong> and being able to restore it. <strong>Hashing is about fingerprinting</strong> &mdash; you don&rsquo;t need to restore the original, but you need to make sure it is identical. <strong>Encoding is about data representation to enable information exchange</strong>. Encoding does not involve keeping secrets.</p>
 <p>This was my Twitter-length explanation. Let&rsquo;s dive into details!</p>
 <h2 id="encoding">Encoding</h2>
-<p><img alt="Photo by Quino Al on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-1.jpg"/><em>Photo by <a href="https://unsplash.com/@quinoal">Quino Al</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Encoding is about data representation. For example, for icons on the web, we prefer not to store image files but have them directly on the web page. This prevents the client from creating many HTTP requests for little data.</p>
 <p>But then the binary data of the image has to be converted to text data. A common way to do that is <a href="https://en.wikipedia.org/wiki/Base64">base64 encoding</a>.</p>
 <p><img alt="Image data converted to base64 text" src="../images/2021/02/encryption-vs-encoding-vs-hashing-2.png"/></p>
@@ -124,7 +123,6 @@ MathJax.Hub.Queue(function() {
 <p>Please note that this does not keep the content secret. Base64 does not use a secret key. Hence it is not encryption.</p>
 <p>Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF-8, ASCII, and Latin-1.</p>
 <h2 id="encryption">Encryption</h2>
-<p><img alt="Photo by Mauro Sbicego on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-3.jpg"/><em>Photo by <a href="https://unsplash.com/@maurosbicego">Mauro Sbicego</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Encryption is about keeping secrets. You don&rsquo;t want to keep the method how you encrypt and decrypt secret. Instead, you should have a secret key that is necessary to decrypt. This is called Kerckhoffs&rsquo;s principle.</p>
 <p>Mathematically speaking, you have two functions:</p>
 <div class="highlight"><pre><span></span><code>encrypt(plain text, key) -&gt; cipher text
@@ -181,7 +179,6 @@ Translates to: abcdefghijklmnopqrstuvwxyz
 </code></pre></div>
 <p>Modern encryption algorithms are a bit more complicated. The state of the art is AES &mdash; the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a>. Notable mentions are Twofish, Serpent, <a href="https://en.wikipedia.org/wiki/SM4_(cipher)">SM4</a>, and <a href="https://en.wikipedia.org/wiki/SEED">SEED</a>.</p>
 <h2 id="hashing">Hashing</h2>
-<p><img alt="Photo by Immo Wegmann on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-4.jpg"/><em>Photo by <a href="https://unsplash.com/@macroman">Immo Wegmann</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Hashing is about fingerprinting. You want to be able to uniquely identify a list of bytes (e.g. a string or a file), but you don&rsquo;t want to store it. You either don&rsquo;t need to be able to go back to the original or you don&rsquo;t even want it. Just like with a fingerprint: You can take two fingerprints and conclude that they belong to the same person. But given only one fingerprint, you cannot reconstruct that person.</p>
 <p>I wrote an article that explains in detail why this loss of information is desired:
 <a href="../password-hashing/"><strong>Password Hashing 😇</strong>

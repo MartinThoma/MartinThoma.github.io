@@ -703,10 +703,6 @@ complexity or even jump into the code once in a while.&lt;/p&gt;
 &lt;p&gt;After reading this article, you will know what the differences between a
 library and a service are and when you should use one or another. Let&amp;rsquo;s start!&lt;/p&gt;
 &lt;h2 id="the-differences"&gt;The differences&lt;/h2&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2021/06/moon-jelly.jpg"&gt;&lt;img alt="differences" src="../images/2021/05/library-vs-service-1.jpg" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;Photo by &lt;a href="https://unsplash.com/@cooljonez"&gt;Denise Jones&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
 &lt;p&gt;A library is shared code that gets deployed with each application. So the
 library is part of the application and runs on the same machine as the
 application. A library is accessed via function calls.&lt;/p&gt;
@@ -1084,7 +1080,6 @@ service to a library can be completely infeasible after a while.&lt;/p&gt;</cont
 &lt;p&gt;This was …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Encryption is about keeping a secret&lt;/strong&gt; and being able to restore it. &lt;strong&gt;Hashing is about fingerprinting&lt;/strong&gt; &amp;mdash; you don&amp;rsquo;t need to restore the original, but you need to make sure it is identical. &lt;strong&gt;Encoding is about data representation to enable information exchange&lt;/strong&gt;. Encoding does not involve keeping secrets.&lt;/p&gt;
 &lt;p&gt;This was my Twitter-length explanation. Let&amp;rsquo;s dive into details!&lt;/p&gt;
 &lt;h2 id="encoding"&gt;Encoding&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Quino Al on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-1.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@quinoal"&gt;Quino Al&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Encoding is about data representation. For example, for icons on the web, we prefer not to store image files but have them directly on the web page. This prevents the client from creating many HTTP requests for little data.&lt;/p&gt;
 &lt;p&gt;But then the binary data of the image has to be converted to text data. A common way to do that is &lt;a href="https://en.wikipedia.org/wiki/Base64"&gt;base64 encoding&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Image data converted to base64 text" src="../images/2021/02/encryption-vs-encoding-vs-hashing-2.png"/&gt;&lt;/p&gt;
@@ -1092,7 +1087,6 @@ service to a library can be completely infeasible after a while.&lt;/p&gt;</cont
 &lt;p&gt;Please note that this does not keep the content secret. Base64 does not use a secret key. Hence it is not encryption.&lt;/p&gt;
 &lt;p&gt;Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF-8, ASCII, and Latin-1.&lt;/p&gt;
 &lt;h2 id="encryption"&gt;Encryption&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Mauro Sbicego on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-3.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@maurosbicego"&gt;Mauro Sbicego&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Encryption is about keeping secrets. You don&amp;rsquo;t want to keep the method how you encrypt and decrypt secret. Instead, you should have a secret key that is necessary to decrypt. This is called Kerckhoffs&amp;rsquo;s principle.&lt;/p&gt;
 &lt;p&gt;Mathematically speaking, you have two functions:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;encrypt(plain text, key) -&amp;gt; cipher text
@@ -1149,7 +1143,6 @@ Translates to: abcdefghijklmnopqrstuvwxyz
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Modern encryption algorithms are a bit more complicated. The state of the art is AES &amp;mdash; the &lt;a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;Advanced Encryption Standard&lt;/a&gt;. Notable mentions are Twofish, Serpent, &lt;a href="https://en.wikipedia.org/wiki/SM4_(cipher)"&gt;SM4&lt;/a&gt;, and &lt;a href="https://en.wikipedia.org/wiki/SEED"&gt;SEED&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="hashing"&gt;Hashing&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Immo Wegmann on Unsplash" src="../images/2021/02/encryption-vs-encoding-vs-hashing-4.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@macroman"&gt;Immo Wegmann&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Hashing is about fingerprinting. You want to be able to uniquely identify a list of bytes (e.g. a string or a file), but you don&amp;rsquo;t want to store it. You either don&amp;rsquo;t need to be able to go back to the original or you don&amp;rsquo;t even want it. Just like with a fingerprint: You can take two fingerprints and conclude that they belong to the same person. But given only one fingerprint, you cannot reconstruct that person.&lt;/p&gt;
 &lt;p&gt;I wrote an article that explains in detail why this loss of information is desired:
 &lt;a href="../password-hashing/"&gt;&lt;strong&gt;Password Hashing 😇&lt;/strong&gt;
@@ -2112,7 +2105,6 @@ omf&lt;span class="w"&gt; &lt;/span&gt;theme&lt;span class="w"&gt; &lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="property-based-testing-with-pydantic"&gt;Property-based Testing with Pydantic&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Science in HD on Unsplash" src="../images/2020/11/pydantic-1.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@scienceinhd"&gt;Science in HD&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Property-based tests auto-generate inputs for the function under test and make sure a certain property is fulfilled. In the simplest case, this property is that the function under test does not crash. If you want to learn more about this type of testing, read my article about &lt;a href="../property-based-testing/"&gt;property-based testing with hypothesis&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;hypothesis&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt;
@@ -2151,7 +2143,6 @@ omf&lt;span class="w"&gt; &lt;/span&gt;theme&lt;span class="w"&gt; &lt;/span&gt;
 &lt;li&gt;Serialization to a dictionary can be done with the &lt;code&gt;.dict()&lt;/code&gt; method, serialization to a JSON string can be done with the &lt;code&gt;.json()&lt;/code&gt; method.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="operational-safety"&gt;Operational Safety&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by ThisisEngineering RAEng on Unsplash" src="../images/2020/11/pydantic-2.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@thisisengineering"&gt;ThisisEngineering RAEng&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;One part that usually worries me is general support. Here are some indicators that pydantic has a healthy community:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3036,14 +3027,12 @@ Module&lt;span class="o"&gt;(&lt;/span&gt;
 &lt;span class="n"&gt;stdout_handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OnWeekendOnlyErrorsFilter&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stdout_handler&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img alt="Photo by Nigel Tadyanehondo on Unsplash" src="../images/2020/09/logging-basics-in-python-4.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@nxvision"&gt;Nigel Tadyanehondo&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id="logging-vs-print-vs-exception_1"&gt;Logging vs print vs exception&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve been very confused about when I should simply print out information when I should log it, or when I should throw an exception.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You throw an exception in a library function so that the user of that function can catch the exception and show the end-user a meaningful error message. The end-user should never see a traceback.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Logging is meant for other systems or developers&lt;/strong&gt; who try to understand what happened to a system, whereas &lt;strong&gt;print is for the user&lt;/strong&gt;. The confusing part is that log messages go to the standard error by default. You can easily do the same with print. I&amp;rsquo;ve used logging in the past to give the user feedback about what is currently happening, simply because logging had an easy way to include timestamps.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Photo by Esteban Lopez on Unsplash" src="../images/2020/09/logging-basics-in-python-5.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@exxteban"&gt;Esteban Lopez&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id="warningswarn-vs-loggingwarning"&gt;warnings.warn vs logging.warning&lt;/h2&gt;
 &lt;p&gt;According to &lt;a href="https://docs.python.org/3/howto/logging.html#when-to-use-logging"&gt;the official docs&lt;/a&gt;, you have two options when you want to issue a warning regarding a particular runtime event:&lt;/p&gt;
 &lt;ul&gt;
@@ -3051,14 +3040,12 @@ Module&lt;span class="o"&gt;(&lt;/span&gt;
 &lt;li&gt;&lt;a href="https://docs.python.org/3/library/logging.html#logging.warning"&gt;logging.warning()&lt;/a&gt; if there is nothing the client application can do about the situation, but the event should still be noted&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A typical use case for warnings is &lt;a href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning"&gt;DeprecationWarning&lt;/a&gt; with which a library can tell its users to remove a certain type of usage. Or SciPy warning you that no BLAS library was found.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Too few log messages are bad, but too many can be problematic as well. Photo by Christa Dodoo on Unsplash" src="../images/2020/09/logging-basics-in-python-6.jpg"/&gt;&lt;em&gt;Too few log messages are bad, but too many can be problematic as well. Photo by &lt;a href="https://unsplash.com/@krystagrusseck"&gt;Christa Dodoo&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id="what-should-i-log"&gt;What should I log?&lt;/h2&gt;
 &lt;p&gt;I typically log code that takes long to execute pretty well, whereas I don&amp;rsquo;t add much logging to functions which are called super often and are fast. Most of the time, there are initialization functions which load configuration. I always log the complete configuration but strip away credentials.&lt;/p&gt;
 &lt;p&gt;I also log errors and rare exceptions.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s hard to find the right balance. Too many log messages make it hard to find relevant information. Too few messages might mean that you didn&amp;rsquo;t log the important information at all.&lt;/p&gt;
 &lt;h2 id="best-practices"&gt;Best practices&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s a common practice for applications to create a log.py or a logger.py file in which the logger is initialized and log handlers and formatters are added. &lt;a href="https://github.com/OpenShot/openshot-qt"&gt;OpenShot&lt;/a&gt; is doing it.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Photo by Kristina Flour on Unsplash" src="../images/2020/09/logging-basics-in-python-7.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@tinaflour"&gt;Kristina Flour&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id="silencing-loggers"&gt;Silencing loggers&lt;/h2&gt;
 &lt;p&gt;A common cause of frustration is log messages from 3rd party software which spam your application. If they behave well, it is easy to silence them: Get the logger and set the level to something high:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLogger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"urllib3"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CRITICAL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -3683,7 +3670,6 @@ It should work on every machine with every Python version.&lt;/p&gt;
 &lt;p&gt;You should always distribute your code in the form of a source distribution and a
 wheel distribution. If you can, try to create and publish one universal wheel.&lt;/p&gt;
 &lt;h2 id="create-a-version-support-policy"&gt;Create a version support policy&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Sebastian Herrmann on Unsplash" src="../images/2020/08/python-2to3-library-2.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@officestock"&gt;Sebastian Herrmann&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Library creators need to decide which Python versions they want to support.
 Newer versions of Python have killer features you want to have and supporting
 all versions takes a lot of time. Make it transparent which versions you want
@@ -3691,7 +3677,6 @@ to support and when you want to drop the support. It&amp;rsquo;s best to link th
 bigger projects, e.g. the last 3 major Python versions.&lt;/p&gt;
 &lt;p&gt;You should also know that the Python release cycle was changed in &lt;a href="https://www.python.org/dev/peps/pep-0602/"&gt;PEP-602&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="remove-python-2-compatibility"&gt;Remove Python 2 Compatibility&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by JESHOOTS.COM on Unsplash" src="../images/2020/08/python-2to3-library-3.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@jeshoots"&gt;JESHOOTS.COM&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.&lt;/p&gt;
 &lt;p&gt;When you remove the support for a Python version, do it in one git commit so that the change is clear. Search for that string:&lt;/p&gt;
@@ -3729,7 +3714,6 @@ cannot use some of the killer features of newer Python versions.&lt;/p&gt;
 &lt;p&gt;In this article, you will learn how to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Static code analysis looks at the code without executing it. It is usually extremely fast to execute, requires little effort to add to your workflow, and can uncover common mistakes. The only downside is that it is not tailored towards your code.&lt;/p&gt;
 &lt;p&gt;In this article, you will learn how to perform various types of static code analysis in Python. While the article focuses on Python, the types of analysis can be done in any programming language.&lt;/p&gt;
 &lt;h2 id="code-complexity"&gt;Code Complexity&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by John Barkiple on Unsplash" src="../images/2020/08/static-code-analysis-1.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@barkiple"&gt;John Barkiple&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;One way to measure code complexity is the &lt;a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity"&gt;cyclomatic complexity&lt;/a&gt;, also called McCabe complexity as defined in &lt;a href="https://books.google.de/books?id=vtNWAAAAMAAJ&amp;amp;pg=PA3&amp;amp;redir_esc=y"&gt;A Complexity Measure&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;$$CC = E - N + 2 \cdot P$$&lt;/p&gt;
 &lt;p&gt;where N is the number of nodes in the control flow graph, E is the number of edges, and P is the number of connected components (P = 1 for a single function).&lt;/p&gt;
@@ -3756,7 +3740,6 @@ mpu/aws.py
 &lt;li&gt;&lt;a href="https://pypi.org/project/xenon/"&gt;xenon&lt;/a&gt;: Relies on radon&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="style-guides"&gt;Style Guides&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Make your code look professional. Photo by Hunters Race on Unsplash" src="../images/2020/08/static-code-analysis-2.jpg"/&gt;&lt;em&gt;Make your code look professional. Photo by &lt;a href="https://unsplash.com/@huntersrace"&gt;Hunters Race&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;You might have heard the words &amp;ldquo;pythonic code&amp;rdquo;. It means to not only write correct Python code but also use the language's features as they are intended to be used (&lt;a href="https://stackoverflow.com/a/25011492/562769"&gt;source&lt;/a&gt;). It is for sure an opinionated term, but there are a lot of plugins that show you what a large part of the community considers to be pythonic.&lt;/p&gt;
 &lt;p&gt;Writing code in a similar style to other Python projects is valuable as people will have an easier time reading the code. This is important as we read software more often than we write it (&lt;a href="https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is"&gt;source&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;So, what is pythonic code?&lt;/p&gt;
@@ -3768,7 +3751,7 @@ mpu/aws.py
 &lt;p&gt;For pure code formatting, you should use an autoformatter. I grew to like &lt;a href="https://pypi.org/project/black/"&gt;black&lt;/a&gt; because it does NOT allow customization. Code formatted by black always looks the same. As you cannot customize it, you don&amp;rsquo;t need to discuss it. It just solves the issue of conflicting styles and arguments around it. Black is maintained by the Python Software Foundation and likely the most commonly adopted autoformatter for Python.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/google/yapf"&gt;yapf&lt;/a&gt; by Google is another autoformatter.&lt;/p&gt;
 &lt;h2 id="docstrings"&gt;Docstrings&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Reading the manual can be fun if it&amp;rsquo;s written well. Lasagne and SciPy have pretty good documentation. Photo by Laura Dewilde on Unsplash" src="../images/2020/08/static-code-analysis-3.jpg"/&gt;&lt;em&gt;Reading the manual can be fun if it&amp;rsquo;s written well. &lt;a href="https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid"&gt;Lasagne&lt;/a&gt; and &lt;a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt"&gt;SciPy&lt;/a&gt; have pretty good documentation. Photo by &lt;a href="https://unsplash.com/@lauradewilde97"&gt;Laura Dewilde&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Reading the manual can be fun if it&amp;rsquo;s written well. &lt;a href="https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid"&gt;Lasagne&lt;/a&gt; and &lt;a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt"&gt;SciPy&lt;/a&gt; have pretty good documentation.&lt;/p&gt;
 &lt;p&gt;For docstrings, there is &lt;a href="https://www.python.org/dev/peps/pep-0257/"&gt;PEP-257&lt;/a&gt;. All of those rules are widely accepted in the community, but they still allow a wide variety of docstrings. There are three commonly used styles:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://numpydoc.readthedocs.io/en/latest/format.html"&gt;NumpyDoc-style&lt;/a&gt; docstrings: Used by NumPy and SciPy. It&amp;rsquo;s reStructuredText with some specified sections such as &lt;code&gt;Parameters&lt;/code&gt; and &lt;code&gt;Returns&lt;/code&gt; in a fixed order.&lt;/li&gt;
@@ -3882,7 +3865,6 @@ mpu/aws.py
 &lt;/ul&gt;
 &lt;p&gt;An alternative to parts of Flake8 is &lt;a href="https://pypi.org/project/prospector/"&gt;prospector&lt;/a&gt;. It combines tools, but it is way less commonly used and thus not as flexible as Flake8.&lt;/p&gt;
 &lt;h2 id="flake8-security-and-bugs"&gt;Flake8: Security and Bugs&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Be safe by looking at warning signs. Photo by Troy Bridges on Unsplash" src="../images/2020/08/static-code-analysis-4.jpg"/&gt;&lt;em&gt;Be safe by looking at warning signs. Photo by &lt;a href="https://unsplash.com/@esptroy"&gt;Troy Bridges&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://pypi.org/project/flake8-bandit/"&gt;flake8-bandit&lt;/a&gt;: Security Testing&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://pypi.org/project/flake8-bugbear/"&gt;flake8-bugbear&lt;/a&gt;: finding likely bugs and design problems in your program &amp;mdash; usually it&amp;rsquo;s silent, but when it&amp;rsquo;s not you should have a look 🐻&lt;/li&gt;
@@ -3892,7 +3874,6 @@ mpu/aws.py
 &lt;p&gt;It has happened to me quite a few times: I&amp;rsquo;ve added some code while developing a new feature or debugging an old one and forgot to remove it afterward. It was most often caught by the reviewer, but it is not necessary to distract the reviewer with this.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pypi.org/project/flake8-breakpoint/"&gt;flake8-breakpoint&lt;/a&gt; checks for forgotten breakpoints and &lt;a href="https://pypi.org/project/flake8-print/"&gt;flake8-print&lt;/a&gt; will complain about every print statement. &lt;a href="https://pypi.org/project/flake8-debugger/"&gt;flake8-debugger&lt;/a&gt;, &lt;a href="https://pypi.org/project/flake8-fixme/"&gt;flake8-fixme&lt;/a&gt;, &lt;a href="https://pypi.org/project/flake8-todo/"&gt;flake8-todo&lt;/a&gt; go in the same direction.&lt;/p&gt;
 &lt;h2 id="let-dead-code-die"&gt;Let Dead Code Die&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Kenny Orr on Unsplash" src="../images/2020/08/static-code-analysis-5.jpg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@greyharpoon"&gt;Kenny Orr&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Who hasn&amp;rsquo;t done it: You removed a functionality, but the code could be handy. So you comment it out. Or you add an &lt;code&gt;if False&lt;/code&gt; block around it. Sometimes more sophisticated by adding a configuration option you don&amp;rsquo;t need.&lt;/p&gt;
 &lt;p&gt;The clean solution is to have a single, clear commit that removes that feature. Maybe add a git tag so that you can find it later if you want to add it again.&lt;/p&gt;
 &lt;p&gt;And then there is code which is dead, but you forgot about it. Luckily, you can automatically detect it:&lt;/p&gt;
@@ -3901,7 +3882,6 @@ mpu/aws.py
 &lt;li&gt;&lt;a href="https://pypi.org/project/vulture/"&gt;vulture&lt;/a&gt;: Finds unused code in Python programs&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="flake8-nudging-yourself-to-use-good-style"&gt;Flake8: Nudging Yourself to use Good Style&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by Brooke Cagle on Unsplash" src="../images/2020/08/static-code-analysis-6.jpg"/&gt;&lt;em&gt;Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by &lt;a href="https://unsplash.com/@brookecagle"&gt;Brooke Cagle&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Some plugins helped me to learn something about Python. For example, the following helped me to get rid of small little bugs and inconsistencies:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://pypi.org/project/flake8-comprehensions/"&gt;flake8-comprehensions&lt;/a&gt;: Helps you write better list/set/dict comprehensions &amp;mdash; I love this one 😍&lt;/li&gt;
@@ -3937,7 +3917,7 @@ mpu/aws.py
 &lt;p&gt;It&amp;rsquo;s possible in Python, but you need to do it. It&amp;rsquo;s not done automatically. I&amp;rsquo;ve written a longer article about how &lt;a href="../type-annotations/"&gt;type annotations work in Python&lt;/a&gt;. There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using &lt;code&gt;flake8-mypy&lt;/code&gt;, but I prefer to run it separately. The main reason for it is that the output given by &lt;a href="../ci-pipelines/"&gt;CI pipelines&lt;/a&gt; is cleaner.&lt;/p&gt;
 &lt;p&gt;You can integrate type checking (e.g. via mypy) into your editor, but the type annotations alone already go a long way as they document what is expected.&lt;/p&gt;
 &lt;h2 id="package-structure"&gt;Package Structure&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Check that your package looks fine before shipping it. Photo by Toby Stodart on Unsplash" src="../images/2020/08/static-code-analysis-9.jpg"/&gt;&lt;em&gt;Check that your package looks fine before shipping it. Photo by &lt;a href="https://unsplash.com/@tobystodart"&gt;Toby Stodart&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Check that your package looks fine before shipping it.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/regebro/pyroma"&gt;pyroma&lt;/a&gt; rates how well a Python project complies with the best practices of the Python packaging ecosystem.&lt;/p&gt;
 &lt;p&gt;Here are some examples of my projects:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;pyroma&lt;span class="w"&gt; &lt;/span&gt;mpu
@@ -4408,10 +4388,6 @@ strategy should then just give values within the domain.&lt;/p&gt;
 &lt;p&gt;This test now also documents that those two functions belong together and are
 meant to be used in this order.&lt;/p&gt;
 &lt;h2 id="oracles"&gt;Oracles&lt;/h2&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2020/08/oracles.jpg"&gt;&lt;img alt="Photo by Jen Theodore" src="../images/2020/08/oracles.jpg" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;Photo by &lt;a href="https://unsplash.com/@jentheodore"&gt;Jen Theodore&lt;/a&gt; on &lt;a href="https://unsplash.com"&gt;Unsplash&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
 &lt;p&gt;In complexity theory, an oracle is a black box which offers a solution to a
 problem instantly. In this context, it is just a second implementation
 which we trust to be correct. If you have a complex algorithmic problem, you

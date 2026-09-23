@@ -149,7 +149,7 @@ needs 15.7 seconds. That is almost 40&times; the time of Rust!</p>
 <h2 id="example">Example</h2>
 <p>I'll explain in the next chapters what is done, but at first you should see
 that there are only minor changes / overhead:</p>
-<p><strong>fibonacci.rt</strong>:</p>
+<p><strong>fibonacci.rs</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#![crate_type = </span><span class="s">"dylib"</span><span class="cp">]</span>
 
 <span class="cp">#[no_mangle]</span>
@@ -161,7 +161,7 @@ that there are only minor changes / overhead:</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Call <code>rustc -O fibonacci.rt</code> to generate the library.</p>
+<p>Call <code>rustc -O fibonacci.rs</code> to generate the library.</p>
 <p>Python:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#!/usr/bin/env python</span>
 
@@ -172,7 +172,7 @@ that there are only minor changes / overhead:</p>
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span>
 <span class="n">print</span><span class="p">(</span><span class="s">"The %ith Fibonacci number is %i."</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
 </code></pre></div>
-<p>Now, taking the Python code, it takes only 0.44 seconds!</p>
+<p>Now, running the Python code takes only 0.44 seconds!</p>
 <h2 id="what-happens">What happens</h2>
 <p>The line <code>#![crate_type = "dylib"]</code> tells <code>rustc</code> that it has to create a
 dynamic library.</p>

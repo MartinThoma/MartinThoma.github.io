@@ -193,14 +193,12 @@ MathJax.Hub.Queue(function() {
 <span class="n">stdout_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">OnWeekendOnlyErrorsFilter</span><span class="p">())</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stdout_handler</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="Photo by Nigel Tadyanehondo on Unsplash" src="../images/2020/09/logging-basics-in-python-4.jpg"/><em>Photo by <a href="https://unsplash.com/@nxvision">Nigel Tadyanehondo</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <h2 id="logging-vs-print-vs-exception_1">Logging vs print vs exception</h2>
 <p>I&rsquo;ve been very confused about when I should simply print out information when I should log it, or when I should throw an exception.</p>
 <blockquote>
 <p>You throw an exception in a library function so that the user of that function can catch the exception and show the end-user a meaningful error message. The end-user should never see a traceback.</p>
 </blockquote>
 <p><strong>Logging is meant for other systems or developers</strong> who try to understand what happened to a system, whereas <strong>print is for the user</strong>. The confusing part is that log messages go to the standard error by default. You can easily do the same with print. I&rsquo;ve used logging in the past to give the user feedback about what is currently happening, simply because logging had an easy way to include timestamps.</p>
-<p><img alt="Photo by Esteban Lopez on Unsplash" src="../images/2020/09/logging-basics-in-python-5.jpg"/><em>Photo by <a href="https://unsplash.com/@exxteban">Esteban Lopez</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <h2 id="warningswarn-vs-loggingwarning">warnings.warn vs logging.warning</h2>
 <p>According to <a href="https://docs.python.org/3/howto/logging.html#when-to-use-logging">the official docs</a>, you have two options when you want to issue a warning regarding a particular runtime event:</p>
 <ul>
@@ -208,14 +206,12 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://docs.python.org/3/library/logging.html#logging.warning">logging.warning()</a> if there is nothing the client application can do about the situation, but the event should still be noted</li>
 </ul>
 <p>A typical use case for warnings is <a href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning">DeprecationWarning</a> with which a library can tell its users to remove a certain type of usage. Or SciPy warning you that no BLAS library was found.</p>
-<p><img alt="Too few log messages are bad, but too many can be problematic as well. Photo by Christa Dodoo on Unsplash" src="../images/2020/09/logging-basics-in-python-6.jpg"/><em>Too few log messages are bad, but too many can be problematic as well. Photo by <a href="https://unsplash.com/@krystagrusseck">Christa Dodoo</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <h2 id="what-should-i-log">What should I log?</h2>
 <p>I typically log code that takes long to execute pretty well, whereas I don&rsquo;t add much logging to functions which are called super often and are fast. Most of the time, there are initialization functions which load configuration. I always log the complete configuration but strip away credentials.</p>
 <p>I also log errors and rare exceptions.</p>
 <p>It&rsquo;s hard to find the right balance. Too many log messages make it hard to find relevant information. Too few messages might mean that you didn&rsquo;t log the important information at all.</p>
 <h2 id="best-practices">Best practices</h2>
 <p>It&rsquo;s a common practice for applications to create a log.py or a logger.py file in which the logger is initialized and log handlers and formatters are added. <a href="https://github.com/OpenShot/openshot-qt">OpenShot</a> is doing it.</p>
-<p><img alt="Photo by Kristina Flour on Unsplash" src="../images/2020/09/logging-basics-in-python-7.jpg"/><em>Photo by <a href="https://unsplash.com/@tinaflour">Kristina Flour</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <h2 id="silencing-loggers">Silencing loggers</h2>
 <p>A common cause of frustration is log messages from 3rd party software which spam your application. If they behave well, it is easy to silence them: Get the logger and set the level to something high:</p>
 <div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>

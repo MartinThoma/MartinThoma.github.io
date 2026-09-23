@@ -2901,7 +2901,7 @@ drawings. They built a &lt;a href="https://quickdraw.withgoogle.com/data"&gt;dat
 was drawn and improves the drawing. &lt;a href="https://www.autodraw.com/"&gt;autodraw.com&lt;/a&gt;
 does so:&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;img alt="autodraw.com: I wanted to draw a mouse (the animal)" src="../images/2017/12/autodraw.com" style="width: 512px;"/&gt;
+&lt;img alt="autodraw.com: I wanted to draw a mouse (the animal)" src="../images/2017/12/autodraw.png" style="width: 512px;"/&gt;
 &lt;figcaption class="text-center"&gt;autodraw.com: I wanted to draw a mouse (the animal)&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h3 id="deep-dream"&gt;Deep Dream&lt;/h3&gt;
@@ -12157,7 +12157,7 @@ Google. They published it under &lt;a href="https://tldrlegal.com/license/apache
 with a significant bit of Python.&lt;/p&gt;
 &lt;p&gt;I guess the abstract of the
 &lt;a href="http://download.tensorflow.org/paper/whitepaper2015.pdf"&gt;Whitepaper&lt;/a&gt; is a good
-description what TensorFlow is:&lt;/p&gt;
+description of what TensorFlow is:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;TensorFlow is an interface for expressing machine learning algorithms, and an
 implementation for executing such algorithms. A computation expressed using
@@ -12178,10 +12178,10 @@ open-source package under the Apache 2.0 license in November, 2015 and are
 available at www.tensorflow.org.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The core seems to be written in C++, but it has a Python front end.&lt;/p&gt;
-&lt;p&gt;By now, I couldn't test much because I just made my GPU machine unusable
+&lt;p&gt;So far, I couldn't test much because I just made my GPU machine unusable
 (while trying to get the GPU General Computing practical software to run...).
 I'll try to expand this article as soon as possible, but I guess it might
-take several weeks until I have enough time. Lets see...&lt;/p&gt;
+take several weeks until I have enough time. Let's see...&lt;/p&gt;
 &lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
 &lt;p&gt;The documentation about the installation makes a VERY good impression. Better
 than anything I can write in a few minutes, so ... &lt;a href="http://tensorflow.org/get_started/os_setup.md"&gt;RTFM&lt;/a&gt;
@@ -12297,21 +12297,21 @@ Just execute the script below and see if it finishes without throwing errors.&lt
 &lt;p&gt;While looking at the MNIST example, I made a couple of observations. Let's
 begin with the nice parts:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Tensor Flow has a usable documentation (e.g. &lt;a href="http://tensorflow.org/api_docs/python/nn.md"&gt;The neural network part&lt;/a&gt;). Not great, as Lasagne where you have lots of details (e.g. &lt;a href="http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid"&gt;activation functions&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Tensor Flow has usable documentation (e.g. &lt;a href="http://tensorflow.org/api_docs/python/nn.md"&gt;The neural network part&lt;/a&gt;). Not as great as Lasagne, where you have lots of details (e.g. &lt;a href="http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid"&gt;activation functions&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Seems to be quite easy to use.&lt;/li&gt;
 &lt;li&gt;Seems to be well-tested by simply being used in many different projects by
   Google.&lt;/li&gt;
-&lt;li&gt;Just like Theano (and thus Lasagne), Tensor flow has automatic
-  differenciation.&lt;/li&gt;
+&lt;li&gt;Just like Theano (and thus Lasagne), Tensor Flow has automatic
+  differentiation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Not sure:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;How easy is it to share trained models? In which format would you do so?&lt;/li&gt;
 &lt;li&gt;How easy is it to understand a shared model?&lt;/li&gt;
-&lt;li&gt;How easy is it to get something new to Tensor Flow like recurrent layers?
+&lt;li&gt;How easy is it to add something new to Tensor Flow, like recurrent layers?
   (Actually, this seems rather to show that either the Whitepaper is a bit
   misleading or the documentation / Google search is not that good. In the
-  whitepaper they write something about LTSM models, but I couldn't find any docs
+  whitepaper they write something about LSTM models, but I couldn't find any docs
   about that. Only by manually going through the manual,
   &lt;a href="http://tensorflow.org/tutorials/recurrent/index.md"&gt;I found it&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
@@ -12322,7 +12322,7 @@ begin with the nice parts:&lt;/p&gt;
   that there is a &lt;a href="https://google.github.io/styleguide/pyguide.html"&gt;Python style guide by Google&lt;/a&gt;,
   but it does not seem to follow that one either. See the next section for
   some more detailed feedback.&lt;/li&gt;
-&lt;li&gt;Just like the other Toolkits, you need CUDA. It doesn't work with OpenCL.&lt;/li&gt;
+&lt;li&gt;Just like the other toolkits, you need CUDA. It doesn't work with OpenCL.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="pep8"&gt;PEP8&lt;/h3&gt;
 &lt;ul&gt;
@@ -12330,35 +12330,35 @@ begin with the nice parts:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;W = tf.Variable(tf.zeros([784, 10]))&lt;/code&gt; should be
     &lt;code&gt;W = tf.Variable(tf.zeros([784, 10]))&lt;/code&gt;.
     Missing whitespaces happened quite often.&lt;/li&gt;
-&lt;li&gt;Indent with 2&amp;nbsp;spaces instead of 4&amp;nbsp;spaces. The Google guide seems
-    also to use 4.&lt;/li&gt;
+&lt;li&gt;Indent with 2&amp;nbsp;spaces instead of 4&amp;nbsp;spaces. The Google guide also
+    seems to use 4.&lt;/li&gt;
 &lt;li&gt;Newlines between functions are missing.&lt;/li&gt;
 &lt;li&gt;Print statement instead of a print function was used &amp;rarr;
   only Python&amp;nbsp;2, not Python&amp;nbsp;3.&lt;/li&gt;
 &lt;li&gt;I'm not sure why &lt;code&gt;y_&lt;/code&gt; has the trailing underscore. According to
   &lt;a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles"&gt;PEP8&lt;/a&gt;,
   a single trailing underscore is used by convention to avoid conflicts with
-  Python keyword.&lt;/li&gt;
-&lt;li&gt;A mixture of different styles as pointed out on &lt;a href="http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/"&gt;Credric's Blog&lt;/a&gt;&lt;/li&gt;
+  Python keywords.&lt;/li&gt;
+&lt;li&gt;A mixture of different styles as pointed out on &lt;a href="http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/"&gt;Cedric's Blog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="videos_1"&gt;Videos&lt;/h2&gt;
 &lt;iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/oZikw5k_2FM?rel=0" width="512"&gt;&lt;/iframe&gt;
 &lt;p&gt;Starting at 21m 2s:&lt;/p&gt;
 &lt;iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/90-S1M7Ny_o?rel=0" width="512"&gt;&lt;/iframe&gt;
 &lt;h2 id="alternatives-similar-software"&gt;Alternatives / Similar software&lt;/h2&gt;
-&lt;p&gt;As I don't really know by now what Tensor Flow is doing, I can't pin-point
+&lt;p&gt;As I don't really know yet what Tensor Flow is doing, I can't pin-point
 alternatives. But I have some educated guesses:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://deeplearning.net/software/theano/"&gt;Theano&lt;/a&gt; has been around for quite
   a while and seems to have a similar approach with its computational graph.
   Enhanced by &lt;a href="http://lasagne.readthedocs.org/en/latest/"&gt;Lasagne&lt;/a&gt;, it is a
-  pretty good alternative when it comes to neural networks. Lasagne has an
+  pretty good alternative when it comes to neural networks. Lasagne has
   exceptionally good documentation, but parts of the tutorial could still be
   improved.&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://caffe.berkeleyvision.org/"&gt;Caffe&lt;/a&gt; was something I recently tried.
   I didn't like it too much due to the lack of documentation, but it certainly
   is a big project. Especially when it comes to images.&lt;/li&gt;
-&lt;li&gt;I haven't tried, but they look promising:&lt;/li&gt;
+&lt;li&gt;I haven't tried these, but they look promising:&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://chainer.org/"&gt;Chainer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mxnet.readthedocs.org/en/latest/"&gt;MXNet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://rll.berkeley.edu/cgt/"&gt;CGT&lt;/a&gt;&lt;/li&gt;
@@ -12374,11 +12374,11 @@ alternatives. But I have some educated guesses:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/"&gt;reddit.com/r/programming&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Machine Learning"></category><category term="Python"></category><category term="Tensorflow"></category><category term="AI"></category></entry><entry><title>Lasagne for Python Newbies</title><link href="https://martin-thoma.com/lasagne-for-python-newbies/" rel="alternate"></link><published>2015-04-17T19:26:00+02:00</published><updated>2015-04-17T19:26:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2015-04-17:/lasagne-for-python-newbies/</id><summary type="html">&lt;p&gt;Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
-on nVidea GPUs with automatically generated CUDA code.&lt;/p&gt;
+on NVIDIA GPUs with automatically generated CUDA code.&lt;/p&gt;
 &lt;p&gt;However, installing Lasagne is not that easy. Especially if you are not
 familiar with Python …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
-on nVidea GPUs with automatically generated CUDA code.&lt;/p&gt;
+on NVIDIA GPUs with automatically generated CUDA code.&lt;/p&gt;
 &lt;p&gt;However, installing Lasagne is not that easy. Especially if you are not
 familiar with Python. This article aims to guide you through the installation
 process.&lt;/p&gt;
@@ -12405,13 +12405,13 @@ learning. You can install it with&lt;/p&gt;
 &lt;p&gt;This should work without problems.&lt;/p&gt;
 &lt;p&gt;Each classifier has a &lt;code&gt;fit&lt;/code&gt; method and a &lt;code&gt;predict&lt;/code&gt; method. See
 &lt;a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html"&gt;iris example&lt;/a&gt;
-to get a feeling how to use it. It provides a lot of useful functions like
+to get a feeling for how to use it. It provides a lot of useful functions like
 &lt;a href="http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html"&gt;&lt;code&gt;train_test_split&lt;/code&gt;&lt;/a&gt;
-and has an awesome documentation.&lt;/p&gt;
+and has awesome documentation.&lt;/p&gt;
 &lt;p&gt;You don't need this for Lasagne, but it might be good to use sklearn and
 Lasagne in combination.&lt;/p&gt;
 &lt;h2 id="graphics-drivers-and-cuda"&gt;Graphics drivers and CUDA&lt;/h2&gt;
-&lt;p&gt;Make sure CUDA runs on your system by the following commands.
+&lt;p&gt;Make sure CUDA runs on your system with the following commands.
 If it doesn't run, you could try the following guides:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://askubuntu.com/q/451672/10425"&gt;Installing and testing CUDA in Ubuntu 14.04&lt;/a&gt;&lt;/li&gt;
@@ -12564,7 +12564,7 @@ GPU&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0000&lt;/span&gt;:0
 device=gpu
 floatX=float32
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Note that &lt;code&gt;float32&lt;/code&gt; is required, even if you have a 64bit system.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;float32&lt;/code&gt; is required, even if you have a 64-bit system.&lt;/p&gt;
 &lt;p&gt;To test your installation, save the following as &lt;code&gt;theanotest.py&lt;/code&gt; and execute
 it with &lt;code&gt;python theanotest.py&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
@@ -12599,12 +12599,12 @@ Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
   1.62323296]
 Used the gpu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
+&lt;p&gt;Especially "used the gpu" is important. Theano code works on both CPU and GPU.
 If you have a GPU and it does not currently work on a task and it is configured
 correctly, then Theano should automatically use the GPU.&lt;/p&gt;
 &lt;p&gt;(Don't try to run two Theano scripts at a time ... weird things could happen.)&lt;/p&gt;
 &lt;h2 id="lasagne"&gt;Lasagne&lt;/h2&gt;
-&lt;p&gt;Lasagne is hosted at Github: &lt;a href="https://github.com/Lasagne/Lasagne"&gt;https://github.com/Lasagne/Lasagne&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lasagne is hosted on GitHub: &lt;a href="https://github.com/Lasagne/Lasagne"&gt;https://github.com/Lasagne/Lasagne&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Currently, it is not on pip as Sander wants to wait until we get to version
 1.0. So you have to install it manually:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/Lasagne/Lasagne.git
@@ -12615,7 +12615,7 @@ Lasagne$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span
 (&lt;a href="http://yann.lecun.com/exdb/mnist/"&gt;MNIST&lt;/a&gt; is a huge digit dataset). This
 might first take some time to download, but should then run quite fast. If
 your machine does not use the GPU it will take ages (e.g. on my laptop it takes
-about a minute for one epoch)&lt;/p&gt;
+about a minute for one epoch).&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Lasagne/examples$ python mnist.py
 Loading data...
 Downloading MNIST dataset

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Analyzing PyPI Metadata "/>
 <meta property="og:url" content="analyzing-pypi-metadata/" />
-<meta property="og:description" content="This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scrapped all of the packages metadata. 53,533 packages were scrapped (date: 2015-01-18), because I wanted …" />
+<meta property="og:description" content="This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scraped all of the packages&#39; metadata. 53,533 packages were scraped (date: 2015-01-18), because I wanted …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-01-18T20:19:00+01:00" />
 <meta name="twitter:title" content="Analyzing PyPI Metadata ">
-<meta name="twitter:description" content="This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scrapped all of the packages metadata. 53,533 packages were scrapped (date: 2015-01-18), because I wanted …">
+<meta name="twitter:description" content="This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scraped all of the packages&#39; metadata. 53,533 packages were scraped (date: 2015-01-18), because I wanted …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -116,10 +116,10 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
+    <div class="info">This is part one of a series. See <a href="../analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
 <p>PyPI, the Python Package Index, gives a very crappy but simple interface to
-query metadata about its packages. I scrapped all of the packages metadata.
-53,533 packages were scrapped (date: 2015-01-18), because I wanted to
+query metadata about its packages. I scraped all of the packages' metadata.
+53,533 packages were scraped (date: 2015-01-18), because I wanted to
 see if there is malware on PyPI (related to
 <a href="http://security.stackexchange.com/q/79326/3286">this question on security.SE</a>).</p>
 <p>The database looks like this:</p>
@@ -128,16 +128,16 @@ see if there is malware on PyPI (related to
 <figcaption class="text-center">PyPI metadata</figcaption>
 </figure>
 <h2 id="exploring-the-data">Exploring the data</h2>
-<p>When I scapped the data from PyPI, I made all database fields "varchar 255" as
+<p>When I scraped the data from PyPI, I made all database fields "varchar 255" as
 there seems to be no information about the possible values. Then I explored
 the data</p>
 <ul>
-<li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one
+<li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest package names have only one
 character.</li>
-<li><code>author</code>: 911&times; "UNKOWN", 741&times; empty, 195&times; "None", 151&times; "Zope Foundation and
+<li><code>author</code>: 911&times; "UNKNOWN", 741&times; empty, 195&times; "None", 151&times; "Zope Foundation and
   Contributors". There are about 22,000 different authors. There are 595
   authors who wrote more than 10 packages.</li>
-<li><code>author_email</code>: 2059&times; "UNKOWN", 932&times; empty, 323&times; "zope-dev@zope.org", 216&times;
+<li><code>author_email</code>: 2059&times; "UNKNOWN", 932&times; empty, 323&times; "zope-dev@zope.org", 216&times;
   "None" and 204&times; "TODO".</li>
 <li><code>maintainer</code>: 46879&times; "None", 5507&times; empty, 17&times; <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
 <li><code>requires_python</code>: 53467&times; "None", 3&times; "UNKNOWN", 2&times; "&gt;=2.7,!=3.0,!=3.1", 2&times;
@@ -161,11 +161,15 @@ character.</li>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>1485</th>
+<th>Author</th>
+<th>Packages</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>(empty)</td>
+<td>1485</td>
+</tr>
 <tr>
 <td>UNKNOWN</td>
 <td>1150</td>
@@ -379,7 +383,7 @@ columns. I did this with</p>
 <ul>
 <li>URLs: localhost / 127.0.0.1 is almost certainly not desired</li>
 <li><code>cheesecake_installability_id</code>, <code>cheesecake_documentation_id</code>, <code>cheesecake_code_kwalitee_id</code>
-  should have NULL and None should be casted to NULL. The data type is likely
+  should have NULL and None should be cast to NULL. The data type is likely
   to be numeric.</li>
 <li><code>_pypi_ordering</code> should be numeric</li>
 <li><code>_pypi_hidden</code> should be boolean</li>
@@ -390,7 +394,7 @@ columns. I did this with</p>
 package name or the description, are used very often, but some fields are only
 rarely used:</p>
 <h3 id="maintainer">Maintainer</h3>
-<p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send
+<p><code>maintainer</code> and <code>maintainer_email</code> are interesting for people who want to send
 bug reports. If this is empty, I would guess the package is dead.</p>
 <h3 id="platform">Platform</h3>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
@@ -464,16 +468,16 @@ gives a little bit more information</p>
 <p>A list of platforms on which this distribution is known to work. You should provide this information if you have reasons to believe this distribution may not work everywhere. This information should be reasonably concise, so this field may refer for details to a file in the distribution or to a URL.</p>
 </blockquote>
 <h3 id="bugtracker">Bugtracker</h3>
-<p>This one is very important. Users should have an easy possibility to report
-bugs. So please help them by added your bug tracker URL wherever it makes
+<p>This one is very important. Users should have an easy way to report
+bugs. So please help them by adding your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:</p>
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-bugtrack-url.png"><img alt="Go to your packages PyPI page" class="" src="../images/2015/01/pypi-bugtrack-url.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">Go to your packages PyPI page</figcaption>
+<a href="../images/2015/01/pypi-bugtrack-url.png"><img alt="Go to your package's PyPI page" class="" src="../images/2015/01/pypi-bugtrack-url.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Go to your package's PyPI page</figcaption>
 </figure>
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-add-bugtrack-url.png"><img alt="Add your bugtracker / issue tracker url" class="" src="../images/2015/01/pypi-add-bugtrack-url.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">Add your bugtracker / issue tracker url</figcaption>
+<a href="../images/2015/01/pypi-add-bugtrack-url.png"><img alt="Add your bugtracker / issue tracker URL" class="" src="../images/2015/01/pypi-add-bugtrack-url.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Add your bugtracker / issue tracker URL</figcaption>
 </figure>
 <figure class="aligncenter">
 <a href="../images/2015/01/pypi-added-bugtracker.png"><img alt="Check if you really added it" class="" src="../images/2015/01/pypi-added-bugtracker.png" style="max-width:500px;"/></a>
@@ -581,13 +585,13 @@ sense. Here is how you add it on PyPI:</p>
 </tr>
 </tbody>
 </table>
-<p>and about 6500 other licenses. Most might be variants in writing, e.g.</p>
+<p>and about 6500 other licenses. Most might be spelling variants, e.g.</p>
 <ul>
 <li>Apache License 2.0</li>
 <li>Apache License, Version 2.0</li>
 <li>Apache 2.0</li>
 </ul>
-<p>are all the same license. Some packages have no licence (<code>Unknown</code> and empty).
+<p>are all the same license. Some packages have no license (<code>Unknown</code> and empty).
 Many are invalid values, like</p>
 <ul>
 <li>LICENSE.txt</li>
@@ -597,10 +601,10 @@ Many are invalid values, like</p>
 </ul>
 <p>These indicate that people have no idea what to input there.
 <a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the
-Python community should try to eliminate variants in writing license names as
+Python community should try to eliminate spelling variants in license names as
 it makes finding, filtering and analyzing packages more difficult.</p>
 <h2 id="classifiers_1">Classifiers</h2>
-<p>Python makes use of so called trove classifiers. They are defined in
+<p>Python makes use of so-called trove classifiers. They are defined in
 <a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a>
 and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">here</a>.</p>
 <p>The following table gives the TOP-10 most commonly used classifiers:</p>
@@ -655,7 +659,7 @@ and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">her
 </tbody>
 </table>
 <p>When you analyze the licenses with the trove classifiers you get a different
-image:</p>
+picture:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
 <span class="w">    </span><span class="o">`</span><span class="n">classifier</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">53533</span>
 <span class="k">FROM</span>
@@ -697,7 +701,7 @@ image:</p>
 </tr>
 </tbody>
 </table>
-<p>There are 94 trove classifiers with five or less packages which use this
+<p>There are 94 trove classifiers with five or fewer packages which use this
 classifier. I guess many of them are not in the official list of classifiers.</p>
 <h2 id="package-type">Package type</h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
@@ -768,8 +772,8 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <table>
 <thead>
 <tr>
-<th>Package type</th>
-<th>Count</th>
+<th>Package</th>
+<th>Downloads</th>
 </tr>
 </thead>
 <tbody>
@@ -831,8 +835,8 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <table>
 <thead>
 <tr>
-<th>Package type</th>
-<th>Count</th>
+<th>Package</th>
+<th>Downloads</th>
 </tr>
 </thead>
 <tbody>
@@ -974,8 +978,8 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </li>
 <li>Malicious package search:</li>
 <li>Check which package names are prefixes of other package names.</li>
-<li>Find packages which upload data (dropbox?)</li>
-<li>Find pacakges which remove data from your file system</li>
+<li>Find packages which upload data (Dropbox?)</li>
+<li>Find packages which remove data from your file system</li>
 </ul>
     
 </div>
