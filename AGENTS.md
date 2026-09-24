@@ -95,6 +95,12 @@ findings per article; remove an entry once it is fixed.
   Convert PNG screenshots without transparency to JPG and scale to at most 1600–2000
   px width.
 
+## Questions and answers
+
+* Exam questions whose answer is revealed on click use
+  `<details class="question"><summary>Frage?</summary><div class="answer">…</div></details>`
+  (styles in `static/custom.css`, no JavaScript).
+
 ## Facts and numbers
 
 * If a number is corrected, add a source where reasonable and recompute everything
