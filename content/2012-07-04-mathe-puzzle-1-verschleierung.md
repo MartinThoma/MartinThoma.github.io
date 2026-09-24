@@ -11,7 +11,7 @@ featured_image: 2012/07/math-symbol-thumb.png
 ---
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>
 
-Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verknüfungen auf $\mathbb{R}$ und definiert durch:
+Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verknüpfungen auf $\mathbb{R}$ und definiert durch:
 $\oplus(a, b) := a + b$
 $\otimes(a, b) := a - b$
 

@@ -69,7 +69,7 @@ Siehe <a href="http://de.wikipedia.org/wiki/Charakteristisches_Polynom#Beispiel"
 Mit Wolfram|Alpha kann man das <a href="http://www.wolframalpha.com/widgets/view.jsp?id=27ddb8d522a2dc74e89687bd357db5a0">charakteristische Polynom</a> berechnen und auch direkt die <a href="http://www.wolframalpha.com/input/?i=Eigenvalues%7B%7B1%2C0%2C1%7D%2C%7B2%2C2%2C1%7D%2C%7B4%2C2%2C1%7D%7D">Eigenwerte</a>.
 
 <h2>Wozu das Ganze?</h2>
-An dem charakteristischem Polynom kann man direkt die Eigenwerte ablesen. Existiert eine Basis aus Eigenvektoren für den Vektorraum, dann ist eine Matrix diagonalsiierbar. Wenn eine Matrix in Diagonalform ist, dann kann man damit besonders gut rechnen.
+An dem charakteristischem Polynom kann man direkt die Eigenwerte ablesen. Existiert eine Basis aus Eigenvektoren für den Vektorraum, dann ist eine Matrix diagonalisierbar. Wenn eine Matrix in Diagonalform ist, dann kann man damit besonders gut rechnen.
 
 <h2>Siehe auch</h2>
 <ul>

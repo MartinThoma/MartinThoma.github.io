@@ -33,7 +33,7 @@ Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch v
             <figcaption class="text-center">Assoziation</figcaption>
         </figure>
 
-Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a>zeigt eine Verbindung an, z.B.:
+Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a> zeigt eine Verbindung an, z.B.:
 <ul>
 	<li>Person - Termin: Eine Person hat Termine; Termine gehören zu einer Person.</li>
 	<li>Lehrer - Schüler: Ein Schüler hat Lehrer; Lehrer haben Schüler.</li>
@@ -88,7 +88,7 @@ Beispiele sind:
             <figcaption class="text-center">UML Sequenzdiagramm</figcaption>
         </figure>
 Der Pfeil mit der ausgefüllten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgefüllten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgefüllten Spitze ist eine asynchrone Nachricht.
-<strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgefüllten Kopf, im gegensatz zu dem hier gezeigtem Bild!
+<strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgefüllten Kopf, im Gegensatz zu dem hier gezeigtem Bild!
 
 <h2>Siehe auch</h2>
 <ul>

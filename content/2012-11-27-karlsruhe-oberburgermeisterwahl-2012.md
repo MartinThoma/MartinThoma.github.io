@@ -9,7 +9,7 @@ category: German posts
 tags: Politics, Karlsruhe, Voting
 featured_image: 2012/11/Karlsruhe.png
 ---
-Da ich mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier wählen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberbürgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gewählt werden.
+Da mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier wählen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberbürgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gewählt werden.
 
 <h2>Die Kandidaten</h2>
 Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank dafür!).
@@ -64,9 +64,9 @@ Ziele und Aussagen:
 
 Ziele und Aussagen:
 <ul>
-  <li><strong>Wohnraummangel</strong>: setzt sich für ein kommunale Wohnungsprogramm ein</li>
+  <li><strong>Wohnraummangel</strong>: setzt sich für ein kommunales Wohnungsprogramm ein</li>
   <li><strong>Studiticket</strong>: &bdquo;ÖPNV kostenlos und über Steuermittel finanziert&ldquo;</li>
-  <li><strong>Rad vs. Baustellen</strong>: nichts konkretes</li>
+  <li><strong>Rad vs. Baustellen</strong>: nichts Konkretes</li>
   <li><strong>Slacklinen</strong>: &bdquo;Dafür ist das Land zuständig.&ldquo;</li>
   <li><strong>Sonstiges</strong>: Kostenfreie Kindertagesstätten für alle Kinder von 1 bis 6, kommunales Wohnungsprogramm</li>
 </ul>
@@ -83,7 +83,7 @@ Ziele und Aussagen:
 <ul>
   <li><strong>Wohnraummangel</strong>: kommunales Wohnungsbauprogramm, Investoren, Büroflächen in Wohnraum umwandeln</li>
   <li><strong>Studiticket</strong>: &bdquo;[Ich werde] den Druck auf den KVV deutlich erhöhen, um eine moderatere Preisgestaltung zu erzielen.&ldquo;</li>
-  <li><strong>Rad vs. Baustellen</strong>: Nichts konkretes</li>
+  <li><strong>Rad vs. Baustellen</strong>: nichts Konkretes</li>
   <li><strong>Slacklinen</strong>: ist nicht Sache des OB</li>
   <li><strong>Sonstiges</strong>: -</li>
 </ul>

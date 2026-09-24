@@ -21,7 +21,7 @@ Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch I
   <li><strong>Verknüpfungseigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Kommutativgesetz">Kommutativgesetz</a>, <a href="http://de.wikipedia.org/wiki/Assoziativgesetz">Assoziativgesetz</a>, <a href="http://de.wikipedia.org/wiki/Distributivgesetz">Distributivgesetz</a></li>
   <li><strong>Relationen</strong>: <a href="http://de.wikipedia.org/wiki/Injektivit%C3%A4t">Injektivität</a>, <a href="http://de.wikipedia.org/wiki/Surjektivit%C3%A4t">Surjektivität</a>, <a href="http://de.wikipedia.org/wiki/Bijektive_Funktion">Bijektivität</a>, Linkstotalität, Rechtseindeutigkeit, <a href="http://de.wikipedia.org/wiki/Reflexive_Relation">Reflexivität</a>, <a href="http://de.wikipedia.org/wiki/Antisymmetrie">Antisymmetrie</a>, <a href="http://de.wikipedia.org/wiki/Symmetrische_Relation">Symmetrie</a>, <a href="http://de.wikipedia.org/wiki/Transitivit%C3%A4t_(Mathematik)">Transitivität</a>, <a href="http://de.wikipedia.org/wiki/Ordnungsrelation">Ordnungsrelation</a>, <a href="http://de.wikipedia.org/wiki/%C3%84quivalenzrelation">Äquivalenzrelation</a></li>
   <li><strong>Mengeneigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Abz%C3%A4hlbarkeit">Abzählbarkeit</a>, <a href="http://de.wikipedia.org/wiki/%C3%9Cberabz%C3%A4hlbarkeit">Überabzählbarkeit</a>, endlich, unendlich, <a href="http://de.wikipedia.org/wiki/Beschr%C3%A4nktheit">Beschränktheit</a></li>
-  <li><strong>Folgeneigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Supremum">Supremum</a>, Infimum, Minimum, Maximum, Konvergenz, Divergenz, <a href="http://de.wikipedia.org/wiki/Grenzwert_(Folge)">Grenzwert</a>, Limes superior, Limes inferior, <a href="http://de.wikipedia.org/wiki/Monotonie_(Mathematik)">Monotonie</a></li>
+  <li><strong>Folgeneigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Supremum">Supremum</a>, Infimum, Minimum, Maximum, <a href="../konvergenz-von-folgen/">Konvergenz</a>, Divergenz, <a href="http://de.wikipedia.org/wiki/Grenzwert_(Folge)">Grenzwert</a>, Limes superior, Limes inferior, <a href="http://de.wikipedia.org/wiki/Monotonie_(Mathematik)">Monotonie</a></li>
   <li><a href="../wie-fuhre-ich-einen-induktionsbeweis/" title="Wie führe ich einen Induktionsbeweis?">Beweis durch vollständige Induktion</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Teilfolge">Teilfolgen</a>, Häufungswerte</li>
   <li><a href="http://de.wikipedia.org/wiki/Reihe_(Mathematik)">Reihen</a>: Monotoniekriterium, Dreiecksungleichung</li>
@@ -118,7 +118,7 @@ Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch I
 
 <h4>Dies und das</h4>
 <ul>
-  <li><a href="http://de.wikipedia.org/wiki/Permutation">Permutationen</a> und Transpositionen, <a href="http://de.wikipedia.org/wiki/Identische_Abbildung">Identische Abbildung</a></li>
+  <li><a href="http://de.wikipedia.org/wiki/Permutation">Permutationen</a> und <a href="../permutationen-und-transpositionen/">Transpositionen</a>, <a href="http://de.wikipedia.org/wiki/Identische_Abbildung">Identische Abbildung</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Direkte_Summe#Innere_direkte_Summe">Direkte Summe</a></li>
   <li><a href="../wie-bildet-man-den-schnitt-zweier-vektorraume/" title="Wie bildet man den Schnitt zweier Vektorräume?">Schnitt zweier Vektorräume berechnen</a></li>
   <li>Was bedeuten die folgenden Symbole: $\subseteq, \subset, \subsetneq, \cup, \setminus, \cap, \emptyset$</li>
@@ -133,7 +133,7 @@ Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch I
 </ul>
 
 <h3>Programmieren</h3>
-Nur grundlagen in Java:
+Nur Grundlagen in Java:
 <ul>
   <li><a href="http://de.wikipedia.org/wiki/Objekt_(Programmierung)">Objekt</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Klasse_(Programmierung)">Klasse</a></li>
@@ -184,7 +184,7 @@ Nur grundlagen in Java:
   <li><a href="http://en.wikipedia.org/wiki/Multiprogramming">multiprogramming</a> and <a href="http://en.wikipedia.org/wiki/Batch_system">Batch processing</a></li>
   <li><a href="http://en.wikipedia.org/wiki/Zombie_process">Zombie</a> and <a href="http://en.wikipedia.org/wiki/Orphan_process">Orphan</a>, <a href="http://en.wikipedia.org/wiki/Fork_(operating_system)">fork</a>, <a href="http://en.wikipedia.org/wiki/Fork_bomb">fork bomb</a></li>
   <li>Memory layout of a process (Stack, Heap, BSS, data, rodata, text)</li>
-  <li>(synchroner / asynchroner) <a href="http://de.wikipedia.org/wiki/Interrupt">Interrupt</a>, Excaption, Trap, <a href="http://de.wikipedia.org/wiki/System_Call">System Call</a></li>
+  <li>(synchroner / asynchroner) <a href="http://de.wikipedia.org/wiki/Interrupt">Interrupt</a>, Exception, Trap, <a href="http://de.wikipedia.org/wiki/System_Call">System Call</a></li>
 </ul>
 
 <h4>Multithreaded Programming</h4>
@@ -199,7 +199,7 @@ Nur grundlagen in Java:
 
 <h4>Cache</h4>
 <ul>
-    <li><a href="http://de.wikipedia.org/wiki/Cache">Cache</a>
+    <li><a href="http://de.wikipedia.org/wiki/Cache">Cache</a></li>
     <li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
     <li><a href="http://de.wikipedia.org/wiki/Cache-Algorithmus#Write_Through_.28Write_Thru.29">Write through</a> und <a href="http://de.wikipedia.org/wiki/Cache-Algorithmus#Write_Back">write back</a> policy</li>
     <li><a href="http://de.wikipedia.org/wiki/Lokalit%C3%A4tseigenschaft">Lokalitätseigenschaft</a></li>
@@ -211,7 +211,7 @@ Nur grundlagen in Java:
   <li><a href="http://en.wikipedia.org/wiki/Gantt_chart">Gantt chart</a></li>
   <li>turnaround time, response time, waiting time</li>
   <li>Starvation</li>
-  <li>hardware requirements of preemptitive scheduling</li>
+  <li>hardware requirements of preemptive scheduling</li>
   <li><a href="http://en.wikipedia.org/wiki/Scheduling_(computing)#Dispatcher">dispatcher</a></li>
 </ul>
 
@@ -236,7 +236,7 @@ Nur grundlagen in Java:
   <li><a href="http://de.wikipedia.org/wiki/Nichtdeterministischer_endlicher_Automat">NEA</a>: $(Q, \Sigma, \delta: Q \times \Sigma \rightarrow 2^Q, s \in Q, F \subseteq Q)$, wobei $2^Q$ die Potenzmenge von Q ist.</li>
   <li>Äquivalenz von DEA und NEA sowie die <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Konstruktion</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Turingmaschine">Turingmaschine</a>: $(Q, \Sigma, \square, \Gamma, s \in Q, \delta: Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R, N\}, F \subseteq Q)$</li>
-  <li><a href="http://de.wikipedia.org/wiki/Churchsche_These">Church'che These</a></li>
+  <li><a href="http://de.wikipedia.org/wiki/Churchsche_These">Church'sche These</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Satz_von_Rice">Satz von Rice</a></li>
   <li>Orakelmodul, Orakelband und <a href="http://de.wikipedia.org/wiki/Orakel-Turingmaschine">Orakel-Turingmaschine</a></li>
 </ul>

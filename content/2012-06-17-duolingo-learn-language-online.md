@@ -8,7 +8,7 @@ date: 2012-06-17 12:02:19.000000000 +02:00
 category: The Web
 tags: Learning, Language, Education
 ---
-<a href="http://duolingo.com/">Duolingo</a> is a great online protal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
+<a href="http://duolingo.com/">Duolingo</a> is a great online portal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
 
 Here is a short explanation of Duolingo:
 <iframe width="512" height="288" src="//www.youtube.com/embed/WyzJ2Qq9Abs" frameborder="0" allowfullscreen></iframe>
@@ -57,8 +57,8 @@ Now some screenshots to give you a feeling what Duolingo offers:
         </figure>
 
 <figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lection in Duolingo" style="max-width:300px;max-height:173px" class="size-medium wp-image-27131"/></a>
-            <figcaption class="text-center">A lection in Duolingo</figcaption>
+            <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lesson in Duolingo" style="max-width:300px;max-height:173px" class="size-medium wp-image-27131"/></a>
+            <figcaption class="text-center">A lesson in Duolingo</figcaption>
         </figure>
 
 <figure class="aligncenter">

@@ -14,7 +14,7 @@ featured_image: 2011/12/Richard-Stallman1.jpg
             <figcaption class="text-center">Richard Stallman</figcaption>
         </figure>
 
-I've just installed vrms - the virtual richard Stallman :D
+I've just installed vrms - the virtual Richard Stallman :D
 
 <a href="http://en.wikipedia.org/wiki/Richard_Stallman">Richard Stallman</a> is an American software freedom activist and computer programmer. He launched the GNU Project to create a free Unix-like operating system, and he has been the project's lead architect and organizer. With the launch of the GNU Project, he initiated the free software movement; he founded the Free Software Foundation.
 

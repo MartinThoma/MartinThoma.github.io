@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Search Engine Autodiscovery
 slug: search-engine-autodiscovery
+lang: en
 author: Martin Thoma
 date: 2011-10-22 11:12:07.000000000 +02:00
 category: Code
@@ -56,7 +56,7 @@ Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an in
             <figcaption class="text-center">Add Search Engines via Settings in Google Chrome</figcaption>
         </figure>
 
-Chrome also adds the sites internal search engine automatically. Did you ever notice this? Here are some screenshots:
+Chrome also adds the site's internal search engine automatically. Did you ever notice this? Here are some screenshots:
 
 <figure class="aligncenter">
             <a href="../images/2011/10/google-chrome-search-1.png"><img src="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site" style="max-width:659px;max-height:31px" class="size-full wp-image-6841"/></a>
@@ -65,7 +65,7 @@ Chrome also adds the sites internal search engine automatically. Did you ever no
 
 <figure class="aligncenter">
             <a href="../images/2011/10/google-chrome-search-2.png"><img src="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine" style="max-width:656px;max-height:30px" class="size-full wp-image-6851"/></a>
-            <figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
+            <figcaption class="text-center">Google Chrome Search - Search with the website's internal search engine</figcaption>
         </figure>
 
 Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type `search` or of the type `text` with the name `s`:
@@ -93,8 +93,8 @@ or
 
 <h2>This article in a nutshell</h2>
 <ul>
-  <li>opensearch.xml gives meta information about your websites internal search engine</li>
-  <li>For Chromes autodiscovery you will need to add an input fild with "type=search" or "name=s"</li>
+  <li>opensearch.xml gives meta information about your website's internal search engine</li>
+  <li>For Chrome's autodiscovery you will need to add an input field with "type=search" or "name=s"</li>
   <li>It is not necessary for Chrome that the user can see the form (display:none with CSS) nor that it the site start page is loaded long (meta redirect after 0 seconds).</li>
   <li>Adding the search engine manually is possible in almost all browsers</li>
   <li>With OSSD you can manage more than one internal search engine.</li>

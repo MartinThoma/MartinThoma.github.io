@@ -146,4 +146,4 @@ Objective:  obj = 5 (MINimum)
 Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.
 
 <h2>Weiteres</h2>
-Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es für MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man für eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.
+Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es für MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man für eine konstante Anzahl an Koffern die optimale Aufteilung und verteilt den Rest mittels LIST SCHEDULING.

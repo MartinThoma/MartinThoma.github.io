@@ -9,10 +9,10 @@ category: The Web
 tags: Web Development, KIT, University
 featured_image: 2011/10/KIT-Logo.png
 ---
-I am now studying at the <a href="http://en.wikipedia.org/wiki/Karlsruhe_Institute_of_Technology">Karlsruhe Institute of Technology</a> (KIT). Although I think that the Websites of KIT is much better than the Website of most Universities,  I can imagine several possibilities how the online services could be improved:
+I am now studying at the <a href="http://en.wikipedia.org/wiki/Karlsruhe_Institute_of_Technology">Karlsruhe Institute of Technology</a> (KIT). Although I think that the Website of KIT is much better than the Website of most Universities, I can imagine several possibilities how the online services could be improved:
 
 <h2>Use OpenID</h2>
-I have 9 different accounts with 7 different passwords for university. After my first week.
+I have 9 different accounts with 7 different passwords for university after my first week.
 
 I guess it is impossible to use the same login system for all services of the university as we have many different teams of developers. But it is easily possible to get an OpenID provider. The students could have an URL like student.kit.edu/openid/u.... or something similar. The login would always happen at one place and this server could tell the other services that the right user is trying to get access.
 
@@ -43,25 +43,25 @@ They also got a new URL. Before the new one is kit.edu, but it seems as if many 
 
 This could be fixed with the following steps:
 <ul>
-    <li>Find old URLs / Links (e.g. with <bbr title="Regular Expressions">RegEx</abbr> and a <a href="http://en.wikipedia.org/wiki/Web_crawler">crawler</a>)</li>
+    <li>Find old URLs / Links (e.g. with <abbr title="Regular Expressions">RegEx</abbr> and a <a href="http://en.wikipedia.org/wiki/Web_crawler">crawler</a>)</li>
     <li>Introduce the new URL by one of those two possibilities:
         <ul>
           <li>Make HTML-redirections for the new ones (e.g. from fsmi.kit.edu to www.fsmi.uni-karlsruhe.de)</li>
           <li>Move the content from the old space to the new space. Make sure that nothing breaks by adding a <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection">301 status code</a>.</li>
         </ul>
     <li>Replace all links to the old URL by the new URL.</li>
-    <li>Wait at least one, rather two semester. Check which internal Websites still use the old URL and try to fix those links.</li>
+    <li>Wait at least one, rather two semesters. Check which internal Websites still use the old URL and try to fix those links.</li>
     <li>Completely remove the old URL</li>
 </ul>
 
 <h3>Services in one place</h3>
 KIT offers quite a lot of online services, such as
 <ul>
-  <li><a href="http://www.bibliothek.kit.edu/cms/index.php">Search for books</a> in KIT-library
+  <li><a href="http://www.bibliothek.kit.edu/cms/index.php">Search for books</a> in KIT-library</li>
   <li><a href="https://www.rz.uni-karlsruhe.de/cgi-bin/bvprint">bvprint</a>: How much money is left on my printing-account?</li>
   <li>Webmail:
     <ul>
-      <li>u....@student.kit.edu / prename.lastname@student.kit.edu / u....@stud.uni-karlsruhe.de: <a href="https://owa.kit.edu">owa.kit.edu</a> - with Microsofts <a href="http://en.wikipedia.org/wiki/Outlook_Web_App">OWA</a></li>
+      <li>u....@student.kit.edu / prename.lastname@student.kit.edu / u....@stud.uni-karlsruhe.de: <a href="https://owa.kit.edu">owa.kit.edu</a> - with Microsoft's <a href="http://en.wikipedia.org/wiki/Outlook_Web_App">OWA</a></li>
       <li>s_...@atis.uka.de: <a href="https://webmail.ira.uni-karlsruhe.de/imp/login.php">webmail.ira.uni-karlsruhe.de</a> - with <a href="http://en.wikipedia.org/wiki/Horde_(software)">Horde Groupware</a></li>
     </ul>
   </li>
@@ -83,7 +83,7 @@ The important services should be available at studium.kit.edu. I think this woul
 <h2>Help the user to find what he needs</h2>
 <h3>Redundancy</h3>
 Sometimes it is good to provide several alternatives. I have one example:
-One of the most important URLs at my university's website is studium.kit.edu. In the first week, I typed quite often student.kit.edu. Google corrected kit to mit and the MIT has such a page. I think it would be a good idea to look at the 404-error log and check, if this occurs often. If it does, a redirect should probable be added.
+One of the most important URLs at my university's website is studium.kit.edu. In the first week, I typed quite often student.kit.edu. Google corrected kit to mit and the MIT has such a page. I think it would be a good idea to look at the 404-error log and check, if this occurs often. If it does, a redirect should probably be added.
 
 All redundant URLs should point to ONE target, of course. It's best to use a 301 redirection.
 
@@ -100,11 +100,11 @@ This can be done by modifying the .htaccess-file (for the decision to redirect c
 
 In many cases you can use the URL which I would prefer, but you're redirected to the other one. This means if a professor is copying the ugly link to his presentation, all students will have to write it down.
 
-<h3>Helpfull 404 Page</h3>
+<h3>Helpful 404 Page</h3>
 At the moment I get only: "404 NOT FOUND". This is not very helpful. You should provide a <a href="../custom-404-error-pages/" title="Custom 404 error pages">custom 404 error page</a>.
 
 <h3>Use Feeds</h3>
-I would like to get the latest news about KIT, but I don't want to search for it. I also don't want to look at the homepage of KIT to check if I know the latest content. This should be done with a RSS feed.
+I would like to get the latest news about KIT, but I don't want to search for it. I also don't want to look at the homepage of KIT to check if I know the latest content. This should be done with an RSS feed.
 
 The start page should have an auto-detectable RSS-Feed. It can be added with the following HTML-Tag in the head-section of the document:
 ```html

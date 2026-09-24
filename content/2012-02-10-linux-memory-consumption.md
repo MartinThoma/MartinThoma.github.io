@@ -9,7 +9,7 @@ category: Code
 tags: Linux, Command Line
 ---
 <h2>free</h2>
-I've you want to check your memory consumption on a Linux machine, you can use free.
+If you want to check your memory consumption on a Linux machine, you can use free.
 ```bash
 moose@pc07:~$ free -m
              total       used       free     shared    buffers     cached
@@ -133,7 +133,7 @@ bfa99000       4 rw--- 0000000000000000 000:00000   [ anon ]
 mapped: 927836K    writeable/private: 881752K    shared: 13572K
 
 ```
-So at the moment eclipse is using 927MB of virtual memory. But it need "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.
+So at the moment eclipse is using 927MB of virtual memory. But it needs "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.
 
 <h2>vmstat</h2>
 Virtual memory statistics gives you the following information:

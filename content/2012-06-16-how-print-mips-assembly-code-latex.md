@@ -9,7 +9,7 @@ category: Code
 tags: LaTeX, Assembly Language, MIPS, Computer Science
 featured_image: 2012/01/latex-logo.png
 ---
-If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exits by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='../images/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:
+If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exists by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='../images/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:
 
 <figure class="aligncenter">
             <a href="../images/2012/06/mips-latex-highlight.png"><img src="../images/2012/06/mips-latex-highlight.png" alt="Highlight MIPS Assembly code with LaTeX listings." style="max-width:512px;max-height:197px" class="size-full wp-image-26981"/></a>
@@ -47,7 +47,7 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
   showstringspaces=false,         % underline spaces within strings
   showtabs=false,                 % show tabs within strings adding particular underscores
   frame=single,                   % adds a frame around the code
-  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
   tabsize=4,                      % sets default tabsize to 2 spaces
   captionpos=b,                   % sets the caption-position to bottom
   breaklines=true,                % sets automatic line breaking
@@ -93,7 +93,7 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 
 <h2>See also</h2>
 <ul>
-  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX"</a></li>
+  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
   <li><a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Typesetting MIPS Assembly Code in LaTeX</a></li>
   <li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
 </ul>

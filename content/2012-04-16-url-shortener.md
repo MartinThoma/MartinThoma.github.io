@@ -12,7 +12,7 @@ URL shortening services are Websites, which offer redirections from one of
 their pages with short URLs to your page (with a long URL). URL shortening
 services are great when you need to print URLs. I don't like them on Websites /
 in e-mails as I can't see the target, but I don't want to type so much when I
-get a URL in my real live.
+get a URL in my real life.
 
 These services should be used more often in my university. It's ridiculous that
 all students have to note very long URLs in the first few days. It's not a real
@@ -26,7 +26,7 @@ Short URL: <a href="http://bit.ly/HKEKD0">http://bit.ly/HKEKD0</a> (20 character
 Custom URL: <a href="http://bit.ly/SWT-List">http://bit.ly/SWT-List</a> (22 characters, but you need to sign up for free)
 
 Bitly does not re-use old links (<a href="https://bitly.com/pages/help#i_1_4">source</a>).
-You get additional information by adding a + sing at the end: <a href="http://bit.ly/HKEKD0+">http://bit.ly/HKEKD0+</a>, <a href="http://bit.ly/SWT-List+">http://bit.ly/SWT-List+</a>
+You get additional information by adding a + sign at the end: <a href="http://bit.ly/HKEKD0+">http://bit.ly/HKEKD0+</a>, <a href="http://bit.ly/SWT-List+">http://bit.ly/SWT-List+</a>
 
 <h2>TinyURL</h2>
 Long URL: <a href="https://lists.ira.uni-karlsruhe.de/mailman/listinfo/swt1-vorlesung">https://lists.ira.uni-karlsruhe.de/mailman/listinfo/swt1-vorlesung</a> (66 characters)

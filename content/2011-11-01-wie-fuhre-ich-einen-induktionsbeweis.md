@@ -20,7 +20,7 @@ Wenn man also für n = 1 zeigt dass die Aussage A(n) korrekt ist, dann gilt sie 
 <ul>
   <li><strong>Induktionsanfang</strong> (I.A.):
 Zeige, dass die Aussage für ein bestimmtes $n_0$ (also z.B. $n_0 = 0$) gilt. Dafür muss man einfach nur einsetzen.</li>
-  <li><strong>Induktionsvorraussetzung</strong> (I.V.)):
+  <li><strong>Induktionsvoraussetzung</strong> (I.V.):
 "Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: <Aussage>"</li>
   <li><strong>Induktionsschluss</strong> (I.S.):
 Ausgehend von I.V. ist zu zeigen, dass die Aussage für $n_0 + 1$ gilt.</li>
@@ -108,7 +108,7 @@ Ein voller, vollständiger Binärbaum der Höhe n = 1 besteht nur aus einem Knot
 <strong>I.V.</strong>: Für beliebige, aber feste volle, vollständige Binärbäume G der Höhe n gilt:
 G hat $2^{n-1} - 1$ innere Knoten.<br/>
 <strong>I.S.</strong>: zeige ${\cal B} (n+1)$<br/>
-Für jeden vollen, vollständigen Binärbaum der Höhe $n+1$ gibt es einen Teilgraphen T, der ein voller, vollständiger Binärbaum der Höhe n ist. $\stackrel{I.V.}{\Rightarrow}$ T hat $2^{n-1} - 1$ innere Knoten. Das sind auch innere Knoten von G. Da die Höhe von G um eins höher ist als die von T und sowohl G als auch T volle, vollstädige Binärbaume sind, kommen zu jedem der $2^{n-1}$ Blätter aus T noch 2 Blätter. Dadurch hat G genau $2^{n-1}$ innere Knoten mehr als T $\Rightarrow$ G hat $2^{n-1}-1+2^{n-1} = 2^n - 1$ innere Knoten $\blacksquare$
+Für jeden vollen, vollständigen Binärbaum der Höhe $n+1$ gibt es einen Teilgraphen T, der ein voller, vollständiger Binärbaum der Höhe n ist. $\stackrel{I.V.}{\Rightarrow}$ T hat $2^{n-1} - 1$ innere Knoten. Das sind auch innere Knoten von G. Da die Höhe von G um eins höher ist als die von T und sowohl G als auch T volle, vollständige Binärbäume sind, kommen zu jedem der $2^{n-1}$ Blätter aus T noch 2 Blätter. Dadurch hat G genau $2^{n-1}$ innere Knoten mehr als T $\Rightarrow$ G hat $2^{n-1}-1+2^{n-1} = 2^n - 1$ innere Knoten $\blacksquare$
 
 <h4>Aussagenlogische Ausdrücke</h4>
 Die Idee habe ich aus dem <a href="http://www.matheboard.de/archive/470377/thread.html">Matheboard</a> von "MoeMoeson". Bei diesem Beweis bin ich mir aber nicht sicher, ob es tatsächlich strukturelle Induktion ist :-/
@@ -151,7 +151,7 @@ Es gilt: U und V  sind offene Mengen $\Rightarrow U \cap V$ ist offen.*
 
 Nun könnte man den Trugschluss machen, dass der Schnitt unendlich vieler offener Mengen auch offen ist. Der <strong>falsche Induktionsbeweis</strong> würde in etwa so aussehen:
 
-<strong>Voraussetungen:</strong> Seien $M_i, i \in \mathbb{N}_0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap_{i=0}^\infty M_i$.<br/>
+<strong>Voraussetzungen:</strong> Seien $M_i, i \in \mathbb{N}_0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap_{i=0}^\infty M_i$.<br/>
 <strong>Behauptung</strong>: M ist offen.<br/>
 <strong>Beweis</strong>: durch vollständige Induktion<br/>
 <strong>I.A.</strong>: Sei n = 1. Dann: $\cap_{i=0}^1 M_i = M_0 \cap M_1$ ist laut * offen.<br/>

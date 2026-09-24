@@ -257,4 +257,5 @@ Parsing command line arguments with <a href="http://docs.python.org/library/optp
 <ul>
   <li><a href="http://stackoverflow.com/q/3217673/562769">Why use argparse rather than optparse?</a></li>
   <li><a href="http://stackoverflow.com/q/8387924/562769">Python argparse and bash completion</a></li>
+  <li><a href="../how-to-parse-command-line-arguments-in-java/">How to parse command line arguments in Java</a></li>
 </ul>

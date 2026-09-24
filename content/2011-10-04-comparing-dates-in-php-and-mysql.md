@@ -9,7 +9,7 @@ category: Code
 tags: PHP, MySQL, Programming, Database
 featured_image: 2011/10/PHP-logo.png
 ---
-Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.
+Sometimes you need to compare PHP dates. You need to know what is later or if both dates are the same.
 
 <h2>PHP</h2>
 <h3>time formats and functions</h3>
@@ -134,7 +134,7 @@ You can compare two DATETIMEs like this:
 SELECT `my_row` FROM `my_table` WHEN `datetime1` < `datetime2`
 ```
 
-It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:
+It's of course not a problem if you compare two UNIX Timestamps which are stored as integers in the database:
 
 ```sql
 SELECT `my_row` FROM `my_table` WHEN `int1` < `int2`

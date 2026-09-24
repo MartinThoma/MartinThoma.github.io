@@ -28,7 +28,7 @@ gcc mySourceFile.c -g
 
 This produces a binary file called "a.out".
 
-Now should run gdb - GNU debug:
+Now you should run gdb - GNU debug:
 ```bash
 gdb ./a.out
 ```
@@ -43,4 +43,4 @@ You should now be able to see the line in which the runtime-error occurs.
 <h2>valgrind</h2>
 You might want to give valgrind a try.
 
-<em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes</code and run valgrind again.
+<em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes</code> and run valgrind again.

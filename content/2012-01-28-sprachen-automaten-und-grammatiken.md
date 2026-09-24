@@ -80,7 +80,7 @@ ND.: "Nicht Deterministisch"
 <span style="background-color:#F08080;">semi-entscheidbar</span>
 <span style="background-color:#90EE90;">entscheidbar</span>, es kann also in endlicher Zeit entschieden werden, ob ein Wort in der Sprache liegt (vgl. <a href="http://de.wikipedia.org/wiki/Wortproblem">Wortproblem</a>).
 <br/>
-<strong>Nicht-Abeschlossenheit der Kontextfreien Sprachen:</strong>
+<strong>Nicht-Abgeschlossenheit der Kontextfreien Sprachen:</strong>
 <span markdown="0">$$L_1 = \{a^jb^ic^i | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$$</span>
 <span markdown="0">$$L_2 = \{a^ib^ic^j | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$$</span>
 <span markdown="0">$$L_1 \cap L_2 = \{a^ib^ic^i | i \in \mathbb{N}_0\}$$</span>
@@ -100,7 +100,7 @@ Für kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.
 
 Für Typ 0 und Typ 1 Sprachen ist das Leerheitsproblem nicht entscheidbar.
 
-$L \in {\cal L_2} \Leftrightarrow L$ wird von einem nichtdeterministischem Kellerautomaten erkannt.
+$L \in {\cal L_2} \Leftrightarrow L$ wird von einem nichtdeterministischem [Kellerautomaten](../kellerautomat/) erkannt.
 
 <h2>Quellen</h2>
 <ul>

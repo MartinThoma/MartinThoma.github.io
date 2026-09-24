@@ -30,6 +30,7 @@ Webserver with:
 
 - The [mod_rewrite](http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html) Apache module
 - An FTP client (e.g., FileZilla)
+
 ## Installation
 
 1. Download the latest version from [wordpress.org](http://wordpress.org/download/)
@@ -52,6 +53,7 @@ Webserver with:
 - [Twitter Tools](http://wordpress.org/extend/plugins/twitter-tools/): Creates complete integration between your WordPress blog and your Twitter account.
 - [WordPress SEO by Yoast](http://wordpress.org/extend/plugins/wordpress-seo/): XML sitemap, Google/Bing Webmaster Tools integration.
 - [WP-Piwik](http://wordpress.org/extend/plugins/wp-piwik/): Piwik is an open-source alternative to Google Analytics. Download the latest Piwik version [here](http://piwik.org/) and install it on your website. Don't forget to add your auth token.
+
 ## Configuration
 
 1. Add the categories you want (Go to Posts → Categories)
@@ -61,9 +63,10 @@ Webserver with:
 5. Set a default category in Settings → Writing, then delete the "Uncategorized" category
 6. Set up a custom theme. You can find free ones on [wordpress.org/extend/themes](http://wordpress.org/extend/themes)
 7. Use [Permalinks](http://codex.wordpress.org/Using_Permalinks). I use `/%postname%/` for short URLs. This URL structure never changes.
+
 ## Fine-tuning
 
-**www or non-www URL**: Decide whether you want www.martin-thoma.com or martin-thoma.com as your standard URL. Both should work, but one should redirect to the other. I chose martin-thoma.com because I prefer short URLs. Add this to your `.htaccess` if you want www.martin-thoma.com:
+**www or non-www URL**: Decide whether you want www.martin-thoma.com or martin-thoma.com as your standard URL. Both should work, but one should redirect to the other. I chose martin-thoma.com because I prefer short URLs. Add this to your [`.htaccess`](../tricks-with-htaccess/) if you want www.martin-thoma.com:
 
 ```apache
 RewriteEngine on

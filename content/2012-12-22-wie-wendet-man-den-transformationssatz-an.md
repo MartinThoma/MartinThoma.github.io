@@ -35,7 +35,7 @@ $\phi \in C^1(\mathbb{R}^2, \mathbb{R}^2)$ und für $r \in \mathbb{R}$ gilt $\de
 
 Für $r \neq 0$ gilt also $\det \phi'(r, \varphi) \neq 0$ für jedes $\varphi \in \mathbb{R}$. $\phi$ ist nicht injektiv auf $\mathbb{R}^2$. Setze $A := [1,2] \times [0, 2\pi]$.
 
-Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Außerdem ist $\det \phi'(x) \neq 0$ für $x \in A^0$.
+Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und $\phi$ auf $A^0$ injektiv. Außerdem ist $\det \phi'(x) \neq 0$ für $x \in A^0$.
 
 Für $f:Y \rightarrow \mathbb{R}$ mit $f(Y_1, Y_2) := Y_1 - Y_2$ gilt $f \in \mathfrak{L}^1(Y)$ ($Y$ kompakt, $f$ stetig)
 
@@ -44,8 +44,8 @@ Außerdem:
 \begin{align}
 \int_Y f(y) dy &= \int_\phi(A) f(y) dy \\
 &\stackrel{Tr}{=} \int_A f(\phi(r, \varphi)) |\det \phi'(r, \varphi)| d(r, \varphi) \\
-&= \int_A r(2 + r \cos(y) - 2 - r \sin(\varphi)) d(r, \varphi) \\
-&= \int_1^2 (\int_0^{2\pi} r^2 (\cos \varphi - \sin \varphi d \varphi) dr \\
+&= \int_A r(2 + r \cos(\varphi) - 2 - r \sin(\varphi)) d(r, \varphi) \\
+&= \int_1^2 (\int_0^{2\pi} r^2 (\cos \varphi - \sin \varphi) d \varphi) dr \\
 &= \underbrace{(\int_1^2 r^2 dr)}_{< \infty} \underbrace{(\int_0^{2\pi} \cos \varphi - \sin \varphi d \varphi)}_{= 0}\\
 &= 0
 \end{align}

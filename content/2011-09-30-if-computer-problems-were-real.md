@@ -16,12 +16,12 @@ Before the computer ...
 ... a cursor used profanity
 ... a keyboard was a piano
 ... a web was a spiders home
-... a virus was the flue
+... a virus was the flu
 ... a CD was a bank account
 ... a hard drive was a long trip on the road
 ... a mouse pad was where a mouse lived
 ... a tree, leaf and root could be found in nature
-... a path was wa way
+... a path was a way
 and if you had a 3,5 inch floppy...
 ... you hoped nobody found out.
 

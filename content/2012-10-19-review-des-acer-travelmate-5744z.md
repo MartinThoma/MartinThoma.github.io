@@ -21,7 +21,7 @@ edit: *argh* - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/G
 
 <strong>Harddisk</strong>: WDC WD3200BPVT-2 (320 GB, 5400 RPM, 2.5-inch, 8MB cache)
 
-<strong>Display</strong>: 15,6" mit max. 1366px x 768px. Matt, LED LCD; Maximale Helligkeit von 174 cd/m² laut[notebookcheck.com](http://www.notebookcheck.com/Test-Acer-TravelMate-5744Z-P624G50Mikk-Notebook.71588.0.html)
+<strong>Display</strong>: 15,6" mit max. 1366px x 768px. Matt, LED LCD; Maximale Helligkeit von 174 cd/m² laut [notebookcheck.com](http://www.notebookcheck.com/Test-Acer-TravelMate-5744Z-P624G50Mikk-Notebook.71588.0.html)
 
 <strong>Grafikkarte</strong>: Intel HD Graphics (onboard) - Intel GMA HD
 

@@ -37,7 +37,7 @@ x      & \text{, falls } x \geq 3 \\
 \end{array}
 \right.$$
 
-$ M = \{x \in \mathbb{R} \lt 2 \} = \underbrace{\{x \in \mathbb{R} : |x-3| \lt 2 \land x \geq 3 \}}_{M_1} \cup \underbrace{\{x \in \mathbb{R}: |x -3| \lt 2 \land x \lt 3\}}_{M_2}$
+$ M = \{x \in \mathbb{R}: |x-3| \lt 2 \} = \underbrace{\{x \in \mathbb{R} : |x-3| \lt 2 \land x \geq 3 \}}_{M_1} \cup \underbrace{\{x \in \mathbb{R}: |x -3| \lt 2 \land x \lt 3\}}_{M_2}$
 
 Betrachte $M_1$:
 $ x\in M_1 \Leftrightarrow |x-3| \lt 2 \land x \geq 3$

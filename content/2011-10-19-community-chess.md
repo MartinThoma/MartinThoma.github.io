@@ -11,7 +11,7 @@ featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something useful and play a bit.
 This project has now an own URL:
-[community-chess.com](http://community-chess.com/)
+[community-chess.com](http://community-chess.com/) (Warning / 2026 Update: I no longer own this domain)
 
 It's a little bit crappy at the moment as I've just started studying, but I'll
 fix that.
@@ -27,5 +27,5 @@ I need some people who
   <li>know how to write Ajax for a better GUI (playChess.php works with PHP and HTML at the moment)</li>
   <li>can speak other languages than English and German</li>
   <li>know how to advertise</li>
-  <li>like to support this project with money (I have to pay 26.16 Euro per year for hosting this service. If I get more money I will save it for the next years hosting costs. If it's much more I could try to find a professional designer.)</li>
+  <li>like to support this project with money (I have to pay 26.16 Euro per year for hosting this service. If I get more money I will save it for next year's hosting costs. If it's much more I could try to find a professional designer.)</li>
 </ul>

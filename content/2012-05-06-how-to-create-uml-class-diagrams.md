@@ -38,7 +38,7 @@ I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody 
 
 Of course, you can include a diagram created with Dia:
 <ol>
-  <li>Export the diagram as PNG (antialized)</li>
+  <li>Export the diagram as PNG (antialiased)</li>
   <li>Add something like that to your tex-file: \includegraphics[width=180mm]{myDiagramm.png}</li>
 </ol>
 

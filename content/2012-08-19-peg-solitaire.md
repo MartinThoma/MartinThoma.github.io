@@ -23,7 +23,7 @@ Dieses Brett ist hier mit den Bezeichnungen für die Felder dargestellt. Der Buc
 Es gibt vier verschiedene Spielzüge: Der Sprung nach oben, unten, links und rechts. Es muss immer mit einer Kugel über eine andere Kugel auf ein freies Feld gesprungen werden.
 
 <h2>Aufgabenstellung</h2>
-Wie muss man ziehen, damit die letzte Kugel in der Mitte ubrig bleibt?
+Wie muss man ziehen, damit die letzte Kugel in der Mitte übrig bleibt?
 <h2>Die Lösung</h2>
 Der erste Zug muss mit einer 2er-Kugel gemacht werden. Sagen wir, es ist o4.
 <table>
@@ -67,7 +67,7 @@ Die momentane Situation sieht folgendermaßen aus:
             <figcaption class="text-center">Peg Solitaire: Board Situation</figcaption>
         </figure>
 
-Nun kann man u1 einmal im Krei (auf r3, r5, o1, l3, l5 und dann wieder auf u1) wandern lassen. Es bleibt eine T-Form übrig:
+Nun kann man u1 einmal im Kreis (auf r3, r5, o1, l3, l5 und dann wieder auf u1) wandern lassen. Es bleibt eine T-Form übrig:
 
 <figure class="aligncenter">
             <a href="../images/2012/08/Peg-solitaire-board-situation-2.png"><img src="../images/2012/08/Peg-solitaire-board-situation-2.png" alt="Peg Solitaire: Board Situation 2" style="max-width:300px;max-height:300px;" class=" wp-image-41491 "/></a>

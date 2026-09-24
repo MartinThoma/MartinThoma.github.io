@@ -12,11 +12,11 @@ featured_image: 2012/12/atom-electron-bohr1.png
 I've recently learned something about electric circuits. The ideal model of circuits does ignore that electrons actually need time to pass the components of the circuit. So we introduced the "dead time model". So we added a model component for each real component that does only delay the incoming signal. But I've wondered if dead time of a cable wasn't important, too. So I thought the question would be <em>How fast are electrons moving in a cable?</em>, but I just realized that the question is <em>How fast does a signal move in a wire?</em>.
 
 <h2>How fast are electrons moving through a wire?</h2>
-If you have electric current $I$ (measured in Ampere), the wire is a cylindric conductore with a cross-sectional area of $A$, $e = -1.6021766 \cdot 10^{-19} C$  (coulombs) is the charge of an electron an $Q$ is $\frac{\text{mobile electrons}}{\text{volume}}$.
+If you have electric current $I$ (measured in Ampere), the wire is a cylindrical conductor with a cross-sectional area of $A$, $e = -1.6021766 \cdot 10^{-19} C$  (coulombs) is the charge of an electron and $Q$ is $\frac{\text{mobile electrons}}{\text{volume}}$.
 $v = \frac {I}{QeA}$
 
 According to this source, $Q = 8.5 \cdot 10^{22} \frac{1}{cm^3}$ for copper. If $I=1 A$ and if your wire has a radius of 0.5mm, you get:
-$v= \frac{1 A}{ 8.5 \cdot 10^{22} \frac{1}{cm^3} \cdot e \cdot ((0.5mm)^2 \cdot pi)} = 9.349 \cdot 10^{-5} \frac{m}{s} = $ (see <a href="http://www.wolframalpha.com/input/?i=%281+A%29%2F%288.5+*+10%5E%2822%29%2F%28cm%5E3%29+*+%28charge+of+an+electron%29+*+%28%280.5mm%29%5E2+*+pi%29%29">Wolfram|Alpha</a>).
+$v= \frac{1 A}{ 8.5 \cdot 10^{22} \frac{1}{cm^3} \cdot e \cdot ((0.5mm)^2 \cdot pi)} = 9.349 \cdot 10^{-5} \frac{m}{s}$ (see <a href="http://www.wolframalpha.com/input/?i=%281+A%29%2F%288.5+*+10%5E%2822%29%2F%28cm%5E3%29+*+%28charge+of+an+electron%29+*+%28%280.5mm%29%5E2+*+pi%29%29">Wolfram|Alpha</a>).
 
 Hmm ... seems to be very slow. Is my calculation correct?
 
@@ -38,12 +38,12 @@ Well, first of all I have to mention, that electrons seem not to move around a n
 
 <figure class="aligncenter">
             <a href="../images/2012/12/atom-electron-bohr-300x300.png"><img src="../images/2012/12/atom-electron-bohr-300x300.png" alt="Atom according to Bohrs model" style="max-width:300px;max-height:300px" class="size-medium wp-image-52041"/></a>
-            <figcaption class="text-center">Atom according to Bohrs model</figcaption>
+            <figcaption class="text-center">Atom according to Bohr's model</figcaption>
         </figure>
 
-A model with <a href="http://en.wikipedia.org/wiki/Atomic_orbital">atomic orbitals</a> seems to be more accurate. However, you can calulate the speed $v$ an electron would have in Bohrs model.
+A model with <a href="http://en.wikipedia.org/wiki/Atomic_orbital">atomic orbitals</a> seems to be more accurate. However, you can calculate the speed $v$ an electron would have in Bohr's model.
 
-The centripedal force is
+The centripetal force is
 $F_Z = \frac{m \cdot v^2}{r}$
 This force pushes the electron away from the nucleus.
 

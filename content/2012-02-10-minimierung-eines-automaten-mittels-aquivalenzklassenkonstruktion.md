@@ -60,7 +60,7 @@ Im nächsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht no
 <a href="../images/2012/02/endlicher-automat-minimal.png"><img src="../images/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" title="Minimaler Endlicher Automat" width="346" height="278" class="aligncenter size-full wp-image-13711" /></a>
 
 <h2>LaTeX</h2>
-Das ist der LaTeX-Code für die Automaten:
+Das ist der [LaTeX-Code für die Automaten](../how-to-draw-a-finite-state-machine/):
 
 ```tex
 \documentclass{scrartcl}

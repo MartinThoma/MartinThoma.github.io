@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Wandering through the depths of find
 slug: wandering-through-the-depths-of-find
+lang: en
 author: Martin Thoma
 date: 2011-12-28 16:01:18.000000000 +01:00
 category: Code
@@ -14,7 +14,7 @@ find is a very mighty tool. It allows you to apply a very detailed search syntax
 <h2>Very basic usage</h2>
 <a href="../images/2011/09/find-basic1.png"><img src="../images/2011/09/find-basic1.png" alt="$ find  /home -iname &#039;Tux*&#039;" title="$ find  /home -iname &#039;Tux*&#039;" width="500" height="100" class="alignnone size-full wp-image-2671" /></a>
 
-I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.
+I told you I would start with the very basics, didn't I? So, you need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.
 
 <h2>Redirecting errors</h2>
 You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:
@@ -33,11 +33,11 @@ Now the explanation of the different commands:
 <ul>
     <li>.: search in the current working directory</li>
     <li>-path '*/.svn' -prune': If a directory starting with .svn is in the path to the file, skip it</li>
-    <li>-o: atlernative (OR)</li>
+    <li>-o: alternative (OR)</li>
     <li>-type f: only search for files</li>
     <li>-print0: print  the  full  file name on the standard output, followed by a null character (instead of the newline character that -print uses).  This allows file names that contain newlines or other types of white space  to  be  correctly  interpreted by programs that process the find output.  This option corresponds to the -0 option of xargs.</li>
 </ul>
-<strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
+<strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken literally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
 <strong>sed:</strong>
 <ul>
     <li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>

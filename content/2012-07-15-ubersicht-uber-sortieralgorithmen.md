@@ -85,7 +85,7 @@ Eine Übersicht über gängige Sortieralgorithmen:
 Ich habe - bis auf Timsort - jeden dieser Algorithmen in Python implementiert, siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/sorting.py">Python-Code für Sortieralgorithmen</a>.
 
 <small>[1]</small>: Beispiel: A = [2, 2, 1]
-<small>[2]</small>: in der regel nicht in-place, kann aber auch in-place implementiert werden.
+<small>[2]</small>: in der Regel nicht in-place, kann aber auch in-place implementiert werden.
 
 <h2>Nicht Vergleichsbasiert</h2>
 Es sei
@@ -121,4 +121,5 @@ Dann gilt:
 <ul>
   <li><a href="http://www.sorting-algorithms.com/">Sorting Algorithm Animations</a>: Eine tolle Website, die veranschaulicht, wie verschiedene Sortieralgorithmen funktionieren.</li>
   <li><a href="//www.youtube.com/watch?v=t8g-iYGHpEA">What different sorting algorithms sound like</a></li>
+  <li><a href="../die-landau-symbole/">Die Landau-Symbole</a></li>
 </ul>

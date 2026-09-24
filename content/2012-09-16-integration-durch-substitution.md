@@ -8,7 +8,7 @@ date: 2012-09-16 11:32:43.000000000 +02:00
 category: German posts
 tags: Mathematics, Analysis, Integral Calculus
 ---
-Integration durch Substitution ist eine elementare Methode zum finden von Stammfunktionen von Integralen bzw. zum berechnen von Integralen.
+Integration durch Substitution ist eine elementare Methode zum Finden von Stammfunktionen von Integralen bzw. zum Berechnen von Integralen.
 
 <h2>Unbestimmte Integrale</h2>
 <h3>Beispiel 1</h3>
@@ -29,12 +29,12 @@ Also:
 <h3>Beispiel 2</h3>
 $\int (x-1)^2 dx = ?$
 
-Substituiere $u = x-1$ und $u'(x) = \frac{ \;\mathrm{d}u}{dx} 1 \Rightarrow dx =  \;\mathrm{d}u$
+Substituiere $u = x-1$ und $u'(x) = \frac{ \;\mathrm{d}u}{dx} = 1 \Rightarrow dx =  \;\mathrm{d}u$
 Also:
 \begin{align}
 \int (x-1)^2 dx &\stackrel{sub}{=}\\
 &= \int u^2 \;\mathrm{d}u\\
-&= \frac{1}{3} u^3 + C
+&= \frac{1}{3} u^3 + C\\
 &\stackrel{resub}{=} \frac{1}{3} (x-1)^3 + C
 \end{align}
 

@@ -14,7 +14,7 @@ featured_image: 2012/07/laender-der-erde1.png
             <figcaption class="text-center">Länder der Erde</figcaption>
         </figure>
 
-Hier ist ein <a href="http://www.jetpunk.com/quizzes/lander-der-welt-quiz">Spiel</a>, bei dem man die Länder der Erde eingeben muss. Es ist schon erschreckent, wie viele weiße Flecken hier sind.
+Hier ist ein <a href="http://www.jetpunk.com/quizzes/lander-der-welt-quiz">Spiel</a>, bei dem man die Länder der Erde eingeben muss. Es ist schon erschreckend, wie viele weiße Flecken hier sind.
 
 <h2>Punktzahl</h2>
 <h3>26. Juli 2012</h3>

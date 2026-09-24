@@ -185,7 +185,7 @@ if __name__ == "__main__":
             print("Case #%i: %s" % (caseNr + 1, king(starDict)))
 ```
 
-<h2>Cruise Controll</h2>
+<h2>Cruise Control</h2>
 Only 22 people have a perfect solution for this one.
 
 This is the solution of royf:

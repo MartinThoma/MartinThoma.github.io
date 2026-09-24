@@ -11,7 +11,7 @@ featured_image: 2012/05/CPP-thumb.png
 ---
 The C++ Preprocessor - which is in fact the same as the C Preprocessor - provides some very basic, but powerful abilities. I haven't used them quite often, but I have seen some nice examples. So here are some C++ Preprocessor Snippets:
 <h2>Maximum / Minimum</h2>
-If you want to find the maximum / minimum of two elements, no matter of which type, you can do something like this:
+If you want to find the maximum / minimum of two elements, no matter which type, you can do something like this:
 
 ```cpp
 #include <iostream>

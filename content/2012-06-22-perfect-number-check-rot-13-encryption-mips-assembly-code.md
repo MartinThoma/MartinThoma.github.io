@@ -47,7 +47,7 @@ main: li $v0 , 4		# |
 	# Initialise variables
 	move $s0 , $v0		# => Store A in $s0
 	li $s1 , 0			# => The sum of all proper divisors of A
-	li $s2 , 1			# => start here with checks for devisors
+	li $s2 , 1			# => start here with checks for divisors
 
 s:	bgeu $s2, $s0, eval # while $s2 < $s0
 	rem $t0, $s0, $s2	# $t0 = $s0 % $s2

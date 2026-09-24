@@ -33,12 +33,12 @@ Das <a href="http://www.kit.edu/studieren/1960.php">Studienbüro</a> hat folgend
   <li>Do: 13:30 - 15:30 Uhr</li>
 </ul>
 
-Es hat also in der Woche nur 8 Stunden geöffnet. Ich war heute (Mittwoch) um 9:40 Uhr Studienbüro und es war bereits eine Schlange von ca. 20 Leuten vor der Tür. Als pünktlich um 10:00 Uhr der Eingang geöffnet wurde, reichte die Schlange bereits bis zum gegenüberliegenden Gebäude. Man muss nun beobachten, wie sich das im laufe des Semesters verhält, aber es ist schon ein deutliches Indiz dafür, dass hier entweder Mängel in der Organisation und Struktur des Studiums bzw. der damit verbundenen Software (z.B. QISPOS) vorliegen, oder zu wenig Personal vorhanden ist.
+Es hat also in der Woche nur 8 Stunden geöffnet. Ich war heute (Mittwoch) um 9:40 Uhr im Studienbüro und es war bereits eine Schlange von ca. 20 Leuten vor der Tür. Als pünktlich um 10:00 Uhr der Eingang geöffnet wurde, reichte die Schlange bereits bis zum gegenüberliegenden Gebäude. Man muss nun beobachten, wie sich das im Laufe des Semesters verhält, aber es ist schon ein deutliches Indiz dafür, dass hier entweder Mängel in der Organisation und Struktur des Studiums bzw. der damit verbundenen Software (z.B. QISPOS) vorliegen, oder zu wenig Personal vorhanden ist.
 
 <h3>Schalter und Schlangen</h3>
 Momentan sind Zettelrollen in verschiedenen Farben aufgestellt. Die Farben sind je nach Studiengang unterschiedlich. Auf jedem Zettel steht eine Nummer und diese wird aufgerufen. Dazu steht eine Frau an der Tür, ruft die Nummer und hält die Tür auf.
 
-Ich weiß nicht ob diese Frau noch irgendetwas anderes macht, aber es scheint nicht der Fall zu sein. Wenn sie in dieser Zeit einen weiteren Schalter betreuen würde und das Aufrufen wie bei der Bahn oder im Finanzamt über eine elektronische Anzeige geschehen würde, hätte man vermutlich schon eine Effizienzsteigerung. Die aktuelle Nummer könnte man dann auch über einen Webdienst verfügbar machen, sodass man in der Zwischenzeit auch etwas sinnvolleres machen kann.
+Ich weiß nicht ob diese Frau noch irgendetwas anderes macht, aber es scheint nicht der Fall zu sein. Wenn sie in dieser Zeit einen weiteren Schalter betreuen würde und das Aufrufen wie bei der Bahn oder im Finanzamt über eine elektronische Anzeige geschehen würde, hätte man vermutlich schon eine Effizienzsteigerung. Die aktuelle Nummer könnte man dann auch über einen Webdienst verfügbar machen, sodass man in der Zwischenzeit auch etwas Sinnvolleres machen kann.
 
 Nach ein paar Minuten wurde gefragt: "Gibt es noch irgendjemanden der einen blauen Zettel hat?". Es gab niemanden. Was passiert dann? Ist eine Arbeitskraft dann untätig, obwohl noch 50 Leute auf Hilfe / Antworten warten?
 
@@ -49,13 +49,13 @@ Als ich dann endlich im Studienbüro zu meinem Schalter gekommen bin, konnte ich
 Das habe ich der Angestellten so gesagt.
 Angestellte: &bdquo;Da kann ich nichts machen, ich brauche erst ein Formular. Ohne Formular geht da nichts, da müssen sie zu Frau Gheta, ich muss 3 Schalter betreuen und habe dafür keine Zeit.&ldquo;
 
-Was soll denn das? Ein kurzer Blick ins Modulhandbuch - ich konnte auch sagen an welcher Stelle - ein Blick auf meine Leistungen (die sie bereits aufgerufen hatte) und alles wäre klar geweisen. Also habe ich das Problem
+Was soll denn das? Ein kurzer Blick ins Modulhandbuch - ich konnte auch sagen an welcher Stelle - ein Blick auf meine Leistungen (die sie bereits aufgerufen hatte) und alles wäre klar gewesen. Also habe ich das Problem
 nochmals beschrieben
 Ich: &bdquo;Ich habe alle Teile des Moduls bestanden, warum ist dann das Modul nicht als bestanden markiert?&ldquo;
 Sie schaut in ihr System und sagt mir, dass ich noch nicht alles aus der Theoretischen Informatik bestanden habe.
 Warum hat sie plötzlich mit theoretischer Informatik angefangen? Ich habe nichts von Theoretischer Informatik gesagt und mir ist klar, dass ich für das Fach noch nicht alles bestanden habe. Aber das hat doch nichts mit dem Modul zu tun.
 
-2. Obwohl ich die Übungsscheine &bdquo;Lineare Algebra I&ldquo; und &bdquo;Lineare Algebra II&ldquo; für Mathematiker gemacht und bestanden habe, ist nur ein Übungsschein &bdquo;Lineare Algebra I für die fachrichtung Informatik&ldquo; in QISPOS. Also sollte der Übungsschein &bdquo;Lineare Algebra I für die fachrichtung Informatik&ldquo; in &bdquo;Lineare Algebra I&ldquo; umgewandelt werden und der Übungsschein &bdquo;Lineare Algebra II&ldquo; hinzugefügt werden. Ich habe beide Scheine in Papierform, vom Prof. unterschrieben, dabei gehabt und ihr gegeben.
+2. Obwohl ich die Übungsscheine &bdquo;Lineare Algebra I&ldquo; und &bdquo;Lineare Algebra II&ldquo; für Mathematiker gemacht und bestanden habe, ist nur ein Übungsschein &bdquo;Lineare Algebra I für die Fachrichtung Informatik&ldquo; in QISPOS. Also sollte der Übungsschein &bdquo;Lineare Algebra I für die Fachrichtung Informatik&ldquo; in &bdquo;Lineare Algebra I&ldquo; umgewandelt werden und der Übungsschein &bdquo;Lineare Algebra II&ldquo; hinzugefügt werden. Ich habe beide Scheine in Papierform, vom Prof. unterschrieben, dabei gehabt und ihr gegeben.
 Angestellte legt die beiden Übungsschein-Bestätigungen auf einen Ablagestapel
 Angestellte: &bdquo;Dafür benötigen sie eine Bestätigung.&ldquo;
 Ich: &bdquo;Aber ich habe Ihnen doch gerade die Bestätigung gegeben?!?&ldquo;
@@ -63,15 +63,15 @@ Angestellte: &bdquo;Für eine Ummeldung muss ein anderes Formular ausgefüllt we
 Na gut, dann habe ich nun wohl einen Übungsschein zu viel ...
 Nach ein bisschen Diskutieren meint sie, ich hätte wegen HM bereits einen Antrag gemacht. Ich habe niemals HM besucht und hatte bisher auch keine Probleme wegen HM vs. Analysis. Hoffentlich kommt das jetzt nicht dazu ...
 
-Insgesamt muss ich sagen, wurde ich unfreundlich behandet - ich hatte das Gefühl, direkt wieder rausgeworfen zu werden - und die Frau hat mir nicht zugehört. Kurz darauf bin ich zum &bdquo;Servicezentrum für Studium und Lehre&ldquo; gegangen. Dort hat mir Frau Metzig geholfen. Sie hat mein Problem verstanden. Nach wenigen Minuten, ohne langes Anstehen oder irgendwelche Formulare hat sie mir versichert, dass Sie sich um das Problem in den nächsten zwei Tagen kümmert. Schon nach 2 Stunden kam eine E-Mail an, in der sie mir mitteilte, dass es ein Systemfehler war. Mein Problem ist nun behoben.
+Insgesamt muss ich sagen, wurde ich unfreundlich behandelt - ich hatte das Gefühl, direkt wieder rausgeworfen zu werden - und die Frau hat mir nicht zugehört. Kurz darauf bin ich zum &bdquo;Servicezentrum für Studium und Lehre&ldquo; gegangen. Dort hat mir Frau Metzig geholfen. Sie hat mein Problem verstanden. Nach wenigen Minuten, ohne langes Anstehen oder irgendwelche Formulare hat sie mir versichert, dass Sie sich um das Problem in den nächsten zwei Tagen kümmert. Schon nach 2 Stunden kam eine E-Mail an, in der sie mir mitteilte, dass es ein Systemfehler war. Mein Problem ist nun behoben.
 
 <h2>QISPOS</h2>
-QISPOS ist ein System von der <a href="http://de.wikipedia.org/wiki/Hochschul-Informations-System">HIS Hochschul-Informations-System GmbH</a>, das am KIT für die Prüfungsverwaltung eingesetzt wird. Das bedeutet, hier meldet man sich an und ab, kann Noten und bestandene Module nachschauen. Auch Voraussetzungen für andere Module wie z.B. PSE werden hiermit überprüft.
+QISPOS ist ein System von der <a href="http://de.wikipedia.org/wiki/Hochschul-Informations-System">HIS Hochschul-Informations-System GmbH</a>, das am KIT für die Prüfungsverwaltung eingesetzt wird. Das bedeutet, hier meldet man sich an und ab, kann Noten und bestandene Module nachschauen. Auch Voraussetzungen für andere Module wie z.B. [PSE](../pse-am-kit/) werden hiermit überprüft.
 
 Dieses System muss ziemlich schwere Voraussetzungen erfüllen: Es muss funktionieren. Immer. Leider ist das nicht der Fall:
 
 <ul>
-  <li>Prüfungsanmeldungen klappen nicht. Es werden fehlende Voraussetzungen angezeigt, obwohl es keine Voraussetzungen gibt (ist mir mit Algorithmen passiert)</li>
+  <li><a href="../pruefungsanmeldungen-am-kit/">Prüfungsanmeldungen</a> klappen nicht. Es werden fehlende Voraussetzungen angezeigt, obwohl es keine Voraussetzungen gibt (ist mir mit Algorithmen passiert)</li>
   <li>Die Anmeldung für manche Module ist nicht möglich, obwohl sie laut Modulhandbuch möglich ist (z.B. Physiker und Mathe)</li>
   <li>Sonstige Systemfehler kommen vor: Das Modul Algorithmen wurde bei mir nicht als bestanden markiert, obwohl es offensichtlich bestanden war.</li>
 </ul>
@@ -95,10 +95,10 @@ Als ich gewartet habe, sind mir zwei häufige Probleme aufgefallen:
 
 Eine defekte KIT-Card sollte einfach über ein Online-Formular nachbestellbar sein. Ich sehe keinen Grund, warum man dazu in das Studienbüro gehen sollte.
 
-Wenn jetzt, nach beginn der Vorlesungszeit, noch keine Matrikelnummer vorhanden ist, läuft irgendwas schief. Da es bei vielen der Fall ist, kann es nicht an den Studenten liegen. Entweder wurden bestimmte voraussetzungen nicht deutlich genug gemacht (&agrave; la: Es muss Formular XY zurückgeschickt werden, bevor eine Matrikelnummer ausgestellt wird), oder es der Prozess eine Matrikelnummer zu erstellen dauert zu lange. Falls das zu lange dauert, kann man entweder den Prozessablauf beschleunigen, oder mehr Personal einstellen.
+Wenn jetzt, nach Beginn der Vorlesungszeit, noch keine Matrikelnummer vorhanden ist, läuft irgendwas schief. Da es bei vielen der Fall ist, kann es nicht an den Studenten liegen. Entweder wurden bestimmte Voraussetzungen nicht deutlich genug gemacht (&agrave; la: Es muss Formular XY zurückgeschickt werden, bevor eine Matrikelnummer ausgestellt wird), oder der Prozess, eine Matrikelnummer zu erstellen, dauert zu lange. Falls das zu lange dauert, kann man entweder den Prozessablauf beschleunigen, oder mehr Personal einstellen.
 
 Eine einfache FAQ-Liste auf der Seite des Studienbüros könnte schon helfen.
 
-So, jetzt habe ich einige Stunden mit Bürokratie, Organisation und diesem Bericht darüber verbacht und etwas Frust abgebaut. Zeit, die ich in mein Studium hätte stecken können. Vielleicht liest es ja jemand, der etwas ändern kann.
+So, jetzt habe ich einige Stunden mit Bürokratie, Organisation und diesem Bericht darüber verbracht und etwas Frust abgebaut. Zeit, die ich in mein Studium hätte stecken können. Vielleicht liest es ja jemand, der etwas ändern kann.
 
 Habt ihr ähnliche Geschichten mit dem Studienbüro erlebt? Habt ihr Verbesserungsvorschläge? Dann hinterlasst doch einfach einen Kommentar.

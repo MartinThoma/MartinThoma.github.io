@@ -102,7 +102,7 @@ I think I have tried all interesting values. Have fun trying it yourself ☺
 
 ## Python Solution
 
-Prerequesites:
+Prerequisites:
 
 ```bash
 pip install bitstring

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-28 12:05:29.000000000 +02:00
 category: The Web
-tags: Video, Shortfilm
+tags: Video
 featured_image: 2011/09/cat-piano.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>
@@ -27,7 +27,7 @@ Here is the <a href="http://www.imdb.com/title/tt1646231/">imdb-entry</a>.
 Here is the <a href="http://www.imdb.com/title/tt1401657/">imdb-entry</a>.
 
 <h2>The Ghastly Gourmet Cooking Show</h2>
-<iframe src="http://player.vimeo.com/video/4739045?title=0&amp;byline=0&amp;portrait=0" width="512" height="384" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><p>Who do you call when there's a catering catastrophe? The Ghastly Gourmet team of course! Chip, Chop and Chunk are three beastly little chefs who can make a meal of (and out of) any situation, no matter how monstrous the request. It's a gleefully gross cooking show not for the feint hearted or weak stomached!</p>
+<iframe src="http://player.vimeo.com/video/4739045?title=0&amp;byline=0&amp;portrait=0" width="512" height="384" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><p>Who do you call when there's a catering catastrophe? The Ghastly Gourmet team of course! Chip, Chop and Chunk are three beastly little chefs who can make a meal of (and out of) any situation, no matter how monstrous the request. It's a gleefully gross cooking show not for the faint hearted or weak stomached!</p>
 
 <h2>Karma Currency - Charity Gift Vouchers</h2>
 <iframe src="http://player.vimeo.com/video/2366178?title=0&amp;byline=0&amp;portrait=0" width="512" height="289" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>

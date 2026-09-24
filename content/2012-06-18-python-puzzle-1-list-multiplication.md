@@ -10,10 +10,10 @@ tags: Programming, Python, Puzzle
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Basic concepts</h2>
-Image you had to multiply two small matrices in Python. You could just use the definition of a matrix product:
+Imagine you had to multiply two small matrices in Python. You could just use the definition of a matrix product:
 
 $A, B \in \mathbb{R}^{n \times n}$:
-$C = A \cdot B, C \in \mathbb{R}^{n \times n}$ where the components of C are definied by
+$C = A \cdot B, C \in \mathbb{R}^{n \times n}$ where the components of C are defined by
 $c_{i,j} = \sum_{k=1}^n a_{i,k} \cdot b_{k, j}$
 
 Note that this means:
@@ -30,7 +30,7 @@ $\begin{pmatrix}
 43 & 50
 \end{pmatrix}$
 
-You might also have heard of Pythons overloaded multiplication:
+You might also have heard of Python's overloaded multiplication:
 ```python
 print([0] * 4)
 print([[0] * 4] * 4)

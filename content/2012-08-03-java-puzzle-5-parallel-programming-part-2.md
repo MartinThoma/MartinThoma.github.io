@@ -66,7 +66,7 @@ public class MyParallelClass implements java.lang.Runnable {
 <h2>Answer</h2>
 <code>0</code>, <code>1</code> or <code>-1</code>.
 
-<h2>Explanaition</h2>
+<h2>Explanation</h2>
 First the simple ones:
 <code>0</code> is the result you would expect. One thread executes and reduces <code>globalVar</code> to <code>0</code>, the other one does nothing and then <code>globalVar</code> gets printed.
 

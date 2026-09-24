@@ -70,5 +70,6 @@ Nun noch die Kontrolle, ob es stimmen kann:
 <h2>Siehe auch</h2>
 <ul>
   <li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Basiswechsel_(Vektorraum)">Basiswechsel (Vektorraum)</a>, <a href="http://de.wikipedia.org/wiki/Standardbasis">Standardbasis</a></li>
+  <li><a href="../eigenschaften-von-abbildungsmatrizen/">Eigenschaften von Abbildungsmatrizen</a></li>
   <li>Skript von Prof. Dr. Leuzinger, ab S. 82</li>
 </ul>

@@ -39,7 +39,7 @@ f(n) \in \omega(g(n))   &\Leftrightarrow \lim \frac{g(n)}{f(n)} = 0
 
 
 <h2>Wichtige Beziehungen von Funktionen</h2>
-${\cal O}(1) \subsetneq {\cal O}(\log n) \subsetneq {\cal O}(n) \subsetneq {\cal O}(n^{2.1}) \subsetneq {\cal O} \subsetneq (n^{2.2}) {\cal O}(n^{100}) \subsetneq {\cal O}(n!) \subsetneq {\cal O}(2^n)$
+${\cal O}(1) \subsetneq {\cal O}(\log n) \subsetneq {\cal O}(n) \subsetneq {\cal O}(n^{2.1}) \subsetneq {\cal O}(n^{2.2}) \subsetneq {\cal O}(n^{100}) \subsetneq {\cal O}(n!) \subsetneq {\cal O}(2^n)$
 ${\cal O}(2^n) \subsetneq {\cal O}(2^{2n}) \subsetneq {\cal O}(3^n) \subsetneq {\cal O}(n^n) \subsetneq {\cal O}(n^{(n^2)}) \subsetneq$
 
 <h2>Beispiele</h2>

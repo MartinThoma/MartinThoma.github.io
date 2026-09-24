@@ -14,7 +14,7 @@ Das Lastenheft könnt ihr unter Linux einfach mit dem Befehl `make` erstellen, w
 
 
 
-Änderungsvorschläge sind willkommen! Ich werde die hier gespeicherte Version wohl noch einige male updaten.
+Änderungsvorschläge sind willkommen! Ich werde die hier gespeicherte Version wohl noch einige Male updaten.
 
 
 <h2>Siehe auch</h2>

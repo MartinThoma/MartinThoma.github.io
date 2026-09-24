@@ -148,7 +148,7 @@ With reverse (<a href="http://www.cplusplus.com/reference/algorithm/reverse/">so
 using namespace std;
 
 int main () {
-  vector<int> myvector;
+  vector<int> myVector;
   vector<int>::iterator it;
 
   // set some values:

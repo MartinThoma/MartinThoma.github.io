@@ -12,7 +12,9 @@ featured_image: 2012/09/bwinf-thumb.png
 <figure class="alignright">
             <a href="../images/2012/09/bwinf-thumb.png"><img src="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf" style="max-width:128px;max-height:128px;" class="size-full wp-image-43131"/></a>
             <figcaption class="text-center">Logo des BwInf</figcaption>
-        </figure>Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Schüler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, könnt ihr noch teilnehmen.
+        </figure>
+
+Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Schüler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, könnt ihr noch teilnehmen.
 
 Die offiziellen Informationen zum Wettbewerb, dessen <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=629">Ablauf</a>, die <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=628">Teilnahmebedingungen</a> und die <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1161">Aufgaben</a> gibt es auf <a href="http://www.bundeswettbewerb-informatik.de/">bundeswettbewerb-informatik.de</a>. Das Folgende ist inoffiziell; es sind meine persönlichen Erfahrungen.
 
@@ -30,7 +32,7 @@ Dann ist der Bundeswettbewerb auf jeden Fall etwas für euch!
 
 Selbst wenn ihr nicht alle Fragen überzeugt mit einem &bdquo;Ja&ldquo; beantworten könnt, könnte der Bundeswettbewerb euch gefallen.  Probier es einfach mal aus.
 
-Einen weiteren Anreitz bieten Preise: Die Bundessieger werden soweit ich weiß immer in die Studienstiftung aufgenommen und es gibt Geldpreise.
+Einen weiteren Anreiz bieten Preise: Die Bundessieger werden soweit ich weiß immer in die Studienstiftung aufgenommen und es gibt Geldpreise.
 
 Und noch ein Schlusswort zur Motivation: Eine gute Dokumentation zu schreiben ist anstrengend. Ich hatte häufig bei der Dokumentation keine Lust mehr, sie noch ein weiteres mal anzusehen. Sie nochmals zu verbessern. Aber die Arbeit lohnt sich. Wenn ihr sie fertig geschrieben habt, könnt ihr stolz darauf sein. Wie ein Sprichwort so schön sagt: &bdquo;Ohne Fleiß kein Preis.&ldquo;
 
@@ -41,12 +43,12 @@ Wenn ihr ein Skript habt, dass eventuell nicht sofort, aber nach ein paar Stunde
 <h3>Doku ist wichtig</h3>
 Bei der Korrektur wird zuerst die Dokumentation angesehen. Natürlich ist die Lösungsidee wichtig, aber eine negativ bewertete Dokumentation ist ärgerlich. Also lest euch bitte die Dokumentation nochmals durch und überprüft, ob die wichtigen Lösungsideen verständlich erklärt wurden.
 
-Ich denke das ist wohl der einzige Aspekt, wo euch andere helfen können. Gerade Leute ohne Programmierkenntnis sollten eure Lösungsidee verstehen können. Mein Vater (der nicht programmieren kann) hat häufig meine Einseundungen nochmals auf Rechtschreib- und Grammatikfehler sowie auf fehlende Zusammenhänge überprüft. Er konnte zwar nicht sagen, was dort nicht stimmt, hat aber häufig ... naja, sagen wir mal Stellen gefunden, bei denen meine Deutschlehrer wohl Zahnschmerzen hätten (trifft wohl auch auf diesen Blog zu 😉)
+Ich denke das ist wohl der einzige Aspekt, wo euch andere helfen können. Gerade Leute ohne Programmierkenntnis sollten eure Lösungsidee verstehen können. Mein Vater (der nicht programmieren kann) hat häufig meine Einsendungen nochmals auf Rechtschreib- und Grammatikfehler sowie auf fehlende Zusammenhänge überprüft. Er konnte zwar nicht sagen, was dort nicht stimmt, hat aber häufig ... naja, sagen wir mal Stellen gefunden, bei denen meine Deutschlehrer wohl Zahnschmerzen hätten (trifft wohl auch auf diesen Blog zu 😉)
 
 Also: Schreibt die Doku früh. Ich habe sie geschrieben, während ich programmiert habe. Dann setzt irgendwann eine Version auf, von der ihr denkt, dass sie fertig ist. Wartet so ein, zwei Tage und lest sie euch nochmals durch (es ist wirklich erstaunlich, was man dann sieht). Dann sucht euch jemanden, der die Aufgabenstellung nicht kennt und nicht programmieren kann. Der Korrekturleser sollte das Deutsche natürlich gut beherrschen. So ein Korrekturleser streicht nur mangelhafte Stellen in eurer endgültigen Version an, macht aber keine Verbesserungsvorschläge. Die müsst ihr euch selbst überlegen. Und dann ist man wirklich froh, wenn man das blöde Ding los ist.
 
 Eine Randbemerkung dazu noch:
-Ich habe mal einen kurzen Job als Programmierer für ein größeres Projekt übernommen. Dabei gab es über 2GB, die größtenteils C++-Code und ein paar Testdaten waren (rechnet es aus, das ist VERDAMMT viel Code!). Die hatten keine Dokumentation! Ich habe bestimmt eine Woche nur damit verbracht, mich mehr oder weniger wahllos durch wirre Quelltexte zu klicken, weil ich noch nicht einmal wusse, wo ich genau anfangen soll. Ich glaube den Zweck einer Dokumentation versteht man erst nach einem solchem Erlebnis.
+Ich habe mal einen kurzen Job als Programmierer für ein größeres Projekt übernommen. Dabei gab es über 2GB, die größtenteils C++-Code und ein paar Testdaten waren (rechnet es aus, das ist VERDAMMT viel Code!). Die hatten keine Dokumentation! Ich habe bestimmt eine Woche nur damit verbracht, mich mehr oder weniger wahllos durch wirre Quelltexte zu klicken, weil ich noch nicht einmal wusste, wo ich genau anfangen soll. Ich glaube den Zweck einer Dokumentation versteht man erst nach einem solchem Erlebnis.
 
 <h3>Beispiele</h3>
 Die Beispiele werden leider hin und wieder vergessen und sind oft nicht aussagekräftig. Überlegt euch: Welche Eingaben sind Standard-Fälle? Welche Eingaben sind Sonderfälle? Diese sollten unbedingt als Beispiele gezeigt werden, da es oft nicht klar ist, ob jemand in einer Einsendung daran gedacht hat. Mit Sonderfällen sind nicht falsche Eingaben gemeint - das ist für den Bundeswettbewerb unwichtig - sondern korrekt formatierte Eingaben, die etwas ungewöhnliches / schweres aufweisen.
@@ -54,10 +56,10 @@ Die Beispiele werden leider hin und wieder vergessen und sind oft nicht aussagek
 Die Beispiele sollen euch helfen, Probleme zu entdecken. Eventuell funktioniert eure Implementierung nicht so, wie ihr es euch vorstellt. Das könnt ihr damit feststellen.
 In diesem Zusammenhang solltet ihr euch das Konzept der <a href="http://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">testgetriebenen Entwicklung</a> ansehen. Dabei schreibt man zuerst alle wichtigen Testfälle, bevor man überhaupt eine Zeile produktiven Codes schreibt. Beispielsweise für die Aufgabe &bdquo;Verben&ldquo; würde ich heute so eine Herangehensweise wählen.
 
-Ach ja: Es kann sein, dass ihr ein Problem feststellt, dieses aber nicht beheben könnt. Dann solltet ihr es beschreiben. Es wird sowieso entdeckt. Man kann eurer Lösungsidee erkennen, welche schwächen die Implementierung hat.
+Ach ja: Es kann sein, dass ihr ein Problem feststellt, dieses aber nicht beheben könnt. Dann solltet ihr es beschreiben. Es wird sowieso entdeckt. Man kann an eurer Lösungsidee erkennen, welche Schwächen die Implementierung hat.
 
 <h3>Versionskontrolle</h3>
-Ich habe leider erst nach dem Bundeswettbewerb meine ersten Erfahrungen mit Versionskontrollsystemen gesammelt. Immer wenn ich eine Idee hatte, wie man das Problem anders angehen könnte, habe ich eine Kopie der aktuellen Version erstellt und auf der Kopie weiter gearbeitet. Diese Lösung ist jedoch in vielerlei Hinsicht einem Versionskontrollsystem - <a href="http://wiki.ubuntuusers.de/Subversion">SVN</a> und <a href="http://wiki.ubuntuusers.de/Git">Git</a> sind die bekanntesten - unterlegen. Man kann nicht so leicht eine Sicherung durchführen. Es ist unübersichtlich, die wiederherstellung bei vielen Dateien ist schwer und man kann sich nicht so leicht die Unterschiede von verschiedenen Versionen anzeigen lassen. Zum vergleich: <a href="http://code.google.com/p/pychess/source/diff?spec=svn05804049a2723955ec26cdbaea3b40811273f37f&r=05804049a2723955ec26cdbaea3b40811273f37f&format=side&path=/create_theme_preview.py">Hier</a> kann man sich den Unterschied zweier Versionen auf code.google.com ansehen. Mit <a href="http://wiki.ubuntuusers.de/Meld">meld</a> bekommt man ähnlich gute Ergebnisse auch auf dem eigenem Rechner.
+Ich habe leider erst nach dem Bundeswettbewerb meine ersten Erfahrungen mit Versionskontrollsystemen gesammelt. Immer wenn ich eine Idee hatte, wie man das Problem anders angehen könnte, habe ich eine Kopie der aktuellen Version erstellt und auf der Kopie weiter gearbeitet. Diese Lösung ist jedoch in vielerlei Hinsicht einem Versionskontrollsystem - <a href="http://wiki.ubuntuusers.de/Subversion">SVN</a> und <a href="http://wiki.ubuntuusers.de/Git">Git</a> sind die bekanntesten - unterlegen. Man kann nicht so leicht eine Sicherung durchführen. Es ist unübersichtlich, die Wiederherstellung bei vielen Dateien ist schwer und man kann sich nicht so leicht die Unterschiede von verschiedenen Versionen anzeigen lassen. Zum Vergleich: <a href="http://code.google.com/p/pychess/source/diff?spec=svn05804049a2723955ec26cdbaea3b40811273f37f&r=05804049a2723955ec26cdbaea3b40811273f37f&format=side&path=/create_theme_preview.py">Hier</a> kann man sich den Unterschied zweier Versionen auf code.google.com ansehen. Mit <a href="http://wiki.ubuntuusers.de/Meld">meld</a> bekommt man ähnlich gute Ergebnisse auch auf dem eigenem Rechner.
 
 <h3>LaTeX</h3>
 LaTeX ist toll - aber keine Pflicht. Es werden leider relativ wenige Dokumentationen mit LaTeX erstellt. Dabei bietet LaTeX für den BwInf ein paar Vorteile:
@@ -85,7 +87,7 @@ Vielen Dank an Herrn Dr. Pohl für die Hinweise!
 
 <h2>Die Programmiersprache</h2>
 Also eine <a href="http://de.wikipedia.org/wiki/Brainfuck">Brainfuck</a>-Einsendung muss jetzt nicht gerade sein (obwohl ich wirklich beeindruckt wäre). Aber eine <a href="http://de.wikipedia.org/wiki/Shakespeare_Programming_Language">Shakespeare</a>-Einsendung würde ich mal toll finden ☺
-Nein, im ernst: Ihr dürft fast alles benutzen. Ich selbst kann Python, PHP, Java, C++ und C gut genug um jede Einsendung verstehen zu können. Ich weiß, dass wir immer Leute haben die Haskel/Objective CAML und vielleicht noch ein paar weitere funktionale Sprachen können. Auch Pascal, Delphi (Object Pascal), BASIC stellen kein Problem dar. Das ist jetzt keine vollständige Liste; unter den Korrektoren gibt es einige, die auch exotische Sprachen können. Aber wenn euch klar ist, dass eure Sprache exotisch ist, dann solltet ihr besondere Sprachfeatures kommentieren.
+Nein, im ernst: Ihr dürft fast alles benutzen. Ich selbst kann Python, PHP, Java, C++ und C gut genug um jede Einsendung verstehen zu können. Ich weiß, dass wir immer Leute haben die Haskell/Objective CAML und vielleicht noch ein paar weitere funktionale Sprachen können. Auch Pascal, Delphi (Object Pascal), BASIC stellen kein Problem dar. Das ist jetzt keine vollständige Liste; unter den Korrektoren gibt es einige, die auch exotische Sprachen können. Aber wenn euch klar ist, dass eure Sprache exotisch ist, dann solltet ihr besondere Sprachfeatures kommentieren.
 
 Ich habe damals meine Einsendung in PHP geschrieben, später in Python. Warum PHP? Naja, es gibt ein super <a href="http://tut.php-quake.net/de/">Tutorial für PHP</a>.
 
@@ -98,7 +100,7 @@ Trotz Doku sind Quelltextkommentare erwünscht. Allerdings müssen Standard-Stru
 
 <h3>Style-Guides</h3>
 
-Es ist nicht zwingend erforderlich, dass ihr euch an sogenannte Styel-Guides haltet. Allerdings ist es bei der Bewertung - und insbesondere später, wenn ihr an echten Projekten mit anderen zusammen arbeitet - sehr hilfreich, wenn ihr euch an Konventionen haltet. Hier sind ein paar:
+Es ist nicht zwingend erforderlich, dass ihr euch an sogenannte Style-Guides haltet. Allerdings ist es bei der Bewertung - und insbesondere später, wenn ihr an echten Projekten mit anderen zusammen arbeitet - sehr hilfreich, wenn ihr euch an Konventionen haltet. Hier sind ein paar:
 
 <ul>
     <li><b>C++</b>: von <a href="https://google.github.io/styleguide/cppguide.html">Google</a></li>

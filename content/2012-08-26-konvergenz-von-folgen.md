@@ -18,7 +18,7 @@ $\displaystyle \lim_{n \rightarrow \infty} (a_n) = a$.
 
 Ist $(a_n)$ nicht konvergent, so heißt $(a_n)$ <strong>divergent</strong>.</div>
 
-Ich werde im Folgendem ein paar wichtige Hinweise geben, wie man konvergenz oder gegebenenfalls divergenz zeigen kann.
+Ich werde im Folgenden ein paar wichtige Hinweise geben, wie man Konvergenz oder gegebenenfalls Divergenz zeigen kann.
 
 <h2>Wichtige Folgen</h2>
 <h3>Konvergent</h3>

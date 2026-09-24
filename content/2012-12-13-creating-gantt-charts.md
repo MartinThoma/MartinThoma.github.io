@@ -21,11 +21,11 @@ It looks like this:
             <figcaption class="text-center">Overview of Gantter</figcaption>
         </figure>
 
-It is easy to use and has a good interface. I can simply define depencies:
+It is easy to use and has a good interface. I can simply define dependencies:
 
 <figure class="aligncenter">
-            <a href="../images/2012/12/gantter-predecessor-depenency-300x138.png"><img src="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor depency" style="max-width:300px;max-height:138px" class="size-medium wp-image-51101"/></a>
-            <figcaption class="text-center">Gantter Predecessor depency</figcaption>
+            <a href="../images/2012/12/gantter-predecessor-depenency-300x138.png"><img src="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor dependency" style="max-width:300px;max-height:138px" class="size-medium wp-image-51101"/></a>
+            <figcaption class="text-center">Gantter Predecessor dependency</figcaption>
         </figure>
 
 <h3>Export</h3>
@@ -50,9 +50,9 @@ My recommendation: Don't give them those rights! You can create an account witho
             <figcaption class="text-center">GanttProject - Overview</figcaption>
         </figure>
 
-It's quite good, but sometimes I got the feeling that it doesn't instantly response. It's perhaps imagination as I always think that of Java projects.
+It's quite good, but sometimes I got the feeling that it doesn't instantly respond. It's perhaps imagination as I always think that of Java projects.
 
-The HTML-export is not so good. It basically converts the chart to an image and embeds this into a HTML page. This is not what I thought of! This way, you can't search or copy the tasks. You also can't see more information about the task.
+The HTML-export is not so good. It basically converts the chart to an image and embeds this into an HTML page. This is not what I thought of! This way, you can't search or copy the tasks. You also can't see more information about the task.
 
 <figure class="aligncenter">
             <a href="../images/2012/12/GanttProject-export-300x80.png"><img src="../images/2012/12/GanttProject-export-300x80.png" alt="GanttProject export function" style="max-width:300px;max-height:80px" class="size-medium wp-image-50371"/></a>
@@ -176,4 +176,4 @@ Although the result looks very nice, I don't think LaTeX is an optimal solution 
 <a href="http://www.projectlibre.org/">ProjectLibre</a> was recommended to me, but it is not in the Ubuntu repository ☹
 
 <h2>Conclusion</h2>
-LaTeX rulez. If you want nice looking results, you should definitely use LaTeX. Although I think combining an automatically generated Gantt-chart with tickes would be nice, this seems not to be possible by now.
+LaTeX rulez. If you want nice looking results, you should definitely use LaTeX. Although I think combining an automatically generated Gantt-chart with tickets would be nice, this seems not to be possible by now.

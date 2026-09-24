@@ -24,7 +24,7 @@ Als ersten Schritt muss man das charakteristische Polynom <span>$p_A(\lambda)$</
 &rarr; <a href="../wie-berechnet-man-das-charakteristische-polynom/" title="Wie berechnet man das charakteristische Polynom?">Wie berechnet man das charakteristische Polynom?</a>
 
 <h3>Zerlegung in Linearfaktoren</h3>
-Die Zerlegung des charakteristischen Polynoms <span>$p_A(\lambda)$</span> in Linearfaktoren kann ziemlich schwer sein. Dafür muss man unbedingt die Mitternachtsformel <span>$\lambda_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$</span> können und eventuell wissen, wie eine <a href="http://de.wikipedia.org/wiki/Polynomdivision#Manueller_Ablauf">Polynomdivision</a> funktioniert. Eventuell muss man dazu auch Nullstellen erraten. Wenn es ums raten geht, würde ich folgendes ausprobieren: 0, 1, -1, 2, -2, 3, -3.
+Die Zerlegung des charakteristischen Polynoms <span>$p_A(\lambda)$</span> in Linearfaktoren kann ziemlich schwer sein. Dafür muss man unbedingt die Mitternachtsformel <span>$\lambda_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$</span> können und eventuell wissen, wie eine <a href="http://de.wikipedia.org/wiki/Polynomdivision#Manueller_Ablauf">Polynomdivision</a> funktioniert. Eventuell muss man dazu auch Nullstellen erraten. Wenn es ums Raten geht, würde ich folgendes ausprobieren: 0, 1, -1, 2, -2, 3, -3.
 
 Sobald man diese Zerlegung hat, kann man die Eigenwerte und die algebraische Vielfachheit der Eigenwerte direkt ablesen. Die Eigenwerte stehen in der Jordanmatrix auf der Diagonalen. Die algebraische Vielfachheit entspricht der Seitenlänge des quadratischen Jordanblocks.
 
@@ -43,7 +43,7 @@ $$J =
 
 <span>$A_{\lambda_i}$</span> sind die Jordanblöcke zu den Eigenwerten <span>$\lambda_i$</span>.
 
-Die Einzelnen Jordanblöcke schauen etwa so aus:
+Die einzelnen Jordanblöcke schauen etwa so aus:
 <figure class="aligncenter">
             <a href="../images/2012/08/jordan-normal-form-block.png"><img src="../images/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen" style="max-width:500px;max-height:260px" class="size-full wp-image-40381"/></a>
             <figcaption class="text-center">Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen</figcaption>
@@ -71,7 +71,7 @@ Sei <span>$\Omega = \Phi - \lambda \cdot id$</span> und
 
 Man wähle <span>$q \in N^+$</span> so, dass <span>$\dim K_q = \dim K_{q+1} = \dim K_{q+2} = ... = \dim V$</span> und q minimal.
 Dann gilt:
-q ist die länge des größten Jordankästchens in dem Jordanblock (und außerdem der Exponent im Minimalpolynom zum betrachteten Eigenwert <span>$\lambda$</span>).
+q ist die Länge des größten Jordankästchens in dem Jordanblock (und außerdem der Exponent im Minimalpolynom zum betrachteten Eigenwert <span>$\lambda$</span>).
 
 Es sei <span>$a_0 = \dim K_0 = 0, a_1 = \dim K_1, a_i = \dim K_i$</span> mit <span>$i \in 0, ..., q$</span>.
 
@@ -113,5 +113,5 @@ Sobald man <span>$S$</span> bestimmt hat, muss man nur noch das Inverse davon be
 Im Zusammenhang mit der JNF (und einigen Klausuraufgaben) sind mir ein paar erwähnenswerte Eigenschaften aufgefallen:
 
 <strong>Die Anzahl der Jordankästchen zum Eigenwert <span>$\lambda = 0$</span> ist <span>$n - \text{Rang}(A)$</span>.</strong><br/>
-<em>Begründung</em>: Die Anzahl der Jordankästchen zum Eigenwert <span>$\lambda$</span> ist gleich der Dimension des Eigenraumes von <span>$\lambda$</span>. Der Eigenraum zum Eigenwert 0 hat die besonderheit, dass es der Kern ist. Nach der Dimensionsformel gilt:
+<em>Begründung</em>: Die Anzahl der Jordankästchen zum Eigenwert <span>$\lambda$</span> ist gleich der Dimension des Eigenraumes von <span>$\lambda$</span>. Der Eigenraum zum Eigenwert 0 hat die Besonderheit, dass es der Kern ist. Nach der Dimensionsformel gilt:
 <span>$\dim \text{Kern}(\Phi) + \dim \text{Bild}(\Phi) = n = \dim \text{Kern} + \text{ Rang}(A_\Phi)$</span>.

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python: Check Wiki-references for citation template
 slug: python-check-wiki-references-for-citation-template
+lang: en
 author: Martin Thoma
 date: 2011-09-24 11:39:40.000000000 +02:00
 category: Code
@@ -140,7 +140,7 @@ from datetime import date
 
 
 def rlinput(prompt, prefill=""):
-    """ Promt the user for input, but prefill it. """
+    """ Prompt the user for input, but prefill it. """
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
         return raw_input(prompt)
@@ -149,8 +149,8 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatation for each reference and ask
-        the user to confirm or edit the formatation of the reference. """
+    """ Try to guess the right formatting for each reference and ask
+        the user to confirm or edit the formatting of the reference. """
 
     urlPattern = "http.+? "
     urlPatternCompiled = re.compile(urlPattern)
@@ -272,7 +272,7 @@ def getRef(page):
 
 
 def rlinput(prompt, prefill=""):
-    """ Promt the user for input, but prefill it. """
+    """ Prompt the user for input, but prefill it. """
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
         return raw_input(prompt)
@@ -281,8 +281,8 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatation for each reference and ask
-        the user to confirm or edit the formatation of the reference. """
+    """ Try to guess the right formatting for each reference and ask
+        the user to confirm or edit the formatting of the reference. """
 
     urlPattern = "http.+? "
     urlPatternCompiled = re.compile(urlPattern)
@@ -328,7 +328,7 @@ This can be improved in several ways:
 <ul>
     <li>Checking automatically the title / dead links</li>
     <li>Trying to find the publication date automatically</li>
-    <li>Skip links with <a href="http://en.wikipedia.org/wiki/Template:Dead_link" title="Template:Dead link">Templade:Dead link</a></li>
+    <li>Skip links with <a href="http://en.wikipedia.org/wiki/Template:Dead_link" title="Template:Dead link">Template:Dead link</a></li>
     <li>Search also for <ref name="xyz">Text</ref></li>
 </ul>
 

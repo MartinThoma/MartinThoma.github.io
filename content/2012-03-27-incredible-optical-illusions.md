@@ -25,7 +25,7 @@ Some really great and short examples of illusions. If you want an explanation of
         </figure>
 <a href="http://en.wikipedia.org/wiki/Ebbinghaus_illusion">Ebbinghaus illusion</a>:  the first central circle seems to be smaller than the second central circle although they are of identical size.
 
-The <a href="http://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">Müller-Lyer illusion</a> is simmilar.
+The <a href="http://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">Müller-Lyer illusion</a> is similar.
 
 
 <h2>Fraser spiral illusion</h2>
@@ -42,19 +42,19 @@ Although you think you see a spiral, there are only concentric circles. This ill
         </figure>
 Dark dots seem to appear and disappear in the <a href="http://en.wikipedia.org/wiki/Grid_illusion">Grid illusion</a>.
 
-<h2>Jastow illusion</h2>
+<h2>Jastrow illusion</h2>
 <figure class="aligncenter">
             <a href="../images/2012/03/jastow-illusion.png"><img src="../images/2012/03/jastow-illusion.png" alt="Jastrow illusion" style="max-width:333px;max-height:209px" class="size-full wp-image-20231"/></a>
             <figcaption class="text-center">Jastrow illusion</figcaption>
         </figure>
-In <a href="http://en.wikipedia.org/wiki/Jastrow_illusion">Jastow illusion</a>, the two figures are identical, although the lower one appears to be larger.
+In the <a href="http://en.wikipedia.org/wiki/Jastrow_illusion">Jastrow illusion</a>, the two figures are identical, although the lower one appears to be larger.
 
 <h2>Zöllner illusion</h2>
 <figure class="aligncenter">
             <a href="../images/2012/03/zollner-illusion.png"><img src="../images/2012/03/zollner-illusion.png" alt="Zöllner illusion" style="max-width:225px;max-height:159px" class="size-full wp-image-20241"/></a>
             <figcaption class="text-center">Zöllner illusion</figcaption>
         </figure>
-In the figure of <a href="http://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">Zöllner illusion</a> the black lines seem to be unparallel, but in reality they are parallel.
+In the figure of <a href="http://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">Zöllner illusion</a> the black lines seem to be not parallel, but in reality they are parallel.
 
 <h2>Hering illusion</h2>
 <figure class="aligncenter">

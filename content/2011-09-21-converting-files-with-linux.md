@@ -127,7 +127,7 @@ $ mp3gain -a *.mp3
 $ mp3wrap merged.mp3 one.mp3 two.mp3
 ```
 
-<b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:
+<b>Convert all *.wav-files in one folder into *.mp3-files and remove the *.wav-files</b>:
 
 ```bash
 $ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
@@ -166,7 +166,7 @@ $ mp3splt input.mp3 -t 10.00
 ```
 
 splits the mp3 after every `MM.SS`, in this case after every 10 minutes and 0
-seconds. So a 53 minutes MP3 would get splitted 5 times and hence result in
+seconds. So a 53 minute MP3 would get split 5 times and hence result in
 6 new files.
 
 
@@ -288,7 +288,7 @@ You can create a command in Linux very easy:
   <li>Enter <code>echo $PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
   <li>Create a file with the name of your command (e.g. svg2png)</li>
-  <li>Fill the fill (see below for some examples).</li>
+  <li>Fill the file (see below for some examples).</li>
   <li>Make it executable: <code>chmod +x svg2png</code></li>
 </ol>
 

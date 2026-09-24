@@ -190,5 +190,5 @@ $$\mathcal{L} =
 \end{pmatrix}
 \right ]
 =
-\text{Kern} \varphi
+\text{Kern } \varphi
 $$

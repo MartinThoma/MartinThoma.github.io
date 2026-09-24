@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Project Euler: Problem 35
 slug: project-euler-problem-35
+lang: en
 author: Martin Thoma
 date: 2012-11-17 13:23:01.000000000 +01:00
 category: Code
@@ -18,7 +18,7 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73
 How many circular primes are there below one million?</blockquote>
 
 <h2>How to solve</h2>
-If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
+If you have heard of the [sieve of Eratosthenes](../generating-many-prime-numbers/), this one sounds quite easy:
 <ol>
   <li>Find all primes below one million</li>
   <li>For each prime, do:
@@ -32,7 +32,7 @@ If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
 
 <h2>The implementation</h2>
 <h3>Sieve of Eratosthenes</h3>
-The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.
+This finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.
 
 First, this is the way the sieve of Eratosthenes works:
 
@@ -58,7 +58,7 @@ def getPrimesBelowN(n=1000000):
     return primes
 ```
 
-Whats bad with this code?
+What's bad with this code?
 Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
 
 How could this get improved? Here is a better solution:
@@ -85,10 +85,10 @@ def getPrimesBelowN(n=1000000):
 
 This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
 
-A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.
+A generator version of the sieve of Eratosthenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.
 
 <h3>isCircularPrime</h3>
-Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
+Rotating the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
 ```python
 def isCircularPrime(primes, number):
     number = str(number)
@@ -111,7 +111,7 @@ def isCircularPrime(primes, number):
     return True
 ```
 
-<h3>Some more speedups</h2>
+<h3>Some more speedups</h3>
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
 You can use the same thought for the digit 5.
 

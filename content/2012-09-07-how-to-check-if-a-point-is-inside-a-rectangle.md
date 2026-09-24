@@ -29,7 +29,7 @@ If the point is in the rectangle, it divides it into four triangles:
             <figcaption class="text-center">Divided rectangle</figcaption>
         </figure>
 
-If P is not inside of ABCD, you end up with somethink like this:
+If P is not inside of ABCD, you end up with something like this:
 
 <figure class="aligncenter">
             <a href="../images/2012/09/rectangle-3.png"><img src="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle " style="max-width:512px;max-height:409px;" class="size-full wp-image-43661 "/></a>

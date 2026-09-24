@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lolcats: Hermes'' Favorite Activity
+title: Lolcats: Hermes' Favorite Activity
 slug: lolcats-hermes-favorite-activity
 lang: en
 author: Martin Thoma

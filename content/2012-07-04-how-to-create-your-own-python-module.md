@@ -27,7 +27,7 @@ Python modules can also be written in C or C++, but I'll only explain how to wri
 <h2>Python Paths</h2>
 When you try to import a module, Python looks at these directories in the given order:
 <ul>
-  <li>the PYTHONPATH</li>
+  <li>the <a href="../append-python-path/">PYTHONPATH</a></li>
   <li>the current working directory</li>
   <li>the default search path</li>
 </ul>
@@ -146,6 +146,7 @@ if __name__ == "__main__":
       <ul>
           <li><a href="http://guide.python-distribute.org/creation.html">Creating a Package</a></li>
           <li><a href="http://docs.python.org/distutils/introduction.html">An Introduction to Distutils</a></li>
+          <li><a href="../python-packaging-course/">Python Packaging Course</a></li>
       </ul>
   </li>
 </ul>

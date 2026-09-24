@@ -26,7 +26,7 @@ Pavement Drawings can be combined with anamorphic art. One great artist I've fou
         </figure>
 
 <h2>Hand Painting</h2>
-You might already know body painting. <a href="http://www.guidodaniele.com/?page_id=8">Guido Daniele</a> does something very simmilar he calls "Hand Painting". Here is one example:
+You might already know body painting. <a href="http://www.guidodaniele.com/?page_id=8">Guido Daniele</a> does something very similar he calls "Hand Painting". Here is one example:
 <figure class="aligncenter">
             <a href="../images/2012/02/hand-art-guido-daniele.jpg"><img src="../images/2012/02/hand-art-guido-daniele.jpg" alt="Hand Painting by Guido Daniele" style="max-width:509px;max-height:340px" class="size-full wp-image-15571"/></a>
             <figcaption class="text-center">Hand Painting by Guido Daniele</figcaption>

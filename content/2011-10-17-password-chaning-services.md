@@ -29,7 +29,7 @@ You should not allow weak passwords, of course. But you should have a good defin
     <figcaption>Password Strength</figcaption>
 </figure>
 
-<strong>Allow long passwords</strong>: As the passwords should not be stored as plaintext, but hashed it doesn't really matter how long they are. If you use MD5, it will always take 32 characters. Why should you limit a user to only 20 characters (like PayPal does)? If the 26 character password is easier to remember, why do you want to restrict him to a shorter password which is easier to crack?
+<strong>Allow long passwords</strong>: As the passwords should not be stored as plaintext, but [hashed](../password-hashing/) it doesn't really matter how long they are. If you use MD5, it will always take 32 characters. Why should you limit a user to only 20 characters (like PayPal does)? If the 26 character password is easier to remember, why do you want to restrict him to a shorter password which is easier to crack?
 
 I made the same annoying experiences with the password of my students account for university. They forced me to use a short password with a lower case and upper case letters, digits and special characters.
 

@@ -16,7 +16,7 @@ featured_image: 2011/10/OpenID.png
 
 
 ## RSS-Feeds
-Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like e-mail, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
+Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your [Feed Reader](../google-reader-alternatives/) makes an update, you can get instantly a little notice. It's a bit like e-mail, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
 
 <figure class="alignright">
             <a href="../images/2011/10/OpenID.png"><img src="../images/2011/10/OpenID.png" alt="OpenID" style="max-width:100px;max-height:100px;" class="size-full wp-image-4431"/></a>
@@ -62,7 +62,7 @@ Example: You search for a file about you favorite books. Unfortunately, you don'
 <li>Word</li>
 </ul>
 
-The document you a re searching for could be in Word; in School/English, in Documents/eBooks or in Excel. You you had labels for your files, you could just select the files with a "Books"-label.
+The document you are searching for could be in Word; in School/English, in Documents/eBooks or in Excel. If you had labels for your files, you could just select the files with a "Books"-label.
 
 I wrote "Hierarchical Labels", because sometimes you have one label, that comes always with another one, but not the other way round. As I am not very interested in chemistry, all files about chemistry were for school. So if I tagged a file with "chemistry" it should automatically get the "school"-tag.
 
@@ -81,6 +81,7 @@ Have you ever noticed <a href="http://www.sembeo.com/ninja/comment-page-2/" rel=
 Links for developers</h2>
 <ul>
 <li><a href="http://openid.net/developers/libraries/" rel="nofollow">OpenID libraries</a></li>
+<li><a href="../openid-autodiscovery/">OpenID autodiscovery</a></li>
 <li><a href="http://de.gravatar.com/site/implement/hash/" rel="nofollow">Working with Gravatar</a></li>
 <li><a href="http://www.petefreitag.com/item/465.cfm" rel="nofollow">Howto Create an RSS 2.0 Feed</a></li>
 </ul>

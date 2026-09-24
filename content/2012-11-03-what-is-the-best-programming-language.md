@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: What is the best programming language?
 slug: what-is-the-best-programming-language
+lang: en
 author: Martin Thoma
 date: 2012-11-03 11:48:36.000000000 +01:00
 category: Code
@@ -30,7 +30,7 @@ for i in *.JPG;do convert "$i" -resize 1600x1600 "${i%.JPG}-resized.jpg"; done
 
 See <a href="../converting-files-with-linux/">Converting Files with Linux</a> for more examples.
 <h2>Python</h2>
-Python does a incredibly well job for small problems. I don't have experience with big projects, but some have been done using Python (see list below).
+Python does an incredibly good job for small problems. I don't have experience with big projects, but some have been done using Python (see list below).
 Python is dynamically typed, offers a lot of functions out of the box and is easy to learn and understand. You might argue that Python is executable Pseudocode as it is so easy to read. Additionally, it offers a very neat library for math functions with <a href="http://docs.scipy.org/doc/">NumPy</a>.
 
 Examples of Python-Code in applications include:
@@ -53,7 +53,7 @@ Examples of Python-Code in applications include:
 </li>
 </ul>
 <h2>Java</h2>
-Java is used in the economy for <strong>simple, but huge tasks</strong>. It is <a href="http://en.wikipedia.org/wiki/Type_system#Static_typing">static</a> and <a href="http://en.wikipedia.org/wiki/Type_system#Strong_and_weak_typing">strong</a> typed, has some widely used <a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html">coding convetions</a>, is easy to learn and has a big library.
+Java is used in the economy for <strong>simple, but huge tasks</strong>. It is <a href="http://en.wikipedia.org/wiki/Type_system#Static_typing">static</a> and <a href="http://en.wikipedia.org/wiki/Type_system#Strong_and_weak_typing">strong</a> typed, has some widely used <a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html">coding conventions</a>, is easy to learn and has a big library.
 
 Here are some examples for programs written in Java:
 <ul>
@@ -96,6 +96,7 @@ Programs done with C:
 <ul>
 	<li><a href="http://readwrite.com/2012/06/05/5-ways-to-tell-which-programming-lanugages-are-most-popular">5 Ways to Tell Which Programming Languages are Most Popular</a></li>
 	<li><a href="http://osgameclones.com/">OpenGameClones</a></li>
+	<li><a href="../comparing-programming-languages/">Comparing programming languages</a></li>
 </ul>
 
 <h2>Matlab</h2>

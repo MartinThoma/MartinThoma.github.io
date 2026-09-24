@@ -49,6 +49,7 @@ Ich habe ein paar Artikel geschrieben, die für euch interessant sein könnten:
 <ul>
   <li><a href="../tribonacci-folge/">Tribonacci-Folge</a></li>
   <li><a href="../how-to-sort-with-java/">How to sort with Java?</a></li>
+  <li><a href="../checkstyle/">Checkstyle</a></li>
 </ul>
 
 <h2>Links</h2>

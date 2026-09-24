@@ -11,7 +11,7 @@ featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben.
 
-Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
+Damit sich andere Stipendiaten nicht auch jedes Mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
 
 <h2>Wozu dient der Semesterbericht?</h2>
 Im Daidalosnet steht dazu:
@@ -87,7 +87,7 @@ LaTeX:
 \newcommand{\PLZ}{76131}
 \newcommand{\Ort}{Karlsruhe}
 \newcommand{\Email}{info@martin-thoma.de}
-\newcommand{\Vertrauensdozent}{Prof. Dr. <a href='../images/2012/06/semesterbericht-ws-2011.pdf'>Semesterbericht WS 2011</a>Mustermann}
+\newcommand{\Vertrauensdozent}{Prof. Dr. Mustermann}
 \newcommand{\Referent}{Dr. Alice Brown}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{

@@ -28,7 +28,7 @@ Eine Python-Implementierung sieht so aus:
 
 
 def getSD(A):
-    """ @param A: eine quadratische, reele, positiv definite Matrix
+    """ @param A: eine quadratische, reelle, positiv definite Matrix
         @return: Die Matrizen S und D, für die gilt:
                  A = S * D * S^T
     """

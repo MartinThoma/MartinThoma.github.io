@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Sizes in LaTeX
 slug: sizes-in-latex
+lang: en
 author: Martin Thoma
 date: 2012-09-29 18:23:38.000000000 +02:00
 category: Code
@@ -13,8 +13,8 @@ Here is an overview of sizes in LaTeX:
 
 <h2>TikZ</h2>
 <figure class="aligncenter">
-            <a href="../images/2012/09/tikz-sizes.png"><img src="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes" style="max-width:500px;max-height:503px" class="size-full"/></a>
-            <figcaption class="text-center">TikZ thicknes</figcaption>
+            <a href="../images/2012/09/tikz-sizes.png"><img src="../images/2012/09/tikz-sizes.png" alt="TikZ thickness" style="max-width:500px;max-height:503px" class="size-full"/></a>
+            <figcaption class="text-center">TikZ thickness</figcaption>
         </figure>
 Usage example:
 `\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);`

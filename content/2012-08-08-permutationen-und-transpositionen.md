@@ -228,8 +228,8 @@ Es wurde in der Vorlesung auch gezeigt, dass allgemein <span markdown="0">$(S_m,
 
 <h2>Transposition</h2>
 <div class="definition">Eine <strong>Transposition</strong> ist eine Permutation aus $S_m$, bei der zwei verschiedene,
-fest gewahlte Zahlen $i, k \in \{1, 2, ..., m\}$ vertauscht werden, während alle anderen Zahlen fest bleiben.
-Man schreibt fur diese Transposition auch kurz $(i~k)$.</div>
+fest gewählte Zahlen $i, k \in \{1, 2, ..., m\}$ vertauscht werden, während alle anderen Zahlen fest bleiben.
+Man schreibt für diese Transposition auch kurz $(i~k)$.</div>
 
 Transpositionen werden gerne mit <span markdown="0">$\tau$</span> abgekürzt.
 
@@ -238,7 +238,7 @@ Also: <span markdown="0">$\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3)$</span> sind
 
 Es gilt: <span markdown="0">$\tau \circ \tau = id$</span>
 
-wir haben in der Vorlesung gezeigt:
+Wir haben in der Vorlesung gezeigt:
 <div class="satz">Jede Permutation <span markdown="0">$\pi \in S_m, m \geq 2,$</span> lässt sich als Verkettung von Transpositionen darstellen.</div>
 
 Beispiel:

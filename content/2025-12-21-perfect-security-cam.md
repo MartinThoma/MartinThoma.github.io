@@ -48,6 +48,11 @@ The core principle that all security cameras I know violate is a local-first app
 
 ## Software
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/12/security-camera-architecture.svg"><img src="../images/2025/12/security-camera-architecture.svg" alt="Camera, central server and user device inside the home network: the camera sends alerts and video to the server and receives settings and firmware; the browser on the user device gets video and alerts from the server and sends settings and commands; Bluetooth is only used for the initial setup; an optional time server on the internet syncs the camera clock"/></a>
+    <figcaption class="text-center">Software components, where they run, and how they communicate</figcaption>
+</figure>
+
 ### On-Device Software
 
 * Detects motion and faces locally

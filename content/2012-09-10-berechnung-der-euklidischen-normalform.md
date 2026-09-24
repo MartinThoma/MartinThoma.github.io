@@ -9,7 +9,7 @@ category: German posts
 tags: Linear Algebra, Matrix, Normal Form, Mathematics
 featured_image: 2012/09/math-euklidische-normalform1.png
 ---
-Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform gennant, hat folgende Gestalt:
+Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform genannt, hat folgende Gestalt:
 
 <figure class="aligncenter">
             <a href="../images/2012/09/math-euklidische-normalform.png"><img src="../images/2012/09/math-euklidische-normalform.png" alt="Euklidische Normalform" style="max-width:512px;max-height:291px;" class="size-full wp-image-43911 "/></a>

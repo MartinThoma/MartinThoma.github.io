@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: How to parse command line arguments in Java
 slug: how-to-parse-command-line-arguments-in-java
+lang: en
 author: Martin Thoma
 date: 2012-07-19 17:00:04.000000000 +02:00
 category: Code
@@ -167,4 +167,5 @@ I have not found a single, complete and working usage example.
   <li><a href="http://stackoverflow.com/q/367706/562769">Is there a good command line argument parser for Java?</a> - A lot of other command line parsers are mentioned for Java.</li>
   <li><a href="http://args4j.kohsuke.org/args4j/apidocs/">args4j JavaDoc</a></li>
   <li><a href="http://commons.apache.org/cli/api-release/index.html">Apache CLI JavaDoc</a></li>
+  <li><a href="../how-to-parse-command-line-arguments-in-python/">How to parse command line arguments in Python</a></li>
 </ul>

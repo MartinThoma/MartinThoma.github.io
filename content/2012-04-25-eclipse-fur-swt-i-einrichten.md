@@ -19,13 +19,13 @@ Für die Installation von Java, Subversion (SVN), Eclipse und Checkstyle samt Do
 sudo apt-get install openjdk-6-jre openjdk-6-jdk openjdk-6-source openjdk-6-demo openjdk-6-doc openjdk-6-jre-headless openjdk-6-jre-lib subversion libapache2-svn eclipse checkstyle checkstyle-doc
 ```
 
-Dann werden etwa 276 MB an Archiven heruntergeladen und 662 MB an zusätzlichen Packeten installiert. Bei meiner Internetverbindung (DSL 1000 ☹ ) hat das ca 40 Minuten gedauert.
+Dann werden etwa 276 MB an Archiven heruntergeladen und 662 MB an zusätzlichen Paketen installiert. Bei meiner Internetverbindung (DSL 1000 ☹ ) hat das ca 40 Minuten gedauert.
 
 <h2>CheckStyle</h2>
 Siehe eclipse-cs.sourceforge.net mit <a href="http://eclipse-cs.sourceforge.net/downloads.html">detaillierten Installationsanweisungen</a>.
 
 <h2>Subversive</h2>
-Siehe eclipse.org: <a href="http://www.eclipse.org/subversive/downloads.php#indigo_stable">Download Suversive</a>.
+Siehe eclipse.org: <a href="http://www.eclipse.org/subversive/downloads.php#indigo_stable">Download Subversive</a>.
 Diese Erklärung ist aber nicht so toll.
 
 Nach der Installation und dem Neustart von Eclipse muss man das "Subversive Connector Kit" auswählen. Kurz in der Konsole

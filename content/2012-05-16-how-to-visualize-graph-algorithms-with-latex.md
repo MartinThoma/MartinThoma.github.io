@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: How to visualize Graph algorithms with LaTeX
 slug: how-to-visualize-graph-algorithms-with-latex
+lang: en
 author: Martin Thoma
 date: 2012-05-16 13:16:29.000000000 +02:00
 category: Code
 tags: LaTeX, Tikz
 featured_image: 2012/01/latex-logo.png
 ---
-Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template 😉). This post should give you a template to visualize graph algorithms with LaTeX.
+Tikz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template 😉). This post should give you a template to visualize graph algorithms with LaTeX.
 I recently found a great animation of Prim's algorithm done by <a href="http://www.texample.net/tikz/examples/prims-algorithm/">Kjell Magne Fauske</a>. I've edited his source files to show an eulerian path. This is how it looks like:
 <figure class="aligncenter">
             <a href="../images/2012/05/tikz-animation.gif"><img src="../images/2012/05/tikz-animation.gif" alt="LaTeX (Tikz) animation of an eulerian path" style="max-width:512px;max-height:228px" class="size-full wp-image-24611"/></a>

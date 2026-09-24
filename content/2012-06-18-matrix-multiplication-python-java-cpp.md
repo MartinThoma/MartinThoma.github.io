@@ -467,7 +467,7 @@ sys	0m24.598s
 
 One reason might be that Vector is synchronized.
 
-<h3>ikj-algoirthm</h3>
+<h3>ikj-algorithm</h3>
 I've only switched line 60 and line 61.
 
 ```shell
@@ -602,7 +602,7 @@ user	0m51.367s
 sys	0m45.043s
 ```
 
-It took me about two hours to get it work. I had to add the JAMA-JAR to eclipse, export my project as a JAR and run it with
+It took me about two hours to get it to work. I had to add the JAMA-JAR to eclipse, export my project as a JAR and run it with
 
 ```shell
 $ time java -jar jama-shell.jar -i ../2000.in > jama-result.out

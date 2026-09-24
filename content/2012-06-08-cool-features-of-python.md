@@ -186,7 +186,7 @@ for (int element : myList) {
 }
 
 if (!isPrimePresent) {
-    System.out.println("The list did not containe a prime.");
+    System.out.println("The list did not contain a prime.");
 }
 ```
 
@@ -215,7 +215,7 @@ It can be uploaded to [pythonhosted.org](http://pythonhosted.org/) just like [ne
 ## The Rest
 
 ### Lists and Generators
-I already wrote an article about <a href="../understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="../python-generators/" title="Python Generators">Python Generators</a>. I love Pythons lists ☺
+I already wrote an article about <a href="../understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="../python-generators/" title="Python Generators">Python Generators</a>. I love Python's lists ☺
 
 ### for ... else
 

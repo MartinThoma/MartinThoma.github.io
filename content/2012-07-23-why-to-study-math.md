@@ -21,7 +21,7 @@ See also:
 </ul>
 
 <h2>Math is important</h2>
-If you are interested in natural science, you will defenitely need math. Here are a few examples where math is directly needed:
+If you are interested in natural science, you will definitely need math. Here are a few examples where math is directly needed:
 
 <ul>
   <li><strong>Computer Science</strong>: All kinds of animations, stochastics is needed often, cryptography needs number theory</li>

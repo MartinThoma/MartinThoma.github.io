@@ -33,7 +33,7 @@ You have to know this: $m_s = - \frac{1}{m}$
 And then you know that $P$ is on $s$. So you simply put in the values $x,y$ of P and solve to $t$:
 $t = y - m_s \cdot x$
 
-Now you have $s$. As $s$ and $g$ have exactly point in common, the following equation gives exactly one result:
+Now you have $s$. As $s$ and $g$ have exactly one point in common, the following equation gives exactly one result:
 
 $s(x) = g(x)$
 

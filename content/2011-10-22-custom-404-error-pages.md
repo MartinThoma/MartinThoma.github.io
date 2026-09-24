@@ -16,7 +16,7 @@ Anyway, the user needs help now. The standard error page doesn't provide much in
 If you like more information, just Google for "custom 404 page".
 
 <h2>How to create a custom 404 error page</h2>
-Simply add the following line to your .htaccess file:
+Simply add the following line to your [.htaccess file](../tricks-with-htaccess/):
 
 ```apache
 ErrorDocument 404 /notfound.php

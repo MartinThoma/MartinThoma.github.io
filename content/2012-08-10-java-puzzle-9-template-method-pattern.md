@@ -77,8 +77,6 @@ public class test {
 35
 ```
 
-35
-
 <h2>Explanation</h2>
 You can think of it like this: First, you create the empty class <code>ConcreteClass</code>. It has only the methods inherited by <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">Object</a> like the <code>constructor</code>, <code>equals()</code> and <code>toString()</code>. Then it gets extended by AbstractClass with <code>templateMethod()</code>, <code>simpleOperation1()</code> and <code>simpleOperation2()</code>. After that, the method overrides <code>simpleOperation1()</code> and <code>simpleOperation2()</code>, but <code>templateMethod()</code> uses them. It uses the methods that are now in <code>ConcreteClass</code>.
 

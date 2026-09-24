@@ -18,8 +18,8 @@ $\neg x$: Die Negation der Aussage x
 $\exists x$: Es existiert mindestens ein x (Quantor)
 $\forall x$: Alle x (Quantor)
 
-$\land$: und (eine Verknüfung zweier Aussagen)
-$\lor$: oder (eine Verknüfung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".
+$\land$: und (eine Verknüpfung zweier Aussagen)
+$\lor$: oder (eine Verknüpfung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".
 
 Ich habe die Symbole bewusst in diesen Paragraphen angeordnet. Wird die Negation eines Ausdrucks gebildet, werden alle Symbole im Inneren durch das jeweils andere Symbol ersetzt. Beispielsweise wird das logische "und" zu einem "oder".
 
@@ -54,7 +54,7 @@ $\exists k \in K: \neg F(k) \land \neg S(k)$ <small>(sprich: "Es existiert minde
 Übersetzt man das in einen schöneren deutschen Satz kann man sagen:
 Mindestens ein Karlsruher fährt weder mit dem Rad noch mit der Bahn.
 
-Wenn man das nun auf die oben angegebenen Lösungen bezieht, könnte es Aussage 5 oder 6 sein. Der Sinngemäß muss es heißen:
+Wenn man das nun auf die oben angegebenen Lösungen bezieht, könnte es Aussage 5 oder 6 sein. Sinngemäß muss es heißen:
 Es fahren nicht alle Karlsruher entweder mit dem Rad, der Straßenbahn oder beidem.
 Ich tendiere stark dazu, Satz 5 zu nehmen. Allerdings bin ich mir nicht sicher, ob mein Sprachgefühl mich täuscht.
 

@@ -24,7 +24,7 @@ $NEA = \left( Q, \Sigma, \delta, S, F \right)$
 
 Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.
 
-Zuerst defnieren wir:
+Zuerst definieren wir:
 $\tilde{S} = E(S) = \{S\}$
 
 Dann erstellen wir folgende Tabelle:
@@ -51,7 +51,7 @@ Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jed
     <th style="border:1px solid #000;">{q1, S}</th>
   </tr>
   <tr>
-    <th style="border:1px solid #000;">a</td>
+    <th style="border:1px solid #000;">a</th>
     <td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">&nbsp;</td>
   </tr>
@@ -65,7 +65,7 @@ Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jed
 Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
 Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.
 
-Am Ende schaut die Tablle wie folgt aus:
+Am Ende schaut die Tabelle wie folgt aus:
 <table style="border:1px solid #000;">
   <tr>
     <th style="border:1px solid #000;">$\tilde{S}$</th>
@@ -76,7 +76,7 @@ Am Ende schaut die Tablle wie folgt aus:
     <th style="border:1px solid #000;">{q1, q2}</th>
   </tr>
   <tr>
-    <th style="border:1px solid #000;">a</td>
+    <th style="border:1px solid #000;">a</th>
     <td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">$\emptyset$</td>

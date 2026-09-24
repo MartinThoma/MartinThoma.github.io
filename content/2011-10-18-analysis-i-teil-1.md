@@ -45,7 +45,7 @@ A.2 & a \cdot (bc) & = & (ab) \cdot c & \forall a, b, c \in \mathbb{R} \\
 
 $$\left. \begin{array}{lllll}
 A.3 & a  +    b & = & b  +     a & \forall a, b \in \mathbb{R} \\
-A.4 & a \cdot b & = & b) \cdot a & \forall a, b \in \mathbb{R} \\
+A.4 & a \cdot b & = & b \cdot a & \forall a, b \in \mathbb{R} \\
 \end{array} \right \} \text{Kommutativgesetze}$$
 
 
@@ -59,7 +59,7 @@ A.7 & \forall a \in \mathbb{R} \exists -a \in \mathbb{R} & : & a + (-a) = 0 \\
 A.8 & \forall a \in \mathbb{R} \setminus {0} \exists -a^{-1} \in \mathbb{R} & : & a \cdot a^{-1} = 1
 \end{array} \right \} \text{Inverses Element}$$
 
-$$\text{A.9 } a(b+c) = ab+ac \forall a, b, c \in \mathbb{R}$: Distributivgesetz$
+$$\text{A.9 } a(b+c) = ab+ac \forall a, b, c \in \mathbb{R}$$: Distributivgesetz
 
 Schreibweisen: für $a, b \in \mathbb{R}: a -b := a + (-b)$
 für $b \neq 0: \frac{a}{b} := a \cdot b^{-1}$

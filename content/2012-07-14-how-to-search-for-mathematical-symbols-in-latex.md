@@ -159,4 +159,5 @@ I've recently needed <span markdown="0">$\dots, \ddots, \vdots$</span> (`\dots`,
 <ul>
   <li><a href="http://www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf">List of symbols</a> - 164 pages of symbols</li>
   <li><a href="http://en.wikipedia.org/wiki/Help:Displaying_a_formula">Displaying a formula</a></li>
+  <li><a href="../write-math/">On-line Handwriting Recognition of Mathematical Symbols</a></li>
 </ul>

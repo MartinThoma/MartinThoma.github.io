@@ -9,7 +9,7 @@ category: The Web
 tags: Data, Information, Data Visualization
 featured_image: 2011/09/Gapminder1.jpg
 ---
-The United States public debt increased from \$10.7 trillion in 2008 to \$14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 people live in Mumbai.
+The United States public debt increased from \$10.7 trillion in 2008 to \$14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 million people live in Mumbai.
 
 Today it is incredibly easy to gain raw data, but without context they aren't worth anything. You have to know some different information of the same context with which you can compare the given information.
 

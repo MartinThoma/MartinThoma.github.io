@@ -79,7 +79,7 @@ heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%
 Die Basis für $U_2$ ist also $$\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}$$
 
 <h2>Zassenhaus-Algorithmus</h2>
-Bemerkung: Ich habe für den Zassenhaus-Algorithmus leiter die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).
+Bemerkung: Ich habe für den Zassenhaus-Algorithmus leider die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).
 
 Man transponiert die Basisvektoren von $U_1$ und $U_2$ und schreibt sie in eine Matrix:
 $$\left( \begin{array}{c | c}

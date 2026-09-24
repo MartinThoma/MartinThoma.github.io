@@ -117,7 +117,7 @@ $d > f$
   <li>b and e</li>
 </ul>
 
-Lets conclude:
+Let's conclude:
 <figure class="aligncenter">
             <a href="../images/2012/04/euler-142-graph.png"><img src="../images/2012/04/euler-142-graph.png" alt="Graph that visualizes the situation of the squares of Euler 142" style="max-width:298px;max-height:400px" class="size-full wp-image-21421"/></a>
             <figcaption class="text-center">Graph that visualizes the situation of the squares of Euler 142</figcaption>

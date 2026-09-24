@@ -8,7 +8,7 @@ date: 2012-01-24 08:06:41.000000000 +01:00
 category: The Web
 tags: SOPA, Internet, Politics
 ---
-It seems as if the SOPA protests were quite effective. 162 Millionen visitors of Wikipedia did see the message. <a href="http://www.facebook.com/zuck/posts/10100210345757211">Zuckerbergs Facebook post</a> got half a million Likes. Thousands bloggers downloaded protest plugins which blacked out their blog.
+It seems as if the <a href="../sopa-protests/">SOPA protests</a> were quite effective. 162 Millionen visitors of Wikipedia did see the message. <a href="http://www.facebook.com/zuck/posts/10100210345757211">Zuckerbergs Facebook post</a> got half a million Likes. Thousands bloggers downloaded protest plugins which blacked out their blog.
 
 <figure class="aligncenter">
             <a href="../images/2012/01/sopa-protests-congress-supporters-opponents-240x300.jpg"><img src="../images/2012/01/sopa-protests-congress-supporters-opponents-240x300.jpg" alt="Members of Congress position on SOPA/PIPA (found on boingboing.net)" style="max-width:240px;max-height:300px" class="size-medium wp-image-12661"/></a>

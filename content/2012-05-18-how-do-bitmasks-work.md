@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-05-18 23:02:55.000000000 +02:00
 category: Code
-tags: C, OS, Operating Systems, Computer Science
+tags: C, Computer Science
 featured_image: 2012/05/assembly-thumb.png
 ---
 <h2>What are Bitmasks?</h2>
@@ -81,7 +81,7 @@ This is how the operators work:
 </table>
 
 <h2>Some examples</h2>
-Lets say I have any variable named "variable" with 32 bit.
+Let's say I have any variable named "variable" with 32 bit.
 
 Get the last bit:
 ```c

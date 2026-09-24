@@ -25,7 +25,7 @@ Now you can use a PDF printer.
 Done. It works.
 
 <h2>The Windows-Way</h2>
-Windows 7 does not have a PDF printer, but it has a "Microsoft XPS Document Writer". Lets see what this is:
+Windows 7 does not have a PDF printer, but it has a "Microsoft XPS Document Writer". Let's see what this is:
 
 <h3>XPS</h3>
 <h4>General Information</h4>

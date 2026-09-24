@@ -18,6 +18,6 @@ featured_image: 2011/09/Lightbot-2.0-300x171.png
 
 <b>Task</b>: Solve the levels
 
-<b>How to play</b>: You can programm the Lightbot to move, jump and to switch its light on. By defining functions and using recursion you can keep your program code small. It's a nice online game where you can start to learn programming.
+<b>How to play</b>: You can program the Lightbot to move, jump and to switch its light on. By defining functions and using recursion you can keep your program code small. It's a nice online game where you can start to learn programming.
 
 **My Record**: All Basic and Recursion-Levels done.

@@ -15,7 +15,7 @@ Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich di
 
 <h2>Allgemeines</h2>
 <ul>
-  <li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut über den ganzen Code diverse returns enthält. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
+  <li>Was wir absolut nicht sehen wollen sind große Methoden, die verstreut über den ganzen Code diverse returns enthalten. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
   <li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu überzählige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
   <li>toString/equals: Sollte nur für Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals überschreibt, dann sollte man auch hashCode überschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige Fälle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu überschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
   <li>Verbergt die tatsächlichen Typen, woimmer es möglich ist! Also z.B. <code>private Map meineMap = new HashMap<Integer, Blub>();</code></li>
@@ -23,16 +23,16 @@ Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich di
 
 <blockquote>Frage: Dürfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>
 
-Antwort: Kommt darauf an, wenn Sie mehr als eimal verwendet werden, dann sollte man Konstanten daraus machen.
+Antwort: Kommt darauf an, wenn Sie mehr als einmal verwendet werden, dann sollte man Konstanten daraus machen.
 
 <blockquote>Frage: Soll die Shell nur korrekte Werte an den eigentlichen LittlePraktomat übergeben, also alle Fehlerquellen bereits in der Shell-Klasse abgefangen werden oder soll der LittlePraktomat Exceptions werfen, die in der Shell dann gefangen werden? Oder soll beides gemacht werden?</blockquote>
 
-Antwort: Die öffentlichen Methoden einer Klasse sind deren Schnittstelle. In den Javadoc Kommentaren sollte stehen, wie diese Schnittstelle zu verwenden ist. Also welcher Art die Eingaben sein müssen und wie die Ausgaben aussehen. Wenn sich ein Aufrufer nicht and diese Vereinbarung hält, dann sollte die Methode der Schnittstelle eine Exception werfen (IllegalArgument, NullPointer, ...). Diese Exceptions sollten normalerweise nie vom Aufrufer gefangen werden. Sie sollen das Program kontrolliert zum Absturz bringen. Die Logik dahinter ist folgende: Wenn eine IllegalArgumentException (oder ähnliches) fliegt, dann wurde eine Schnittstelle falsch verwendet. Der Aufrufer der Schnittstelle hat aber vor dem Aufruf sicher zu stellen, dass alle Forderungen der Schnittstelle eingehalten werden. D.h. wenn eine solche Exception auftritt liegt ein Programmierfehler vor. Mit Hilfe des Exceptionstacktrace kann der Entwickler diesen realtiv bequem finden und beheben.
+Antwort: Die öffentlichen Methoden einer Klasse sind deren Schnittstelle. In den Javadoc Kommentaren sollte stehen, wie diese Schnittstelle zu verwenden ist. Also welcher Art die Eingaben sein müssen und wie die Ausgaben aussehen. Wenn sich ein Aufrufer nicht an diese Vereinbarung hält, dann sollte die Methode der Schnittstelle eine [Exception werfen](../java-exceptions/) (IllegalArgument, NullPointer, ...). Diese Exceptions sollten normalerweise nie vom Aufrufer gefangen werden. Sie sollen das Program kontrolliert zum Absturz bringen. Die Logik dahinter ist folgende: Wenn eine IllegalArgumentException (oder ähnliches) fliegt, dann wurde eine Schnittstelle falsch verwendet. Der Aufrufer der Schnittstelle hat aber vor dem Aufruf sicher zu stellen, dass alle Forderungen der Schnittstelle eingehalten werden. D.h. wenn eine solche Exception auftritt liegt ein Programmierfehler vor. Mit Hilfe des Exceptionstacktrace kann der Entwickler diesen relativ bequem finden und beheben.
 
 Es ist also beides zu machen, die Shell (der Aufrufer) hat vor dem Verwenden der Praktomat-Schnittstelle sicher zu stellen, dass alle Eingaben korrekt sind. Sind die Eingaben falsch, dann wird eine Fehlermeldung ausgegeben. Die Praktomat-Schnittstelle schützt sich vor falscher Verwendung mit Hilfe von Exceptions.
 
 <h2>Tests</h2>
-Ihr <strong>müsst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollt wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern führen könnten.
+Ihr <strong>müsst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollte wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern führen könnten.
 
 Da ihr sie ja sowieso schreibt, könnt ihr euer Programm auch auf eure Tests.txt überprüfen. Ich habe mir dazu folgendes kleines <a href='../images/2012/03/programmieren-abschlussaufgabe.zip'>Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.
 

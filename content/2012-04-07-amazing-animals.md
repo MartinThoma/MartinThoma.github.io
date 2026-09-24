@@ -6,18 +6,18 @@ lang: en
 author: Martin Thoma
 date: 2012-04-07 02:39:26.000000000 +02:00
 category: My bits and bytes
-tags: Lolcat, Nature
+tags: Lolcat, Nature, Video
 featured_image: 2012/04/axolotl-thumb.jpg
 ---
 Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.
 
-<h2>Axoltotl</h2>
+<h2>Axolotl</h2>
 <figure class="aligncenter">
-            <a href="../images/2012/04/axolotl-300x269.jpg"><img src="../images/2012/04/axolotl-300x269.jpg" alt="Axoltol" style="max-width:300px;max-height:269px" class="size-medium wp-image-21171"/></a>
-            <figcaption class="text-center">Axoltol</figcaption>
+            <a href="../images/2012/04/axolotl-300x269.jpg"><img src="../images/2012/04/axolotl-300x269.jpg" alt="Axolotl" style="max-width:300px;max-height:269px" class="size-medium wp-image-21171"/></a>
+            <figcaption class="text-center">Axolotl</figcaption>
         </figure>
 
-The <a href="http://en.wikipedia.org/wiki/Axolotl">axoltotl</a> is capable of the <strong>regeneration</strong> of entire lost appendages in a period of months, and, in certain cases, more vital structures. Some have indeed been found restoring the less vital parts of their brains. They can also readily accept transplants from other individuals, including eyes and parts of the brain&mdash;restoring these alien organs to full functionality. In some cases, axolotls have been known to repair a damaged limb as well as regenerating an additional one, ending up with an extra appendage that makes them attractive to pet owners as a novelty. In metamorphosed individuals, however, the ability to regenerate is greatly diminished. The axolotl is therefore used as a model for the development of limbs in vertebrates.
+The <a href="http://en.wikipedia.org/wiki/Axolotl">axolotl</a> is capable of the <strong>regeneration</strong> of entire lost appendages in a period of months, and, in certain cases, more vital structures. Some have indeed been found restoring the less vital parts of their brains. They can also readily accept transplants from other individuals, including eyes and parts of the brain&mdash;restoring these alien organs to full functionality. In some cases, axolotls have been known to repair a damaged limb as well as regenerating an additional one, ending up with an extra appendage that makes them attractive to pet owners as a novelty. In metamorphosed individuals, however, the ability to regenerate is greatly diminished. The axolotl is therefore used as a model for the development of limbs in vertebrates.
 
 <h2>Platypus</h2>
 <figure class="aligncenter">
@@ -32,7 +32,7 @@ The <a href="http://en.wikipedia.org/wiki/Mimic_Octopus">mimic octopus</a> has a
 
 <h2>Lyrebird</h2>
 <iframe width="512" height="377" src="//www.youtube.com/embed/VjE0Kdfos4Y" frameborder="0" allowfullscreen></iframe>
-A Lyrebirds are most notable for their <strong>superb ability to mimic natural and artificial sounds</strong> from their environment. Lyrebirds have unique plumes of neutral coloured tailfeathers.
+Lyrebirds are most notable for their <strong>superb ability to mimic natural and artificial sounds</strong> from their environment. Lyrebirds have unique plumes of neutral coloured tailfeathers.
 
 <h2>Clever Chimp</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gWBw5LetplE" frameborder="0" allowfullscreen></iframe>

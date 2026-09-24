@@ -57,10 +57,10 @@ Now compare this to Linux:
             <figcaption class="text-center">Gnome shell (bash)</figcaption>
         </figure>
 
-Where do you find easier what you need? And why do they have a black background with white font color? Try to work with this for some hours and than compare it to a shell with black font size and white background...
+Where do you find easier what you need? And why do they have a black background with white font color? Try to work with this for some hours and then compare it to a shell with black font size and white background...
 
 <h3>Missing (command line) tools</h3>
-I like using git / svn from command line. But the default way to use SVN (and eventually GIT) seems to be by GUI. Why results in a crappy, overblown right click menu:
+I like using git / svn from command line. But the default way to use SVN (and eventually GIT) seems to be by GUI. This results in a crappy, overblown right click menu:
 
 <figure class="aligncenter">
             <a href="../images/2012/12/windows-right-click-287x300.png"><img src="../images/2012/12/windows-right-click-287x300.png" alt="Windows right click menu" style="max-width:287px;max-height:300px" class="size-medium wp-image-51291"/></a>
@@ -93,7 +93,7 @@ Windows makes its updates at very bad times. Sometimes it just makes an update a
 Windows really shut down my computer automatically and blocked it for about 15 minutes. What if I had to hold a presentation? What if I downloaded something?
 
 <h2>Nice features, crappy realization</h2>
-Windows has a very nice feature: You an search at the "start". But why doesn't it work for every program? I've searched for "winver.exe", a program shipped per default from Microsoft. Why can't you find this in start?
+Windows has a very nice feature: You can search at the "start". But why doesn't it work for every program? I've searched for "winver.exe", a program shipped per default from Microsoft. Why can't you find this in start?
 <figure class="aligncenter">
             <a href="../images/2012/12/windows-start-search-240x300.png"><img src="../images/2012/12/windows-start-search-240x300.png" alt="Windows Start search" style="max-width:240px;max-height:300px" class="size-medium wp-image-51281"/></a>
             <figcaption class="text-center">Windows Start search</figcaption>
@@ -101,7 +101,7 @@ Windows has a very nice feature: You an search at the "start". But why doesn't i
 
 If I have to type the whole name, this feature is essentially useless...
 
-<a href="http://en.wikipedia.org/wiki/Outlook_Web_App">Microsoft OWA</a> is an online email service. A friend showed me this usability desaster:
+<a href="http://en.wikipedia.org/wiki/Outlook_Web_App">Microsoft OWA</a> is an online email service. A friend showed me this usability disaster:
 <figure class="aligncenter">
             <a href="../images/2012/12/microsoft-owa-300x157.png"><img src="../images/2012/12/microsoft-owa-300x157.png" alt="Microsoft OWA" style="max-width:300px;max-height:157px" class="size-medium wp-image-54791"/></a>
             <figcaption class="text-center">Microsoft OWA</figcaption>
@@ -122,7 +122,7 @@ If you have a German system, the explorer will show a German path although the u
 Although many drivers exist for Windows, you have to install them almost always by CD.
 
 <h3>Mouse drivers</h3>
-You have to INSTALL mouse drivers! WTF! I expect an USB mouse to work immediately and not to get something like that:
+You have to INSTALL mouse drivers! WTF! I expect a USB mouse to work immediately and not to get something like that:
 <figure class="aligncenter">
             <a href="../images/2012/12/usb-mouse-windows-7-300x101.png"><img src="../images/2012/12/usb-mouse-windows-7-300x101.png" alt="Installing USB mouse in Windows 7" style="max-width:300px;max-height:101px" class="size-medium wp-image-52321"/></a>
             <figcaption class="text-center">Installing USB mouse in Windows 7</figcaption>
@@ -141,9 +141,9 @@ Clover tries to fix that, but I don't want to install a third party tool for suc
 <h2>Shell</h2>
 There is so much wrong with the Windows Shells:
 <ul>
-  <li>You can't maximize it (see <a href="http://superuser.com/a/80098/64857">explantation</a>)</li>
-  <li>Crappy autocomplete: In Linux, if you have multiple ways to autocomplete, you get a list of the options. Windows 7 only pics the first.</li>
-  <li>PowerShell: Its soooo slow! I don't want to wait for my shell to start!</li>
+  <li>You can't maximize it (see <a href="http://superuser.com/a/80098/64857">explanation</a>)</li>
+  <li>Crappy autocomplete: In Linux, if you have multiple ways to autocomplete, you get a list of the options. Windows 7 only picks the first.</li>
+  <li>PowerShell: It's soooo slow! I don't want to wait for my shell to start!</li>
 </ul>
 
 <figure class="aligncenter">

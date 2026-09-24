@@ -17,7 +17,7 @@ $a_n := \begin{cases}
 a_{n-1} + a_{n-2} + a_{n-3} & \text{, falls } n \geq 3
 \end{cases}$.
 
-Ich werde im folgenden mal kurz mögliche Lösungen in Python (und eine in Java) vorstellen. Python hat bei solchen Aufgaben den Vorteil, dass es viel kompakter ist und Ganzzahlen beliebig groß werden können.
+Ich werde im Folgenden mal kurz mögliche Lösungen in Python (und eine in Java) vorstellen. Python hat bei solchen Aufgaben den Vorteil, dass es viel kompakter ist und Ganzzahlen beliebig groß werden können.
 
 <h2>Händische Lösung</h2>
 Bevor man irgendwas programmiert, sollte man sicherstellen, dass man es testen kann. Was wären also die ersten paar Folgenglieder?
@@ -35,7 +35,7 @@ def tribonacci(n):
         return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3)
 ```
 
-Allerdings hat diese rekursive Lösung den riesigen nachteil, dass viele Berechnungen redundant sind.
+Allerdings hat diese rekursive Lösung den riesigen Nachteil, dass viele Berechnungen redundant sind.
 Angenommen, wir wollen <code>tribonacci(5)</code> berechnen. Dann läuft folgendes ab:
 
 <ol>
@@ -87,7 +87,7 @@ def tribonacciBottomUp(n):
 ```
 
 <h2>Fill it</h2>
-Eine weitere Möglichkeit wäre die schwäche des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.
+Eine weitere Möglichkeit wäre die Schwäche des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.
 
 <h2>Wertetabelle</h2>
 <table>

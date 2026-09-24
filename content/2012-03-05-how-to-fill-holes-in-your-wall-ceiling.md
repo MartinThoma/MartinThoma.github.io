@@ -87,4 +87,4 @@ Afterwards, it looks like this:
             <figcaption class="text-center">Filled hole in the ceiling</figcaption>
         </figure>
 
-Hmm ... well ... it looks different when I look at it. I can barely see it as it's not that bright at the ceiling. Nether the less, I will have to paint in the summer.
+Hmm ... well ... it looks different when I look at it. I can barely see it as it's not that bright at the ceiling. Nevertheless, I will have to paint in the summer.

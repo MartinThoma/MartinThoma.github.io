@@ -98,11 +98,11 @@ $= \left( \begin{array}{c c | c}
 Das Ergebnis lautet also:
 Das multiplikativ Inverse zu $(a + bi)$ ist also in diesem Fall $(\frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2}i)$.
 
-<h3>Fall a gleich 0</h3>
+<h3>Fall 2: a gleich 0</h3>
 $\Leftrightarrow - b d = 1 \land b c= 0$
 $\implies c = 0 \land d = - \frac{1}{b}$
 
-Das multiplikativ Inverse zu $(bi)$ ist also in diesem Fall $(0 - \frac{1}{b}i)$ = (\frac{0}{0^2 + b^2} - \frac{b}{0^2 + b^2}i)$.
+Das multiplikativ Inverse zu $(bi)$ ist also in diesem Fall $(0 - \frac{1}{b}i) = (\frac{0}{0^2 + b^2} - \frac{b}{0^2 + b^2}i)$.
 
 <h3>Ergebnis</h3>
 Ganz allgemein kann man für das multiplikativ Inverse einer beliebigen komplexen Zahl also folgendes Angeben:

@@ -16,10 +16,10 @@ same input, you always get the same 32 character output.
 
 What is it good for?
 
-Well, imagine you had a web application. Now an attacker found a security whole
+Well, imagine you had a web application. Now an attacker found a security hole
 and can read the password-column in the database. If it was plain text, he
-could use the passwords to log into the users accounts. As it is hashed and the
-hash function can't be simply reverted. So the attacker can't take any
+could use the passwords to log into the users' accounts. But as it is [hashed](../password-hashing/) and
+the hash function can't be simply reverted, the attacker can't take any
 advantage of the passwords he just read.
 
 It is much more realistic that the attacker can read the whole database. So he
@@ -49,7 +49,7 @@ This website could crack <em>computer</em>, <em>establishment</em> and <em>My Bi
 The other two hashes weren't cracked.
 
 <h2>John the Ripper</h2>
-Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, the have to create a file in their working directory (let's call it md5.txt) and execute the following command:
+Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, they have to create a file in their working directory (let's call it md5.txt) and execute the following command:
 ```bash
 john --format=raw-MD5 md5.txt
 ```

@@ -9,7 +9,7 @@ category: Code
 tags: Cheat Sheet, Version Control, Git, Software Engineering
 featured_image: 2012/04/svn-git-logo.png
 ---
-This <a href='../images/2012/04/versioning-cheat-sheet.pdf'>Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href='../images/2012/04/versioning-cheat-sheet.zip'>LaTeX Source Code</a> is here.)
+This <a href='../images/2012/04/versioning-cheat-sheet.pdf'>Software Versioning Cheat Sheet</a> has very basic information about the installation and usage of Subversion and Git. (The <a href='../images/2012/04/versioning-cheat-sheet.zip'>LaTeX Source Code</a> is here.)
 
 If you're at the KIT and you have SWT, then you'll probably need this command:
 
@@ -49,7 +49,7 @@ $ svn up [path]
 
 If you need to execute the command often, you might want to define an alias.
 aliases are shorthands for long commands in the bash. To create a permanent
-one, add the following line to your `~/.bashrc file`:
+one, add the following line to your `~/.bashrc` file:
 
 ```bash
 alias swt='svn up /home/moose/Studium/SWT'
@@ -124,7 +124,7 @@ See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other
 
 ### Image diffs
 
-Aki Koskinen posted a nice article on how to make [image diffs with git](http://www.akikoskinen.info/image-diffs-with-git/). I only changed the diff program to [StanAngeloffs simple-imagediff.py
+Aki Koskinen posted a nice article on how to make [image diffs with git](http://www.akikoskinen.info/image-diffs-with-git/). I only changed the diff program to [StanAngeloff's simple-imagediff.py
 ](https://gist.github.com/StanAngeloff/1716699) The most important steps are:
 
 Tell git what images are:
@@ -279,6 +279,6 @@ git diff HEAD @{1}
 ## Resources
 <ul>
   <li><a href="http://svnbook.red-bean.com/en/1.6/">Version Control with Subversion</a>: a great explanation how to use subversion, e.g. <a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.export.html">svn export</a></li>
-  <li>StackOverflow: <a href="http://stackoverflow.com/questions/3233059/basic-subversion-question">Which files should be put under version controll?</a></li>
+  <li>StackOverflow: <a href="http://stackoverflow.com/questions/3233059/basic-subversion-question">Which files should be put under version control?</a></li>
   <li>GitHub:  <a href="http://help.github.com/remotes/">Remotes</a></li>
 </ul>

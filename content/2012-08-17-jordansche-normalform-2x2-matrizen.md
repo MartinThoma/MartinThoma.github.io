@@ -125,7 +125,7 @@ Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
 1 -\lambda & 2\\
 3 & 6 - \lambda
 \end{pmatrix} = (1- \lambda) \cdot (6 - \lambda) - 6 = 6-6\lambda-\lambda+\lambda^2-6=\lambda^2-7\lambda = \lambda \cdot (\lambda - 7)$$</div>
-Daraus folgt: 0 und 1 sind Eigenwerte. Sie haben jeweils die algebraischen Vielfachheit 1.
+Daraus folgt: 0 und 7 sind Eigenwerte. Sie haben jeweils die algebraische Vielfachheit 1.
 Daraus folgt: Die Jordansche Normalform hat genau zwei Jordanblöcke, die beide die Größe 1x1 haben.
 Daraus folgt: Beide Jordanblöcke haben genau ein Jordankästchen der Größe 1x1.
 Daraus folgt: Die Jordansche Normalform der Matrix ist:

@@ -9,7 +9,7 @@ category: The Web
 tags: Browser, Chrome, Firefox
 featured_image: 2011/09/FF-Chrome-IE-300x198.jpg
 ---
-The Usage of different browser verions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn't handle CSS and HTML as it should.
+The usage of different browser versions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn't handle CSS and HTML as it should.
 
 This might be the reason why <a href="http://ie6update.com/">many</a> <a href="http://www.ie6nomore.com/">Webdesigners</a> <a href="http://wordpress.org/extend/plugins/stop-ie6/screenshots/">want</a> <a href="http://www.ie6death.com/">IE6</a> to <a href="http://www.bringdownie6.com/">die</a>.
 

@@ -103,6 +103,7 @@ I have found <a href="http://www.tn-home.de/Tobias/Soft/TeX/TUG040611/presentati
 
 <h2>Read more</h2>
 <ul>
+  <li><a href="../plotting-graphs-with-pgfplots-latex-and-tikz/">Plotting graphs with PGFplots (LaTeX and Tikz)</a></li>
   <li>Wikibooks: <a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions">LaTeX/Floats, Figures and Captions</a></li>
   <li><a href="http://ftp.math.purdue.edu/mirrors/ctan.org/graphics/pgf/contrib/pgfplots/doc/latex/pgfplots/pgfplots.pdf">Manual for pgfplots</a> with lots of examples (as images and LaTeX in over 300 pages!)</li>
   <li>TeXample.net: <a href="http://www.texample.net/tikz/examples/gnuplot-basics/">GNUPLOT basics</a>, <a href="http://www.texample.net/tikz/examples/parameterized-plots/">Parameterized plots</a>, <a href="http://www.texample.net/tikz/examples/pgfplots/">Pgfplots</a></li>

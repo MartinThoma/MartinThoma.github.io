@@ -21,7 +21,7 @@ Für die Klausur in den Grundbegriffe der Informatik (GBI) sollte man Folgendes 
   <li>Was ist eine Turingmaschine und wie gibt man eine Konfiguration davon an?</li>
   <li>Wie ist ein Graph definiert und wie ein Baum? &rarr; <a href="../definitionen-aus-gbi/#Graphen" title="Definitionen aus GBI">Antwort</a></li>
   <li>Wann sind zwei Graphen isomorph?</li>
-  <li>Was ist eine Pfad, eine Schlinge, ein Kreis und ein Zyklus?</li>
+  <li>Was ist ein Pfad, eine Schlinge, ein Kreis und ein Zyklus?</li>
   <li>Wann ist ein Graph zusammenhängend und wann vollständig / streng zusammenhängend?</li>
   <li>Was ist eine Adjazenzmatrix und was ist eine Wegematrix?</li>
   <li>Wie lautet die Wahrheitstabelle von $A \Rightarrow B$?</li>
@@ -59,7 +59,7 @@ Was man auf jeden Fall üben sollte, sind die Aufgaben zu Turingmaschinen. Das k
       <li>$\log(x^r) = r \cdot \log(x)$</li>
     </ul>
   </li>
-  <li>Ein minimaler Endlicher Automat zu einer reguläre Sprache L hat n Zustände $\Leftrightarrow$ Es gibt n Äquivalenzklassen bzgl. der Nerode-Relation zu L.</li>
+  <li>Ein <a href="../minimierung-eines-automaten-mittels-aquivalenzklassenkonstruktion/">minimaler Endlicher Automat</a> zu einer reguläre Sprache L hat n Zustände $\Leftrightarrow$ Es gibt n Äquivalenzklassen bzgl. der Nerode-Relation zu L.</li>
   <li>Der Index der Nerode-Relation zu einer Sprache L ist nicht endlich $\Leftrightarrow$ L ist nicht regulär</li>
   <li>$S \circ R = \{(x, z) \in M_1 \times M_3 | \exists y \in M_2: (x, y) \in R \land (y, z) \in S\}$</li>
   <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V : $ Es gibt genau einen Pfad von r nach x.</li>

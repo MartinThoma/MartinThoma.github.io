@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Wikipedia as a Newssstream
+title: Using Wikipedia as a Newsstream
 slug: using-wikipedia-as-a-newssstream
 lang: en
 author: Martin Thoma

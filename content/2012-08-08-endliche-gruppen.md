@@ -9,7 +9,7 @@ category: German posts
 tags: Linear Algebra, Mathematics
 featured_image: 2012/08/endliche-gruppe-thumb.png
 ---
-Endliche Gruppen haben ein paar interessante Eigenschaften. Unter anderem gibt es nur zwei Gruppen mit vier Elementen. alle anderen Gruppen sind isomorph zu diesen Gruppen. Das zeige ich im folgendem.
+Endliche Gruppen haben ein paar interessante Eigenschaften. Unter anderem gibt es nur zwei Gruppen mit vier Elementen. Alle anderen Gruppen sind isomorph zu diesen Gruppen. Das zeige ich im Folgenden.
 
 <h2>Gruppen mit vier Elementen</h2>
 Es gibt genau zwei Gruppen mit vier Elementen. Das sind:
@@ -254,7 +254,7 @@ Wir haben nun folgende Tabelle:
 </tr>
 </table>
 
-Diese Lösung enstpricht $G_2$.
+Diese Lösung entspricht $G_2$.
 
 <h4>#1.2: a auf (2, 2)</h4>
 <table>
@@ -372,7 +372,7 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
 </tr>
 </table>
 
-Das enspricht wieder $G_1$.
+Das entspricht wieder $G_1$.
 
 <h4>#3: c auf (1, 1)</h4>
 <table>

@@ -9,16 +9,16 @@ category: The Web
 tags: Advertising, Spam
 featured_image: 2012/12/thalia-spam-thumb.png
 ---
-The Web is great. You can easily find and publish information. It is great for trading as you can search through millions of articles and hundreds of vendors to find the product that fits best to your needs and is as cheap as possible. But recently I get a lot of spam from companies I like (<a href="http://en.wikipedia.org/wiki/Amazon.com">Amazon</a>, <a href="http://en.wikipedia.org/wiki/PayPal">PayPal</a> and <a href="http://en.wikipedia.org/wiki/Thalia_(bookstore_chain)">Thalia</a>). I like to get some e-mails from those companies. But how can they provide relevent content instead of spam? When is it good advertising and when does advertising become spam?
+The Web is great. You can easily find and publish information. It is great for trading as you can search through millions of articles and hundreds of vendors to find the product that fits best to your needs and is as cheap as possible. But recently I get a lot of spam from companies I like (<a href="http://en.wikipedia.org/wiki/Amazon.com">Amazon</a>, <a href="http://en.wikipedia.org/wiki/PayPal">PayPal</a> and <a href="http://en.wikipedia.org/wiki/Thalia_(bookstore_chain)">Thalia</a>). I like to get some e-mails from those companies. But how can they provide relevant content instead of spam? When is it good advertising and when does advertising become spam?
 
-## Intervall of E-mails
+## Interval of E-mails
 As a rule of thumb, I would say more e-mails without user-interaction than once
 a month is spam. So it is perfectly fine if I buy ten products in one week to
 get ten sales confirmation e-mails. But is not okay to get more than once a
-month information about the cheapest products, the latest cupons or the latest
-electronics that I could buy as a present for christmas. Of course, if the user
+month information about the cheapest products, the latest coupons or the latest
+electronics that I could buy as a present for Christmas. Of course, if the user
 has actively changed the interval of e-mails to once a week or even every day,
-it is okay to sent him e-mails every day. But this should be opt-in. So the
+it is okay to send him e-mails every day. But this should be opt-in. So the
 user has to get active to get those e-mails.
 
 ## Easy unsubscribe

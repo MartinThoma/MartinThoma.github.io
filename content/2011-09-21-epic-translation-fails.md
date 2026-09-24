@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Funny
 featured_image: 2011/09/Google-Translator-Spielzeugladen-300x72.png
 ---
-Online translation programs are getting better and they are great if you want to get a vague idea of the content of a Chinese website. Never the less you should know that the translations are not good enough by now:
+Online translation programs are getting better and they are great if you want to get a vague idea of the content of a Chinese website. Nevertheless, you should know that the translations are not good enough by now:
 
 "Spielzeugladen" is German and means "toy store"
 

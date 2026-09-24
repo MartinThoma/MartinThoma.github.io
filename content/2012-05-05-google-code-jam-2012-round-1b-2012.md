@@ -41,7 +41,7 @@ $V_i$ is the percentage of the visitors points contestant i gets.
 
 So: $P_i = J_i + V_i * X$
 
-You don't know $V_i$ and $P_i$. You have to get the minimal value of $V_i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V_i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.
+You don't know $V_i$ and $P_i$. You have to get the minimal value of $V_i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V_i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get an equal number of points.
 
 If they can get an equal number of points, you can make these (in)equations:
 $average = (X - p_i)/(N-1)$
@@ -54,7 +54,7 @@ $V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X (N-1) +X)$
 $V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X ((N-1) +1))$
 $V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)$
 
-Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.
+Unfortunately, it's possible that the other players can't get an equal number of points. So this approach is useless in this case.
 
 Here is an approach with an approximation, which also works for the large input set.
 ```cpp
@@ -129,7 +129,7 @@ return maxTime(nodesReached)
 ```
 
 <h2>Equal Sums</h2>
-A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.
+A trivial solution for the small one is to try every combination. You might want to take a look at Python's <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.
 
 <h2>See also</h2>
 <ul>

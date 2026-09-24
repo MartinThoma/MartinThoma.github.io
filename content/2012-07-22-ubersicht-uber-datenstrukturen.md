@@ -325,7 +325,7 @@ Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die
 Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.
 
 <h2>Warteschlangen</h2>
-Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.
+Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks heißt es PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.
 
 <table>
 <tr>
@@ -720,7 +720,7 @@ Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%
 <blockquote>Ein B-Baum ist ein immer vollständig balancierter Baum, der Daten sortiert nach Schlüsseln speichert. Er kann binär sein, ist aber im Allgemeinen kein Binärbaum. Das Einfügen, Suchen und Löschen von Daten in B-Bäumen ist in amortisiert logarithmischer Zeit möglich. B-Bäume wachsen &ndash; und schrumpfen &ndash; anders als viele Suchbäume von den Blättern hin zur Wurzel.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a>
 
-Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.
+Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigender Reihenfolge eingefügt wurden.
 
 Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
 <ul>

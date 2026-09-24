@@ -32,7 +32,7 @@ print(example3)
 print(example4)
 ```
 
-How should the output look like? Think about it for a moment, then scroll down.
+What should the output look like? Think about it for a moment, then scroll down.
 
 <details>
 <summary>Click to see the output</summary>

@@ -44,7 +44,7 @@ Warum stimmt das?
 
 Wenn man n Objekte hat und k-mal eines davon auswählt, wobei die Reihenfolge eine Rolle spielt und man das Objekt danach immer wieder zurück legt (also Wiederholungen haben kann), dann hat man beim ersten mal n verschiedene Wahlmöglichkeiten. Beim zweiten, dritten, ... k.-Zug auch. Es sind also $\underbrace{n \cdot n \cdot ... \cdot n}_\text{k mal} = n^k$ Möglichkeiten.
 
-Wenn man die Objekte nicht wieder zurück legt, die Reihenfolge aber eine Rolle spielt, hat man beim ersten Zug wieder n Möglichkeiten. Beim zweiten Zug sind es (n-1), beim dritten (n-3), ... beim k.-Zug (n-k+1) Möglichkeiten. Also gilt:
+Wenn man die Objekte nicht wieder zurück legt, die Reihenfolge aber eine Rolle spielt, hat man beim ersten Zug wieder n Möglichkeiten. Beim zweiten Zug sind es (n-1), beim dritten (n-2), ... beim k.-Zug (n-k+1) Möglichkeiten. Also gilt:
 $\underbrace{(n-0) \cdot (n-1) \cdot ... \cdot (n- (k-1))}_\text{k Faktoren} = \prod_{i=0}^{k-1} (n-i)=  \frac{n!}{(n-k)!}$
 
 Angenommen es spielt nun nur eine Rolle, welche Objekte man ausgewählt hat, aber nicht wann. Dann gibt es, wenn man die Objekte nicht wieder zurücklegt, $\frac{n!}{(n-k)!}$ Möglichkeiten, abzüglich der Möglichkeiten, die nur bei Beachtung der Reihenfolge eine Rolle spielen. Das bedeutet, es muss noch durch k! geteilt werden. Das kann man sich klar machen, indem man eine bestimmte Menge an k ausgewählten Objekten betrachtet. Dann muss man entscheiden, welches das erste ist. Dafür gibt es k Möglichkeiten. Für das zweite hat man (k-1) Möglichkeiten, usw. Das Bedeutet, es gibt für diesen Fall $\frac{n!}{(n-k)! \cdot k!} = \binom{n}{k}$ Möglichkeiten.

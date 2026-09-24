@@ -94,7 +94,7 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-working-washing-machine-300x225.jpg"><img src="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" style="max-width:300px;max-height:225px" class="size-medium wp-image-4741"/></a>
-            <figcaption class="text-center">To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place.</figcaption>
+            <figcaption class="text-center">To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at its place.</figcaption>
         </figure>
 
 <figure class="aligncenter">
@@ -104,12 +104,12 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-working-ledge2-300x225.jpg"><img src="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge" style="max-width:300px;max-height:225px" class="size-medium wp-image-4721"/></a>
-            <figcaption class="text-center">Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable.</figcaption>
+            <figcaption class="text-center">Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it's exactly horizontal.  Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable.</figcaption>
         </figure>
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-working-connection-300x214.jpg"><img src="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops" style="max-width:300px;max-height:214px" class="size-medium wp-image-4811"/></a>
-            <figcaption class="text-center">You have to connect both countertops very good. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction.</figcaption>
+            <figcaption class="text-center">You have to connect both countertops very well. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction.</figcaption>
         </figure>
 
 <figure class="aligncenter">
@@ -138,7 +138,7 @@ in the package. After 10 minutes, I could remove some more of the caulk.
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-after-baseboard-300x225.jpg"><img src="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard" style="max-width:300px;max-height:225px" class="size-medium wp-image-4781"/></a>
-            <figcaption class="text-center">Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice ☺</figcaption>
+            <figcaption class="text-center">Adding a baseboard was one of the last steps. This small piece of wood should prevent water from touching the wallpaper. Moreover it looks nice ☺</figcaption>
         </figure>
 
 <h2>The new kitchen</h2>

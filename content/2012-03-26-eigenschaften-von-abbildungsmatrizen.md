@@ -9,7 +9,7 @@ category: German posts
 tags: Mathematics, Linear Algebra, Matrix
 featured_image: 2012/03/Matrix-Inverses.png
 ---
-Eine Abbildungsmatrix beschreibt eine lineare Abbildungs zwischen zwei endlichdimensionalen Vektorräumen. Sie ist abhängig von der Basis des Urraums und des Zielraumes.
+Eine Abbildungsmatrix beschreibt eine lineare Abbildung zwischen zwei endlichdimensionalen Vektorräumen. Sie ist abhängig von der Basis des Urraums und des Zielraumes.
 <h2>Formale Definition</h2>
 <div class="definition">Eine <strong>Lineare Abbildung</strong> $\Phi$ muss folgende Eigenschaften erfüllen:
 <ul>
@@ -44,7 +44,7 @@ Also sind B und C die geordnete Standardbasis des $\mathbb{R}^4$ bzw. des $\math
 
 Was macht nun eine Abbildung $\Phi$ mit der Matrix $A_1$?
 
-Ich denke ist ist leicht ersichtlich, dass bei einer Abbildungsmatrix dieser Form die erste Komponente des Bildvektors immer 0 ist.
+Ich denke es ist leicht ersichtlich, dass bei einer Abbildungsmatrix dieser Form die erste Komponente des Bildvektors immer 0 ist.
 
 $$\Phi_1(\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}) = \begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B1%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
 $$\Phi_1(\begin{pmatrix} 5 \\ -2 \\ 7 \\ -1 \end{pmatrix}) = \begin{pmatrix} 0 \\ 18 \\ 54 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B5%7D%2C%7B-2%7D%2C%7B7%7D%2C%7B-1%7D%7D">Wolfram|Alpha</a>)

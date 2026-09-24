@@ -8,17 +8,17 @@ date: 2012-02-16 15:51:04.000000000 +01:00
 category: German posts
 tags: Theoretical Computer Science, Computer Science
 ---
-Komplexitätsklassen werden in der Theoretischen Informatik verwendet um den Ressourcenbedarf von Algorithmen bzw. Problemen einzuordnen. Meist betrachtet man die Laufzeit- und die Speicherplatzkomplexität, aber es wäre prinzipiell auf Vorstellbar, dass man andere Kriterien nutzt. Ich werde in diesem Artikel mal kurz die in der Vorlesung behandelten Klassen vorstellen.
+Komplexitätsklassen werden in der Theoretischen Informatik verwendet um den Ressourcenbedarf von Algorithmen bzw. Problemen einzuordnen. Meist betrachtet man die Laufzeit- und die Speicherplatzkomplexität, aber es wäre prinzipiell auch vorstellbar, dass man andere Kriterien nutzt. Ich werde in diesem Artikel mal kurz die in der Vorlesung behandelten Klassen vorstellen.
 
 Da es umständlich ist, werde ich im Folgenden nur noch von Problemen reden. Gemeint sind aber meist auch formale Sprachen und Algorithmen.
 
 <h2>Die Klasse P</h2>
-In der Klasse $\cal P$ sind alle Probleme, die mit einer deterministischen Turingmaschine in polynomialzeit lösbar sind. Das sind also alle Probleme, für die es einen Algorithmus gibt, der in $\cal O(n^i), i \in \mathbb{N}_0$ ist.
+In der Klasse $\cal P$ sind alle Probleme, die mit einer deterministischen Turingmaschine in Polynomialzeit lösbar sind. Das sind also alle Probleme, für die es einen Algorithmus gibt, der in $\cal O(n^i), i \in \mathbb{N}_0$ ist.
 
-Wenn es allerdings <em>noch</em> keinen Algorithmus gibt, der ein Problem in polynomialzeit löst, kann das Problem dennoch in $\cal P$ liegen. Dann muss es einen besseren Algorithmus zur Lösung des Problems geben.
+Wenn es allerdings <em>noch</em> keinen Algorithmus gibt, der ein Problem in Polynomialzeit löst, kann das Problem dennoch in $\cal P$ liegen. Dann muss es einen besseren Algorithmus zur Lösung des Problems geben.
 
 <h2>Die Klasse NP</h2>
-In der Klasse $\cal NP$ sind alle Probleme, die mit einer <strong>nicht-deterministischen</strong> Turingmaschine in polynomialzeit lösbar sind. Das besondere an einer nicht-determinisitschen Turingmaschine ist das Orakelmodul. Es liefert einfach die Lösung. Wie es das macht, wissen wir nicht. Irgendwie geht es halt. Diese Lösung muss in polynomialzeit von einer deterministischen Turingmaschine verifiziert werden.
+In der Klasse $\cal NP$ sind alle Probleme, die mit einer <strong>nicht-deterministischen</strong> Turingmaschine in Polynomialzeit lösbar sind. Das besondere an einer nicht-deterministischen Turingmaschine ist das Orakelmodul. Es liefert einfach die Lösung. Wie es das macht, wissen wir nicht. Irgendwie geht es halt. Diese Lösung muss in Polynomialzeit von einer deterministischen Turingmaschine verifiziert werden.
 
 Was liegt dann nicht in $\cal NP$? Das Orakelmodul hört sich so mächtig an, dass eventuell alle Probleme in $\cal NP$ liegen könnten. Weit gefehlt. Suchprobleme liegen häufig (aber nicht immer) außerhalb von $\cal NP$. Das sind dann Probleme mit einer Fragestellung &agrave; la "Gib eine optimale Tour durch eine gegebene Menge an Städten an". Wenn das Orakel-Modul eine solche Tour liefert, muss der deterministische Teil noch schauen, ob es eventuell eine längere Tour gibt.
 
@@ -38,7 +38,7 @@ Das es ein solches Problem gibt, hat Cook 1971 mit <a href="http://de.wikipedia.
         </figure>
 
 Für alle folgenden Beweise, dass ein Problem in $\cal NPC$ liegt, wurde der Satz von Cook verwendet.
-Laut diesem Satz (dessen Beweis wahnsinning lang ist) lässt sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln lässt. Diese beiden Instzanzen müssen in folgender Beziehung stehen:
+Laut diesem Satz (dessen Beweis wahnsinnig lang ist) lässt sich jede Probleminstanz von Problemen in $\cal NP$ in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I in eine Instanz I' des neuen Problems in Polynomialzeit umwandeln lässt. Diese beiden Instanzen müssen in folgender Beziehung stehen:
 Für I existiert eine Lösung $\Leftrightarrow$ für I' existiert eine Lösung:
 <figure class="aligncenter">
             <a href="../images/2012/02/proof-new-npc.png"><img src="../images/2012/02/proof-new-npc.png" alt="Beweis, dass 3-SAT in NPC liegt" style="max-width:460px;max-height:354px" class="size-full wp-image-15241"/></a>

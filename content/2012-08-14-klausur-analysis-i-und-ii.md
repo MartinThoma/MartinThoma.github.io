@@ -106,15 +106,15 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <h4>Aufgabenstellungen</h4>
 <ul>
   <li>Sind gegebene Mengen offen, abgeschlossen bzw. vollständig?</li>
-  <li>Rand einer Menge besttimmen</li>
+  <li>Rand einer Menge bestimmen</li>
   <li>Lokale und globale Extrema einer Funktion $f$ bestimmen. Ansatz:<br/>
       Gradient $\nabla f$ bestimmen und gleich null setzen. Die Funktionswerte, die das erfüllen, sind die kritischen Punkte. In Hessematrix einsetzen und Definitheit prüfen.</li>
   <li>Lösung von nichtlinearen Gleichungssystem</li>
   <li>Differenzierbarkeit zeigen &rarr; $\displaystyle \lim_{h \rightarrow 0} \frac{f(x_0+h)-f(x_0)- A \cdot h}{\|h\|}$</li>
   <li>Lösung eines Anfangswertproblems bestimmen</li>
   <li>&bdquo;Beweisen Sie Existenz und Eindeutigkeit einer Lösung&ldquo; &rarr; Picard-Lindelöf</li>
-  <li>Zeigen Sie die rektifizierbarkeit eines Weges $\gamma$:<br/>
-      &rarr; Differenzierbarkeit zeigen, ableiten, stetigkeit der Ableitung zeigen.</li>
+  <li>Zeigen Sie die Rektifizierbarkeit eines Weges $\gamma$:<br/>
+      &rarr; Differenzierbarkeit zeigen, ableiten, Stetigkeit der Ableitung zeigen.</li>
 </ul>
 
 <h2>Lernplan</h2>

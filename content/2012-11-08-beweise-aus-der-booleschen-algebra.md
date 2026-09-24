@@ -13,7 +13,7 @@ Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher
 Algebren erarbeitet:
 
 Sei $B$ eine Menge und $\sqcap: B \times B \rightarrow B$ sowie
-$\sqcup: B \times B \rightarrow B$ Verknüfungen auf B.
+$\sqcup: B \times B \rightarrow B$ Verknüpfungen auf B.
 
 Weiter gelte:
 
@@ -48,7 +48,7 @@ Algebra mit dem Einselement &bdquo;1&ldquo; und dem Nullelement
 &bdquo;0&ldquo;.
 
 ### Eindeutigkeit des Nullelements
-<u>Behauptung:</u> Es exisitiert genau ein Nullelement für $\mathcal{B}$.<br/>
+<u>Behauptung:</u> Es existiert genau ein Nullelement für $\mathcal{B}$.<br/>
 <u>Beweis:</u> direkt
 
 Die Existenz von mindestens einem Nullelement wird durch H3 garantiert.
@@ -62,7 +62,7 @@ Seien $n_1, n_2$ Nullelemente auf $\mathcal{B}$. Dann gilt:
 \end{align}
 
 ### Eindeutigkeit des Einselements
-<u>Behauptung:</u> Es exisitiert genau ein Einselement für $\mathcal{B}$.<br/>
+<u>Behauptung:</u> Es existiert genau ein Einselement für $\mathcal{B}$.<br/>
 <u>Beweis:</u> direkt
 
 Die Existenz von mindestens einem Einselement wird durch H3 garantiert.
@@ -152,7 +152,7 @@ $a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} (a \sqcup \bar a) \sqcap (a \sqcup 
 ## Körper
 Ist jede Boolesche Algebra ein Körper?
 
-Ein Körper ist eine Menge $V$ mit zwei Verknüpfungen
+Ein [Körper](../mathematische-strukturen/) ist eine Menge $V$ mit zwei Verknüpfungen
 $\oplus, \otimes$: $(V, \oplus, \otimes)$, für den gilt:
 <ul>
   <li>$(K, \oplus)$ ist abelsche Gruppe mit neutralem Element 0</li>
@@ -198,11 +198,11 @@ Für die Komplemente von $\mathcal{B}$ muss gelten:
   <li>$\forall a \in B: \exists \bar a: a \sqcup \bar a = 1$</li>
 </ul>
 
-Das Komplement eines Elements verknüfpft mit $\sqcap$ ergibt also das
+Das Komplement eines Elements verknüpft mit $\sqcap$ ergibt also das
 neutrale Element von $\sqcup$!
 
 Offensichtlich ist, dass die Schaltalgebra mit den Operatoren XOR und AND, also
-$(\{0,1\}, XOR, AND)$ ein Körper ist, da Sie offensichtlich isomorph zu
+$(\{0,1\}, XOR, AND)$ ein Körper ist, da sie offensichtlich isomorph zu
 $\mathbb{Z}/2\mathbb{Z}$ ist.
 
 <u>Behauptung:</u> Alle booleschen Algebren mit drei oder mehr Elementen sind keine Körper<br/>
