@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-29 10:19:05.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, Security
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Sicherheit&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 gehört.</div>
@@ -220,15 +220,15 @@ Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M)
 </div>
 
 <h2>Fragen</h2>
-<div class="question">
-<span class="question">Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</span>
+<details class="question">
+<summary>Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</summary>
 <div class="answer">
 IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
+<details class="question">
+<summary>Wann ist eine Signatur EUF-CMA-sicher?</summary>
 <div class="answer">
 EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachlässigbar oft gewinnen:
 <ul>
@@ -237,17 +237,17 @@ EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&l
   <li>$\mathcal{A}$ gewinnt, wenn $Ver(K, M^*, \sigma^*) = 1$ und $M^*$ &bdquo;frisch&ldquo; ist</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was sind Replay-Angriffe?</span>
+<details class="question">
+<summary>Was sind Replay-Angriffe?</summary>
 <div class="answer">
 Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was versteht man unter der Merkle&ndash;Damg&aring;rd-Konstruktion?</span>
+<details class="question">
+<summary>Was versteht man unter der Merkle&ndash;Damg&aring;rd-Konstruktion?</summary>
 <div class="answer">
 Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion von kryptographischen Hash-Funktionen. Sie funktioniert so:
 
@@ -256,10 +256,10 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
             <figcaption class="text-center">Merkle-Damgard-Konstruktion<br />Quelle: <a href='http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg'>Wikipedia</a></figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie funktioniert RSA?</span>
+<details class="question">
+<summary>Wie funktioniert RSA?</summary>
 <div class="answer">
 <ol>
   <li>Generiere zwei Primzahlen $p, q \in \mathbb{P}$</li>
@@ -271,10 +271,10 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
 Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$
 Verschlüsselung eines Ciphertextes $c$: $m = c^{d} \mod n$
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</span>
+<details class="question">
+<summary>Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</summary>
 <div class="answer">
 Folgender Angriff ist für $e=3$ möglich:
 <ul>
@@ -284,11 +284,11 @@ Folgender Angriff ist für $e=3$ möglich:
   <li>Wurzelziehen über $\mathbb{Z}$ liefert $m$</li>
 </ul>
 </div>
-</div>
+</details>
 
 
-<div class="question">
-<span class="question">Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</span>
+<details class="question">
+<summary>Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</summary>
 <div class="answer">
 Homomorphie ist folgende (unerwünschte) Eigenschaft:
 
@@ -301,19 +301,19 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &= m_1^e \cdot m_2^e\\
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</span>
+<details class="question">
+<summary>Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</summary>
 <div class="answer">
 Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 
 $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
+<details class="question">
+<summary>Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</summary>
 <div class="answer">
 <ol>
   <li>Wähle eine zyklische Gruppe $\mathbb{G} = \langle g \rangle$.</li>
@@ -323,10 +323,10 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ &rarr; Verschlüsselung ist zufällig!
 Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</span>
+<details class="question">
+<summary>Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</summary>
 <div class="answer">
 <ul>
   <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schlüsselaustausch vornehmen wollen.</li>
@@ -336,36 +336,36 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
 
 Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
 </div>
-</div>
+</details>
 
 
-<div class="question">
-<span class="question">Warum kann es schlecht für die Sicherheit sein, wenn man komprimiert?</span>
+<details class="question">
+<summary>Warum kann es schlecht für die Sicherheit sein, wenn man komprimiert?</summary>
 <div class="answer">
 Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzufügen. Wenn der Ciphertext deutlich weniger wächst als er an Text hinzugefügt hat, kann er vermuten, dass er den Text erraten hat. (&rarr; CRIME-Angriff)
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
+<details class="question">
+<summary>Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</summary>
 <div class="answer">
 Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Nennen Sie Verfahren, die IND-CPA-sicher sind.</span>
+<details class="question">
+<summary>Nennen Sie Verfahren, die IND-CPA-sicher sind.</summary>
 <div class="answer">
 Eine Blockciffre im CBC-Modus
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Nennen Sie Verfahren, die EUF-CMA-sicher sind.</span>
+<details class="question">
+<summary>Nennen Sie Verfahren, die EUF-CMA-sicher sind.</summary>
 <div class="answer">
 Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,1\}^* \rightarrow \{0,1\}^k$ eine kollisionsresistente Hashfunktion. Dann ist der durch $Sig(K, M) = PRF(K, H(M))$ gegebene MAC EUF-CMA-sicher.
 </div>
-</div>
+</details>
 
 <h2>Diverses</h2>
 <h3>TLS Handshake</h3>

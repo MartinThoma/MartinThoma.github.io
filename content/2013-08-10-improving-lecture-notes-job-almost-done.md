@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: LaTeX, Lecture Notes, University
 featured_image: 2013/08/latex1.png
 ---
-Some of you might know that I've bin improving the lecture notes for the computer engineering lecture (digital electronics) since April 2013.
+Some of you might know that I've been improving the lecture notes for the computer engineering lecture (digital electronics) since April 2013.
 
 <h2>How I've got the job</h2>
 This was kind of funny. I send Prof. Dr. Asfour some notes of passages that could be improved (mainly typos). About two days later he proposed me to correct it by myself. Another day later I signed the contract. I've never signed a contract that fast.
@@ -110,7 +110,7 @@ With <a href="https://sourceforge.net/projects/codeanalyze-gpl/">CodeAnalyzer</a
 </tr>
 <tr>
 <th>Examples</th>
-<td>93 <</td>
+<td>93</td>
 <td>93</td>
 </tr>
 <tr>

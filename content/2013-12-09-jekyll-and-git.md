@@ -12,15 +12,15 @@ description: Jekyll, a static blog generator, is nice for several reasons. Those
 You've probably noticed that I didn't write any posts the last few
 weeks. The reason is that I've migrated my WordPress Blog to Jekyll.
 This means it takes some source files and generates purely static
-pages from that. The generation process is independant of user
+pages from that. The generation process is independent of user
 requests.
 
 [Jekyll](http://jekyllrb.com/) is a static blog generator, just like
 [Pelican](https://blog.getpelican.com/), [Hyde](http://ringce.com/hyde),
 [nanoc](http://nanoc.ws/) and [Octopress](http://octopress.org/).
 
-I've spend about 40-80 hours to migrate from WordPress to Jekyll.
-And I'm not done jet.
+I've spent about 40-80 hours to migrate from WordPress to Jekyll.
+And I'm not done yet.
 
 ## Jekyll compared with WordPress
 
@@ -72,7 +72,7 @@ Reasons for WordPress:
 
 ## Install Jekyll
 
-On an Ubunty system I need for this blog:
+On an Ubuntu system I need for this blog:
 
 ```bash
 $ sudo apt-get install ruby1.9.1-dev imagemagick ruby-rmagick libmagickwand-dev ruby-execjs ruby-nokogiri
@@ -91,7 +91,7 @@ $ sudo mkdir -p /var/www/blog
 
 ### Branches
 The way to use Jekyll with GitHub is by using branches.
-Go to your Git repository that cointains your blog:
+Go to your Git repository that contains your blog:
 
 ```bash
 moose@pc08 ~/Downloads/MartinThoma.github.io $ ls
@@ -101,7 +101,7 @@ _drafts      _includes    _layouts    _posts    thumbs
 ```
 
 Now you should create a new branch that will contain your source files.
-The following command creates a branch `sources` that starts where
+The following command creates a branch `source` that starts where
 the branch `master` currently is:
 
 ```bash
@@ -120,7 +120,7 @@ When you enter
 git checkout . master
 ```
 
-you will switch to the `master` brach. The same way you can switch
+you will switch to the `master` branch. The same way you can switch
 to the `source` branch. After you've entered the command, you can
 look at the folder in your file system. There will only be the data
 of the current branch.
@@ -170,7 +170,7 @@ rsync --delete /var/backups /mnt/ftpserver
 ## Markdown
 I've switched between `rdiscount` and `redcarpet`. The former is
 faster, the latter supports fenced code blocks. I finally stuck with
-redcarped, because Liquid has problems when it comes to C++ for loops
+redcarpet, because Liquid has problems when it comes to C++ for loops
 after curly braces.
 
 Other Markdown parsers are `maruku` (which has a
@@ -220,7 +220,7 @@ juicer install yui_compressor
 ```
 
 ### Images
-I've included small images as base64 (used [this online tool](http://webcodertools.com/imagetobase64converter/Create)). According to [caniuse](http://caniuse.com/datauri) it's quite save to use.
+I've included small images as base64 (used [this online tool](http://webcodertools.com/imagetobase64converter/Create)). According to [caniuse](http://caniuse.com/datauri) it's quite safe to use.
 
 ## Site Search
 Site search is a real problem. I've seen three solutions so far:
@@ -286,17 +286,17 @@ ${5:}
 * Validation
   * [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
     My site is HTML-valid. The error that this validator shows is caused
-    by an bug inside of the validator itself.
+    by a bug inside of the validator itself.
   * [jigsaw.w3.org](http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com):
     My site is CSS-valid.
 * Speed: Could be better...
   * [tools.pingdom.com](http://tools.pingdom.com/)
   * [PageSpeed](http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com) 72 on mobile and 85 on desktop
-* Accessiblity:
+* Accessibility:
   * [wave.webaim.org](http://wave.webaim.org/report#/http%3A%2F%2Fmartin-thoma.com%2F)
   * [Functional Accessibility Evaluator](http://fae.cita.uiuc.edu/report/14396f38bc6546f6/)
 * More:
-  * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
+  * [Mobile readiness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
   * [Load test](http://loadimpact.com/)
   * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
   * [Google Structured Data Testing

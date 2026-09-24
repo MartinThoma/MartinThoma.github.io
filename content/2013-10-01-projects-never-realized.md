@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-10-01 23:41:37.000000000 +02:00
 category: Cyberculture
-tags: Idea, Programming, Software Engineering
+tags: Idea, Software Engineering
 ---
 The following is a collection of ideas for projects I had, but never realized.
 I would really love to do them, but they seem to be a little bit too time
@@ -19,11 +19,11 @@ like to realize them!
 I really miss a book recommendation portal. It should allow you to mark books
 you've read or started to read, let you rate and tag books. The tags should be
 created by users, similar to the system StackExchange uses. Tags might be
-funny", "zombie", "magic", "romance", "love", ... and users should rate for
+"funny", "zombie", "magic", "romance", "love", ... and users should rate for
 tags for books. In some general settings you define language(s) you know. Every
 book, which should be administrated by ISBN number if possible, should have
 information about the language. The portal should also see when books are only
-released with a new cover / collectors edition and notice that its the same
+released with a new cover / collectors edition and notice that it's the same
 story.
 
 With this information, it should recommend books and allow you to search books.
@@ -38,7 +38,7 @@ translated to 'German', send me an e-mail!".
 
 ### Manual portal
 
-Most pieces of electronics come with a manual. It might contain contains:
+Most pieces of electronics come with a manual. It might contain:
 
 * Product description: Specifications like type of battery, supported Bluetooth
   standard, used frequencies, ... depends a lot on what it is
@@ -111,7 +111,7 @@ engineering methods to keep things save. Especially:
     * This way should be consistent across banks
 * As a customer, I want my bank to have high security standards.
     * This should be verified by external parties.
-* As a customer, I DON'T want to write anything except for an reciever-ID.
+* As a customer, I DON'T want to write anything except for a receiver-ID.
     * The receiver-ID should have a checksum to prevent mistakes
     * The receiver-ID should be easy to write (ASCII) and only have writable characters (no whitespaces)
 * As a customer, I want immediate feedback if the transaction was successful or
@@ -286,7 +286,7 @@ For example, you can describe a product with the following labels:
 * "ed054753e4b240a8aa1322ad348bf728", "Category": "Books"
 
 As you can see, it is possible to create nested categories with this structure.
-You an also create lists this way.
+You can also create lists this way.
 
 Now clients should store information like this and share it.
 
@@ -312,7 +312,7 @@ HTML template. Objects could have labels called "VIEW" with type identifier
 that tell the client which view should be added.
 
 ### Distribution
-There are plenty of cool tools out there (Amazon recommendations, <a href="http://ark.intel.com/">ark.intel.com</a> to compare Intel processors, <a href="http://de.blackberry.com/smartphones/compare.html">blackberry</a> allows you to compare their phones, Wikipedia info boxes, ...). But most of them are very ristricted. For example, the way I compare smartphones is not fundamentally different from the way I compare processors. Yes, the attributes differ. But basically it is creating a table with all the information. Also, Intel does not provide information about AMD processors.
+There are plenty of cool tools out there (Amazon recommendations, <a href="http://ark.intel.com/">ark.intel.com</a> to compare Intel processors, <a href="http://de.blackberry.com/smartphones/compare.html">blackberry</a> allows you to compare their phones, Wikipedia info boxes, ...). But most of them are very restricted. For example, the way I compare smartphones is not fundamentally different from the way I compare processors. Yes, the attributes differ. But basically it is creating a table with all the information. Also, Intel does not provide information about AMD processors.
 
 So we need a way to get and share information. XML is the way-to-go for
 centralized computer systems. Maybe they can also be used to realize what I'm
@@ -340,6 +340,7 @@ something like this.
 ## Python Code Search
 
 Do you know [Debian Code Search](https://codesearch.debian.net/)?
+
 Michael Stapelberg, the creator of it, described how he did it in
 [his bachelor's thesis](https://codesearch.debian.net/research/bsc-thesis.pdf).
 
@@ -776,7 +777,7 @@ outside of the company).
 Why hasn't any big company like <a
 href="https://en.wikipedia.org/wiki/General_motors">General Motors</a>, <a
 href="https://en.wikipedia.org/wiki/General_Electric">General Electric</a>, <a
-href="https://en.wikipedia.org/wiki/Walmart">Wallmart</a> or even countries
+href="https://en.wikipedia.org/wiki/Walmart">Walmart</a> or even countries
 that have thousands of schools and government employees tried to create such a
 computer that is really reliable, robust and cheap (energy and because it can
 be produced it can be produced in very big numbers)?
@@ -785,7 +786,7 @@ Here is what I think should be ok:
 
 * processor with low power consumption (700 MHz or more)
 * 2 GB of RAM (I guess you might now think of this <a
-  href="https://en.wikiquote.org/wiki/Bill_Gates#Misattributed">missatributed
+  href="https://en.wikiquote.org/wiki/Bill_Gates#Misattributed">misattributed
   Bill Gates quote</a> ... but with <code>cat /proc/meminfo</code> you can see
   how much you currently use).
 * 30 GB SSD: Important information should be stored on a computer that is
@@ -816,7 +817,7 @@ Tasks that can (and should) be done via browser are:
 
 * E-mails: e.g. [Roundcube](https://en.wikipedia.org/wiki/Roundcube)
 * Excel: Hmmm ... I know that <a href="https://drive.google.com">Google
-  Docs</a> offers some similar stuff. Bug I guess it can't replace Microsoft
+  Docs</a> offers some similar stuff. But I guess it can't replace Microsoft
   Excel by now. I don't know if there are any self-hosted services
 * Word: e.g. [Etherpad](http://etherpad.org/)
 * Outlook: e.g. [OwnCloud](http://owncloud.org/)
@@ -856,7 +857,7 @@ I've bought a smartphone a while ago (<a href="../nexus-4/">article</a>), but I 
 The needed functionality is:
 
 * Phone with good quality
-* Send SMS (and repetedly try to do so if no net is available)
+* Send SMS (and repeatedly try to do so if no net is available)
 * Store about 100 contacts
 * Save about 100 SMS
 * Load battery via micro USB ([Common External Power Supply](https://en.wikipedia.org/wiki/Common_External_Power_Supply))
@@ -867,7 +868,7 @@ The needed functionality is:
 What is not needed:
 
 * Camera, Flashlight
-* Internet access, Bluethooth, NFC, ...
+* Internet access, Bluetooth, NFC, ...
 * Multi-colored display: B/W screen is just ok
 * Fingerprint scanner
 
@@ -885,7 +886,7 @@ Features:
 * Batteries
 * Be able to set multiple alarms:
     * Choose days for which the alarm rings
-    * Choose dimming profile for the alarm (smooth - aprubt)
+    * Choose dimming profile for the alarm (smooth - abrupt)
 * Be able to change the (dimming) light which is inside
 
 
@@ -898,7 +899,7 @@ recognition is a very well-studied problem. There are a couple of web services
 (e.g. [1](http://betaface.com/demo.html), [2](https://skybiometry.com/),
 [3](https://facedetection.com/online-reverse-image-search/)), but sometimes
 you don't want to send a company your photos. Or your application just needs to
-process too many pictures. There is also[this repository](https://realpython.com/blog/python/face-recognition-with-python/),
+process too many pictures. There is also [this repository](https://realpython.com/blog/python/face-recognition-with-python/),
 but even if you only put a hand in front of your eyes or tilt your head, it
 stops recognizing your head.
 

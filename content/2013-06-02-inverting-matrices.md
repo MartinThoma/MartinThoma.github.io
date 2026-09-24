@@ -127,7 +127,7 @@ $\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=i+1}^{n-1} (\sum_{j=
 
 Lines 63-70:
 
-$\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n^3 - \frac{1}{2} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29"))">Wolfram|Alpha</a>)
+$\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n^3 - \frac{1}{2} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29">Wolfram|Alpha</a>)
 
 So we need about $\frac{4}{3} n^3 + \mathcal{O}(n^2)$ operations to invert a matrix with Gauß-Elimination.
 
@@ -145,7 +145,7 @@ $$\begin{pmatrix}
 0 & 0 & 0 & 0 & 4
 \end{pmatrix}$$
 
-How could we improve the algorithm from above to get speed it up?
+How could we improve the algorithm from above to speed it up?
 
 Well, we don't need lines 24-53 any more, as those lines bring $A$ to an upper triangular form. But we still need lines 63-70. So we can improve the algorithm to a complexity of $\frac{1}{2} n^3 + \mathcal{O}(n^2)$.
 

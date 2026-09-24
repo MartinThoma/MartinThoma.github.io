@@ -55,7 +55,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li><a href="http://de.wikipedia.org/wiki/Chaos-Studie">Chaos-Report</a> der Standish Group (25%, 45%, 30%)
     <ul>
       <li>Bad: Very high budget</li>
-      <li>Good: Executive Management, User Involvement, Experienced Project Manager, Clear Business Objectives, Minimizing Scope, Requirements Process, Standard Software Infrastructure, Formal Methology, Reliable Estimates, Skilled Staff</li>
+      <li>Good: Executive Management, User Involvement, Experienced Project Manager, Clear Business Objectives, Minimizing Scope, Requirements Process, Standard Software Infrastructure, Formal Methodology, Reliable Estimates, Skilled Staff</li>
       <li>&bdquo;When projects fail, it's rarely technical.&ldquo;</li>
     </ul>
   </li>
@@ -70,8 +70,8 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li>Verantwortungsbereiche:
     <ul>
       <li>Product Management: Wie verkaufe ich die Software?</li>
-      <li>Program Management: Wie bringe ich das Projekt zu einem erfolgreichem Abschluss?</li>
-      <li>Architekture: Wie halte ich die Software erweiterbar, anpassbar und wartbar?</li>
+      <li>Program Management: Wie bringe ich das Projekt zu einem erfolgreichen Abschluss?</li>
+      <li>Architecture: Wie halte ich die Software erweiterbar, anpassbar und wartbar?</li>
       <li>Development: Wie schreibe ich den Code von Methode abc in Klasse xyz?</li>
       <li>Test: Sind alle funktionalen und qualitativen Anforderungen erfüllt? Ist das System robust?</li>
       <li>User Experience: Passiert das, was der Nutzer erwartet? Kann man dem User die Bedienung der Software erleichtern?</li>
@@ -151,7 +151,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li>Ablauf:
     <ol>
       <li>Initiate: Project Charter, Identify business opportunity, gather business requirements, <abbr title="target customer">FOR</abbr> WHO <abbr title="product name">THE</abbr> <abbr title="product category">IS</abbr> <abbr title="key benefit">THAT</abbr> <abbr title="primary competition">UNLIKE</abbr> <abbr title="primary difference">OUR PRODUCT</abbr></li>
-      <li>Elicitation: Refine requirements (Busines requirements, functional requirements, non-functional requirements), Coopers Persona-Ansatz (<a href="http://de.wikipedia.org/wiki/Persona_(Mensch-Computer-Interaktion)#Beispiel">Beispiele</a>)</li>
+      <li>Elicitation: Refine requirements (Business requirements, functional requirements, non-functional requirements), Cooper's Persona-Ansatz (<a href="http://de.wikipedia.org/wiki/Persona_(Mensch-Computer-Interaktion)#Beispiel">Beispiele</a>)</li>
       <li>Asses: Understand and organize requirements, features and feature sets</li>
       <li>Specification: <a href="http://en.wikipedia.org/wiki/Software_Requirements_Specification">Software requirements specification</a></li>
       <li>Validation</li>
@@ -190,7 +190,7 @@ Logischer Entwurf (Abstrakt: Wireframes, Navigation patterns) &harr; Physikalisc
   <li>User-Modelle: Rollen, Markt-Anteile, Personas</li>
 </ul>
 
-<h4>Hypertext Systm Aspects</h4>
+<h4>Hypertext System Aspects</h4>
 <ul>
   <li>Known-item search / exploratory search</li>
 </ul>
@@ -220,8 +220,8 @@ Diese Tutorials sollte man machen:
 </ul>
 
 <h2>Typische Fragen</h2>
-<div class="question">
-<span class="question">Was ist Web Engineering?</span>
+<details class="question">
+<summary>Was ist Web Engineering?</summary>
 <div class="answer">
 <ul>
   <li>It's not science, and it isn't exactly engineering, either.</li>
@@ -229,26 +229,26 @@ Diese Tutorials sollte man machen:
   <li>Teilweise ist es wie Software Engineering (Requirements engineering, reproduzierbare Erfolge durch strukturierte Herangehensweise), teilweise hat es typische Problemquellen, die im Software Engineering weniger verbreitet sind (Skalierbarkeit, Load balancing, Hypermedia).</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist eine Ressource?</span>
-<div class="answer">Eine Ressource ist ein Objekt, dass von einem Webserver oder Websystem mittels eines standardisierten Protokolls ausgeliefert wird und durch einen MIME-Typen spezifiziert wird.</div>
-</div>
+<details class="question">
+<summary>Was ist eine Ressource?</summary>
+<div class="answer">Eine Ressource ist ein Objekt, das von einem Webserver oder Websystem mittels eines standardisierten Protokolls ausgeliefert wird und durch einen MIME-Typen spezifiziert wird.</div>
+</details>
 
-<div class="question">
-<span class="question">Wie werden Ressourcen adressiert?</span>
+<details class="question">
+<summary>Wie werden Ressourcen adressiert?</summary>
 <div class="answer">Durch URIs, meist URLs aber auch URNs.</div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist ein Webservice?</span>
+<details class="question">
+<summary>Was ist ein Webservice?</summary>
 <div class="answer">Ein Webservice ist eine Software-Anwendung, die mit einem URI eindeutig identifizierbar ist und deren Schnittstelle als XML-Artefakt definiert, beschrieben und gefunden werden kann. Diese Schnittstelle kann mit WSDL beschrieben werden.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist das Endpoint-ABC?</span>
+<details class="question">
+<summary>Was ist das Endpoint-ABC?</summary>
 <div class="answer">
 Wurde durch die WCF geprägt und ist <a href="http://stackoverflow.com/q/8893128/562769">z.B. so in der Web.config</a>. Das ABC steht für ...
 <ul>
@@ -258,10 +258,10 @@ Wurde durch die WCF geprägt und ist <a href="http://stackoverflow.com/q/8893128
 </ul>
 Siehe auch: <a href="http://fczaja.blogspot.de/2010/10/wcf-endpoint-abc.html">Filip's Technical Blog</a>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Welche Ziele verfolgt das W3C?</span>
+<details class="question">
+<summary>Welche Ziele verfolgt das W3C?</summary>
 <div class="answer">
 <ul>
   <li>Web for Everyone</li>
@@ -270,18 +270,18 @@ Siehe auch: <a href="http://fczaja.blogspot.de/2010/10/wcf-endpoint-abc.html">Fi
   <li>Trust and Confidence</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie ist der Arbeitsprozess beim W3C?</span>
+<details class="question">
+<summary>Wie ist der Arbeitsprozess beim W3C?</summary>
 <div class="answer">
 Workshops &rarr; Notes from members &rarr; Briefing package with membership vote &rarr; Requirements Document &rarr; Working Draft &rarr; Candidate Recommendation &rarr; Proposed Recommendation &rarr; W3C Recommendation (<a href="http://en.wikipedia.org/wiki/W3C_recommendation">source</a>)
 </div>
-</div>
+</details>
 
 <h2>Interessante Fragen</h2>
-<div class="question">
-<span class="question">Vergleichen Sie RPCs und Web Services</span>
+<details class="question">
+<summary>Vergleichen Sie RPCs und Web Services</summary>
 <div class="answer">
 <ul>
   <li>Web Services sind leichter skalierbar.</li>
@@ -289,13 +289,13 @@ Workshops &rarr; Notes from members &rarr; Briefing package with membership vote
 
 (Siehe auch: <a href="http://stackoverflow.com/a/1350982/562769">StackOverflow</a>)
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie läuft ein HTTP-Request ab?</span>
+<details class="question">
+<summary>Wie läuft ein HTTP-Request ab?</summary>
 <div class="answer">Siehe <a href="http://www.tecchannel.de/netzwerk/management/401210/hypertext_transfer_protocol/index2.html">TechChannel.de</a>
 </div>
-</div>
+</details>
 
 
 <h2>Hintergrundwissen</h2>

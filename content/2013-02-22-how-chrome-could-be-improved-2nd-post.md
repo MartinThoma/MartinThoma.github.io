@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: How Chrome could be improved - 2nd Post
 slug: how-chrome-could-be-improved-2nd-post
+lang: en
 author: Martin Thoma
 date: 2013-02-22 09:55:07.000000000 +01:00
 category: Cyberculture
 tags: Browser, Chrome
 featured_image: 2012/04/google-chrome-logo.png
 ---
-Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="../how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what  was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.
+Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="../how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.
 
 <h2>Caps lock indicator for password fields</h2>
 It's annoying to have caps lock on while typing passwords. So an indicator is needed.
@@ -27,7 +27,7 @@ Another way to indicate it would be by text:
         </figure>
 
 <h2>Improve MathML support</h2>
-Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A quite good work-around is <a href="http://www.mathjax.org/">MathJax</a>, but it is a work-around. Native support would be nice. With Chrome 24, they have added MathML support, but its still not optimal:
+Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A quite good work-around is <a href="http://www.mathjax.org/">MathJax</a>, but it is a work-around. Native support would be nice. With Chrome 24, they have added MathML support, but it's still not optimal:
 <ul>
   <li>The font doesn't look very nice (see <a href="http://www.mozilla.org/projects/mathml/demo/texvsmml.html">MathML Torture Test</a> and image below)</li>
   <li>Multiscripts seems not to work</li>
@@ -80,7 +80,7 @@ It would be great, if I could see the number of the page your currently on. Some
 <strong>UPDATE</strong>: You actually can jump to any page and share it as links! You only have to add <code>#page=123</code>.
 For example, you can take a look at this <a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf#page231">huge TikZ PDF manual</a>.
 
-<strong>UPDATE2</strong>: You could automatically adjust this <code>#page=123</code> string according to the page that gets currently viewed. This would make sharing much easier and it would fix the issue that you don't know where you. Another advantage of this solution is that it doesn't bloat up the user interface.
+<strong>UPDATE2</strong>: You could automatically adjust this <code>#page=123</code> string according to the page that gets currently viewed. This would make sharing much easier and it would fix the issue that you don't know where you are. Another advantage of this solution is that it doesn't bloat up the user interface.
 
 <strong>UPDATE3</strong>: I finally found it! It's <a href="https://code.google.com/p/chromium/issues/detail?id=66900">issue 66900</a>
 
@@ -145,7 +145,7 @@ The German wiki offers a really nice <a href="http://de.wikipedia.org/wiki/Googl
 <h3>Web Speech API</h3>
 Although I think that this feature is very cool, it doesn't quite work. Here is a <a href="https://www.google.com/intl/en/chrome/demos/speech.html">demo for Web Speech</a>.
 
-I said: "Hallo Marie. Die Web Speech API funktioniert nocht nicht so richtig." (German)
+I said: "Hallo Marie. Die Web Speech API funktioniert noch nicht so richtig." (German)
 which means "Hello Marie. The Web Speech API doesn't quite work by now."
 Web Speech recognized: "Hallo Mausi Mausi. Zieh dich aus." (German)
 which means "Hello darling. Undress!".

@@ -12,9 +12,9 @@ featured_image: 2013/07/simquadrat.png
 Simquadrat ist ein Dienst von <a href="http://en.wikipedia.org/wiki/Sipgate">sipgate</a>. Das besondere daran ist, dass Simkarten verkauft werden, die eine Festnetznummer haben. Ich habe das ganze ausprobiert und will meine Erfahrungen nun teilen.
 
 <h2>Das Angebot</h2>
-Man geht auf <a href="https://www.simquadrat.de/">simquadrat.de</a>, bezahlt 4,95 Euro und bekommt eine <strong>Festnetznummer</strong> des Ortes, für den man die Postadresse angibt. Die meisten Leute, die ich kennen haben eine Festnetz-Flat. Das bedeutet, sie können mich kostenlos auf dem Handy anrufen. Toll, oder?
+Man geht auf <a href="https://www.simquadrat.de/">simquadrat.de</a>, bezahlt 4,95 Euro und bekommt eine <strong>Festnetznummer</strong> des Ortes, für den man die Postadresse angibt. Die meisten Leute, die ich kenne, haben eine Festnetz-Flat. Das bedeutet, sie können mich kostenlos auf dem Handy anrufen. Toll, oder?
 
-Es ist ein <strong>Prepaid</strong>-Service. Das heißt, ich habe ein Guthaben, das ich vertelefonieren kann. Wenn das Guthaben weg ist, kann ich nicht mehr telefonieren. Das hat für mich vor allem den Vorteil, dass es keine versteckten Kosten gibt (bzw. diese micht nicht so hart treffen).
+Es ist ein <strong>Prepaid</strong>-Service. Das heißt, ich habe ein Guthaben, das ich vertelefonieren kann. Wenn das Guthaben weg ist, kann ich nicht mehr telefonieren. Das hat für mich vor allem den Vorteil, dass es keine versteckten Kosten gibt (bzw. diese mich nicht so hart treffen).
 
 Für <strong>10 Euro</strong> bekommt man eine <strong>1-Monat-Festnetzflat</strong>.
 
@@ -109,7 +109,7 @@ Simquadrat hat sofort funktioniert. Ich konnte telefonieren und SMS schreiben (d
         </figure>
 
 ABER: Die <strong>Telefonqualität ist unterirdisch</strong>. Ich erwarte, dass der Zugangsanbieter mein Gespräch in so guter Qualität überträgt, wie es mein Handy unterstützt. Mit Simyo ist die Qualität genauso gut wie über das Festnetz-Telefon.
-Laut prepaid-wiki nutzt Simquadrat wie Simyo das E-Plus-Netz. Ich habe mit meiner Freundin mit meinem Nexus 4 am selben Tag (mit einem Abstand von 10 Minuten für dem Simkartenwechsel) einmal mit Simyo und einmal mit Simquadrat telefoniert.  Das ist, im Bezug auf die Qualität der Sprachübertragung, ein himmelweiter Unterschied.
+Laut prepaid-wiki nutzt Simquadrat wie Simyo das E-Plus-Netz. Ich habe mit meiner Freundin mit meinem Nexus 4 am selben Tag (mit einem Abstand von 10 Minuten für den Simkartenwechsel) einmal mit Simyo und einmal mit Simquadrat telefoniert.  Das ist, im Bezug auf die Qualität der Sprachübertragung, ein himmelweiter Unterschied.
 
 <h2>Fazit</h2>
 Wenn man sehr günstig in Deutschland erreichbar sein will, ist Simquadrat super. Sonst ist Simyo besser.

@@ -223,7 +223,7 @@ Then we would have a total of
 So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.
 
 <h2>Space complexity</h2>
-Please note that I take advantage of Pythons dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in $\mathcal{O}(n)$ when you do the conversion. Without the conversion, you're in $\mathcal{O}(1)$.
+Please note that I take advantage of Python's dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in $\mathcal{O}(n)$ when you do the conversion. Without the conversion, you're in $\mathcal{O}(1)$.
 
 I guess you might want to leave this choice to the user of your functions. When he wants better results, he should give the input as Fraction. When he wants to get results rather faster, he should give the input as float.
 

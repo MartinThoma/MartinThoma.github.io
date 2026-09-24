@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-05-11 20:07:07.000000000 +02:00
 category: Code
-tags: Hash, Data Structures, C, Programming, Security, Computer Science
+tags: Hash, Data Structures, C, Programming, Computer Science
 featured_image: 2013/05/connect-four-thumb.gif
 ---
 Everybody who has written a noticeable amount of Java code should know the method <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()">hashCode</a>()</code>. But most beginners have difficulties to understand the significance of this little method. The following article gives you one small example with some impressions how much hash functions influence execution time.
@@ -257,7 +257,7 @@ void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
 
 ```
 
-<h2>How is this realated to hash functions?</h2>
+<h2>How is this related to hash functions?</h2>
 You might have noticed a few functions that I didn't explain by now:
 <ul>
   <li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
@@ -309,7 +309,7 @@ unsigned int getFirstIndex(char board[BOARD_WIDTH][BOARD_HEIGHT]) {
 }
 ```
 
-The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.
+The function <code>getFirstIndex</code> maps a char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black discs), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.
 
 This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
 <ul>

@@ -178,7 +178,7 @@ Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\ma
 <h2>Polynomials</h2>
 $\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$
 
-So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.
+So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than $n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.
 
 What does that mean?
 

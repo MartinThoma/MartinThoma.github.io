@@ -9,7 +9,7 @@ category: Code
 tags: PHP, Database, Security, MySQL, SQL
 featured_image: 2013/07/blackhat.png
 ---
-<abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.
+<abbr title="Structured Query Language">SQL</abbr> is a language that allows programmers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.
 
 <h2>Example: IMDb</h2>
 Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:
@@ -47,7 +47,7 @@ You need:
 
 When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) you find a lot of information how to install this.
 
-Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):
+Place the following as <code>hack.php</code> in your web server's directory (might be <code>/var/www</code>):
 
 ```php
 <?
@@ -181,7 +181,7 @@ Just a few famous examples to show you that this happens all the time:
 <ul>
   <li>Sanitize user input, e.g. with <a href="http://de2.php.net/mysql_real_escape_string">mysql_real_escape_string</a></li>
   <li>Use <a href="http://php.net/manual/en/pdo.prepared-statements.php">prepared statements</a></li>
-  <li>Switch of <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
+  <li>Switch off <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
 </ul>
 
 <h2>See also</h2>

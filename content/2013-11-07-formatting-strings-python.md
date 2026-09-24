@@ -21,7 +21,7 @@ year = 1990
 print("My birthday is the %i-th %s %i." % (birthday, month, year))
 ```
 
-The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.
+The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as an integer. The second one <code>%s</code> should be interpreted as a string and the third one again as an integer.
 
 
 ## Save as string
@@ -41,7 +41,7 @@ You might prefer named formatting:
 'Martin loves Marie.'
 ```
 
-You can also store this first in a dictionary an unpack it:
+You can also store this first in a dictionary and unpack it:
 
 ```python-repl
 >>> myDictionary = {"girl":"Marie","guy": "Martin","other":"Internet"}

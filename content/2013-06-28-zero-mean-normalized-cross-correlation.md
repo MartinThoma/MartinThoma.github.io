@@ -29,7 +29,7 @@ Go through all pixels, get the difference of both and add up the squares:
 
 $\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2$
 
-When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.
+When SSD is small, both images are very similar. When SSD is 0, the images are identical.
 
 <h2>Zero Mean Normalized Cross-Correlation</h2>
 The average gray value is:

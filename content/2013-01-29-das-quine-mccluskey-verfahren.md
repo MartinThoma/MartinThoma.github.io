@@ -9,7 +9,7 @@ category: German posts
 tags: Digitaltechnik, KIT, University
 featured_image: 2013/01/quine-mccluskey.png
 ---
-Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion minimieren will. Es muss also eine Schaltfunktion gegeben sein. Es sollte eigentlich zusätzlich Kostenfunktion gegeben sein, aber meist ist das nicht der Fall.
+Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion minimieren will. Es muss also eine Schaltfunktion gegeben sein. Es sollte eigentlich zusätzlich eine Kostenfunktion gegeben sein, aber meist ist das nicht der Fall.
 
 <h2>Verfahren</h2>
 <strong>Gegeben</strong>: Eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}, \; n \in \mathbb{N}$
@@ -20,7 +20,7 @@ Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion mini
   <li>Eine Spalte für den Funktionswert $f(a,b,c,...)$</li>
 </ul>
 
-<strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung.
+<strong>Schritt 2</strong>: Aufstellen der ersten Quineschen Tabelle 0ter Ordnung.
 
 Sie hat die Spalten
 <ul>
@@ -35,7 +35,7 @@ In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert
 Nun erstellt man die erste Quinesche Tabelle $i$-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, ...
 Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das $i$ gibt dabei die Anzahl der &bdquo;don't care&ldquo; Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.
 
-Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:
+Um aus der ersten Quineschen Tabelle $(i-1)$-ter Ordnung die erste Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:
 <ul>
   <li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
     <ul>
@@ -46,7 +46,7 @@ Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabe
 </ul>
 
 Es ist möglich, das Zeilen nicht abgehakt werden, weil sie sich mit keiner Zeile zusammenfassen lassen. Das ist ok.
-Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fertig. Falls noch eine Möglich ist, geht man wieder in Schritt 3.
+Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fertig. Falls noch eine Möglichkeit besteht, geht man wieder in Schritt 3.
 
 Nun schreibt man alle Zeilen auf, die nicht abgehakt sind. Das sind die Primimplikanten.
 

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-03-02 19:06:15.000000000 +01:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, Operating Systems
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Bellosa und später bei Prof. Dr. Beigl gehört.</div>
@@ -55,29 +55,29 @@ Folgende Begriffe muss man kennen und erklären können:
   <li>Welche Probleme hat Contiguous Allocation? &rarr; <span class="hint" title="Man muss sich entscheiden, wo auf der Festplatte eine neue Datei begonnen werden soll; Externe Fragmentierung. Strategien: First Fit, Best Fit, Worst Fit">Antwort</span></li>
 </ul>
 
-<div class="question">
-<span class="question">Welche Scheduling-Verfahren gibt es?</span>
+<details class="question">
+<summary>Welche Scheduling-Verfahren gibt es?</summary>
 <div class="answer">
 <ul>
   <li>Priority Scheduling</li>
   <li>Round Robin</li>
   <li>Multilevel Feedback Queue</li>
   <li>Lottery Scheduling</li>
-  <li><abbr title="Preemtitive Shortest Job First">PSJF</abbr></li>
+  <li><abbr title="Preemptive Shortest Job First">PSJF</abbr></li>
   <li><abbr title="First Come, First Serve">FCFS</abbr></li>
 </ul></div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">What is the difference between Page and Frame?</span>
+<details class="question">
+<summary>What is the difference between Page and Frame?</summary>
 <div class="answer">In a paging system, programs and data stored on disk are divided into equal, fixed sized blocks called pages, and main memory is divided into blocks of the same size called frames. Exactly one page can fit in one frame.
 
 Physical memory is divided into parts called &bdquo;frame&ldquo; and logical memory is divided into parts called &bdquo;page&ldquo;.</div>
 Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_and_Frame">wiki.answers.com</a>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Nennen und erläutern Sie die drei notwendigen Bedingungen für eine gültige Lösung des Problems kritischer Abschnitte.</span>
+<details class="question">
+<summary>Nennen und erläutern Sie die drei notwendigen Bedingungen für eine gültige Lösung des Problems kritischer Abschnitte.</summary>
 <div class="answer">
 <ul>
 <li>Mutual exclusion: Only one thread can be in the CS at a time.</li>
@@ -90,10 +90,10 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <li>Bounded waiting: Once a thread starts trying to enter the critical section, there is a bound on the number of times other threads get in.</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie kann man das Problem kritischer Abschnitte lösen?</span>
+<details class="question">
+<summary>Wie kann man das Problem kritischer Abschnitte lösen?</summary>
 <div class="answer">
 <ul>
   <li>Interrupts deaktivieren (nur im Kernel-Space, nur Single-Core)</li>
@@ -110,10 +110,10 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
   <li><a href="http://de.wikipedia.org/wiki/Algorithmus_von_Peterson">Algorithmus von Peterson</a></li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Nennen und erklären Sie die vier notwendigen Bedingungen für Deadlocks.</span>
+<details class="question">
+<summary>Nennen und erklären Sie die vier notwendigen Bedingungen für Deadlocks.</summary>
 <div class="answer">
 <ul>
 <li>Mutual exclusion: Eine Ressource kann nicht gleichzeitig von mehreren Prozessen benutzt werden</li>
@@ -122,10 +122,10 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <li>Circular wait: Es gibt eine Menge von Prozessen $\{P_0, P_1, \dots, P_n\}$, wobei $P_0$ auf eine Ressource wartet, die $P_1$ hält, $P_1$ auf eine Ressource wartet, die $P_2$ hält, ..., $P_n$ auf eine Ressource wartet, die $P_0$ hält.</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was kann man in Bezug auf das Deadlock-Problem machen?</span>
+<details class="question">
+<summary>Was kann man in Bezug auf das Deadlock-Problem machen?</summary>
 <div class="answer">
 <ul>
   <li>Prevention</li>
@@ -139,10 +139,10 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
   <li><a href="http://de.wikipedia.org/wiki/Vogel-Strau%C3%9F-Algorithmus">Vogel-Strauß-Algorithmus</a>: Der User wird sich schon drum kümmern, z.B. indem er einen Prozess abschießt (<code>kill -9</code>) oder indem er den PC vom Strom nimmt.</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Erklären Sie RAID 0 - 5.</span>
+<details class="question">
+<summary>Erklären Sie RAID 0 - 5.</summary>
 <div class="answer">
 <ul>
   <li>RAID 0: Striping. Platten werden "aneinandergehängt".</li>
@@ -153,10 +153,10 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
   <li>RAID 5: Blockweise, verteilte Parität.</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Warum verwenden wir Seitentabellen? Könnte man nicht einfach im Hauptspeicher je zwei Datenwörter kombinieren, wobei das erste die Metainformationen (z.B. Zugriffsrechte, Prozess-ID) und das zweite die Daten enthält?</span>
+<details class="question">
+<summary>Warum verwenden wir Seitentabellen? Könnte man nicht einfach im Hauptspeicher je zwei Datenwörter kombinieren, wobei das erste die Metainformationen (z.B. Zugriffsrechte, Prozess-ID) und das zweite die Daten enthält?</summary>
 <div class="answer">
 Prinzipiell wollen wir in einer x86-Architektur, dass sich die Hardware um das Paging kümmert. Bei MIPS sieht das wohl anders aus (<a href="http://stackoverflow.com/q/10671147/562769">Quelle</a>).
 
@@ -164,10 +164,10 @@ Wenn man sich für jedes Datenwort ein Datenwort mit Metainformationen merken w�
 
 Falls man es wirklich genau wissen will, sollte man wohl die <a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">IA-32 Architectures Software Developer&rsquo;s Manuals</a> lesen. Das sind ja nur 3044 Seiten.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</span>
+<details class="question">
+<summary>Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</summary>
 <div class="answer">Sie würden zu viel Speicher benötigen. Es wird eine Seitentabelle pro Prozess benötigt. Die Größe einer einstufigen Seitentabelle berechnet sich folgendermaßen:
 
 Sei $m$ die Größe des Hauptspeichers in Byte, $p$ die Größe einer Seite in Byte und $a$ die Anzahl der zusätzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>).
@@ -178,30 +178,30 @@ $= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64}
 
 Typischerweise gilt: $m = 4 \text{ GB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seiteneintrags-Größe von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengröße von 16 Petabyte.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wenn man nur Segmentierung nutzt, wie kommt man dann von der logischen Adresse auf die physische?</span>
+<details class="question">
+<summary>Wenn man nur Segmentierung nutzt, wie kommt man dann von der logischen Adresse auf die physische?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/03/segmentation-logical-to-linear-address-300x176.png"><img src="../images/2013/03/segmentation-logical-to-linear-address-300x176.png" alt="Segmentation: Logical to linear address" style="max-width:300px;max-height:176px" class="size-medium wp-image-61751"/></a>
             <figcaption class="text-center">Segmentation: Logical to linear address (<a href='http://download.intel.com/products/processor/manual/325462.pdf'>source</a>)</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie ist ein Inode aufgebaut?</span>
+<details class="question">
+<summary>Wie ist ein Inode aufgebaut?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/03/inode-struktur-256x300.png"><img src="../images/2013/03/inode-struktur-256x300.png" alt="Struktur eines Inodes" style="max-width:256px;max-height:300px" class="size-medium wp-image-61871"/></a>
             <figcaption class="text-center">Struktur eines Inodes</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie groß kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</span>
+<details class="question">
+<summary>Wie groß kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</summary>
 <div class="answer">
 Sei $b$ die Größe eines Blocks in Byte und ein Zeiger belege 4 Byte.
 Dann berechnet sich die maximale Dateigröße in Byte folgendermaßen:
@@ -224,10 +224,10 @@ Block size:               4096
 
 ```
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Depict the common memory layout of a process. Give an example of the data that is stored in each section.</span>
+<details class="question">
+<summary>Depict the common memory layout of a process. Give an example of the data that is stored in each section.</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/03/process-memory-layout-300x165.jpg"><img src="../images/2013/03/process-memory-layout-300x165.jpg" alt="Common process memory layout" style="max-width:300px;max-height:165px" class="size-medium wp-image-61931"/></a>
@@ -236,14 +236,14 @@ Block size:               4096
 
 Ich sehe gerade, dass bei rodata wohl das Schlüsselwort <code>const</code> dabei stehen sollte. Statische Variablen können natürlich geändert werden.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">What is anonymous memory?</span>
+<details class="question">
+<summary>What is anonymous memory?</summary>
 <div class="answer">
 Anonymous memory is memory that is not backed by a file. Examples are stack and heap.
 </div>
-</div>
+</details>
 
 <h2>Material</h2>
 Material zum Üben (also <a href="http://os.ibds.kit.edu/1556.php">alte Klausuren</a>) gibt es wie immer entweder online oder bei der Fachschaft.

@@ -30,16 +30,16 @@ Just think about what you sort in your everyday life:
 <ul>
   <li>Numbers</li>
   <li>Words</li>
-  <li><a href="http://en.wikipedia.org/wiki/List_of_countries_by_population">Contries by population</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/List_of_countries_by_population">Countries by population</a></li>
   <li>Playing cards</li>
 </ul>
 
 You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements.
 
-Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.
+Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, this will not influence the way you sort.
 
 <h2>Collections</h2>
-One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> an go on like this:
+One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> and go on like this:
 
 ```java
 import java.util.Collections;
@@ -294,7 +294,7 @@ I don't recommend this way for some reasons:
   <li>It's more difficult to extend your code</li>
 </ul>
 
-An argument for such an Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.
+An argument for such a Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.
 
 <h2>More examples</h2>
 <ul>

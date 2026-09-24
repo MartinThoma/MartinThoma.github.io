@@ -81,7 +81,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
     <th>Themen</th>
     <td>
       <ul>
-        <li>10 Euro Mindeslohn</li>
+        <li>10 Euro Mindestlohn</li>
         <li>Höhere Steuern auf hohe Einkommen</li>
         <li>Höhere Sozialleistungen</li>
       </ul>
@@ -299,7 +299,7 @@ Damit steht fest:
 
 ## Themen
 
-Ich finde es interessant, welche Themen für die Parteien wichtig sind und welche in der Öffentlichkeit häufig diskutiert werden. Im folgenden mal einige Themen, die meiner Meinung nach wichtig sind.
+Ich finde es interessant, welche Themen für die Parteien wichtig sind und welche in der Öffentlichkeit häufig diskutiert werden. Im Folgenden mal einige Themen, die meiner Meinung nach wichtig sind.
 
 ### Sozialer Ausgleich
 
@@ -394,7 +394,7 @@ Siehe zu Abgeordnetenbestechung:
 </ul>
 
 ### Energiewende
-Die Versorgung mit Energie ist ein essentieller bestandteil der öffentlichen Infrastruktur. Sei es in Form von elektrischer Energie für Haushalte und Firmen, in Form von Wärme oder in Form von Mobilität. Dabei wäre es schön, das Problem nachhaltig zu lösen.
+Die Versorgung mit Energie ist ein essentieller Bestandteil der öffentlichen Infrastruktur. Sei es in Form von elektrischer Energie für Haushalte und Firmen, in Form von Wärme oder in Form von Mobilität. Dabei wäre es schön, das Problem nachhaltig zu lösen.
 
 Momentan geschieht dies in Form von <a href="https://de.wikipedia.org/wiki/Liste_von_Onshore-Windparks_in_Deutschland">On</a>- und <a href="https://de.wikipedia.org/wiki/Liste_der_Offshore-Windparks">Offshore Windkraftparks</a> sowie im <a href="https://de.wikipedia.org/wiki/Netzausbau">Netzausbau</a>. Das <a href="https://de.wikipedia.org/wiki/Erneuerbare-Energien-Gesetz">Erneuerbare-Energien-Gesetz</a> (EEG) soll dabei helfen und regelt die sog. <a href="https://de.wikipedia.org/wiki/Einspeiseverg%C3%BCtung">Einspeisevergütung</a>.
 
@@ -423,17 +423,17 @@ Steuern/Abgaben die ich nicht verstehe, sind:
 <ul>
   <li><a href="https://de.wikipedia.org/wiki/Solidarit%C3%A4tszuschlag">Solidaritätszuschlag</a></li>
   <li><a href="https://de.wikipedia.org/wiki/Kirchensteuer_(Deutschland)">Kirchensteuer</a>: Das sollte die Kirche selbst machen!</li>
-  <li>Arbeitslosenversicherung: Sollte durch Umsatz- und Einkommenssteuer gedeckt werden. Grundstätzlich denke ich sollte hier jeder gleich versichert sein. Wenn jemand mehr als grundlegende Leistungen will, soll er das Privat machen. Aber eine gewisse Grundsicherung soll jeder bekommen.</li>
+  <li>Arbeitslosenversicherung: Sollte durch Umsatz- und Einkommenssteuer gedeckt werden. Grundstätzlich denke ich sollte hier jeder gleich versichert sein. Wenn jemand mehr als grundlegende Leistungen will, soll er das privat machen. Aber eine gewisse Grundsicherung soll jeder bekommen.</li>
   <li>Krankenversicherung: Siehe Arbeitslosenversicherung</li>
   <li>Pflegeversicherung: Siehe Arbeitslosenversicherung</li>
   <li>Tabak, Alkopop, Schaumwein: Sollte eine &bdquo;Rauschmittelsteuer&ldquo; sein</li>
   <li><a href="https://de.wikipedia.org/wiki/Grunderwerbsteuer_(Deutschland)">Grunderwerbssteuer</a>: Warum wird Grunderwerb extra gezählt? Warum nicht einfach nur Umsatzsteuer?</li>
   <li><a href="https://de.wikipedia.org/wiki/Zinsabschlag">Kapitalertragsteuer</a>: Warum ist das nicht einfach Einkommenssteuer?</li>
   <li>Versicherungsteuer, <a href="https://de.wikipedia.org/wiki/Kraftfahrzeugsteuer">Kraftfahrzeugsteuer</a>: Siehe Grunderwerbsteuer</li>
-  <li>Stromsteuer: Inwiefern unterscheided sie sich von der Energiesteuer?</li>
+  <li>Stromsteuer: Inwiefern unterscheidet sie sich von der Energiesteuer?</li>
 </ul>
 
-Ganz allgemein sollte es wenig S1teuern geben. Die Steuer die es gibt, sollten einfach zu verstehen und zu berechnen sein. Außerdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
+Ganz allgemein sollte es wenig Steuern geben. Die Steuer die es gibt, sollten einfach zu verstehen und zu berechnen sein. Außerdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
 
 Ich weiß nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich folgende Berechnung finden:
 <ul>
@@ -463,7 +463,7 @@ Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_T
 ### Bürgerrechte
 Im <a href="https://de.wikipedia.org/wiki/%C3%9Cberwachungs-_und_Spionageaff%C3%A4re_2013">Spähskandal</a> (NSA, Prism, Tempora, Xkeyscore, ...) hat die CDU/CSU bisher nichts gemacht, um für Aufklärung und Beendigung der illegalen Praktiken zu sorgen.
 
-In einigen anderen Berechen wurden jedoch kritische Gesetze/Projekte/Aussagen umgesetzt/gestartet/gemacht:
+In einigen anderen Bereichen wurden jedoch kritische Gesetze/Projekte/Aussagen umgesetzt/gestartet/gemacht:
 <ul>
   <li>Verkauf von Meldedaten, manchmal auch &bdquo;Bestandsdatenauskunft&ldquo; genannt (<a href="http://beta.abgeordnetenwatch.de/2013/02/27/erfolgreicher-protest-verbraucherfeindliches-meldegesetz-beerdigt">Quelle</a>)</li>
   <li>Mehr <a href="https://de.wikipedia.org/wiki/Video%C3%BCberwachung">Videoüberwachung</a></li>
@@ -476,7 +476,7 @@ Aber auch die SPD scheint in dem NSA-Skandal nicht ganz unbeteiligt zu sein (<a 
 Die Grünen und Piraten sind gegen Videoüberwachung, wollen das Fernmeldegeheimnis zu einem Kommunikations- und Mediennutzungsgeheimnis ausweiten, gegen die Bestandsdatenauskunft vorgehen und Vorratsdatenspeicherung verhindern.
 
 ### Kleine Themen
-Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im großen und ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
+Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im Großen und Ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
 
 <ul>
   <li>Adoptionsrecht / Gleichstellung für Homosexuelle</li>
@@ -484,7 +484,7 @@ Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl 
   <li>Syrien-Krise</li>
   <li>Generelles Tempolimit auf Autobahnen</li>
   <li>NATO-Austritt Deutschlands; Rüstungsexporte; Militärische Beteiligungen Deutschlands</li>
-  <li>Aufnahme von mehr Flüchtigen</li>
+  <li>Aufnahme von mehr Flüchtlingen</li>
   <li>Einwanderung</li>
   <li>Lohnersatzleistungen bei Pflege von Angehörigen</li>
   <li>Frauenquote in Aufsichtsräten</li>
@@ -503,12 +503,12 @@ Dieser Artikel stellt nur eine kurze Zusammenfassung von Gedanken dar, die mir w
 
 Wenn man nur auf die grobe Ausrichtung der Parteien betrachtet, kann man eventuell sagen:
 <ul>
-  <li>Wenn man Grundsätzlich mit der Politik der letzten Jahre zufrieden ist, sollte man CDU/CSU wählen.</li>
-  <li>Wenn man Wert auf Transparenz legt, und will das Internetkompetenz in das Parlament kommt, sollte man die Piraten wählen.</li>
-  <li>Wenn man auf Umweltschutz, neue (aber nicht radikale) Ideen, wert legt, sollte man die Grünen wählen</li>
+  <li>Wenn man grundsätzlich mit der Politik der letzten Jahre zufrieden ist, sollte man CDU/CSU wählen.</li>
+  <li>Wenn man Wert auf Transparenz legt, und will, dass Internetkompetenz in das Parlament kommt, sollte man die Piraten wählen.</li>
+  <li>Wenn man auf Umweltschutz, neue (aber nicht radikale) Ideen, Wert legt, sollte man die Grünen wählen</li>
   <li>Wenn man extreme Änderungen im sozialen Bereich will, sollte man DIE LINKE wählen.</li>
-  <li>Wenn man CDU/CSU und FDP wieder sehen will, und will das auf Datenschutz-Aspekte mehr wert gelegt wird, sollte man FDP wählen.</li>
-  <li>SPD: Hmm ... wenn man das gleiche in Rot will, was man schon kennt? Ich kann keinen wirklichen Themenschwerpunkt finden, in dem sich die SPD stark von der CDU/CSU abhebt.</li>
+  <li>Wenn man CDU/CSU und FDP wieder sehen will, und will, dass auf Datenschutz-Aspekte mehr Wert gelegt wird, sollte man FDP wählen.</li>
+  <li>SPD: Hmm ... wenn man das Gleiche in Rot will, was man schon kennt? Ich kann keinen wirklichen Themenschwerpunkt finden, in dem sich die SPD stark von der CDU/CSU abhebt.</li>
 </ul>
 
 Wenn es euch irgendwie kümmert, was in Deutschland passiert, solltet ihr wählen gehen.

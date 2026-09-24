@@ -71,7 +71,7 @@ Kapitel 1:
 <ul>
   <li>Wann ist ein LGS eindeutig lösbar? Wann gibt es unendlich viele Lösungen?</li>
   <li>Gaußsches Eliminationsverfahren</li>
-  <li>Was versteht man unter Vorwärts / Rückwärtssubstitution?</li>
+  <li>Was versteht man unter <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">Vorwärts</a> / <a href="../solving-equations-of-upper-triangular-matrices/">Rückwärtssubstitution</a>?</li>
   <li>Beim Gauß'schen Eliminationsverfahren mit Spaltenpivotwahl tauscht man eine Zeile nach oben. Ist es das betragsmäßig größte oder kleinste? Warum?</li>
   <li>Was ist eine Permutationsmatrix? Was eine Frobeniusmatrix?</li>
   <li>LR-Zerlegung</li>
@@ -168,7 +168,7 @@ Die Aufgabenblätter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainf
 <h2>Übungsbetrieb</h2>
 <ul>
 <li>Wo sind die Übungsblätter: <a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/seite/uebnuminfing">Link</a></li>
-<li>Abgabeform: nur Handschriftlich</li>
+<li>Abgabeform: nur handschriftlich</li>
 <li>Abgabe: Mittwochs, in der Vorlesung</li>
 <li>Rücknahme: Freitags, in der Übung</li>
 <li>Turnus: wöchentlich</li>
@@ -177,7 +177,7 @@ Die Aufgabenblätter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainf
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Dienstag, den 24. September 2013 von 11:00 bis 13:00 Uhr
+<strong>Datum</strong>: Dienstag, den 24. September 2013 von 11:00 bis 13:00 Uhr<br/>
 <strong>Ort</strong>: steht seit dem 11.09.2013 fest:
 Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
 <table>

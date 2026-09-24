@@ -11,7 +11,7 @@ featured_image: 2013/01/rs-flipflop.png
 ---
 Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und als asynchrone Varianten, wobei &bdquo;synchron&ldquo; nur bedeutet, dass das Bauteil zusätzlich einen Takteingang hat. Der wichtigste (und einzige?) Unterschied zwischen Flipflops und Latches ist, dass Flipflops Taktflankengesteuert sind und Latches Pegelgesteuert sind. Das heißt, Flipflops können nur dann ihren Wert ändern, wenn der anliegende Takt von 0 auf 1 wechselt. Latches hingegen können ihren Wert immer ändern, wenn der anliegende Takt auf 1 ist. Beide haben die gleichen Ansteuertabellen, können aber unterschiedliche Zeitdiagramme haben.
 
-Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von der Art, wie diese aufgeschrieben werden, verwirren lassen: $q^t$ ist der Zustand des Flipflops zum Zeitpunkt $t$. Analog dazu ist $q^{t+1}$ der Zustand des Flipflops zum Zeitpunkt $t+1$. Nun steht rechts in der Tabelle, welche Signale man braucht um den Zustand $q^{t+1}$ zu erreichen, wenn man im Zustand $q^t$ ist.
+Interessant sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von der Art, wie diese aufgeschrieben werden, verwirren lassen: $q^t$ ist der Zustand des Flipflops zum Zeitpunkt $t$. Analog dazu ist $q^{t+1}$ der Zustand des Flipflops zum Zeitpunkt $t+1$. Nun steht rechts in der Tabelle, welche Signale man braucht um den Zustand $q^{t+1}$ zu erreichen, wenn man im Zustand $q^t$ ist.
 
 <ul class="gallery mw-gallery-traditional">
    <li class="gallerybox" style="width: 155px">
@@ -41,7 +41,7 @@ Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von d
 </ul>
 
 <h2>D-Flipflops</h2>
-<abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzt den neuen Zustand einfach auf das d-Signal.
+<abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzen den neuen Zustand einfach auf das d-Signal.
 
 D-Flipflops können aus D-Latches erstellt werden:
 <figure class="aligncenter">
@@ -83,8 +83,8 @@ D-Flipflops können aus D-Latches erstellt werden:
 </td>
 <td>
 <figure class="aligncenter">
-            <a href="../images/2013/01/d-flipflop1-150x150.png"><img src="../images/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert." style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-55781"/></a>
-            <figcaption class="text-center">D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert.</figcaption>
+            <a href="../images/2013/01/d-flipflop1-150x150.png"><img src="../images/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert." style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-55781"/></a>
+            <figcaption class="text-center">D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert.</figcaption>
         </figure>
 </td>
 </tr>
@@ -183,6 +183,7 @@ Ein RS-Flipflop hat zwei Eingänge und einen oder zwei Ausgänge.
             <figcaption class="text-center">T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q.</figcaption>
         </figure>
 </td>
+</tr>
 </table>
 
 <h2>JK-Flipflop</h2>

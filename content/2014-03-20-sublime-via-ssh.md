@@ -9,7 +9,7 @@ category: Code
 tags: Sublime Text, SSH, Software Engineering
 featured_image: logos/sublime-text.png
 ---
-Sublime Text is the best editor I have ever used. One argument for vim and against
+[Sublime Text](../sublime-text/) is the best editor I have ever used. One argument for vim and against
 Sublime Text could be that you can't simply use Sublime Text when you're accessing a
 computer via SSH. But there is a way!
 

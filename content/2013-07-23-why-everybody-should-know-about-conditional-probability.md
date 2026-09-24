@@ -119,7 +119,7 @@ Pr[\neg C|-] &= 1 - \frac{1}{793} = \frac{792}{793} \approx 0.999
 
 How would you interpret these results? I'd say:
 When you get a positive result you shouldn't really worry. But perhaps you should make other tests.
-When you get a negative results you can be very sure that you don't have cancer.
+When you get a negative result you can be very sure that you don't have cancer.
 
 <h2>Testing again</h2>
 A very natural approach to a positive test result might be taking the same test again. How does this influence the probability?

@@ -63,7 +63,7 @@ Click on the gray area. The image will look like this:
             <figcaption class="text-center">Remove nodes</figcaption>
         </figure>
 
-Remove nodes of areas that have to many or where you don't want to have this gray area. This will take some time.
+Remove nodes of areas that have too many or where you don't want to have this gray area. This will take some time.
 <figure class="aligncenter">
             <a href="../images/2013/02/inkscape-remove-nodes-300x247.png"><img src="../images/2013/02/inkscape-remove-nodes-300x247.png" alt="Some nodes you should remove" style="max-width:300px;max-height:247px" class="size-medium wp-image-57331"/></a>
             <figcaption class="text-center">Some nodes you should remove</figcaption>

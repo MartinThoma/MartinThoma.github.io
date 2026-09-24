@@ -116,7 +116,7 @@ print(
 ```
 
 <h2>Newton's method</h2>
-How should be choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.
+How should we choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.
 
 With long double:
 ```cpp
@@ -152,8 +152,8 @@ I failed to convert this to a version that uses GMP :-/
 But it converges quite fast:
 
 <figure class="aligncenter">
-            <a href="../images/2013/06/newton-correct-digits.png"><img src="../images/2013/06/newton-correct-digits.png" alt="Newtons method for calculating square roots" style="max-width:512px;max-height:235px" class="size-full wp-image-69511"/></a>
-            <figcaption class="text-center">Newtons method for calculating square roots</figcaption>
+            <a href="../images/2013/06/newton-correct-digits.png"><img src="../images/2013/06/newton-correct-digits.png" alt="Newton's method for calculating square roots" style="max-width:512px;max-height:235px" class="size-full wp-image-69511"/></a>
+            <figcaption class="text-center">Newton's method for calculating square roots</figcaption>
         </figure>
 
 <h2>Exponential identity</h2>
@@ -220,7 +220,7 @@ int main(int argc, char *argv[]) {
 
 ```
 
-This converges VERY slow: For $a = 2$
+This converges VERY slowly: For $a = 2$
 
 <ul>
   <li>$n=1$: 1 digit correct</li>

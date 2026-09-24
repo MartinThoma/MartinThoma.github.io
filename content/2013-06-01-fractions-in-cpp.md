@@ -30,10 +30,10 @@ $\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$
 Division:
 $\frac{a}{b} : \frac{c}{d} = \frac{a \cdot d}{b \cdot c}$
 
-<h3>Euklids algorithm</h3>
-You can calculate the greatest common divisor with <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">Euklids algorithm</a>. If you don't know it, please read the Wikipedia article.
+<h3>Euclid's algorithm</h3>
+You can calculate the greatest common divisor with <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid's algorithm</a>. If you don't know it, please read the Wikipedia article.
 
-Knowing the greatest common divisor is important, because we want that our Faction class automatically cancels those factors so that the numerator and denominator are as small as possible.
+Knowing the greatest common divisor is important, because we want that our Fraction class automatically cancels those factors so that the numerator and denominator are as small as possible.
 
 <h2>C++ Code</h2>
 ```cpp

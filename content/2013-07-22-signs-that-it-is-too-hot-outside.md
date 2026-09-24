@@ -10,7 +10,7 @@ tags: Funny
 featured_image: 2013/07/wetter1.png
 ---
 <figure>
-    <img src="../images/2013/07/wetter.png" style="max-width:500px;" alt="Weather ma"/>
+    <img src="../images/2013/07/wetter.png" style="max-width:500px;" alt="Weather map"/>
     <figcaption>Weather map</figcaption>
 </figure>
 

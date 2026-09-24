@@ -8,7 +8,7 @@ date: 2013-02-21 12:19:05.000000000 +01:00
 category: Code
 tags: Java, Algorithms, Geometry, Computer Science, Mathematics
 ---
-You have to line segments and you want to know if they intersect. I'll give you an algorithm how to do it.
+You have two line segments and you want to know if they intersect. I'll give you an algorithm how to do it.
 
 <h2>Test cases</h2>
 First of all, we should think about how lines can be arranged:
@@ -43,7 +43,7 @@ First of all, we should think about how lines can be arranged:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/02/line-segments-t3.png" class="image">
-                  <img src="../images/2013/02/line-segments-t3.png" alt="T3: Similar to T4, but with negative coordiantes" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/02/line-segments-t3.png" alt="T3: Similar to T4, but with negative coordinates" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -79,7 +79,7 @@ First of all, we should think about how lines can be arranged:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/02/line-segments-t6.png" class="image">
-                  <img src="../images/2013/02/line-segments-t6.png" alt="T6: Line segements are identical" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/02/line-segments-t6.png" alt="T6: Line segments are identical" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -226,14 +226,14 @@ Looks quite simple, doesn't it?
 <h3>Cross product</h3>
 Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:
 
-You can definie a cross product for points:
+You can define a cross product for points:
 
 \begin{align}
   \times_P&: Point \times Point \rightarrow \mathbb{R}\\
   \times_P(a, b) &:= a.x \cdot b.y - b.x \cdot a.y;
 \end{align}
 
-This cross product has one nice characteristics:
+This cross product has one nice characteristic:
 
 $a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin
 
@@ -385,7 +385,7 @@ function getIntersection(a, b) {
             //   a: x--------------x
             //   b:    x-------x
             // in both cases:
-            // get the relavant y intervall
+            // get the relevant y interval
             y1 = b["first"]["y"];
             y2 = Math.min(a["second"]["y"], b["second"]["y"]);
         } else {
@@ -447,7 +447,7 @@ function getIntersection(a, b) {
                 b = tmp;
             }
 
-            // get the relavant x intervall
+            // get the relevant x interval
             x1 = b["first"]["x"];
             x2 = Math.min(a["second"]["x"], b["second"]["x"]);
             y1 = ma*x1+ta;

@@ -27,7 +27,7 @@ Four <abbr title="metal&ndash;oxide&ndash;semiconductor field-effect transistor"
 </tr>
 <tr>
 <th>enhancement</th>
-  <td><a href="../images/2013/02/nmos-selbstsperrend.jpg"><img src="../images/2013/02/nmos-selbstsperrend.jpg" alt="nMOS - enhancement type" width="221" height="171" class="size-full wp-image-56751" /></td>
+  <td><a href="../images/2013/02/nmos-selbstsperrend.jpg"><img src="../images/2013/02/nmos-selbstsperrend.jpg" alt="nMOS - enhancement type" width="221" height="171" class="size-full wp-image-56751" /></a></td>
   <td><a href="../images/2013/02/pmos-selbstsperrend.jpg"><img src="../images/2013/02/pmos-selbstsperrend.jpg" alt="pMOS - enhancement type" width="181" height="163" class="size-full wp-image-56771" /></a></td>
 </tr>
 </table>

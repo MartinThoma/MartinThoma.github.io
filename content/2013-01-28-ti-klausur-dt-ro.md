@@ -81,7 +81,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repräsentation der Maschinensprache, die für den Menschen verständlich und anschaulich ist, z.B. add &#36;s2, &#36;s1, &#36;s0">Assembler</span>, <span class="hint" title="Repräsentation von Anweisungen, die für einen Mikroprozessor unmittelbar verständlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
   <li>Wofür stehen RISC und CISC und was sind Beispiele? &rarr; <span class="hint" title="Reduced Instruction Set Computer (z.B. MIPS), Complex Instruction Set Computer (z.B. x86)">Antwort</span></li>
   <li>Was ist ein User/System-Bit, was ein Trace-Bit und was ein Decimal-Bit? &rarr; <span class="hint" title="Das User/System-Bit bestimmt, ob sich das System im eingeschränkten User-Modus oder im uneingeschränkten Systemmodus befindet. Das Trace-Bit erlaubt Befehlsabarbeitung im Einzelschritt-Modus zum Debuggen und das Decimal-Bit entscheidet, ob dual oder BCD gerechnet wird.">Antwort</span></li>
-  <li>Welche Informationen können im Statusregister des Rechnewerkes stehen? &rarr; <span class="hint" title="Carry, Overflow, Zero, Sign, ...">Antwort</span></li>
+  <li>Welche Informationen können im Statusregister des Rechenwerkes stehen? &rarr; <span class="hint" title="Carry, Overflow, Zero, Sign, ...">Antwort</span></li>
   <li>Welche Informationen können im Akkumulator stehen? &rarr; <span class="hint" title="alle ALU-Ergebnisse">Antwort</span></li>
   <li>Warum benötigt die ALU Hilfsregister? &rarr; <span class="hint" title="Ohne die Hilfsregister würden während der ALU-Rechenzeit durch Hazards und Wettläufe Schwankungen am Ausgang entstehen.">Antwort</span></li>
   <li>Entspricht das logische Rechtsschieben der Division durch zwei? &rarr; <span class="hint" title="Nein, da bei negativen Zahlen die 1 im MSB erhalten werden muss.">Antwort</span></li>
@@ -89,7 +89,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Was ist ein Little-Endian und was ist Big-Endian? &rarr; <span class="hint" title="Das MSB bei Little-Endian ist ganz links, bei Big-Endian ganz rechts.">Antwort</span></li>
   <li>Was versteht man unter dem Nulladressformat? &rarr; <span class="hint" title="Die Befehlssätze, die nur aus dem Opcode bestehen. Das Einadressformat hat z.B. zusätzlich noch die Quelle.">Antwort</span></li>
   <li>Was ist eine &bdquo;effektive Adresse&ldquo;? &rarr; <span class="hint" title="Die effektive Adresse ist die durch die Adressierungsart spezifizierte Adresse im Hauptspeicher. Sie entsteht im Prozessor nach Ausführung der Adressierung.">Antwort</span></li>
-  <li>Was bedeutet <span class="hint" title="Zero flag; Wichtig für Schleifen">ZF</span>, <span class="hint" title="Carry flag; set if an arithmetic operation generats a carry or a borrow out of the MSB of the result">CF</span>, <span class="hint" title="Sign flag; set equal to the MSB">SF</span>, <span class="hint" title="Overflow flag; set if the integer result is too large a positive number or too small a negative number to fit in the destination operand">OF</span> und wozu sind sie jeweils gut?</li>
+  <li>Was bedeutet <span class="hint" title="Zero flag; Wichtig für Schleifen">ZF</span>, <span class="hint" title="Carry flag; set if an arithmetic operation generates a carry or a borrow out of the MSB of the result">CF</span>, <span class="hint" title="Sign flag; set equal to the MSB">SF</span>, <span class="hint" title="Overflow flag; set if the integer result is too large a positive number or too small a negative number to fit in the destination operand">OF</span> und wozu sind sie jeweils gut?</li>
   <li>Was ist eine Load/Store-Architektur? &rarr; <abbr title="Eine Load/Store Architektur ist eine Computerarchitektur, deren Befehlssatz Daten-Speicherzugriffe ausschließlich mit speziellen Lade- und Speicher-Befehlen erlaubt.">Antwort</abbr></li>
   <li>Was sind die fünf Schritte in der DLX-Pipeline-Verarbeitung? &rarr; <abbr title="IF: Instruction fetch; ID/RF: Instruction decode/Register fetch; EX: Execute / address calculation; MEM: Memory access; WB: Write Back">Antwort</abbr></li>
   <li>In welcher Pipeline-Phase werden die Operanden aus dem memory geholt? &rarr; <abbr title="Tja, das war fies. Es ist nicht die MEM-Phase. In der MEM-Phase wird der Speicherzugriff von Lade- und Speicherbefehlen durchgeführt. Richtig ist: Die zweite Takthälfte der ID-Phase.">Antwort</abbr></li>
@@ -185,18 +185,18 @@ Das zugehörige Mikroprogramm ist:
 ```
 
 <h2>Fragen</h2>
-<div class="question">
-<span class="question">Zeichnen Sie ein Y-Diagramm.</span>
+<details class="question">
+<summary>Zeichnen Sie ein Y-Diagramm.</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/y-diagramm-300x206.png"><img src="../images/2013/01/y-diagramm-300x206.png" alt="Y-Diagramm" style="max-width:300px;max-height:206px" class="size-medium wp-image-61531"/></a>
             <figcaption class="text-center">Y-Diagramm<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php'>Folien von Prof. Dr. Asfour</a></figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie ist ein Von-Neumann-Rechner aufgebaut?</span>
+<details class="question">
+<summary>Wie ist ein Von-Neumann-Rechner aufgebaut?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/von-neumann-architektur-300x228.png"><img src="../images/2013/01/von-neumann-architektur-300x228.png" alt="Von-Neumann-Architektur" style="max-width:300px;max-height:228px" class="size-medium wp-image-61711"/></a>
@@ -209,20 +209,20 @@ Der Bus beinhaltet Adress-, Daten- und Steuerleitungen.
 
 Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Architektur nicht zwischen Daten und Programmen unterschieden.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie ist ein Mikroprozessor aufgebaut?</span>
+<details class="question">
+<summary>Wie ist ein Mikroprozessor aufgebaut?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/aufbau-mikroprozessor-300x212.png"><img src="../images/2013/01/aufbau-mikroprozessor-300x212.png" alt="Aufbau eines Mikroprozessors" style="max-width:300px;max-height:212px" class="size-medium wp-image-61841"/></a>
             <figcaption class="text-center">Aufbau eines Mikroprozessors<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Aus welchen Phasen besteht die Befehlsausführung?</span>
+<details class="question">
+<summary>Aus welchen Phasen besteht die Befehlsausführung?</summary>
 <div class="answer">
 <ul>
   <li>Holphase</li>
@@ -230,58 +230,58 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
   <li>Ausführungsphase</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Warum gibt es mehr als ein Befehlsregister?</span>
+<details class="question">
+<summary>Warum gibt es mehr als ein Befehlsregister?</summary>
 <div class="answer">
 <ul>
   <li>Die Befehlsformate sind unterschiedlich lang</li>
   <li>Opcode-Prefetching</li>
 </ul>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist der Unterschied zwischen BCD in gepackter Darstellung und BCD in ungepackter Darstellung?</span>
+<details class="question">
+<summary>Was ist der Unterschied zwischen BCD in gepackter Darstellung und BCD in ungepackter Darstellung?</summary>
 <div class="answer">
 Bei BCD in gepackter Darstellung werden in einem Byte (8 Bit) zwei BCD-Zahlen dargestellt.
 In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Pipeline-Konflikte: Welche Forwarding-Techniken gibt es und wie werden sie umgesetzt?</span>
+<details class="question">
+<summary>Pipeline-Konflikte: Welche Forwarding-Techniken gibt es und wie werden sie umgesetzt?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/forwarding-techniken2-300x249.png"><img src="../images/2013/01/forwarding-techniken2-300x249.png" alt="Forwarding-Techniken" style="max-width:300px;max-height:249px" class="size-medium wp-image-62451"/></a>
             <figcaption class="text-center">Forwarding-Techniken<br />Quelle: Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Welche Halbleiterspeichertypen gibt es?</span>
+<details class="question">
+<summary>Welche Halbleiterspeichertypen gibt es?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/halbleiterspeicher-klassifizierung.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" style="max-width:300px;max-height:77px" class="size-medium wp-image-62511"/></a>
             <figcaption class="text-center">Klassifizierung von Halbleiterspeicher</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Skizzieren Sie eine SRAM-Zelle.</span>
+<details class="question">
+<summary>Skizzieren Sie eine SRAM-Zelle.</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/cmos-sram-cell-300x300.png"><img src="../images/2013/01/cmos-sram-cell-300x300.png" alt="CMOS SRAM Zelle" style="max-width:300px;max-height:300px" class="size-medium wp-image-62521"/></a>
             <figcaption class="text-center">CMOS SRAM Zelle</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie unterscheiden sich RISC- und CISC-Architekturen?</span>
+<details class="question">
+<summary>Wie unterscheiden sich RISC- und CISC-Architekturen?</summary>
 <div class="answer">
 <table>
   <thead>
@@ -322,20 +322,20 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
   </tbody>
 </table>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie sieht das Schaltsymbol eines Halbaddierers aus?</span>
+<details class="question">
+<summary>Wie sieht das Schaltsymbol eines Halbaddierers aus?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/addierer-schaltsymbol.png"><img src="../images/2013/01/addierer-schaltsymbol.png" alt="Schaltsymbol eines Halbaddierers" style="max-width:288px;max-height:184px" class="size-full wp-image-62671"/></a>
             <figcaption class="text-center">Schaltsymbol eines Halbaddierers</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie kann man die Datenabhängigkeiten einer Pipeline spezifizieren und erkennen?</span>
+<details class="question">
+<summary>Wie kann man die Datenabhängigkeiten einer Pipeline spezifizieren und erkennen?</summary>
 <div class="answer">
 <figure class="aligncenter">
             <a href="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg"><img src="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg" alt="Datenabhaengigkeiten in einer Pipeline" style="max-width:300px;max-height:121px" class="size-medium wp-image-62791"/></a>
@@ -348,7 +348,7 @@ Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befeh
             <figcaption class="text-center">Datenabhängigkeiten schnell erkennen</figcaption>
         </figure>
 </div>
-</div>
+</details>
 
 <h2>Material</h2>
 <ul>

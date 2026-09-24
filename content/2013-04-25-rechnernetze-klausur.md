@@ -42,7 +42,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>21.05.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><a href="http://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung">CRC</a>, Generatorpolynome, Vorwärtsfehlerkorrektur, Sequenznummern, Quittung, Stop-and-wait</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><a href="http://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung">CRC</a>, Generatorpolynome, <a href="../error-correcting-codes/">Vorwärtsfehlerkorrektur</a>, Sequenznummern, Quittung, Stop-and-wait</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">?</td>
@@ -148,8 +148,8 @@ Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (
 
 ## Fragen
 
-<div class="question">
-<span class="question">Welche Qualitätsparameter sind für Rechnernetze denkbar?</span>
+<details class="question">
+<summary>Welche Qualitätsparameter sind für Rechnernetze denkbar?</summary>
 <div class="answer">
 <ul>
   <li>Angemessenheit</li>
@@ -159,7 +159,7 @@ Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (
   <li>Kosten</li>
 </ul>
 </div>
-</div>
+</details>
 
 
 ## Material

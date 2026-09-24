@@ -325,7 +325,7 @@ sys	0m0.436s
 According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...
 
 <h2>Sieve of Atkin</h2>
-Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow
+Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkin's sieve</a> is on StackOverflow.
 
 <h3>My first implementation</h3>
 ```cpp
@@ -409,7 +409,7 @@ int main(int argc, char* argv[]) {
 
 ```
 
-Atkins sieve has a much worse performance than Sieve of Eratosthenes:
+Atkin's sieve has a much worse performance than Sieve of Eratosthenes:
 
 ```bash
 

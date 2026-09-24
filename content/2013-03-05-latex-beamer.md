@@ -14,7 +14,7 @@ I really enjoy creating presentations with LaTeX. The reasons are:
 <ul>
   <li>You can use versioning (GIT, SVN, ...)</li>
   <li>You can use your favorite editor!</li>
-  <li>When you've created an animation with Ti<em>k</em>Z, you can easily go one step back an go through it as fast as it is apropriate!</li>
+  <li>When you've created an animation with Ti<em>k</em>Z, you can easily go one step back and go through it as fast as it is appropriate!</li>
   <li>Good separation of presentation and content</li>
   <li>It compiles to PDF
     <ul>
@@ -27,7 +27,7 @@ I really enjoy creating presentations with LaTeX. The reasons are:
   <li>A big community (<a href="http://tex.stackexchange.com/questions/tagged/beamer">StackExchange</a> and <a href="http://www.latex-community.org/forum/viewforum.php?f=3">LateX-Community</a>) helps you, when you got questions.</li>
 </ul>
 
-I'll now introduce you to the basics of LaTeX beamer presentations. If you only look for example, please go to my <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations">GitHub LaTeX Repository</a>.
+I'll now introduce you to the basics of LaTeX beamer presentations. If you only look for examples, please go to my <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations">GitHub LaTeX Repository</a>.
 
 <h2>Basics</h2>
 

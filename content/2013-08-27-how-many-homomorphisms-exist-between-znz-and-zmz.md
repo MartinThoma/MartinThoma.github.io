@@ -28,7 +28,7 @@ Some fundamental theorems (which I'm not going to prove) are:
 <strong>Proof</strong>:
 You can map $1$ to $n$ values $\stackrel{(IV)}{\Rightarrow}$ there can't be more than $n$ homomorphisms.
 
-For every $i \in \{0, \dots, n-1\}$ exists an homomorphism $\varphi_i(1) = i$:
+For every $i \in \{0, \dots, n-1\}$ exists a homomorphism $\varphi_i(1) = i$:
 
 \begin{align}
 \varphi(a) + \varphi(b) &= (ai \mod n) + (bi \mod n)\\
@@ -90,7 +90,7 @@ Let's try to prove it.
 
 Let $n$ be composed of primes $p_1, \dots, p_x$ (where $p_i = p_j$ is allowed).
 Then $N = \mathbb{Z}/n\mathbb{Z} \cong \mathbb{Z}/p_1\mathbb{Z} \times \mathbb{Z}/p_2\mathbb{Z} \times \cdots \times \mathbb{Z}/p_x\mathbb{Z}$ according to the <a href="http://en.wikipedia.org/wiki/Chinese_remainder_theorem">Chinese remainder theorem</a>. The same is true for $M$.
-As there are $p_i$ homomorphisms between $\mathbb{Z}/p_i\mathbb{Z}$ and $\mathbb{Z}/p_j\mathbb{Z}$ with $p_i = p_j$ and as you can take a $p_i$ from the left and a $p_j$ from the right you can combine the different homomorphisms. So it is basically a combinatoric problem. As everything (except for same primes) will only have 1 homomorphism, you have to multiply the number of homomophisms for each pair $(p_i, p_j)$. But this is simply the gcd $\blacksquare$
+As there are $p_i$ homomorphisms between $\mathbb{Z}/p_i\mathbb{Z}$ and $\mathbb{Z}/p_j\mathbb{Z}$ with $p_i = p_j$ and as you can take a $p_i$ from the left and a $p_j$ from the right you can combine the different homomorphisms. So it is basically a combinatoric problem. As everything (except for same primes) will only have 1 homomorphism, you have to multiply the number of homomorphisms for each pair $(p_i, p_j)$. But this is simply the gcd $\blacksquare$
 
 <h2>$(\mathbb{Z}/n\mathbb{Z}, \cdot)$</h2>
 What changes when we use $(\mathbb{Z}/n\mathbb{Z}, \cdot)$ and $(\mathbb{Z}/m\mathbb{Z}, \cdot)$?

@@ -23,7 +23,7 @@ You've probably already seen one of the following lines:
 
 ```
 
-This is a <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>. It's a directive for your command line interpreter how it should execute a script.
+This is a <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>. It's a directive for your command line interpreter on how it should execute a script.
 
 For example, you have a file with this content:
 

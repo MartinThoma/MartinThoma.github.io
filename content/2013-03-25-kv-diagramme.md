@@ -9,7 +9,7 @@ category: German posts
 tags: Digitaltechnik, KIT, University
 featured_image: 2013/03/karnaugh-map-300x300.png
 ---
-<div class="info">Ich setze im Folgenden vorraus, dass man schon mal was von KV-Diagrammen gehört hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkläre ich nicht wie man aus dem KV-Diagramm der Größe 16 eines der Größe 32 bekomt und was die Beschriftung bedeutet.</div>
+<div class="info">Ich setze im Folgenden voraus, dass man schon mal was von KV-Diagrammen gehört hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkläre ich nicht wie man aus dem KV-Diagramm der Größe 16 eines der Größe 32 bekommt und was die Beschriftung bedeutet.</div>
 
 KV-Diagramme sind für die TI-Klausur am KIT bei Herrn Prof. Dr. Asfour sehr wichtig. Im folgenden sind die wichtigsten Eigenschaften, die so explizit leider nicht in der Vorlesung genannt wurden.
 
@@ -20,7 +20,7 @@ $f(w,x,y,z) := (w \lor \bar y) (\bar w \lor x \lor y) (\bar w \lor \bar x \lor z
 Nun kann man eine Funktionstabelle aufstellen:
 <ol>
   <li>Dabei schreibt man sich erst das Gerüst hin, also eine Titelzeile mit den vier Variablen $w,x,y,z$ und $2^4 = 16$ Zeilen für die verschiedenen Funktionswerte. Wir brauchen jeweils eine Spalte für die vier Variablen, eine für den Funktionswert $f(w,x,y,z)$ und am besten noch eine mit der Nummer.</li>
-  <li>Nun zählen wir für die vier Variablen binär hoch. Dabei einsprechen die konkatenierten Ziffern der Variablen der Spalte &bdquo;Nummer&ldquo;. Ich fine es am einfachsten, dies Spaltenweise zu schreiben. Also 8 Nullen, 8 Einsen für $w$. Dann 4 Nullen, 4 Einsen, 4 Nullen, 4 Einsen für $x$ usw.</li>
+  <li>Nun zählen wir für die vier Variablen binär hoch. Dabei entsprechen die konkatenierten Ziffern der Variablen der Spalte &bdquo;Nummer&ldquo;. Ich finde es am einfachsten, dies Spaltenweise zu schreiben. Also 8 Nullen, 8 Einsen für $w$. Dann 4 Nullen, 4 Einsen, 4 Nullen, 4 Einsen für $x$ usw.</li>
 <li>Als letztes schauen wir uns die drei geklammerten Terme von oben an und schauen, wann diese jeweils Null sind. In die entsprechenden Zeilen der Tabelle tragen wir eine Null ein. In alle Übrigen kommt eine Eins.</li>
 </ol>
 
@@ -186,7 +186,7 @@ Ist $g$ ist ein Implikant von $f$, so ist $f$ ein Implikat von $g$.
 
 Das kann man nun sehr schön mit dem KV-Diagramm verknüpfen. Wenn man die beiden Funktionen $f$ und $g$ in das KV-Diagramm einzeichnet, muss $f$ überall dort eine 1 haben, wo $g$ eine 1 hat.
 
-Was hat es nun mit Primimplikanten auf sich? Wenn man diese Kästchen um 1-Blöcke macht, dann müssen sie jeweils insgesamt genau $2^k, k \in \mathbb{N}_0$ Einsen umfassen und dürfen an den Rändern fortgesetz werden (siehe der grüne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen größeren Eins-Block geben.
+Was hat es nun mit Primimplikanten auf sich? Wenn man diese Kästchen um 1-Blöcke macht, dann müssen sie jeweils insgesamt genau $2^k, k \in \mathbb{N}_0$ Einsen umfassen und dürfen an den Rändern fortgesetzt werden (siehe der grüne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen größeren Eins-Block geben.
 
 Beispiel:
 <figure class="aligncenter">
@@ -194,7 +194,7 @@ Beispiel:
             <figcaption class="text-center">KV-Diagramm - Beispiel mit Primimplikanten</figcaption>
         </figure>
 
-Das Rosa-Kästchen ist ein Implikant. Es ist jedoch kein Primimplikant, da das blaue Kästchen größer ist. Bis auf das rosa Kästchen und das braune Kästchen sind alle eingezeichenten Kästchen Primimplikanten sein. Es gibt keine weiteren Primimplikanten in dieser Funktion.
+Das Rosa-Kästchen ist ein Implikant. Es ist jedoch kein Primimplikant, da das blaue Kästchen größer ist. Bis auf das rosa Kästchen und das braune Kästchen sind alle eingezeichneten Kästchen Primimplikanten. Es gibt keine weiteren Primimplikanten in dieser Funktion.
 
 Nun ist ein Primimplikant ein Kernprimimplikant, wenn er eine 1 überdeckt, die von keinem anderen Primimplikanten überdeckt wird. Das gilt für alle Primimplikanten außer den hellgrünen und den braunen Kästchen.
 
@@ -221,7 +221,7 @@ Primimplikate sind:
 <h2>Hasards</h2>
 Wie sieht man einen Hasard im KV-Diagramm? Man sucht sich eine Anfangsbelegung und eine Endbelegung. Wenn sich dazwischen $n$ Variablen ändern, gibt es $n!$ Pfade im KV-Diagram. Ist einer dieser Pfade nicht monoton, so ist dieser Übergang Hasardbehaftet.
 
-Nun kann man sich entweder die Funktion selbst im KV-Diagramm anschauen, oder die einzelnen Variablen mit dem Todzeitmodell aufsplitten. Untersucht man ersteres, kann man Funktionshasards finden, bei letzterem Strukturhasards.
+Nun kann man sich entweder die Funktion selbst im KV-Diagramm anschauen, oder die einzelnen Variablen mit dem Totzeitmodell aufsplitten. Untersucht man ersteres, kann man Funktionshasards finden, bei letzterem Strukturhasards.
 
 Nun kann man jeden Hasard noch aufteilen, je nach dem was der Wert der Funktion mit der Anfangsbelegung A bzw. der Wert der Funktion bei der Endbelegung B ist:
 <ul>

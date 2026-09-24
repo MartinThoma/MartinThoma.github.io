@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Algorithms, ASR, Computer Science, AI
 featured_image: 2013/11/wer-thumb.png
 ---
-The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:
+The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to a hypothesis and is defined like this:
 
 $$\mathit{WER} = \frac{S+D+I}{N}$$
 
@@ -36,13 +36,13 @@ In this case, an insertion happened. "Bright" was inserted by the ASR.
 <pre>REF: What a bright day
 HYP: What a light day</pre>
 
-In this case, an substitution happened. "Bright" was substituted by "light" by
+In this case, a substitution happened. "Bright" was substituted by "light" by
 the ASR.
 
 ## Range of values
 
 As only addition and division with non-negative
-numbers happen, WER cannot get negativ. It is 0 exactly when the hypothesis is
+numbers happen, WER cannot get negative. It is 0 exactly when the hypothesis is
 the same as the reference.
 
 WER can get arbitrary large, because the ASR can insert an arbitrary amount of
@@ -92,7 +92,7 @@ def wer(r, h):
     Calculation of WER with Levenshtein distance.
 
     Works only for iterables up to 254 elements (uint8).
-    O(nm) time ans space complexity.
+    O(nm) time and space complexity.
 
     Parameters
     ----------
@@ -148,6 +148,6 @@ if __name__ == "__main__":
 No matter at what stage of the code you are, the following is always true:
 <ul>
   <li>If <code>r[i]</code> equals <code>h[j]</code> you don't have to change anything. The error will be the same as it was for <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
-  <li>If its a substitution, you have the same number of errors as you had before when comparing the <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
+  <li>If it's a substitution, you have the same number of errors as you had before when comparing the <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
   <li>If it was an insertion, then the hypothesis will be longer than the reference. So you can delete one from the hypothesis and compare the rest. As this is the other way around for deletion, you don't have to worry when you have to delete something.</li>
 </ul>

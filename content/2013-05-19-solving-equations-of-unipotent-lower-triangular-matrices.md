@@ -35,7 +35,7 @@ This is only a shorthand for:
 
 This is easy to solve, isn't it?
 <h3>First step: Solve for $x_1$</h3>
-First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:
+First you see that $x_1 = 3$. Now you replace every occurrence of $x_1$ in the system of equations above:
 
 \begin{align}
 &1 \cdot 3 &= 3 \\
@@ -152,7 +152,7 @@ Then we would have a total of
 So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.
 
 <h2>Space complexity</h2>
-Well, thats simple: $\mathcal{O}(1)$!
+Well, that's simple: $\mathcal{O}(1)$!
 
 I do ignore the size of the input. So $\mathcal{O}(1)$ means: For variable sized input data I do need a constant amount of additional space.
 

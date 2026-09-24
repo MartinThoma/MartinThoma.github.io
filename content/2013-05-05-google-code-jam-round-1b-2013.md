@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Google Code Jam &ndash; Round 1B 2013
 slug: google-code-jam-round-1b-2013
+lang: en
 author: Martin Thoma
 date: 2013-05-05 16:15:32.000000000 +02:00
 category: Code
@@ -29,7 +29,7 @@ featured_image: 2012/04/code-jam-logo.png
 </li>
 </ul>
 
-More information are on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.net</a>.
+More information is on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.net</a>.
 
 <h2>Osmos</h2>
 
@@ -89,7 +89,7 @@ Once you've read the task, you should understand some very basic ideas:
 <ul>
   <li>First of all, diamonds only fall at $x=0$ !</li>
   <li>If your target coordinates are $(x,y)$ , you have the same output as for $(-x,y)$ , as everything is symmetric.</li>
-  <li>You have to get a basis for your diamonds pyramid. I've colored the basis in yellow in the images below.</li>
+  <li>You have to get a basis for your diamonds' pyramid. I've colored the basis in yellow in the images below.</li>
   <li>When your target is above the ground, you can let the diamond slide down to calculate the size of the basis.</li>
 </ul>
 
@@ -103,9 +103,9 @@ Once you've read the task, you should understand some very basic ideas:
             <figcaption class="text-center">Let Diamonds slide down</figcaption>
         </figure>
 
-Note that you don't have to calculate a probabilty for the yellow pyramids. You get those with probability of 1.
+Note that you don't have to calculate a probability for the yellow pyramids. You get those with probability of 1.
 
-What I've forgot: You should also catch the case that you can fill up the next bigger pyramid. If this is possible, you can guarantee that you will reach your target $(x,y)$.
+What I've forgotten: You should also catch the case that you can fill up the next bigger pyramid. If this is possible, you can guarantee that you will reach your target $(x,y)$.
 
 The rest is simple math. You have $rest$ diamonds left after you've build the base (yellow). Then you need $y+1$ diamonds slide to the right side. The probability that you have exactly $k$ hits while making $N$ tries with a probability of 50% is $\binom{N}{k} \cdot (\frac{1}{2})^N$. You want at least $k$ hits, so you want $\sum_{i=k}^N \binom{N}{i} \cdot (\frac{1}{2})^N$.
 

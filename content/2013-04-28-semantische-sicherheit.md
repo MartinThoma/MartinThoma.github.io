@@ -16,7 +16,7 @@ In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13
 Sei <span markdown="0">$f:X \rightarrow Y$</span> eine Funktion.
 <span markdown="0">$f$</span> heißt eine Einwegfunktion, genau dann wenn für alle <span markdown="0">$x \in X$</span> gilt:
 <ul>
-  <li><span markdown="0">$y := f(x)$</span> kann in Polynomialzeit berechnet werden</li>
+  <li><span markdown="0">$y := f(x)$</span> kann in <a href="../komplexitatsklassen-in-der-informatik-ein-uberblick/">Polynomialzeit</a> berechnet werden</li>
   <li>Für die Berechnung eines Urbildes <span markdown="0">$x$</span> aus <span markdown="0">$y$</span> existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
 </ul>
 </div>
@@ -29,9 +29,9 @@ Nun, angenommen es gibt eine Einwegfunktion <span markdown="0">$f$</span>. Dann 
 
 <span markdown="0">$L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Präfix von } x \text{ und } y = f(x)\}$</span>
 
-Es gilt: <span markdown="0">$L_f \notin \mathcal{P}$</span>, da für ein gegebenes <span markdown="0">$y$</span> das zugehörige <span markdown="0">$x$</span> in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob <span markdown="0">$\bar x$</span> ein Präfix von <span markdown="0">$x$</span> ist?)
+Es gilt: <span markdown="0">$L_f \notin \mathcal{P}$</span>, da für ein gegebenes <span markdown="0">$y$</span> das zugehörige <span markdown="0">$x$</span> in Polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob <span markdown="0">$\bar x$</span> ein Präfix von <span markdown="0">$x$</span> ist?)
 
-Falls jemanden diese Begründung nicht ausreicht ist hier noch ein Beweis von Prof. Hofheinz (Danke!)
+Falls jemandem diese Begründung nicht ausreicht ist hier noch ein Beweis von Prof. Hofheinz (Danke!)
 
 <strong>Beh.:</strong> <span markdown="0">$L_f \notin \mathcal{P}$</span><br/>
 <strong>Bew.:</strong> durch Widerspruch<br/>
@@ -76,7 +76,7 @@ Hier ist
 </ul>
 
 Die erste Wahrscheinlichkeit bezeichnet die Möglichkeit, aus dem Ciphertext Informationen der Art <span markdown="0">$f$</span> über den Plaintext <span markdown="0">$M$</span> zu erhalten.
-Die zweite Wahrscheinlichkeit bezeichnet die Möglichkeit &bdquo;aus dem Nichts&ldquo; Informationen über eine Nachricht zu erhalten. Damit will man triviale Informationen eliminieren. Insgesamt gibt es also die Wahrscheinlichkeit an, nicht-triviale Informationen aus einer Verschlüsselten Nachricht zu erhalten. Mit effizient ist vermutlich in Polynomialzeit gemeint.
+Die zweite Wahrscheinlichkeit bezeichnet die Möglichkeit &bdquo;aus dem Nichts&ldquo; Informationen über eine Nachricht zu erhalten. Damit will man triviale Informationen eliminieren. Insgesamt gibt es also die Wahrscheinlichkeit an, nicht-triviale Informationen aus einer verschlüsselten Nachricht zu erhalten. Mit effizient ist vermutlich in Polynomialzeit gemeint.
 
 Wenn es nun mehrfach benutzbare semantisch sichere Verfahren gibt, dann kann man dieses Verfahren als Einwegfunktion nutzen. Wenn eine Einwegfunktion existiert, gilt <span markdown="0">$\mathcal{P} \neq \mathcal{NP}$</span>. Also folgt:
 

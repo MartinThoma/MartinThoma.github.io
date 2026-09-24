@@ -11,7 +11,7 @@ featured_image: 2013/05/collatz-thumb.png
 ---
 The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.
 
-The Collatz sequences $(c^n_i)$ of a number $n \in \mathbb{N}_{> 0}$ is defined like this:
+The Collatz sequence $(c^n_i)$ of a number $n \in \mathbb{N}_{> 0}$ is defined like this:
 
 $$f:\mathbb{N}_{>0} \rightarrow \mathbb{N}_{> 0}\;\;\;\;f(n) := \begin{cases}
 \frac{n}{2}   & \text{if } n \text{ is even}\\
@@ -131,7 +131,7 @@ python small-numbers.py -n 15 -p fdp
 ```
 
 <h2>$n=27$</h2>
-$n=27$ is an enourmously long sequence:
+$n=27$ is an enormously long sequence:
 
 <figure class="aligncenter">
             <a href="../images/2013/05/collatz-27.png"><img src="../images/2013/05/collatz-27.png" alt="Collatz sequence $c^{27}_i$" style="max-width:512px;max-height:227px" class="size-full wp-image-66351"/></a>

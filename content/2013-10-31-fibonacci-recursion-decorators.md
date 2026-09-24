@@ -74,10 +74,10 @@ $$
 
 This means the dumb function is in $\mathcal{O}(2^n)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)
 
-<h2>Memorization with decorators</h2>
-One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) by storing values we already calculated.
+<h2>Memoization with decorators</h2>
+One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) is by storing values we already calculated.
 
-A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:
+A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. If it has already been calculated, you can simply look it up:
 
 ```python
 def memoize(obj):
@@ -99,7 +99,7 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 ```
 
-Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺
+Notice that I've only added <code>@memoize</code> over the function definition of <code>fib</code>! I love Python ☺
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
 
@@ -124,7 +124,7 @@ The formula of Moivre-Binet gives a closed form for calculating fibonacci number
 
 $\varphi = \frac{\sqrt{5}+1}{2}$
 $\psi = 1 - \varphi$
-$f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$
+$f(n) = \frac{\varphi^n - \psi^n}{\varphi - \psi}$
 
 Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:
 
@@ -169,7 +169,7 @@ for i in count(0):
         print(
             (
                 "The %i-th fibonacci number is %i. Moivre-Binet "
-                + "gives due to precicion error %i (delta=%i)."
+                + "gives due to precision error %i (delta=%i)."
             )
             % (i, exact, constTime, abs(exact - constTime))
         )
@@ -178,12 +178,12 @@ for i in count(0):
 
 So the answer is:
 
-<blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
+<blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precision error 498454011879265 (delta=1).</blockquote>
 
-This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.
+This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking a number up from an array is always faster than any calculation.
 
 <h2>Very high numbers</h2>
-The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).
+The following solution is fast and works in 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).
 
 ```python
 def fib(n):
@@ -193,5 +193,5 @@ def fib(n):
     return a
 ```
 
-<h2>Additional ressources</h2>
+<h2>Additional resources</h2>
 The article on <a href="http://en.literateprograms.org/Fibonacci_numbers_(Python)">literate programs</a> is worth reading. They show some very different programs that calculate Fibonacci numbers.

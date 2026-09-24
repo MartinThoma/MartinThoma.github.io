@@ -7,7 +7,7 @@ lang: en
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
 category: Code
-tags: Linux, Command Line, Bash, Shell, Software Engineering
+tags: Linux, Command Line, Bash, Shell
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 I've just switched from [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell))
@@ -16,7 +16,7 @@ href="https://github.com/robbyrussell/oh-my-zsh">oh-my-ZSH</a>. I think this is
 just the right time to explain the words Shell, command line, Terminal, Bash
 and ZSH.
 
-[Terminal](https://en.wikipedia.org/wiki/GNOME_Terminal) is an terminal
+[Terminal](https://en.wikipedia.org/wiki/GNOME_Terminal) is a terminal
 emulator, sometimes also called a "terminal window". I work in a window
 environment (MATE) and I want to use command line tools within that
 environment. So I need a "terminal window":
@@ -118,7 +118,7 @@ Here are some differences. On the left side is zsh, on the right is bash:
 I like the time command of bash more, but that's it. All other interactions are
 either almost the same or better in zsh. I especially like that zsh doesn't
 print everything again when you autocomplete with tab. And it also
-autocompletes when you make an capitalization error.
+autocompletes when you make a capitalization error.
 
 I also begin to like the Git-specific prompt indicators:
 <figure class="aligncenter">
@@ -126,7 +126,7 @@ I also begin to like the Git-specific prompt indicators:
             <figcaption class="text-center">ZSH 'git add' indicator</figcaption>
         </figure>
 
-## Some usefull tools
+## Some useful tools
 
 ### ack
 You might already know `grep`. And if you've worked with it, you

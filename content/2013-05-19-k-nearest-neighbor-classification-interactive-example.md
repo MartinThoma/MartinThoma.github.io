@@ -59,7 +59,7 @@ You may use it for free, but you should add a link to this article.
 
 <ul>
   <li><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagram</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearset neighbor</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearest neighbor</a></li>
   <li><a href="http://en.wikipedia.org/wiki/K-means_clustering">k-means clustering</a></li>
   <li>Udacity: Introduction to A.I: <a href="https://www.youtube.com/watch?v=zaKjh2N8jN4">k-means</a></li>
 </ul>

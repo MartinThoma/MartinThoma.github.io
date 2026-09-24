@@ -29,6 +29,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
            </ul>
           </li>
         </ul>
+      </li>
       <li>Flussproblem als Lineares Programm</li>
       <li>Dualität</li>
       <li>Algorithmus von Goldberg und Tarjan (Residualgraph, Push/Relabel)</li>
@@ -65,6 +66,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
           <li>Graham Scan</li>
           <li>Gift Wrapping Algorithmus (Jarvis March) &rarr; <a href="http://codegolf.stackexchange.com/q/11035/5240">Code Golf</a></li>
         </ul>
+      </li>
     </ul>
   </li>
   <li>String-Matching
@@ -104,12 +106,12 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
       <li>Fixed Parameter Tractable</li>
       <li>Kernbildung (Vertex Cover)</li>
-      <li>Tiefenbeschrankte Suchbäume</li>
+      <li>Tiefenbeschränkte Suchbäume</li>
     </ul>
   </li>
   <li>Online Algorithmen
     <ul>
-      <li>Job Scheudling</li>
+      <li>Job Scheduling</li>
       <li>c-kompetitivität</li>
       <li>Ski-Verleih Beispiel</li>
       <li>Paging (<abbr title="Longest Forward Distance">LFD</abbr>, Kompetitive Paging-Algorithmen, <span class="hint" title="FIFO, LRU">Konservative Paging-Algorithmen</span>, <a href="http://de.wikipedia.org/wiki/FIFO-Anomalie">B&eacute;l&aacute;dys Anomalie</a>)</li>
@@ -119,14 +121,14 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
      <li><abbr title="Parallel Random Access Machine">PRAM</abbr> Modell</li>
      <li>Berechnung von Summen</li>
-     <li>Präfxsumme</li>
+     <li>Präfixsumme</li>
      <li>List Ranking</li>
-     <li>Binaroperationen einer partitionierten Menge</li>
+     <li>Binäroperationen einer partitionierten Menge</li>
      <li>Zusammenhangskomponenten</li>
      <li>Minimaler Spannbaum</li>
     </ul>
   </li>
-  <li>Algorithmen fur externen Speicher
+  <li>Algorithmen für externen Speicher
     <ul>
       <li>Einfaches Rechnermodell</li>
       <li>Interner Stack / Externer Stack / Externe Warteschlange</li>
@@ -243,19 +245,19 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
   <li>$c(S, V \setminus S) := \sum_{(i,j) \in E,\\i \in S, j \in V \setminus S} c(i,j)$</li>
 </ul>
 
-<div class="question">
-<span class="question">Was ist der Worst-Case für <span class="smallCaps">List Scheduling</span> mit $m$ Maschinen?</span>
+<details class="question">
+<summary>Was ist der Worst-Case für <span class="smallCaps">List Scheduling</span> mit $m$ Maschinen?</summary>
 <div class="answer">
 Gegeben seien $n \cdot (m-1)$ Jobs &agrave; 1 Sekunde und ein Job mit $n$ Sekunden. Die Gesamtlaufzeit beträgt dann $2 \cdot n - 1$ Sekunden, die beste Laufzeit ist jedoch $n$ Sekunden.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Was ist der Worst-Case für <span class="smallCaps">Next Fit</span>?</span>
+<details class="question">
+<summary>Was ist der Worst-Case für <span class="smallCaps">Next Fit</span>?</summary>
 <div class="answer">
 $n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2 \cdot n}$.
 </div>
-</div>
+</details>
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Freitag, den 1. März 2013 von 11:00 bis 13:00 (<a href="http://www.informatik.kit.edu/klausuren.php?kid=422.35">Quelle</a>)<br/>

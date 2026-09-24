@@ -111,7 +111,7 @@ But now the drawbacks:
 <h3>Bloglovin'</h3>
 <div class="warning">Bloglovin sends you emails with your feeds. Those emails don't have an unsubscribe link.</div>
 
-<a href="http://www.bloglovin.com/">Bloglovin'</a> is another WebService that looks very nice and is free, seems to be a real alternative. While importing my subscriptions, I got a 504 Gateway Time-out, but it imported my feeds anyway.
+<a href="http://www.bloglovin.com/">Bloglovin'</a> is another WebService that looks very nice and is free, and seems to be a real alternative. While importing my subscriptions, I got a 504 Gateway Time-out, but it imported my feeds anyway.
 
 <figure class="aligncenter">
             <a href="../images/2013/03/bloglovin-300x210.png"><img src="../images/2013/03/bloglovin-300x210.png" alt="bloglovin" style="max-width:300px;max-height:210px" class="size-medium wp-image-61271"/></a>
@@ -123,7 +123,7 @@ The service seems to be free, they have an <a href="https://play.google.com/stor
 Bloglovin' does not provide an export function.
 
 <h3>Good Noows</h3>
-It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj">Chrome App</a>. I seems to be free.
+It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj">Chrome App</a>. It seems to be free.
 
 <figure class="aligncenter">
             <a href="../images/2013/03/goodnoows-300x183.png"><img src="../images/2013/03/goodnoows-300x183.png" alt="Good Noows" style="max-width:300px;max-height:183px" class="size-medium wp-image-61291"/></a>

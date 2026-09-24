@@ -31,8 +31,67 @@ table.wikitable th, table.wikitable td { text-align: center; padding: 0.25em 0.5
 .hintergrundfarbe8 { background-color: color-mix(in srgb, #ffebad 45%, transparent); }
 .hintergrundfarbe9 { background-color: color-mix(in srgb, #b9ffc5 45%, transparent); }
 
-div.question { background: var(--surface-sunk); padding: 0.8rem 1rem 0.1rem; margin-bottom: 0.8rem; border-radius: var(--r-sm); }
-div.answer { background: var(--accent-soft); padding: 0.5rem 1rem 0; margin-bottom: 0.5rem; border-radius: var(--r-sm); }
+/* Exam questions: <details class="question"><summary>Q</summary><div class="answer">A</div></details>.
+   The answer stays hidden until the reader opens the question (native <details>, no JavaScript).
+   The summary stays a block so inline markup and MathJax in the question flow as normal text. */
+details.question {
+    margin: 0 0 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+details.question[open] { box-shadow: var(--shadow); }
+details.question > summary {
+    position: relative;
+    display: block;
+    padding: 0.75rem 3.5rem 0.75rem 1.1rem;
+    border-radius: calc(var(--r-sm) - 1px);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+details.question > summary::-webkit-details-marker { display: none; }
+details.question > summary:focus-visible { outline-offset: -3px; }
+/* Round button on the right, centred on the first line of the question, with a chevron in it. */
+details.question > summary::before,
+details.question > summary::after {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    top: calc(0.75rem + 0.5lh - 0.875rem);
+    right: 0.9rem;
+    width: 1.75rem;
+    height: 1.75rem;
+}
+details.question > summary::before {
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+    transition: background 0.15s;
+}
+details.question > summary::after {
+    background: var(--accent-strong);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 1rem no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 1rem no-repeat;
+    transition: transform 0.2s, background 0.15s;
+}
+@media (hover: hover) {
+    details.question:hover { border-color: var(--hairline-strong); }
+    details.question > summary:hover::before { background: var(--accent); }
+    details.question > summary:hover::after { background: var(--on-accent); }
+}
+details.question[open] > summary::after { transform: rotate(180deg); }
+details.question > div.answer {
+    padding: 0.85rem 1.1rem;
+    border-top: 1px solid var(--hairline);
+    animation: answer-reveal 0.2s ease-out;
+}
+details.question > div.answer > :last-child { margin-bottom: 0; }
+@keyframes answer-reveal { from { opacity: 0; transform: translateY(-0.25rem); } }
+@media (prefers-reduced-motion: reduce) {
+    details.question > div.answer { animation: none; }
+    details.question > summary::after { transition: none; }
+}
 
 .smallCaps { font-variant: small-caps; }
 span.hint { border-bottom: 1px dotted var(--ink-muted); }

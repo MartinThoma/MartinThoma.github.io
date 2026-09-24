@@ -88,11 +88,11 @@ private void myBoardAction(Player player, int xDir, int yDir) {
 }
 ```
 
-What's so special about it? Well, note how the `xDir` and `yDir` parameters change the behavior of the method. If you want to move only to the right, you will call `myBoardAction(player, 1, 0)`. If you want to go to the top left, you will call `myBoardAction(player, -1, 1)`. Of course, you can't simply take this piece of code and only change `doXYZ()` and `checkXYZ`. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.
+What's so special about it? Well, note how the `xDir` and `yDir` parameters change the behavior of the method. If you want to move only to the right, you will call `myBoardAction(player, 1, 0)`. If you want to go to the top left, you will call `myBoardAction(player, -1, 1)`. Of course, you can't simply take this piece of code and only change `doXYZ()` and `checkXYZ`. You will have to change the starting and end position and maybe add a break. But this thought can be applied to board games quite nice.
 
 Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.
 
-Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:
+Ah, and if you want to check a condition for all diagonals, horizontals and verticals of the whole board, you can call it like this:
 
 ```java
 myBoardAction(player, 1, 1); // top right

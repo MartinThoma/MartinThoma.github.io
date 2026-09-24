@@ -171,7 +171,7 @@ set and the testing set. Then it will build a very simple neural network called
 a *Multilayer Perceptron* (MLP) with three layers: an input layer, a hidden
 layer and an output layer.
 
-After creating it, the MLP will be trained with the backpropagation algorithm.
+After creating it, the MLP will be trained with the [backpropagation algorithm](../gradient-descent-delta-rule-backpropagation/).
 Every training step is followed by an evaluation step.
 
 By the way, [`numpy.ravel`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html)

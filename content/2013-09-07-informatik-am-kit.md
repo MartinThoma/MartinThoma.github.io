@@ -11,7 +11,7 @@ featured_image: 2011/10/KIT-Logo.png
 ---
 Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich über Karlsruhe erzählen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?
 
-Leider denke ich nicht, das ich wirklich gut darüber schreiben dann, da ich nur &bdquo;Informatik I&ldquo; an der Uni Augsburg gehört habe.  Sonst war ich nur am KIT. Auch über Karlsruhe kann ich nicht so viel erzählen, wie man sich vielleicht denkt. Ich bin meistens am studieren. Daher habe ich von Karlsruhe außerhalb der Innenstadt bisher wenig gesehen.
+Leider denke ich nicht, dass ich wirklich gut darüber schreiben kann, da ich nur &bdquo;Informatik I&ldquo; an der Uni Augsburg gehört habe.  Sonst war ich nur am KIT. Auch über Karlsruhe kann ich nicht so viel erzählen, wie man sich vielleicht denkt. Ich bin meistens am Studieren. Daher habe ich von Karlsruhe außerhalb der Innenstadt bisher wenig gesehen.
 
 Ein paar Anhaltspunkte könnte die <a href="https://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">Wikipediaseite des KIT</a> sowie die <a href="http://www.einstieg-informatik.de/index.php?article_id=162&hid=55">einstieg-informatik.de-Seite</a> geben.
 
@@ -19,7 +19,7 @@ Genug allgemeines bla-bla. Nun lasse ich die Disclaimer-Sätze (meinem Eindruck 
 
 <h2>Das Studium</h2>
 <h3>Allgemeines</h3>
-Die Regelstudienzeit des Bachelor-Informatik-Studium beträgt 6 Semester und 180 <a href="https://de.wikipedia.org/wiki/European_Credit_Transfer_System">ECTS</a>. Davon sind 15 ECTS für die Bachelor-Arbeit, 6 ECTS für Softskills (z.B. Sprachkurse und verpflichtent 2 ECTS für Teamarbeit in der Softwareentwicklung) und folgende Plicht-Kurse vorgesehen:
+Die Regelstudienzeit des Bachelor-Informatik-Studium beträgt 6 Semester und 180 <a href="https://de.wikipedia.org/wiki/European_Credit_Transfer_System">ECTS</a>. Davon sind 15 ECTS für die Bachelor-Arbeit, 6 ECTS für Softskills (z.B. Sprachkurse und verpflichtent 2 ECTS für Teamarbeit in der Softwareentwicklung) und folgende Pflicht-Kurse vorgesehen:
 
 <table>
   <tr>
@@ -156,7 +156,7 @@ Ich habe &bdquo;<a href="../klausur-analysis-i-und-ii/">Analysis I+II</a>&ldquo;
 
 Wie ihr nun erkannt haben werdet, bleiben $180 - 124 - 6 = 50$ übrig. Da ich die Mathematiker-Kurse gemacht habe (die jeweils 9 ECTS anstelle von 5 und 4 geben), bei mir sogar nur 41 ECTS. Davon muss man zwei Stammmodule für jeweils 6 ECTS machen. Dann sind es nur noch $50-2 \cdot 6 = 38$ ECTS.
 
-Die Praxis der Softwareentwicklung (PSE) ist übrigens eine tolle Sache am KIT-Informatik-Studium. Dort sucht man sich aus einer vorgegebenen Auswahl an Projekten eines aus. Dieses bearbeitet man in einer Gruppe von 5 Studenten für ein halbes Jahr. Ich habe an einem Projekt des Frauenhofer Instituts gearbeitet, das sich UpToDatE (Upload automation and data entry) nannte. Mal schauen, vielleicht schreibe ich mal etwas darüber.
+Die Praxis der Softwareentwicklung (PSE) ist übrigens eine tolle Sache am KIT-Informatik-Studium. Dort sucht man sich aus einer vorgegebenen Auswahl an Projekten eines aus. Dieses bearbeitet man in einer Gruppe von 5 Studenten für ein halbes Jahr. Ich habe an einem Projekt des Fraunhofer Instituts gearbeitet, das sich UpToDatE (Upload automation and data entry) nannte. Mal schauen, vielleicht schreibe ich mal etwas darüber.
 
 <h3>Stammmodule</h3>
 <ul>
@@ -173,7 +173,7 @@ Die Praxis der Softwareentwicklung (PSE) ist übrigens eine tolle Sache am KIT-I
 <h3>Proseminare</h3>
 Die Informatik-Proseminare sind leider sehr schlecht organisiert. Ich habe auf GitHub ein öffentliches Repository, wo ihr hoffentlich <a href="https://github.com/MartinThoma/kit/tree/master/Informatik/Proseminare">aktuelle Informationen über Info-Proseminare</a> finden (bzw. auch eintragen) könnt.
 
-<h3>Softstkills</h3>
+<h3>Softskills</h3>
 Von den 6 ECTS für Softskills sind ja schon 2 verpflichtend in Teamarbeit für die Softwareentwicklung (TSE - gehört zu PSE). Das ist nur ein Kniff mit dem Modulhandbuch, weil man wohl kein Stammmodul mit 8 ECTS machen konnte / wollte, also hat man PSE mit 6 ECTS und 2 ECTS für TSE. Praktisch bedeutet PSE auch so viel Arbeit, dass 8 ECTS angebracht sind (eher sogar mehr) und man muss im Team arbeiten. Man bekommt die Punkte also nicht geschenkt, aber man muss auch nichts außerhalb von PSE dafür machen.
 
 Von den 4 übrigen Punkten kann man sich aus vielen interessanten <a href="http://www.hoc.kit.edu/lehrangebot.php">Kursen des HOC</a> etwas aussuchen, z.B. <a href="http://www.spz.kit.edu/">Kurse des Sprachenzentrums</a>. Diese sind deutlich besser als die Sprachkurse in der Schule. Ich habe mich für <a href="http://www.spz.kit.edu/englisch.php#List">English C1: Advanced</a> entschieden. Da ich aber auch ein Tutorium gehalten habe (was 4 ECTS und 8,67 Euro/Stunde gibt), hätte ich das nicht machen müssen. Der Kurs war aber so toll, dass ich es nicht bereue.
@@ -205,14 +205,14 @@ Es ist am KIT als Informatiker übrigens sehr leicht eine HiWi-Stelle zu finden.
 <h3>Ergänzungsfächer</h3>
 Man kann am KIT aus einer Fülle von <s>Nebenfächern</s> Ergänzungsfächern wählen:
 <ul>
-  <li>Elektro- und Informtionstechnik</li>
+  <li>Elektro- und Informationstechnik</li>
   <li>Maschinenbau</li>
   <li>Mathematik</li>
   <li>Physik</li>
   <li>Grundlagen des Rechts</li>
   <li>Volkswirtschaftslehre</li>
   <li>Betriebswirtschaftslehre</li>
-  <li>Operation Research</li>
+  <li>Operations Research</li>
 </ul>
 
 Auf Anfrage kann man aber wohl noch weitere machen. So studiert ein Bekannter in Richtung Medizinische Bildgebungsverfahren einiges.
@@ -255,16 +255,16 @@ Der Campus ist zusammenhängend. Das, was als &bdquo;Campus Nord&ldquo; bezeichn
 
 <h3>FAQ</h3>
 <ul>
-  <li><strong>Frage</strong>: Ich kann nich programmieren. Ist das schlimm?
+  <li><strong>Frage</strong>: Ich kann nicht programmieren. Ist das schlimm?
       <strong>Antwort</strong>: Nein! Am KIT lernt man alles von Grund auf. In &bdquo;Programmieren&ldquo; lernt man Java, in &bdquo;Betriebssysteme&ldquo; grundlegendes C, in &bdquo;PSE&ldquo; - je nach dem was man macht - C++, Java, C#, in &bdquo;SWT I&ldquo; grundlagen über paralleles Programmieren mit Java.</li>
-  <li><strong>Frage</strong>: Wie Praxisnah ist das Studium?
+  <li><strong>Frage</strong>: Wie praxisnah ist das Studium?
       <strong>Antwort</strong>: Kommt darauf an, was man später machen will und was man als Vergleich nimmt. Vermutlich sind die Fachhochschulen näher an der Praxis, wenn man auf reines Programmieren hinaus will. Aber wenn ihr einfach nur im Beruf programmieren wollt, müsst ihr nicht studieren. Vielleicht macht dann eine Ausbildung mehr Sinn.</li>
   <li><strong>Frage</strong>: Was lernt man in der Informatik, wenn nicht Programmieren?
      <strong>Antwort</strong>: Vieles. Algorithmen und Datenstrukturen, wie genau ein Rechner von einzelnen Transistoren, über Schaltungen, Schaltwerke, Maschinencode und Assembler funktioniert, was theoretische Berechnungsmodelle sind, was überhaupt berechenbar ist, wie Computer lernen können, wie man mit Ungenauigkeit in Berechnungen umgeht, wie man Programme/Probleme sinnvoll strukturiert, was Sicherheit in der Informatik ist und wie man verschiedene Sicherheitsbegriffe zeigen kann...</li>
    <li><strong>Frage</strong>: Was ist charakteristisch für die Informatik am KIT?
        <strong>Antwort</strong>: Das KIT hat eine große Informatik-Fakultät. Wenn man hier Informatik zu studieren beginnt, kann man sich in alle (oder zumindest viele) Richtungen weiterentwickeln. Außerdem ist das Informatik-Studium am KIT sehr Mathematik-lastig.</li>
    <li><strong>Frage</strong>: Ich würde gerne XYZ lernen, aber das steht nicht im Modulhandbuch. Kann ich das trotzdem am KIT lernen?
-       <strong>Antwort</strong>: Es gibt einen E-Mail-Verteiler für Studenten. Dort kann man einfach mal fragen, ob andere auch interesse daran haben. Außerdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
+       <strong>Antwort</strong>: Es gibt einen E-Mail-Verteiler für Studenten. Dort kann man einfach mal fragen, ob andere auch Interesse daran haben. Außerdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
 </ul>
 
 <h2>Karlsruhe</h2>

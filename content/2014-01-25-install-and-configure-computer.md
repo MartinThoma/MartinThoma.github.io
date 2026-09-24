@@ -146,4 +146,4 @@ Bigger sites:
 And some specific ones:
 
 * Mac: [McMojave](https://www.pling.com/p/1275087/)
-* [Balanzan](https://martin-thoma.com/balanzan-theme/)
+* [Balanzan](../balanzan-theme/)

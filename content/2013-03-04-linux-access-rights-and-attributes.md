@@ -24,7 +24,7 @@ chmod +x
 ```
 
 
-When you want to mark a file as readable, you can dd the r-right:
+When you want to mark a file as readable, you can add the r-right:
 
 ```bash
 chmod +r
@@ -44,7 +44,7 @@ Now, often this is expressed numerically. Three bits determine if the file is re
 rwx has a meaning for folders, too:
 <ul>
   <li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
-  <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
+  <li><strong>W</strong>rite: you need this to create new files / folders in the directory</li>
   <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
 </ul>
 
@@ -104,7 +104,7 @@ moose@pc07:/etc$ ls -l | grep shadow$
 
 Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.
 
-The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.
+The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something as the group of the file, you set the SGID bit.
 
 The sticky bit seems to be used for programs to stick in memory after it was finished.
 
@@ -124,7 +124,7 @@ chmod 1777 testfile
 <h3>Folders</h3>
 <ul>
   <li>suid: is ignored on UNIX and Linux systems</li>
-  <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
+  <li>sgid: new files and subdirectories created within this folder inherit the folder's group ID</li>
   <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
 </ul>
 

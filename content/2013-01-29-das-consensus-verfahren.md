@@ -18,7 +18,7 @@ Dazu baut man eine Tabelle auf. Ich nenne sie mal Consensus-Tabelle. Diese hat 4
   <li>Gestrichen wegen</li>
 </ul>
 
-Nun ergibt jeder Minterm der DNF eine Zeile in der Consensus-Tabelle. Die Reihenfolge ist dabei egal. Die Nr. wird fortlaufend von 1 an gesetzt, die Spalte &bdquo;Gebildet aus&ldquo; bleibt erst mal leer. Nun zieht man eine Linie, um die folgenden Zeilen abzutrennen. Diesen abgetrennten Teil nennen ich nun &bdquo;Block&ldquo;.
+Nun ergibt jeder Minterm der DNF eine Zeile in der Consensus-Tabelle. Die Reihenfolge ist dabei egal. Die Nr. wird fortlaufend von 1 an gesetzt, die Spalte &bdquo;Gebildet aus&ldquo; bleibt erst mal leer. Nun zieht man eine Linie, um die folgenden Zeilen abzutrennen. Diesen abgetrennten Teil nenne ich nun &bdquo;Block&ldquo;.
 
 Man vergleicht nun jede Zeile mit den darüber liegenden Zeilen.
 <ul>

@@ -18,7 +18,7 @@ I've just seen the following image on spikedmath.com:
 
 The second answers seem to be obviously the correct ones, right? Wrong.
 
-According to <a href="http://en.wikipedia.org/wiki/Heron%27s_formula">Heron's formula</a> you can calculate a triangles area like this:
+According to <a href="http://en.wikipedia.org/wiki/Heron%27s_formula">Heron's formula</a> you can calculate a triangle's area like this:
 
 Let $a, b, c$ be the side lengths of the triangle.
 $s := \frac{a+b+c}{2}$

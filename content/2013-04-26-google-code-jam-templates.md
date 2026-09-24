@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Google Code Jam Templates
 slug: google-code-jam-templates
+lang: en
 author: Martin Thoma
 date: 2013-04-26 11:17:35.000000000 +02:00
 category: Code
-tags: Python, PHP, C, Java, Google Code Jam
+tags: Python, PHP, CPP, Java, Google Code Jam
 featured_image: 2012/04/code-jam-logo.png
 ---
 Here are some templates that are a good start for Google Code Jam.
@@ -78,7 +78,7 @@ python A.py < A-small-practice.in > result.txt
 ```
 
 <h2>Java</h2>
-This is an ajusted version of mystics solution for "Dancing with Googlers". You might want to take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html">Scanner</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html">PrintWriter</a>.
+This is an adjusted version of mystics solution for "Dancing with Googlers". You might want to take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html">Scanner</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html">PrintWriter</a>.
 
 ```java
 

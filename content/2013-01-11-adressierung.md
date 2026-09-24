@@ -14,7 +14,7 @@ tags: OS, Operating Systems, Computer Science
 CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.
 
 Eine Möglichkeit das zu machen, ist ein sog. &bdquo;direct mapped
-cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch
+cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zusätzlich noch
 schnell von der Hardware umgesetzt werden können muss. Also unterteilt man
 gedanklich die Hauptspeicheradressen in 3 Teile:
 <ul>
@@ -74,7 +74,7 @@ Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ 
 </ol>
 
 <h2>Physical address and virtual address</h2>
-Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
+Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretisch mehr Speicher braucht als an Hauptspeicher zur Verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
 Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.
 
 Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:
@@ -85,15 +85,15 @@ Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollt
 </ul>
 
 ## Cache-Modelle
-Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:
+Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktioniert, geht es wie folgt weiter:
 
 ### Physically Indexed, Physically Tagged
-Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.
+Hier wird der Index und der Tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.
 
 ### Virtually indexed, physically tagged
-Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag überprüfen kann.
+Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den Tag überprüfen kann.
 
-<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugehörige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun müsste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der Index sind die Ziffern [4,6] also 456. Die zugehörige physische Adresse sei 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun müsste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 
 ### Physically Indexed / Virtually Tagged
 Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.

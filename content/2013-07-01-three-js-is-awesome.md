@@ -85,7 +85,7 @@ They all worked smooth on my Notebook (<a href="http://ark.intel.com/products/50
             <figcaption class="text-center">PlanetMaker</figcaption>
         </figure>
 
-<a href="http://planetmaker.wthr.us/?model=51b8d1021fef93.32065956">Demonstration</a> - takes ages to load, but when its loaded it is fast
+<a href="http://planetmaker.wthr.us/?model=51b8d1021fef93.32065956">Demonstration</a> - takes ages to load, but when it's loaded it is fast
 
 <h2>See also</h2>
 <ul>

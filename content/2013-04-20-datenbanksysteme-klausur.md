@@ -101,18 +101,18 @@ values ('Alice', 90)
 
 
 ## Fragen
-<div class="question">
-<span class="question">Was ist der Unterschied zwischen einem DBS und einem DBMS?</span>
+<details class="question">
+<summary>Was ist der Unterschied zwischen einem DBS und einem DBMS?</summary>
 <div class="answer">
 Ein <abbr title="Datenbankmanagementsystem">DBMS</abbr> ist eine Software zur Datenverwaltung. Die eigentlichen Daten sind in der Datenbank.
 Ein <abbr title="Datenbanksystem">DBS</abbr> ist eine DBMS und eine Datenbank.
 
 Ein DBMS kann mehrere Datenbanken verwalten.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Sei $H = r_1[y] w_1[x] r_3[x] w_1[z] r_2[z] w_3[y] r_2[x] w_2[y] c1 r_3[y] c_3 w_2[z] c_2$.<br/>Welche Transaktionen sind in dieser History?</span>
+<details class="question">
+<summary>Sei $H = r_1[y] w_1[x] r_3[x] w_1[z] r_2[z] w_3[y] r_2[x] w_2[y] c1 r_3[y] c_3 w_2[z] c_2$.<br/>Welche Transaktionen sind in dieser History?</summary>
 <div class="answer">
 <ul>
   <li>Ein Eintrag $r_i[x]$ bedeutet, dass die Transaktion $i$ die Ressource $x$ liest.</li>
@@ -123,7 +123,7 @@ Ein DBMS kann mehrere Datenbanken verwalten.
 Es gibt also die Transaktion $T_1, T_2 \text{ und } T_3$ mit
 $T_1 = r_1[y] w_1[x] c_1$
 </div>
-</div>
+</details>
 
 
 ## Material
@@ -169,8 +169,8 @@ Es gibt nur ein "Übungsblatt" mit Bonuspunkten für die Klausur. Auf dieses bez
 
 Ein paar interessante Informationen zum Blatt:
 
-<div class="question">
-<span class="question">Was ist mit "Brute-Force-Ansätze" in der Aufgabenstellung gemeint?</span>
+<details class="question">
+<summary>Was ist mit "Brute-Force-Ansätze" in der Aufgabenstellung gemeint?</summary>
 <div class="answer">
 Antwort von Herrn Keller:
 
@@ -178,12 +178,12 @@ Bei Anfragen, die nur eine Anzahl in der Projektionsliste erwarten, können sie 
 
 <code>SELECT <korrekte_Anzahl> FROM <irgendeiner_Tabelle></code>
 
-das korrekte Ergebnistupel durch ausprobieren herausbekommen. Im Portal wird das zunächst als "korrekt" bewertet, allerdings werden wir das im Nachhinein filtern.
+das korrekte Ergebnistupel durch Ausprobieren herausbekommen. Im Portal wird das zunächst als "korrekt" bewertet, allerdings werden wir das im Nachhinein filtern.
 </div>
-</div>
+</details>
 
-<div class="question">
-<span class="question">Wie kann man bei der ORACLE-Datenbank die Anzahl der ausgegebenen Zeilen beschränken (LIMIT)?</span>
+<details class="question">
+<summary>Wie kann man bei der ORACLE-Datenbank die Anzahl der ausgegebenen Zeilen beschränken (LIMIT)?</summary>
 <div class="answer">
 
 ```sql
@@ -196,11 +196,11 @@ WHERE ROWNUM <= 5
 ```
 
 </div>
-</div>
+</details>
 
 Ein bisschen was zu <a href="http://en.wikipedia.org/wiki/Join_(SQL)">JOIN</a> sollte man sich durchlesen.
 
-Ich habe übrigens das folgende Captcha bekomme:
+Ich habe übrigens das folgende Captcha bekommen:
 
 <figure class="aligncenter">
             <a href="../images/2013/04/captcha-db.png"><img src="../images/2013/04/captcha-db.png" alt="Datenbanksysteme - Captcha" style="max-width:293px;max-height:221px" class="size-full wp-image-70581"/></a>

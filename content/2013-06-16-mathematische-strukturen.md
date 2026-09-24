@@ -160,7 +160,7 @@ Außerdem sei
 
 $\cdot_V: K \times V \rightarrow V$
 
-eine <strong>skalalre Multiplikation</strong>.
+eine <strong>skalare Multiplikation</strong>.
 
 $(V, K, \cdot_V)$ heißt <strong>$K$-Vektorraum</strong> $:\Leftrightarrow \forall \lambda, \mu \in K \; x,y \in V:$
 <ul>
@@ -173,7 +173,7 @@ $(V, K, \cdot_V)$ heißt <strong>$K$-Vektorraum</strong> $:\Leftrightarrow \fora
 
 Beispiele:
 <ul>
-  <li>$(\mathbb{R}[X], \mathbb{R}, \cdot_V)$: Der Vektorraum der polynome mit Koeffizienten aus $\mathbb{R}$.</li>
+  <li>$(\mathbb{R}[X], \mathbb{R}, \cdot_V)$: Der Vektorraum der Polynome mit Koeffizienten aus $\mathbb{R}$.</li>
 </ul>
 
 <h2>Weitere</h2>
@@ -200,7 +200,7 @@ Beispiele:
 <h3>Integritätsring</h3>
 <div class="definition">Es sei $R$ ein vom Null-Ring verschiedener Ring.
 
-$R$ heißt integritätsring $:\Leftrightarrow R$ ist kommuativ und Nullteilerfrei.</div>
+$R$ heißt Integritätsring $:\Leftrightarrow R$ ist kommutativ und Nullteilerfrei.</div>
 
 Beispiele:
 <ul>
@@ -234,7 +234,7 @@ $I$ heißt Ideal $:\Leftrightarrow$
 
 Beispiele:
 <ul>
-  <li>Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring$(\mathbb{Z}, +, \cdot)$.</li>
+  <li>Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring $(\mathbb{Z}, +, \cdot)$.</li>
 </ul>
 
 <h3>Hauptideal</h3>

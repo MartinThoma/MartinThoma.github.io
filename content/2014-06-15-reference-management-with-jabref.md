@@ -14,7 +14,7 @@ cite is a task you will have to tackle when you're writing your thesis. One
 way to store information is via BibTeX files.
 
 BibTeX is reference management software that is used together with LaTeX.
-If you're new to BibTeX or references in LaTeX in general, you could read the
+If you're new to BibTeX or [references in LaTeX](../citations-with-latex/) in general, you could read the
 following articles:
 
 * [bibtex vs. biber and biblatex vs. natbib](http://tex.stackexchange.com/q/25701/5645)

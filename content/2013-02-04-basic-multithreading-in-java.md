@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-02-04 00:44:11.000000000 +01:00
 category: Code
-tags: Bash, Java, Operating Systems, Multithreading, Computer Science
+tags: Bash, Java, Multithreading, Computer Science
 featured_image: 2013/02/multithreading.png
 ---
 A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.
@@ -17,7 +17,7 @@ There are two ways to execute your code on multiple cores: Multiprocessing and m
   <li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
 </ul>
 
-In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.
+In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes with <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.
 
 <h2>Java Basics for Multithreading</h2>
 All important lessons you need to learn are covered in <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">Java Concurrency Tutorial</a>. If you're really interested in multithreading, you should read this.
@@ -120,7 +120,7 @@ Now you could get this execution order:
   <li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
   <li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
   <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
-  <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
+  <li>Thread 1: Finishes its execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
 </ul>
 
 Ok, we can obviously get values in $[\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$.
@@ -150,12 +150,12 @@ Usually, you don't want to get different results when you give the same input to
 <h2>Playing with BASH</h2>
 If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:
 <ul>
-  <li>$1: The number of times you execute a the program with a fixed number of THREADS</li>
+  <li>$1: The number of times you execute the program with a fixed number of THREADS</li>
   <li>$2: The maximum number of THREADS you would like to use</li>
   <li>$3: BIG_NR</li>
 </ul>
 
-The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.
+The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occurred.
 
 ```bash
 

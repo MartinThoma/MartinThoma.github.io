@@ -35,9 +35,9 @@ Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geb
 Sei $f$ eine kollisionsresistente Hashfunktion
 <u>Annahme</u>: $f$ ist keine Einwegfunktion
 
-Dann existiert ein Angreifer $\mathcal{A}$, der für eine Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.
+Dann existiert ein Angreifer $\mathcal{A}$, der für ein Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.
 
-Der Angreifer $\mathcal{B}$ macht nichts anderes, als zufällig Werte $x \in \{0,1\}^{2k}$ zu wählen, $f(x)$ zu berechnen, den Angreifer $\mathcal{A}$ auf $f(x)$ anzuwenden und zu überprüfen, ob das von $\mathcal{A}$ gelieferte $x' \neq x$ ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.
+Der Angreifer $\mathcal{B}$ macht nichts anderes, als zufällig Werte $x \in \{0,1\}^{2k}$ zu wählen, $f(x)$ zu berechnen, den Angreifer $\mathcal{A}$ auf $f(x)$ anzuwenden und zu überprüfen, ob das von $\mathcal{A}$ gelieferte $x' \neq x$ ist. Sobald das einmal der Fall ist, hat der Angreifer gewonnen.
 
 Nun wenden wir $f$ auf $x \in \{0,1\}^{2k}$ an. Es gilt:
 
@@ -47,8 +47,8 @@ Die $2^k$ im Zähler stehen für die Funktionswerte und die $2^{2k}$ für die Ur
 
 Nun ist $\frac{1}{2^k}$ eine vernachlässigbare Funktion.
 
-$\Rightarrow$ Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachlässigbar.
+$\Rightarrow$ Die Wahrscheinlichkeit, dass wir keine Kollision finden ist vernachlässigbar.
 
 $\Rightarrow$ Mit signifikanter Wahrscheinlichkeit hat $f(x)$ $k \geq 2$ Urbilder.
 
-$\Rightarrow$ Die Wahrscheinlichkeit, dass $\mathcal{B}$ Kollisionen findet ist etwa $(1-\frac{1}{k}) \cdot m$, wobei $m$ die Anzahl der Widerholungen ist.
+$\Rightarrow$ Die Wahrscheinlichkeit, dass $\mathcal{B}$ Kollisionen findet ist etwa $(1-\frac{1}{k}) \cdot m$, wobei $m$ die Anzahl der Wiederholungen ist.

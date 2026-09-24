@@ -20,7 +20,7 @@ I want to back up one computer with at least 200 GB which I don't need to access
 
 A backup service should include software, that …
 <ul>
-  <li>… allows me to configurate upload / dowload bandwidth limts</li>
+  <li>… allows me to configure upload / download bandwidth limits</li>
   <li>… should integrate into my <abbr title="operating system">os</abbr> in such a way that it feels like using a hard disk</li>
   <li>… lets me upload files of sizes up to 5 GB</li>
   <li>… uploads in background automatically as soon as my notebook gets an internet connection</li>
@@ -137,14 +137,14 @@ What could go wrong?
 
 <h2>Offline</h2>
 <h3>RAID</h3>
-All <a href="http://en.wikipedia.org/wiki/RAID">RAID</a> levels (except for RAID 0) offer redundancy. This means, they store data on more than one hard disk. This way, you can restore data after on (or if maybe more) hard disk crashes. But this is by no mean a guarantee that your data is secure.
+All <a href="http://en.wikipedia.org/wiki/RAID">RAID</a> levels (except for RAID 0) offer redundancy. This means, they store data on more than one hard disk. This way, you can restore data after one (or maybe more) hard disk crashes. But this is by no means a guarantee that your data is secure.
 
 It's recommended to use RAID with a RAID controller (a dedicated piece of hardware). Otherwise, you need some software that does it and your CPU time gets wasted with these operations.
 
 What could go wrong:
 <ul>
   <li>One disk fails. You buy a new one to get security back, the RAID controller copies information to the new disk that replaced the crashed one. While it copies, the other disk gets heavy load. This heavy load might lead to another crash. Boom. Your data is lost.</li>
-  <li>Your computer might get damaged (e.g. by a fire, by an earthquake, by overvoltage, by a cup of tea you accidentally threw over it, by an <a href="//www.youtube.com/watch?v=HtTUsOKjWyQ">act of agression</a>)</li>
+  <li>Your computer might get damaged (e.g. by a fire, by an earthquake, by overvoltage, by a cup of tea you accidentally threw over it, by an <a href="//www.youtube.com/watch?v=HtTUsOKjWyQ">act of aggression</a>)</li>
   <li>A burglar would probably steal all hardware you have at home.</li>
 </ul>
 
@@ -170,5 +170,5 @@ You could probably also make an external HDD raid.
 <h2>See also</h2>
 <ul>
   <li><a href="http://www.marco.org/2010/11/20/instapapers-backup-method">Instapaper&rsquo;s backup method</a></li>
-  <li><a href="https://martin-thoma.com/file-compression/">File compression</a></li>
+  <li><a href="../file-compression/">File compression</a></li>
 </ul>

@@ -9,7 +9,7 @@ category: Code
 tags: C, OS, Linux
 featured_image: 2013/03/long-path-thumb.png
 ---
-Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:
+Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folder's contents would fail before. So I've created the following C-Snippet to test it:
 
 ```c
 #include <sys/stat.h>
@@ -70,7 +70,7 @@ sys	0m0.180s
 
 ```
 
-Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal
+Ok, something went wrong at the end. Let's see what crashes when I enter this path in Gnome terminal
 
 ```bash
 
@@ -102,7 +102,7 @@ length of pathname	: 4096
 ```
 
 <h2>Number of directories in one directory</h2>
-Do you know how many folders can fit into one folder? Well, lets find out:
+Do you know how many folders can fit into one folder? Well, let's find out:
 
 ```c
 

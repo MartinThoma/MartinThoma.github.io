@@ -17,7 +17,7 @@ To improve Blender, they have created movies. In that process, developers and
 movie makers sat in one room. So when the movie makers had a problem or discovered
 a bug, the developers could see and eventually fix that.
 
-By now, they have created four short movies. These movies are DRM-free, free to
+By now, they have created [four short movies](../blender-open-movies/). These movies are DRM-free, free to
 use and ... well, you can basically do what you want with them:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4?list=PL6B3937A5D230E335" frameborder="0" allowfullscreen></iframe>

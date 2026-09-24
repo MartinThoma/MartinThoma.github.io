@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 <div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.
 
-I wrote this when I did not know much about packaging. I wrote a tutorial on <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>
+I wrote this when I did not know much about packaging. I wrote a tutorial on <a href="../python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="../python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>
 
 The following article is a wrap-up of the talk [Python Packages](https://www.youtube.com/watch?v=MSs3QmHhvpE)
 by Daniel Hepper, given at the German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
@@ -51,8 +51,8 @@ don't use distribute, use setuptools.
 
 ## PIP and Creating packages
 
-See [Python Packaging Course](https://martin-thoma.com/python-packaging-course/)
+See [Python Packaging Course](../python-packaging-course/)
 
 ## Environments
 
-See [Virtual Environments](https://martin-thoma.com/virtual-environments/)
+See [Virtual Environments](../virtual-environments/)

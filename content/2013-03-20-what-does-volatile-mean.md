@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: What does volatile mean?
 slug: what-does-volatile-mean
+lang: en
 author: Martin Thoma
 date: 2013-03-20 22:19:41.000000000 +01:00
 category: Code
@@ -36,7 +36,7 @@ that field.</blockquote>
 
 <blockquote>For the purposes of the Java programming language memory model, a single write to a non-volatile long or double value is treated as two separate writes: one to each 32-bit half. This can result in a situation where a thread sees the first 32 bits of a 64-bit value from one write, and the second 32 bits from another write. Writes and reads of volatile long and double values are always atomic.</blockquote>
 
-<h2>When do you need it volatile?</h2>
+<h2>When do you need volatile?</h2>
 <div class="warning">I'm not sure if it is correct what I write here. It makes sense, but please leave a note in comments when I'm wrong.</div>
 
 <h3>Thermometer</h3>
@@ -66,12 +66,12 @@ int main() {
 Now, as you always access the same register and you don't change it, the CPU could cache the result. That would be bad, because another source (the hardware) changes the value. So you don't want to cache it. This is - if I understand it correctly - what volatile is good for. It makes sure that you really access memory and not some registers, because it got optimized or cached.
 
 <h3>I / O</h3>
-Imagine you write an application that want to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:
+Imagine you write an application that wants to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:
 
 <code>int register = 0;
 while(register == 0);</code>
 
-Now the register can get changed by the device, but it seems to be an obvious that you can optimize this to
+Now the register can get changed by the device, but it seems to be obvious that you can optimize this to
 
 <code>while(TRUE);</code>
 

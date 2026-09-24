@@ -151,6 +151,6 @@ By the way, you can check if a website is currently accessing your webcam (with 
 
 If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
 <figure class="aligncenter">
-            <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" style="max-width:180px;max-height:300px" class="size-medium wp-image-73191"/></a>
-            <figcaption class="text-center">Enamble Web-RTC in Chrome for Android</figcaption>
+            <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enable Web-RTC in Chrome for Android" style="max-width:180px;max-height:300px" class="size-medium wp-image-73191"/></a>
+            <figcaption class="text-center">Enable Web-RTC in Chrome for Android</figcaption>
         </figure>

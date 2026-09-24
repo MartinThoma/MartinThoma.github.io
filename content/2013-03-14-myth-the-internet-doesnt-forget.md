@@ -53,19 +53,19 @@ Let's see the stats:
       <td>Unfortunately, this SME-music-content is not available in Germany because GEMA has not granted the respective music publishing rights.</td>
     </tr>
     <tr>
-      <td><abbr title="Within Temptation - Running up that hill; Warlock - Für Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr></</td>
+      <td><abbr title="Within Temptation - Running up that hill; Warlock - Für Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr></td>
       <td>[...] UMG-music-content is not available in Germany because GEMA [...]</td>
     </tr>
     <tr>
-      <td><abbr title="Nickelback - Rockstar; Nickelback - Far Away">2 song</abbr></td>
+      <td><abbr title="Nickelback - Rockstar; Nickelback - Far Away">2 songs</abbr></td>
       <td>Unfortunately, this video is not available in Germany because it may contain music for which GEMA has not granted the respective music rights.</td>
     </tr>
     <tr>
-      <td><abbr title="Nightwish - Kinslayer; Wishmaster - The Misheard">2 songs</abbr></</td>
+      <td><abbr title="Nightwish - Kinslayer; Wishmaster - The Misheard">2 songs</abbr></td>
       <td>This video is not available in your country.</td>
     </tr>
     <tr>
-      <td><abbr title="I can't see the title of those clips.">11 song</abbr></td>
+      <td><abbr title="I can't see the title of those clips.">11 songs</abbr></td>
       <td>This video is no longer available because the YouTube account associated with this video has been terminated. </td>
     </tr>
     <tr>

@@ -6,12 +6,12 @@ lang: en
 author: Martin Thoma
 date: 2013-01-23 10:35:55.000000000 +01:00
 category: Code
-tags: Python, Java, Linear Algebra, Algorithms, Computer Science, Matrix Multiplication
+tags: Python, Java, Linear Algebra, Mathematics, Algorithms, Computer Science, Matrix Multiplication
 ---
 <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 
-The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
+The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeoff: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Let's see how the Strassen algorithm's execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
 
 <h2>The implementations</h2>
 As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times ☺
@@ -255,7 +255,7 @@ LEAF_SIZE	Time
 ```
 
 <h2>Java</h2>
-The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
+The Java-code is a little bit long and has three classes. I'll only paste the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
 
 ```java
 public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
@@ -701,16 +701,16 @@ int main (int argc, char* argv[]) {
 
 For C++, you get those user-times for the different leaf-sizes:
 <figure class="aligncenter">
-            <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++" style="max-width:500px;max-height:333px" class="size-full wp-image-54921"/></a>
-            <figcaption class="text-center">Execution times in seconds with differen leafsizes with C++</figcaption>
+            <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with different leafsizes with C++" style="max-width:500px;max-height:333px" class="size-full wp-image-54921"/></a>
+            <figcaption class="text-center">Execution times in seconds with different leafsizes with C++</figcaption>
         </figure>
 
 <h2>Conclusion</h2>
 As always, C++ is the fastest solution.
 
-I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.
+I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often and preferably visualize it.
 
-For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)
+For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why libraries perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)
 
 Leafsizes from 64 to 256 seem to be the best solution.
 

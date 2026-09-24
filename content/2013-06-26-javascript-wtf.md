@@ -341,7 +341,7 @@ Tue Nov 01 2016 00:00:00 GMT+0100 (CET)
 <strong>Explanation</strong>
 77 months and 154 days from the 0th day of 0th month of 2010
 
-You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as the later one returns <code>year - 1900</code> (Why? When is this useful?)
+You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as the latter one returns <code>year - 1900</code> (Why? When is this useful?)
 
 <h2>Integer overflow</h2>
 <strong>Example</strong>
@@ -357,7 +357,7 @@ console.log(111111111111111111111);
 ```
 
 <strong>Explanation</strong>
-It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application know when something went wrong?
+It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application when something went wrong?
 
 <h2>Function parameters</h2>
 <blockquote>In Javascript, declaring the parameters a function accepts is only a convenience to the programmer. All variables passed through the function call are accessible by the keyword <code>arguments</code>. So the following would alert "world":

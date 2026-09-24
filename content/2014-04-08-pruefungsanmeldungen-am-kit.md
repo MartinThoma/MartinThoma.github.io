@@ -12,7 +12,7 @@ featured_image: logos/kit.png
 <!-- <div class="info">This article is about an idea how to give students the
 possibility to prove that they were registered for an exam.</div> -->
 
-Gerade ist mir aufgefallen, dass ich nicht zur Prüfung "Programmierparadigmen"
+Gerade ist mir aufgefallen, dass ich nicht zur Prüfung "[Programmierparadigmen](../programmierparadigmen-klausur/)"
 angemeldet bin. Dabei war ich mir relativ sicher, mich sogar am ersten Tag
 angemeldet zu haben, als die Anmeldung freigeschaltet wurde.
 
@@ -66,7 +66,7 @@ Diese E-Mail soll Folgendes beinhalten:
 * Das Datum der E-Mail.
 
 Diese E-Mail soll mit einem offiziellen KIT-Schlüssel signiert werden.
-Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:
+Dies könnte z.B. mit [PGP](../gpg/) gemacht werden und würde dann etwa so aussehen:
 
 > -----BEGIN PGP SIGNED MESSAGE-----<br/>
 > Hash: SHA1<br/>

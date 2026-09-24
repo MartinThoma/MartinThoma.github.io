@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-05-16 08:52:54.000000000 +02:00
 category: Code
-tags: C, STL, Data Structures, Computer Science
+tags: CPP, STL, Data Structures, Computer Science
 featured_image: 2012/05/CPP-thumb.png
 ---
 Maps are one of the most useful datastructures in C++ and there is no excuse for not knowing it.
