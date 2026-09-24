@@ -258,55 +258,123 @@ sind:
 
 ### Prüfungsfragen
 
-* Warum ist ein hochdimensionaler Merkmalsraum schlecht
-  ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?
-  - Je nach Klassifikator, viele zu lernende Parameter
-  - Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings
-* Wie kann man die Dimension des Merkmalsraumes reduzieren?<br/>
-  → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
-  (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
-* Wie viele Möglichkeiten gibt es, 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
-* Was ist Overfitting?<br/>
-  → Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
-* Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
-  - Unterschiedliche Einheiten (→ Entdimensionalisieren)
-  - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
-  - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
-* Wie funktioniert MDA?<br/>
-  → Sie maximiert <span markdown=0>$J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}$</span>
-  (im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
-* Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
-  Merkmalsauswahl?<br/>
-  → PCA/MDA sind klassifikatorunabhängig, aber der suboptimale
-  Algorithmus benötigt bereits einen Klassifikator.
-* Wie lautet die Fundamentalformel der Bayesschen Klassifikation?<br/>
-  → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
-  ist und A die Klasse)
-* Wie lautet die Hauptformel der PCA?<br/>
-  $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
-* Wie kann man invariante Merkmale erzeugen?<br/>
-  → Integration über eine Transformationsgruppe, Differentielle Methode,
-  Normalisierung
-* Wie kann man normalisieren?<br/>
-  → Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und
-  radialer Streckung (Skalierung) machen
-* Wie lauten die Prinzipien (A) - (E) der SVMs?
-    - (A) Lineare Trennung mit maximalem Abstand der Trennebenen zu den
-          nächstgelegenen Stichproben (Support Vektoren)
-    - (B) Duale Formulierung des linearen Klassifikators.
-          (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)
-    - (C) Nichtlineare Abbildung der primären Merkmale in einen
-          hochdimensionalen Merkmalsraum $\Phi$
-    - (D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen
-          Eigenfunktionsraumes einer sog. Kernfunktion $K$ als transformierten
-          Merkmalsraum $\Phi$. Dabei müssen die transformierten Merkmale nicht
-          explizit berechnet werden und der Klassifikator hat trotz der hohen
-          Dimension von $\Phi$ nur eine niedrige Zahl von freien Parametern
-          (Kernel-Trick).
-    - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
-          von Schlupfvariablen (slack variables).
-* Wie lautet die Dichtefunktion der [$d$-dimensionalen Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
-* Wie lautet Mercers Theorem? → [wiki](https://de.wikipedia.org/wiki/Satz_von_Mercer)
+<details class="question">
+<summary>Warum ist ein hochdimensionaler Merkmalsraum schlecht (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>)?</summary>
+<div class="answer">
+<ul>
+  <li>Je nach Klassifikator, viele zu lernende Parameter</li>
+  <li>Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings</li>
+</ul>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man die Dimension des Merkmalsraumes reduzieren?</summary>
+<div class="answer">
+Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
+(Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
+</div>
+</details>
+
+<details class="question">
+<summary>Wie viele Möglichkeiten gibt es, 5 Merkmale aus 10 auszuwählen?</summary>
+<div class="answer">
+<a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Overfitting?</summary>
+<div class="answer">
+Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?</summary>
+<div class="answer">
+<ul>
+  <li>Unterschiedliche Einheiten (→ Entdimensionalisieren)</li>
+  <li>Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)</li>
+  <li>Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)</li>
+</ul>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert MDA?</summary>
+<div class="answer">
+Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}$
+(im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur Merkmalsauswahl?</summary>
+<div class="answer">
+PCA/MDA sind klassifikatorunabhängig, aber der suboptimale
+Algorithmus benötigt bereits einen Klassifikator.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Fundamentalformel der Bayesschen Klassifikation?</summary>
+<div class="answer">
+$P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
+ist und A die Klasse)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Hauptformel der PCA?</summary>
+<div class="answer">
+$m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man invariante Merkmale erzeugen?</summary>
+<div class="answer">
+Integration über eine Transformationsgruppe, Differentielle Methode,
+Normalisierung
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man normalisieren?</summary>
+<div class="answer">
+Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und
+radialer Streckung (Skalierung) machen
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lauten die Prinzipien (A) - (E) der SVMs?</summary>
+<div class="answer">
+<ul>
+  <li>(A) Lineare Trennung mit maximalem Abstand der Trennebenen zu den nächstgelegenen Stichproben (Support Vektoren)</li>
+  <li>(B) Duale Formulierung des linearen Klassifikators. (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)</li>
+  <li>(C) Nichtlineare Abbildung der primären Merkmale in einen hochdimensionalen Merkmalsraum $\Phi$</li>
+  <li>(D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen Eigenfunktionsraumes einer sog. Kernfunktion $K$ als transformierten Merkmalsraum $\Phi$. Dabei müssen die transformierten Merkmale nicht explizit berechnet werden und der Klassifikator hat trotz der hohen Dimension von $\Phi$ nur eine niedrige Zahl von freien Parametern (Kernel-Trick).</li>
+  <li>(E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung von Schlupfvariablen (slack variables).</li>
+</ul>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Dichtefunktion der <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung">$d$-dimensionalen Gaußverteilung</a>?</summary>
+<div class="answer">
+$f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet Mercers Theorem?</summary>
+<div class="answer">
+<a href="https://de.wikipedia.org/wiki/Satz_von_Mercer">wiki</a>
+</div>
+</details>
+
 * Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) definiert?
 
 ## Material und Links

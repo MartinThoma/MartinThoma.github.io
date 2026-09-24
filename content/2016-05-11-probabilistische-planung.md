@@ -2415,167 +2415,380 @@ Eine Tabelle in <a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POM
 Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 
 
-* Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
-  Unterschiede?<br/>
-  → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
-* Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
-  → Allais-Paradoxon
+<details class="question">
+<summary>Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die Unterschiede?</summary>
+<div class="answer">
+<a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?</summary>
+<div class="answer">
+Allais-Paradoxon
+</div>
+</details>
 
 
 ### Nutzen- und Entscheidungs&shy;theorie
-* Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?<br/>
-  → Die Nutzenfunktion ist einfacher zu erstellen.
-* Wie lautet der Satz vom Allais-Paradoxon?<br/>
-  → Siehe <a href="#theorem-rational-decisions">oben</a>.
-* Wie kann man die Nutzentheorie kritisieren?<br/>
-  → Siehe <a href="#kritik-nutzentheorie">oben</a>.
-* Was haben wir zur Entscheidungstheorie gemacht?<br/>
-  → <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a>
-* Wie ist eine Nutzenfunktion definiert?<br/>
-  → Siehe <a href="#nutzenfunktion">oben</a>.
+
+<details class="question">
+<summary>Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?</summary>
+<div class="answer">
+Die Nutzenfunktion ist einfacher zu erstellen.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet der Satz vom Allais-Paradoxon?</summary>
+<div class="answer">
+Siehe <a href="#theorem-rational-decisions">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man die Nutzentheorie kritisieren?</summary>
+<div class="answer">
+Siehe <a href="#kritik-nutzentheorie">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Was haben wir zur Entscheidungstheorie gemacht?</summary>
+<div class="answer">
+<a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie ist eine Nutzenfunktion definiert?</summary>
+<div class="answer">
+Siehe <a href="#nutzenfunktion">oben</a>.
+</div>
+</details>
 
 ### Optimierungs&shy;theorie
 
-* Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
-  → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
-     Label-Korrektur-Algorithmus; LQR wenn linear
-* Wann existiert kein globales Minimum für ein Optimierungsproblem?<br/>
-  → Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
-     $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
-     angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
-* Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
-  → Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
-  <abbr title="Karush-Kuhn-Tucker">KKT</abbr>-Ansatz für Gleichungs- und
-  Ungleichungsnebenbedingungen. Numerisch gibt es noch
-  <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
-* Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
-  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
-    wenn die zu optimierende Funktion linear oder konkav ist.
-* Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
-  → Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>.
-* Welche numerischen Methoden zur Optimierung kennen sie?<br/>
-  → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Penalty-Ansätze
-* Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
-  → Das ist nicht eindeutig definiert. Streng könnte man folgendes sagen: Wenn
-  auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
-  Monte-Carlo-Verfahren, etc.) verzichtet werden und die Lösung in Form von
-  mathematischen Grundfunktionen angegeben werden kann. Aber das wird häufig
-  auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
-  benötigt, man aber weiß dass diese sicher zur global optimal Lösung
-  konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
-  Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
-  Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
-  tabellarisch und per Interpolation) berechnen kann.
-* Welche geschlossen lösbaren Spezialfälle existieren?<br/>
-  → Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
-     (vgl. Foliensatz 8 und Folie 6)
-* Welche Probleme sind nicht geschlossen lösbar?<br/>
-  → POMDPs (bis auf Ausnahmen, vgl. Foliensatz 8 und Folie 6),
-     Bayesscher Schätzer (Foliensatz 8, Folie 15)
-* Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
-  anwendbar?<br/>
-  → Änderung der Optimierung (OL, OLF, <abbr title="Modellprädiktive Planung">MP</abbr>),
-     Abbildung auf geschlossen lösbare Probleme (Linearisierung, Diskretisierung, Sicherheitsäquivalenz),
-     Verwendung von Funktionsapproximatoren (parametrisch oder nicht-parametrisch)
-* Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?<br/>
-  → Pontryagins Minimum-Prinzip liefert für deterministische Planungsprobleme
-     ein notwendiges Kriterium für globale Minima.
-* Was versteht man unter dem Optimalitätsprinzip?<br/>
-  → Das Optimalitätsprinzip von Bellman besagt, das bei einigen
-  Optimierungsproblemen sich die optimale Lösung aus optimalen Lösungen für
-  die Teilprobleme zusammensetzt. Ein Beispiel ist die Kürzeste-Wege-Suche.
-  Wenn A-B-C-D der kürzeste Weg von A nach D ist, so ist auch A-B-C der
-  kürzeste Weg von A nach C.
+<details class="question">
+<summary>Wie löst man Optimierungsprobleme ohne Nebenbedingungen?</summary>
+<div class="answer">
+Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
+Label-Korrektur-Algorithmus; LQR wenn linear
+</div>
+</details>
+
+<details class="question">
+<summary>Wann existiert kein globales Minimum für ein Optimierungsproblem?</summary>
+<div class="answer">
+Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
+$\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
+angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie löst man Optimierungsprobleme mit Nebenbedingungen?</summary>
+<div class="answer">
+Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
+<abbr title="Karush-Kuhn-Tucker">KKT</abbr>-Ansatz für Gleichungs- und
+Ungleichungsnebenbedingungen. Numerisch gibt es noch
+<a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?</summary>
+<div class="answer">
+Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
+wenn die zu optimierende Funktion linear oder konkav ist.
+</div>
+</details>
+
+<details class="question">
+<summary>Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.</summary>
+<div class="answer">
+Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche numerischen Methoden zur Optimierung kennen sie?</summary>
+<div class="answer">
+Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
+Penalty-Ansätze
+</div>
+</details>
+
+<details class="question">
+<summary>Was bedeutet es, dass ein Problem geschlossen lösbar ist?</summary>
+<div class="answer">
+Das ist nicht eindeutig definiert. Streng könnte man folgendes sagen: Wenn
+auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
+Monte-Carlo-Verfahren, etc.) verzichtet werden und die Lösung in Form von
+mathematischen Grundfunktionen angegeben werden kann. Aber das wird häufig
+auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
+benötigt, man aber weiß dass diese sicher zur global optimal Lösung
+konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
+Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
+Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
+tabellarisch und per Interpolation) berechnen kann.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche geschlossen lösbaren Spezialfälle existieren?</summary>
+<div class="answer">
+Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
+(vgl. Foliensatz 8 und Folie 6)
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Probleme sind nicht geschlossen lösbar?</summary>
+<div class="answer">
+POMDPs (bis auf Ausnahmen, vgl. Foliensatz 8 und Folie 6),
+Bayesscher Schätzer (Foliensatz 8, Folie 15)
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Möglichkeiten der approximativen Lösung existieren bzw. sind anwendbar?</summary>
+<div class="answer">
+Änderung der Optimierung (OL, OLF, <abbr title="Modellprädiktive Planung">MP</abbr>),
+Abbildung auf geschlossen lösbare Probleme (Linearisierung, Diskretisierung, Sicherheitsäquivalenz),
+Verwendung von Funktionsapproximatoren (parametrisch oder nicht-parametrisch)
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?</summary>
+<div class="answer">
+Pontryagins Minimum-Prinzip liefert für deterministische Planungsprobleme
+ein notwendiges Kriterium für globale Minima.
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter dem Optimalitätsprinzip?</summary>
+<div class="answer">
+Das Optimalitätsprinzip von Bellman besagt, das bei einigen
+Optimierungsproblemen sich die optimale Lösung aus optimalen Lösungen für
+die Teilprobleme zusammensetzt. Ein Beispiel ist die Kürzeste-Wege-Suche.
+Wenn A-B-C-D der kürzeste Weg von A nach D ist, so ist auch A-B-C der
+kürzeste Weg von A nach C.
+</div>
+</details>
 
 
 <h3 id="mdp-section">MDP</h3>
 
-* Wie lautet die Definition eines MDP?<br/>
-  → Siehe <a href="#mdp">oben</a>.
-* Wie viele Pläne gibt es?<br/>
-  → Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^N$
-     mögliche Pläne. In jedem Zeitschritt gibt es eine mögliche Aktion.
-* Wie viele Strategien gibt es?<br/>
-  → Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^{N \cdot |\mathcal{X}|}$
-     Strategien, da für jede Kombination aus Zeitschritt und Zustand eine
-     Aktion gewählt werden muss.
-* Was versteht man unter dynamischer Programmierenung?<br/>
-  → Siehe <a href="#dynamic-programming">oben</a>.
-* Wie lauten die Bellman-Gleichungen?<br/>
-  → Siehe <a href="#bellman-equation">oben</a>.
-* Was ist an den Bellman-Gleichungen problematisch?<br/>
-  →  i) Erwartungswertberechnung (kann aufwendig sein), ii) Lösen des
-  Minimierungsproblems und iii) Repräsentation der Wertfunktion insbes. bei
-  kontinuierlichem Zustand
-* Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?<br/>
-  → Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
-     dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
-     den Zuständen als Gewicht dargestellt werden.
-* Was macht der LQR?<br/>
-  → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. <a href="#lqr">oben</a>).
-* Wieso sind MDPs schwer zu lösen?<br/>
-  → Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
-    mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>)
-* Wo ist der Fixpunktsatz von Bedeutung?<br/>
-  → Bei dem Beweis, dass die Werte-Iteration gegen die optimale Lösung
-     konvergiert (siehe <a href="#t-kontraktion">T-Kontraktion</a>).
+<details class="question">
+<summary>Wie lautet die Definition eines MDP?</summary>
+<div class="answer">
+Siehe <a href="#mdp">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie viele Pläne gibt es?</summary>
+<div class="answer">
+Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^N$
+mögliche Pläne. In jedem Zeitschritt gibt es eine mögliche Aktion.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie viele Strategien gibt es?</summary>
+<div class="answer">
+Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^{N \cdot |\mathcal{X}|}$
+Strategien, da für jede Kombination aus Zeitschritt und Zustand eine
+Aktion gewählt werden muss.
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter dynamischer Programmierenung?</summary>
+<div class="answer">
+Siehe <a href="#dynamic-programming">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lauten die Bellman-Gleichungen?</summary>
+<div class="answer">
+Siehe <a href="#bellman-equation">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist an den Bellman-Gleichungen problematisch?</summary>
+<div class="answer">
+i) Erwartungswertberechnung (kann aufwendig sein), ii) Lösen des
+Minimierungsproblems und iii) Repräsentation der Wertfunktion insbes. bei
+kontinuierlichem Zustand
+</div>
+</details>
+
+<details class="question">
+<summary>Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?</summary>
+<div class="answer">
+Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
+dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
+den Zuständen als Gewicht dargestellt werden.
+</div>
+</details>
+
+<details class="question">
+<summary>Was macht der LQR?</summary>
+<div class="answer">
+Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. <a href="#lqr">oben</a>).
+</div>
+</details>
+
+<details class="question">
+<summary>Wieso sind MDPs schwer zu lösen?</summary>
+<div class="answer">
+Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
+mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Wo ist der Fixpunktsatz von Bedeutung?</summary>
+<div class="answer">
+Bei dem Beweis, dass die Werte-Iteration gegen die optimale Lösung
+konvergiert (siehe <a href="#t-kontraktion">T-Kontraktion</a>).
+</div>
+</details>
 
 
 ### POMDP
 
-* Wie lautet die Definition eines POMDP?<br/>
-  → Siehe <a href="#pomdp">oben</a>
-* Wie lautet die Kostenfunktion eines POMDP?<br/>
-  → Siehe <a href="#pomdp-cost-function">oben</a>
-* Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
-  → Bei POMDPs ist die optimale Strategie $\pi_k^* (\mathcal{I}_k) = L_k \cdot \mathbb{E} (x_k | \mathcal{I}_k)$, wohingegen beim MDP die optimale Strategie $\pi_k^*(x_k) = L_k \cdot x_k$ ist. (Beim POMDP wird die Sicherheitsäquivalenz genutzt).
-* Was ist PWLC?<br/>
-  → Piece-wise linear and Concave / Convex
-* Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
-  → In dem Spezialfall endlicher Planungsprobleme in POMDPs kann das POMDP in
-     ein Belief-State MPD transformiert werden. Dann ist die Wertefunktion
-     $J_k$ eine PWLC; mit $\alpha$-Vektoren kann die optimale Strategie
-     berechnet werden.
-* Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
-  → Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
-    Horizont. Im Gegensatz zu OLF kann Modellprädiktive Planung auch bei
-    nicht-episodischen Problemen verwendet werden, da in der OLF
-    der Plan $a_{k:N-1}^*$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet wird. Bei der modellprädiktiven Planung hingegen
-    wird nur $a_{k:(k+M)}$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{k+M-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet.
-* Was versteht man unter der Sicherheitsäquivalenz?<br/>
-  → Siehe <a href="#certainty-equivalence">oben</a>.
-* Was können Sie zur Sensoreinsatzplanung sagen?<br/>
-  → Siehe <a href="#sensoreinsatzplanung">oben</a>.
-* Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
-  → Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
-* Warum reicht Kovarianzbasiert bei linearen Sensoreinsatzproblem?<br/>
-  → Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
-     linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.
-* Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?<br/>
-  → Siehe ProPlan-10-Folien.pdf, Folie 16. Die $\alpha$-Vektoren sind im
-     Kontext von diskreten Planungsproblemen zu verstehen. An Ihnen kann man
-     die Aktion ablesen.
+<details class="question">
+<summary>Wie lautet die Definition eines POMDP?</summary>
+<div class="answer">
+Siehe <a href="#pomdp">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Kostenfunktion eines POMDP?</summary>
+<div class="answer">
+Siehe <a href="#pomdp-cost-function">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist der Unterschied des LQR beim MDP und POMDP?</summary>
+<div class="answer">
+Bei POMDPs ist die optimale Strategie $\pi_k^* (\mathcal{I}_k) = L_k \cdot \mathbb{E} (x_k | \mathcal{I}_k)$, wohingegen beim MDP die optimale Strategie $\pi_k^*(x_k) = L_k \cdot x_k$ ist. (Beim POMDP wird die Sicherheitsäquivalenz genutzt).
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist PWLC?</summary>
+<div class="answer">
+Piece-wise linear and Concave / Convex
+</div>
+</details>
+
+<details class="question">
+<summary>Warum sind PWLCs in dieser Vorlesung von Bedeutung?</summary>
+<div class="answer">
+In dem Spezialfall endlicher Planungsprobleme in POMDPs kann das POMDP in
+ein Belief-State MPD transformiert werden. Dann ist die Wertefunktion
+$J_k$ eine PWLC; mit $\alpha$-Vektoren kann die optimale Strategie
+berechnet werden.
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter Modellprädiktiver Planung (MP)?</summary>
+<div class="answer">
+Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
+Horizont. Im Gegensatz zu OLF kann Modellprädiktive Planung auch bei
+nicht-episodischen Problemen verwendet werden, da in der OLF
+der Plan $a_{k:N-1}^*$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet wird. Bei der modellprädiktiven Planung hingegen
+wird nur $a_{k:(k+M)}$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{k+M-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet.
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter der Sicherheitsäquivalenz?</summary>
+<div class="answer">
+Siehe <a href="#certainty-equivalence">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Was können Sie zur Sensoreinsatzplanung sagen?</summary>
+<div class="answer">
+Siehe <a href="#sensoreinsatzplanung">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?</summary>
+<div class="answer">
+Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
+</div>
+</details>
+
+<details class="question">
+<summary>Warum reicht Kovarianzbasiert bei linearen Sensoreinsatzproblem?</summary>
+<div class="answer">
+Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
+linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?</summary>
+<div class="answer">
+Siehe ProPlan-10-Folien.pdf, Folie 16. Die $\alpha$-Vektoren sind im
+Kontext von diskreten Planungsproblemen zu verstehen. An Ihnen kann man
+die Aktion ablesen.
+</div>
+</details>
 
 
 ### RL
 
-* Welche Arten von RL gibt es?<br/>
-  → Wertefunktionsbasiert (Schätzen der Werte- bzw. $Q$-Funktion aus Stichproben:
-     Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
-     Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
-* Was ist der Vorteil von Modelllernenden Verfahren?<br/>
-  → Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
-    beobachtet werden. Das erleichtert das Planen / finden der Strategie.
-* Was ist der große Vorteil von Off-policy RL?<br/>
-  → TODO (See [What are the advantages / disadvantages of off-policy RL vs on-policy RL?](http://datascience.stackexchange.com/q/13029/8820))
-* Warum ist Q-Learning Off-policy?<br/>
-  → Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
-  aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
-  Zustandsfortschriebung *nicht* einer gierigen Stragegie folgt, sondern etwa
-  einer \epsilon-gierigen Strategie. SARSA dagegen nutzt dieselbe
-  (nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
-  Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
+<details class="question">
+<summary>Welche Arten von RL gibt es?</summary>
+<div class="answer">
+Wertefunktionsbasiert (Schätzen der Werte- bzw. $Q$-Funktion aus Stichproben:
+Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
+Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist der Vorteil von Modelllernenden Verfahren?</summary>
+<div class="answer">
+Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
+beobachtet werden. Das erleichtert das Planen / finden der Strategie.
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist der große Vorteil von Off-policy RL?</summary>
+<div class="answer">
+TODO (See <a href="http://datascience.stackexchange.com/q/13029/8820">What are the advantages / disadvantages of off-policy RL vs on-policy RL?</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Warum ist Q-Learning Off-policy?</summary>
+<div class="answer">
+Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
+Zustandsfortschriebung <em>nicht</em> einer gierigen Stragegie folgt, sondern etwa
+einer $\epsilon$-gierigen Strategie. SARSA dagegen nutzt dieselbe
+(nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
+Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
+</div>
+</details>
 
 
 ## Notation

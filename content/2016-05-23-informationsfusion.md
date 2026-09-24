@@ -572,44 +572,116 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 
 ## Prüfungsfragen
 
-* Welche Bedingungen müssen erfüllt sein, damit Informationen fusioniert werden
-  können?<br/>
-  → Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet
-* Welche Arten von Unsicherheit kennen Sie?<br/>
-  → Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaße (Dempster-Shafer-Theorie)
-     und über unscharfe Mengen (Fuzzy-Systeme) sowie über unsicheres Erfahrungswissen
-     (Neuronale Netze) beschreiben.
-* Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basismaßen?<br/>
-  → Basismaße sind nicht monoton und nicht additiv.
-* Wie lautet die Formel für verteilte Bayessche Fusion?<br/>
-  → Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabhängigkeitsannahme zwischendurch)
-* Wie lauten die Axiome von Kolmogorov?<br/>
-  → Siehe <a href="#kolmogorov-axioms">oben</a>
-* Was sind Zugehörigkeitsfunktionen?<br/>
-  → Siehe <a href="#membership-function">oben</a>
-* Wie funktioniert Informationsfusion mit Fuzzy-Systemen?<br/>
-  → Siehe <a href="#informationsfusion-fuzzy">oben</a>.
-* Welche Vorteile bietet Informationsfusion?<br/>
-  → Siehe <a href="#informationsfusion-advantages">oben</a>.
-* Welche Eigenschaften sind bei Merkmalen wünschenswert?<br/>
-  → Siehe <a href="#features-properties">oben</a>.
-* Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Schätzern?<br/>
-  → TODO
+<details class="question">
+<summary>Welche Bedingungen müssen erfüllt sein, damit Informationen fusioniert werden können?</summary>
+<div class="answer">
+Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Arten von Unsicherheit kennen Sie?</summary>
+<div class="answer">
+Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaße (Dempster-Shafer-Theorie)
+und über unscharfe Mengen (Fuzzy-Systeme) sowie über unsicheres Erfahrungswissen
+(Neuronale Netze) beschreiben.
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basismaßen?</summary>
+<div class="answer">
+Basismaße sind nicht monoton und nicht additiv.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Formel für verteilte Bayessche Fusion?</summary>
+<div class="answer">
+Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabhängigkeitsannahme zwischendurch)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lauten die Axiome von Kolmogorov?</summary>
+<div class="answer">
+Siehe <a href="#kolmogorov-axioms">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind Zugehörigkeitsfunktionen?</summary>
+<div class="answer">
+Siehe <a href="#membership-function">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert Informationsfusion mit Fuzzy-Systemen?</summary>
+<div class="answer">
+Siehe <a href="#informationsfusion-fuzzy">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Vorteile bietet Informationsfusion?</summary>
+<div class="answer">
+Siehe <a href="#informationsfusion-advantages">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Eigenschaften sind bei Merkmalen wünschenswert?</summary>
+<div class="answer">
+Siehe <a href="#features-properties">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Schätzern?</summary>
+<div class="answer">
+TODO
+</div>
+</details>
 
 
 
 ### Kalman-Filter
 
-* Aus welchen Schritten besteht der Kalman-Filter?<br/>
-  → Prädiktion, Innovation
-* Welche Erweiterungen zum Kalman-Filter kennen Sie?<br/>
-  → Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)
-* Für welche Systeme ist der Kalman-Filter geeignet?<br/>
-  → Lineare Zeitinvariante Systeme (LTI-Systeme)
-* Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
-  → Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.
-* Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  → vgl. <a href="../kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
+<details class="question">
+<summary>Aus welchen Schritten besteht der Kalman-Filter?</summary>
+<div class="answer">
+Prädiktion, Innovation
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Erweiterungen zum Kalman-Filter kennen Sie?</summary>
+<div class="answer">
+Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)
+</div>
+</details>
+
+<details class="question">
+<summary>Für welche Systeme ist der Kalman-Filter geeignet?</summary>
+<div class="answer">
+Lineare Zeitinvariante Systeme (LTI-Systeme)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?</summary>
+<div class="answer">
+Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet das Systemmodell im Kalman-Filter?</summary>
+<div class="answer">
+vgl. <a href="../kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
+</div>
+</details>
 
 
 ## Absprachen

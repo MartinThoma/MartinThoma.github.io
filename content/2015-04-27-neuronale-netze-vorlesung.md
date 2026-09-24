@@ -1145,32 +1145,78 @@ See also:
 
 ## Prüfungsfragen
 
-<ul>
-    <li>Was ist der Unterschied zwischen Backpropagation und Gradient descent?<br/>
-        → Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
-           bei der es vermieden wird, Berechnungen mehrfach durchzuführen.</li>
-    <li>Welche Typen von Neuronalen Netzen gibt es?<br/>
-        → Siehe <a href="#einordnung">Einordnung</a></li>
-    <li>Welche Aktivierungsfunktionen gibt es?<br/>
-        → Siehe <a href="#activations">Übersicht</a></li>
-    <li>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?<br/>
-        → Softmax wegen der Normierung; Maxout</li>
-    <li>Welche Aktivierungsfunktion macht in einem MLP keinen Sinn?<br/>
-        → Nur lineare, da insgesamt eine lineare Funktion herauskommt.</li>
-    <li>Wofür kann man neuronale Netze einsetzen?<br/>
-        → Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
-        Assoziativspeicher</li>
-    <li>Welche Möglichkeiten zur Regularisierung gibt es?<br/>
-        → L1, L2, Dropout, Weight Decay</li>
-    <li>Wie kann der Standard Gradient descent Algorithmus angepasst werden,
-        um den Lernvorgang zu beschleunigen?<br/>
-        → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
-           Newbob, AdaGrad, RProp</li>
-    <li>Welche Alternativen zu standard Gradient Descent gibt es?<br/>
-        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="../optimization-basics/">Optimization Basics</a>).</li>
-    <li>Wie kann man Netztopologien aufbauen?<br/>
-        → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a>).</li>
-</ul>
+<details class="question">
+<summary>Was ist der Unterschied zwischen Backpropagation und Gradient descent?</summary>
+<div class="answer">
+Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
+bei der es vermieden wird, Berechnungen mehrfach durchzuführen.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Typen von Neuronalen Netzen gibt es?</summary>
+<div class="answer">
+Siehe <a href="#einordnung">Einordnung</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Aktivierungsfunktionen gibt es?</summary>
+<div class="answer">
+Siehe <a href="#activations">Übersicht</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?</summary>
+<div class="answer">
+Softmax wegen der Normierung; Maxout
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Aktivierungsfunktion macht in einem MLP keinen Sinn?</summary>
+<div class="answer">
+Nur lineare, da insgesamt eine lineare Funktion herauskommt.
+</div>
+</details>
+
+<details class="question">
+<summary>Wofür kann man neuronale Netze einsetzen?</summary>
+<div class="answer">
+Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
+Assoziativspeicher
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Möglichkeiten zur Regularisierung gibt es?</summary>
+<div class="answer">
+L1, L2, Dropout, Weight Decay
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann der Standard Gradient descent Algorithmus angepasst werden, um den Lernvorgang zu beschleunigen?</summary>
+<div class="answer">
+Momentum, Exponential Decay Learning Rate, Performance Scheduling,
+Newbob, AdaGrad, RProp
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Alternativen zu standard Gradient Descent gibt es?</summary>
+<div class="answer">
+Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="../optimization-basics/">Optimization Basics</a>).
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man Netztopologien aufbauen?</summary>
+<div class="answer">
+Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a>).
+</div>
+</details>
 
 
 ## Material und Links

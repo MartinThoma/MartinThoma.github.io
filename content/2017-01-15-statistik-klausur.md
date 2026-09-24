@@ -631,18 +631,38 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 
 ## Prüfungsfragen
-* Kann ein Schätzer Erwartungstreu und Konsistent sein?<br/>
-  → Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
-     $\vartheta \in (0, 1)$. Sei außerdem $\hat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n x_i$.
-     $\hat{\vartheta}_n$ ist erwartungstreu und konsistent.
-* Kann ein Schätzer weder Erwartungstreu noch Konsistent sein?<br/>
-  → Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
-     $\vartheta \in (0, 1)$. Der Schätzer $\hat{\vartheta} = 0.5$ ist weder
-     Erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
-* Kann ein Schätzer Erwartungstreu, aber nicht konsistent sein?<br/>
-  → Ja. Setting wie zuvor und $\hat{\vartheta} = x_n$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
-* Kann ein Schätzer nicht Erwartungstreu, aber konsistent sein?<br/>
-  → Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
+
+<details class="question">
+<summary>Kann ein Schätzer Erwartungstreu und Konsistent sein?</summary>
+<div class="answer">
+Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
+$\vartheta \in (0, 1)$. Sei außerdem $\hat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n x_i$.
+$\hat{\vartheta}_n$ ist erwartungstreu und konsistent.
+</div>
+</details>
+
+<details class="question">
+<summary>Kann ein Schätzer weder Erwartungstreu noch Konsistent sein?</summary>
+<div class="answer">
+Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
+$\vartheta \in (0, 1)$. Der Schätzer $\hat{\vartheta} = 0.5$ ist weder
+Erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
+</div>
+</details>
+
+<details class="question">
+<summary>Kann ein Schätzer Erwartungstreu, aber nicht konsistent sein?</summary>
+<div class="answer">
+Ja. Setting wie zuvor und $\hat{\vartheta} = x_n$ (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Kann ein Schätzer nicht Erwartungstreu, aber konsistent sein?</summary>
+<div class="answer">
+Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)
+</div>
+</details>
 
 
 ## Material und Links

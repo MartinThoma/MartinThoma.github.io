@@ -1366,77 +1366,169 @@ until c = c'
 
 ## Prüfungsfragen
 
-<ul>
-    <li>Was ist induktives Lernen?<br/>
-        → Eine große Menge an Beispielen wird gegeben. Der Lerner muss selbst
-           das Konzept herausfinden.</li>
-    <li>Was ist deduktives Lernen?<br/>
-        → Fakten werden gegeben. Der Lernende bekommt das allgemeine Konzept
-           gesagt und muss nur logische Schlussfolgerungen machen.</li>
-    <li>SVMs
-    <ul>
-        <li>Wie funktioniert SRM bei SVMs?<br/>
-            → Dualität zwischen Feature- und Hypothesenraum: Radius der Hyperkugel
-               wird minimiert.</li>
-        <li>Warum lernen SVMs "korrekt"?<br/>
-            → Es gibt ein Theorem (TODO: Welches?), das besagt, dass die VC-Dimension
-            eines Klassifikators, welcher Datenpunkte im $n$-dimensionalen Raum
-            innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
-            mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
-            beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
-            Margin maximiert.
+<details class="question">
+<summary>Was ist induktives Lernen?</summary>
+<div class="answer">
+Eine große Menge an Beispielen wird gegeben. Der Lerner muss selbst
+das Konzept herausfinden.
+</div>
+</details>
 
-            Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).</li>
-    </ul></li>
-    <li>Reinforcement Learning
-        <ul>
-            <li>Wie lautet die Bellman-Gleichung?<br/>
-                → $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ wobei $\gamma$ ein
-                Diskontierungsfaktor ist, $s'$ der Zustand in den man kommt, wenn
-                man $a$ ausführt und $r$ der Reward nach Ausführen von $a$ in
-                $s$ ist.</li>
-            <li>Was ist Value Iteration und wie lautet die Formel?<br/>
-                → Schätzen der Value-Funktion durch iteratives Anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$</li>
-            <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
-                → Siehe <a href="#rl-eligibility-trace">oben</a></li>
-            <li>Wie funktioniert Q-Learning?<br/>
-                → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
-        </ul>
-    </li>
-    <li>Evolutionäre Algorithmen: Was ist wichtig?
-        <ul>
-            <li>Population / Individuen: Wie Individuen darstellen<br/>
-                → Durch Gene (Attribute), z.B. als Bitstring</li>
-            <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
-            <li>Wie kann man kombinieren?<br/>
-                → vgl. <i>Rekombination</i></li>
-            <li>Fitness Function</li>
-            <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br/>
-                → Mutation, Rekombination, Fitness-Funktion, Selektion</li>
-            <li>Was ist Lamarcksche / Baldwinsche Evolution?</li>
-        </ul>
-    </li>
-    <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>
-        → Siehe <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a> durch den empirischen Fehler
-           und die VC-Dimension.</li>
-    <li>Was versteht man unter Cascade Correlation?<br/>
-        → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
-    <li>Welche überwachten Lernverfahren gibt es?<br/>
-        → Neuronale Netze, SVMs</li>
-    <li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>
-        → Siehe <a href="#mln-inference">oben</a></li>
-    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?<br/>
-        → Siehe <a href="#mln-jpd">oben</a></li>
-    <li>Was ist Dynamic Decay Adjustment (DDA)?<br/>
-        → Siehe <a href="#dda-algorithm">oben</a></li>
-    <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br/>
-        → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
-           bekannter Konzepte.</li>
-    <li>Wie lautet die Formel für Entropie / Information Gain?<br/>
-        → $\text{Entropie} = - \sum_{i} p_i \log p_i$ und $KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$</li>
-    <li>Was ist Cobweb?<br/>
-        → Siehe <a href="#unsupervised-learning">Unsupervised Learning</a></li>
+<details class="question">
+<summary>Was ist deduktives Lernen?</summary>
+<div class="answer">
+Fakten werden gegeben. Der Lernende bekommt das allgemeine Konzept
+gesagt und muss nur logische Schlussfolgerungen machen.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Fehlerabschätzung von Vapnik?</summary>
+<div class="answer">
+Siehe <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a> durch den empirischen Fehler
+und die VC-Dimension.
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter Cascade Correlation?</summary>
+<div class="answer">
+<a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
+</div>
+</details>
+
+<details class="question">
+<summary>Welche überwachten Lernverfahren gibt es?</summary>
+<div class="answer">
+Neuronale Netze, SVMs
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert Inferenz in Markov Logik Netzen?</summary>
+<div class="answer">
+Siehe <a href="#mln-inference">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?</summary>
+<div class="answer">
+Siehe <a href="#mln-jpd">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Dynamic Decay Adjustment (DDA)?</summary>
+<div class="answer">
+Siehe <a href="#dda-algorithm">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist erklärungsbasierte Generalisierung (EBG)?</summary>
+<div class="answer">
+Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
+bekannter Konzepte.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lautet die Formel für Entropie / Information Gain?</summary>
+<div class="answer">
+$\text{Entropie} = - \sum_{i} p_i \log p_i$ und $KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Cobweb?</summary>
+<div class="answer">
+Siehe <a href="#unsupervised-learning">Unsupervised Learning</a>
+</div>
+</details>
+
+
+### SVMs
+
+<details class="question">
+<summary>Wie funktioniert SRM bei SVMs?</summary>
+<div class="answer">
+Dualität zwischen Feature- und Hypothesenraum: Radius der Hyperkugel
+wird minimiert.
+</div>
+</details>
+
+<details class="question">
+<summary>Warum lernen SVMs "korrekt"?</summary>
+<div class="answer">
+<p>Es gibt ein Theorem (TODO: Welches?), das besagt, dass die VC-Dimension
+eines Klassifikators, welcher Datenpunkte im $n$-dimensionalen Raum
+innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
+mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
+beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
+Margin maximiert.</p>
+
+<p>Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).</p>
+</div>
+</details>
+
+
+### Reinforcement Learning
+
+<details class="question">
+<summary>Wie lautet die Bellman-Gleichung?</summary>
+<div class="answer">
+$Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ wobei $\gamma$ ein
+Diskontierungsfaktor ist, $s'$ der Zustand in den man kommt, wenn
+man $a$ ausführt und $r$ der Reward nach Ausführen von $a$ in
+$s$ ist.
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Value Iteration und wie lautet die Formel?</summary>
+<div class="answer">
+Schätzen der Value-Funktion durch iteratives Anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind Eligibility Traces im Kontext von Reinforcement Learning?</summary>
+<div class="answer">
+Siehe <a href="#rl-eligibility-trace">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert Q-Learning?</summary>
+<div class="answer">
+Siehe <a href="#q-learning">Abschnitt Q-Learning</a>
+</div>
+</details>
+
+
+### Evolutionäre Algorithmen
+
+<details class="question">
+<summary>Was ist bei evolutionären Algorithmen wichtig?</summary>
+<div class="answer">
+<ul>
+  <li>Population / Individuen: Wie stellt man Individuen dar? → Durch Gene (Attribute), z.B. als Bitstring</li>
+  <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
+  <li>Wie kann man kombinieren? → vgl. <i>Rekombination</i></li>
+  <li>Fitness Function</li>
 </ul>
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind die wichtigsten Elemente von evolutionären Algorithmen?</summary>
+<div class="answer">
+Mutation, Rekombination, Fitness-Funktion, Selektion
+</div>
+</details>
+
+* Was ist Lamarcksche / Baldwinsche Evolution?
 
 
 ## Material und Links

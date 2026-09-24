@@ -1144,211 +1144,480 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting
 
 ## Prüfungsfragen
 
-* Was ist Overfitting?<br/>
-  → Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
-* Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">$X, Y$</span>?<br/>
-  → <span markdown="0">$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$</span>
-* Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?<br/>
-  → Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
-    die von der Sphäre, welchen durch den Anfragepunkt un den tatsächlichen
-    nachsten Nachbarn gebildet wird, geschnitten werden.
-* Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
-  für jede Dimension separat einen B-Baum angelegt hat?<br/>
-  → Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?
-* Wie ist ein R-Baum aufgebaut?<br/>
-  → Siehe <a href="#r-tree">oben</a>.
-* Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?<br/>
-  → Man fügt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
-    ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
-    so lange das höchstpriore Objekt aus der Queue entfernt
-* Was ändert sich, wenn die Objekte eine räumliche Ausdehnung haben?<br/>
-  → Man splittet nach mehreren Dimensionen.
-* Stören uns Überlappungen von Knoten des R-Baums? Wenn ja, warum?<br/>
-  → Ja, weil die Suche nach dem nächsten Nachbarn ineffizienter wird. Es müssen
-     gegebenenfalls mehr Knoten betrachtet werden.
-* Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?<br/>
-  → R-Bäume partitionieren im gegensatz zu kD- und kDB-Bäumen den Datensatz
-    nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
-    balanciert.
-* Wie funktioniert das Einfügen in den R-Baum, inklusive Split?<br/>
-  → Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py#L29">Pseudocode</a>
-* Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br/>
-  → Nearest-Neighbor, Bereichsanfragen, Punktanfrage
+<details class="question">
+<summary>Was ist Overfitting?</summary>
+<div class="answer">
+Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie berechnet man die Covarianz zweier Zufallsvariablen $X, Y$?</summary>
+<div class="answer">
+$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$
+</div>
+</details>
+
+<details class="question">
+<summary>Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?</summary>
+<div class="answer">
+Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
+die von der Sphäre, welchen durch den Anfragepunkt un den tatsächlichen
+nachsten Nachbarn gebildet wird, geschnitten werden.
+</div>
+</details>
+
+<details class="question">
+<summary>Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man für jede Dimension separat einen B-Baum angelegt hat?</summary>
+<div class="answer">
+Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?
+</div>
+</details>
+
+<details class="question">
+<summary>Wie ist ein R-Baum aufgebaut?</summary>
+<div class="answer">
+Siehe <a href="#r-tree">oben</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?</summary>
+<div class="answer">
+Man fügt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
+ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
+so lange das höchstpriore Objekt aus der Queue entfernt
+</div>
+</details>
+
+<details class="question">
+<summary>Was ändert sich, wenn die Objekte eine räumliche Ausdehnung haben?</summary>
+<div class="answer">
+Man splittet nach mehreren Dimensionen.
+</div>
+</details>
+
+<details class="question">
+<summary>Stören uns Überlappungen von Knoten des R-Baums? Wenn ja, warum?</summary>
+<div class="answer">
+Ja, weil die Suche nach dem nächsten Nachbarn ineffizienter wird. Es müssen
+gegebenenfalls mehr Knoten betrachtet werden.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?</summary>
+<div class="answer">
+R-Bäume partitionieren im gegensatz zu kD- und kDB-Bäumen den Datensatz
+nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
+balanciert.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert das Einfügen in den R-Baum, inklusive Split?</summary>
+<div class="answer">
+Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py#L29">Pseudocode</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?</summary>
+<div class="answer">
+Nearest-Neighbor, Bereichsanfragen, Punktanfrage
+</div>
+</details>
+
 * `3-Informatik-Grundlagen.pdf`, Folie 19
-* Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
-  die NN-Sphere überlappen?<br/>
-  → Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.
-* Welche Classifier kennen Sie?<br/>
-  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">$k$</span>-nearest neighbor (es gibt <a href="../comparing-classifiers/">mehr Classifier</a>)
-* Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
-  → Es könnte sein, dass ein Feature nur in Kombination mit einem anderen
-    deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
-    ist bei Postpruning gegebenenfalls jedoch offensichtlich.
-* Wie baut man einen Entscheidungsbaum auf?<br/>
-  → Gehe durch alle Attribute. Finde für jedes einzelne Attribut den Wert, der
-     die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
-     Split-Attribut, welches die niedrigste Schnitt-Entropie hat. Fahre so mit
-     den beiden Kindknoten fort, bis ein Abbruchkriterium erfüllt ist. Das
-     könnte z.B. eine Entropie von 0 oder eine maximale Tiefe sein.
-* Wie kann man Overfitting beim Aufbau eines Entscheidungsbaums
-  berücksichtigen?<br/>
-  → Prepruning oder Postpruning.
-* Wie kann man beim Aufbau des Entscheidungsbaums berücksichtigen, dass
-  unterschiedliche Fehlerarten unterschiedlich schlimm sind?<br/>
-  → Mehr Trainingsdaten für den schlimmeren Fehler. (vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
-* Was ist Wertebereich der FP-Rate?<br/>
-  → [0, 1]: Die FP-Rate ist definiert als <span
-  markdown="0">$\frac{FP}{FP+TN}$</span>. Offensichtlich sind alle Werte
-  nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
-  Nenner mindestens so groß wie der Zähler. Wenn TN=0 und <span
-  markdown="0">$FP \neq 0$</span>, dann ist die FP-Rate gleich 1. Das geht,
-  wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
-  die FP-Rate gleich 0.
-* Wie berechnet man den Korrelationskoeffizienten?
-  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
-* Was ist die "10-fold cross validation"?<br/>
-  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
-* Wie haben wir die Erfolgsquote definiert?<br/>
-  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
-* Was ist ein Lift Chart?<br/>
-  → Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
-     Gewinn. Die x-Achse verläuft von 0 bis 100% und die y-Achse von 0 bis zum
-     maximalen Gewinn im Datenbestand. Die Diagonale von (0, 0) nach (100%,
-     Maximaler Gewinn) entspricht Raten, alles über der Diagonalen ist positiv.
-     Der Lift-Chart muss nicht monoton steigend sein.
-* Wie unterscheidet sich ein Lift Chart von der ROC Kurve?<br/>
-  → Die ROC-Kurve ist monoton steigend, der Lift-Chart jedoch nicht.
-* Was für Fehlerarten gibt es bei Vorhersagen von Klassenzugehörigkeiten?<br/>
-  → False-Positive, False-Negative (oder: Konfusionsmatrix)
-* Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich
-  berücksichtigen?<br/>
-  → F score und Gesamtfehler.
-* Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?<br/>
-  → Der Korrelationskoeffizient ist normiert (vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
-* Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
-  Anwendung?<br/>
-  → Die Logarithmusfunktion hat die gewünschte Form: Bei perfekter
-     Klassifizierung soll der Loss gleich 0 sein. Wenn es nicht perfekt ist,
-     also $0 \leq p_i < 1$, dann soll der Loss streng monoton fallen.
+
+<details class="question">
+<summary>Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen die NN-Sphere überlappen?</summary>
+<div class="answer">
+Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Classifier kennen Sie?</summary>
+<div class="answer">
+Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, $k$-nearest neighbor (es gibt <a href="../comparing-classifiers/">mehr Classifier</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist der Vorteil von Postpruning verglichen mit Prepruning?</summary>
+<div class="answer">
+Es könnte sein, dass ein Feature nur in Kombination mit einem anderen
+deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
+ist bei Postpruning gegebenenfalls jedoch offensichtlich.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie baut man einen Entscheidungsbaum auf?</summary>
+<div class="answer">
+Gehe durch alle Attribute. Finde für jedes einzelne Attribut den Wert, der
+die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
+Split-Attribut, welches die niedrigste Schnitt-Entropie hat. Fahre so mit
+den beiden Kindknoten fort, bis ein Abbruchkriterium erfüllt ist. Das
+könnte z.B. eine Entropie von 0 oder eine maximale Tiefe sein.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man Overfitting beim Aufbau eines Entscheidungsbaums berücksichtigen?</summary>
+<div class="answer">
+Prepruning oder Postpruning.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie kann man beim Aufbau des Entscheidungsbaums berücksichtigen, dass unterschiedliche Fehlerarten unterschiedlich schlimm sind?</summary>
+<div class="answer">
+Mehr Trainingsdaten für den schlimmeren Fehler. (vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Wertebereich der FP-Rate?</summary>
+<div class="answer">
+[0, 1]: Die FP-Rate ist definiert als $\frac{FP}{FP+TN}$. Offensichtlich sind alle Werte
+nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
+Nenner mindestens so groß wie der Zähler. Wenn TN=0 und $FP \neq 0$, dann ist die FP-Rate gleich 1. Das geht,
+wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
+die FP-Rate gleich 0.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie berechnet man den Korrelationskoeffizienten?</summary>
+<div class="answer">
+vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist die "10-fold cross validation"?</summary>
+<div class="answer">
+vgl. <a href="../analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie haben wir die Erfolgsquote definiert?</summary>
+<div class="answer">
+vgl. <a href="../analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist ein Lift Chart?</summary>
+<div class="answer">
+Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
+Gewinn. Die x-Achse verläuft von 0 bis 100% und die y-Achse von 0 bis zum
+maximalen Gewinn im Datenbestand. Die Diagonale von (0, 0) nach (100%,
+Maximaler Gewinn) entspricht Raten, alles über der Diagonalen ist positiv.
+Der Lift-Chart muss nicht monoton steigend sein.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie unterscheidet sich ein Lift Chart von der ROC Kurve?</summary>
+<div class="answer">
+Die ROC-Kurve ist monoton steigend, der Lift-Chart jedoch nicht.
+</div>
+</details>
+
+<details class="question">
+<summary>Was für Fehlerarten gibt es bei Vorhersagen von Klassenzugehörigkeiten?</summary>
+<div class="answer">
+False-Positive, False-Negative (oder: Konfusionsmatrix)
+</div>
+</details>
+
+<details class="question">
+<summary>Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich berücksichtigen?</summary>
+<div class="answer">
+F score und Gesamtfehler.
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?</summary>
+<div class="answer">
+Der Korrelationskoeffizient ist normiert (vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur Anwendung?</summary>
+<div class="answer">
+Die Logarithmusfunktion hat die gewünschte Form: Bei perfekter
+Klassifizierung soll der Loss gleich 0 sein. Wenn es nicht perfekt ist,
+also $0 \leq p_i &lt; 1$, dann soll der Loss streng monoton fallen.
+</div>
+</details>
 
 
 ### Association Rules
-* Was sind Association Rules?<br/>
-  → Association Rules sind im Kontext von Transaktionen von Items zu verstehen.
-     Eine Association Rule ist eine Regel <span markdown="0">$A \Rightarrow B$</span>,
-     wobei A und B Item-Mengen sind.
-* Wie findet man Association Rules?<br/>
-  → In der Warenkorbanalyse / in Transaktionen.
-* Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
-  → <a href="#fp-tree">FP-Trees</a>
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">$A \Rightarrow B$</span> hohen
-  <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a>
-  hat?<br/>
-  → Viele Transaktionen müssen <span markdown="0">$A \cup B$</span> enthalten.
-     Wenn <span markdown="0">$A$</span> vorkommt, muss auch
-     <span markdown="0">$B$</span> häufig vorkommen.
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">$A \Rightarrow B$</span> hohen
-  Support und geringe Confidence hat?<br/>
-  → Viele Transaktionen müssen <span markdown="0">$A \cup B$</span>
-  enthalten, aber noch deutlich mehr nur $A$.
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">$A \Rightarrow B$</span>
-  geringen Support und hohe Confidence hat?<br/>
-  → Wenige Transaktionen müssen <span markdown="0">$A \cup B$</span>
-  enthalten, wenn <span markdown="0">$A$</span> mal vorkommt, dann immer
-  auch <span markdown="0">$B$</span>.
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">$A \Rightarrow B$</span>
-  geringen Support und geringe Confidence hat?<br/>
-  → Wenige Transaktionen müssen <span markdown="0">$A \cup B$</span>
-  enthalten. Wenn <span markdown="0">$A$</span> mal vorkommt, dann sehr
-  selten auch <span markdown="0">$B$</span>.
-* Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
-  → (Antwort: 24.11.2015, 14:34)
-* Wie groß sollte man die Hash-Tabelle machen?<br/>
-  → So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
-  Grenze.
-* Was sind multidimensionale Association Rules?<br/>
-  → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
-    <span markdown="0">Oreo $\Rightarrow$ Milch</span>
-* Wie findet man multidimensionale Association Rules?<br/>
-  → Hinzufügen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln" (Encodierte Transaktionstabelle)
-* In welchen Situationen ist Apriori teuer, und warum?<br/>
-  → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
-     darin enthaltenen Itemsets gebildet werden.
-* Was kann man gegen die Schwächen von Apriori tun?<br/>
-  → Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling
-* Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
-  → Erklärung von <a href="#fp-tree">FP-Trees</a>
-* Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
-  → Sampling, Projektion
-* Was ist Constraint-basiertes Mining? <br/>
-  → Das minen von Assosication Rules unter Nebenbedingungen. Diese können
-     entweder an die Daten oder an die Regeln gestellt werden. Eine
-     Nebenbedingung an die Daten wäre z.B. dass nur Items betrachtet werden,
-     die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
-     wäre, dass es mindestens 3 Elemente auf der rechten Seite sind.
-* Was sind die Vorteile von Constraint-basiertem Association-rule Mining?<br/>
-  → Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und für
-    den Nutzer interessantere Regeln finden.
-* Was für Arten von Constraints kennen sie? Beispiele hierfür.<br/>
-  → Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints
-  (min. 3 Elemente auf der rechten Seite).
-* Was ist Anti-Monotonizität, Succinctness? Für ein bestimmtes Constraint
-  sagen/begründen, ob anti-monoton/succinct.<br/>
-  → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>,
-         <a href="#succinctness">Succinctness</a>
-* Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
-  → Endlicher Automat
-* Was versteht man unter dem Antagonismus von Support-basiertem und
-  Constraint-basiertem Pruning?<br/>
-  → Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
-     könnte man versucht sein die Kandidaten schon früh auf die Constraints zu
-     überprüfen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
-     Frequent sein muss, muss nicht für jede Teilmenge das Constraint erfüllt
-     sein. Dies gilt jedoch nicht für die Nebenbedingungen.
-* Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht
-  anti-monoton) erklären können.<br/>
-  → Support-basiertes Pruning
-* Welche zwei Sprachen haben wir für die Formulierung der Constraints
-  kennengelernt?<br/>
-  → 1-var und 2-var bzw. MetaRule Guided
-* Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
-  → Weil SQL keine Aussage über die Struktur machen kann. So ist es in SQL
-     nicht möglich zu sagen, dass die rechte Seite mindestens 3 Elemente
-     beinhalten soll.
+
+<details class="question">
+<summary>Was sind Association Rules?</summary>
+<div class="answer">
+Association Rules sind im Kontext von Transaktionen von Items zu verstehen.
+Eine Association Rule ist eine Regel $A \Rightarrow B$,
+wobei A und B Item-Mengen sind.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie findet man Association Rules?</summary>
+<div class="answer">
+In der Warenkorbanalyse / in Transaktionen.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?</summary>
+<div class="answer">
+<a href="#fp-tree">FP-Trees</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule $A \Rightarrow B$ hohen <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a> hat?</summary>
+<div class="answer">
+Viele Transaktionen müssen $A \cup B$ enthalten.
+Wenn $A$ vorkommt, muss auch
+$B$ häufig vorkommen.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule $A \Rightarrow B$ hohen Support und geringe Confidence hat?</summary>
+<div class="answer">
+Viele Transaktionen müssen $A \cup B$
+enthalten, aber noch deutlich mehr nur $A$.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule $A \Rightarrow B$ geringen Support und hohe Confidence hat?</summary>
+<div class="answer">
+Wenige Transaktionen müssen $A \cup B$
+enthalten, wenn $A$ mal vorkommt, dann immer
+auch $B$.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule $A \Rightarrow B$ geringen Support und geringe Confidence hat?</summary>
+<div class="answer">
+Wenige Transaktionen müssen $A \cup B$
+enthalten. Wenn $A$ mal vorkommt, dann sehr
+selten auch $B$.
+</div>
+</details>
+
+<details class="question">
+<summary>Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?</summary>
+<div class="answer">
+(Antwort: 24.11.2015, 14:34)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie groß sollte man die Hash-Tabelle machen?</summary>
+<div class="answer">
+So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
+Grenze.
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind multidimensionale Association Rules?</summary>
+<div class="answer">
+Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
+Oreo $\Rightarrow$ Milch
+</div>
+</details>
+
+<details class="question">
+<summary>Wie findet man multidimensionale Association Rules?</summary>
+<div class="answer">
+Hinzufügen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln" (Encodierte Transaktionstabelle)
+</div>
+</details>
+
+<details class="question">
+<summary>In welchen Situationen ist Apriori teuer, und warum?</summary>
+<div class="answer">
+Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
+darin enthaltenen Itemsets gebildet werden.
+</div>
+</details>
+
+<details class="question">
+<summary>Was kann man gegen die Schwächen von Apriori tun?</summary>
+<div class="answer">
+Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?</summary>
+<div class="answer">
+Erklärung von <a href="#fp-tree">FP-Trees</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?</summary>
+<div class="answer">
+Sampling, Projektion
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Constraint-basiertes Mining?</summary>
+<div class="answer">
+Das minen von Assosication Rules unter Nebenbedingungen. Diese können
+entweder an die Daten oder an die Regeln gestellt werden. Eine
+Nebenbedingung an die Daten wäre z.B. dass nur Items betrachtet werden,
+die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
+wäre, dass es mindestens 3 Elemente auf der rechten Seite sind.
+</div>
+</details>
+
+<details class="question">
+<summary>Was sind die Vorteile von Constraint-basiertem Association-rule Mining?</summary>
+<div class="answer">
+Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und für
+den Nutzer interessantere Regeln finden.
+</div>
+</details>
+
+<details class="question">
+<summary>Was für Arten von Constraints kennen sie? Beispiele hierfür.</summary>
+<div class="answer">
+Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints
+(min. 3 Elemente auf der rechten Seite).
+</div>
+</details>
+
+<details class="question">
+<summary>Was ist Anti-Monotonizität, Succinctness? Für ein bestimmtes Constraint sagen/begründen, ob anti-monoton/succinct.</summary>
+<div class="answer">
+vgl. <a href="#anti-monoton">Anti-Monotonizität</a>,
+<a href="#succinctness">Succinctness</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?</summary>
+<div class="answer">
+Endlicher Automat
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter dem Antagonismus von Support-basiertem und Constraint-basiertem Pruning?</summary>
+<div class="answer">
+Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
+könnte man versucht sein die Kandidaten schon früh auf die Constraints zu
+überprüfen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
+Frequent sein muss, muss nicht für jede Teilmenge das Constraint erfüllt
+sein. Dies gilt jedoch nicht für die Nebenbedingungen.
+</div>
+</details>
+
+<details class="question">
+<summary>Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht anti-monoton) erklären können.</summary>
+<div class="answer">
+Support-basiertes Pruning
+</div>
+</details>
+
+<details class="question">
+<summary>Welche zwei Sprachen haben wir für die Formulierung der Constraints kennengelernt?</summary>
+<div class="answer">
+1-var und 2-var bzw. MetaRule Guided
+</div>
+</details>
+
+<details class="question">
+<summary>Warum ist SQL nicht geeignet um Constraints zu formulieren?</summary>
+<div class="answer">
+Weil SQL keine Aussage über die Struktur machen kann. So ist es in SQL
+nicht möglich zu sagen, dass die rechte Seite mindestens 3 Elemente
+beinhalten soll.
+</div>
+</details>
 
 ### Clustering
-* BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
-  herleiten?<br/>
-  → $R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}$
-* BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?<br/>
-  → $\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}$
-* BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
-  herleiten?<br/>
-  → $D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}$
-* BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengefügten
-  Clusters <span markdown="0">$C_{12} = C_1 \cup C_2$</span> aus den
-  Komponenten berechnen?<br/>
-  → Durch Addition der jeweiligen Features der Einzelcluster.
-* Was spricht dagegen, <span markdown="0">$\mathbf{\varepsilon}$</span> in
-  OPTICS riesig zu wählen?<br/>
-  → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
-     Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
-* Welche Clustering-Verfahren kennen Sie?<br/>
-  → <a href="#k-means">$k$-means</a>, <a href="#clarans">CLARANS</a>,
-     <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
-     <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
-* Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>
-  → Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
-    (Hierarchisches Clustering), finden von neuen Symbolen.
-* Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen
-  Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.<br/>
-  → Weil Datenobjekte in hochdimensionalen Räumen typischerweise alle weit
-     auseinander liegen / nicht dicht sind. Man kann
-     <a href="#projected-clustering">projected Clustering</a> anwenden.
+
+<details class="question">
+<summary>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS herleiten?</summary>
+<div class="answer">
+$R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}$
+</div>
+</details>
+
+<details class="question">
+<summary>BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?</summary>
+<div class="answer">
+$\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}$
+</div>
+</details>
+
+<details class="question">
+<summary>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS herleiten?</summary>
+<div class="answer">
+$D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}$
+</div>
+</details>
+
+<details class="question">
+<summary>BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengefügten Clusters $C_{12} = C_1 \cup C_2$ aus den Komponenten berechnen?</summary>
+<div class="answer">
+Durch Addition der jeweiligen Features der Einzelcluster.
+</div>
+</details>
+
+<details class="question">
+<summary>Was spricht dagegen, $\mathbf{\varepsilon}$ in OPTICS riesig zu wählen?</summary>
+<div class="answer">
+Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
+Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Clustering-Verfahren kennen Sie?</summary>
+<div class="answer">
+<a href="#k-means">$k$-means</a>, <a href="#clarans">CLARANS</a>,
+<a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
+<a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
+</div>
+</details>
+
+<details class="question">
+<summary>Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?</summary>
+<div class="answer">
+Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
+(Hierarchisches Clustering), finden von neuen Symbolen.
+</div>
+</details>
+
+<details class="question">
+<summary>Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.</summary>
+<div class="answer">
+Weil Datenobjekte in hochdimensionalen Räumen typischerweise alle weit
+auseinander liegen / nicht dicht sind. Man kann
+<a href="#projected-clustering">projected Clustering</a> anwenden.
+</div>
+</details>
+
 * Erklären Sie, warum Clustering mit kategorischen Attributen besonders ist?
   Warum ist Link-basiertes Clustering hier hilfreich?
 
@@ -1357,10 +1626,15 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting
 
 * Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
 auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.
-* Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br/>
-  → Dann ist die naive Unabhängigkeitsannahme nicht mehr gegeben und man sollte
-    ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
-    machen.
+
+<details class="question">
+<summary>Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?</summary>
+<div class="answer">
+Dann ist die naive Unabhängigkeitsannahme nicht mehr gegeben und man sollte
+ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
+machen.
+</div>
+</details>
 
 
 ## Material und Links

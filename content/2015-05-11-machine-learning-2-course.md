@@ -743,50 +743,91 @@ Alternative:
 
 ## Prüfungsfragen
 
-<ul>
-    <li>Was versteht man unter einer "Transductive SVM"?<br/>
-    → Eine Transductive SVM ist eine <abbr title="Support Vector Machine">SVM</abbr>,
-       welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
-       die Trennebene durch eine Region geringer Dichte zu legen.</li>
-    <li>Wie lautet die Optimierungsformel der transductive SVM?<br/>
-        → $$\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2$$
-        unter den Nebenbedingungen
-        $$\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1$$
-        und
-        $$\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}$$
+<details class="question">
+<summary>Was versteht man unter einer "Transductive SVM"?</summary>
+<div class="answer">
+Eine Transductive SVM ist eine <abbr title="Support Vector Machine">SVM</abbr>,
+welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
+die Trennebene durch eine Region geringer Dichte zu legen.
+</div>
+</details>
 
-        Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
-    </li>
-    <li>Was macht man im Reinforcement Learning, wenn Aktionen länger dauern?<br/>
-        → Options verwenden (TODO: Wie ändert sich die Value Iteration Formel
-           nun bzgl. der Zeit?)</li>
-    <li>Warum heißen POMDPs "Partially Observable"?<br/>
-        → Weil der Agent zwar Feedback über die Umgebung bekommt, aber nicht
-           direkt erfährt, in welchem Zustand er ist. Siehe
-           <a href="#pomdp-definition">Definition</a>.</li>
-    <li>Welche Active Learning Techniken gibt es?<br/>
-        → Query / Selective / Pool-based (vgl. <a href="#tocAnchor-1-1-4">Query-by-Committee</a>)</li>
-    <li>Wie nennt man ein instanziiertes OPRM?<br/>
-        → TODO (Skelett?)</li>
-    <li>Wie funktioniert aktives Lernen bei SVMs?<br/>
-        → Bei SVMs gibt es die Dualität zwischen dem Feature-Space und dem
-           Hypothesenraum. In dem Feature-Space stellen
-           die Achsen <span markdown="0">$x_i$</span> die Features dar, Trainingsdaten sind Punkte und
-           die SVM wird durch die Trennebene visualisiert. Im Hypothesenraum
-           sind die Achsen <span markdown="0">$w_i$</span> zusammen der
-           Normalenvektor der SVM, die verschiedenen Trennebenen der SVMs sind
-           hier Punkte. Die Daten geben Bedingungen an die SVM vor, welche
-           in diesem Raum als Hyperebenen dargestellt werden können. Der Margin ist
-           in diesem Raum ein Kreis, der die Bedingungs-Hyperebenen berührt.
+<details class="question">
+<summary>Wie lautet die Optimierungsformel der transductive SVM?</summary>
+<div class="answer">
+$$\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2$$
+unter den Nebenbedingungen
+$$\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1$$
+und
+$$\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}$$
 
-           Beim aktiven Lernen versucht man, den Version-Space im Inneren der
-           Bedingungs-Hyperebenen so schnell wie möglich zu verkleinern.</li>
-    <li>Was versteht man unter Transduktivem Lernen?<br/>
-        → Unter Transduktiver Inferenz versteht man das Schließen von
-           Trainingsbeispielen direkt auf spezifische Testfälle.</li>
-    <li>Wie nennt man die Wahrscheinlichkeit des aktuellen Zustands in POMDPs?<br/>
-        → Belief.</li>
-</ul>
+Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
+</div>
+</details>
+
+<details class="question">
+<summary>Was macht man im Reinforcement Learning, wenn Aktionen länger dauern?</summary>
+<div class="answer">
+Options verwenden (TODO: Wie ändert sich die Value Iteration Formel
+nun bzgl. der Zeit?)
+</div>
+</details>
+
+<details class="question">
+<summary>Warum heißen POMDPs "Partially Observable"?</summary>
+<div class="answer">
+Weil der Agent zwar Feedback über die Umgebung bekommt, aber nicht
+direkt erfährt, in welchem Zustand er ist. Siehe
+<a href="#pomdp-definition">Definition</a>.
+</div>
+</details>
+
+<details class="question">
+<summary>Welche Active Learning Techniken gibt es?</summary>
+<div class="answer">
+Query / Selective / Pool-based (vgl. <a href="#tocAnchor-1-1-4">Query-by-Committee</a>)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie nennt man ein instanziiertes OPRM?</summary>
+<div class="answer">
+TODO (Skelett?)
+</div>
+</details>
+
+<details class="question">
+<summary>Wie funktioniert aktives Lernen bei SVMs?</summary>
+<div class="answer">
+<p>Bei SVMs gibt es die Dualität zwischen dem Feature-Space und dem
+Hypothesenraum. In dem Feature-Space stellen
+die Achsen $x_i$ die Features dar, Trainingsdaten sind Punkte und
+die SVM wird durch die Trennebene visualisiert. Im Hypothesenraum
+sind die Achsen $w_i$ zusammen der
+Normalenvektor der SVM, die verschiedenen Trennebenen der SVMs sind
+hier Punkte. Die Daten geben Bedingungen an die SVM vor, welche
+in diesem Raum als Hyperebenen dargestellt werden können. Der Margin ist
+in diesem Raum ein Kreis, der die Bedingungs-Hyperebenen berührt.</p>
+
+<p>Beim aktiven Lernen versucht man, den Version-Space im Inneren der
+Bedingungs-Hyperebenen so schnell wie möglich zu verkleinern.</p>
+</div>
+</details>
+
+<details class="question">
+<summary>Was versteht man unter Transduktivem Lernen?</summary>
+<div class="answer">
+Unter Transduktiver Inferenz versteht man das Schließen von
+Trainingsbeispielen direkt auf spezifische Testfälle.
+</div>
+</details>
+
+<details class="question">
+<summary>Wie nennt man die Wahrscheinlichkeit des aktuellen Zustands in POMDPs?</summary>
+<div class="answer">
+Belief.
+</div>
+</details>
 
 
 ## Material und Links
