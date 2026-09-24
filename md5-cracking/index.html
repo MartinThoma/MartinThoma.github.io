@@ -112,10 +112,10 @@ algorithm a string and it will return another 32-character long alphanumeric
 string. The returned string looks quite random, but it isn't. If you use the
 same input, you always get the same 32 character output.</p>
 <p>What is it good for?</p>
-<p>Well, imagine you had a web application. Now an attacker found a security whole
+<p>Well, imagine you had a web application. Now an attacker found a security hole
 and can read the password-column in the database. If it was plain text, he
-could use the passwords to log into the users accounts. As it is hashed and the
-hash function can't be simply reverted. So the attacker can't take any
+could use the passwords to log into the users' accounts. But as it is <a href="../password-hashing/">hashed</a> and
+the hash function can't be simply reverted, the attacker can't take any
 advantage of the passwords he just read.</p>
 <p>It is much more realistic that the attacker can read the whole database. So he
 can access sensitive user data. As it is very likely that you have some e-mail
@@ -139,7 +139,7 @@ is to crack them, so I tested it. I used those passwords:</p>
 This website could crack <em>computer</em>, <em>establishment</em> and <em>My Birthday</em>.
 The other two hashes weren't cracked.</p>
 <h2 id="john-the-ripper">John the Ripper</h2>
-<p>Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, the have to create a file in their working directory (let's call it md5.txt) and execute the following command:</p>
+<p>Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, they have to create a file in their working directory (let's call it md5.txt) and execute the following command:</p>
 <div class="highlight"><pre><span></span><code>john<span class="w"> </span>--format<span class="o">=</span>raw-MD5<span class="w"> </span>md5.txt
 </code></pre></div>
 <p>Here is the time, john needed to crack the hashes:</p>

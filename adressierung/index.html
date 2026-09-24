@@ -93,10 +93,10 @@ MathJax.Hub.Queue(function() {
             <span>55</span>
 </a></li>
         <li><a href="../tags/#operating-systems-ref">Operating Systems
-            <span>5</span>
+            <span>3</span>
 </a></li>
         <li><a href="../tags/#os-ref">OS
-            <span>5</span>
+            <span>3</span>
 </a></li>
     </ul>
 </header>
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
 <h2 id="allgemeines">Allgemeines</h2>
 <p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 <p>Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped
-cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch
+cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tzlich noch
 schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man
 gedanklich die Hauptspeicheradressen in 3 Teile:</p>
 <ul>
@@ -160,7 +160,7 @@ werden.</p>
     Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
 </ol>
 <h2 id="physical-address-and-virtual-address">Physical address and virtual address</h2>
-<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretisch mehr Speicher braucht als an Hauptspeicher zur Verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
 Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum ist sehr gro&szlig;. Der virtuelle Adressraum ist in Bl&ouml;cke (Pages) unterteilt und die Pages werden von langsamen, aber gro&szlig;en auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
 <p>Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:</p>
 <ul>
@@ -169,12 +169,12 @@ Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum i
 <li><code>vmstat -s</code></li>
 </ul>
 <h2 id="cache-modelle">Cache-Modelle</h2>
-<p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
+<p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktioniert, geht es wie folgt weiter:</p>
 <h3 id="physically-indexed-physically-tagged">Physically Indexed, Physically Tagged</h3>
-<p>Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
+<p>Hier wird der Index und der Tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
 <h3 id="virtually-indexed-physically-tagged">Virtually indexed, physically tagged</h3>
-<p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.</p>
-<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+<p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den Tag &uuml;berpr&uuml;fen kann.</p>
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der Index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige physische Adresse sei 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 <h3 id="physically-indexed-virtually-tagged">Physically Indexed / Virtually Tagged</h3>
 <p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
 <h3 id="virtually-indexed-virtually-tagged">Virtually Indexed / Virtually Tagged</h3>

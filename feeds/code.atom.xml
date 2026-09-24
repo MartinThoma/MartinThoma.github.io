@@ -664,7 +664,7 @@ e.g. &lt;code&gt;3.10-slim-bullseye&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;By the way: &lt;a href="https://www.pypy.org/download.html"&gt;PyPy is currently at 3.7&lt;/a&gt; and &lt;a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html"&gt;AWS Lambda is at 3.9&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="what-happened-before-310"&gt;What Happened Before 3.10?&lt;/h2&gt;
 &lt;p&gt;Many people do not use Python 3.9 yet. For this reason, you might be interested in other changes that were introduced with Python 3.9 or maybe even Python 3.8:
-&lt;a href="https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8"&gt;&lt;strong&gt;Killer Features by Python Version&lt;/strong&gt;
+&lt;a href="../python-killer-features/"&gt;&lt;strong&gt;Killer Features by Python Version&lt;/strong&gt;
 &lt;em&gt;Get to know what you miss when you support older Python versions: Python 2.7 to 3.5, 3.6, 3.7, 3.8 and 3.9&lt;/em&gt;python.plainenglish.io&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
 &lt;p&gt;Python 3.10 is great! It has &amp;hellip;&lt;/p&gt;
@@ -4486,7 +4486,7 @@ Python framework to write property-based tests.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you&amp;rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de&lt;/p&gt;</content><category term="Code"></category><category term="Python"></category><category term="Testing"></category><category term="Unit Testing"></category><category term="Hypothesis"></category><category term="Software Engineering"></category></entry><entry><title>CI Pipelines</title><link href="https://martin-thoma.com/ci-pipelines/" rel="alternate"></link><published>2020-07-30T20:00:00+02:00</published><updated>2020-07-30T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-07-30:/ci-pipelines/</id><summary type="html">&lt;p&gt;Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently &lt;a href="https://github.com/scipy/scipy/pulls"&gt;274 open pull requests&lt;/a&gt; (PRs). This means 274 different new features, bug fixes or other improvements want to be …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently &lt;a href="https://github.com/scipy/scipy/pulls"&gt;274 open pull requests&lt;/a&gt; (PRs). This means 274 different new features, bug fixes or other improvements want to be added. The maintainers likely don&amp;rsquo;t know the contributors in person. While there is no way around looking at the contributed change, there is a good solution to make sure things are not horribly wrong: Unit Tests.&lt;/p&gt;
 &lt;p&gt;Running the test suite for all of those pull requests costs quite a bit of time. The quicker the maintainers can see if the PR has issues and what the issues are, the better.&lt;/p&gt;
-&lt;p&gt;The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) linting with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.&lt;/p&gt;
+&lt;p&gt;The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) &lt;a href="../static-code-analysis/"&gt;linting&lt;/a&gt; with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2020/07/ci-feedback-github.png"&gt;&lt;img alt="Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." src="../images/2020/07/ci-feedback-github.png" style="width: 512px;"/&gt;&lt;/a&gt;
 &lt;figcaption class="text-center"&gt;Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.&lt;/figcaption&gt;
@@ -4968,7 +4968,7 @@ dependencies?&lt;/p&gt;
 &lt;figcaption class="text-center"&gt;Image derived by Martin Thoma from &lt;a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png"&gt;Andrea Caprotti&lt;/a&gt; (nox project)&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.&lt;/p&gt;
-&lt;p&gt;After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know &lt;a href="../unit-testing-basics/"&gt;the basics of unit testing in Python&lt;/a&gt; and &lt;a href="https://packaging.python.org/tutorials/packaging-projects/"&gt;how to package your code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for &lt;a href="../ci-pipelines/"&gt;Continuous Integration&lt;/a&gt; tools like Travis. I assume you already know &lt;a href="../unit-testing-basics/"&gt;the basics of unit testing in Python&lt;/a&gt; and &lt;a href="https://packaging.python.org/tutorials/packaging-projects/"&gt;how to package your code&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="pyenv"&gt;pyenv&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/pyenv/pyenv"&gt;pyenv&lt;/a&gt; is a tool which lets you easily install and switch Python versions on your system. Take a look at &lt;a href="https://github.com/pyenv/pyenv#installation"&gt;the official installation instructions&lt;/a&gt;; it&amp;rsquo;s not a Python package but hooks directly into your shell.&lt;/p&gt;
 &lt;p&gt;Once it is installed, you can get a list of all available Python versions. In July 2020, there were 427 different versions! I&amp;rsquo;ve shortened them here to show you the ones I think are interesting:&lt;/p&gt;
@@ -5011,7 +5011,7 @@ $&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;--ve
 pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;.1.1&lt;span class="w"&gt; &lt;/span&gt;from&lt;span class="w"&gt; &lt;/span&gt;/home/moose/.pyenv/versions/3.8.4/lib/python3.8/site-packages/pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.8&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="virtual-environment-basics"&gt;Virtual environment basics&lt;/h2&gt;
-&lt;p&gt;A virtual environment encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed C libraries and executables. The only difference is which packages are available.&lt;/p&gt;
+&lt;p&gt;A &lt;a href="../virtual-environments/"&gt;virtual environment&lt;/a&gt; encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed C libraries and executables. The only difference is which packages are available.&lt;/p&gt;
 &lt;p&gt;You can create a new virtual environment called venv-tutorial like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv-tutorial
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -5261,7 +5261,7 @@ create and interact with (see
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Note that this will become harder the more complex your data becomes and the more data you need to properly test your views.&lt;/p&gt;
 &lt;h3 id="wait-what-about-testing-the-sql-queries"&gt;Wait &amp;hellip; what about testing the SQL Queries?&lt;/h3&gt;
-&lt;p&gt;You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at Query Builders. Avoid using raw SQL. In most cases, it should not be necessary.&lt;/p&gt;
+&lt;p&gt;You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at &lt;a href="../raw-sql-vs-query-builder-vs-orm/"&gt;Query Builders&lt;/a&gt;. Avoid using raw SQL. In most cases, it should not be necessary.&lt;/p&gt;
 &lt;h2 id="protected-routes_1"&gt;Protected Routes&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s pretty common that you have routes which are either protected by &lt;a href="https://en.wikipedia.org/wiki/Basic_access_authentication"&gt;Basic Auth&lt;/a&gt; or need a form of login. You can essentially also set up a test account in the client fixture and log in manually. This requires some work and depends on what exactly you&amp;rsquo;re doing for authentication.&lt;/p&gt;
 &lt;h3 id="basic-access-authentication"&gt;Basic Access Authentication&lt;/h3&gt;
@@ -5625,7 +5625,7 @@ running!&lt;/p&gt;
 &lt;p&gt;Finally, there is &lt;code&gt;spec_set&lt;/code&gt;. That one prevents you from setting attributes that don&amp;rsquo;t exist.&lt;/p&gt;
 &lt;p&gt;Usually, I would use &lt;code&gt;autospec=True&lt;/code&gt; and &lt;code&gt;spec_set=True&lt;/code&gt; everywhere. Code which uses introspection might be an example where you don&amp;rsquo;t want that.&lt;/p&gt;
 &lt;h2 id="pytests-monkeypatch"&gt;pytest's monkeypatch&lt;/h2&gt;
-&lt;p&gt;monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don&amp;rsquo;t even need to import anything.&lt;/p&gt;
+&lt;p&gt;monkeypatch is a fixture from pytest. I will explain what a fixture is in the &lt;a href="../test-flask-applications/"&gt;next article&lt;/a&gt;. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don&amp;rsquo;t even need to import anything.&lt;/p&gt;
 &lt;p&gt;For the credit card fraud example, it looks like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_is_credit_card_fraud_monkeypatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;monkeypatch&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;monkeypatch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fraud_example.dark_magic"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;the_mock&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -5743,7 +5743,7 @@ that.&lt;/p&gt;
 &lt;p&gt;Setting a random state / seed is also very helpful for debugging. If you
 haven&amp;rsquo;t heard of the Heisenbug or the Higgs-Bugson, you missed some
 &lt;a href="https://blog.codinghorror.com/new-programming-jargon/"&gt;programming jargon&lt;/a&gt;.
-And if you're interested in research, reproducibility matters.&lt;/p&gt;
+And if you're interested in research, &lt;a href="../ml-reproducibility/"&gt;reproducibility&lt;/a&gt; matters.&lt;/p&gt;
 &lt;h2 id="terminology"&gt;Terminology&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Patching vs Mocking&lt;/strong&gt;: Patching a function is adjusting its functionality. In the context of unit testing, we patch a dependency away; so we replace the dependency. Mocking is imitating. Usually we patch a function to use a mock we control instead of a dependency we don&amp;rsquo;t control.&lt;/li&gt;
@@ -6376,7 +6376,7 @@ following disk space hogs:&lt;/p&gt;
 &lt;li&gt;404 GB: My Home Directory:&lt;ul&gt;
 &lt;li&gt;152 GB: Various git repositories&lt;ul&gt;
 &lt;li&gt;103 GB: My "algorithms" repository&lt;ul&gt;
-&lt;li&gt;99 GB for PyPI (see &lt;a href="https://martin-thoma.com/pypi-2020/"&gt;PyPI Analysis 2020&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;99 GB for PyPI (see &lt;a href="../pypi-2020/"&gt;PyPI Analysis 2020&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;4 GB for a &lt;a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark"&gt;database benchmark&lt;/a&gt;. I never really finished this; I moved on to other topics&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -6797,7 +6797,7 @@ and use SQL to sort:&lt;/p&gt;
 &lt;p&gt;StackExchange&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/34090744/562769"&gt;How can I sort a 10GB file?&lt;/a&gt;, 2015.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/"&gt;&amp;Uuml;bersicht &amp;uuml;ber Sortieralgorithmen&lt;/a&gt; (German)&lt;/li&gt;
+&lt;li&gt;&lt;a href="../ubersicht-uber-sortieralgorithmen/"&gt;&amp;Uuml;bersicht &amp;uuml;ber Sortieralgorithmen&lt;/a&gt; (German)&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="Bash"></category><category term="Sorting"></category><category term="Data Science"></category><category term="Algorithms"></category><category term="Computer Science"></category></entry><entry><title>Python EEL</title><link href="https://martin-thoma.com/eel/" rel="alternate"></link><published>2020-05-23T20:00:00+02:00</published><updated>2020-05-23T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-05-23:/eel/</id><summary type="html">&lt;p&gt;&lt;a href="https://pypi.org/project/Eel/"&gt;Eel&lt;/a&gt; is a little Python library for making
 simple Electron-like offline HTML/JS GUI apps, with full access to Python
 capabilities and libraries.&lt;/p&gt;
@@ -6970,7 +6970,7 @@ crunching:&lt;/p&gt;
 &lt;h2 id="myth-python-cannot-use-multiple-cores_1"&gt;Myth: Python cannot use multiple cores&lt;/h2&gt;
 &lt;p&gt;... because of the &lt;a href="https://en.wikipedia.org/wiki/Global_interpreter_lock"&gt;GIL&lt;/a&gt;.
 That is just plain wrong. Have a look at my
-&lt;a href="https://martin-thoma.com/asyncio/"&gt;asyncio article&lt;/a&gt; to get an overview of
+&lt;a href="../asyncio/"&gt;asyncio article&lt;/a&gt; to get an overview of
 concurrency in Python.&lt;/p&gt;
 &lt;h2 id="myth-python-cannot-be-used-in-big-systems"&gt;Myth: Python cannot be used in big systems&lt;/h2&gt;
 &lt;p&gt;Large systems might not need single heavy number crunching like BLAS libraries
@@ -7021,7 +7021,7 @@ Python. Here are some examples:&lt;/p&gt;
 &lt;p&gt;I will likely write way more about this, but here are some core ideas:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Analyze&lt;/strong&gt;: Where do you spend most of your execution time? Is it mainly
-   waiting for I/O? Then look at my &lt;a href="https://martin-thoma.com/asyncio/"&gt;asyncio
+   waiting for I/O? Then look at my &lt;a href="../asyncio/"&gt;asyncio
    article&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use libraries&lt;/strong&gt;: Python has a lot of awesome libraries which are
    well-maintained. It takes a while to figure out which ones exist, but
@@ -7176,7 +7176,7 @@ all &lt;code&gt;books.title&lt;/code&gt; written by that author:&lt;/p&gt;
 &lt;a href="../images/2020/07/xkcd-327.png"&gt;&lt;img alt="xkcd 327" src="../images/2020/07/xkcd-327.png" style="width: 512px;"/&gt;&lt;/a&gt;
 &lt;figcaption class="text-center"&gt;&lt;a href="https://xkcd.com/327/"&gt;xkcd 327&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;An SQL injection is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:&lt;/p&gt;
+&lt;p&gt;An &lt;a href="../sql-injections/"&gt;SQL injection&lt;/a&gt; is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"SELECT user_id FROM users WHERE name='&lt;/span&gt;&lt;span class="si"&gt;{name}&lt;/span&gt;&lt;span class="s2"&gt;' AND pw='&lt;/span&gt;&lt;span class="si"&gt;{pw}&lt;/span&gt;&lt;span class="s2"&gt;';"&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Given such an approach, the attacker could fill in &lt;code&gt;' OR name='admin' AND '1'='1&lt;/code&gt; for the pw and leave the name empty. This would result in the query:&lt;/p&gt;
@@ -7827,7 +7827,7 @@ a &lt;code&gt;setup.py&lt;/code&gt; or a &lt;code&gt;requirements.in&lt;/code&gt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You also see a reason here why you might want to mix-and-match between a pure &lt;code&gt;setup.py&lt;/code&gt; and a pure &lt;code&gt;setup.cfg&lt;/code&gt; solution: The &lt;code&gt;all&lt;/code&gt; extra can be specified way better in code than in the configuration.&lt;/p&gt;
 &lt;h3 id="pyprojecttoml"&gt;pyproject.toml&lt;/h3&gt;
-&lt;p&gt;The pyproject.toml deserves its &lt;a href="https://martin-thoma.com/pyproject-toml/"&gt;own blog post&lt;/a&gt;, but there are a few things to point out:&lt;/p&gt;
+&lt;p&gt;The pyproject.toml deserves its &lt;a href="../pyproject-toml/"&gt;own blog post&lt;/a&gt;, but there are a few things to point out:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Only the build system aspect is specified in &lt;a href="https://www.python.org/dev/peps/pep-0518/"&gt;PEP 518&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://python-poetry.org/docs/pyproject/"&gt;poetry defines&lt;/a&gt; name, version, license, maintainers, readme, keywords, classifiers, dependencies and dependencies-dev, ...&lt;/li&gt;
@@ -8200,7 +8200,7 @@ database system. It is used to store JSON objects.&lt;/p&gt;
 &lt;p&gt;The problem it solves is working with heterogeneous data which does not fit into
 a schema or where creating a schema would be overly complicated. If it fits into
 a schema, use a SQL database like MySQL/MariaDB or Postgres. If you just need to
-store key/value pairs, use a &lt;a href="https://martin-thoma.com/key-value-stores/"&gt;Key-Value Store&lt;/a&gt;.&lt;/p&gt;
+store key/value pairs, use a &lt;a href="../key-value-stores/"&gt;Key-Value Store&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="concepts"&gt;Concepts&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn&gt;Document&lt;/dfn&gt;&lt;/dt&gt;
@@ -8729,7 +8729,7 @@ not intended for production for those benchmarks (I think &lt;a href="https://me
 not the bottleneck. The application logic itself, SSL, the database queries.
 They likely dominate the execution time. I don't have those numbers at hand, but
 &lt;a href="https://www.youtube.com/watch?v=gJ7CnUX_7YQ"&gt;Miguel Grinberg&lt;/a&gt; makes this
-point as well. You might get a feeling for it by looking at my &lt;a href="https://martin-thoma.com/simple-operations/#latency"&gt;article about basic operations&lt;/a&gt;.&lt;/p&gt;
+point as well. You might get a feeling for it by looking at my &lt;a href="../simple-operations/#latency"&gt;article about basic operations&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Instead of this sole focus on efficiency, other factors need to be considered:
 The stability of the framework. The size of the community. The number of
 developers you can find to work on your application.&lt;/p&gt;
@@ -8924,7 +8924,7 @@ at each element.&lt;/p&gt;
 &lt;li&gt;Geeks For Geeks: &lt;a href="https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/"&gt;Largest Sum Contiguous Subarray&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://leetcode.com/problems/maximum-subarray/"&gt;Leetcode 53&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Similar Problems:&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/maximum-fixed-length-contiguous-subarray/"&gt;Maximum Fixed-Length Contiguous Subarray&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../maximum-fixed-length-contiguous-subarray/"&gt;Maximum Fixed-Length Contiguous Subarray&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Competitive Programming"></category><category term="Brute-Force"></category><category term="Dynamic Programming"></category><category term="Python"></category><category term="Programming"></category><category term="Algorithms"></category><category term="Computer Science"></category></entry><entry><title>How to build reliable Software</title><link href="https://martin-thoma.com/reliable-software/" rel="alternate"></link><published>2020-04-30T20:00:00+02:00</published><updated>2020-04-30T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-04-30:/reliable-software/</id><summary type="html">&lt;p&gt;Reliability in software development is an ambiguous term. Without thinking much
@@ -9181,7 +9181,7 @@ code formatters like &lt;a href="https://pypi.org/project/black/"&gt;black&lt;/a
 unit test and an integration test. They look the same. The difference is that an integration
 test doesn't only look at your code in isolation, but at the way your code works with an external
 system.&lt;/p&gt;
-&lt;p&gt;Testing is a huge topic. I covered a bit of it in &lt;a href="https://martin-thoma.com/testing-python-code/"&gt;Testing in Python&lt;/a&gt;,
+&lt;p&gt;Testing is a huge topic. I covered a bit of it in &lt;a href="../testing-python-code/"&gt;Testing in Python&lt;/a&gt;,
 but there is certainly way more to write.&lt;/p&gt;
 &lt;h2 id="fault-tolerance_1"&gt;Fault Tolerance&lt;/h2&gt;
 &lt;p&gt;There are some issues we cannot prevent, but we can design systems that can deal with them.&lt;/p&gt;
@@ -9488,7 +9488,7 @@ $$&lt;/p&gt;
         &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Have a look at &lt;a href="https://martin-thoma.com/fibonacci-recursion-decorators/"&gt;Fibonacci, recursion and decorators&lt;/a&gt;
+&lt;p&gt;Have a look at &lt;a href="../fibonacci-recursion-decorators/"&gt;Fibonacci, recursion and decorators&lt;/a&gt;
 if you are interested in more details.&lt;/p&gt;
 &lt;h2 id="longest-increasing-subsequence"&gt;Longest Increasing Subsequence&lt;/h2&gt;
 &lt;p&gt;A sub-sequence of a sequence is any subset of a sequence in the same order.
@@ -9555,7 +9555,7 @@ calculates the number of operations two words are apart. Typically, one allows
 removal of characters, adding characters or changing a character. And typically,
 all of them have a cost of 1.&lt;/p&gt;
 &lt;p&gt;A real-world application of the edit distance is in automatic speech recognition (ASR).
-There the edit distance is used to calculate the word error rate (WER): &lt;a href="https://martin-thoma.com/word-error-rate-calculation/"&gt;Word Error Rate Calculation&lt;/a&gt;&lt;/p&gt;
+There the edit distance is used to calculate the word error rate (WER): &lt;a href="../word-error-rate-calculation/"&gt;Word Error Rate Calculation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;\begin{align}
 m &amp;amp;:= |w_1|\
 n &amp;amp;:= |w_2|\
@@ -9910,7 +9910,7 @@ search and more eggs will not result in fewer egg drops.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/16814830/562769"&gt;What is the difference between dynamic programming and branch and bound?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;🇩🇪 Martin Thoma: &lt;a href="https://martin-thoma.com/probabilistische-planung/#dynamic-programming"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🇩🇪 Martin Thoma: &lt;a href="../probabilistische-planung/#dynamic-programming"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Algorithms"></category><category term="Fibonacci"></category><category term="Python"></category><category term="COP"></category><category term="CSP"></category><category term="Computer Science"></category><category term="Mathematics"></category></entry><entry><title>Backtracking</title><link href="https://martin-thoma.com/backtracking/" rel="alternate"></link><published>2020-03-30T20:00:00+02:00</published><updated>2020-03-30T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-30:/backtracking/</id><summary type="html">&lt;p&gt;Backtracking is a concept for solving discrete constraint satisfaction problems
 (CSPs). Those problems don't have an optimal solution, but just solutions which
 satisfy the constraints. The idea of backtracking is to try a solution. If it
@@ -9955,7 +9955,7 @@ problems (COPs). They are similar to CSPs, but besides having the constraints
 they have an optimization criterion. In contrast to plain backtracking, B&amp;amp;B
 usually explores the most promising partial solutions first (best-first search),
 although depth-first and breadth-first variants exist.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;B&amp;amp;B is a &lt;a href="https://martin-thoma.com/label-correction-algorithm/"&gt;label correction algorithm&lt;/a&gt;.
+&lt;p&gt;B&amp;amp;B is a &lt;a href="../label-correction-algorithm/"&gt;label correction algorithm&lt;/a&gt;.
 It is a search algorithm which uses a lower bound and an upper bound for the
 search. Think of a shortest-path problem.&lt;/p&gt;
 &lt;p&gt;One part of the name, the bound, refers to the way B&amp;amp;B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sub-tree can be discarded.&lt;/p&gt;
@@ -10464,7 +10464,7 @@ also helps with Analysability, Modifiability and Testability.&lt;/p&gt;
 &lt;p&gt;When reading that there are different Front Ends, you might wonder how you
 define the interfaces between front ends and backend services.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/rest/"&gt;REST API&lt;/a&gt;: &lt;a href="https://en.wikipedia.org/wiki/OpenAPI_Specification"&gt;OpenAPI Specification&lt;/a&gt; e.g. with &lt;a href="https://flask-restx.readthedocs.io/en/latest/"&gt;Flask-RestX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../rest/"&gt;REST API&lt;/a&gt;: &lt;a href="https://en.wikipedia.org/wiki/OpenAPI_Specification"&gt;OpenAPI Specification&lt;/a&gt; e.g. with &lt;a href="https://flask-restx.readthedocs.io/en/latest/"&gt;Flask-RestX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://json-schema.org/"&gt;JSON Schema&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html"&gt;Avro&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Flat file: Sometimes it is enough to make a file available, e.g. via FTP or even HTTP (Amazon S3). The strength of a single file is batch loading. You can keep the files and thus track the past. It is not a good choice for streaming / real time applications where you have a lot of events.&lt;/li&gt;
@@ -10562,7 +10562,7 @@ below for increasing m and constant n = 100,000:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/maximum-subarray-sum/"&gt;Maximum Contiguous Subarray Sum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../maximum-subarray-sum/"&gt;Maximum Contiguous Subarray Sum&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="Performance"></category></entry><entry><title>Matrix Multiplication: 2020 Update</title><link href="https://martin-thoma.com/matrix-multiplication-2020/" rel="alternate"></link><published>2020-02-16T20:00:00+01:00</published><updated>2020-02-16T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-02-16:/matrix-multiplication-2020/</id><summary type="html">&lt;p&gt;In 2012, I wrote a series of articles about matrix
 multiplication. Now I'm preparing a course about speeding up Python. For this
 reason, I need an example of code that is fairly simple to understand and can be
@@ -10571,7 +10571,7 @@ optimized. So let's update the results of my old articles 🙂&lt;/p&gt;
 multiplication. Now I'm preparing a course about speeding up Python. For this
 reason, I need an example of code that is fairly simple to understand and can be
 optimized. So let's update the results of my old articles 🙂&lt;/p&gt;
-&lt;p&gt;The code can be found in a git repository on GitHub (&lt;a href="https://github.com/MartinThoma/matrix-multiplication"&gt;github.com/MartinThoma/matrix-multiplication&lt;/a&gt;) and you can have a look at the &lt;a href="https://martin-thoma.com/matrix-multiplication-python-java-cpp/"&gt;old article&lt;/a&gt; as well, if you want.&lt;/p&gt;
+&lt;p&gt;The code can be found in a git repository on GitHub (&lt;a href="https://github.com/MartinThoma/matrix-multiplication"&gt;github.com/MartinThoma/matrix-multiplication&lt;/a&gt;) and you can have a look at the &lt;a href="../matrix-multiplication-python-java-cpp/"&gt;old article&lt;/a&gt; as well, if you want.&lt;/p&gt;
 &lt;p&gt;All scripts are tested on my new ThinkPad T460p. For comparison, I've also
 added the laptop I had before when I wrote the 2012 matrix multiplication article:&lt;/p&gt;
 &lt;table class="table"&gt;
@@ -10656,7 +10656,7 @@ the old machine needed.&lt;/p&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=8)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=8)&lt;/a&gt;&lt;/th&gt;
 &lt;td&gt;1709 (&lt;span style="color: green;"&gt;1.7x&lt;/span&gt;)&lt;/td&gt;
 &lt;td&gt;1780&lt;/td&gt;
 &lt;td&gt;190&lt;/td&gt;
@@ -10664,7 +10664,7 @@ the old machine needed.&lt;/p&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=64)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=64)&lt;/a&gt;&lt;/th&gt;
 &lt;td&gt;855 (&lt;span style="color: green;"&gt;3.4x&lt;/span&gt;)&lt;/td&gt;
 &lt;td&gt;1022&lt;/td&gt;
 &lt;td&gt;44&lt;/td&gt;
@@ -10772,12 +10772,12 @@ Python 3.8 on others as well:&lt;/p&gt;
 &lt;td&gt;21&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=8)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=8)&lt;/a&gt;&lt;/th&gt;
 &lt;td&gt;1780&lt;/td&gt;
 &lt;td&gt;TODO&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=64)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Strassen (LEAF_SIZE=64)&lt;/a&gt;&lt;/th&gt;
 &lt;td&gt;1022&lt;/td&gt;
 &lt;td&gt;TODO&lt;/td&gt;
 &lt;/tr&gt;
@@ -11134,7 +11134,7 @@ of the tools relate.&lt;/p&gt;
 &lt;h2 id="development-environment"&gt;Development Environment&lt;/h2&gt;
 &lt;p&gt;I like the ZSH shell with the plugin &lt;a href="https://github.com/ohmyzsh/ohmyzsh"&gt;Oh My ZSH&lt;/a&gt;
 and &lt;a href="https://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; as an editor with many
-different plugins; I've written down some of &lt;a href="https://martin-thoma.com/sublime-text/"&gt;my Sublime Text plugins&lt;/a&gt;.&lt;/p&gt;
+different plugins; I've written down some of &lt;a href="../sublime-text/"&gt;my Sublime Text plugins&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;A common alternative to ZSH is &lt;a href="https://fishshell.com/"&gt;Fish&lt;/a&gt;. Common
 alternatives to Sublime Text are &lt;a href="https://atom.io/"&gt;Atom&lt;/a&gt; and &lt;a href="https://code.visualstudio.com/"&gt;VS Code&lt;/a&gt;.
 If you want more, &lt;a href="https://www.jetbrains.com/de-de/pycharm/"&gt;PyCharm&lt;/a&gt;.&lt;/p&gt;
@@ -11192,7 +11192,7 @@ handled:&lt;/p&gt;
 &lt;a href="https://numpydoc.readthedocs.io/en/latest/format.html"&gt;numpydoc docstring format&lt;/a&gt;
 a lot.&lt;/p&gt;
 &lt;p&gt;If you want to know more about formatting, I recommend reading my
-&lt;a href="https://martin-thoma.com/python-style-guide/"&gt;Python style guide&lt;/a&gt;.&lt;/p&gt;
+&lt;a href="../python-style-guide/"&gt;Python style guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="unit-testing"&gt;Unit Testing&lt;/h3&gt;
 &lt;p&gt;Before you start testing your application, you should decide which Python version
 you want to support. An orientation should be which CPython versions currently
@@ -11522,7 +11522,7 @@ Installing&lt;span class="w"&gt; &lt;/span&gt;dependencies&lt;span class="w"&gt;
 All&lt;span class="w"&gt; &lt;/span&gt;dependencies&lt;span class="w"&gt; &lt;/span&gt;are&lt;span class="w"&gt; &lt;/span&gt;now&lt;span class="w"&gt; &lt;/span&gt;up-to-date!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="docker_1"&gt;Docker&lt;/h2&gt;
-&lt;p&gt;If you want more isolation, have a look at &lt;a href="https://martin-thoma.com/docker/"&gt;Docker&lt;/a&gt;.
+&lt;p&gt;If you want more isolation, have a look at &lt;a href="../docker/"&gt;Docker&lt;/a&gt;.
 I use the &lt;a href="https://hub.docker.com/_/python"&gt;&lt;code&gt;python:3.8-slim-buster&lt;/code&gt;&lt;/a&gt; (February 2020).&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Dockerfile&lt;/code&gt; can then look like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;python:3.8-slim-buster&lt;/span&gt;
@@ -11545,14 +11545,14 @@ I use the &lt;a href="https://hub.docker.com/_/python"&gt;&lt;code&gt;python:3.8
 &lt;li&gt;&lt;a href="https://stackoverflow.com/a/41573588/562769"&gt;What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv, etc?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/pypa/pipenv/issues/3493#issuecomment-511708312"&gt;Generate requirements.txt from Pipfile.lock&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://pypi.org/project/virtualenvwrapper/"&gt;&lt;code&gt;virtualenvwrapper&lt;/code&gt;&lt;/a&gt;: extensions to virtualenv&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="virtualenv"></category></entry><entry><title>PyPI Analysis 2020</title><link href="https://martin-thoma.com/pypi-2020/" rel="alternate"></link><published>2020-01-09T20:00:00+01:00</published><updated>2020-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-01-09:/pypi-2020/</id><summary type="html">&lt;p&gt;I've created an &lt;a href="https://martin-thoma.com/analyzing-pypi-metadata/"&gt;introductory post&lt;/a&gt;
+&lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="virtualenv"></category></entry><entry><title>PyPI Analysis 2020</title><link href="https://martin-thoma.com/pypi-2020/" rel="alternate"></link><published>2020-01-09T20:00:00+01:00</published><updated>2020-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-01-09:/pypi-2020/</id><summary type="html">&lt;p&gt;I've created an &lt;a href="../analyzing-pypi-metadata/"&gt;introductory post&lt;/a&gt;
 where I looked at the package metadata in a very superficial way.&lt;/p&gt;
-&lt;p&gt;In the &lt;a href="https://martin-thoma.com/analyzing-pypi-metadata-2/"&gt;second post&lt;/a&gt;, I
+&lt;p&gt;In the &lt;a href="../analyzing-pypi-metadata-2/"&gt;second post&lt;/a&gt;, I
 analyzed the relationships between packages by looking at a dependency graph.&lt;/p&gt;
 &lt;p&gt;Now, at the beginning of 2020, I've updated the code and ran my analysis again.
-Have fun …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've created an &lt;a href="https://martin-thoma.com/analyzing-pypi-metadata/"&gt;introductory post&lt;/a&gt;
+Have fun …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've created an &lt;a href="../analyzing-pypi-metadata/"&gt;introductory post&lt;/a&gt;
 where I looked at the package metadata in a very superficial way.&lt;/p&gt;
-&lt;p&gt;In the &lt;a href="https://martin-thoma.com/analyzing-pypi-metadata-2/"&gt;second post&lt;/a&gt;, I
+&lt;p&gt;In the &lt;a href="../analyzing-pypi-metadata-2/"&gt;second post&lt;/a&gt;, I
 analyzed the relationships between packages by looking at a dependency graph.&lt;/p&gt;
 &lt;p&gt;Now, at the beginning of 2020, I've updated the code and ran my analysis again.
 Have fun 🙂&lt;/p&gt;
@@ -13062,13 +13062,13 @@ They are sometimes also called &lt;a href="https://en.wikipedia.org/wiki/Solutio
 &lt;h2 id="data-science"&gt;Data Science&lt;/h2&gt;
 &lt;p&gt;Although I haven't heard a catchy name, many people use similar things:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/eda/"&gt;EDA&lt;/a&gt;: Pandas, Jupyter notebooks and Bash (cat, jq, head, tail)&lt;/li&gt;
+&lt;li&gt;&lt;a href="../eda/"&gt;EDA&lt;/a&gt;: Pandas, Jupyter notebooks and Bash (cat, jq, head, tail)&lt;/li&gt;
 &lt;li&gt;Model Building: sklearn&lt;ul&gt;
 &lt;li&gt;Neural Networks: Keras / Tensorflow / (Py)Torch / CNTK&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://xgboost.readthedocs.io/en/latest/"&gt;XGBoost&lt;/a&gt; / &lt;a href="https://catboost.ai/"&gt;Catboost&lt;/a&gt; / &lt;a href="https://lightgbm.readthedocs.io/en/latest/"&gt;LightGBM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Images: Matplotlib and &lt;a href="https://martin-thoma.com/python-data-visualization/"&gt;many more visualization tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Images: Matplotlib and &lt;a href="../python-data-visualization/"&gt;many more visualization tools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Cloud:&lt;ul&gt;
 &lt;li&gt;AWS Stuff (S3, EC2, ECR and ECS, CloudWatch, SSM, ...)&lt;/li&gt;
 &lt;li&gt;Azure (Microsoft)&lt;/li&gt;
@@ -13322,7 +13322,7 @@ assign users to a bucket. And in practice, we need to make sure a user is
 assigned to the same bucket consistently.&lt;/p&gt;
 &lt;p&gt;First, we need a user identifier.&lt;/p&gt;
 &lt;h2 id="database-solution"&gt;Database Solution&lt;/h2&gt;
-&lt;p&gt;We want to store a variation per user in a database. Hence, we need a &lt;a href="https://martin-thoma.com/key-value-stores/"&gt;key-value store&lt;/a&gt; with the user-identifier as key and
+&lt;p&gt;We want to store a variation per user in a database. Hence, we need a &lt;a href="../key-value-stores/"&gt;key-value store&lt;/a&gt; with the user-identifier as key and
 the variation as value.&lt;/p&gt;
 &lt;p&gt;The code then is as follows:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
@@ -13697,12 +13697,12 @@ maybe only to 1250. And in the end it has to be strictly better.&lt;/p&gt;
 important than allowing blocks to be moved. So once in a while, I don't swap single
 elements but move a whole range.&lt;/p&gt;</content><category term="Code"></category><category term="Data Science"></category><category term="Python"></category></entry><entry><title>jq</title><link href="https://martin-thoma.com/jq/" rel="alternate"></link><published>2019-11-03T12:00:00+01:00</published><updated>2019-11-03T12:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-11-03:/jq/</id><summary type="html">&lt;p&gt;&lt;code&gt;jq&lt;/code&gt; is a command-line tool for processing JSON data. It is useful when
 executing small ad-hoc tasks. In this sense, it is similar to &lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt; and
-&lt;code&gt;grep&lt;/code&gt;. It is very good for the first step in exploratory data analysis:
+&lt;code&gt;grep&lt;/code&gt;. It is very good for the first step in &lt;a href="../eda/"&gt;exploratory data analysis&lt;/a&gt;:
 Getting an idea of what you actually have.&lt;/p&gt;
 &lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Ubuntu …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;code&gt;jq&lt;/code&gt; is a command-line tool for processing JSON data. It is useful when
 executing small ad-hoc tasks. In this sense, it is similar to &lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt; and
-&lt;code&gt;grep&lt;/code&gt;. It is very good for the first step in exploratory data analysis:
+&lt;code&gt;grep&lt;/code&gt;. It is very good for the first step in &lt;a href="../eda/"&gt;exploratory data analysis&lt;/a&gt;:
 Getting an idea of what you actually have.&lt;/p&gt;
 &lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Ubuntu&lt;/span&gt;
@@ -14054,7 +14054,7 @@ key.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Scalability&lt;/strong&gt;: Suppose you want to store more than you can do on the hardware
   of a single machine. Do you have to buy a better machine (scale vertically)
   or is it possible to have another (cheap) machine and run the database on two
-  machines in a distributed way (scale horizontally)? This is done via &lt;a href="https://www.digitalocean.com/community/tutorials/understanding-database-sharding"&gt;sharding&lt;/a&gt;.&lt;/li&gt;
+  machines in a distributed way (&lt;a href="../scaling-horizontally-vs-vertically/"&gt;scale horizontally&lt;/a&gt;)? This is done via &lt;a href="https://www.digitalocean.com/community/tutorials/understanding-database-sharding"&gt;sharding&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Users&lt;/strong&gt;: Having a user system and different databases in the same database
   management system is nice, because it allows centralisation of the service
   for different teams at the same company. Then somebody takes care of the
@@ -14466,12 +14466,12 @@ defined in it.&lt;/p&gt;
 &lt;li&gt;Poetry: &lt;a href="https://poetry.eustace.io/docs/pyproject/"&gt;The pyproject.toml file&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Frost Ming: &lt;a href="https://frostming.com/2019/01-04/pipenv-poetry"&gt;A deeper look into Pipenv and Poetry&lt;/a&gt;, 2019-01-04.&lt;/li&gt;
 &lt;li&gt;Chad Smith: &lt;a href="https://medium.com/@grassfedcode/five-myths-about-pipenv-698c5f198e4b"&gt;Five Myths About Pipenv&lt;/a&gt;, 2018-11-30.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="Packaging"></category></entry><entry><title>How to analyze Set Data</title><link href="https://martin-thoma.com/analyze-set-data/" rel="alternate"></link><published>2019-07-06T20:00:00+02:00</published><updated>2019-07-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-07-06:/analyze-set-data/</id><summary type="html">&lt;p&gt;Exploratory Data Analysis (EDA) is nice and easy if the entities you look at
+&lt;/ul&gt;</content><category term="Code"></category><category term="Python"></category><category term="Packaging"></category></entry><entry><title>How to analyze Set Data</title><link href="https://martin-thoma.com/analyze-set-data/" rel="alternate"></link><published>2019-07-06T20:00:00+02:00</published><updated>2019-07-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-07-06:/analyze-set-data/</id><summary type="html">&lt;p&gt;&lt;a href="../eda/"&gt;Exploratory Data Analysis&lt;/a&gt; (EDA) is nice and easy if the entities you look at
 are of one of the typical levels of measurement (see below). But if one feature
 is a set, it becomes harder. In this post, I want to show a couple of
 possibilities.&lt;/p&gt;
 &lt;h2 id="level-of-measurement"&gt;Level of measurement&lt;/h2&gt;
-&lt;p&gt;Typically …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Exploratory Data Analysis (EDA) is nice and easy if the entities you look at
+&lt;p&gt;Typically …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="../eda/"&gt;Exploratory Data Analysis&lt;/a&gt; (EDA) is nice and easy if the entities you look at
 are of one of the typical levels of measurement (see below). But if one feature
 is a set, it becomes harder. In this post, I want to show a couple of
 possibilities.&lt;/p&gt;
@@ -15970,10 +15970,10 @@ Test 2:
     kwargs={'holla': 13}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Code"></category><category term="Programming"></category><category term="Python"></category><category term="Puzzle"></category></entry><entry><title>Code Optimization</title><link href="https://martin-thoma.com/code-optimization/" rel="alternate"></link><published>2019-01-28T20:00:00+01:00</published><updated>2019-01-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-01-28:/code-optimization/</id><summary type="html">&lt;p&gt;Code optimization is about making programs run faster. In this article, I'll
 give some basic ideas of how to do it.&lt;/p&gt;
-&lt;div class="info"&gt;This article is NOT about &lt;a href="https://martin-thoma.com/optimization-basics/"&gt;optimization problems&lt;/a&gt;. It is also not about compression. Neither is it about churn rates (making users / companies happy).&lt;/div&gt;
+&lt;div class="info"&gt;This article is NOT about &lt;a href="../optimization-basics/"&gt;optimization problems&lt;/a&gt;. It is also not about compression. Neither is it about churn rates (making users / companies happy).&lt;/div&gt;
 &lt;p&gt;There are tons of different ways …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Code optimization is about making programs run faster. In this article, I'll
 give some basic ideas of how to do it.&lt;/p&gt;
-&lt;div class="info"&gt;This article is NOT about &lt;a href="https://martin-thoma.com/optimization-basics/"&gt;optimization problems&lt;/a&gt;. It is also not about compression. Neither is it about churn rates (making users / companies happy).&lt;/div&gt;
+&lt;div class="info"&gt;This article is NOT about &lt;a href="../optimization-basics/"&gt;optimization problems&lt;/a&gt;. It is also not about compression. Neither is it about churn rates (making users / companies happy).&lt;/div&gt;
 &lt;p&gt;There are tons of different ways to speed things up. You can use algorithms
 and data structures that scale better. You can avoid some operations
 completely, because you actually don't use the results. Caching is also a
@@ -17324,7 +17324,7 @@ article summarizes some tools and tricks to speed up this work.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://www.linfo.org/watch.html"&gt;&lt;code&gt;watch&lt;/code&gt;&lt;/a&gt;: run any designated command at regular intervals&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;free&lt;/code&gt;: Memory consumption&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;top&lt;/code&gt; and &lt;code&gt;htop&lt;/code&gt;: display Linux processes&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/wandering-through-the-depths-of-find/"&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;code&gt;locate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../wandering-through-the-depths-of-find/"&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;code&gt;locate&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;tree&lt;/code&gt;: Print a directory tree&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;cloc&lt;/code&gt;: count lines of code&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;wc&lt;/code&gt; : word count (or lines or characters)&lt;/li&gt;
@@ -17377,9 +17377,9 @@ often contain configuration files. Here is &lt;a href="https://github.com/Martin
 &lt;/ul&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/working-terminal/"&gt;Working with Terminal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/working-at-fzi/"&gt;Working at FZI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/converting-files-with-linux/"&gt;Converting Files with Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../working-terminal/"&gt;Working with Terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../working-at-fzi/"&gt;Working at FZI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../converting-files-with-linux/"&gt;Converting Files with Linux&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Software Engineering"></category><category term="Command Line"></category></entry><entry><title>How old am I?</title><link href="https://martin-thoma.com/age-calculation/" rel="alternate"></link><published>2018-10-03T20:00:00+02:00</published><updated>2018-10-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-03:/age-calculation/</id><summary type="html">&lt;p&gt;Calculating the age of a person in a web service is harder than one might think
 to get right. Things you must be aware of are:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Time zones&lt;/strong&gt;: The time zone at the client is likely not the same as on your
@@ -17903,7 +17903,7 @@ latest commit in the current branch and edit the commit message.&lt;/p&gt;
 &lt;p&gt;When you are currently in a merge, git will tell you from time to time that
 something cannot be auto-merged. Then you can execute &lt;a href="https://git-scm.com/docs/git-mergetool"&gt;&lt;code&gt;git mergetool&lt;/code&gt;&lt;/a&gt;
 which will start whichever tool you configured. In my case, it is &lt;a href="http://meldmerge.org"&gt;&lt;code&gt;meld&lt;/code&gt;&lt;/a&gt;.
-See my &lt;a href="https://martin-thoma.com/software-versioning-cheat-sheet/#nice-diffs_1"&gt;Software Versioning Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+See my &lt;a href="../software-versioning-cheat-sheet/#nice-diffs_1"&gt;Software Versioning Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="tagging"&gt;Tagging&lt;/h2&gt;
 &lt;p&gt;Git gives your versions a hash. This is ok most of the time, but sometimes you
 actually want to note that your software has a specific version. You can use
@@ -18080,7 +18080,7 @@ typical integration test is when you interact with a database.&lt;/p&gt;
 &lt;li&gt;You combine tests into a test suite.&lt;/li&gt;
 &lt;li&gt;The test runner executes the tests.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Your &lt;a href="https://martin-thoma.com/python-projects/"&gt;project structure&lt;/a&gt; should be:&lt;/p&gt;
+&lt;p&gt;Your &lt;a href="../python-projects/"&gt;project structure&lt;/a&gt; should be:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;foo_module : the git repository root dir
 &amp;boxvr;&amp;boxh;&amp;boxh; configs
 &amp;boxv;   &amp;boxur;&amp;boxh;&amp;boxh; module.yaml
@@ -19898,7 +19898,7 @@ things, and off-by-1 errors.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Having a &lt;code&gt;Dockerfile&lt;/code&gt; and a &lt;code&gt;docker-compose.yml&lt;/code&gt; might be nice if you have
-  non-Python dependencies. See &lt;a href="https://martin-thoma.com/docker/"&gt;my Docker article&lt;/a&gt;.&lt;/li&gt;
+  non-Python dependencies. See &lt;a href="../docker/"&gt;my Docker article&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The &lt;code&gt;foo_module/__init__.py&lt;/code&gt; should look like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pkg_resources&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_distribution&lt;/span&gt;

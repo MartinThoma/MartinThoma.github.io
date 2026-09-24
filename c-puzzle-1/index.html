@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="C Puzzle #1 "/>
 <meta property="og:url" content="c-puzzle-1/" />
-<meta property="og:description" content="What is the output of the following programm? #include &lt;stdio.h&gt; int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int* x = f(); g(); printf(&#34;x = %d\n&#34;, *x); g(); printf(&#34;x = %d\n&#34;, *x); return 0; } Short Answer It depends on your compiler …" />
+<meta property="og:description" content="What is the output of the following program? #include &lt;stdio.h&gt; int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int* x = f(); g(); printf(&#34;x = %d\n&#34;, *x); g(); printf(&#34;x = %d\n&#34;, *x); return 0; } Short Answer It depends on your compiler …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-05-21T13:15:41+02:00" />
 <meta name="twitter:title" content="C Puzzle #1 ">
-<meta name="twitter:description" content="What is the output of the following programm? #include &lt;stdio.h&gt; int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int* x = f(); g(); printf(&#34;x = %d\n&#34;, *x); g(); printf(&#34;x = %d\n&#34;, *x); return 0; } Short Answer It depends on your compiler …">
+<meta name="twitter:description" content="What is the output of the following program? #include &lt;stdio.h&gt; int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int* x = f(); g(); printf(&#34;x = %d\n&#34;, *x); g(); printf(&#34;x = %d\n&#34;, *x); return 0; } Short Answer It depends on your compiler …">
 
         <title>C Puzzle #1  · Martin Thoma
 </title>
@@ -93,13 +93,13 @@ MathJax.Hub.Queue(function() {
             <span>5</span>
 </a></li>
         <li><a href="../tags/#c-ref">C
-            <span>20</span>
+            <span>16</span>
 </a></li>
         <li><a href="../tags/#computer-science-ref">Computer Science
             <span>55</span>
 </a></li>
         <li><a href="../tags/#programming-ref">Programming
-            <span>78</span>
+            <span>75</span>
 </a></li>
         <li><a href="../tags/#puzzle-ref">Puzzle
             <span>24</span>
@@ -114,7 +114,7 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p>What is the output of the following programm?</p>
+    <p>What is the output of the following program?</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
@@ -148,7 +148,7 @@ aufgabe-3.c:5:<span class="w"> </span>warning:<span class="w"> </span><span clas
 <span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">43</span>
 <span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">43</span>
 </code></pre></div>
-<p>If you compile it with 03 Optimization, you might get 5.</p>
+<p>If you compile it with -O3 Optimization, you might get 5.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gcc<span class="w"> </span>-O3<span class="w"> </span>cpuzzle-1.c<span class="w"> </span><span class="p">;</span><span class="w"> </span>./a.out
 aufgabe-3.c:<span class="w"> </span>In<span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 aufgabe-3.c:5:<span class="w"> </span>warning:<span class="w"> </span><span class="k">function</span><span class="w"> </span>returns<span class="w"> </span>address<span class="w"> </span>of<span class="w"> </span><span class="nb">local</span><span class="w"> </span>variable
@@ -157,7 +157,7 @@ aufgabe-3.c:5:<span class="w"> </span>warning:<span class="w"> </span><span clas
 </code></pre></div>
 <h2 id="long-answer">Long answer</h2>
 <h3 id="the-general-answer">The general answer</h3>
-<p>Lets analyse this code line by line.</p>
+<p>Let's analyse this code line by line.</p>
 <p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?).
 The variable is a so called local or automatic variable and is located on the stack frame.</p>
 <p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
@@ -180,7 +180,7 @@ First you should get your assembly code. If you're running a Linux machine, you 
 <blockquote>.p2align 4,,15 means:
 When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
 <p><span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span></p>
-<p>It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make to (slow) memory-accesses.</p>
+<p>It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make two (slow) memory-accesses.</p>
 <figure class="aligncenter">
 <a href="../images/2012/05/c-puzzle-1.2-meld-300x113.png"><img alt="C Puzzle #1 - Assembly code part 2 (the main)" class="size-medium wp-image-24881" src="../images/2012/05/c-puzzle-1.2-meld-300x113.png" style="max-width:300px;max-height:113px"/></a>
 <figcaption class="text-center">C Puzzle #1 - Assembly code part 2 (the main)</figcaption>

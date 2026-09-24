@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Klausur, University, German posts, " />
+<meta name="keywords" content="Klausur, University, Security, German posts, " />
 
 <meta property="og:title" content="Sicherheit-Klausur "/>
 <meta property="og:url" content="sicherheit-klausur/" />
@@ -93,6 +93,9 @@ MathJax.Hub.Queue(function() {
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
 </a></li>
         <li><a href="../tags/#university-ref">University
             <span>85</span>
@@ -292,14 +295,14 @@ Hash-Then-Sign-Paradigma: Sei (Sig, Ver) EUF-CMA-sicher und H eine kollisionsres
 Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erkl&auml;rte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
 </div>
 <h2 id="fragen">Fragen</h2>
-<div class="question">
-<span class="question">Wann ist ein Verschl&uuml;sselungsschema IND-CPA-sicher?</span>
+<details class="question">
+<summary>Wann ist ein Verschl&uuml;sselungsschema IND-CPA-sicher?</summary>
 <div class="answer">
 IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschl&uuml;sselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgew&auml;hlten Klartexten unterscheiden kann.
 </div>
-</div>
-<div class="question">
-<span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
+</details>
+<details class="question">
+<summary>Wann ist eine Signatur EUF-CMA-sicher?</summary>
 <div class="answer">
 EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachl&auml;ssigbar oft gewinnen:
 <ul>
@@ -308,15 +311,15 @@ EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&l
 <li>$\mathcal{A}$ gewinnt, wenn $Ver(K, M^*, \sigma^*) = 1$ und $M^*$ &bdquo;frisch&ldquo; ist</li>
 </ul>
 </div>
-</div>
-<div class="question">
-<span class="question">Was sind Replay-Angriffe?</span>
+</details>
+<details class="question">
+<summary>Was sind Replay-Angriffe?</summary>
 <div class="answer">
 Bei Replay-Angriffen f&auml;ngt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Sp&auml;ter schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
 </div>
-</div>
-<div class="question">
-<span class="question">Was versteht man unter der Merkle&ndash;Damg&aring;rd-Konstruktion?</span>
+</details>
+<details class="question">
+<summary>Was versteht man unter der Merkle&ndash;Damg&aring;rd-Konstruktion?</summary>
 <div class="answer">
 Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion von kryptographischen Hash-Funktionen. Sie funktioniert so:
 
@@ -325,9 +328,9 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
 <figcaption class="text-center">Merkle-Damgard-Konstruktion<br/>Quelle: <a href="http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg">Wikipedia</a></figcaption>
 </figure>
 </div>
-</div>
-<div class="question">
-<span class="question">Wie funktioniert RSA?</span>
+</details>
+<details class="question">
+<summary>Wie funktioniert RSA?</summary>
 <div class="answer">
 <ol>
 <li>Generiere zwei Primzahlen $p, q \in \mathbb{P}$</li>
@@ -339,9 +342,9 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
 Verschl&uuml;sselung einer Nachricht $m$: $c = m^{e} \mod n$
 Verschl&uuml;sselung eines Ciphertextes $c$: $m = c^{d} \mod n$
 </div>
-</div>
-<div class="question">
-<span class="question">Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</span>
+</details>
+<details class="question">
+<summary>Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</summary>
 <div class="answer">
 Folgender Angriff ist f&uuml;r $e=3$ m&ouml;glich:
 <ul>
@@ -351,9 +354,9 @@ Folgender Angriff ist f&uuml;r $e=3$ m&ouml;glich:
 <li>Wurzelziehen &uuml;ber $\mathbb{Z}$ liefert $m$</li>
 </ul>
 </div>
-</div>
-<div class="question">
-<span class="question">Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</span>
+</details>
+<details class="question">
+<summary>Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</summary>
 <div class="answer">
 Homomorphie ist folgende (unerw&uuml;nschte) Eigenschaft:
 
@@ -366,17 +369,17 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &amp;= m_1^e \cdot m_2^e\\
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbetr&auml;ge verschl&uuml;sselt. Dann kann ein Angreifer das Chiffrat (g&uuml;ltig) ver&auml;ndern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
-</div>
-<div class="question">
-<span class="question">Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</span>
+</details>
+<details class="question">
+<summary>Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</summary>
 <div class="answer">
 Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 
 $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 </div>
-</div>
-<div class="question">
-<span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
+</details>
+<details class="question">
+<summary>Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</summary>
 <div class="answer">
 <ol>
 <li>W&auml;hle eine zyklische Gruppe $\mathbb{G} = \langle g \rangle$.</li>
@@ -386,9 +389,9 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 Verschl&uuml;sselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zuf&auml;lligem $y$ &rarr; Verschl&uuml;sselung ist zuf&auml;llig!
 Verschl&uuml;sselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
-</div>
-<div class="question">
-<span class="question">Wie funktioniert das Kerberos-Schl&uuml;sselaustauschprotokoll?</span>
+</details>
+<details class="question">
+<summary>Wie funktioniert das Kerberos-Schl&uuml;sselaustauschprotokoll?</summary>
 <div class="answer">
 <ul>
 <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schl&uuml;sselaustausch vornehmen wollen.</li>
@@ -398,31 +401,31 @@ Verschl&uuml;sselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = 
 
 Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
 </div>
-</div>
-<div class="question">
-<span class="question">Warum kann es schlecht f&uuml;r die Sicherheit sein, wenn man komprimiert?</span>
+</details>
+<details class="question">
+<summary>Warum kann es schlecht f&uuml;r die Sicherheit sein, wenn man komprimiert?</summary>
 <div class="answer">
 Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzuf&uuml;gen. Wenn der Ciphertext deutlich weniger w&auml;chst als er an Text hinzugef&uuml;gt hat, kann er vermuten, dass er den Text erraten hat. (&rarr; CRIME-Angriff)
 </div>
-</div>
-<div class="question">
-<span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
+</details>
+<details class="question">
+<summary>Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</summary>
 <div class="answer">
 Ein Angreifer kann die Klartextnachricht &auml;ndern. Wenn er wei&szlig; (oder zumindest ahnt) was der Klartext ist, kann er daf&uuml;r sorgen, dass ein Klartext gleicher L&auml;nge seiner Wahl bei der Entschl&uuml;sselung herauskommt.
 </div>
-</div>
-<div class="question">
-<span class="question">Nennen Sie Verfahren, die IND-CPA-sicher sind.</span>
+</details>
+<details class="question">
+<summary>Nennen Sie Verfahren, die IND-CPA-sicher sind.</summary>
 <div class="answer">
 Eine Blockciffre im CBC-Modus
 </div>
-</div>
-<div class="question">
-<span class="question">Nennen Sie Verfahren, die EUF-CMA-sicher sind.</span>
+</details>
+<details class="question">
+<summary>Nennen Sie Verfahren, die EUF-CMA-sicher sind.</summary>
 <div class="answer">
 Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,1\}^* \rightarrow \{0,1\}^k$ eine kollisionsresistente Hashfunktion. Dann ist der durch $Sig(K, M) = PRF(K, H(M))$ gegebene MAC EUF-CMA-sicher.
 </div>
-</div>
+</details>
 <h2 id="diverses">Diverses</h2>
 <h3 id="tls-handshake">TLS Handshake</h3>
 <figure class="aligncenter">

@@ -92,7 +92,7 @@ MathJax.Hub.Queue(function() {
     </p>
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
         <li><a href="../tags/#c-ref">C
-            <span>20</span>
+            <span>16</span>
 </a></li>
         <li><a href="../tags/#java-ref">Java
             <span>38</span>
@@ -115,17 +115,17 @@ MathJax.Hub.Queue(function() {
     
     <div class="info">This is Part III of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
-<p>We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm form part I and the parallel version from this article and post the results as a comment.</p>
+<p>We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm from part I and the parallel version from this article and post the results as a comment.</p>
 <h2 id="the-implementations">The implementations</h2>
 <p>As last time, I&rsquo;ve added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>. So you can test it on your machine.</p>
-<p>Before we start implementing code for multiple processors, we have to get an algorithm that is actually parallelisable. You could use <a href="https://en.wikipedia.org/wiki/Cannon%27s_algorithm">Cannon's algorithm</a>, a algorithm that makes use of <a href="http://en.wikipedia.org/wiki/Systolic_array">systolic arrays</a> or try to find a solution by your own. The <a href="http://www.netlib.org/lapack/lawnspdf/lawn96.pdf">Scalable Universal Matrix Multiplication Algorithm</a> (short: SUMMA) could also work. The paper that I've linked is well-written and easy to understand. You should definitively read it, if you're interested in matrix multiplication.</p>
+<p>Before we start implementing code for multiple processors, we have to get an algorithm that is actually parallelisable. You could use <a href="https://en.wikipedia.org/wiki/Cannon%27s_algorithm">Cannon's algorithm</a>, an algorithm that makes use of <a href="http://en.wikipedia.org/wiki/Systolic_array">systolic arrays</a> or try to find a solution by your own. The <a href="http://www.netlib.org/lapack/lawnspdf/lawn96.pdf">Scalable Universal Matrix Multiplication Algorithm</a> (short: SUMMA) could also work. The paper that I've linked is well-written and easy to understand. You should definitely read it, if you're interested in matrix multiplication.</p>
 <p>I will not use any advanced algorithm in this article. I will make the outer most for loop of the ikj-algorithm (see part I) execute in parallel.</p>
 <p>More about parallel matrix multiplication:</p>
 <ul>
 <li><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node45.html">Case Study: Matrix Multiplication</a></li>
 <li><a href="http://berrendorf.inf.fh-bonn-rhein-sieg.de/Parallel/index.html">berrendorf</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication">Algorithms for efficient matrix multiplication</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm">Coppersmith-Winograd algorith</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm">Coppersmith-Winograd algorithm</a></li>
 </ul>
 <h2 id="python">Python</h2>
 <p>Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).</p>
@@ -506,7 +506,7 @@ sys<span class="w"> </span>0m2.324s
 <span class="p">}</span>
 </code></pre></div>
 <p>Execute it with only one thread:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-paralllel.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel.out
 Number<span class="w"> </span>of<span class="w"> </span>cores:<span class="w">    </span><span class="m">2</span>
 <span class="m">0</span>
 
@@ -515,7 +515,7 @@ user<span class="w">    </span>0m42.259s
 sys<span class="w"> </span>0m0.388s
 </code></pre></div>
 <p>Execute it with two threads:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-paralllel.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel.out
 Number<span class="w"> </span>of<span class="w"> </span>cores:<span class="w">    </span><span class="m">2</span>
 <span class="m">0</span>
 <span class="m">1000</span>

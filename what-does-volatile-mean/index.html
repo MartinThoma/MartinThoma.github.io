@@ -92,7 +92,7 @@ MathJax.Hub.Queue(function() {
     </p>
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
         <li><a href="../tags/#c-ref">C
-            <span>20</span>
+            <span>16</span>
 </a></li>
         <li><a href="../tags/#java-ref">Java
             <span>38</span>
@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#c-programming-language" title="C Programming Language">C Programming Language</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#when-do-you-need-it-volatile" title="When do you need it volatile?">When do you need it volatile?</a><ul><li><a class="toc-href" href="#thermometer" title="Thermometer">Thermometer</a></li><li><a class="toc-href" href="#i-o" title="I / O">I / O</a></li></ul></li><li><a class="toc-href" href="#further-reading_1" title="Further reading">Further reading</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#c-programming-language" title="C Programming Language">C Programming Language</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#when-do-you-need-volatile" title="When do you need volatile?">When do you need volatile?</a><ul><li><a class="toc-href" href="#thermometer" title="Thermometer">Thermometer</a></li><li><a class="toc-href" href="#i-o" title="I / O">I / O</a></li></ul></li><li><a class="toc-href" href="#further-reading_1" title="Further reading">Further reading</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -126,7 +126,7 @@ A field may be declared volatile, in which case the Java Memory Model ensures th
 <blockquote>A write to a volatile field (&sect;8.3.1.4) happens-before every subsequent read of
 that field.</blockquote>
 <blockquote>For the purposes of the Java programming language memory model, a single write to a non-volatile long or double value is treated as two separate writes: one to each 32-bit half. This can result in a situation where a thread sees the first 32 bits of a 64-bit value from one write, and the second 32 bits from another write. Writes and reads of volatile long and double values are always atomic.</blockquote>
-<h2 id="when-do-you-need-it-volatile">When do you need it volatile?</h2>
+<h2 id="when-do-you-need-volatile">When do you need volatile?</h2>
 <div class="warning">I'm not sure if it is correct what I write here. It makes sense, but please leave a note in comments when I'm wrong.</div>
 <h3 id="thermometer">Thermometer</h3>
 <p>Imagine you want to build your own thermometer. So you have to access hardware. Now you only want to print the temperature periodically. Something like this:</p>
@@ -150,10 +150,10 @@ that field.</blockquote>
 </code></pre></div>
 <p>Now, as you always access the same register and you don't change it, the CPU could cache the result. That would be bad, because another source (the hardware) changes the value. So you don't want to cache it. This is - if I understand it correctly - what volatile is good for. It makes sure that you really access memory and not some registers, because it got optimized or cached.</p>
 <h3 id="i-o">I / O</h3>
-<p>Imagine you write an application that want to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:</p>
+<p>Imagine you write an application that wants to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:</p>
 <p><code>int register = 0;
 while(register == 0);</code></p>
-<p>Now the register can get changed by the device, but it seems to be an obvious that you can optimize this to</p>
+<p>Now the register can get changed by the device, but it seems to be obvious that you can optimize this to</p>
 <p><code>while(TRUE);</code></p>
 <p>Now, with this "optimization" that the compiler might make, you will never notice when you can read from the disk. So you would mark register as volatile to tell the compiler that he should not optimize it.</p>
 <p>Do you know some better examples? Perhaps short C examples with real code where you can actually see the difference?</p>

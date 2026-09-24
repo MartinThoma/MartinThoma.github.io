@@ -131,21 +131,21 @@ mount<span class="w"> </span>/dev/sda3<span class="w"> </span>/mnt/home/
 <h2 id="getting-internet">Getting internet</h2>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
 <div class="highlight"><pre><span></span><code>wpa_passphrase<span class="w"> </span><span class="s2">"SSID"</span><span class="w"> </span>PASSWORD<span class="w"> </span>&gt;<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf
-wpa_supplicant<span class="w"> </span>-i<span class="w"> </span>wlp4so<span class="w"> </span>-D<span class="w"> </span>wext<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf<span class="w"> </span>-B
+wpa_supplicant<span class="w"> </span>-i<span class="w"> </span>wlp4s0<span class="w"> </span>-D<span class="w"> </span>wext<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf<span class="w"> </span>-B
 dhcpcd<span class="w"> </span>wlp4s0
 </code></pre></div>
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
 <h2 id="install-base-system">Install base system</h2>
-<div class="highlight"><pre><span></span><code>packstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base<span class="w"> </span>base-devel
+<div class="highlight"><pre><span></span><code>pacstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base-devel
 </code></pre></div>
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
-<div class="highlight"><pre><span></span><code>genfstab<span class="w"> </span>-U<span class="w"> </span>-p<span class="w"> </span>/mnt<span class="w">  </span>:<span class="w">  </span>sed<span class="w"> </span><span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/mnt/etc/fstab
+<div class="highlight"><pre><span></span><code>genfstab<span class="w"> </span>-U<span class="w"> </span>-p<span class="w"> </span>/mnt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/mnt/etc/fstab
 arch-chroot<span class="w"> </span>/mnt
 nano<span class="w"> </span>/etc/locale.gen
 </code></pre></div>
-<p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
-<div class="highlight"><pre><span></span><code><span class="nv">locale</span><span class="o">=</span>gen
+<p>Uncomment your language (from now on, your prompt should be "sh-4.2#").</p>
+<div class="highlight"><pre><span></span><code>locale-gen
 <span class="nb">echo</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span>&gt;<span class="w"> </span>/etc/locale.conf
 <span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/zoneinfo/Europe/Berlin<span class="w"> </span>/etc/localtime
