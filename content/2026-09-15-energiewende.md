@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2026-09-15 20:00
 category: German posts
-tags: Politics, Society
+tags: Politics, Energy, Germany, Climate Change
 featured_image: logos/germany.png
 status: draft
 ---
@@ -49,6 +49,12 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
 
 
 ## Überblick: Wer ist wofür zuständig?
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2026/09/energiewende-ebenen.png"><img src="../images/2026/09/energiewende-ebenen.png" alt="Die sieben Ebenen der Energiewende von der internationalen Politik bis zum eigenen Haus, jeweils mit Beispielen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Die Ebenen der Energiewende, von der internationalen Politik bis zum eigenen Haus</figcaption>
+</figure>
+
 
 <table>
     <thead>
@@ -133,7 +139,7 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
         <tr>
             <td>Austritt der USA aus dem Pariser Klimaabkommen</td>
             <td>↩️</td>
-            <td><a href="https://www.tagesspiegel.de/internationales/klimaschutz-austritt-der-usa-aus-pariser-klimaabkommen-tritt-in-kraft-15185325.html">Wirksam seit dem 27. Januar 2026</a></td>
+            <td>Wirksam seit dem 27. Januar 2026<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small></td>
         </tr>
         <tr>
             <td><a href="https://de.wikipedia.org/wiki/UN-Klimakonferenz_in_Dubai_2023">COP28</a> (Dubai, 2023): Abkehr von fossilen Energieträgern, Verdreifachung der erneuerbaren Kapazität und Verdopplung der Effizienzsteigerung bis 2030</td>
@@ -157,7 +163,7 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
     </thead>
     <tbody>
         <tr>
-            <td><a href="https://de.wikipedia.org/wiki/Europ%C3%A4isches_Klimagesetz">Europäisches Klimagesetz</a>: −55 % Treibhausgase bis 2030, klimaneutral bis 2050</td>
+            <td><a href="https://de.wikipedia.org/wiki/Europ%C3%A4isches_Klimagesetz">Europäisches Klimagesetz</a>: −55 % Treibhausgase bis 2030, klimaneutral bis 2050<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small></td>
             <td>Alle</td>
             <td>✅</td>
             <td>Seit 2021 in Kraft</td>
@@ -166,7 +172,7 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
             <td>Klimaziel 2040: −90 % gegenüber 1990</td>
             <td>Alle</td>
             <td>✅</td>
-            <td>Bis zu 5 Prozentpunkte dürfen über internationale Zertifikate erreicht werden (<a href="https://www.dnr.de/aktuelles-termine/aktuelles/eu-parlament-bestaetigt-schwaches-2040-klimaziel-und-ets2-verschiebung">DNR</a>)</td>
+            <td>Bis zu 5 Prozentpunkte dürfen über internationale Zertifikate erreicht werden<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small></td>
         </tr>
         <tr>
             <td><a href="https://de.wikipedia.org/wiki/EU-Emissionshandel">Emissionshandel ETS 1</a> für Strom und Industrie</td>
@@ -208,7 +214,7 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
             <td>CO₂-Flottengrenzwerte: ab 2035 nur noch emissionsfreie Neuwagen</td>
             <td>Elektrifizierung</td>
             <td>↩️</td>
-            <td>Die EU-Kommission hat im Dezember 2025 vorgeschlagen, das Ziel auf −90 % abzuschwächen (<a href="https://www.transportenvironment.org/te-deutschland/articles/eu-macht-kehrtwende-beim-co2-ziel-f%C3%BCr-2035">T&amp;E</a>). Damit dürften z.B. Plug-in-Hybride weiter verkauft werden.</td>
+            <td>Die EU-Kommission hat im Dezember 2025 vorgeschlagen, das Ziel für 2035 auf −90 % abzuschwächen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>. Damit dürften z.B. Plug-in-Hybride weiter verkauft werden.</td>
         </tr>
         <tr>
             <td>Reform des Strommarktdesigns (Differenzverträge)</td>
@@ -257,7 +263,7 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
         <tr>
             <td>80 % erneuerbarer Strom bis 2030</td>
             <td>⏳</td>
-            <td>2025 waren es <a href="https://www.bdew.de/presse/presseinformation-von-zentrum-fuer-sonnenenergie-und-wasserstoff-forschung-baden-wuerttemberg-zsw-und-bundesverbands-der-energie-und-wasserwirtschaft-bdew/">knapp 56 %</a> des Bruttostromverbrauchs.</td>
+            <td>2025 waren es knapp 56 %<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small> des Bruttostromverbrauchs.</td>
         </tr>
     </tbody>
 </table>
@@ -286,12 +292,24 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
         <tr>
             <td>EEG-Novelle: Ende der festen Einspeisevergütung für neue PV-Anlagen unter 25 kW ab 2027</td>
             <td>⏳</td>
-            <td><a href="https://ema-energiewelt.de/wissen/eeg-novelle-2027-kabinettsbeschluss-einspeiseverguetung-endet">Vom Kabinett am 29. Juli 2026 beschlossen</a>, noch nicht vom Bundestag. Die Solarbranche warnt vor einem Einbruch beim Zubau.</td>
+            <td>Vom Kabinett am 29. Juli 2026 beschlossen<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small>, noch nicht vom Bundestag. Die Solarbranche warnt vor einem Einbruch beim Zubau.</td>
         </tr>
     </tbody>
 </table>
 
 ### Flexibilisierung
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2026/09/gemini-generated-energieversorgung.jpg" alt="KI-generiertes Bild, kein Foto: links Solarpark, Windräder, Batteriespeicher, Elektrolyseur und E-Auto an einem sonnigen Tag, rechts ein verschneites Dorf in einer windstillen Winternacht, versorgt von Batteriespeicher, wasserstofffähigem Kraftwerk und einer Stromleitung">
+    <figcaption class="wp-caption-text">Mit Gemini generierte Illustration, kein echtes Foto: Überschuss bei Sonne und Wind, Versorgung in der Dunkelflaute</figcaption>
+</figure>
+
+Sonne und Wind liefern nicht immer dann Strom, wenn er gebraucht wird. Eine
+Dunkelflaute ist eine Phase mit wenig Wind und wenig Sonne, im Winter oft über
+mehrere Tage. Dann braucht es Speicher, steuerbare Kraftwerke, Stromimporte und
+Verbraucher, die ihren Verbrauch verschieben können. Außerdem muss der Strom vom
+Erzeugungsort zum Verbrauchsort kommen.
+
 
 <table>
     <thead>
@@ -389,12 +407,12 @@ Schiffsverkehr), und als Langzeitspeicher für Dunkelflauten.
         <tr>
             <td>Förderprogramm für E-Autos (bis zu 6.000 €, einkommensabhängig)</td>
             <td>✅</td>
-            <td><a href="https://www.bundesregierung.de/breg-de/aktuelles/e-auto-foerderportal-2403088">Seit Mai 2026</a></td>
+            <td>Seit Mai 2026<small><sup><a href="#ref18" name="anchor18">[18]</a></sup></small></td>
         </tr>
         <tr>
             <td>Kfz-Steuerbefreiung für E-Autos</td>
             <td>✅</td>
-            <td><a href="https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-kfz-steuer-1128200">Für Neuzulassungen bis Ende 2030 verlängert</a>, längstens bis 2035</td>
+            <td>Für Neuzulassungen bis Ende 2030 verlängert<small><sup><a href="#ref19" name="anchor19">[19]</a></sup></small>, längstens bis 2035</td>
         </tr>
         <tr>
             <td>Strompreise senken: Bundeszuschuss zu den Netzentgelten, Gasspeicherumlage abgeschafft</td>
@@ -441,7 +459,7 @@ Schiffsverkehr), und als Langzeitspeicher für Dunkelflauten.
             <td>Bayerisches Klimaschutzgesetz: klimaneutral bis 2040</td>
             <td>Alle</td>
             <td>⏳</td>
-            <td></td>
+            <td>Fünf Jahre früher als der Bund (2045). Das Ziel ist gesetzlich festgeschrieben, die Umsetzung hängt an den Einzelmaßnahmen unten.</td>
         </tr>
         <tr>
             <td>Lockerung der 10H-Regel für Windräder</td>
@@ -453,19 +471,19 @@ Schiffsverkehr), und als Langzeitspeicher für Dunkelflauten.
             <td>Flächen für Windkraft: 1,1 % bis 2027, 1,8 % bis 2032</td>
             <td>Erneuerbare</td>
             <td>⏳</td>
-            <td>Aktuell sind <a href="https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiedaten/2026-06-01_L%C3%A4nderbericht-BY-2026.pdf">rund 1 % der Landesfläche</a> ausgewiesen.</td>
+            <td>Aktuell sind rund 1 % der Landesfläche<small><sup><a href="#ref20" name="anchor20">[20]</a></sup></small> ausgewiesen.</td>
         </tr>
         <tr>
             <td>Windkraft ausbauen: 1.000 neue Windräder bis 2030 auf den Weg bringen</td>
             <td>Erneuerbare</td>
             <td>⏳</td>
-            <td>2025 gab es <a href="https://www.bayern-innovativ.de/emagazin/detail/windenergie-in-bayern-legt-zu">rund 770 Genehmigungsanträge</a>, aber nur <a href="https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiedaten/2026-06-01_L%C3%A4nderbericht-BY-2026.pdf">29 neue Windräder mit 82 MW</a> gingen in Betrieb. Insgesamt sind es 2,8 GW.</td>
+            <td>2025 gab es rund 770 Genehmigungsanträge<small><sup><a href="#ref21" name="anchor21">[21]</a></sup></small>, aber nur 29 neue Windräder mit 82 MW<small><sup><a href="#ref20">[20]</a></sup></small> gingen in Betrieb. Insgesamt sind es 2,8 GW.</td>
         </tr>
         <tr>
             <td>Photovoltaik: 40 GW bis 2030</td>
             <td>Erneuerbare</td>
             <td>⏳</td>
-            <td>2025 Rekordzubau von <a href="https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiedaten/2026-06-01_L%C3%A4nderbericht-BY-2026.pdf">4,7 GW auf insgesamt 31,6 GW</a>. Bayern ist beim Solarausbau Spitzenreiter.</td>
+            <td>2025 Rekordzubau von 4,7 GW auf insgesamt 31,6 GW<small><sup><a href="#ref20">[20]</a></sup></small>. Bayern ist beim Solarausbau Spitzenreiter.</td>
         </tr>
         <tr>
             <td>Solarpflicht</td>
@@ -556,7 +574,7 @@ aber seit Jahren hinten dran. Meine Vorschläge:
             <td>Flächen für Wind- und Solarparks ausweisen</td>
             <td>Erneuerbare</td>
             <td>⏳</td>
-            <td></td>
+            <td>Über Flächennutzungs- und Bebauungspläne entscheidet die Kommune, ob Projekte überhaupt möglich sind.</td>
         </tr>
         <tr>
             <td>PV auf kommunalen Dächern (Schulen, Rathäuser, Bauhöfe)</td>
@@ -780,3 +798,67 @@ Heizungsgesetz wurde abgeschafft und die Stromsteuer für Haushalte nicht
 gesenkt. Die größten Baustellen sind die Flexibilisierung (Netze, Speicher,
 Kraftwerke für Dunkelflauten, Wasserstoff) und die Umsetzung vor Ort in den
 Kommunen. Beim Wasserstoff sind wir weit hinter den eigenen Zielen.
+
+
+
+## Einzelnachweise
+
+* 1<a name="ref1" href="#anchor1">&uarr;</a> Tagesspiegel: [Klimaschutz: Austritt der USA aus Pariser Klimaabkommen tritt in Kraft](https://www.tagesspiegel.de/internationales/klimaschutz-austritt-der-usa-aus-pariser-klimaabkommen-tritt-in-kraft-15185325.html), 27.01.2026.
+* 2<a name="ref2" href="#anchor2">&uarr;</a> Umweltbundesamt: [Treibhausgasminderungsziele Deutschlands](https://www.umweltbundesamt.de/daten/klima/treibhausgasminderungsziele-deutschlands), abgerufen am 24.09.2026.
+* 3<a name="ref3" href="#anchor3">&uarr;</a> Deutscher Naturschutzring: [EU-Parlament bestätigt schwaches 2040-Klimaziel und ETS2-Verschiebung](https://www.dnr.de/aktuelles-termine/aktuelles/eu-parlament-bestaetigt-schwaches-2040-klimaziel-und-ets2-verschiebung), abgerufen am 24.09.2026.
+* 4<a name="ref4" href="#anchor4">&uarr;</a> Tagesschau: [EU-Kommission will Verbrenner-Aus zurücknehmen](https://www.tagesschau.de/wirtschaft/verbrenner-aus-eu-106.html), 16.12.2025.
+* 5<a name="ref5" href="#anchor5">&uarr;</a> BDEW: [Erneuerbare deckten 2025 fast 56 Prozent des Stromverbrauchs](https://www.bdew.de/presse/presseinformation-von-zentrum-fuer-sonnenenergie-und-wasserstoff-forschung-baden-wuerttemberg-zsw-und-bundesverbands-der-energie-und-wasserwirtschaft-bdew/), abgerufen am 24.09.2026.
+* 6<a name="ref6" href="#anchor6">&uarr;</a> Umweltbundesamt: [Treibhausgas-Emissionen in Deutschland](https://www.umweltbundesamt.de/daten/umweltzustand-trends/klima/treibhausgas-emissionen-in-deutschland), abgerufen am 24.09.2026.
+* 7<a name="ref7" href="#anchor7">&uarr;</a> Volker Quaschning: [CO₂-Emissionen in Deutschland 2025](https://www.volker-quaschning.de/datserv/CO2-D/index.php), abgerufen am 24.09.2026.
+* 8<a name="ref8" href="#anchor8">&uarr;</a> Umweltbundesamt: [Emissionsdaten 2025 & Projektionsdaten 2026](https://www.umweltbundesamt.de/system/files/document/UBA%20Emissionsdaten%202025_Projektionsdaten%202026_Hintergrundpapier_2026_03_14.pdf), Hintergrundpapier (PDF), 14.03.2026.
+* 9<a name="ref9" href="#anchor9">&uarr;</a> gesetze-im-internet.de: [§ 3 KSG: Nationale Klimaschutzziele](https://www.gesetze-im-internet.de/ksg/__3.html), abgerufen am 24.09.2026.
+* 10<a name="ref10" href="#anchor10">&uarr;</a> EMA Energiewelt: [EEG-Novelle: Das Ende der festen Einspeisevergütung](https://ema-energiewelt.de/wissen/eeg-novelle-2027-kabinettsbeschluss-einspeiseverguetung-endet), 31.07.2026.
+* 11<a name="ref11" href="#anchor11">&uarr;</a> pv magazine: [Kraftwerksstrategie passiert Bundeskabinett](https://www.pv-magazine.de/2026/05/13/kraftwerksstrategie-passiert-bundeskabinett/), 13.05.2026.
+* 12<a name="ref12" href="#anchor12">&uarr;</a> gesetze-im-internet.de: [§ 14a EnWG](https://www.gesetze-im-internet.de/enwg_2005/__14a.html), abgerufen am 24.09.2026.
+* 13<a name="ref13" href="#anchor13">&uarr;</a> MS-Aktuell: [Smart Meter Light soll Millionen Haushalte erreichen](https://ms-aktuell.de/welt/13072026-smart-meter-light-bundesregierung-stromzaehler/), 13.07.2026.
+* 14<a name="ref14" href="#anchor14">&uarr;</a> pv magazine: [VDE FNN und DKE gegen „Smart Meter light“](https://www.pv-magazine.de/2026/07/13/vde-fnn-und-dke-gegen-smart-meter-light/), 13.07.2026.
+* 15<a name="ref15" href="#anchor15">&uarr;</a> pv magazine: [Deutschland wird Ziel von zehn Gigawatt Elektrolyseleistung bis 2030 wohl verfehlen](https://www.pv-magazine.de/2026/01/20/deutschland-wird-ziel-von-zehn-gigawatt-elektrolyseleistung-bis-2030-wohl-verfehlen/), 20.01.2026.
+* 16<a name="ref16" href="#anchor16">&uarr;</a> airliners.de: [Deutschland beendet nationale PTL-Quote und beteiligt sich an EU-Initiative](https://www.airliners.de/bundesverkehrsminister-unterzeichnet-erklaerung-esaf-foerderung/84747), abgerufen am 24.09.2026.
+* 17<a name="ref17" href="#anchor17">&uarr;</a> Deutscher Bundestag: [Bundestag beschließt Heizungsgesetz-Novelle](https://www.bundestag.de/dokumente/textarchiv/2026/kw28-de-heizungsgesetz-1194534), abgerufen am 24.09.2026.
+* 18<a name="ref18" href="#anchor18">&uarr;</a> Bundesregierung: [E-Auto Förderung 2026: bis zu 6000 Euro Prämie](https://www.bundesregierung.de/breg-de/aktuelles/e-auto-foerderportal-2403088), abgerufen am 24.09.2026.
+* 19<a name="ref19" href="#anchor19">&uarr;</a> Deutscher Bundestag: [Bundestag verlängert Kfz-Steuerbefreiung für Elektroautos](https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-kfz-steuer-1128200), abgerufen am 24.09.2026.
+* 20<a name="ref20" href="#anchor20">&uarr;</a> Freistaat Bayern: [Bericht 2026 zum Stand des Ausbaus der erneuerbaren Energien sowie zu Flächen, Planungen und Genehmigungen für die Windenergienutzung](https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiedaten/2026-06-01_L%C3%A4nderbericht-BY-2026.pdf), PDF, 01.06.2026.
+* 21<a name="ref21" href="#anchor21">&uarr;</a> Bayern Innovativ: [Windenergie in Bayern legt zu](https://www.bayern-innovativ.de/emagazin/detail/windenergie-in-bayern-legt-zu), abgerufen am 24.09.2026.
+* 22<a name="ref22" href="#anchor22">&uarr;</a> ZfK: [Fristende für Wärmeplanung: Wo die Großstädte stehen](https://www.zfk.de/energie/waermewende/kommunale-waermeplanung-frist-grossstaedte-juni-2026), 10.06.2026.
+* 23<a name="ref23" href="#anchor23">&uarr;</a> Stadt Plattling: [Wärmeplanung in der Stadt Plattling](https://www.plattling.de/wirtschaft/waermeplanung-in-der-stadt-plattling/), abgerufen am 24.09.2026.
+* 24<a name="ref24" href="#anchor24">&uarr;</a> Energie Südbayern (ESB): [Solarpark in Plattling](https://www.esb.de/ueber-uns/presse/2024/sonnenstrom-fuer-plattling), 06.11.2024.
+* 25<a name="ref25" href="#anchor25">&uarr;</a> Stadtwerke Plattling: [Erneuerbare Energien](https://www.stadtwerke-plattling.de/erneuerbare_energien.aspx), abgerufen am 24.09.2026.
+* 26<a name="ref26" href="#anchor26">&uarr;</a> Regionaler Planungsverband Donau-Wald: [Regionalplan, Kapitel B III 1.1 Windenergie: Unterlagen für das Beteiligungsverfahren](https://www.region-donau-wald.de/fileadmin/user_upload/pdfs/Regionalplan/laufende_Fortschreibungen/Windenergie/Beteiligungsverfahren/2025_07_21_Unterlagen.pdf), PDF, 21.07.2025.
+* 27<a name="ref27" href="#anchor27">&uarr;</a> gesetze-im-internet.de: [§ 9 BauGB](https://www.gesetze-im-internet.de/bbaug/__9.html), abgerufen am 24.09.2026.
+* 28<a name="ref28" href="#anchor28">&uarr;</a> buten un binnen: [Kein grüner Stahl aus Bremen: ArcelorMittal kippt Umbau-Pläne](https://www.butenunbinnen.de/nachrichten/gruener-stahl-stahlwerk-bremen-100.html), 19.06.2025.
+* 29<a name="ref29" href="#anchor29">&uarr;</a> gesetze-im-internet.de: [§ 8 EnEfG](https://www.gesetze-im-internet.de/enefg/__8.html), abgerufen am 24.09.2026.
+* 30<a name="ref30" href="#anchor30">&uarr;</a> gesetze-im-internet.de: [§ 9 EnEfG](https://www.gesetze-im-internet.de/enefg/__9.html), abgerufen am 24.09.2026.
+* 31<a name="ref31" href="#anchor31">&uarr;</a> IHK Hannover: [Energieeffizienzgesetz: Kabinett beschließt Novelle](https://www.ihk.de/hannover/hauptnavigation/innovation/energie/energiemanagement/enefg-7160782), abgerufen am 24.09.2026.
+* 32<a name="ref32" href="#anchor32">&uarr;</a> Agora Verkehrswende: [Car Policy für eine klimafreundliche Dienstwagenflotte](https://www.agora-verkehrswende.de/veroeffentlichungen/car-policy-fuer-eine-klimafreundliche-dienstwagenflotte), abgerufen am 24.09.2026.
+* 33<a name="ref33" href="#anchor33">&uarr;</a> hrmony: [Jobticket Arbeitgeber: Deutschlandticket steuerfrei 2026](https://www.hrmony.de/wissen/jobticket), abgerufen am 24.09.2026.
+* 34<a name="ref34" href="#anchor34">&uarr;</a> Agora Verkehrswende: [Pendlerverkehr: mehr Rad und ÖPNV, weniger Auto](https://www.agora-verkehrswende.de/veroeffentlichungen/pendlerverkehr-mehr-rad-und-oepnv-weniger-auto), 12.10.2021.
+* 35<a name="ref35" href="#anchor35">&uarr;</a> Öko-Institut: [Homeoffice trägt zum Klimaschutz bei](https://www.oeko.de/news/pressemeldungen/homeoffice-traegt-zum-klimaschutz-bei/), 23.02.2022.
+* 36<a name="ref36" href="#anchor36">&uarr;</a> Umweltbundesamt: [Emissionsdaten](https://www.umweltbundesamt.de/themen/verkehr/emissionsdaten), Tabelle „Vergleich der durchschnittlichen Emissionen einzelner Verkehrsmittel im Personenverkehr“, abgerufen am 24.09.2026.
+* 37<a name="ref37" href="#anchor37">&uarr;</a> Garnett, Balmford, Sandbrook, Pilling, Marteau: [Impact of increasing vegetarian availability on meal selection and sales in cafeterias](https://doi.org/10.1073/pnas.1907207116), PNAS 116 (42), S. 20923–20929, 2019.
+* 38<a name="ref38" href="#anchor38">&uarr;</a> CDP: [Corporates’ supply chain scope 3 emissions are 26 times higher than their operational emissions](https://www.cdp.net/en/press-releases/corporates-supply-chain-scope-3-emissions-are-26-times-higher-than-their-operational-emissions), 25.06.2024.
+* 39<a name="ref39" href="#anchor39">&uarr;</a> Verve Ventures: [Interview with Philip Kessler: “With climate change, we face a momentous problem”](https://www.verve.vc/blog/with-climate-change-we-face-a-momentous-problem/), 28.06.2023.
+* 40<a name="ref40" href="#anchor40">&uarr;</a> TURN2X: [Making Green Energy Transportable](https://turn2x.com/), abgerufen am 24.09.2026.
+* 41<a name="ref41" href="#anchor41">&uarr;</a> INERATEC: [About us - From idea to market](https://www.ineratec.de/en/history), abgerufen am 24.09.2026.
+* 42<a name="ref42" href="#anchor42">&uarr;</a> chemie.de: [Europas größte Produktionsanlage für e-Fuels geht in Frankfurt in Betrieb](https://www.chemie.de/news/1186442/europas-groesste-produktionsanlage-fuer-e-fuels-geht-in-frankfurt-in-betrieb.html), abgerufen am 24.09.2026.
+* 43<a name="ref43" href="#anchor43">&uarr;</a> Oiger: [Sunfire Dresden will Elektrolyseur-Kosten halbieren](https://oiger.de/2026/04/14/sunfire-dresden-will-elektrolyseur-kosten-halbieren/197179), 14.04.2026.
+* 44<a name="ref44" href="#anchor44">&uarr;</a> CleanThinking: [Theion entwickelt Kristall-Batterie für dreifache Reichweite](https://www.cleanthinking.de/kristall-batterie-theion-enpal-reichweite/), 11.09.2023.
+* 45<a name="ref45" href="#anchor45">&uarr;</a> cylib: [cylib secures €63.4M grant funding to build LFP battery recycling facility](https://www.cylib.de/post/cylib-secures-eu63-4m-grant-funding-to-build-lfp-battery-recycling-facility), 19.12.2025.
+* 46<a name="ref46" href="#anchor46">&uarr;</a> Latitude Media: [Form’s first 100-hour batteries are hitting the grid](https://www.latitudemedia.com/news/forms-first-100-hour-batteries-are-hitting-the-grid/), Oktober 2025.
+* 47<a name="ref47" href="#anchor47">&uarr;</a> chemie.de: [Szenarien für eine neue „Eisenzeit“: Eisen ergänzt Wasserstoff als Energieträger](https://www.chemie.de/news/1189142/szenarien-fuer-eine-neue-eisenzeit-eisen-ergaenzt-wasserstoff-als-energietraeger.html), 06.07.2026.
+* 48<a name="ref48" href="#anchor48">&uarr;</a> TU Eindhoven: [RIFT raises €114 million for the world’s first commercial iron fuel project](https://www.tue.nl/en/news-and-events/news-overview/09-03-2026-rift-raises-eur114-million-for-the-worlds-first-commercial-iron-fuel-project), 09.03.2026.
+* 49<a name="ref49" href="#anchor49">&uarr;</a> TU Darmstadt: [Modellbasierter Kraftwerk-Retrofit von Kohle auf klimaneutrales Eisen als Brennstoff](https://www.tu-darmstadt.de/clean-circles/news_details_cc_223616.de.jsp), 24.04.2022.
+* 50<a name="ref50" href="#anchor50">&uarr;</a> Solarserver: [Stahlhersteller Tata Steel nutzt Hochtemperatur-Wärmespeicher aus Deutschland](https://www.solarserver.de/2026/03/06/stahlhersteller-tata-steel-nutzt-hochtemperatur-waermespeicher-aus-deutschland), 06.03.2026.
+* 51<a name="ref51" href="#anchor51">&uarr;</a> CleanThinking: [DeepDrive: Serienproduktion des Radnabenmotors ab 2028](https://www.cleanthinking.de/deepdrive-radnabenmotor-elektromobilitaet/), 24.09.2024.
+* 52<a name="ref52" href="#anchor52">&uarr;</a> Fraunhofer IPM: [Qurie, a Freiburg-based startup, is entering the market with caloric cooling technology](https://www.ipm.fraunhofer.de/en/press-publications/press-releases/Qurie-GmbH-founding-electrocaloric-cooling.html), abgerufen am 24.09.2026.
+* 53<a name="ref53" href="#anchor53">&uarr;</a> Technologieland Hessen: [Magnetokalorische Kühlung: Erste europäische Pilotanlage für LH2 in Betrieb](https://www.technologieland-hessen.de/news/Magnetokalorische-Kuehlung-Erste-europaeische-Pilotanlage-fuer-LH2-in-Betrieb-2025), 10.09.2025.
+* 54<a name="ref54" href="#anchor54">&uarr;</a> MAGNOTHERM: [Kühlung ohne Kältemittel](https://www.magnotherm.com/), abgerufen am 24.09.2026.
+* 55<a name="ref55" href="#anchor55">&uarr;</a> Trending Topics: [ecop: Österreichs Rotationswärmepumpe startet 2026 in den Industrieeinsatz](https://www.trendingtopics.eu/ecop-waermepumpen-2026/), 10.02.2026.
+* 56<a name="ref56" href="#anchor56">&uarr;</a> Informationsportal Tiefe Geothermie: [Eavor nimmt Stromproduktion am Standort Geretsried auf](https://www.tiefegeothermie.de/news/eavor-nimmt-stromproduktion-am-standort-geretsried-auf), abgerufen am 24.09.2026.
+* 57<a name="ref57" href="#anchor57">&uarr;</a> Bundesverband Wärmepumpe: [Über 50 Prozent im Plus: Wärmepumpen-Absatz steigt 2025 deutlich](https://www.waermepumpe.de/presse/news/details/ueber-50-prozent-im-plus-waermepumpen-absatz-steigt-2025-deutlich/), 27.01.2026.
+* 58<a name="ref58" href="#anchor58">&uarr;</a> electrive: [Bilanz 2025: Elektroauto-Neuzulassungen auf Rekordhoch](https://www.electrive.net/2026/01/06/bilanz-2025-neuzulassungen-von-elektroautos-2025-auf-rekordhoch/), 06.01.2026.
+* 59<a name="ref59" href="#anchor59">&uarr;</a> Umweltbundesamt: [Klimafreundliche Ernährung: fleischreduziert, vegetarisch oder vegan](https://www.umweltbundesamt.de/umwelttipps-fuer-den-alltag/essen-trinken/klima-umweltfreundliche-ernaehrung), abgerufen am 24.09.2026.
