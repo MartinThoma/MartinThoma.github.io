@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-12-23 23:00
 category: German posts
-tags: House, Building, Energy
+tags: House, Building, Energy, DIY, Home Improvement
 featured_image: logos/house.png
 ---
 Dämmstoffe haben neben ihrer Dämmwirkung noch weitere relevante Eigenschaften:
@@ -248,8 +248,130 @@ Heizöl kostet aktuell ca. 1.13€/L und bringt 9.8 kWh/L, d.h. 0.12€/kWh:
 * U-Wert 0.16: $0.5 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}=  43€$
 
 
+## Dämmung am eigenen Haus
+
+Ich möchte mein Haus besser dämmen, um Energie zu sparen. Hier sammle ich ein paar Ideen dazu.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/11/daemmung.png"><img src="../images/2025/11/daemmung.png" alt="Dämmung der obersten Geschossdecke zwischen und über den Balken" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Dämmung der obersten Geschossdecke zwischen und über den Balken</figcaption>
+</figure>
+
+### U-Werte
+
+Es gibt drei Arten von Wärmeverlusten:
+
+* Teilchenbewegung:
+    * Wärmeleitung (Konduktion): Gut ist hier z.B. EPS/XPS/Mineralwolle/Holzfasern. Wenn man allerdings z.B. nur lose Holzfasern hat, könnte man durch Wärmeströmung (Luftzug) Wärme verlieren.
+    * Wärmeströmung (Konvektion): Wärmeabtransport durch Luftbewegung. Das ist z.B. bei einer Mülltüte nicht der Fall. Dennoch dämmt eine Mülltüte nicht, da Konduktion und Radiation dominieren.
+* Wärmestrahlung (Radiation): Kann man z.B. mit einer Aluminiumbeschichtung reduzieren.
+
+Die Begriffe λ-Wert, R-Wert und U-Wert sind oben erklärt. Hier die wichtigsten U-Werte für verschiedene Bauteile:
+
+<table>
+    <thead>
+        <tr>
+        <th rowspan="2">Bauteil</th>
+        <th colspan="4" style="text-align:center;">U-Wert (W/(m²·K))</th>
+        </tr>
+        <tr>
+        <th><a href="https://de.wikipedia.org/wiki/Effizienzhaus">KfW-55</a></th>
+        <th><a href="https://de.wikipedia.org/wiki/Passivhaus">Passivhaus</a></th>
+        <th><a href="https://de.wikipedia.org/wiki/Niedrigenergiehaus">Niedrigenergiehaus</a></th>
+        <th>Mein Haus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>Außenwand</td>
+        <td>0.20</td>
+        <td>0.15<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></td>
+        <td>0.30</td>
+        <td>1.39</td>
+        </tr>
+        <tr>
+        <td>Oberste Geschossdecke</td>
+        <td>0.14<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
+        <td>0.10</td>
+        <td>0.20</td>
+        <td>?</td>
+        </tr>
+        <tr>
+        <td>Kellerwand</td>
+        <td>0.25<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
+        <td>0.15<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></td>
+        <td>0.40</td>
+        <td>5 (36cm Beton)</td>
+        </tr>
+    </tbody>
+</table>
+
+### Oberste Geschossdecke
+
+#### Dachboden-Decke
+
+Mein Dachboden hat ca. 10.40m x 4.74m, davon muss die Dachbodentreppe mit 120cm x 70cm
+und der Schornstein mit 98x42cm abgezogen werden. Es sind Dielen auf den Balken.
+
+Das sind ca. 48m² Fläche. Bei zwei Lagen brauche ich also ca. 100m² Dämmung.
+
+Da die Raumhöhe zu gering ist, kann man den Dachboden nicht als Wohnraum nutzen.
+Im besten Fall kann man ihn als Lagerraum nutzen.
+
+Der Dachboden ist unbeheizt: Im Sommer wird es sehr heiß, im Winter sehr kalt.
+Bei den Giebeln gibt es jeweils eine kleine Öffnung für die Belüftung.
+
+Aus diesem Grund will ich Glaswoll-Rollenmatten (λ=0.035 W/(m·K)) mit insgesamt
+40cm Dicke verlegen. Das ergibt einen U-Wert von U=λ/d=0.035/0.4=0.0875 W/(m²·K).
+
+Unter den Balken sind 15cm Platz, der Balken ist 20cm hoch. Also würde ich eine
+15cm dicke Matte und eine 20cm dicke Matte nehmen.
+
+Optionen:
+
+* 16cm Glaswolle (λ=0.032 W/(m·K)) Rolle: 15.20€/m²: https://www.bausep.de/aktion-dachbodendaemmung-wlg-032-glaswolle.html?361=675956
+    * Dämmständer: https://www.bausep.de/isocell-woodyfix-daemmstaender.html?361=676385
+* 16cm Glaswolle (λ=0.035 W/(m·K)) Rolle: 15.53€/m²: https://www.baustoffshop.de/knauf-insulation-kerndammrolle-ti-kd-435-n385-00063-grp.html
+* 18cm Glaswolle (λ=0.035 W/(m·K)) 125cm x 60cm für 22.69€: https://www.baustoffshop.de/knauf-insulation-kerndammplatte-tp-kd-432-n385-00048-grp.html
+
+#### Dachbodentreppe
+
+Maßnahmen:
+
+1. 200€ [DOLLE Bodentreppe wärmegedämmt U-Wert 1,16 120 x 70 cm](https://www.amazon.de/Bodentreppe-w%C3%A4rmeged%C3%A4mmt-Leiternteil-Dachbodenluke-Dachbodentreppe/dp/B07CPPKKLL/): Ob das so viel besser ist als meine alte Treppe, in die ich manuell Styropor eingelegt habe?
+2. Dachboden-Treppen-Isolierabdeckung: Ich brauche 67cm x 117cm x 35cm (Innenmaße der Luke), also: 2x 35x117 + 2x 35x67 + 117x67.
+    * https://www.amazon.de/Dachbodentreppen-Isolierabdeckung-T%C3%BCrabdeckung-Energiesparende-Rei%C3%9Fverschluss/dp/B0CT5FHZ7C/ 140x67, 23.50€, Verkauf von wendry, 448g, eine Bewertung, mit Reißverschluss
+    * https://www.amazon.de/Dachbodentreppe-Dachbodentreppen-Isolationsabdeckung-Energiesparend-Rei%C3%9Fverschluss/dp/B0DNMZDMDL/ 140x67, 28.59€, Verkauf von shangbaiyi store, 440g, keine Bewertung
+    * https://www.amazon.de/Ollewiellan-Isolierfolie-Reflexionsfolie-Alu-Luftpolsterfolie-Gew%C3%A4chsh%C3%A4user/dp/B0D69S8TG8/ : 1m x 10m x 3mm, 30.99€
+
+### Kellerwände
+
+### Außenwand zur Garage
+
+Mit 32cm EPS (λ=0.035 W/(m·K)) kommt man auf einen U-Wert von 0.11 W/(m²·K).
+
+TODO: Wie groß ist die Fläche?
+
+* https://www.bausep.de/fassadenplatte-eps-wdv-neo-032-1000-x-500-mm.html?361=675965 - 24.44€/m² bei WLS 032 mit 20cm
+
+### Sockel unter Tür
+
+TODO: Tutorial für Sockeldämmung
+
+* Klebe- und Armierungsmörtel?
+* Maueranker? / Schlagdübel?
+* Putz?
+* Armierungsgewebe?
+* Auf Boden oder auf Sockelschiene kleben?
+
+* https://www.bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm.html?361=675965 33.40€/m² bei 20cm, WLS 035
+* https://www.bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mit-stufenfalz.html : 19.20€/m² bei 12cm WLS 036
+* https://www.baustoffshop.de/knauf-dammplatte-eps-standard-035-weiss-1000x500-mm.html : 36.60€/m² bei 40cm WLS 035
+
 ## Einzelnachweise
 
 [^1]: n-tv.de: [Welcher Dämmstoff ist wofür geeignet?](https://www.n-tv.de/ratgeber/Welcher-Daemmstoff-ist-wofuer-geeignet-article21401269.html), 2019.
 [^2]: architekt-riebler.at: [Holzfaser-Dämmplatten](http://www.architekt-riebler.at/energieeffizienz/waermedaemmungen/holzfaserdaemmung)
 [^3]: Der Fachwerker: [Finger weg von diesen 3 Dämmstoffen!](https://www.youtube.com/watch?v=4iHTrwrfsIs)
+[^4]: KfW: [Anlage zum Merkblatt Energieeffizient Bauen](https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-(Inlandsf%C3%B6rderung)/PDF-Dokumente/6000003465_M_153_EEB_TMA_2018_04.pdf) auf kfw.de, 01.01.2020.
+[^5]: [Qualitätsanforderungen an Passivhäuser](https://passiv.de/de/02_informationen/02_qualitaetsanforderungen/02_qualitaetsanforderungen.htm) auf passiv.de, abgerufen am 02.11.2025.

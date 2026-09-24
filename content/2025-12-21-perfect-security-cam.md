@@ -10,7 +10,8 @@ tags: Open Source, Design, Hardware
 featured_image: logos/perfect-design.png
 ---
 I love thinking about perfect designs for everyday objects. Here is my idea for
-a perfect security camera.
+a perfect security camera. For the cameras that exist today, see
+[Home Security Cameras 2025](../home-security-cameras-2025/).
 
 The core principle that all security cameras I know violate is a local-first approach. The camera should still work, even if you have no internet connection. That is possible if you're in the same network as the camera.
 

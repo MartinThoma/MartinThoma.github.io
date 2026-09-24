@@ -604,3 +604,5 @@ Models:
 ## Others
 
 * SimpliSafe and Vivint seem not to be on Amazon
+
+What would a better camera look like? See [Perfect Design: Security Camera](../perfect-security-camera/).
