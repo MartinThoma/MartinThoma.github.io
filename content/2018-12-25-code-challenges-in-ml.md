@@ -23,7 +23,7 @@ big software works.
 
 ## Software Engineering 101
 
-You have an idea. Let's take one of the [projects I never realized](https://martin-thoma.com/projects-i-never-realized/): A book portal.
+You have an idea. Let's take one of the [projects I never realized](../projects-never-realized/): A book portal.
 
 We have a name for it, that's good. Book portal. But now we need to get some
 details. One tool for that are user stories:
@@ -54,7 +54,7 @@ components are supposed to communicate.
 
 After the architecture, you develop the defined components.
 
-Congratulations, you have an alpha version! Now you can go through the [other stages of Software Development](https://martin-thoma.com/software-development-stages/).
+Congratulations, you have an alpha version! Now you can go through the [other stages of Software Development](../software-development-stages/).
 
 
 ## Code Challenges

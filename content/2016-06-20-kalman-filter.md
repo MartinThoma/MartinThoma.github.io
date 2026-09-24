@@ -351,8 +351,8 @@ See also: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erkla
 
 There are several lectures at KIT which introduce Kalman filters:
 
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
+* [Probabilistische Planung](../probabilistische-planung/)
+* [Informationsfusion](../informationsfusion/)
 * Lokalisierung mobiler Agenten
 * [Analyse und Entwurf multisensorieller Systeme](http://www.ite.kit.edu/lehrveranstaltungen_analyse_und_entwurf_multisens_sys.php)
 

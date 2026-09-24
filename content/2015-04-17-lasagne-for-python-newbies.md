@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
-on NVIDIA GPUs with automatically generated CUDA code.
+on [NVIDIA GPUs](../gpu-supercomputers-for-your-home/) with automatically generated CUDA code.
 
 However, installing Lasagne is not that easy. Especially if you are not
 familiar with Python. This article aims to guide you through the installation

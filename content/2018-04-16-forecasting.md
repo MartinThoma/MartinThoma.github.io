@@ -22,7 +22,7 @@ See [GitHub](https://github.com/MartinThoma/algorithms/blob/master/ML/regression
 
 ## Results
 
-The scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.
+The scoring functions are explained in the <a href="../regression/">regression article</a>.
 
 <table class="table">
 <tr>
@@ -146,7 +146,7 @@ The scoring functions are explained in the <a href="https://martin-thoma.com/reg
     <td>3208.6</td>
 </tr>
 <tr>
-    <td><a href="https://martin-thoma.com/svm-with-sklearn/">RBF SVR</a></td>
+    <td><a href="../svm-with-sklearn/">RBF SVR</a></td>
     <td> 2.1ms</td>
     <td> 0.3ms</td>
     <td style="background-color: red;">202.2</td>
@@ -784,7 +784,7 @@ encoding of a month for this dataset and all tried regressors.
 The following should have become clear from reading this blog post:
 
 * L1: SGDRegressor without scaling is crazy bad.
-* L2: Without hyperparameter optimization (e.g. [twiddling](https://martin-thoma.com/twiddle/)),
+* L2: Without hyperparameter optimization (e.g. [twiddling](../twiddle/)),
   SVR is shitty.
 * L3: Without scaling, linear SVR runs many hours for training. On a dataset with
   3&nbsp;features and fewer than 150&nbsp;data points.
@@ -794,5 +794,5 @@ The following should have become clear from reading this blog post:
 
 ## See also
 
-* [Comparing Classifiers](https://martin-thoma.com/comparing-classifiers/)
+* [Comparing Classifiers](../comparing-classifiers/)
 * Sklearn: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)

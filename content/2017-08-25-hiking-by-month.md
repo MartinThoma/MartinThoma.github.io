@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Backpacking Tours by Month
 slug: backpacking-by-month
+lang: en
 author: Martin Thoma
 date: 2017-08-25 20:00
 category: My bits and bytes
@@ -95,7 +95,7 @@ South America
 
 Europe
 
-* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](https://martin-thoma.com/gr-20/)
+* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
 * [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
@@ -114,7 +114,7 @@ Afrika
 
 Europe
 
-* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](https://martin-thoma.com/gr-20/)
+* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
 * [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
@@ -133,7 +133,7 @@ Afrika
 
 Europe
 
-* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](https://martin-thoma.com/gr-20/)
+* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
 * [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
@@ -152,7 +152,7 @@ Afrika
 
 Europe
 
-* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](https://martin-thoma.com/gr-20/)
+* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
 
 South America
 
@@ -173,7 +173,7 @@ Afrika
 
 Europe:
 
-* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](https://martin-thoma.com/gr-20/)
+* [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
 
 South America:
 

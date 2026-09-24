@@ -33,7 +33,7 @@ and an `agent` which has
 ## The idea of Q-Learning
 
 The following is a mixed introduction to RL / Q-Learning. You might want to
-have a look at my [Reinforcement Learning](https://martin-thoma.com/reinforcement-learning/)
+have a look at my [Reinforcement Learning](../reinforcement-learning/)
 post as well.
 
 If there is a limited set of observations $\mathcal{S}$ (states) and a limited
@@ -89,7 +89,7 @@ That's it.
 
 ## Code
 
-You might want to read [Best practice for Machine Learning Projects](https://martin-thoma.com/ml-best-practice/)
+You might want to read [Best practice for Machine Learning Projects](../ml-best-practice/)
 to understand why the following code was written as it is.
 
 The latest code can be found on [Github MartinThoma:algorithms/](https://github.com/MartinThoma/algorithms/blob/master/ML/rl/q_table_agent.py)

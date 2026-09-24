@@ -79,11 +79,11 @@ Software:
 
 Although I haven't heard a catchy name, many people use similar things:
 
-* [EDA](https://martin-thoma.com/eda/): Pandas, Jupyter notebooks and Bash (cat, jq, head, tail)
+* [EDA](../eda/): Pandas, Jupyter notebooks and Bash (cat, jq, head, tail)
 * Model Building: sklearn
     * Neural Networks: Keras / Tensorflow / (Py)Torch / CNTK
     * <a href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a> / <a href="https://catboost.ai/">Catboost</a> / <a href="https://lightgbm.readthedocs.io/en/latest/">LightGBM</a>
-* Images: Matplotlib and [many more visualization tools](https://martin-thoma.com/python-data-visualization/)
+* Images: Matplotlib and [many more visualization tools](../python-data-visualization/)
 * Cloud:
     * AWS Stuff (S3, EC2, ECR and ECS, CloudWatch, SSM, ...)
     * Azure (Microsoft)

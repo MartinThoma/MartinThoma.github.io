@@ -94,8 +94,8 @@ featured_image: logos/klausur.png
 
 * McCulloch-Pitts Neuron (weights, bias, activation function is step function)
 * Rosenblatt Perceptron Algorithmus
-* Backpropagation
-* Curse of Dimensionality
+* [Backpropagation](../gradient-descent-delta-rule-backpropagation/)
+* [Curse of Dimensionality](../curse-of-dimensionality/)
 * [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)
 * Features: Nominal, Ordinal, Intervallskaliert, Verhältnisskaliert
 

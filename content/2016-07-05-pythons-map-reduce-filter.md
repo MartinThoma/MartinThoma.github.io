@@ -17,7 +17,7 @@ list comprehensions.
 
 First of all, I want to make sure you understand what those functions do.
 You might also want to have a look at my old article
-[Functional Programming in Python](https://martin-thoma.com/functional-programming-in-python/).
+[Functional Programming in Python](../functional-programming-in-python/).
 
 
 ### map

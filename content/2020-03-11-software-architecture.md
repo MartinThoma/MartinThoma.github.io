@@ -69,7 +69,7 @@ also helps with Analysability, Modifiability and Testability.
 When reading that there are different Front Ends, you might wonder how you
 define the interfaces between front ends and backend services.
 
-* [REST API](https://martin-thoma.com/rest/): [OpenAPI Specification](https://en.wikipedia.org/wiki/OpenAPI_Specification) e.g. with [Flask-RestX](https://flask-restx.readthedocs.io/en/latest/)
+* [REST API](../rest/): [OpenAPI Specification](https://en.wikipedia.org/wiki/OpenAPI_Specification) e.g. with [Flask-RestX](https://flask-restx.readthedocs.io/en/latest/)
 * [JSON Schema](https://json-schema.org/)
 * [Avro](https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html)
 * Flat file: Sometimes it is enough to make a file available, e.g. via FTP or even HTTP (Amazon S3). The strength of a single file is batch loading. You can keep the files and thus track the past. It is not a good choice for streaming / real time applications where you have a lot of events.

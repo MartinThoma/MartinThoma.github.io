@@ -96,7 +96,7 @@ long the process is running.
 
 ## Send files
 
-See [Linux Commands for Working from home](https://martin-thoma.com/linux-commands-for-working-from-home/)
+See [Linux Commands for Working from home](../linux-commands-for-working-from-home/)
 and [How to copy files from one machine to another using ssh](https://unix.stackexchange.com/a/106482/4784).
 
 Copy `foo.txt` from localhost to a remote host:
@@ -122,7 +122,7 @@ $ du -h .
 ## Misc
 
 * `top` or `htop` for showing processes / who uses much memory / CPU
-* [How to use Sublime Text via SSH](https://martin-thoma.com/how-to-use-sublime-text-via-ssh/)
+* [How to use Sublime Text via SSH](../sublime-via-ssh/)
 * `users` to see who is currently logged in.
 
 

@@ -24,7 +24,7 @@ This is the part where it becomes interesting to learn to use some tools.
 
 ## Text Editors
 
-My favorite editor is [Sublime Text](https://martin-thoma.com/sublime-text/), hence
+My favorite editor is [Sublime Text](../sublime-text/), hence
 the links / names in the following are for it. But there are a couple of other
 editors like [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/)
 that might have the same features.
@@ -168,8 +168,8 @@ separate topic.
 
 See also:
 
-* [ZSH and Oh-My-ZSH](https://martin-thoma.com/working-terminal/)
-* [Linux Commands for Working from home](https://martin-thoma.com/linux-commands-for-working-from-home/)
+* [ZSH and Oh-My-ZSH](../working-terminal/)
+* [Linux Commands for Working from home](../linux-commands-for-working-from-home/)
 
 ## Screen automation
 

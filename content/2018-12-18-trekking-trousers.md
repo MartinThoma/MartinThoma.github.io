@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Trekking Trousers
 slug: trekking-trousers
+lang: en
 author: Martin Thoma
 date: 2018-12-18 20:00
 category: My bits and bytes
@@ -18,7 +18,7 @@ and I love them. They are super light. If it is raining cats and dogs, I use
 ## Features
 
 * Zip-Off: Make them shorter in case it is warm
-* Breathability: See [Hardshell Jackets](https://martin-thoma.com/hardshell-jackets/)
+* Breathability: See [Hardshell Jackets](../hardshell-jackets/)
 * Side vents: Open the trousers if it is hot
 * Flexibility: Can you move enough?
 * Pockets: Front, back, knee
@@ -113,5 +113,5 @@ You might also want to have a look at the [Fjällräven size chart](https://www.
 
 ## See also
 
-* Mid Layer: [Down Jackets](https://martin-thoma.com/down-jackets/) and [Fleece](https://martin-thoma.com/fleece/)
-* Outer Layer: [Hardshell Jackets](https://martin-thoma.com/hardshell-jackets/)
+* Mid Layer: [Down Jackets](../down-jackets/) and [Fleece](../fleece/)
+* Outer Layer: [Hardshell Jackets](../hardshell-jackets/)

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python Projects
 slug: python-projects
+lang: en
 author: Martin Thoma
 date: 2018-01-18 20:00
 category: Code
@@ -61,7 +61,7 @@ foo_module : the git repository root dir
 ```
 
 * Having a `Dockerfile` and a `docker-compose.yml` might be nice if you have
-  non-Python dependencies. See [my Docker article](https://martin-thoma.com/docker/).
+  non-Python dependencies. See [my Docker article](../docker/).
 
 The `foo_module/__init__.py` should look like this:
 

@@ -52,7 +52,7 @@ key.
 * **Scalability**: Suppose you want to store more than you can do on the hardware
   of a single machine. Do you have to buy a better machine (scale vertically)
   or is it possible to have another (cheap) machine and run the database on two
-  machines in a distributed way (scale horizontally)? This is done via [sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding).
+  machines in a distributed way ([scale horizontally](../scaling-horizontally-vs-vertically/))? This is done via [sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding).
 * **Users**: Having a user system and different databases in the same database
   management system is nice, because it allows centralisation of the service
   for different teams at the same company. Then somebody takes care of the

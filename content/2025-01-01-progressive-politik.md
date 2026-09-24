@@ -108,7 +108,7 @@ Einwohnerzahlen bei gleichzeitig stagnierendem Neubau führen zu einer immer
 größeren Verdrängung von Menschen mit geringem Einkommen aus den Innenstädten.
 
 > **Forderung 4**: Der Bund sollte jeder Stadt Geld zum Bau von
-> Studentenwohnheimen geben; vgl. [Wohnungsmangel](https://martin-thoma.com/wohnungsmangel)
+> Studentenwohnheimen geben; vgl. [Wohnungsmangel](../wohnungsmangel/)
 
 
 ## Rente

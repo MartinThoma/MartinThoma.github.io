@@ -113,11 +113,11 @@ tf-idf feature of "New York", too.
 
 I've introduced the Bayes Classifer, but there are a lot more. Most notably:
 
-* [SVMs](https://martin-thoma.com/svm-with-sklearn/)
+* [SVMs](../svm-with-sklearn/)
 * Neural Networks
 * Decision Trees (and Random Forests)
 
-See my [Comparing Classifiers](https://martin-thoma.com/comparing-classifiers/)
+See my [Comparing Classifiers](../comparing-classifiers/)
 for a lot more classifiers.
 
 

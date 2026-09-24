@@ -20,7 +20,7 @@ There are two ways to get foreign currencies if you are working with digital
 money: With credit cards or [TransferWise](https://transferwise.com/u/martint472).
 
 For credit cards, [I recommend N26](https://n26.com/r/martint3954) (see
-[online banking](https://martin-thoma.com/online-banking/)). I've just been to
+[online banking](../online-banking/)). I've just been to
 Budapest and it worked like a charm. They sometimes had the price in EUR on the
 bill as well. Usually, it was something like 35 EUR on the bill, but the rate of
 N26 was so good that I only paid about 30 EUR.

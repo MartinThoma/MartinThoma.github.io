@@ -56,9 +56,9 @@ outside of it. Here are the answers:
 
 Let's first explain the different project types:
 
-1. **Forecasts**: Given a time series of the past, predict the future
+1. **[Forecasts](../forecasting/)**: Given a time series of the past, predict the future
 2. **Classification (and regression)**: For example, detect if an e-mail is spam or not
-3. **EDA**: Exploratory Data Analysis. Here is the data - now find something interesting. This is a very unspecific task.
+3. **EDA**: [Exploratory Data Analysis](../eda/). Here is the data - now find something interesting. This is a very unspecific task.
 4. **Visualizations**: Data Science can also be a bit about storytelling. You
    found something which can be explained with exact terminology and words, but
    it has to be made clear to stakeholders what you found in a simple,
@@ -171,4 +171,4 @@ predictions about the future to take smart actions in a changing world.
 ## See also
 
 Now that it is clear what kinds of tasks are common in data science, I will
-continue with blog posts about how to make those projects successful.
+continue with [blog posts about how to make those projects successful](../ds-project-guide/).

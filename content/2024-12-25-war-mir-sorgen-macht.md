@@ -142,7 +142,7 @@ Mal zusammengefasst:
 * Der Osten (Sachsen, Sachsen-Anhalt, Thüringen und Mecklenburg-Vorpommern)
   schrumpft.
 
-Das Problem dabei ist der [Wohnraummangel in den Großstädten](https://martin-thoma.com/wohnungsmangel-mathe/).
+Das Problem dabei ist der [Wohnraummangel in den Großstädten](../wohnungsmangel-mathe/).
 
 ## Populismus und Rechtsextremismus
 

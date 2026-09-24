@@ -128,7 +128,7 @@ system I have seen so far (although Googles <a href="https://google.github.io/ta
 
 ### Clustering
 
-Besides my small <a href="https://martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">k-means clustering example</a>, there is <a href="http://projector.tensorflow.org/">Tensorflow Projector</a>
+Besides my small <a href="../k-nearest-neighbor-classification-interactive-example/">k-means clustering example</a>, there is <a href="http://projector.tensorflow.org/">Tensorflow Projector</a>
 
 
 ### 2D Embeddings

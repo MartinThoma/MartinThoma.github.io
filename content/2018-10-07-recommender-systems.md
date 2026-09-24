@@ -88,7 +88,7 @@ Based on the user-item rating matrix $R$, you build up a user-user similarity ma
 
 You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).
 
-See also: [Collaborative Filtering](https://martin-thoma.com/collaborative-filtering/)
+See also: [Collaborative Filtering](../collaborative-filtering/)
 
 In some sense, bestsellers are a special case of collaborative filtering:
 Simply recommending what got sold most.
@@ -112,7 +112,7 @@ Simply recommending what got sold most.
 
 ## Basic Basket Analysis
 
-See [Association Rule Mining](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules)
+See [Association Rule Mining](../analysetechniken-grosser-datenbestaende/#association-rules)
 
 ## More Collaborative Filtering
 

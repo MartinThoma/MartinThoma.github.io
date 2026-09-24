@@ -111,7 +111,7 @@ def f(n):
     return a
 ```
 
-Have a look at [Fibonacci, recursion and decorators](https://martin-thoma.com/fibonacci-recursion-decorators/)
+Have a look at [Fibonacci, recursion and decorators](../fibonacci-recursion-decorators/)
 if you are interested in more details.
 
 
@@ -193,7 +193,7 @@ removal of characters, adding characters or changing a character. And typically,
 all of them have a cost of 1.
 
 A real-world application of the edit distance is in automatic speech recognition (ASR).
-There the edit distance is used to calculate the word error rate (WER): [Word Error Rate Calculation](https://martin-thoma.com/word-error-rate-calculation/)
+There the edit distance is used to calculate the word error rate (WER): [Word Error Rate Calculation](../word-error-rate-calculation/)
 
 
 \begin{align}
@@ -591,4 +591,4 @@ search and more eggs will not result in fewer egg drops.
 * Stack Overflow:
     * [Difference between back tracking and dynamic programming](https://stackoverflow.com/q/3592943/562769)
     * [What is the difference between dynamic programming and branch and bound?](https://stackoverflow.com/q/16814830/562769)
-* 🇩🇪 Martin Thoma: [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/#dynamic-programming)
+* 🇩🇪 Martin Thoma: [Probabilistische Planung](../probabilistische-planung/#dynamic-programming)

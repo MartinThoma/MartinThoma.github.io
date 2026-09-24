@@ -517,7 +517,7 @@ Tot:                     696   1710  11921    76   529
     * [List of archive formats](https://en.wikipedia.org/wiki/List_of_archive_formats)
     * [Comparison of file archivers](https://en.wikipedia.org/wiki/Comparison_of_file_archivers)
     * [Hutter Prize](https://en.wikipedia.org/wiki/Hutter_Prize)
-* Martin Thoma: [Data Backup Strategies](https://martin-thoma.com/data-backup-strategies/), 2013.
+* Martin Thoma: [Data Backup Strategies](../data-backup-strategies/), 2013.
 * Jeff Atwood:
     * [File Compression in the Multi-Core Era](https://blog.codinghorror.com/file-compression-in-the-multi-core-era/), 2009.
     * [Don't Use ZIP, Use RAR](https://blog.codinghorror.com/dont-use-zip-use-rar/), 2007.

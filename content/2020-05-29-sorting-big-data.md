@@ -52,7 +52,7 @@ following disk space hogs:
 * 404 GB: My Home Directory:
     * 152 GB: Various git repositories
         * 103 GB: My "algorithms" repository
-            * 99 GB for PyPI (see [PyPI Analysis 2020](https://martin-thoma.com/pypi-2020/))
+            * 99 GB for PyPI (see [PyPI Analysis 2020](../pypi-2020/))
             * 4 GB for a [database benchmark](https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark). I never really finished this; I moved on to other topics
         * 28 GB for [YouTube-Report](https://github.com/A3M4/YouTube-Report). Or rather the Takeout
     * 97 GB: Downloads
@@ -538,4 +538,4 @@ In total, 715s (11min 55s).
 StackExchange
 
 * [How can I sort a 10GB file?](https://stackoverflow.com/q/34090744/562769), 2015.
-* [Übersicht über Sortieralgorithmen](https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/) (German)
+* [Übersicht über Sortieralgorithmen](../ubersicht-uber-sortieralgorithmen/) (German)

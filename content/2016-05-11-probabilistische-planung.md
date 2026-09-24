@@ -19,7 +19,7 @@ Learning ein. Dabei werden drei Themenfelder besprochen:
 * Reinforcement Learning (RL)
 
 An Algorithmen sind insbesondere der Label-Korrektur-Algorithmus, das
-Dynamische Programmieren, der <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>
+Dynamische Programmieren, der <a href="../kalman-filter/">Kalman-Filter</a>
 sowie die value- und policy iteration zu nennen.
 
 
@@ -1053,7 +1053,7 @@ $$
         See also:
         <ul>
             <li><a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a></li>
-            <li><a href="https://martin-thoma.com/machine-learning-2-course/#bayes-filter">Bayes Filter</a></li>
+            <li><a href="../machine-learning-2-course/#bayes-filter">Bayes Filter</a></li>
         </ul>
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
@@ -1101,7 +1101,7 @@ $$
         Zustandsschätzer:
 
         <ul>
-            <li>Annahme: beliebige Aktionsfolge $a_{0:N-1}$ gegeben: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a></li>
+            <li>Annahme: beliebige Aktionsfolge $a_{0:N-1}$ gegeben: <a href="../kalman-filter/">Kalman-Filter</a></li>
         </ul>
 
         Prädiktion ($k \rightarrow k+1$)
@@ -1208,7 +1208,7 @@ $$
         stärker als OL-Planung (gleichheit im deterministischen Fall)
     </dd>
     <dt><dfn id="linearization">Linearisierung</dfn> (<dfn>Extended Kalman Filter</dfn>, <dfn id="ekf">EKF</dfn>)</dt>
-    <dd>Siehe auch: <a href="https://martin-thoma.com/kalman-filter/#extended-kalman-filter">EKF</a>.</dd>
+    <dd>Siehe auch: <a href="../kalman-filter/#extended-kalman-filter">EKF</a>.</dd>
     <dt><dfn>Bedingte Differentielle Entropie</dfn></dt>
     <dd>
 
@@ -2162,8 +2162,8 @@ $$
     <dt><dfn>Gaussian Processes</dfn> (<dfn>Gaussche Prozesse</dfn>)</dt>
     <dd>
 
-        Siehe <a href="https://martin-thoma.com/function-approximation/">Function Approximation</a>
-        und <a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
+        Siehe <a href="../function-approximation/">Function Approximation</a>
+        und <a href="../machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
 
     </dd>
     <dt><dfn id="pilco">PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
@@ -2312,7 +2312,7 @@ $$
 
             <ul>
                 <li>Reduzierung auf Information Vector MDP / Belief-state MDP: Siehe Algorithmen von MDP</li>
-                <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
+                <li>Linearer Fall: <a href="../kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
                 <li>Diskreter Fall: $\alpha$-Vektoren</li>
                 <li>Approximative Verfahren:
 
@@ -2602,10 +2602,10 @@ Der Dozent nutzt folgende Notation:
 * Stack Exchange
     * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
     * [How can I solve an optimization problem $x^T A x$ with constraint $x^T x = 1$?](http://math.stackexchange.com/q/1866356/6876)
-    * [Diverging Gradient Descent](https://martin-thoma.com/diverging-gradient-descent/)
+    * [Diverging Gradient Descent](../diverging-gradient-descent/)
     * [Does the Gauss-Newton algorithm work with the Hesse matrix or Jaccobi matrix?](http://math.stackexchange.com/q/1877948/6876)
     * [What is the relationship between the Markov property and optimal substructure?](http://cs.stackexchange.com/q/61157/2914)
-* [Optimization Basics](https://martin-thoma.com/optimization-basics/)
+* [Optimization Basics](../optimization-basics/)
 * [Mein Prüfungsprotokoll](https://martin-thoma.com/pdf/propla-protokoll-kit.pdf)
 
 
@@ -2643,14 +2643,14 @@ der Note, als auch vom Wissensgewinn - gelohnt.
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 Weitere:
 

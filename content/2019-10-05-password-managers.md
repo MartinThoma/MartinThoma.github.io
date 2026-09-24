@@ -23,7 +23,7 @@ This article focuses on what a good password manager is. I will judge them in
 three categories:
 
 * **Security**: Are the passwords locally encrypted strong enough? How many
-  incidents happened so far? Does it support 2FA / MFA?
+  incidents happened so far? Does it support [2FA / MFA](../multi-factor-authentication/)?
 * **Usability**: Is it convenient to use? Is it available on Linux and Android?
   Can I use it outside of the browser (e.g. if the password field is not
   detected)? Does it have a UI for generating strong random passwords when

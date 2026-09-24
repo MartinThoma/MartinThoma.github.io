@@ -149,4 +149,4 @@ If necessary, the size / file format was adjusted with `convert` (ImageMagick).
 
 ## See also
 
-* [Converting Files with Linux](https://martin-thoma.com/converting-files-with-linux/)
+* [Converting Files with Linux](../converting-files-with-linux/)

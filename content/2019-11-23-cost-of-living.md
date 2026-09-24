@@ -365,21 +365,21 @@ which I think I really need... turns out, it's a lot of stuff.
     </thead>
     <tbody>
         <tr>
-            <td><a href="https://martin-thoma.com/sleeping-bags/">Schlafsack</a> (Mountain Equipment GLACIER 1000 REGULAR)</td>
+            <td><a href="../sleeping-bags/">Schlafsack</a> (Mountain Equipment GLACIER 1000 REGULAR)</td>
             <td>359.92 €</td>
             <td>20 years</td>
             <td>18.00 €</td>
             <td>359.92 € / 1 piece</td>
         </tr>
         <tr>
-            <td><a href="https://martin-thoma.com/sleeping-bags/">Schlafsack</a></td>
+            <td><a href="../sleeping-bags/">Schlafsack</a></td>
             <td>17.54 €</td>
             <td>10 years</td>
             <td>1.76 €</td>
             <td>17.54 € / 1 piece</td>
         </tr>
         <tr>
-            <td><a href="https://martin-thoma.com/hardshell-jackets/">Hardshell Jackets</a> (Regenjacke, Fjällräven Keb Eco Shell)</td>
+            <td><a href="../hardshell-jackets/">Hardshell Jackets</a> (Regenjacke, Fjällräven Keb Eco Shell)</td>
             <td>320 €</td>
             <td>10 years</td>
             <td>32.00 €</td>

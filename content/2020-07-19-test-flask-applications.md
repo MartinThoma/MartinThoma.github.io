@@ -173,7 +173,7 @@ Note that this will become harder the more complex your data becomes and the mor
 
 ### Wait … what about testing the SQL Queries?
 
-You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at Query Builders. Avoid using raw SQL. In most cases, it should not be necessary.
+You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at [Query Builders](../raw-sql-vs-query-builder-vs-orm/). Avoid using raw SQL. In most cases, it should not be necessary.
 
 ## Protected Routes
 

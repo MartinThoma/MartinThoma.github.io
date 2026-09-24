@@ -14,7 +14,7 @@ multiplication. Now I'm preparing a course about speeding up Python. For this
 reason, I need an example of code that is fairly simple to understand and can be
 optimized. So let's update the results of my old articles 🙂
 
-The code can be found in a git repository on GitHub ([github.com/MartinThoma/matrix-multiplication](https://github.com/MartinThoma/matrix-multiplication)) and you can have a look at the [old article](https://martin-thoma.com/matrix-multiplication-python-java-cpp/) as well, if you want.
+The code can be found in a git repository on GitHub ([github.com/MartinThoma/matrix-multiplication](https://github.com/MartinThoma/matrix-multiplication)) and you can have a look at the [old article](../matrix-multiplication-python-java-cpp/) as well, if you want.
 
 All scripts are tested on my new ThinkPad T460p. For comparison, I've also
 added the laptop I had before when I wrote the 2012 matrix multiplication article:
@@ -106,7 +106,7 @@ the old machine needed.
             <td>-</td>
         </tr>
         <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+            <th><a href="../strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
             <td>1709 (<span style="color: green;">1.7x</span>)</td>
             <td>1780</td>
             <td>190</td>
@@ -114,7 +114,7 @@ the old machine needed.
             <td>-</td>
         </tr>
         <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+            <th><a href="../strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
             <td>855 (<span style="color: green;">3.4x</span>)</td>
             <td>1022</td>
             <td>44</td>
@@ -221,12 +221,12 @@ Python 3.8 on others as well:
             <td>21</td>
         </tr>
         <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+            <th><a href="../strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
             <td>1780</td>
             <td>TODO</td>
         </tr>
         <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+            <th><a href="../strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
             <td>1022</td>
             <td>TODO</td>
         </tr>

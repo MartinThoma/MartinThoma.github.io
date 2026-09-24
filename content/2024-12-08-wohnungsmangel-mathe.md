@@ -10,7 +10,7 @@ tags: Mathematics, Politics
 featured_image: logos/mathematics.png
 ---
 Der Wohnungsmangel ist eines der heißesten Themen in der deutschen Politik.
-Ich habe schon mal über [den Wohnungsmangel in Deutschland](https://martin-thoma.com/wohnungsmangel/) geschrieben.
+Ich habe schon mal über [den Wohnungsmangel in Deutschland](../wohnungsmangel/) geschrieben.
 
 Wir machen keinen Fortschritt, weil wir uns zu sehr auf den privaten Wohnungsbau
 verlassen. Das ist ein Problem, weil es bei aktuellen Zinsen einfach nicht
@@ -538,7 +538,7 @@ Dennoch brauchen wir **Neubau bei Wohnungsmangel**. Dafür müssen wir zuerst
 bessere Daten haben. Wir brauchen für jede Gemeinde die Anzahl an Menschen in
 ihr und die Anzahl der Wohneinheiten.
 
-Der Staat sollte [Wohnheime bauen](https://martin-thoma.com/wohnungsmangel/),
+Der Staat sollte [Wohnheime bauen](../wohnungsmangel/),
 aber auch den Anteil an Sozialwohnungen erhöhen. Und bitte nicht nur temporär.
 Gemeinden/Städte sollten einen zweistelligen Prozentsatz der Wohnungen auf ihrem
 Kerngebiet besitzen.

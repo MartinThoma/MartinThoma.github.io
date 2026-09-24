@@ -15,7 +15,7 @@ while. I notice that this is a relevant topic for millions of people and I
 think I have a good idea of how to improve it. But I need to get started. It is a
 web project and web development is not my main area of expertise. So I've been wondering
 for quite a while what a good language / framework for starting a bigger web
-project would be. In 2015, I wrote [Languages for Back Ends](https://martin-thoma.com/languages-for-back-ends/),
+project would be. In 2015, I wrote [Languages for Back Ends](../languages-for-back-ends/),
 but I think I got it wrong. The language is a bit important, but way more important is the ecosystem. And a big part of the ecosystem is the framework you use. Now I try to figure out which
 frameworks I want to work with.
 

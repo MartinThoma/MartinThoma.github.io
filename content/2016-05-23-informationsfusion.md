@@ -114,7 +114,7 @@ Slides: `IF-Kap2_151215.pdf`
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
+    <dd>Siehe <a href="../probabilistische-planung/#probability-measure">Probabilistische Planung</a></dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"><dfn>Kovarianz</dfn></a> (<dfn id="covariance">Covariance</dfn>)</dt>
     <dd>Es seien $X, Y$ Zufallsvariablen. Dann heißt
         $$COV(X, Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))$$
@@ -154,9 +154,9 @@ Slides: `IF-Kap2_151215.pdf`
 
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
-    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
+    <dd>Siehe <a href="../kalman-filter/">Kalman-filter Artikel</a>.</dd>
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
-    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd
+    <dd>Siehe <a href="../kalman-filter/">Kalman-filter Artikel</a>.</dd
     <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
     <dd>GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
@@ -376,7 +376,7 @@ Zur Einführung:
 
 Slides: `IF-Kap5_160125.pdf`
 
-Siehe [Vorlesung Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
+Siehe [Vorlesung Neuronale Netze](../neuronale-netze-vorlesung/)
 
 
 ### Registrierung
@@ -609,7 +609,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
   → Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.
 * Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  → vgl. <a href="https://martin-thoma.com/kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
+  → vgl. <a href="../kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
 
 
 ## Absprachen
@@ -639,14 +639,14 @@ Literatur:
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 
 ## Termine und Klausurablauf

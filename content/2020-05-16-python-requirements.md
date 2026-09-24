@@ -353,7 +353,7 @@ You also see a reason here why you might want to mix-and-match between a pure `s
 
 ### pyproject.toml
 
-The pyproject.toml deserves its [own blog post](https://martin-thoma.com/pyproject-toml/), but there are a few things to point out:
+The pyproject.toml deserves its [own blog post](../pyproject-toml/), but there are a few things to point out:
 
 * Only the build system aspect is specified in [PEP 518](https://www.python.org/dev/peps/pep-0518/)
 * [poetry defines](https://python-poetry.org/docs/pyproject/) name, version, license, maintainers, readme, keywords, classifiers, dependencies and dependencies-dev, ...

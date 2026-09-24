@@ -44,7 +44,7 @@ werden.
 2. Das Skript sollte online sein
 3. Es sollte für jedes Übungsblatt ausführliche **Musterlösungen** geben.
 4. Die Musterlösungen der Übungsblätter sollten online verfügbar sein.
-5. **Vorlesungs-Videos**: Vorlesungen sollten gefilmt werden (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/))
+5. **Vorlesungs-Videos**: Vorlesungen sollten gefilmt werden (vgl. [Blog post](../lectures-on-youtube/))
 6. Alle Online-Materialien sollten für jeden verfügbar sein. Die Dozenten
    werden mit offentlichen Geldern bezahlt, also sollte das Produkt ihrer
    Arbeit auch der gesamten Öffentlichkeit zugute kommen. Außerdem ist es gute
@@ -58,7 +58,7 @@ schenken. Also: **Evaluation auch online durchführen**.
 
 
 ### Mentoren&shy;programm
-Ich mag die Idee von Mentoren. Studenten helfen Studenten. Siehe [One-on-One Tutoring](https://martin-thoma.com/one-on-one-tutoring/) für ein paar Ideen dazu.
+Ich mag die Idee von Mentoren. Studenten helfen Studenten. Siehe [One-on-One Tutoring](../one-to-one-tutoring/) für ein paar Ideen dazu.
 
 ### Frontal&shy;unterricht
 Die meisten Vorlesungen sind klassischer Frontalunterricht: Der Dozent steht
@@ -68,7 +68,7 @@ aber meist gelingt das nicht. Die Fragen bewirken bei vielen Studenten eher
 eine Bitte-schau-mich-nicht-an Schockstarre bei der sie dann noch weniger
 Mitdenken können.
 
-Wenn das so abläuft, sind Videos viel besser (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/)).
+Wenn das so abläuft, sind Videos viel besser (vgl. [Blog post](../lectures-on-youtube/)).
 
 Allerdings gibt es mindestens eine gute Alternative: Auf [m.socrative.com](http://m.socrative.com/)
 kann der Dozent den Studenten die Möglichkeit geben anonym Kommentare zu Fragen

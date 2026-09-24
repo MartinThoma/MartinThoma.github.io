@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Defaults of Configuration Files
 slug: cfg-files-defaults
+lang: en
 author: Martin Thoma
 date: 2017-05-14 20:00
 category: Code
@@ -85,4 +85,4 @@ print(load_config_defaults("user_cfg.json", "default_cfg.json"))
 
 ## See also
 
-* [Configuration files in Python](https://martin-thoma.com/configuration-files-in-python/)
+* [Configuration files in Python](../configuration-files-in-python/)

@@ -167,7 +167,7 @@ To put it into context:
 * You combine tests into a test suite.
 * The test runner executes the tests.
 
-Your [project structure](https://martin-thoma.com/python-projects/) should be:
+Your [project structure](../python-projects/) should be:
 
 ```text
 foo_module : the git repository root dir

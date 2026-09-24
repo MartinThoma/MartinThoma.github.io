@@ -27,7 +27,7 @@ I know that a couple of people recently liked
 [control.kylemcdonald.net/arxiv](http://control.kylemcdonald.net/arxiv/), but
 I'm not using that too much.
 
-See also: [How to find new Papers](https://martin-thoma.com/how-to-find-new-papers/)
+See also: [How to find new Papers](../find-papers/)
 
 
 ## Search
@@ -55,14 +55,14 @@ Of course, Wikipedia is always an option to get introduced to basics.
 
 ## Writing
 
-I do the actual writing with [Sublime Text](https://martin-thoma.com/sublime-text/).
+I do the actual writing with [Sublime Text](../sublime-text/).
 
 ### Typesetting
 
 The typesetting system of my choice is
 [LaTeX](https://en.wikipedia.org/wiki/LaTeX). It produces beautiful results,
 especially for mathematical formulae. A couple of years ago I wrote some
-[installation instructions](https://martin-thoma.com/how-to-install-the-latest-latex-version/).
+[installation instructions](../how-to-install-the-latest-latex-version/).
 If you need help with something specific,
 [tex.stackexchange.com](https://tex.stackexchange.com/) is really nice.
 
@@ -87,7 +87,7 @@ some ideas where I might improve my writing style.
 
 ### Reference Management
 
-I like [JabRef](https://martin-thoma.com/reference-management-with-jabref/) as
+I like [JabRef](../reference-management-with-jabref/) as
 it is in the standard repositories of Ubuntu and works out of the box to
 manage my references. I use it to fill my BibTeX files and add as much content
 to papers as I can. JabRef also has some nice options to find / open the paper

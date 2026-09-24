@@ -63,7 +63,7 @@ So the optimization algorithm is:
 
 
 
-See also my [German description](https://martin-thoma.com/neuronale-netze-vorlesung/#simulated-annealing).
+See also my [German description](../neuronale-netze-vorlesung/#simulated-annealing).
 
 
 ## Gradient descent
@@ -83,7 +83,7 @@ might first go down in the direction of $\nabla f(x)$, but if you go a bit
 further it can go up by a lot. So we want to make very small steps. To achive
 this, we multiply the gradient with a factor $\eta \in (0, 1]$. In machine
 learining, this $\eta$ is called the *learning rate* and typically one
-chooses $\eta = 0.01$. However, there are [learning rate scheduling algorithms](https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling) which adapt this parameter during training.
+chooses $\eta = 0.01$. However, there are [learning rate scheduling algorithms](../neuronale-netze-vorlesung/#learning-rate-scheduling) which adapt this parameter during training.
 
 The update rule is:
 

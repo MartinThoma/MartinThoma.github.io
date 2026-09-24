@@ -107,4 +107,4 @@ Three things to notice:
 
 ## See also
 
-* [Maximum Contiguous Subarray Sum](https://martin-thoma.com/maximum-subarray-sum/)
+* [Maximum Contiguous Subarray Sum](../maximum-subarray-sum/)

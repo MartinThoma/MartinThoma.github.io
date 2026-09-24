@@ -24,8 +24,8 @@ You can visualize this with a graph like this:
             <figcaption class="text-center">Simple Markov chain weather model</figcaption>
         </figure>
 
-I am taking a course about Markov chains this semester. Today, we've learned
-a bit about how to use R (a programming language) to do very basic tasks.
+I am taking [a course about Markov chains](../markovketten-klausur/) this semester. Today, we've learned
+a bit about how to use [R](../r-lang/) (a programming language) to do very basic tasks.
 
 
 ## R vs Python

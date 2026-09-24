@@ -12,7 +12,7 @@ featured_image: logos/earth.png
 Der Traum vom Eigenheim fühlt sich inzwischen für die meisten Menschen
 unerreichbar an. Die Immobilienpreise sind in den letzten Jahren stark
 gestiegen, und viele fragen sich, wie sie sich ihr
-[Traumhaus](https://martin-thoma.com/perfekter-neubau/) überhaupt
+[Traumhaus](../perfekter-neubau/) überhaupt
 noch leisten können. In diesem Artikel will ich einige Möglichkeiten aufzeigen,
 wie wir den Immobilienkauf günstiger machen könnten.
 

@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Hardshell Jackets
 slug: hardshell-jackets
+lang: en
 author: Martin Thoma
 date: 2017-09-25 20:00
 category: My bits and bytes
 tags: Hiking, Gear, Trekking
 featured_image: logos/hiking.png
 ---
-[My last hiking trip](https://martin-thoma.com/triglav-national-park/) was
+[My last hiking trip](../triglav-national-park/) was
 extremely wet. And my raincoat did not help me.
 
 On the one hand, I will impregnate my rain trousers. On the other hand, I'm
@@ -404,5 +404,5 @@ I finally bought the Keb Eco Shell Jacket on 2018-12-18.
 
 Other articles of myself:
 
-* Mid Layer: [Down Jackets](https://martin-thoma.com/down-jackets/) and [Fleece](https://martin-thoma.com/fleece/)
-* Outer Layer: [Hardshell Jackets](https://martin-thoma.com/hardshell-jackets/)
+* Mid Layer: [Down Jackets](../down-jackets/) and [Fleece](../fleece/)
+* Outer Layer: [Hardshell Jackets](../hardshell-jackets/)

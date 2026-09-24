@@ -31,7 +31,7 @@ Exploratory Data Analysis should be the very first step. Know what your data
 looks like. Which errors can be expected to be in the data? How is it
 distributed?
 
-For CSV files, I wrote the [Exploratory Data Analysis](https://martin-thoma.com/eda/)
+For CSV files, I wrote the [Exploratory Data Analysis](../eda/)
 article. Usually, this starts with having a look at examples and making some
 graphs. EDA depends on what kind of data you have and which problem you want to
 solve. I will not go into detail in this post.
@@ -290,7 +290,7 @@ Here are some examples:
         <td><abbr title="Reinforcement Learning">RL</abbr></td>
         <td>Rules</td>
         <td></td>
-        <td>DQN, DDQN, ... (see <a href="https://martin-thoma.com/rl-agents/">post</a>)</td>
+        <td>DQN, DDQN, ... (see <a href="../rl-agents/">post</a>)</td>
     </tr>
 </table>
 

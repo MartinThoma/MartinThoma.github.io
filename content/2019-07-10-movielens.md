@@ -10,10 +10,10 @@ tags: Machine Learning, Recommendations, AI
 featured_image: logos/ml.png
 ---
 I've recently been thinking a lot about recommendations and about building the
-[book recommendation portal](https://martin-thoma.com/projects-i-never-realized/#book-portal)
+[book recommendation portal](../projects-never-realized/#book-portal)
 I have had in mind since 2013.
 
-However, for recommendation systems it is as hard as with any branch of machine
+However, for [recommendation systems](../recommender-systems/) it is as hard as with any branch of machine
 learning to find a good overview of techniques, their respective strengths
 and drawbacks as well as hard performance measures.
 

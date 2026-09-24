@@ -66,13 +66,13 @@ know the details (and details are super important), though.
     </tr>
     <tr>
         <td>8</td>
-        <td>E-Governance: <a href="https://martin-thoma.com/german-politics-2018/#declare-place-of-residency">Declare Place of Residency</a></td>
+        <td>E-Governance: <a href="../german-politics-2018/#declare-place-of-residency">Declare Place of Residency</a></td>
         <td><span style="color: red;">&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;</span></td>
     </tr>
     <tr>
         <td>9</td>
-        <td>Consumer protection: <a href="https://martin-thoma.com/german-politics-2018/#mandatory-software-updates">Mandatory software updates</a></td>
+        <td>Consumer protection: <a href="../german-politics-2018/#mandatory-software-updates">Mandatory software updates</a></td>
         <td><span style="color: red;">&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>

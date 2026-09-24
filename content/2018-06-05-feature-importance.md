@@ -169,7 +169,7 @@ artificial.
 Now that I've explained why feature importance is misleading and needs to be
 taken with great caution, what are alternatives to explain what the model does?
 
-* **Model lab**: See [here](https://martin-thoma.com/ds-project-guide/#model-lab). Letting stakeholders poke the model.
+* **Model lab**: See [here](../ds-project-guide/#model-lab). Letting stakeholders poke the model.
 * **lime**: [Local Interpretable Model-Agnostic Explanations](https://github.com/marcotcr/lime)
 * **Common Language**: Use the same language as your stakeholders / the community to explain what your model does. Especially when it comes to the metrics you use.
 

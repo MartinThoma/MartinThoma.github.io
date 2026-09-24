@@ -32,12 +32,12 @@ in full detail.
         other classifiers data.</dd>
     <dt><dfn id="collaborative-filtering">Collaborative Filtering</dfn></dt>
     <dd>You have users and items which are rated. No user rated everything.
-        You want to fill the gaps (see <a href="https://martin-thoma.com/collaborative-filtering/">article</a>).</dd>
+        You want to fill the gaps (see <a href="../collaborative-filtering/">article</a>).</dd>
     <dt><dfn id="computer-vision">Computer Vision</dfn></dt>
     <dd>The academic discipline which deals with how to gain high-level understanding from digital images or videos. Common tasks include image classifiction, semantic segmentation, detection and localization.</dd>
     <dt><dfn id="curriculum-learning">Curriculum learning</dfn></dt>
     <dd>A method for pretraining. First optimize a smoothed objective and gradually consider less smoothing. So a curriculum is a sequence of training criteria. One might show gradually more difficult training examples. See <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">Curriculum Learning</a> by Benigo, Louradour, Collobert and Weston for details.</dd>
-    <dt><dfn id="curse-of-dimensionality"><a href="https://martin-thoma.com/curse-of-dimensionality">Curse of dimensionality</a></dfn></dt>
+    <dt><dfn id="curse-of-dimensionality"><a href="../curse-of-dimensionality/">Curse of dimensionality</a></dfn></dt>
     <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
         High-dimensional often means several 100 dimensions.</dd>
     <dt><dfn id="dcgan">DCGAN</dfn> (<dfn>Deep Convolutional Generative Adverserial Networks</dfn>)</dt>
@@ -178,7 +178,7 @@ in full detail.
     <dt><dfn id="vc-dimension">VC-Dimension</dfn></dt>
     <dd>A theoretical natural number assigned to any classifier. The higher
         the VC dimension of a classifier, the more situations it is able
-        to capture (see <a href="http://datascience.stackexchange.com/a/16144/8820">longer explanation</a>, <a href="https://martin-thoma.com/machine-learning-1-course/#vc-dimension">german explanation</a>).</dd>
+        to capture (see <a href="http://datascience.stackexchange.com/a/16144/8820">longer explanation</a>, <a href="../machine-learning-1-course/#vc-dimension">german explanation</a>).</dd>
     <dt><dfn id="vlad">VLAD</dfn></dt>
     <dd>Vector of Locally Aligned Descriptors</dd>
     <dt><dfn id="vtln">VTLN</dfn></dt>
@@ -197,14 +197,14 @@ in full detail.
 ## See also
 
 * Lectures:
-    * [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-    * [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-    * [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-    * [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-    * [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-    * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-    * [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-    * [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+    * [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+    * [Informationsfusion](../informationsfusion/)
+    * [Machine Learning 1](../machine-learning-1-course/)
+    * [Machine Learning 2](../machine-learning-2-course/)
+    * [Mustererkennung](../mustererkennung-klausur/)
+    * [Neuronale Netze](../neuronale-netze-vorlesung/)
+    * [Lokalisierung Mobiler Agenten](../lma/)
+    * [Probabilistische Planung](../probabilistische-planung/)
 * [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
 * [scholarpedia](http://www.scholarpedia.org/)
 * Other

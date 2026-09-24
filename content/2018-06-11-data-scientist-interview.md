@@ -37,7 +37,7 @@ absolutely ok, but I would certainly ask why it is the case.
 
 ### Concepts
 
-* What is the curse of dimensionality? → [answer](https://martin-thoma.com/curse-of-dimensionality/)
+* What is the curse of dimensionality? → [answer](../curse-of-dimensionality/)
 * How can you reduce the dimensionality? → PCA, LDA, Auto-Encoders. See [Wikipedia](https://en.wikipedia.org/wiki/Dimensionality_reduction) for more.
 * Is more data always better?
     * It depends on the quality of your data.
@@ -66,4 +66,4 @@ This is about building regression models or classifiers.
 * Which models do you know? → Linear Regression, Gradient Boosting, Neural Network, Random Forests, Decision Trees, ...
 * How do you decide which model to use?
 * How can you improve a model? → [page 15, point I1 to I7](https://arxiv.org/pdf/1707.09725.pdf)
-* How can you determine which features are the most important in your model? → [answer](https://martin-thoma.com/feature-importance/)
+* How can you determine which features are the most important in your model? → [answer](../feature-importance/)

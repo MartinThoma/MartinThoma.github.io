@@ -147,7 +147,7 @@ All dependencies are now up-to-date!
 
 ## Docker
 
-If you want more isolation, have a look at [Docker](https://martin-thoma.com/docker/).
+If you want more isolation, have a look at [Docker](../docker/).
 I use the [`python:3.8-slim-buster`](https://hub.docker.com/_/python) (February 2020).
 
 The `Dockerfile` can then look like this:

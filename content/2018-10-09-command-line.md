@@ -39,7 +39,7 @@ article summarizes some tools and tricks to speed up this work.
 * [`watch`](http://www.linfo.org/watch.html): run any designated command at regular intervals
 * `free`: Memory consumption
 * `top` and `htop`: display Linux processes
-* [`find`](https://martin-thoma.com/wandering-through-the-depths-of-find/) and `locate`
+* [`find`](../wandering-through-the-depths-of-find/) and `locate`
 * `tree`: Print a directory tree
 * `cloc`: count lines of code
 * `wc` : word count (or lines or characters)
@@ -111,6 +111,6 @@ often contain configuration files. Here is [mine](https://github.com/MartinThoma
 
 ## See also
 
-* [Working with Terminal](https://martin-thoma.com/working-terminal/)
-* [Working at FZI](https://martin-thoma.com/working-at-fzi/)
-* [Converting Files with Linux](https://martin-thoma.com/converting-files-with-linux/)
+* [Working with Terminal](../working-terminal/)
+* [Working at FZI](../working-at-fzi/)
+* [Converting Files with Linux](../converting-files-with-linux/)

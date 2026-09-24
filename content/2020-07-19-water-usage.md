@@ -10,7 +10,7 @@ tags: Water, Household
 featured_image: logos/star.png
 status: draft
 ---
-I like comparisons. Recently, for an [article about Homeopathy](https://martin-thoma.com/homoeopathie/), I compared a drop of water with big lakes, oceans and finally the sun.
+I like comparisons. Recently, for an [article about Homeopathy](../homoeopathie/), I compared a drop of water with big lakes, oceans and finally the sun.
 But I lack references of water usage in my everyday life. Let's change that.
 
 <table class="table">

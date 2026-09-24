@@ -180,7 +180,7 @@ Stuff I would like to share / look into for enhancing this article:
 
 * [Top 20 Free, Open Source and Premium Stream Analytics Platforms](https://www.predictiveanalyticstoday.com/top-open-source-commercial-stream-analytics-platforms/)
 * PyBay2018: [How to Instantly Publish Data to the Internet with Datasette](https://www.youtube.com/watch?v=lmP75mp3-Rg)
-* [Reproducibility in Machine Learning](https://martin-thoma.com/ml-reproducibility/)
+* [Reproducibility in Machine Learning](../ml-reproducibility/)
 * Carl Anderson: [Data Dictionary: a how to and best practices](https://medium.com/@leapingllamas/data-dictionary-a-how-to-and-best-practices-a09a685dcd61)
 * [Connecting Scientific Models across Scales & Languages w/ Python](https://www.youtube.com/watch?v=Vv6Ksqitfc8), SciPy 2018.
 * Mark Keinhörster: [Production ready Data-Science with Python and Luigi](https://www.youtube.com/watch?v=jRkW5Uf58K4), PyData 2018.

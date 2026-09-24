@@ -269,7 +269,7 @@ chlorine.
 [^3]: [O’Neill Cylinder Space Settlement](https://space.nss.org/o-neill-cylinder-space-settlement/) on National Space Society.
 [^4]: [Wie teuer ist es 1 kg Nutzlast in den Weltraum zu befördern?](https://www.astronews.com/frag/antworten/4/frage4884.html) on astronews, 2019 (German).
 [^5]: Craig C. Patten: [How long would a trip to Mars take?](https://image.gsfc.nasa.gov/poetry/venus/q2811.html).
-[^6]: Martin Thoma: [Warum kann der Mond keine Atmosphäre haben?](https://martin-thoma.com/warum-kann-der-mond-keine-atmosphare-haben/), 2012.
+[^6]: Martin Thoma: [Warum kann der Mond keine Atmosphäre haben?](../warum-kann-der-mond-keine-atmosphare-haben/), 2012.
 [^7]: [How bad are the dust storms on Mars?](http://coolcosmos.ipac.caltech.edu/ask/77-How-bad-are-the-dust-storms-on-Mars-)
 [^8]: Erika K. Carlson: [Making air from Moon dust: Scientists create a prototype oxygen plant](https://astronomy.com/news/2020/01/how-to-make-air-from-moondust), 2020.
 [^9]: Mike Wall: [Water Ice Confirmed on the Surface of the Moon for the 1st Time!](https://www.space.com/41554-water-ice-moon-surface-confirmed.html), 2018.

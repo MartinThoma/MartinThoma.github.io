@@ -70,7 +70,7 @@ crunching:
 
 ... because of the [GIL](https://en.wikipedia.org/wiki/Global_interpreter_lock).
 That is just plain wrong. Have a look at my
-[asyncio article](https://martin-thoma.com/asyncio/) to get an overview of
+[asyncio article](../asyncio/) to get an overview of
 concurrency in Python.
 
 ## Myth: Python cannot be used in big systems
@@ -126,7 +126,7 @@ I will likely write way more about this, but here are some core ideas:
 
 1. **Analyze**: Where do you spend most of your execution time? Is it mainly
    waiting for I/O? Then look at my [asyncio
-   article](https://martin-thoma.com/asyncio/).
+   article](../asyncio/).
 2. **Use libraries**: Python has a lot of awesome libraries which are
    well-maintained. It takes a while to figure out which ones exist, but
    [Numpy](https://numpy.org/), [Scipy](https://www.scipy.org/),

@@ -9,7 +9,7 @@ category: Code
 tags: EDA, Python
 featured_image: logos/star.png
 ---
-Exploratory Data Analysis (EDA) is nice and easy if the entities you look at
+[Exploratory Data Analysis](../eda/) (EDA) is nice and easy if the entities you look at
 are of one of the typical levels of measurement (see below). But if one feature
 is a set, it becomes harder. In this post, I want to show a couple of
 possibilities.

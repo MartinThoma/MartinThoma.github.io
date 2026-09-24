@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Download
 featured_image: logos/star.png
 ---
-I recently had to download large files (see [post](https://martin-thoma.com/download-data/)).
+I recently had to download large files (see [post](../download-data/)).
 Before I used a download helper, I used `curl`. It is a standard tool for downloading
 files. But there is another standard tool: `wget`. Let's see what I find in the
 first 10 Google hits about their differences.

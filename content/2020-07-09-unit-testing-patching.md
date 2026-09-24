@@ -258,7 +258,7 @@ Usually, I would use `autospec=True` and `spec_set=True` everywhere. Code which 
 
 ## pytest's monkeypatch
 
-monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don’t even need to import anything.
+monkeypatch is a fixture from pytest. I will explain what a fixture is in the [next article](../test-flask-applications/). For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don’t even need to import anything.
 
 For the credit card fraud example, it looks like this:
 
@@ -413,7 +413,7 @@ Here are some ways to seed random number generators:
 Setting a random state / seed is also very helpful for debugging. If you
 haven’t heard of the Heisenbug or the Higgs-Bugson, you missed some
 [programming jargon](https://blog.codinghorror.com/new-programming-jargon/).
-And if you're interested in research, reproducibility matters.
+And if you're interested in research, [reproducibility](../ml-reproducibility/) matters.
 
 ## Terminology
 

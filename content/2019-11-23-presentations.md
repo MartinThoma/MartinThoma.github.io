@@ -84,7 +84,7 @@ alone, but you will make sure that the audience has some technical background.
 Many people use Microsoft PowerPoint. It's a very good tool to quickly create
 something that looks OK.
 
-I like to use [LaTeX Beamer](https://martin-thoma.com/latex-beamer/), which is
+I like to use [LaTeX Beamer](../latex-beamer/), which is
 good if you want to have mathematical formulas and be sure that things always
 look the same (not having slides move a bit).
 

@@ -17,7 +17,7 @@ Prediction-Based:
 
 * Decision boundaries
 * LIME
-* [Feature importance](https://martin-thoma.com/feature-importance/)
+* [Feature importance](../feature-importance/)
 * [SHAP values](https://www.kaggle.com/dansbecker/shap-values)
 * [Partial Dependence Plots](https://www.kaggle.com/dansbecker/partial-plots)
 * Sensitivity analysis / perturbation importance

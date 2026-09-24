@@ -9,7 +9,7 @@ category: German posts
 tags: Germany, Politics, Climate Change, Health
 featured_image: logos/star.png
 ---
-Nachdem ich vor kurzem [Was mir Sorgen macht](https://martin-thoma.com/was-mir-sorgen-macht/)
+Nachdem ich vor kurzem [Was mir Sorgen macht](../was-mir-sorgen-macht/)
 geschrieben habe, möchte ich heute über das schreiben, was mir Hoffnung macht.
 
 

@@ -39,7 +39,7 @@ of the tools relate.
 
 I like the ZSH shell with the plugin [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
 and [Sublime Text](https://www.sublimetext.com/) as an editor with many
-different plugins; I've written down some of [my Sublime Text plugins](https://martin-thoma.com/sublime-text/).
+different plugins; I've written down some of [my Sublime Text plugins](../sublime-text/).
 
 A common alternative to ZSH is [Fish](https://fishshell.com/). Common
 alternatives to Sublime Text are [Atom](https://atom.io/) and [VS Code](https://code.visualstudio.com/).
@@ -111,7 +111,7 @@ The only missing thing is a docstring style formatter. I like the
 a lot.
 
 If you want to know more about formatting, I recommend reading my
-[Python style guide](https://martin-thoma.com/python-style-guide/).
+[Python style guide](../python-style-guide/).
 
 ### Unit Testing
 

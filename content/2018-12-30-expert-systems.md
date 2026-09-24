@@ -62,7 +62,7 @@ Expert Systems typically consist of 3 parts:
 
 ## See also
 
-* [How to get Data for ML systems](https://martin-thoma.com/ml-get-data/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
+* [How to get Data for ML systems](../ml-get-data/)
+* [Informationsfusion](../informationsfusion/)
 * Stack Overflow:
     * [Rules Engine vs Expert System](https://stackoverflow.com/q/1687734/562769)

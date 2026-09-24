@@ -126,7 +126,7 @@ a pandemic:
 * [Zero Waste](https://en.wikipedia.org/wiki/Zero_waste): If you have re-usable
   stuff, you might need to buy less. For example, [Silicone baking mats](https://www.amazon.com/AmazonBasics-Silicone-Baking-Mat-Sheet/dp/B0725GYNG6) and [cotton handkerchiefs](https://www.amazon.com/Handkerchiefs-Cotton-White-Hankie-Pieces/dp/B01930CBF4) can help.
 
-Companies can move to a remote-first strategy. [Working remotely](https://martin-thoma.com/working-remotely/) has a couple of advantages. It can be supported by:
+Companies can move to a remote-first strategy. [Working remotely](../working-remotely/) has a couple of advantages. It can be supported by:
 
 * Make sure people have a laptop which they can take home
     * Make sure people have a video conference software installed (e.g. Skype)

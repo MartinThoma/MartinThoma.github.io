@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: Python, Packaging
 featured_image: logos/python.png
 ---
-<div class="info">You might be looking for a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a>.</div>
+<div class="info">You might be looking for a tutorial <a href="../python-projects/">how to create Python packages</a>.</div>
 This article is about Python packages I use. Some of them are well known,
 others might be new to you. Let me know if I missed some that are important to
 you.
@@ -30,7 +30,7 @@ you.
 * [`matplotlib`](https://matplotlib.org)
 * [seaborn](https://seaborn.pydata.org)
 * [Pandas](https://pandas.pydata.org): Data analysis of tabular data
-* [`edapy`](https://github.com/MartinThoma/edapy): Exploratory data analysis tool
+* [`edapy`](https://github.com/MartinThoma/edapy): [Exploratory data analysis](../eda/) tool
 
 
 ### Scientific Computation

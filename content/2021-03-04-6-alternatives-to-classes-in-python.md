@@ -117,7 +117,7 @@ def get_distance(p1: Dict[str, Any], p2: Dict[str, Any]) -> float:
 
 The annotation in practice is really bad. It’s almost always Dict[str, Any] in the best case. Often, there is no annotation.
 
-[TypedDict](../type-annotations/) ([PEP 589](https://www.python.org/dev/peps/pep-0589/)) has been around since Python 3.8, but I’ve never seen that in any bigger code base. [TypedDict is a killer feature](https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8), but it’s irrelevant, as we want to support legacy Python versions.
+[TypedDict](../type-annotations/) ([PEP 589](https://www.python.org/dev/peps/pep-0589/)) has been around since Python 3.8, but I’ve never seen that in any bigger code base. [TypedDict is a killer feature](../python-killer-features/), but it’s irrelevant, as we want to support legacy Python versions.
 
 For those reasons, the editor's support is even worse than for tuples.
 

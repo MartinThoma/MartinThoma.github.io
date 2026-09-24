@@ -177,6 +177,7 @@ Slides: `04_Reinforcement_Learning_II.pdf`
 Siehe auch:
 
 * [Probabilistische Planung](../probabilistische-planung/)
+* [Reinforcement Learning](../reinforcement-learning/)
 * [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
 * [Machine Learning 1](../machine-learning-1-course/#tocAnchor-1-1-4)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
@@ -735,6 +736,7 @@ Alternative:
 #### Siehe auch
 
 * [Beurteilung eines binären Klassifikators](https://de.wikipedia.org/wiki/Beurteilung_eines_binären_Klassifikators)
+* [Evaluation of binary classifiers](../binary-classifier-evaluation/)
 * [False positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives)
 * Matt Zeiler: [Visualizing and Understanding Deep Neural Networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) on YouTube, 2015. 48 minutes.
 

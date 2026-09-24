@@ -9,7 +9,7 @@ category: Machine Learning
 tags: Machine Learning, Regression, AI
 featured_image: logos/ml.png
 ---
-<div class="info">A while ago, this link pointed to the content which is now in the <a href="https://martin-thoma.com/forecasting/">Forecasting article</a>.</div>
+<div class="info">A while ago, this link pointed to the content which is now in the <a href="../forecasting/">Forecasting article</a>.</div>
 
 Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For

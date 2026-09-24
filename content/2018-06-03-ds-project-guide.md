@@ -41,7 +41,7 @@ questions in the next step.
 
 ## Understanding the Data
 
-[Exploratory Data Analysis](https://martin-thoma.com/eda/) happens when you
+[Exploratory Data Analysis](../eda/) happens when you
 first get a dataset and already have it in a format you can work with. The
 linked article already contains quite a bit of software, especially
 Pandas, IPython notebooks and [`edapy`](https://github.com/MartinThoma/edapy)
@@ -92,7 +92,7 @@ your stakeholders an easier time understanding your results. It directly
 contributes to the "storytelling" aspect.
 
 As with any software project, you should have tests, code reviews, a
-[proper project structure](https://martin-thoma.com/python-projects/#project-structure)
+[proper project structure](../python-projects/#project-structure)
 and get deployed / used somewhere.
 
 The main difference to typical software projects is the model you create. That
@@ -231,4 +231,4 @@ Storytelling is the part where you, as a data scientist, make your insights
 accessible, easy to understand and interpret in the correct way by your
 stakeholders. It can be about visualizations, but also about choosing the right
 metrics and reasonable numbers to share. I think I'll make another blog post
-about this topic as [Python has many visualization packages](https://martin-thoma.com/python-data-visualization/).
+about this topic as [Python has many visualization packages](../python-data-visualization/).

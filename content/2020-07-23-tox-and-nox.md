@@ -17,7 +17,7 @@ medium_url: https://medium.com/python-in-plain-english/unit-testing-in-python-to
 
 When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.
 
-After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know [the basics of unit testing in Python](../unit-testing-basics/) and [how to package your code](https://packaging.python.org/tutorials/packaging-projects/).
+After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for [Continuous Integration](../ci-pipelines/) tools like Travis. I assume you already know [the basics of unit testing in Python](../unit-testing-basics/) and [how to package your code](https://packaging.python.org/tutorials/packaging-projects/).
 
 ## pyenv
 
@@ -73,7 +73,7 @@ pip 20.1.1 from /home/moose/.pyenv/versions/3.8.4/lib/python3.8/site-packages/pi
 
 ## Virtual environment basics
 
-A virtual environment encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed C libraries and executables. The only difference is which packages are available.
+A [virtual environment](../virtual-environments/) encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed C libraries and executables. The only difference is which packages are available.
 
 You can create a new virtual environment called venv-tutorial like this:
 

@@ -44,7 +44,7 @@ This very general problem description can be applied in almost any scenario:
 
 * Credit assignment: In chess, you only get a reward (positiv or negative) at
   the end of the game. How to you tell which move was good or bad?
-* [Exploration vs. exploitation](https://martin-thoma.com/probabilistische-planung/#exporation-exploitation):
+* [Exploration vs. exploitation](../probabilistische-planung/#exporation-exploitation):
   When should you stick to what you know and when should you try something new?
 * State equivalence: Typically, your state is very high-dimensional. For example
   when learning very old computer games from raw pixels you have
@@ -65,7 +65,7 @@ but in average you expect to punish bad decisions and encourage good decisions.
 ## Resources
 
 If you are a student at KIT, I can recommend to visit the lecture
-[Probabilistic Planning](https://martin-thoma.com/probabilistische-planung/).
+[Probabilistic Planning](../probabilistische-planung/).
 
 Other resources you might want to have a look at:
 

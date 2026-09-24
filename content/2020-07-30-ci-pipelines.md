@@ -14,7 +14,7 @@ Continuous Integration is the practice of integrating code regularly with the ma
 
 Running the test suite for all of those pull requests costs quite a bit of time. The quicker the maintainers can see if the PR has issues and what the issues are, the better.
 
-The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) linting with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.
+The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) [linting](../static-code-analysis/) with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/ci-feedback-github.png"><img src="../images/2020/07/ci-feedback-github.png" alt="Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." style="width: 512px;"/></a>

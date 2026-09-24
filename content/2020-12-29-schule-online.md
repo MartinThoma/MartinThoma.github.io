@@ -54,7 +54,7 @@ jedoch kaum Angebote für die anderen Formen des Unterrichts:
 
 
 Die Vorteile von asynchronen Online-Kursen im Vergleich zu klassischem
-Schulunterricht sind im Abschnitt [Warum benötigen wir eine Online-Schule?](https://martin-thoma.com/online-schule/#warum-benotigen-wir-eine-online-schule_1)
+Schulunterricht sind im Abschnitt [Warum benötigen wir eine Online-Schule?](../online-schule/#warum-benotigen-wir-eine-online-schule_1)
 beschrieben.
 
 Der klassische Schulunterricht hat auch Vorteile. Man sollte ihn nicht durch

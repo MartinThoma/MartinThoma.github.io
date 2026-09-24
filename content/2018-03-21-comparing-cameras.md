@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: Camera, Review, Hardware
 featured_image: logos/star.png
 ---
-I have a Panasonic Lumix DMC-TZ40. It's about 3 years old and I'm thinking
+I have a [Panasonic Lumix DMC-TZ40](../panasonic-lumix-tz41/). It's about 3 years old and I'm thinking
 about getting a new one. I have the impression that my camera quite often takes
 blurry images.
 

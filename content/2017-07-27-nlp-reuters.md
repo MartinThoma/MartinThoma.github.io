@@ -9,7 +9,7 @@ category: Machine Learning
 tags: NLP, Classification, Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
-Reuters is a benchmark dataset for [document classification](https://martin-thoma.com/document-classification/).
+Reuters is a benchmark dataset for [document classification](../document-classification/).
 To be more precise, it is a multi-class (e.g. there are multiple classes),
 multi-label (e.g. each document can belong to many classes) dataset.
 It has **90 classes**, **7769 training documents** and **3019 testing documents**.

@@ -11,7 +11,7 @@ featured_image: logos/star.png
 status: draft
 ---
 I've written a lot of blog posts about Computer Science exams at KIT. I've also
-written [Informatik am KIT](https://martin-thoma.com/informatik-am-kit/)
+written [Informatik am KIT](../informatik-am-kit/)
 (Computer Science at KIT). This blog post is similar, but it focuses on key
 ideas from computer science which I think every computer scientist should know
 about. So instead of linking to exam preparation pages, I will link to
@@ -118,7 +118,7 @@ access / write /
 
 ### Sorting
 
-See [my German article about sorting algorithms](https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/)
+See [my German article about sorting algorithms](../ubersicht-uber-sortieralgorithmen/)
 
 ⇒ Link article: https://en.wikiversity.org/wiki/Algorithms/Overview
 
@@ -139,7 +139,7 @@ See [my German article about sorting algorithms](https://martin-thoma.com/ubersi
 ## Standards
 
 * IEEE 754:
-    * [A practical approach to floats](https://martin-thoma.com/a-practical-approach-to-floats/)
+    * [A practical approach to floats](../a-practical-approach-to-floats/)
     * [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf)
 * [What every developer should know about time](https://zenodo.org/record/1443533#.XlIz6HVKgdg)
 
@@ -158,7 +158,7 @@ Some components:
     * Relational (MySQL, MariaDB, PostgreSQL)
     * Graph (Neo4j) - just that they exist
     * document-oriented (MongoDB) - just that they exist
-* [Key-Value Stores](https://martin-thoma.com/key-value-stores/)
+* [Key-Value Stores](../key-value-stores/)
 * Storage
 
 

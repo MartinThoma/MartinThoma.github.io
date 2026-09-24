@@ -655,8 +655,8 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * [What is the range of values of the Fisher information?](http://math.stackexchange.com/q/2157587/6876)
     * [How can I calculate the distribution of the least-squares estimator $\hat{\beta}$?](http://math.stackexchange.com/q/2159447/6876)
 * Blog-Artikel
-    * [The Absolute Value Function](https://martin-thoma.com/abs-function/) - vgl. Konfidenzintervalle
-    * [The p value](https://martin-thoma.com/p-value/)
+    * [The Absolute Value Function](../abs-function/) - vgl. Konfidenzintervalle
+    * [The p value](../p-value/)
 * [Anki-Karten](https://ankiweb.net/shared/info/245843947) ([direct download](https://martin-thoma.com/anki/Statistik.apkg))
 * [Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution) als Tabelle
 * [Inverse Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z) als Tabelle

@@ -64,7 +64,7 @@ they have an optimization criterion. In contrast to plain backtracking, B&B
 usually explores the most promising partial solutions first (best-first search),
 although depth-first and breadth-first variants exist.[^1]
 
-B&B is a [label correction algorithm](https://martin-thoma.com/label-correction-algorithm/).
+B&B is a [label correction algorithm](../label-correction-algorithm/).
 It is a search algorithm which uses a lower bound and an upper bound for the
 search. Think of a shortest-path problem.
 

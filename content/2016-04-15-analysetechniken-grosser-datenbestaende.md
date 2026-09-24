@@ -195,7 +195,7 @@ Slides: `2-statistGrundlagen.pdf`
 
 <dl>
     <dt><dfn>Skalen von Merkmalen</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
+    <dd>Siehe <a href="../mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
     <dt><dfn>Kennzahlen für Daten</dfn></dt>
     <dd>
         <ul>
@@ -267,7 +267,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><dfn id="pca">PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
         Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
-        ein Maximum der Varianz beibehalten wird (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
+        ein Maximum der Varianz beibehalten wird (vgl. <a href="../neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn id="chi-quadrat-test">Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
         <br/>
@@ -375,7 +375,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
         </ul>
     </dd>
     <dt><dfn id="kd-baum">kD-Baum</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a>.</dd>
+    <dd>Siehe <a href="../cg-klausur/#kd-tree">Computergrafik</a>.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn id="kdb-baum">kDB-Baum</dfn></a></dt>
     <dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
         aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
@@ -750,7 +750,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </ul>
     </dd>
     <dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
+    <dd>Siehe <a href="../machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
     <dd>CLARANS (Clustering Lge AplicationNs based on RANdomized Search) ist
         ein Clustering-Algorithmus, der mit $k$-Means
@@ -960,7 +960,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
     </dd>
     <dt><dfn id="em">EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
-    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
+    <dd>Siehe <a href="../machine-learning-2-course/#em-algorithmus">ML 2</a>.</dd>
     <dt><dfn>Overall Likelihood</dfn></dt>
     <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
         $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$</dd>
@@ -1073,7 +1073,7 @@ Slides: `10-StatistModellierung.pdf`
     <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initilisiert.
         Beachte, dass man auch die Gesamtzahl dann um $k$ erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
+    <dd>Siehe <a href="../machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
     <dt><dfn>Duplikateleminierung</dfn></dt>
     <dd>Spezialfall von Klassifikation</dd>
     <dt><dfn>Versteckte Variablen</dfn></dt>
@@ -1097,13 +1097,13 @@ Slides: `11-SupportVectorMachines.pdf`
     <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
     <dd>$$E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]$$</dd>
     <dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
-    <dd>See <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>.</dd>
+    <dd>See <a href="../svm-with-sklearn/">SVM article</a>.</dd>
 </dl>
 
 
 ### Ensembles
 
-Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learning-1-course/#boosting">ML 1</a>)
+Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting">ML 1</a>)
 
 <dl>
     <dt><dfn>Ensembles</dfn></dt>
@@ -1145,7 +1145,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 ## Prüfungsfragen
 
 * Was ist Overfitting?<br/>
-  → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
+  → Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 * Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">$X, Y$</span>?<br/>
   → <span markdown="0">$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$</span>
 * Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?<br/>
@@ -1179,7 +1179,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   die NN-Sphere überlappen?<br/>
   → Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.
 * Welche Classifier kennen Sie?<br/>
-  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">$k$</span>-nearest neighbor (es gibt <a href="https://martin-thoma.com/comparing-classifiers/">mehr Classifier</a>)
+  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">$k$</span>-nearest neighbor (es gibt <a href="../comparing-classifiers/">mehr Classifier</a>)
 * Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
   → Es könnte sein, dass ein Feature nur in Kombination mit einem anderen
     deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
@@ -1205,11 +1205,11 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
   die FP-Rate gleich 0.
 * Wie berechnet man den Korrelationskoeffizienten?
-  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
+  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
 * Was ist die "10-fold cross validation"?<br/>
-  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
+  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
 * Wie haben wir die Erfolgsquote definiert?<br/>
-  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
+  → vgl. <a href="../analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
 * Was ist ein Lift Chart?<br/>
   → Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
      Gewinn. Die x-Achse verläuft von 0 bis 100% und die y-Achse von 0 bis zum
@@ -1224,7 +1224,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   berücksichtigen?<br/>
   → F score und Gesamtfehler.
 * Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?<br/>
-  → Der Korrelationskoeffizient ist normiert (vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
+  → Der Korrelationskoeffizient ist normiert (vgl. <a href="../analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
 * Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
   Anwendung?<br/>
   → Die Logarithmusfunktion hat die gewünschte Form: Bei perfekter
@@ -1387,14 +1387,14 @@ More:
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
-* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](../informationsfusion/)
+* [Machine Learning 1](../machine-learning-1-course/)
+* [Machine Learning 2](../machine-learning-2-course/)
+* [Mustererkennung](../mustererkennung-klausur/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* [Lokalisierung Mobiler Agenten](../lma/)
+* [Probabilistische Planung](../probabilistische-planung/)
 
 ## Termine und Klausurablauf
 

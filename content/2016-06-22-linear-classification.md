@@ -143,7 +143,7 @@ You might wonder if it makes a difference which type of encoding you use for you
 * (+) One-hot encoding can easily be expanded to more than two classes, in contrast to $-1/+1$ encoding.
 * (+) With one-hot encoding, you can easily get a probability distribution for the classes you are interested in. This is certainly also possible with $-1/+1$ encoding, but it doesn't strike my eye as clearly.
 * (-) One-hot encoding needs more storage space.
-* (?) $-1/+1$ encoding is used in SVMs (see [SVM article](https://martin-thoma.com/svm-with-sklearn/)), so it might have advantages in maximum margin classification.
+* (?) $-1/+1$ encoding is used in SVMs (see [SVM article](../svm-with-sklearn/)), so it might have advantages in maximum margin classification.
 
 ## Implementation
 

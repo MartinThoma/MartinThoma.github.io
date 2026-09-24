@@ -119,7 +119,7 @@ However, there are six negative aspects about using raw SQL to be aware of.
     <figcaption class="text-center"><a href="https://xkcd.com/327/">xkcd 327</a></figcaption>
 </figure>
 
-An SQL injection is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:
+An [SQL injection](../sql-injections/) is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:
 
 ```python
 sql = "SELECT user_id FROM users WHERE name='{name}' AND pw='{pw}';"

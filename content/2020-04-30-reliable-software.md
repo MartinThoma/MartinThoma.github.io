@@ -300,7 +300,7 @@ unit test and an integration test. They look the same. The difference is that an
 test doesn't only look at your code in isolation, but at the way your code works with an external
 system.
 
-Testing is a huge topic. I covered a bit of it in [Testing in Python](https://martin-thoma.com/testing-python-code/),
+Testing is a huge topic. I covered a bit of it in [Testing in Python](../testing-python-code/),
 but there is certainly way more to write.
 
 ## Fault Tolerance

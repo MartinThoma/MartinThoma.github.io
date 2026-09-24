@@ -18,7 +18,7 @@ First, we need a user identifier.
 
 ## Database Solution
 
-We want to store a variation per user in a database. Hence, we need a [key-value store](https://martin-thoma.com/key-value-stores/) with the user-identifier as key and
+We want to store a variation per user in a database. Hence, we need a [key-value store](../key-value-stores/) with the user-identifier as key and
 the variation as value.
 
 The code then is as follows:

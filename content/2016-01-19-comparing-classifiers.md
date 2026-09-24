@@ -179,7 +179,7 @@ Accuracy: 0.9769
 ### SVM
 
 There is a ton of literature / papers about <abbr title="Support Vector Machines">SVMs</abbr>.
-I've summed up the basics on [Using SVMs with sklearn](https://martin-thoma.com/svm-with-sklearn/).
+I've summed up the basics on [Using SVMs with sklearn](../svm-with-sklearn/).
 
 I've trained two SVMs: A simple, linear one and one with an RBF kernel as I
 found it online (I'm sorry, I don't remember where I found those parameters :-/).
