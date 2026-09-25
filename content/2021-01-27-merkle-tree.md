@@ -12,8 +12,8 @@ subtitle: The concept and applications - plain and simple!
 medium_url: https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094
 ---
 <figure>
-  <img src="../images/2021/01/merkle-trees-1.png" alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." width="800px">
-  <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
+    <a href="../images/2021/01/merkle-trees-1.png"><img src="../images/2021/01/merkle-trees-1.png" alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." width="1803" height="753"></a>
+    <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
 </figure>
 
 A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is
@@ -41,7 +41,10 @@ likely, most of the file is completely fine. Maybe there is just a single bit
 that flipped its value. You want to download as little as possible and just
 fix the broken part.
 
-![A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.](../images/2021/01/merkle-trees-2.png)*A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.*
+<figure>
+    <a href="../images/2021/01/merkle-trees-2.png"><img src="../images/2021/01/merkle-trees-2.png" alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." width="491" height="78" loading="lazy"></a>
+    <figcaption>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</figcaption>
+</figure>
 
 The next idea is to build blocks. You store the hash of each block. When you
 download the file, you first download a header. The header contains
@@ -104,7 +107,10 @@ single blocks with a short proof, as explained in the next section.
 Suppose you wanted to show that a piece of data is part of your data
 structure. This is easy with Merkle trees.
 
-![Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.](../images/2021/01/merkle-trees-1.png)*Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.*
+<figure>
+    <a href="../images/2021/01/merkle-trees-1.png"><img src="../images/2021/01/merkle-trees-1.png" alt="Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6&quot;. Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma." width="1803" height="753" loading="lazy"></a>
+    <figcaption>Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</figcaption>
+</figure>
 
 Merkle trees allow you to prove that a transaction is included. Suppose Alice
 wants to prove to Bob that transaction T happened. To do that, she provides:

@@ -11,7 +11,10 @@ featured_image: logos/bitcoin.png
 subtitle: A technical cornerstone of Bitcoin
 medium_url: https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853
 ---
-![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](../images/2021/02/utxo-model-1.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
+<figure>
+    <a href="../images/2021/02/utxo-model-1.png"><img src="../images/2021/02/utxo-model-1.png" alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" width="480" height="304"></a>
+    <figcaption>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</figcaption>
+</figure>
 
 Bitcoin is based on the UTXO (unspent transaction output) model to ensure that
 nobody is able to spend money they don’t have and prevent money from being
@@ -88,12 +91,18 @@ explorer](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da34644498
 and actually have a look at any block. Taking the linked example, you might
 see many lines like this:
 
-![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](../images/2021/02/utxo-model-2.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
+<figure>
+    <a href="../images/2021/02/utxo-model-2.png"><img src="../images/2021/02/utxo-model-2.png" alt="Screenshot taken from blockchain.com" width="1955" height="531" loading="lazy"></a>
+    <figcaption>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></figcaption>
+</figure>
 
 In this example, you see two input addresses and over 228 output addresses.
 When you scroll down a bit, you can see the inputs:
 
-![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](../images/2021/02/utxo-model-3.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
+<figure>
+    <a href="../images/2021/02/utxo-model-3.png"><img src="../images/2021/02/utxo-model-3.png" alt="Screenshot taken from blockchain.com" width="1814" height="926" loading="lazy"></a>
+    <figcaption>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></figcaption>
+</figure>
 
 Here you can see the ECDSA signature of input 1:
 
@@ -119,7 +128,10 @@ limited amount. After that, they are assigned to a Bitcoin address.
 This is the core of the UTXO model. You have a bunch of input Bitcoin
 addresses and a bunch of output Bitcoin addresses.
 
-![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](../images/2021/02/utxo-model-1.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
+<figure>
+    <a href="../images/2021/02/utxo-model-1.png"><img src="../images/2021/02/utxo-model-1.png" alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" width="480" height="304" loading="lazy"></a>
+    <figcaption>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</figcaption>
+</figure>
 
 Everybody can verify which address has how many Bitcoins in it by getting the
 whole blockchain. It is possible to track every bitcoin since the beginning.

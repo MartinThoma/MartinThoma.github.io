@@ -11,7 +11,10 @@ featured_image: logos/star.png
 subtitle: What they are and what the differences are
 medium_url: https://medium.com/plain-and-simple/https-vs-ssl-vs-tls-8a0ad0604276
 ---
-![Image by Martin Thoma](../images/2021/01/https-ssl-tls-1.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/01/https-ssl-tls-1.png"><img src="../images/2021/01/https-ssl-tls-1.png" alt="Image by Martin Thoma" width="2000" height="1168"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 HTTPS, SSL, and TLS are all related to encrypted (“secure”) internet connections. The problem they solve is that a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) could read the data you receive or send. It is clearly an issue when you log in to your bank or when you send messages via Twitter / Facebook that should be private. Similarly, you might not want people to know what you are interested in or what you don’t know when you use Wikipedia.
 

@@ -11,7 +11,10 @@ featured_image: logos/star.png
 subtitle: What they are, what the options are, and why they matter
 medium_url: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
 ---
-![Image by Martin Thoma](../images/2021/01/3-applications-of-hash-functions-1.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/01/3-applications-of-hash-functions-1.png"><img src="../images/2021/01/3-applications-of-hash-functions-1.png" alt="Image by Martin Thoma" width="2000" height="612"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.
 
@@ -61,7 +64,10 @@ different outputs.
 
 What you cannot see is the one-way nature of hash functions:
 
-![Image by Martin Thoma](../images/2021/01/3-applications-of-hash-functions-2.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/01/3-applications-of-hash-functions-2.png"><img src="../images/2021/01/3-applications-of-hash-functions-2.png" alt="Image by Martin Thoma" width="1743" height="813" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 Computing the hash value of a given password is comparatively fast and
 deterministic. Given the hash value, it is impossible to know for sure the

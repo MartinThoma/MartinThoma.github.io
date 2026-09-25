@@ -87,7 +87,10 @@ mistakes obvious.
 
 ## Implementation Phase: Your Editor
 
-![Image by Martin Thoma](../images/2021/02/shift-left-3.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/02/shift-left-3.png"><img src="../images/2021/02/shift-left-3.png" alt="Image by Martin Thoma" width="1073" height="226" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 I have been a software developer for more than 15 years now. I still make stupid
 mistakes like forgetting that it’s `os.path.isfile` and not `os.isfile`. Luckily,
@@ -111,7 +114,10 @@ The point here is not to take a specific editor. The point is to make sure
 that you have one that works well for you. And hopefully captures the types of
 mistakes you typically make.
 
-![Image by Martin Thoma](../images/2021/02/shift-left-4.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/02/shift-left-4.png"><img src="../images/2021/02/shift-left-4.png" alt="Image by Martin Thoma" width="1703" height="808" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 ## Implementation: Commit
 
@@ -154,7 +160,10 @@ request) does exactly one thing and contains some context why it is proposed.
 
 On GitHub, it looks [like this](https://github.com/OpenShot/openshot-qt/pull/3738):
 
-![Image by Martin Thoma](../images/2021/02/shift-left-5.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/02/shift-left-5.png"><img src="../images/2021/02/shift-left-5.png" alt="Image by Martin Thoma" width="1483" height="992" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 You can see how many commits were done, talk with the person who proposed the
 change, ask questions, see the automatic checks of the CI pipeline, inspect

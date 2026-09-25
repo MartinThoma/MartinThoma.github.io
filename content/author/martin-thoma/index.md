@@ -13,9 +13,9 @@ context: about
 description: Profile page of Martin Thoma
 ---
 <div class="vcard">
-<figure class="wp-caption alignright">
-    <img src="../../images/2017/02/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" style="max-width:134px;max-height:200px;" class="size-full photo">
-    <figcaption class="text-center">Martin Thoma</figcaption>
+<figure class="figure-right">
+    <a href="../../images/2017/02/Martin_Thoma_web_thumb.jpg"><img src="../../images/2017/02/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" width="134" height="134" class="photo"></a>
+    <figcaption>Martin Thoma</figcaption>
 </figure>
 
 <p>My name is <span class="fn">Martin Thoma</span>. I am a <time class="dt-bday" datetime="1990-04-28">27 year</time> old computer scientist currently located in <span class="locality">Munich, Germany</span>.</p>

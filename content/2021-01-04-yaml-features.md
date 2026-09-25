@@ -11,7 +11,9 @@ featured_image: logos/star.png
 subtitle: Level up your YAML knowledge to write cleaner YAML files
 medium_url: https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3
 ---
-![YAML logo with the title of the article](../images/2021/01/yaml-features-1.png)
+<figure>
+    <a href="../images/2021/01/yaml-features-1.png"><img src="../images/2021/01/yaml-features-1.png" alt="YAML logo with the title of the article" width="1737" height="562"></a>
+</figure>
 
 YAML is a file format commonly used for data serialization. There is a plethora of projects using YAML files for configuration, such as [Docker Compose](https://docs.docker.com/compose/), [pre-commit](https://pre-commit.com/#2-add-a-pre-commit-configuration), [Travis CI](https://docs.travis-ci.com/user/build-config-yaml), [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html), [ESLint](https://eslint.org/docs/user-guide/configuring), [Kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods), [Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), and many more. Knowing the features of YAML helps you with all of them.
 
