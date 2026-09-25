@@ -11,9 +11,9 @@ featured_image: logos/matplotlib.png
 ---
 Matplotlib is a simple Python library to create plots like this one:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/validation-curve.png" alt="Validation curve of one model with ReLU and one with PReLU" style="width: 512px;"/>
-    <figcaption class="text-center">Validation curve of one model with ReLU and one with PReLU</figcaption>
+<figure>
+    <a href="../images/2017/02/validation-curve.png"><img src="../images/2017/02/validation-curve.png" alt="Validation curve of one model with ReLU and one with PReLU" width="512" height="316"></a>
+    <figcaption>Validation curve of one model with ReLU and one with PReLU</figcaption>
 </figure>
 
 As I always have to look up different styles of markers / lines, here is a
@@ -86,32 +86,32 @@ similar to the marker:
 * Cross-like: `*`, `+`, `1`, `2`, `3`, `4`
 * Circle-like: `o`, `.`, `h`, `p`, `H`, `8`
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/matplotlib-markers-1.png" alt="Markers 1" style="width: 512px;"/>
-    <figcaption class="text-center">Markers 1</figcaption>
+<figure>
+    <a href="../images/2017/02/matplotlib-markers-1.png"><img src="../images/2017/02/matplotlib-markers-1.png" alt="Markers 1" width="512" height="384" loading="lazy"></a>
+    <figcaption>Markers 1</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/matplotlib-markers-2.png" alt="Markers 2" style="width: 512px;"/>
-    <figcaption class="text-center">Markers 2</figcaption>
+<figure>
+    <a href="../images/2017/02/matplotlib-markers-2.png"><img src="../images/2017/02/matplotlib-markers-2.png" alt="Markers 2" width="512" height="384" loading="lazy"></a>
+    <figcaption>Markers 2</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/matplotlib-markers-3.png" alt="Markers 3" style="width: 512px;"/>
-    <figcaption class="text-center">Markers 3</figcaption>
+<figure>
+    <a href="../images/2017/02/matplotlib-markers-3.png"><img src="../images/2017/02/matplotlib-markers-3.png" alt="Markers 3" width="512" height="384" loading="lazy"></a>
+    <figcaption>Markers 3</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/matplotlib-markers-4.png" alt="Markers 4" style="width: 512px;"/>
-    <figcaption class="text-center">Markers 4</figcaption>
+<figure>
+    <a href="../images/2017/02/matplotlib-markers-4.png"><img src="../images/2017/02/matplotlib-markers-4.png" alt="Markers 4" width="512" height="384" loading="lazy"></a>
+    <figcaption>Markers 4</figcaption>
 </figure>
 
 
 ## Line Types
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/02/matplotlib-line-styles.png" alt="Matplotlib line styles" />
-    <figcaption class="text-center">Matplotlib line styles</figcaption>
+<figure>
+    <a href="../images/2017/02/matplotlib-line-styles.png"><img src="../images/2017/02/matplotlib-line-styles.png" alt="Matplotlib line styles" width="800" height="600" loading="lazy"></a>
+    <figcaption>Matplotlib line styles</figcaption>
 </figure>
 
 

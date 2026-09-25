@@ -36,9 +36,9 @@ looking at the [Climate diagram of Ljubljana's](https://en.wikipedia.org/wiki/Lj
 
 ## Soča-Trail
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-complete.png"><img src="../images/2017/08/soca-trail-complete.png" alt="Text" style="width: 512px;"/></a>
-    <figcaption class="text-center">The complete Soča-Trail</figcaption>
+<figure>
+    <a href="../images/2017/08/soca-trail-complete.png"><img src="../images/2017/08/soca-trail-complete.png" alt="Text" width="512" height="228"></a>
+    <figcaption>The complete Soča-Trail</figcaption>
 </figure>
 
 The Soča-Trail (German: Soca-Weg, Slovene: Soška Pot) is stage&nbsp;24 of the
@@ -58,84 +58,84 @@ The source of the Soča river (German: Soča-Quelle, Slovene: Izvir Soče) is
 at <a href="http://www.openstreetmap.org/node/282431994#map=17/46.41124/13.72455"><span class="geo"><abbr class="latitude" title="46.4118622">46°24'44.6"N</abbr> <abbr class="longitude" title="13.7240723">13°43'26.0"E</abbr></span></a>. It is the starting point
 of this route. It is number 14 on the map.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-04.jpg" alt="Soča Source" style="width: 512px;"/>
-    <figcaption class="text-center">Soča Source</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-04.jpg"><img src="../images/2017/09/soca-trail-04.jpg" alt="Soča Source" width="512" height="683" loading="lazy"></a>
+    <figcaption>Soča Source</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-02.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-02.jpg"><img src="../images/2017/09/soca-trail-02.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-12.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-12.jpg"><img src="../images/2017/09/soca-trail-12.jpg" alt="Soča River" width="512" height="683" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-16.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-16.jpg"><img src="../images/2017/09/soca-trail-16.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-18.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-18.jpg"><img src="../images/2017/09/soca-trail-18.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-21.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-21.jpg"><img src="../images/2017/09/soca-trail-21.jpg" alt="Soča River" width="512" height="683" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-23.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-23.jpg"><img src="../images/2017/09/soca-trail-23.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-27.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-27.jpg"><img src="../images/2017/09/soca-trail-27.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-29.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-29.jpg"><img src="../images/2017/09/soca-trail-29.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-33.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-33.jpg"><img src="../images/2017/09/soca-trail-33.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-37.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-37.jpg"><img src="../images/2017/09/soca-trail-37.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-38.jpg" alt="Abandoned houses" style="width: 512px;"/>
-    <figcaption class="text-center">Abandoned houses</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-38.jpg"><img src="../images/2017/09/soca-trail-38.jpg" alt="Abandoned houses" width="512" height="384" loading="lazy"></a>
+    <figcaption>Abandoned houses</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-47.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-47.jpg"><img src="../images/2017/09/soca-trail-47.jpg" alt="Soča River" width="512" height="683" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-53.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-53.jpg"><img src="../images/2017/09/soca-trail-53.jpg" alt="Soča River" width="512" height="683" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-54.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-54.jpg"><img src="../images/2017/09/soca-trail-54.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/soca-trail-55.jpg" alt="Soča River" style="width: 512px;"/>
-    <figcaption class="text-center">Soča River</figcaption>
+<figure>
+    <a href="../images/2017/09/soca-trail-55.jpg"><img src="../images/2017/09/soca-trail-55.jpg" alt="Soča River" width="512" height="384" loading="lazy"></a>
+    <figcaption>Soča River</figcaption>
 </figure>
 
 ### Trenta
@@ -145,9 +145,9 @@ of this route. It is number 14 on the map.
 
 ### The Small Soča Gorge
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-3.png"><img src="../images/2017/08/soca-trail-3.png" alt="Just stay south of the Soca." style="width: 512px;"/></a>
-    <figcaption class="text-center">Just stay south of the Soca.</figcaption>
+<figure>
+    <a href="../images/2017/08/soca-trail-3.png"><img src="../images/2017/08/soca-trail-3.png" alt="Just stay south of the Soca." width="512" height="411" loading="lazy"></a>
+    <figcaption>Just stay south of the Soca.</figcaption>
 </figure>
 
 (German: Kleine Soča-Tröge, Slovene: Mala korita Soče)
@@ -158,9 +158,9 @@ of this route. It is number 14 on the map.
 
 ### The Great Soča Gorge
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Text" style="width: 512px;"/></a>
-    <figcaption class="text-center">Stay south of the river and ignore the bridges at 9 and 8. Pension Kamp Klin is at 7 where you have to cross a bridge. Cross the bridge at 6, keep going north of the river for about 2km, cross the bridge at 5.</figcaption>
+<figure>
+    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Text" width="512" height="256" loading="lazy"></a>
+    <figcaption>Stay south of the river and ignore the bridges at 9 and 8. Pension Kamp Klin is at 7 where you have to cross a bridge. Cross the bridge at 6, keep going north of the river for about 2km, cross the bridge at 5.</figcaption>
 </figure>
 
 The Great Soča Gorge (German: Große Soča-Tröge, Slovene: Velika korita Soče) is
@@ -178,9 +178,9 @@ of the river is an old ropeway station (Slovene: [Žičnica Golobar](https://sl.
 
 ### Koritnica and Soča Rivers
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-1.png"><img src="../images/2017/08/soca-trail-1.png" alt="Text" style="width: 512px;"/></a>
-    <figcaption class="text-center">First part of the trail: 1 is where the Soča and Koritnica meet, 2 is the first bridge, 3 is the second bridge, 4 is an entry to a cave</figcaption>
+<figure>
+    <a href="../images/2017/08/soca-trail-1.png"><img src="../images/2017/08/soca-trail-1.png" alt="Text" width="512" height="246" loading="lazy"></a>
+    <figcaption>First part of the trail: 1 is where the Soča and Koritnica meet, 2 is the first bridge, 3 is the second bridge, 4 is an entry to a cave</figcaption>
 </figure>
 
 The river [Koritnica](https://en.wikipedia.org/wiki/Koritnica_(river)) (Slovene: Koritnica) empties into the river [Soča](https://en.wikipedia.org/wiki/So%C4%8Da) (also called Isonzo) at <a href="https://www.openstreetmap.org/#map=16/46.3300/13.5800"><span class="geo"><abbr class="latitude" title="46.330194444444444">46°19'48.7"N</abbr>

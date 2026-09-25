@@ -65,9 +65,9 @@ if __name__ == "__main__":
 
 which gives
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/09/1d-data-example.png"><img src="../images/2017/09/1d-data-example.png" alt="Visualization of 1D numeric data" style="width: 512px;"/></a>
-    <figcaption class="text-center">Visualization of 1D numeric data</figcaption>
+<figure>
+    <a href="../images/2017/09/1d-data-example.png"><img src="../images/2017/09/1d-data-example.png" alt="Visualization of 1D numeric data" width="512" height="352" loading="lazy"></a>
+    <figcaption>Visualization of 1D numeric data</figcaption>
 </figure>
 
 

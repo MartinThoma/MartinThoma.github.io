@@ -79,7 +79,7 @@ mlab.surf(x, y, z)
 
 gives
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/07/mayavi-sin-3d-example.png"><img src="../images/2018/07/mayavi-sin-3d-example.png" alt="3D plot generated with Mayavi" style="width: 512px;"/></a>
-    <figcaption class="text-center">3D plot generated with Mayavi</figcaption>
+<figure>
+    <a href="../images/2018/07/mayavi-sin-3d-example.png"><img src="../images/2018/07/mayavi-sin-3d-example.png" alt="3D plot generated with Mayavi" width="512" height="261" loading="lazy"></a>
+    <figcaption>3D plot generated with Mayavi</figcaption>
 </figure>

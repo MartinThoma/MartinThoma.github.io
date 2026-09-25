@@ -102,19 +102,19 @@ the output:
 
 I made some images to make this more clear:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/03/bagging.jpg" alt="Bagging" style="width:512px;"/>
-    <figcaption class="text-center">Bagging trains the classifiers on different data.</figcaption>
+<figure>
+    <a href="../images/2017/03/bagging.jpg"><img src="../images/2017/03/bagging.jpg" alt="Bagging" width="512" height="260" loading="lazy"></a>
+    <figcaption>Bagging trains the classifiers on different data.</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" style="width:512px;"/>
-    <figcaption class="text-center">Boosting reweights the training data.</figcaption>
+<figure>
+    <a href="../images/2017/03/boosting.jpg"><img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" width="512" height="266" loading="lazy"></a>
+    <figcaption>Boosting reweights the training data.</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/03/stacking.jpg" alt="Stacking" style="width:512px;"/>
-    <figcaption class="text-center">Stacking trains the combiner.</figcaption>
+<figure>
+    <a href="../images/2017/03/stacking.jpg"><img src="../images/2017/03/stacking.jpg" alt="Stacking" width="512" height="357" loading="lazy"></a>
+    <figcaption>Stacking trains the combiner.</figcaption>
 </figure>
 
 

@@ -14,9 +14,9 @@ Die Energiewende ist das wohl wichtigste internationale Projekt. Es bezeichnet
 den strukturellen und nachhaltigen Wandel weg von fossilen Energieträgern hin zu
 erneuerbaren Energien.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/06/energy-transition.png"><img src="../images/2025/06/energy-transition.png" alt="Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/06/energy-transition.png"><img src="../images/2025/06/energy-transition.png" alt="Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos</figcaption>
 </figure>
 
 Die Energiewende hat folgende essenziellen Bausteine:
@@ -299,9 +299,9 @@ bereits passiert ist und was noch fehlt. Stand: September 2026.
 
 ### Flexibilisierung
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2026/09/gemini-generated-energieversorgung.jpg" alt="KI-generiertes Bild, kein Foto: links Solarpark, Windräder, Batteriespeicher, Elektrolyseur und E-Auto an einem sonnigen Tag, rechts ein verschneites Dorf in einer windstillen Winternacht, versorgt von Batteriespeicher, wasserstofffähigem Kraftwerk und einer Stromleitung">
-    <figcaption class="wp-caption-text">Mit Gemini generierte Illustration, kein echtes Foto: Überschuss bei Sonne und Wind, Versorgung in der Dunkelflaute</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/09/gemini-generated-energieversorgung.jpg"><img src="../images/2026/09/gemini-generated-energieversorgung.jpg" alt="KI-generiertes Bild, kein Foto: links Solarpark, Windräder, Batteriespeicher, Elektrolyseur und E-Auto an einem sonnigen Tag, rechts ein verschneites Dorf in einer windstillen Winternacht, versorgt von Batteriespeicher, wasserstofffähigem Kraftwerk und einer Stromleitung" width="1200" height="655" loading="lazy"></a>
+    <figcaption>Mit Gemini generierte Illustration, kein echtes Foto: Überschuss bei Sonne und Wind, Versorgung in der Dunkelflaute</figcaption>
 </figure>
 
 Sonne und Wind liefern nicht immer dann Strom, wenn er gebraucht wird. Eine
@@ -493,6 +493,13 @@ Schiffsverkehr), und als Langzeitspeicher für Dunkelflauten.
         </tr>
     </tbody>
 </table>
+
+
+
+<figure class="ai-generated">
+    <a href="../images/2026/09/bayern-energie.png"><img src="../images/2026/09/bayern-energie.png" alt="Deutschlandkarte mit Bayern: 32 Solarmodul-Symbole für 31,6 GW Photovoltaik, 3 Windrad-Symbole für 2,8 GW Windkraft und zwei Stromleitungen aus dem Norden" width="819" height="512" loading="lazy"></a>
+    <figcaption>Mit Claude AI erstellte Grafik: Bayern hat viel Photovoltaik, wenig Windkraft und braucht Strom aus dem Norden. In Bayern steht jedes Symbol für rund 1 GW installierte Leistung (Ende 2025)<small><sup><a href="#ref20">[20]</a></sup></small>. Die Windräder im Norden sind nur angedeutet, die Verläufe von SuedLink und SuedOstLink vereinfacht.</figcaption>
+</figure>
 
 ### Was könnte Bayern besser machen?
 
@@ -783,6 +790,21 @@ Hier ist bereits einiges passiert:
         </tr>
     </tbody>
 </table>
+
+### Was kann ich selbst tun?
+
+<figure class="ai-generated">
+    <a href="../images/2026/09/haus-massnahmen.png"><img src="../images/2026/09/haus-massnahmen.png" alt="Haus im Querschnitt mit Wärmepumpe, Photovoltaik auf dem Dach, Batteriespeicher, E-Auto an der Wallbox und gedämmten Wänden, Dach und oberster Geschossdecke" width="819" height="512" loading="lazy"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Heizen, Strom, Speicher, Fahren und Dämmen am eigenen Haus</figcaption>
+</figure>
+
+* **Heizen:** Öl- oder Gasheizung durch eine Wärmepumpe ersetzen: [Wärmepumpen](../waermepumpen/)
+* **Strom erzeugen:** Balkonkraftwerk ([Steckersolar](../steckersolar/)) oder Dach-PV ([Wirtschaftlichkeit](../wirtschaftlichkeitsberechnung-pv-anlage/), [Angebotsvergleich](../pv-angebotsvergleich/))
+* **Strom speichern und flexibel nutzen:** [Steckersolar-Batterien](../steckersolar-batterien-2025/), [Stromtarife](../stromtarife/)
+* **Pendeln:** Homeoffice-Tage nutzen, sonst Fahrrad, Pedelec oder ÖPNV. Ein Pkw verursacht laut UBA<small><sup><a href="#ref36">[36]</a></sup></small> im Schnitt 164 g Treibhausgase pro Personenkilometer, ein Pedelec 3 g
+* **Fahren:** Wenn es ein Auto sein muss, dann ein [E-Auto](../e-autos/) (70 g pro Personenkilometer, mit dem heutigen Strommix)
+* **Sparen:** [Dämmstoffe](../daemstoffe/)
+* **Essen:** weniger Fleisch und Käse. Laut Umweltbundesamt<small><sup><a href="#ref59">[59]</a></sup></small> senkt eine vegetarische Ernährung die ernährungsbedingten Treibhausgase um bis zu 46 %, eine vegane um bis zu 49 %
 
 
 ## Fazit

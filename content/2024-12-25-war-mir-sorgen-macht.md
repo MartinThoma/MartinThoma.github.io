@@ -92,7 +92,9 @@ neuen Förderungen und deren plötzlichen Streichungen ins Knie:
 
 Deutschland wird älter.
 
-![Altersstruktur der Bevölkerung in Deutschland 2022](../images/2024/12/bevoelkerung-altersstruktur-2022-de.png)
+<figure>
+    <a href="../images/2024/12/bevoelkerung-altersstruktur-2022-de.png"><img src="../images/2024/12/bevoelkerung-altersstruktur-2022-de.png" alt="Altersstruktur der Bevölkerung in Deutschland 2022" width="990" height="680" loading="lazy"></a>
+</figure>
 
 Das führt insbesondere dazu, dass das Verhältnis zwischen Einzahlern in das
 Gesundheits- und Rentensystem und den Empfängern schlechter wird. Wenn wir
@@ -128,7 +130,9 @@ der Menschen. Wo wohnen wir?
 
 Die folgende [Grafik von Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Population_density_of_Germany_by_municipality-de.svg) zeigt es sehr schön:
 
-![Bevölkerungsdichte 2022 in Deutschland](../images/2024/12/population-density-germany-2022.png)
+<figure>
+    <a href="../images/2024/12/population-density-germany-2022.png"><img src="../images/2024/12/population-density-germany-2022.png" alt="Bevölkerungsdichte 2022 in Deutschland" width="460" height="600" loading="lazy"></a>
+</figure>
 
 Auch über die [Liste der deutschen Bundesländer nach Bevölkerungsentwicklung](https://de.wikipedia.org/wiki/Liste_der_deutschen_Bundesl%C3%A4nder_nach_Bev%C3%B6lkerungsentwicklung)
 kann man ein paar Eindrücke gewinnen.

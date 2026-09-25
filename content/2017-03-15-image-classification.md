@@ -15,9 +15,9 @@ bigger than 1000.
 
 So for example, you might ask: What can you see in this image?
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/03/moon-jelly.jpg" alt="A jellyfish" style="width: 512px;"/>
-    <figcaption class="text-center">A jellyfish</figcaption>
+<figure>
+    <a href="../images/2017/03/moon-jelly.jpg"><img src="../images/2017/03/moon-jelly.jpg" alt="A jellyfish" width="512" height="384"></a>
+    <figcaption>A jellyfish</figcaption>
 </figure>
 
 It is one of the most common and probably simplest tasks in the intersection of

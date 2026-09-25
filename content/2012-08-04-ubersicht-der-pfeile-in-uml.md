@@ -12,10 +12,10 @@ featured_image: 2012/05/UML-thumb.png
 Folgende Pfeile werden in UML verwendet:
 <h2>Klassendiagramme</h2>
 <h3>Vererbung</h3>
-<figure class="alignright">
-            <a href="../images/2012/07/UML-vererbung.png"><img src="../images/2012/07/UML-vererbung.png" alt="Class B erbt von Class A; Class A ist die Oberklasse" style="max-width:77px;max-height:135px;" class="size-full wp-image-32841 "/></a>
-            <figcaption class="text-center">Class B erbt von Class A; Class A ist die Oberklasse</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/07/UML-vererbung.png"><img src="../images/2012/07/UML-vererbung.png" alt="Class B erbt von Class A; Class A ist die Oberklasse" width="77" height="135"></a>
+    <figcaption>Class B erbt von Class A; Class A ist die Oberklasse</figcaption>
+</figure>
 Die <a href="http://de.wikipedia.org/wiki/Vererbung_(Programmierung)">Vererbung</a> ist eines der wichtigsten Prinzipien der objektorientierten Programmierung. Sie zeigt eine "ist ein"-Beziehung an.
 
 Beispiele sind:
@@ -28,10 +28,10 @@ Beispiele sind:
 Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch von <code>Fortbewegungsmittel</code> erbt. Das geht in manchen Programmiersprachen (C++, Python), in anderen nicht (Java).
 
 <h3>Assoziation</h3>
-<figure class="alignright">
-            <a href="../images/2012/07/UML-assoziation.png"><img src="../images/2012/07/UML-assoziation.png" alt="Assoziation" style="max-width:77px;max-height:154px;" class="size-full wp-image-32901 "/></a>
-            <figcaption class="text-center">Assoziation</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/07/UML-assoziation.png"><img src="../images/2012/07/UML-assoziation.png" alt="Assoziation" width="77" height="154" loading="lazy"></a>
+    <figcaption>Assoziation</figcaption>
+</figure>
 
 Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a> zeigt eine Verbindung an, z.B.:
 <ul>
@@ -41,10 +41,10 @@ Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a> zei
 </ul>
 In einer Datenbank würde man für diese Relationen eine weitere Tabelle erstellen. Also eine Tabelle für Personen, eine für Termine und eine für Person-Termin-Verknüpfungen.
 <h3>Aggregation</h3>
-<figure class="alignright">
-            <a href="../images/2012/07/UML-aggregation.png"><img src="../images/2012/07/UML-aggregation.png" alt="Aggregation" style="max-width:77px;max-height:155px;" class="size-full wp-image-32871 "/></a>
-            <figcaption class="text-center">Aggregation</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/07/UML-aggregation.png"><img src="../images/2012/07/UML-aggregation.png" alt="Aggregation" width="77" height="155" loading="lazy"></a>
+    <figcaption>Aggregation</figcaption>
+</figure>
 
 Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)#Aggregation">Aggregation</a> ist eine spezielle Assoziation. Sie zeigt eine "hat"-Beziehung an. Dabei ist die Richtung wichtig und sollte angezeigt werden.
 
@@ -55,10 +55,10 @@ Aggregationen sind z.B.:
 	<li>Buchladen hat Bücher</li>
 </ul>
 <h3>Komposition</h3>
-<figure class="alignright">
-            <a href="../images/2012/07/UML-komposition.png"><img src="../images/2012/07/UML-komposition.png" alt="Komposition" style="max-width:77px;max-height:155px;" class="size-full wp-image-32891 "/></a>
-            <figcaption class="text-center">Komposition</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/07/UML-komposition.png"><img src="../images/2012/07/UML-komposition.png" alt="Komposition" width="77" height="155" loading="lazy"></a>
+    <figcaption>Komposition</figcaption>
+</figure>
 
 Die <a href="http://de.wikipedia.org/wiki/Komposition_(UML)#Komposition">Komposition</a> zeigt eine notwendige "ist-Teil-von" Beziehung an. Das Teil kann also nicht ohne das Ganze existieren.
 
@@ -76,17 +76,17 @@ Beispiele sind:
 </ul>
 
 <h2>Objektdiagramme</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/07/objektdiagramm-instance-of.png"><img src="../images/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm" style="max-width:404px;max-height:77px" class="size-full wp-image-36561"/></a>
-            <figcaption class="text-center">UML: instanceOf beziehung in einem Objektdiagramm</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/objektdiagramm-instance-of.png"><img src="../images/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm" width="404" height="77" loading="lazy"></a>
+    <figcaption>UML: instanceOf beziehung in einem Objektdiagramm</figcaption>
+</figure>
 
 <h2>Sequenzdiagramme</h2>
 <a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Sequenzdiagramme</a> haben wieder eigene Pfeile.
-<figure class="aligncenter">
-            <a href="../images/2012/07/sequenzdiagram.png"><img src="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" style="max-width:421px;max-height:259px" class="size-full wp-image-32951"/></a>
-            <figcaption class="text-center">UML Sequenzdiagramm</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/sequenzdiagram.png"><img src="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" width="421" height="259" loading="lazy"></a>
+    <figcaption>UML Sequenzdiagramm</figcaption>
+</figure>
 Der Pfeil mit der ausgefüllten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgefüllten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgefüllten Spitze ist eine asynchrone Nachricht.
 <strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgefüllten Kopf, im Gegensatz zu dem hier gezeigtem Bild!
 

@@ -77,11 +77,9 @@ with
 
 ### Step 3: The algorithm
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/06/kalman-filter.png" alt="Overview of the Kalman-filter." />
-    <figcaption class="text-center">Overview of the Kalman-filter.<br/>
-                                    The inputs are <span style="color: #FFA500;">orange</span>,
-                                    the outputs are <span style="color: #0059FF">blue</span>.</figcaption>
+<figure>
+    <a href="../images/2016/06/kalman-filter.png"><img src="../images/2016/06/kalman-filter.png" alt="Overview of the Kalman-filter." width="512" height="289" loading="lazy"></a>
+    <figcaption>Overview of the Kalman-filter.<br/> The inputs are <span style="color: #FFA500;">orange</span>, the outputs are <span style="color: #0059FF">blue</span>.</figcaption>
 </figure>
 
 The matrices which were not explained so far are:

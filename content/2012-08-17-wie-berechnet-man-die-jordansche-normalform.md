@@ -44,10 +44,10 @@ $$J =
 <span>$A_{\lambda_i}$</span> sind die Jordanblöcke zu den Eigenwerten <span>$\lambda_i$</span>.
 
 Die einzelnen Jordanblöcke schauen etwa so aus:
-<figure class="aligncenter">
-            <a href="../images/2012/08/jordan-normal-form-block.png"><img src="../images/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen" style="max-width:500px;max-height:260px" class="size-full wp-image-40381"/></a>
-            <figcaption class="text-center">Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/jordan-normal-form-block.png"><img src="../images/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen" width="500" height="260" loading="lazy"></a>
+    <figcaption>Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen</figcaption>
+</figure>
 
 Jedes Jordankästchen ist quadratisch, hat auf der Diagonalen den Eigenwert und auf der oberen Nebendiagonale 1er. Sonst sind nur 0er im Jordankästchen. Außerhalb der Jordankästchen sind im Jordanblock nur 0er. Insbesondere können also auf der oberen Nebendiagonalen des Jordanblocks 0er stehen!
 

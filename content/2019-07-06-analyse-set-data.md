@@ -183,9 +183,9 @@ Results:
 Then you can apply confusion matrix ordering to find authors who often work
 together (click on it to see a large version):
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../pdf/dblp-1000-cmo.pdf"><img src="../images/2019/07/dblp-cmo.png" alt="Similar Authors found with CMO" style="width: 512px;"/></a>
-    <figcaption class="text-center">Similar Authors found with CMO</figcaption>
+<figure>
+    <a href="../pdf/dblp-1000-cmo.pdf"><img src="../images/2019/07/dblp-cmo.png" alt="Similar Authors found with CMO" width="512" height="298" loading="lazy"></a>
+    <figcaption>Similar Authors found with CMO</figcaption>
 </figure>
 
 The CMO technique is described in
@@ -297,9 +297,9 @@ Results:
 
 CMO:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/07/cmo-genre-combinations.png"><img src="../images/2019/07/cmo-genre-combinations.png" alt="Genre-Combinations" style="width: 512px;"/></a>
-    <figcaption class="text-center">Genre-Combinations</figcaption>
+<figure>
+    <a href="../images/2019/07/cmo-genre-combinations.png"><img src="../images/2019/07/cmo-genre-combinations.png" alt="Genre-Combinations" width="512" height="395" loading="lazy"></a>
+    <figcaption>Genre-Combinations</figcaption>
 </figure>
 
 

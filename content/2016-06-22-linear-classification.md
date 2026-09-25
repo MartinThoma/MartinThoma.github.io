@@ -213,9 +213,9 @@ plt.show()
 
 which gives:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/06/perceptron-classification.png" alt="Classification with a Perceptron." />
-    <figcaption class="text-center">Classification with a Perceptron.</figcaption>
+<figure>
+    <a href="../images/2016/06/perceptron-classification.png"><img src="../images/2016/06/perceptron-classification.png" alt="Classification with a Perceptron." width="800" height="600" loading="lazy"></a>
+    <figcaption>Classification with a Perceptron.</figcaption>
 </figure>
 
 

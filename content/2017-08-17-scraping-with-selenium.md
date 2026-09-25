@@ -66,9 +66,9 @@ need to inspect the website and get an identifier for the search bar. In
 Chrome, this is done with the *developer tools*. You can open them with
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> (for *inspect*):
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/08/chrome-dev-tools.png" alt="The inspection of the search bar with the Chrome Developer Tools reveals that it has the id 'searchInput'" style="width: 512px;"/>
-    <figcaption class="text-center">Text</figcaption>
+<figure>
+    <a href="../images/2017/08/chrome-dev-tools.png"><img src="../images/2017/08/chrome-dev-tools.png" alt="The inspection of the search bar with the Chrome Developer Tools reveals that it has the id 'searchInput'" width="512" height="464"></a>
+    <figcaption>Text</figcaption>
 </figure>
 
 ```python

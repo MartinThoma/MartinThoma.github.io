@@ -16,17 +16,17 @@ angesehen habe.
 
 ## Das Problem
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/11/wie-wir-heizen.png"><img src="../images/2025/11/wie-wir-heizen.png" alt="Wie wir 2024 in Deutschland heizen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Wie wir 2024 in Deutschland heizen</figcaption>
+<figure>
+    <a href="../images/2025/11/wie-wir-heizen.png"><img src="../images/2025/11/wie-wir-heizen.png" alt="Wie wir 2024 in Deutschland heizen" width="1157" height="512"></a>
+    <figcaption>Wie wir 2024 in Deutschland heizen</figcaption>
 </figure>
 
 Aktuell sind [über 70% der verbauten Heizungen Verbrenner](https://de.statista.com/infografik/27327/anteil-der-energietraeger-beim-heizen-des-wohnungsbestandes-in-deutschland/) (Stand: Februar 2024).
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/11/wie-neubauten-heizen.png"><img src="../images/2025/11/wie-neubauten-heizen.png" alt="Wie wir 2025 in Deutschland in Neubauten heizen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Wie wir 2025 in Deutschland in Neubauten heizen (Quelle: <a href="https://www.bdew.de/energie/heizung-neubau-statistik/">bdew.de</a>)</figcaption>
+<figure>
+    <a href="../images/2025/11/wie-neubauten-heizen.png"><img src="../images/2025/11/wie-neubauten-heizen.png" alt="Wie wir 2025 in Deutschland in Neubauten heizen" width="1162" height="512" loading="lazy"></a>
+    <figcaption>Wie wir 2025 in Deutschland in Neubauten heizen (Quelle: <a href="https://www.bdew.de/energie/heizung-neubau-statistik/">bdew.de</a>)</figcaption>
 </figure>
 
 [70% der Neubauten in Deutschland werden mit Wärmepumpen beheizt](https://www.tagesschau.de/wirtschaft/energie/waermepumpen-anteil-wohngebaeude-erneuerbare-100.html) (Stand: Juni 2025).

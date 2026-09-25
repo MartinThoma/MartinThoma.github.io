@@ -108,10 +108,10 @@ Interessant, aber vermutlich nicht Klausurrelevant.
 </ul>
 
 <h4>07, 08: Machine Learning</h4>
-<figure class="aligncenter">
-            <a href="../images/2013/04/pattern-recognition-classification-300x172.png"><img src="../images/2013/04/pattern-recognition-classification-300x172.png" alt="Pattern recognition classification" style="max-width:300px;max-height:172px" class="size-medium wp-image-76312"/></a>
-            <figcaption class="text-center">Pattern recognition classification<br />Image Source: Folien von Prof. Waibel</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/pattern-recognition-classification-300x172.png"><img src="../images/2013/04/pattern-recognition-classification-300x172.png" alt="Pattern recognition classification" width="300" height="172" loading="lazy"></a>
+    <figcaption>Pattern recognition classification<br />Image Source: Folien von Prof. Waibel</figcaption>
+</figure>
 
 <ul>
   <li>Perceptron: <a href="http://de.wikipedia.org/wiki/Sigmoidfunktion">Sigmoidfunktion</a></li>

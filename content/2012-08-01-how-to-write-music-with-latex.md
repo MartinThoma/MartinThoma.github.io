@@ -12,10 +12,10 @@ featured_image: 2012/08/latex-music-thumb.png
 It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples.
 
 <h2>Symbols</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/08/music-notes.png"><img src="../images/2012/08/music-notes.png" alt="Some basic music symbols" style="max-width:512px;max-height:42px" class="size-full wp-image-37171"/></a>
-            <figcaption class="text-center">Some basic music symbols</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/music-notes.png"><img src="../images/2012/08/music-notes.png" alt="Some basic music symbols" width="512" height="42"></a>
+    <figcaption>Some basic music symbols</figcaption>
+</figure>
 ```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
@@ -26,10 +26,10 @@ It is possible to write music with LaTeX. My girlfriend was quite surprised of t
 ```
 
 The harmony package offers some additional symbols:
-<figure class="aligncenter">
-            <a href="../images/2012/08/latex-music-harmony.png"><img src="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" style="max-width:512px;max-height:331px" class="size-full wp-image-37181"/></a>
-            <figcaption class="text-center">music symbols form the LaTeX-harmony package</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/latex-music-harmony.png"><img src="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" width="512" height="331" loading="lazy"></a>
+    <figcaption>music symbols form the LaTeX-harmony package</figcaption>
+</figure>
 
 ```latex
 \documentclass[a4paper,12pt]{article}
@@ -45,10 +45,10 @@ The harmony package offers some additional symbols:
 ```
 
 <h2>musixtex</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/08/latex-musixtex.png"><img src="../images/2012/08/latex-musixtex.png" alt="musixtex example" style="max-width:512px;max-height:139px" class="size-full wp-image-37221"/></a>
-            <figcaption class="text-center">musixtex example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/latex-musixtex.png"><img src="../images/2012/08/latex-musixtex.png" alt="musixtex example" width="512" height="139" loading="lazy"></a>
+    <figcaption>musixtex example</figcaption>
+</figure>
 
 ```latex
 \documentclass[a4paper,12pt]{article}
@@ -92,10 +92,10 @@ pdflatex --shell-escape myTexFile.tex
 ```
 
 to get this:
-<figure class="aligncenter">
-            <a href="../images/2012/07/abc-example.png"><img src="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" style="max-width:477px;max-height:113px" class="size-full wp-image-33701"/></a>
-            <figcaption class="text-center">ABC example for creating music sheets with LaTeX</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/abc-example.png"><img src="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" width="477" height="113" loading="lazy"></a>
+    <figcaption>ABC example for creating music sheets with LaTeX</figcaption>
+</figure>
 
 
 <h2>LilyPond</h2>
@@ -151,10 +151,10 @@ rm -rf out
 For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.
 
 Output:
-<figure class="aligncenter">
-            <a href="../images/2012/07/lilypond-example.png"><img src="../images/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF" style="max-width:594px;max-height:362px" class="size-full wp-image-33661"/></a>
-            <figcaption class="text-center">Lilypond example - output was a PDF</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/lilypond-example.png"><img src="../images/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF" width="594" height="362" loading="lazy"></a>
+    <figcaption>Lilypond example - output was a PDF</figcaption>
+</figure>
 
 <h2>Further Reading</h2>
 <ul>

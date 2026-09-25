@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Swing II: How to arrange Objects
 slug: swing-ii-how-to-arrange-objects
+lang: en
 author: Martin Thoma
 date: 2012-07-21 17:00:44.000000000 +02:00
 category: Code
@@ -11,7 +11,10 @@ featured_image: 2012/07/java-thumb.png
 ---
 <h2>Without GUI</h2>
 Objects can be arranged with <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagLayout.html">GridBagLayout</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagConstraints.html">GridBagConstraints</a>. This is an example:
-<img src="../images/2012/07/java-swing-grid-bag.png" alt="GridBag example (Java Swing)" title="GridBag example (Java Swing)" width="198" height="199" class="size-full wp-image-33451" />
+
+<figure>
+    <a href="../images/2012/07/java-swing-grid-bag.png"><img src="../images/2012/07/java-swing-grid-bag.png" alt="GridBag example (Java Swing)" width="198" height="199"></a>
+</figure>
 
 Code:
 ```java
@@ -135,34 +138,34 @@ They offer great <a href="https://developers.google.com/java-dev-tools/wbpro/ins
 
 <h3>Editing</h3>
 You have to open your project with the window builder:
-<figure class="aligncenter">
-            <a href="../images/2012/07/eclipse-open-with-window-builder-285x300.png"><img src="../images/2012/07/eclipse-open-with-window-builder-285x300.png" alt="Open existing SWING-file with Window Builder" style="max-width:285px;max-height:300px" class="size-medium wp-image-33501"/></a>
-            <figcaption class="text-center">Open existing SWING-file with Window Builder</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/eclipse-open-with-window-builder-285x300.png"><img src="../images/2012/07/eclipse-open-with-window-builder-285x300.png" alt="Open existing SWING-file with Window Builder" width="285" height="300" loading="lazy"></a>
+    <figcaption>Open existing SWING-file with Window Builder</figcaption>
+</figure>
 
 The Window-Builder-View looks like this:
-<figure class="aligncenter">
-            <a href="../images/2012/07/eclipse-window-builder-300x157.png"><img src="../images/2012/07/eclipse-window-builder-300x157.png" alt="Eclipse WindowBuilder View" style="max-width:300px;max-height:157px" class="size-medium wp-image-33541"/></a>
-            <figcaption class="text-center">Eclipse WindowBuilder View</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/eclipse-window-builder-300x157.png"><img src="../images/2012/07/eclipse-window-builder-300x157.png" alt="Eclipse WindowBuilder View" width="300" height="157" loading="lazy"></a>
+    <figcaption>Eclipse WindowBuilder View</figcaption>
+</figure>
 
 You can easily resize the window:
-<figure class="aligncenter">
-            <a href="../images/2012/07/eclipse-window-builder-resize-258x300.png"><img src="../images/2012/07/eclipse-window-builder-resize-258x300.png" alt="Resize a window with WindowBuilder" style="max-width:258px;max-height:300px" class="size-medium wp-image-33521"/></a>
-            <figcaption class="text-center">Resize a window with WindowBuilder</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/eclipse-window-builder-resize-258x300.png"><img src="../images/2012/07/eclipse-window-builder-resize-258x300.png" alt="Resize a window with WindowBuilder" width="258" height="300" loading="lazy"></a>
+    <figcaption>Resize a window with WindowBuilder</figcaption>
+</figure>
 
 Positioning single components is also simple:
-<figure class="aligncenter">
-            <a href="../images/2012/07/eclipse-window-builder-component.png"><img src="../images/2012/07/eclipse-window-builder-component.png" alt="Position a single component with WindowBuilder" style="max-width:249px;max-height:273px" class="size-full wp-image-33531"/></a>
-            <figcaption class="text-center">Position a single component with WindowBuilder</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/eclipse-window-builder-component.png"><img src="../images/2012/07/eclipse-window-builder-component.png" alt="Position a single component with WindowBuilder" width="249" height="273" loading="lazy"></a>
+    <figcaption>Position a single component with WindowBuilder</figcaption>
+</figure>
 
 Adding a menu bar worked fine:
-<figure class="aligncenter">
-            <a href="../images/2012/07/eclipse-window-builder-menu.png"><img src="../images/2012/07/eclipse-window-builder-menu.png" alt="MenuBar added with WindowBuilder" style="max-width:227px;max-height:231px" class="size-full wp-image-33561"/></a>
-            <figcaption class="text-center">MenuBar added with WindowBuilder</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/eclipse-window-builder-menu.png"><img src="../images/2012/07/eclipse-window-builder-menu.png" alt="MenuBar added with WindowBuilder" width="227" height="231" loading="lazy"></a>
+    <figcaption>MenuBar added with WindowBuilder</figcaption>
+</figure>
 
 <h2>See also</h2>
 <ul>

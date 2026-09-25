@@ -9,10 +9,10 @@ category: German posts
 tags: Learning, Geography
 featured_image: 2012/07/laender-der-erde1.png
 ---
-<figure class="aligncenter">
-            <a href="../images/2012/07/laender-der-erde.png"><img src="../images/2012/07/laender-der-erde.png" alt="Länder der Erde" style="max-width:482px;max-height:280px;" class=" wp-image-35581 "/></a>
-            <figcaption class="text-center">Länder der Erde</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/laender-der-erde.png"><img src="../images/2012/07/laender-der-erde.png" alt="Länder der Erde" width="482" height="280"></a>
+    <figcaption>Länder der Erde</figcaption>
+</figure>
 
 Hier ist ein <a href="http://www.jetpunk.com/quizzes/lander-der-welt-quiz">Spiel</a>, bei dem man die Länder der Erde eingeben muss. Es ist schon erschreckend, wie viele weiße Flecken hier sind.
 
@@ -30,7 +30,7 @@ This beats or equals 67.6% of test takers.
 The average score is 77.
 Your high score is 90.
 
-<figure class="aligncenter">
-            <a href="../images/2012/07/laender-der-erde-2.png"><img src="../images/2012/07/laender-der-erde-2.png" alt="Länder der Erde - zweiter Versuch" style="max-width:512px;max-height:298px" class="size-full wp-image-37601"/></a>
-            <figcaption class="text-center">Länder der Erde - zweiter Versuch</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/laender-der-erde-2.png"><img src="../images/2012/07/laender-der-erde-2.png" alt="Länder der Erde - zweiter Versuch" width="512" height="298" loading="lazy"></a>
+    <figcaption>Länder der Erde - zweiter Versuch</figcaption>
+</figure>

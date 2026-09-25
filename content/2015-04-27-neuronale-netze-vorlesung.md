@@ -87,10 +87,10 @@ featured_image: logos/klausur.png
 
 ### NN02-Classification.pdf
 
-<figure class="aligncenter">
-            <a href="../images/2015/12/perceptron-or.png"><img src="../images/2015/12/perceptron-or.png" alt="Rosenblatt-Perceptron which realizes logical or" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Rosenblatt-Perceptron which realizes logical or</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/12/perceptron-or.png"><img src="../images/2015/12/perceptron-or.png" alt="Rosenblatt-Perceptron which realizes logical or" width="500" height="326"></a>
+    <figcaption>Rosenblatt-Perceptron which realizes logical or</figcaption>
+</figure>
 
 * McCulloch-Pitts Neuron (weights, bias, activation function is step function)
 * Rosenblatt Perceptron Algorithmus
@@ -240,12 +240,9 @@ Slide name: `V05_2015-04-29_Features.pdf`
   <dd>A Multilayer Perceptron is a special type of Feed Forward Neural Network.
       It consists of fully connected layers only.
 
-      <figure class="wp-caption aligncenter">
-          <img src="../images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
-          <figcaption>Figure 1: Draft of a multilayer Perceptron (MLP). The bias units are
-                   grey, the input units are red, the hidden units are green
-                   and the output unit is blue. The edges are directed from
-                   input, to hidden, to output and from the bias to hidden / output.</figcaption>
+      <figure>
+          <a href="../images/2016/02/feed-forward-perceptron.png"><img src="../images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." width="512" height="246" loading="lazy"></a>
+          <figcaption>Figure 1: Draft of a multilayer Perceptron (MLP). The bias units are grey, the input units are red, the hidden units are green and the output unit is blue. The edges are directed from input, to hidden, to output and from the bias to hidden / output.</figcaption>
       </figure>
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition"><dfn>Metrik</dfn></a></dt>
@@ -402,10 +399,10 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         hybride Netze (so wie HMM-DeepNN Hybrids von Microsoft).</dd>
 </dl>
 
-<figure class="aligncenter">
-            <a href="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png"><img src="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" alt="RProp by Ryan Harris" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png"><img src="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" alt="RProp by Ryan Harris" width="500" height="403" loading="lazy"></a>
+    <figcaption>RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp</figcaption>
+</figure>
 
 * Pretraining
 * Design choices (hyperparameters):
@@ -507,10 +504,10 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     und die Neuronen auf dem Gitter. Jedes Input-Neuron ist mit jedem Neuron
     auf dem Gitter verbunden.
 
-    <figure class="wp-caption aligncenter">
-          <img src="../images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
-          <figcaption>Figure 2: Draft of a self-organizing map (SOM).</figcaption>
-      </figure>
+    <figure>
+        <a href="../images/2016/02/self-organizing-map.png"><img src="../images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." width="512" height="374" loading="lazy"></a>
+        <figcaption>Figure 2: Draft of a self-organizing map (SOM).</figcaption>
+    </figure>
 
     Training:
     <ol>
@@ -562,13 +559,9 @@ Slide name: `V11_2015-05-27_RBMs`
         Jedes Gewicht ist zum Start des Trainings 0. Das Training ist also
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
 
-      <figure class="wp-caption aligncenter">
-          <img src="../images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
-          <figcaption>Figure 3: Draft of a Hopfield network. Every node is an input node.
-                   The McCulloch-Pitts nodes are updated asynchronously. When
-                   the state of the node doesn't change any more, they contain
-                   the output of the network. Learned are the weights between
-                   the nodes.</figcaption>
+      <figure>
+          <a href="../images/2016/02/hopfield-network.png"><img src="../images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." width="512" height="497" loading="lazy"></a>
+          <figcaption>Figure 3: Draft of a Hopfield network. Every node is an input node. The McCulloch-Pitts nodes are updated asynchronously. When the state of the node doesn't change any more, they contain the output of the network. Learned are the weights between the nodes.</figcaption>
       </figure>
 
         </dd>
@@ -597,8 +590,8 @@ Slide name: `V11_2015-05-27_RBMs`
       Wahrscheinlichkeiten zuweisen, die direkt proportional zu $e^{-E}$
       sind).
 
-      <figure class="wp-caption aligncenter">
-          <img src="../images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
+      <figure>
+          <a href="../images/2016/02/restricted-botzmann-machine.png"><img src="../images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." width="512" height="249" loading="lazy"></a>
           <figcaption>Figure 4: Draft of an RBM. The learned parameters are red.</figcaption>
       </figure>
 
@@ -851,13 +844,13 @@ mir folgendes aufgefallen:
 
 ## Interpretation of errors
 
-<figure class="wp-caption aligncenter">
-    <img src="../images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" />
+<figure>
+    <a href="../images/2016/02/2d-epochs-overfitting.png"><img src="../images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" width="512" height="420" loading="lazy"></a>
     <figcaption>Figure 5: Training and Testing error over epochs. At some point overfitting happens.</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter">
-    <img src="../images/2016/02/variance-bias.png" alt="Training and Testing error over training data" />
+<figure>
+    <a href="../images/2016/02/variance-bias.png"><img src="../images/2016/02/variance-bias.png" alt="Training and Testing error over training data" width="512" height="278" loading="lazy"></a>
     <figcaption>Figure 6: Training and Testing error over training data. At some point overfitting happens.</figcaption>
 </figure>
 

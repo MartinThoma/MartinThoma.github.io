@@ -105,7 +105,7 @@ in full detail.
     <dt><dfn id="mmd">MMD</dfn> (<dfn id="maximum-mean-descripancy">Maximum Mean Descrepancy</dfn>)</dt>
     <dd>MMD is a measure of the difference between a distribution $P$ and a distribution $Q$:
 
-        $$MMD(F, p, q) = sup_{f \in F} (\mathbb{E}_{x \sim p} [f(x)] - \mathbb{E}_{y \sim q} [f(y)])$$
+        $$\text{MMD}(F, p, q) = \sup_{f \in F} (\mathbb{E}_{x \sim p} [f(x)] - \mathbb{E}_{y \sim q} [f(y)])$$
 
     </dd>
     <dt><dfn id="multi-task-learning">Multi-Task learning</dfn></dt>

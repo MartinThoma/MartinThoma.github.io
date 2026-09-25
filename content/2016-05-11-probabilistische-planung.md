@@ -530,9 +530,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       \end{align}
       $$
       ergibt.<br/>
-      <figure class="wp-caption aligncenter img-thumbnail">
-          <img src="../images/2016/07/dynamic-programming.png" alt="Pseudocode for Dynamic Programming" />
-          <figcaption class="text-center">Pseudocode for Dynamic Programming</figcaption>
+      <figure>
+          <a href="../images/2016/07/dynamic-programming.png"><img src="../images/2016/07/dynamic-programming.png" alt="Pseudocode for Dynamic Programming" width="512" height="303" loading="lazy"></a>
+          <figcaption>Pseudocode for Dynamic Programming</figcaption>
       </figure><br/>
 
       Laufzeitkomplexität: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
@@ -683,9 +683,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         where $J^*$ is the optimal value, $T$ is the Bellman operator an $N \in \mathbb{N}_{\geq 1}$
         is the planning horizon. $g$ is the cost function for each step.<br/>
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/Value-Iteration.png" alt="Pseudocode for Value iteration algorithm" />
-            <figcaption class="text-center">Pseudocode for Value iteration algorithm</figcaption>
+        <figure>
+            <a href="../images/2016/07/Value-Iteration.png"><img src="../images/2016/07/Value-Iteration.png" alt="Pseudocode for Value iteration algorithm" width="512" height="314" loading="lazy"></a>
+            <figcaption>Pseudocode for Value iteration algorithm</figcaption>
         </figure><br/>
 
         <u>Remark</u>: The value function is usually denoted with $V$, not
@@ -715,9 +715,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/policy-iteration-caps.png" alt="Pseudocode for Policy iteration algorithm" />
-            <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
+        <figure>
+            <a href="../images/2016/07/policy-iteration-caps.png"><img src="../images/2016/07/policy-iteration-caps.png" alt="Pseudocode for Policy iteration algorithm" width="512" height="316" loading="lazy"></a>
+            <figcaption>Pseudocode for Policy iteration algorithm</figcaption>
         </figure><br/>
 
         wobei
@@ -776,9 +776,9 @@ $$
         Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a> (K ist Priority-Queue), der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
         Branch &amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" />
-            <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
+        <figure>
+            <a href="../images/2016/07/label-correction.png"><img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" width="512" height="457" loading="lazy"></a>
+            <figcaption>Pseudocode for the Label correction algorithm</figcaption>
         </figure><br/>
 
         Explanation:
@@ -1585,9 +1585,9 @@ $$
     <dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
     <dd>Idee: Schätzen der $Q$-Funktion $Q(x, a)$.
 
-    <figure class="wp-caption aligncenter img-thumbnail">
-        <img src="../images/2016/07/policy-iteration.png" alt="Pseudocode for Policy Iteration" style="width:512px;" />
-        <figcaption class="text-center"><a href="#policy-iteration">Pseudocode for Policy Iteration</a></figcaption>
+    <figure>
+        <a href="../images/2016/07/policy-iteration.png"><img src="../images/2016/07/policy-iteration.png" alt="Pseudocode for Policy Iteration" width="512" height="294" loading="lazy"></a>
+        <figcaption><a href="#policy-iteration">Pseudocode for Policy Iteration</a></figcaption>
     </figure><br/>
 
     Für gegebene Episode:
@@ -1782,9 +1782,9 @@ $$
     As SARSA chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
     <br/>
-    <figure class="wp-caption aligncenter img-thumbnail">
-        <img src="../images/2016/07/sarsa.png" alt="Pseudocode for SARSA" />
-        <figcaption class="text-center">Pseudocode for SARSA</figcaption>
+    <figure>
+        <a href="../images/2016/07/sarsa.png"><img src="../images/2016/07/sarsa.png" alt="Pseudocode for SARSA" width="512" height="396" loading="lazy"></a>
+        <figcaption>Pseudocode for SARSA</figcaption>
     </figure>
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
@@ -1794,9 +1794,9 @@ $$
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
         <br/>
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/q-learning.png" alt="Pseudocode for Q-Learning" />
-            <figcaption class="text-center">Pseudocode for Q-Learning. Please note that I replaced "for each episode" by "while Q is not converged"</figcaption>
+        <figure>
+            <a href="../images/2016/07/q-learning.png"><img src="../images/2016/07/q-learning.png" alt="Pseudocode for Q-Learning" width="512" height="379" loading="lazy"></a>
+            <figcaption>Pseudocode for Q-Learning. Please note that I replaced "for each episode" by "while Q is not converged"</figcaption>
         </figure><br/>
 
         Da die Aktualisierung von $Q$ unabhängig von $\pi$ erfolgt, ist
@@ -1965,18 +1965,18 @@ $$
     <dt><dfn id="sarsa-lambda">SARSA($\lambda$)</dfn></dt>
     <dd>
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/sarsa-lambda.png" alt="Pseudocode for SARSA($\lambda$)" />
-            <figcaption class="text-center">Pseudocode for SARSA($\lambda$)</figcaption>
+        <figure>
+            <a href="../images/2016/07/sarsa-lambda.png"><img src="../images/2016/07/sarsa-lambda.png" alt="Pseudocode for SARSA($\lambda$)" width="512" height="487" loading="lazy"></a>
+            <figcaption>Pseudocode for SARSA($\lambda$)</figcaption>
         </figure><br/>
 
     </dd>
     <dt><dfn id="q-lambda">$Q(\lambda)$</dfn></dt>
     <dd>
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/q-lambda.png" alt="Pseudocode for Q($\lambda$)" />
-            <figcaption class="text-center">Pseudocode for Q($\lambda$)</figcaption>
+        <figure>
+            <a href="../images/2016/07/q-lambda.png"><img src="../images/2016/07/q-lambda.png" alt="Pseudocode for Q($\lambda$)" width="512" height="531" loading="lazy"></a>
+            <figcaption>Pseudocode for Q($\lambda$)</figcaption>
         </figure><br/>
 
     </dd>
@@ -2114,9 +2114,9 @@ $$
     <dt><dfn id="dyna-q">Dyna-Q</dfn></dt>
     <dd>
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/dyna-q.png" alt="Pseudocode for the Dyna-Q algorithm" />
-            <figcaption class="text-center">Pseudocode for the Dyna-Q algorithm</figcaption>
+        <figure>
+            <a href="../images/2016/07/dyna-q.png"><img src="../images/2016/07/dyna-q.png" alt="Pseudocode for the Dyna-Q algorithm" width="512" height="438" loading="lazy"></a>
+            <figcaption>Pseudocode for the Dyna-Q algorithm</figcaption>
         </figure><br/>
 
         <ul>
@@ -2194,9 +2194,9 @@ $$
     </tr>
     <tr>
         <td>Agent-Environment Diagram</td>
-        <td><img src="../images/2016/07/agent-environment-diagram-mdp.png" alt="Agent-Environment Diagram of a MDP" /></td>
-        <td><img src="../images/2016/07/agent-environment-diagram-pomdp.png" alt="Agent-Environment Diagram of a POMDP" /></td>
-        <td><img src="../images/2016/07/agent-environment-diagram-rl.png" alt="Agent-Environment Diagram of a RL problem" /></td>
+        <td><a href="../images/2016/07/agent-environment-diagram-mdp.png"><img src="../images/2016/07/agent-environment-diagram-mdp.png" alt="Agent-Environment Diagram of a MDP" width="256" height="181" loading="lazy"></a></td>
+        <td><a href="../images/2016/07/agent-environment-diagram-pomdp.png"><img src="../images/2016/07/agent-environment-diagram-pomdp.png" alt="Agent-Environment Diagram of a POMDP" width="256" height="206" loading="lazy"></a></td>
+        <td><a href="../images/2016/07/agent-environment-diagram-rl.png"><img src="../images/2016/07/agent-environment-diagram-rl.png" alt="Agent-Environment Diagram of a RL problem" width="256" height="135" loading="lazy"></a></td>
     </tr>
     <tr>
         <td>1</td>

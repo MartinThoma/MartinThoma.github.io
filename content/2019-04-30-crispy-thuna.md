@@ -11,9 +11,9 @@ featured_image: logos/cooking.png
 ---
 Crispy Tofu and Tuna is the first way to prepare tofu that I liked. It's a sweet Indonesian dish which is best served with rice.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/crispy-tofu-dish.jpg"><img src="../images/2019/04/crispy-tofu-dish.jpg" alt="Crispy Tofu and Tuna" style="width: 512px;"/></a>
-    <figcaption class="text-center">Crispy Tofu and Tuna</figcaption>
+<figure>
+    <a href="../images/2019/04/crispy-tofu-dish.jpg"><img src="../images/2019/04/crispy-tofu-dish.jpg" alt="Crispy Tofu and Tuna" width="512" height="910"></a>
+    <figcaption>Crispy Tofu and Tuna</figcaption>
 </figure>
 
 ## Ingredients
@@ -44,9 +44,9 @@ For 4 people, you need:
 
 For the following, you will need roughly 30 minutes.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/crispy-tofu-pan.jpg"><img src="../images/2019/04/crispy-tofu-pan.jpg" alt="Almost done!" style="width: 512px;"/></a>
-    <figcaption class="text-center">Almost done!</figcaption>
+<figure>
+    <a href="../images/2019/04/crispy-tofu-pan.jpg"><img src="../images/2019/04/crispy-tofu-pan.jpg" alt="Almost done!" width="512" height="910" loading="lazy"></a>
+    <figcaption>Almost done!</figcaption>
 </figure>
 
 You might want to start with cooking the rice, as this will take at least 15

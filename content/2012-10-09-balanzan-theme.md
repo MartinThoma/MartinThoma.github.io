@@ -19,10 +19,10 @@ sudo apt-get install bisigi-themes
 ```
 
 <h2>Impression</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/10/balazan-font-300x247.png"><img src="../images/2012/10/balazan-font-300x247.png" alt="Impression of the Balanzan Theme" style="max-width:300px;max-height:247px" class="size-medium wp-image-46561"/></a>
-            <figcaption class="text-center">Impression of the Balanzan Theme</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/10/balazan-font-300x247.png"><img src="../images/2012/10/balazan-font-300x247.png" alt="Impression of the Balanzan Theme" width="300" height="247"></a>
+    <figcaption>Impression of the Balanzan Theme</figcaption>
+</figure>
 
 <h2>Color Theme</h2>
 <h3>LXDE</h3>
@@ -58,20 +58,20 @@ sudo apt-get install bisigi-themes
 Download <a href="https://launchpad.net/~bisigi/+archive/ppa/+files/balanzan-theme_1.8.1.natty.ppa1.tar.gz">the whole package</a>, go to <code>balazan-theme/icons</code> and look into <code>balazan.tar.bz2</code>.
 
 Here are some of the icons:
-<figure class="aligncenter">
-            <a href="../images/2012/10/balazan-icons.png"><img src="../images/2012/10/balazan-icons.png" alt="Balanzan Icons" style="max-width:459px;max-height:465px" class="size-full wp-image-46541"/></a>
-            <figcaption class="text-center">Balanzan Icons</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/10/balazan-icons.png"><img src="../images/2012/10/balazan-icons.png" alt="Balanzan Icons" width="459" height="465" loading="lazy"></a>
+    <figcaption>Balanzan Icons</figcaption>
+</figure>
 
 <h2>Background</h2>
 The background is based on "<a href="http://ubuntu.damianvila.com/">Lion Claar</a>" background by Dami&aacute;n Vila:
 
-<figure class="alignright">
-            <a href="../images/2012/10/balanzan_4_3-150x150.png"><img src="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper" style="max-width:150px;max-height:150px;" class="size-thumbnail wp-image-46491"/></a>
-            <figcaption class="text-center">Balanzan 4:3 wallpaper</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/10/balanzan_4_3-150x150.png"><img src="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper" width="150" height="150" loading="lazy"></a>
+    <figcaption>Balanzan 4:3 wallpaper</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/10/balanzan-150x150.png"><img src="../images/2012/10/balanzan-150x150.png" alt="Balanzan 16:9 wallpaper" style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-46481"/></a>
-            <figcaption class="text-center">Balanzan 16:9 wallpaper</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/10/balanzan-150x150.png"><img src="../images/2012/10/balanzan-150x150.png" alt="Balanzan 16:9 wallpaper" width="150" height="150" loading="lazy"></a>
+    <figcaption>Balanzan 16:9 wallpaper</figcaption>
+</figure>

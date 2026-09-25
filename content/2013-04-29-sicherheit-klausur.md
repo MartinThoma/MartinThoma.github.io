@@ -251,10 +251,10 @@ Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice
 <div class="answer">
 Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion von kryptographischen Hash-Funktionen. Sie funktioniert so:
 
-<figure class="aligncenter">
-            <a href="../images/2013/04/merkle-damgard-300x139.png"><img src="../images/2013/04/merkle-damgard-300x139.png" alt="Merkle-Damgard-Konstruktion" style="max-width:300px;max-height:139px" class="size-medium wp-image-74091"/></a>
-            <figcaption class="text-center">Merkle-Damgard-Konstruktion<br />Quelle: <a href='http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg'>Wikipedia</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/merkle-damgard-300x139.png"><img src="../images/2013/04/merkle-damgard-300x139.png" alt="Merkle-Damgard-Konstruktion" width="300" height="139" loading="lazy"></a>
+    <figcaption>Merkle-Damgard-Konstruktion<br />Quelle: <a href='http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg'>Wikipedia</a></figcaption>
+</figure>
 </div>
 </details>
 
@@ -369,17 +369,17 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
 
 <h2>Diverses</h2>
 <h3>TLS Handshake</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/04/tls-handshake.jpg"><img src="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake" style="max-width:512px;max-height:449px" class="size-full wp-image-74511"/></a>
-            <figcaption class="text-center">TLS Handshake</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/tls-handshake.jpg"><img src="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake" width="512" height="449" loading="lazy"></a>
+    <figcaption>TLS Handshake</figcaption>
+</figure>
 
 <h3>Change Cipher Spec Drop</h3>
 Ein Angriff auf verschlüsselte Verbindungen:
-<figure class="aligncenter">
-            <a href="../images/2013/04/change-cipher-spec-drop.jpg"><img src="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop" style="max-width:512px;max-height:275px" class="size-full wp-image-74501"/></a>
-            <figcaption class="text-center">Change cipher spec drop</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/change-cipher-spec-drop.jpg"><img src="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop" width="512" height="275" loading="lazy"></a>
+    <figcaption>Change cipher spec drop</figcaption>
+</figure>
 
 
 <h2>Material</h2>
@@ -437,7 +437,7 @@ Sind noch nicht draußen (Stand: 30.07.2013)
 
 Sind nun draußen (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorläufige Ergebnisse als PDF</a>
 
-<figure class="aligncenter">
-            <a href="../images/2013/04/ergebnis-sicherheit-300x227.png"><img src="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur" style="max-width:300px;max-height:227px" class="size-medium wp-image-75851"/></a>
-            <figcaption class="text-center">Ergebnis der Sicherheitsklausur</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/ergebnis-sicherheit-300x227.png"><img src="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur" width="300" height="227" loading="lazy"></a>
+    <figcaption>Ergebnis der Sicherheitsklausur</figcaption>
+</figure>

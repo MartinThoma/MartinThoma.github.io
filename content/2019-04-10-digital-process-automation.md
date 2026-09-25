@@ -56,9 +56,9 @@ want to match any single character and as many of them as possible. By adding a
 means that you want to find any characters, then a `;`, then again any
 characters until the next `;` comes. In my editor, it looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/regex-matches.png"><img src="../images/2019/04/regex-matches.png" alt="3 matches for the RegEx .+?;.+?;" style="width: 512px;"/></a>
-    <figcaption class="text-center">3 matches for the RegEx .+?;.+?;</figcaption>
+<figure>
+    <a href="../images/2019/04/regex-matches.png"><img src="../images/2019/04/regex-matches.png" alt="3 matches for the RegEx .+?;.+?;" width="512" height="133" loading="lazy"></a>
+    <figcaption>3 matches for the RegEx .+?;.+?;</figcaption>
 </figure>
 
 Then, I press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> to get **multiple cursors**.

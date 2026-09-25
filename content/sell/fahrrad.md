@@ -12,12 +12,20 @@ save_as: sell/fahrrad/index.html
 ---
 <div itemscope itemtype="http://schema.org/Product">
   <span itemprop="name">22 Zoll Kennhill Fahrrad</span>
-  <img src="../../images/2016/05/fahrrad-1.jpg" alt="Fahrrad" />
-  <img src="../../images/2016/05/fahrrad-2.jpg" alt="Fahrrad" />
+
+<div class="gallery">
+    <figure>
+        <a href="../../images/2016/05/fahrrad-1.jpg"><img src="../../images/2016/05/fahrrad-1.jpg" alt="Fahrrad" width="720" height="591"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/fahrrad-2.jpg"><img src="../../images/2016/05/fahrrad-2.jpg" alt="Fahrrad" width="443" height="540" loading="lazy"></a>
+    </figure>
+</div>
+
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <span itemprop="priceCurrency" content="EUR">&euro;</span><span
           itemprop="price" content="50.00">50.00</span>,
-    <link itemprop="availability" href="http://schema.org/InStock" />Verkauft
+    <link itemprop="availability" href="http://schema.org/InStock" />Verkauft</span>
   </div>
   <b>Beschreibung:</b>
   <span itemprop="description">Eine Hinterbremse is defekt Licht hinten ist zerschlagen Dynamo läuft nicht am Reifen (jedenfalls bekomme ich es nicht hin)<br/>

@@ -136,7 +136,7 @@ $ s3cmd ls --add-header="x-amz-request-payer: requester" s3://arxiv/pdf/\*
 ```
 
 The manifest contains all information about the real data. Remember, you have
-to pay for the downloads! According to arXiv, it's about &#36;0.12/GB transferred.
+to pay for the downloads! According to arXiv, it's about \$0.12/GB transferred.
 This means for 150 GB I would have to pay at least &#36;18.
 
 The manifest is an XML file, which looks like this:

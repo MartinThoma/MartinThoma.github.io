@@ -953,9 +953,9 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Wahl von $\varepsilon$ zu verschiedenen Clustern in DBSCAN führen würde.
         Er veranschaulicht das Ergebnis von OPTICS.
 
-        <figure class="wp-caption aligncenter img-thumbnail">
-            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" style="max-width:512px;"/></a>
-            <figcaption class="text-center">OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
+        <figure>
+            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" width="500" height="342" loading="lazy"></a>
+            <figcaption>OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
         </figure>
 
     </dd>

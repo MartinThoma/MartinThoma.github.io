@@ -23,9 +23,9 @@ There are [many other swimming halls](http://www.muenchen.de/freizeit/mbaeder/th
 
 The [Dreambowl Palace](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/) ([maps](https://goo.gl/maps/FZthKWVHfcR2), [website](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/)) you can play Bowling, Mini-Golf and Air Hockey. The price for [Mini-Golf is 5.50 EUR](https://www.dreambowl.de/wp-content/uploads/PA-Preisliste_NEU_ab_01.09.2017.pdf).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/1001-minigolf.jpg" alt="1001 Nacht Moonlight Minigolf" style="width: 512px;"/>
-    <figcaption class="text-center">1001 Nacht Moonlight Minigolf</figcaption>
+<figure>
+    <a href="../images/2017/12/1001-minigolf.jpg"><img src="../images/2017/12/1001-minigolf.jpg" alt="1001 Nacht Moonlight Minigolf" width="512" height="384"></a>
+    <figcaption>1001 Nacht Moonlight Minigolf</figcaption>
 </figure>
 
 ## Zoo
@@ -34,19 +34,19 @@ The [Tierpark Hellabrunn](https://de.wikipedia.org/wiki/Tierpark_Hellabrunn) ([m
 has about 19000 animals. It is open [from 9:00 to 17:00](http://www.hellabrunn.de/besuch-planen/oeffnungszeiten/) o'clock
 and costs [15.00 EUR for adults](http://www.hellabrunn.de/besuch-planen/tickets/).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/Pongo-abelii.jpg" alt="Monkey with its child" style="width: 512px;"/>
-    <figcaption class="text-center">Monkey with its child</figcaption>
+<figure>
+    <a href="../images/2017/12/Pongo-abelii.jpg"><img src="../images/2017/12/Pongo-abelii.jpg" alt="Monkey with its child" width="512" height="384" loading="lazy"></a>
+    <figcaption>Monkey with its child</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/Suricata-suricatta-1.jpg" alt="Meerkat" style="width: 512px;"/>
-    <figcaption class="text-center">Meerkat</figcaption>
+<figure>
+    <a href="../images/2017/12/Suricata-suricatta-1.jpg"><img src="../images/2017/12/Suricata-suricatta-1.jpg" alt="Meerkat" width="512" height="384" loading="lazy"></a>
+    <figcaption>Meerkat</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/Water-Elephants-4.jpg" alt="Elephant" style="width: 512px;"/>
-    <figcaption class="text-center">Elephant</figcaption>
+<figure>
+    <a href="../images/2017/12/Water-Elephants-4.jpg"><img src="../images/2017/12/Water-Elephants-4.jpg" alt="Elephant" width="512" height="384" loading="lazy"></a>
+    <figcaption>Elephant</figcaption>
 </figure>
 
 There is also [Sea Life](https://www.visitsealife.com/de/de/muenchen/). It

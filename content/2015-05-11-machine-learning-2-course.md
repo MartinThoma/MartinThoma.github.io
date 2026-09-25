@@ -411,32 +411,16 @@ Siehe auch:
 
 * Udacity: [Artificial Intelligence for Robotics](https://www.youtube.com/watch?v=8O9GV4SUToA&index=77&list=PLAwxTw4SYaPkCSYXw6-a_aAoXVKLDwnHK) - good content for Kalman Filters
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2016/01/tracking-robots.png" class="image">
-                  <img src="../images/2016/01/tracking-robots.png" alt="Tracking Robots" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Tracking Robots</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2016/01/probabilisitc-graphical-models.png" class="image">
-                  <img src="../images/2016/01/probabilisitc-graphical-models.png" alt="Probabilistic Graphical Models" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Probabilistic Graphical Models</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2016/01/tracking-robots.png"><img src="../images/2016/01/tracking-robots.png" alt="Tracking Robots" width="120" height="44" loading="lazy"></a>
+        <figcaption>Tracking Robots</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2016/01/probabilisitc-graphical-models.png"><img src="../images/2016/01/probabilisitc-graphical-models.png" alt="Probabilistic Graphical Models" width="120" height="58" loading="lazy"></a>
+        <figcaption>Probabilistic Graphical Models</figcaption>
+    </figure>
+</div>
 
 
 ### Probabilistisch Relationale Modelle

@@ -11,7 +11,10 @@ featured_image: logos/python.png
 subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
 medium_url: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377
 ---
-![Photo by the author.](../images/2021/03/6-alternatives-to-classes-1.png)*Photo by the author.*
+<figure>
+    <a href="../images/2021/03/6-alternatives-to-classes-1.png"><img src="../images/2021/03/6-alternatives-to-classes-1.png" alt="Photo by the author." width="1590" height="678"></a>
+    <figcaption>Photo by the author.</figcaption>
+</figure>
 
 As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data.
 

@@ -9,9 +9,9 @@ category: German posts
 tags: Germany, Politics
 featured_image: logos/germany.png
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/02/auslaender-in-deutschland.png"><img src="../images/2025/02/auslaender-in-deutschland.png" alt="Verteilung der Ausländer in Deutschland" style="max-height: 512px"/></a>
-    <figcaption class="text-center"><a href="https://www.deutschlandatlas.bund.de/DE/Karten/Wer-wir-sind/Auslaendische-Bevoelkerung.html">Menschen ohne deutsche Staatsangehörigkeit in Deutschland</a>: 12,3 Millionen Menschen oder 14,6% der Menschen in Deutschland</figcaption>
+<figure>
+    <a href="../images/2025/02/auslaender-in-deutschland.png"><img src="../images/2025/02/auslaender-in-deutschland.png" alt="Verteilung der Ausländer in Deutschland" width="387" height="512"></a>
+    <figcaption><a href="https://www.deutschlandatlas.bund.de/DE/Karten/Wer-wir-sind/Auslaendische-Bevoelkerung.html">Menschen ohne deutsche Staatsangehörigkeit in Deutschland</a>: 12,3 Millionen Menschen oder 14,6% der Menschen in Deutschland</figcaption>
 </figure>
 
 Seit dem [Bürgerkrieg in Syrien 2011](https://de.wikipedia.org/wiki/B%C3%BCrgerkrieg_in_Syrien_seit_2011) und der damit verbundenen
@@ -229,7 +229,9 @@ Im Dezember 2023 lebten die meisten Geflüchteten laut Statista in Zypern, Tsche
 Deutschland, Österreich und Estland. Sehr wenige Geflüchtete leben in
 Rumänien, Portugal, Ungarn, Slowenien, Kroatien und Italien:
 
-<a href="https://de.statista.com/infografik/18439/fluechtlinge-und-asylbewerber-in-eu-laendern/" title="Infografik: Wo leben die meisten Geflüchteten? | Statista"><img src="https://cdn.statcdn.com/Infographic/images/normal/18439.jpeg" alt="Infografik: Wo leben die meisten Geflüchteten? | Statista" width="100%" height="auto" style="width: 100%; height: auto !important; max-width:960px;-ms-interpolation-mode: bicubic;"/></a>
+<figure>
+    <a href="https://de.statista.com/infografik/18439/fluechtlinge-und-asylbewerber-in-eu-laendern/"><img src="https://cdn.statcdn.com/Infographic/images/normal/18439.jpeg" alt="Infografik: Wo leben die meisten Geflüchteten? | Statista" width="960" loading="lazy"></a>
+</figure>
 
 Das könnte daran liegen, dass der Verteilungsschlüssel sinnvollerweise nicht nur
 nach Einwohnerzahl, sondern auch nach dem Steueraufkommen berechnet wird. Wenn
@@ -397,9 +399,9 @@ vernünftigen Problemanalyse kann man zuverlässig funktionierende Lösungen fin
 
 ## Fehlerhafte Problemanalyse
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/02/keks.jpg"><img src="../images/2025/02/keks.jpg" alt="Abgewandelte Karikatur; ursprünglich von Denis Lushch" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Abgewandelte Karikatur; ursprünglich von <a href="https://www.instagram.com/d.lushch.art/">Denis Lushch</a></figcaption>
+<figure>
+    <a href="../images/2025/02/keks.jpg"><img src="../images/2025/02/keks.jpg" alt="Abgewandelte Karikatur; ursprünglich von Denis Lushch" width="777" height="512" loading="lazy"></a>
+    <figcaption>Abgewandelte Karikatur; ursprünglich von <a href="https://www.instagram.com/d.lushch.art/">Denis Lushch</a></figcaption>
 </figure>
 
 Im aktuellen CDU-Wahlprogramm steht: "Großangelegter Sozialleistungsmissbrauch,
@@ -593,7 +595,9 @@ also den Antrag eingebracht? Ich sehe folgende Gründe:
 
 ## Psychologische Aspekte
 
-<img src="../images/2025/02/asian-elderly-care-worker.jpg" style="width: 500px;" />
+<figure class="ai-generated">
+    <a href="../images/2025/02/asian-elderly-care-worker.jpg"><img src="../images/2025/02/asian-elderly-care-worker.jpg" alt="" width="500" height="500" loading="lazy"></a>
+</figure>
 
 Wir haben Millionen Ausländer in Deutschland, die unsere Pflegeheime am Laufen
 halten, unsere Kranken versorgen, unsere Kinder betreuen, an den Kassen im Aldi

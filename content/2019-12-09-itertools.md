@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-09 20:00
 category: Code
-tags: Python, itertools, Mathematics
+tags: Python, itertools
 featured_image: logos/python.png
 ---
 [Itertools](https://docs.python.org/3/library/itertools.html) is a tiny Python

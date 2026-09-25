@@ -26,15 +26,15 @@ Zusammen mit dem Null-Vektor bilden alle Eigenvektoren zu einem Eigenwert einer 
 
 <h2>Beispiele</h2>
 <h3>Etwas einfaches</h3>
-Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := x $.
+Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := x$.
 Dann ist $\lambda = 1$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschließlich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugehörige Eigenraum der gesamte $\mathbb{R}^3$.
 
 <h3>Noch immer leicht</h3>
-Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := ax $ mit $a \in \mathbb{R} \setminus \{0\}$.
+Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := ax$ mit $a \in \mathbb{R} \setminus \{0\}$.
 Dann ist $\lambda = a$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschließlich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugehörige Eigenraum der gesamte $\mathbb{R}^3$.
 
 <h3>Etwas schwerer</h3>
-Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := \begin{pmatrix} 1 & 2 & 3\\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} x $.
+Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := \begin{pmatrix} 1 & 2 & 3\\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} x$.
 
 Die Eigenwerte sind laut <a href="http://www.wolframalpha.com/input/?i=Eigenvalues+%7B%7B1%2C2%2C3%7D%2C%7B4%2C5%2C6%7D%2C%7B7%2C8%2C9%7D%7D">Wolfram|Alpha</a>:
 $\lambda_1 = \frac{3}{2} (5+\sqrt{33})$, Eigenvektor: $v_1 = \begin{pmatrix}-\frac{13}{11}+\frac{1}{22} (15+3 \sqrt{33}) \\ -\frac{1}{11}+\frac{1}{44} (15+3 \sqrt{33}) \\ 1\end{pmatrix}$

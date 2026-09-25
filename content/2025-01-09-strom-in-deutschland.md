@@ -74,7 +74,10 @@ Unabhängigkeit – ökonomisch wie geopolitisch.
 * Erdgas: Deutschland hat 2023 [2 Millionen Terajoule Erdgas importiert](https://www.destatis.de/DE/Themen/Wirtschaft/Aussenhandel/Tabellen/erdgas-jaehrlich.html). Seit 2023 kommt ein Großteil aus Norwegen, den Niederlanden und Belgien ([Quelle](https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/))
 
 
-<a href="https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/" title="Infografik: Woher bezieht Deutschland sein Gas? | Statista"><img src="https://cdn.statcdn.com/Infographic/images/normal/30706.jpeg" alt="Infografik: Woher bezieht Deutschland sein Gas? | Statista" width="960" loading="lazy"></a> Mehr Infografiken finden Sie bei <a href="https://de.statista.com/infografik/">Statista</a>
+<figure>
+    <a href="https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/"><img src="https://cdn.statcdn.com/Infographic/images/normal/30706.jpeg" alt="Infografik: Woher bezieht Deutschland sein Gas?" width="960" height="960" loading="lazy"></a>
+    <figcaption>Woher bezieht Deutschland sein Gas? Mehr Infografiken finden Sie bei <a href="https://de.statista.com/infografik/">Statista</a></figcaption>
+</figure>
 
 
 ## Strompreise: Stabilisierung nach der Krise

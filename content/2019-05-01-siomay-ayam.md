@@ -12,9 +12,9 @@ featured_image: logos/cooking.png
 Siomay Ayam is an Indonesian dish which is comparable to [Maultaschen](https://en.wikipedia.org/wiki/Maultasche).
 "Ayam" means "chicken". It takes about one hour to prepare and about 20 min for steaming.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/siomay-ayam-5.jpg"><img src="../images/2019/01/siomay-ayam-5.jpg" alt="Siomay Ayam with potato, egg and peanut sauce" style="width: 512px;"/></a>
-    <figcaption class="text-center">Siomay Ayam with potato, egg and peanut sauce</figcaption>
+<figure>
+    <a href="../images/2019/01/siomay-ayam-5.jpg"><img src="../images/2019/01/siomay-ayam-5.jpg" alt="Siomay Ayam with potato, egg and peanut sauce" width="512" height="390"></a>
+    <figcaption>Siomay Ayam with potato, egg and peanut sauce</figcaption>
 </figure>
 
 ## Ingredients
@@ -50,9 +50,9 @@ Additional ingredients:
 
 ## Preparation
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/siomay-ayam-1.jpg"><img src="../images/2019/01/siomay-ayam-1.jpg" alt="Chop chicken into fine pieces" style="width: 512px;"/></a>
-    <figcaption class="text-center">Chop chicken into fine pieces</figcaption>
+<figure>
+    <a href="../images/2019/01/siomay-ayam-1.jpg"><img src="../images/2019/01/siomay-ayam-1.jpg" alt="Chop chicken into fine pieces" width="512" height="467" loading="lazy"></a>
+    <figcaption>Chop chicken into fine pieces</figcaption>
 </figure>
 
 1. Chop the chicken into very fine pieces - less than 1mm. You could put the
@@ -69,21 +69,21 @@ like the taste. Does it need more sugar / salt / pepper / oyster sauce?
 
 If you like the consistency, put the mix in the pastry sheets:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/siomay-ayam-2.jpg"><img src="../images/2019/01/siomay-ayam-2.jpg" alt="Siomay ayam filling" style="width: 512px;"/></a>
-    <figcaption class="text-center">Siomay ayam filling</figcaption>
+<figure>
+    <a href="../images/2019/01/siomay-ayam-2.jpg"><img src="../images/2019/01/siomay-ayam-2.jpg" alt="Siomay ayam filling" width="512" height="701" loading="lazy"></a>
+    <figcaption>Siomay ayam filling</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/siomay-ayam-3.jpg"><img src="../images/2019/01/siomay-ayam-3.jpg" alt="The mix, the pastry sheets and the almost finished siomay ayam" style="width: 512px;"/></a>
-    <figcaption class="text-center">The mix, the pastry sheets and the almost finished siomay ayam</figcaption>
+<figure>
+    <a href="../images/2019/01/siomay-ayam-3.jpg"><img src="../images/2019/01/siomay-ayam-3.jpg" alt="The mix, the pastry sheets and the almost finished siomay ayam" width="512" height="683" loading="lazy"></a>
+    <figcaption>The mix, the pastry sheets and the almost finished siomay ayam</figcaption>
 </figure>
 
 In the end, you have to steam them for roughly 20 minutes:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/siomay-ayam-4.jpg"><img src="../images/2019/01/siomay-ayam-4.jpg" alt="The siomay ayam are ready!" style="width: 512px;"/></a>
-    <figcaption class="text-center">The siomay ayam are ready!</figcaption>
+<figure>
+    <a href="../images/2019/01/siomay-ayam-4.jpg"><img src="../images/2019/01/siomay-ayam-4.jpg" alt="The siomay ayam are ready!" width="512" height="288" loading="lazy"></a>
+    <figcaption>The siomay ayam are ready!</figcaption>
 </figure>
 
 <span language="ind">Selamat makan!</span>

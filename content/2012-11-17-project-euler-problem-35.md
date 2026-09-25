@@ -36,10 +36,10 @@ This finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistak
 
 First, this is the way the sieve of Eratosthenes works:
 
-<figure class="aligncenter">
-            <a href="../images/2012/11/Sieve_of_Eratosthenes_animation.gif"><img src="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" style="max-width:445px;max-height:503px" class="size-full" link="../project-euler-problem-35/sieve_of_eratosthenes_animation/"/></a>
-            <figcaption class="text-center">Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>Source: <a href='http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif'>Wikimedia</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/11/Sieve_of_Eratosthenes_animation.gif"><img src="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" width="445" height="369"></a>
+    <figcaption>Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>Source: <a href='http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif'>Wikimedia</a></figcaption>
+</figure>
 
 For example, this implementation is not good:
 ```python

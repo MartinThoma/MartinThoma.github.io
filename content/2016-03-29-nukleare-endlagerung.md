@@ -27,10 +27,10 @@ elektrisch neutral. Alle diese Elementarteilchen haben Masse. Elektronen sind
 extrem leicht, Protonen und Neutronen sind etwa gleich schwer und beide jeweils
 deutlich schwerer als Elektronen.
 
-<figure class="aligncenter">
-            <a href="../images/2016/03/atom.png"><img src="../images/2016/03/atom.png" alt="Visualisierung eines Atoms" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Visualisierung eines Atoms<br/>Bildquelle: <a href='https://commons.wikimedia.org/wiki/File:EisenatomLichteffekt.svg'>Wikipedia - Fornax, Halfdan, Groogokk</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/03/atom.png"><img src="../images/2016/03/atom.png" alt="Visualisierung eines Atoms" width="500" height="510"></a>
+    <figcaption>Visualisierung eines Atoms<br/>Bildquelle: <a href='https://commons.wikimedia.org/wiki/File:EisenatomLichteffekt.svg'>Wikipedia - Fornax, Halfdan, Groogokk</a></figcaption>
+</figure>
 
 Die Anzahl der Protonen und Elektronen ist gleich, sodass ein Atom insgesamt
 elektrisch neutral geladen ist. Die Anzahl der Protonen (bzw. Elektronen) macht
@@ -83,9 +83,8 @@ sich dieser Spalten. Es bilden sich zwei neue, kleinere Atomkerne und - je nach
 Atom - werden weitere Neutronen abgestoßen.
 
 <figure>
-    <img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg.">
-    <figcaption>Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg.<br/>
-    Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
+    <a href="../images/2016/03/Kernspaltung.gif"><img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg." width="320" height="223" loading="lazy"></a>
+    <figcaption>Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg.<br/> Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
 </figure>
 
 Eine solche Spaltung kann man formal wie folgt darstellen:

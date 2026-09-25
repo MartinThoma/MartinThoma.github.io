@@ -135,32 +135,16 @@ def view_image(image, label=""):
 
 It looks like this:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/06/mnist-1.png" class="image">
-                  <img src="../images/2014/06/mnist-1.png" alt="7" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">7</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/06/mnist-2.png" class="image">
-                  <img src="../images/2014/06/mnist-2.png" alt="2" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">2</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/06/mnist-1.png"><img src="../images/2014/06/mnist-1.png" alt="7" width="120" height="101" loading="lazy"></a>
+        <figcaption>7</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/06/mnist-2.png"><img src="../images/2014/06/mnist-2.png" alt="2" width="120" height="101" loading="lazy"></a>
+        <figcaption>2</figcaption>
+    </figure>
+</div>
 
 ## Classify data
 

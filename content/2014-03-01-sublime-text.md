@@ -39,18 +39,18 @@ installed. It makes installation of other packages so much easier. After you
 have installed it, you can press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 to get this dialog:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-package-control-install.png"><img src="../images/2014/03/sublime-package-control-install.png" alt="Sublime Tabs" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Sublime Tabs</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-package-control-install.png"><img src="../images/2014/03/sublime-package-control-install.png" alt="Sublime Tabs" width="500" height="186"></a>
+    <figcaption>Sublime Tabs</figcaption>
+</figure>
 
 ## Configuration
 Sublime Text offers plenty of configuration options. You can apply them to projects, users or system-wide. Most of the time, I change my preferences via Preferences > Settings - User:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-user-preferences.png"><img src="../images/2014/03/sublime-user-preferences.png" alt="Preferences > Settings - User" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Preferences > Settings - User</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-user-preferences.png"><img src="../images/2014/03/sublime-user-preferences.png" alt="Preferences &gt; Settings - User" width="500" height="269" loading="lazy"></a>
+    <figcaption>Preferences > Settings - User</figcaption>
+</figure>
 
 Here is what I have changed:
 
@@ -84,10 +84,10 @@ Note that you have to install the color scheme and the font ([source](http://fon
 You can get to the command palette by <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 This opens such a dialog:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-command-palette.png"><img src="../images/2014/03/sublime-command-palette.png" alt="Command Palette" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Command Palette</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-command-palette.png"><img src="../images/2014/03/sublime-command-palette.png" alt="Command Palette" width="500" height="281" loading="lazy"></a>
+    <figcaption>Command Palette</figcaption>
+</figure>
 
 This will do a fuzzy search through all elements in the menu. So you don't need
 to use <kbd>Alt</kbd> + arrow keys any longer. I love it ☺
@@ -103,20 +103,20 @@ more.
 [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter) adds
 brackets on the left side. It looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-braces.png"><img src="../images/2014/03/sublime-braces.png" alt="Highlight braces" style="max-width:328px;" class=""/></a>
-            <figcaption class="text-center">Highlight braces</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-braces.png"><img src="../images/2014/03/sublime-braces.png" alt="Highlight braces" width="328" height="474" loading="lazy"></a>
+    <figcaption>Highlight braces</figcaption>
+</figure>
 
 ### Alignment
 [Sublime Alignment](http://wbond.net/sublime_packages/alignment) lets you mark
 text and press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
 align it:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-align.gif"><img src="../images/2014/03/sublime-align.gif" alt="automatic alignment" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Automatic alignment</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-align.gif"><img src="../images/2014/03/sublime-align.gif" alt="automatic alignment" width="500" height="177" loading="lazy"></a>
+    <figcaption>Automatic alignment</figcaption>
+</figure>
 
 ### Colorsublime
 
@@ -188,23 +188,23 @@ was written by Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](ht
 
 <kbd>Ctrl</kbd> + <kbd>r</kbd>: Goto section
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-latextools-jump-ctrl-r.png"><img src="../images/2014/03/sublime-latextools-jump-ctrl-r.png" alt="Ctrl+R in Sublime Text" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Ctrl+R in Sublime Text (LaTeX)</figcaption>
-        </figure>
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-jump-markdown-ctrl-r.png"><img src="../images/2014/03/sublime-jump-markdown-ctrl-r.png" alt="Ctrl+R in Sublime Text" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Ctrl+R in Sublime Text (Markdown)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-latextools-jump-ctrl-r.png"><img src="../images/2014/03/sublime-latextools-jump-ctrl-r.png" alt="Ctrl+R in Sublime Text" width="500" height="326" loading="lazy"></a>
+    <figcaption>Ctrl+R in Sublime Text (LaTeX)</figcaption>
+</figure>
+<figure>
+    <a href="../images/2014/03/sublime-jump-markdown-ctrl-r.png"><img src="../images/2014/03/sublime-jump-markdown-ctrl-r.png" alt="Ctrl+R in Sublime Text" width="500" height="265" loading="lazy"></a>
+    <figcaption>Ctrl+R in Sublime Text (Markdown)</figcaption>
+</figure>
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Up / Down</kbd>: Move the current line one line up / down
 
 <kbd>Shift</kbd> + <kbd>F11</kbd>: Distraction free mode
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-text-distraction-free.png"><img src="../images/2014/03/sublime-text-distraction-free.png" alt="Distraction free mode" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Distraction free mode</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-text-distraction-free.png"><img src="../images/2014/03/sublime-text-distraction-free.png" alt="Distraction free mode" width="500" height="282" loading="lazy"></a>
+    <figcaption>Distraction free mode</figcaption>
+</figure>
 
 <kbd>Ctrl</kbd> + <kbd>D</kbd>: Multi-Select
 
@@ -215,27 +215,27 @@ was written by Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](ht
 ### Chrome-like Tabs
 Look at this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-text-tabs.png"><img src="../images/2014/03/sublime-text-tabs.png" alt="Sublime Tabs" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Sublime Tabs</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-text-tabs.png"><img src="../images/2014/03/sublime-text-tabs.png" alt="Sublime Tabs" width="500" height="167" loading="lazy"></a>
+    <figcaption>Sublime Tabs</figcaption>
+</figure>
 
 Now compare it to this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/chrome-tabs.png"><img src="../images/2014/03/chrome-tabs.png" alt="Chrome Tabs" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Chrome Tabs</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/chrome-tabs.png"><img src="../images/2014/03/chrome-tabs.png" alt="Chrome Tabs" width="500" height="100" loading="lazy"></a>
+    <figcaption>Chrome Tabs</figcaption>
+</figure>
 
 Chrome tabs look much cleaner, don't they? Many others seem to think that, too ([source](http://sublimetext.userecho.com/topic/19361-move-tabs-to-the-title-bar-like-in-google-chrome/)).
 
 ### Line Wrapping
 Sublime Text 3 wraps periods and commas to the next line:
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/sublime-word-wrapping.png"><img src="../images/2014/03/sublime-word-wrapping.png" alt="line wrapping" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">line wrapping</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/sublime-word-wrapping.png"><img src="../images/2014/03/sublime-word-wrapping.png" alt="line wrapping" width="500" height="53" loading="lazy"></a>
+    <figcaption>line wrapping</figcaption>
+</figure>
 
 This behaviour is bad and not liked by the community ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=5214)).
 

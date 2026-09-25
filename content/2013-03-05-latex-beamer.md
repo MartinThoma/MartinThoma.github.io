@@ -75,56 +75,24 @@ When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wik
 
 Here are some screenshots:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/English-Titlepage.png" class="image">
-                  <img src="../images/2013/03/English-Titlepage.png" alt="LaTeX Beamer: Example of a titlepage" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">LaTeX Beamer: Example of a titlepage</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/programmieren-tutorium-titlepage.png" class="image">
-                  <img src="../images/2013/03/programmieren-tutorium-titlepage.png" alt="LaTeX Beamer: Example of a titlepage" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">LaTeX Beamer: Example of a titlepage</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/latex-beamer-quelltext-minted.png" class="image">
-                  <img src="../images/2013/03/latex-beamer-quelltext-minted.png" alt="LaTeX Beamer: Example of source code" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">LaTeX Beamer: Example of source code</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/latex-beamer-uncover-list.png" class="image">
-                  <img src="../images/2013/03/latex-beamer-uncover-list.png" alt="LaTeX Beamer: Example of a slide" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">LaTeX Beamer: Example of a slide</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/03/English-Titlepage.png"><img src="../images/2013/03/English-Titlepage.png" alt="LaTeX Beamer: Example of a titlepage" width="120" height="90" loading="lazy"></a>
+        <figcaption>LaTeX Beamer: Example of a titlepage</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/03/programmieren-tutorium-titlepage.png"><img src="../images/2013/03/programmieren-tutorium-titlepage.png" alt="LaTeX Beamer: Example of a titlepage" width="120" height="90" loading="lazy"></a>
+        <figcaption>LaTeX Beamer: Example of a titlepage</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/03/latex-beamer-quelltext-minted.png"><img src="../images/2013/03/latex-beamer-quelltext-minted.png" alt="LaTeX Beamer: Example of source code" width="120" height="90" loading="lazy"></a>
+        <figcaption>LaTeX Beamer: Example of source code</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/03/latex-beamer-uncover-list.png"><img src="../images/2013/03/latex-beamer-uncover-list.png" alt="LaTeX Beamer: Example of a slide" width="120" height="90" loading="lazy"></a>
+        <figcaption>LaTeX Beamer: Example of a slide</figcaption>
+    </figure>
+</div>
 
 <h2>Sections and subsections</h2>
 Take a look at the slides I've included above. Do you notice the little bubbles at the bottom that indicate how many slides are left?
@@ -180,10 +148,10 @@ You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</c
 ```
 
 It looks like this:
-<figure class="aligncenter">
-            <a href="../images/2013/03/latex-beamer-block-300x117.png"><img src="../images/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" style="max-width:300px;max-height:117px" class="size-medium wp-image-59391"/></a>
-            <figcaption class="text-center">LaTeX Beamer blocks: block, exampleblock, alertblock</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/latex-beamer-block-300x117.png"><img src="../images/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" width="300" height="117" loading="lazy"></a>
+    <figcaption>LaTeX Beamer blocks: block, exampleblock, alertblock</figcaption>
+</figure>
 
 <h2>Images</h2>
 Quite often, you want to have one big image.

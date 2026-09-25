@@ -12,9 +12,9 @@ featured_image: logos/ml.png
 Siamese Networks are feature extractors trained to learn an embedding in $\mathbb{R}^n$
 where not the absolute output is important, but the relative one.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/siamese-networks.png"><img src="../images/2019/04/siamese-networks.png" alt="Schema of a Siamese Network" style="width: 512px;"/></a>
-    <figcaption class="text-center">Schema of a Siamese Network $m_1$.</figcaption>
+<figure>
+    <a href="../images/2019/04/siamese-networks.png"><img src="../images/2019/04/siamese-networks.png" alt="Schema of a Siamese Network" width="512" height="241"></a>
+    <figcaption>Schema of a Siamese Network $m_1$.</figcaption>
 </figure>
 
 The original paper[^1] was about signature verification. You have one original

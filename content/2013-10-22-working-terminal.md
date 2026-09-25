@@ -21,10 +21,10 @@ emulator, sometimes also called a "terminal window". I work in a window
 environment (MATE) and I want to use command line tools within that
 environment. So I need a "terminal window":
 
-<figure class="aligncenter">
-            <a href="../images/2013/10/teriminal-window.png"><img src="../images/2013/10/teriminal-window.png" alt="Terminal Window with ZSH and Bash" style="max-width:300px;max-height:168px" class="size-medium"/></a>
-            <figcaption class="text-center">Terminal Window with ZSH and Bash</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/10/teriminal-window.png"><img src="../images/2013/10/teriminal-window.png" alt="Terminal Window with ZSH and Bash" width="299" height="168"></a>
+    <figcaption>Terminal Window with ZSH and Bash</figcaption>
+</figure>
 
 ZSH and Bash are both Unix shells. A shell is a command line interpreter that
 provides a text-based user interface.
@@ -64,56 +64,24 @@ that this is not a "plain vanilla" zsh.
 ## ZSH and Bash
 Here are some differences. On the left side is zsh, on the right is bash:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/10/bash-vs-zsh-cd.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-cd.png" alt="Bash vs zsh: cd command completion" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Bash vs zsh: cd command completion</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/10/bash-vs-zsh-git.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-git.png" alt="Bash vs zsh: Git prompt indicator" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Bash vs zsh: Git prompt indicator</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/10/bash-vs-zsh-spelling-correction.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-spelling-correction.png" alt="Bash vs zsh: Spelling correction" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Bash vs zsh: Spelling correction</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/10/bash-vs-zsh-time.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-time.png" alt="Bash vs zsh: time command" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Bash vs zsh: time command</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/10/bash-vs-zsh-cd.png"><img src="../images/2013/10/bash-vs-zsh-cd.png" alt="Bash vs zsh: cd command completion" width="120" height="67" loading="lazy"></a>
+        <figcaption>Bash vs zsh: cd command completion</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/10/bash-vs-zsh-git.png"><img src="../images/2013/10/bash-vs-zsh-git.png" alt="Bash vs zsh: Git prompt indicator" width="120" height="67" loading="lazy"></a>
+        <figcaption>Bash vs zsh: Git prompt indicator</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/10/bash-vs-zsh-spelling-correction.png"><img src="../images/2013/10/bash-vs-zsh-spelling-correction.png" alt="Bash vs zsh: Spelling correction" width="120" height="67" loading="lazy"></a>
+        <figcaption>Bash vs zsh: Spelling correction</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/10/bash-vs-zsh-time.png"><img src="../images/2013/10/bash-vs-zsh-time.png" alt="Bash vs zsh: time command" width="120" height="67" loading="lazy"></a>
+        <figcaption>Bash vs zsh: time command</figcaption>
+    </figure>
+</div>
 
 I like the time command of bash more, but that's it. All other interactions are
 either almost the same or better in zsh. I especially like that zsh doesn't
@@ -121,10 +89,10 @@ print everything again when you autocomplete with tab. And it also
 autocompletes when you make a capitalization error.
 
 I also begin to like the Git-specific prompt indicators:
-<figure class="aligncenter">
-            <a href="../images/2013/10/oh-my-zsh-git-added.png"><img src="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH 'git add' indicator" style="max-width:236px;max-height:42px" class="size-full"/></a>
-            <figcaption class="text-center">ZSH 'git add' indicator</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/10/oh-my-zsh-git-added.png"><img src="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH 'git add' indicator" width="236" height="42" loading="lazy"></a>
+    <figcaption>ZSH 'git add' indicator</figcaption>
+</figure>
 
 ## Some useful tools
 

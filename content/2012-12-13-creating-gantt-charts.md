@@ -16,27 +16,27 @@ I am currently involved in a software project and I should create a Gantt chart.
 <a href="https://app.gantter.com">Gantter</a> is a free online tool that allows you to create Gantt charts.
 
 It looks like this:
-<figure class="aligncenter">
-            <a href="../images/2012/12/gantter-overview-300x138.png"><img src="../images/2012/12/gantter-overview-300x138.png" alt="Overview of Gantter" style="max-width:300px;max-height:138px" class="size-medium wp-image-50231"/></a>
-            <figcaption class="text-center">Overview of Gantter</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/gantter-overview-300x138.png"><img src="../images/2012/12/gantter-overview-300x138.png" alt="Overview of Gantter" width="300" height="138"></a>
+    <figcaption>Overview of Gantter</figcaption>
+</figure>
 
 It is easy to use and has a good interface. I can simply define dependencies:
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/gantter-predecessor-depenency-300x138.png"><img src="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor dependency" style="max-width:300px;max-height:138px" class="size-medium wp-image-51101"/></a>
-            <figcaption class="text-center">Gantter Predecessor dependency</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/gantter-predecessor-depenency-300x138.png"><img src="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor dependency" width="300" height="138" loading="lazy"></a>
+    <figcaption>Gantter Predecessor dependency</figcaption>
+</figure>
 
 <h3>Export</h3>
 Gantter offers some export options: HTML, <a href="../pdf/UpToDatE-Implementierung.pdf">PDF</a>, <a href="../images/2012/12/UpToDatE-Implementierung.png">PNG</a>, MS-Project (.xml). All export options I've tried are unconvincing. I couldn't save the HTML export, the PDF export was splitted over several pages and the PNG ... well, it's a PNG. As I am currently on a Linux machine, I can't try the MS-Project export.
 
 <h3>Google Drive</h3>
 Gantter also has a Google Drive integration, but it requests these permissions:
-<figure class="aligncenter">
-            <a href="../images/2012/12/gantter-google-drive-files.png"><img src="../images/2012/12/gantter-google-drive-files.png" alt="Google Drive permissions requested by Gantter" style="max-width:470px;max-height:471px" class="size-full wp-image-50241"/></a>
-            <figcaption class="text-center">Google Drive permissions requested by Gantter</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/gantter-google-drive-files.png"><img src="../images/2012/12/gantter-google-drive-files.png" alt="Google Drive permissions requested by Gantter" width="470" height="471" loading="lazy"></a>
+    <figcaption>Google Drive permissions requested by Gantter</figcaption>
+</figure>
 
 I have contacted them today (11.12.2012) and asked why they want these permissions. I'll update this post as soon as I get an answer.
 
@@ -45,33 +45,33 @@ My recommendation: Don't give them those rights! You can create an account witho
 <h2>GanttProject</h2>
 <a href="http://www.ganttproject.biz/">GanttProject</a> is a Java Gantt chart program (as you might have noticed because of the SWING design):
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/GanttProject-300x201.png"><img src="../images/2012/12/GanttProject-300x201.png" alt="GanttProject - Overview" style="max-width:300px;max-height:201px" class="size-medium wp-image-50361"/></a>
-            <figcaption class="text-center">GanttProject - Overview</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/GanttProject-300x201.png"><img src="../images/2012/12/GanttProject-300x201.png" alt="GanttProject - Overview" width="300" height="201" loading="lazy"></a>
+    <figcaption>GanttProject - Overview</figcaption>
+</figure>
 
 It's quite good, but sometimes I got the feeling that it doesn't instantly respond. It's perhaps imagination as I always think that of Java projects.
 
 The HTML-export is not so good. It basically converts the chart to an image and embeds this into an HTML page. This is not what I thought of! This way, you can't search or copy the tasks. You also can't see more information about the task.
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/GanttProject-export-300x80.png"><img src="../images/2012/12/GanttProject-export-300x80.png" alt="GanttProject export function" style="max-width:300px;max-height:80px" class="size-medium wp-image-50371"/></a>
-            <figcaption class="text-center">GanttProject export function</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/GanttProject-export-300x80.png"><img src="../images/2012/12/GanttProject-export-300x80.png" alt="GanttProject export function" width="300" height="80" loading="lazy"></a>
+    <figcaption>GanttProject export function</figcaption>
+</figure>
 
 <h2>GNOME Planner</h2>
 <a href="https://live.gnome.org/Planner">Planner</a> is part of GNOME.
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/Planner-300x157.png"><img src="../images/2012/12/Planner-300x157.png" alt="Planner - Overview" style="max-width:300px;max-height:157px" class="size-medium wp-image-50291"/></a>
-            <figcaption class="text-center">Planner - Overview</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/Planner-300x157.png"><img src="../images/2012/12/Planner-300x157.png" alt="Planner - Overview" width="300" height="157" loading="lazy"></a>
+    <figcaption>Planner - Overview</figcaption>
+</figure>
 
 This is how you create a new task:
-<figure class="aligncenter">
-            <a href="../images/2012/12/Planner-new-task-300x275.png"><img src="../images/2012/12/Planner-new-task-300x275.png" alt="Planner: Create a new task" style="max-width:300px;max-height:275px" class="size-medium wp-image-50381"/></a>
-            <figcaption class="text-center">Planner: Create a new task</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/Planner-new-task-300x275.png"><img src="../images/2012/12/Planner-new-task-300x275.png" alt="Planner: Create a new task" width="300" height="275" loading="lazy"></a>
+    <figcaption>Planner: Create a new task</figcaption>
+</figure>
 
 It is very annoying that you always have to click on "Change", then on "As soon as possible" change it to "fixed date" and then you can click on a date. Why don't you allow the user to click on a date and when he does, change it automatically to "fixed date"?
 
@@ -80,17 +80,17 @@ The HTML-export is good, but I would also like to click on a tasks' bar and get 
 <h2>Trac jsGantt plugin</h2>
 You can let Trac automatically create a Gantt chart with <a href="http://trac-hacks.org/wiki/TracJsGanttPlugin">Trac jsGantt plugin</a>. According to this link, it should look like this:
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/jsGanttSample-300x150.png"><img src="../images/2012/12/jsGanttSample-300x150.png" alt="jsGanttSample" style="max-width:300px;max-height:150px" class="size-medium wp-image-50511"/></a>
-            <figcaption class="text-center">jsGanttSample</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/jsGanttSample-300x150.png"><img src="../images/2012/12/jsGanttSample-300x150.png" alt="jsGanttSample" width="300" height="150" loading="lazy"></a>
+    <figcaption>jsGanttSample</figcaption>
+</figure>
 
 I knew that I had to install the <a href="http://trac-hacks.org/wiki/MasterTicketsPlugin">MasterTicketsPlugin</a> to make it possible to add ticket dependencies. With that, it looked like this:
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/jsGantt-without-plugins-300x205.png"><img src="../images/2012/12/jsGantt-without-plugins-300x205.png" alt="jsGantt only with MasterTicketsPlugin" style="max-width:300px;max-height:205px" class="size-medium wp-image-50521"/></a>
-            <figcaption class="text-center">jsGantt only with MasterTicketsPlugin</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/jsGantt-without-plugins-300x205.png"><img src="../images/2012/12/jsGantt-without-plugins-300x205.png" alt="jsGantt only with MasterTicketsPlugin" width="300" height="205" loading="lazy"></a>
+    <figcaption>jsGantt only with MasterTicketsPlugin</figcaption>
+</figure>
 
 Not quite what I've expected. So I guess I will also need <a href="http://trac-hacks.org/wiki/SubticketsPlugin">SubticketsPlugin</a> and <a href="http://trac-hacks.org/wiki/TimingAndEstimationPlugin">TimingAndEstimationPlugin</a>.
 
@@ -125,10 +125,10 @@ This piece of LaTeX:
 
 generates this Gantt chart:
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/gantt-pgf.png"><img src="../images/2012/12/gantt-pgf.png" alt="LaTeX: pgfgantt for creating Gantt charts" style="max-width:500px;max-height:447px" class="size-full wp-image-50541"/></a>
-            <figcaption class="text-center">LaTeX: pgfgantt for creating Gantt charts</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/gantt-pgf.png"><img src="../images/2012/12/gantt-pgf.png" alt="LaTeX: pgfgantt for creating Gantt charts" width="500" height="447" loading="lazy"></a>
+    <figcaption>LaTeX: pgfgantt for creating Gantt charts</figcaption>
+</figure>
 
 Source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt-pgf">here</a>.
 
@@ -163,10 +163,10 @@ This source:
 
 creates
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/gantt.png"><img src="../images/2012/12/gantt.png" alt="Another Gantt solution" style="max-width:500px;max-height:240px" class="size-full wp-image-50551"/></a>
-            <figcaption class="text-center">Another Gantt solution</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/gantt.png"><img src="../images/2012/12/gantt.png" alt="Another Gantt solution" width="500" height="240" loading="lazy"></a>
+    <figcaption>Another Gantt solution</figcaption>
+</figure>
 
 Full source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt">here</a>.
 

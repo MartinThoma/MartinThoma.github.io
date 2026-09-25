@@ -21,7 +21,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 ### Piraten
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140" class="size-full wp-image-76414" /></th>
+    <th colspan="2"><a href="../images/2013/09/Piratenpartei-logo.png"><img src="../images/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -63,7 +63,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 ### DIE LINKE.
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" class="size-full wp-image-76417" /></th>
+    <th colspan="2"><a href="../images/2013/09/die-linke.png"><img src="../images/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" loading="lazy"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -107,7 +107,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 ### FDP
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" class="size-full wp-image-76421" /></th>
+    <th colspan="2"><a href="../images/2013/09/FDP-logo.png"><img src="../images/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" loading="lazy"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -144,7 +144,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 ### Grüne
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/gruenen-logo.png" alt="Logo von Bündnis 90 - die Grünen" width="180" height="108" class="size-full wp-image-76422" /></th>
+    <th colspan="2"><a href="../images/2013/09/gruenen-logo.png"><img src="../images/2013/09/gruenen-logo.png" alt="Logo von Bündnis 90 - die Grünen" width="180" height="108" loading="lazy"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -191,7 +191,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" class="size-full wp-image-76423" /></th>
+    <th colspan="2"><a href="../images/2013/09/spd-logo.png"><img src="../images/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" loading="lazy"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -229,7 +229,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 ### CDU / CSU
 <table>
   <tr>
-    <th colspan="2"><img src="../images/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" class="size-full wp-image-76418" /></th>
+    <th colspan="2"><a href="../images/2013/09/cdu-partei.png"><img src="../images/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" loading="lazy"></a></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -270,10 +270,10 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 ## Koalitionsmöglichkeiten
 
-<figure class="aligncenter">
-            <a href="../images/2013/09/koalitionsrechner.png"><img src="../images/2013/09/koalitionsrechner.png" alt="Koalitionsrechner - Ergebnis" style="max-width:458px;max-height:174px" class="size-full wp-image-76427"/></a>
-            <figcaption class="text-center">Koalitionsrechner - Ergebnis</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/09/koalitionsrechner.png"><img src="../images/2013/09/koalitionsrechner.png" alt="Koalitionsrechner - Ergebnis" width="458" height="174" loading="lazy"></a>
+    <figcaption>Koalitionsrechner - Ergebnis</figcaption>
+</figure>
 
 Die Parteien haben viele aussagen über Koalitionen nach der Bundestagswahl gemacht:
 <ul>
@@ -285,10 +285,10 @@ Die Parteien haben viele aussagen über Koalitionen nach der Bundestagswahl gema
 
 Nun kann man Umfrageergebnisse betrachten:
 
-<figure class="aligncenter">
-            <a href="../images/2013/09/umfragen-bundestagswahl-2013.png"><img src="../images/2013/09/umfragen-bundestagswahl-2013.png" alt="Umfrageergebnisse zur Bundestagswahl 2013" style="max-width:846px;max-height:330px" class="size-full wp-image-76428"/></a>
-            <figcaption class="text-center">Umfrageergebnisse zur Bundestagswahl 2013<br />Quelle: <a href='http://www.wahlrecht.de/umfragen/index.htm'>wahlrecht.de</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/09/umfragen-bundestagswahl-2013.png"><img src="../images/2013/09/umfragen-bundestagswahl-2013.png" alt="Umfrageergebnisse zur Bundestagswahl 2013" width="846" height="330" loading="lazy"></a>
+    <figcaption>Umfrageergebnisse zur Bundestagswahl 2013<br />Quelle: <a href='http://www.wahlrecht.de/umfragen/index.htm'>wahlrecht.de</a></figcaption>
+</figure>
 
 Damit steht fest:
 <ul>
@@ -453,10 +453,10 @@ Bitte hängt euch nicht an den Zahlen auf. Das sollte nur das System veranschaul
 
 Hier mal eine Grafik über das Steueraufkommen in Deutschland:
 
-<figure class="aligncenter">
-            <a href="../images/2013/09/steueraufkommen-deutschland.png"><img src="../images/2013/09/steueraufkommen-deutschland.png" alt="Steueraufkommen in Deutschland (Stand: 2008)" style="max-width:800px;max-height:512px" class="size-full wp-image-76434"/></a>
-            <figcaption class="text-center">Steueraufkommen in Deutschland (Stand: 2008)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/09/steueraufkommen-deutschland.png"><img src="../images/2013/09/steueraufkommen-deutschland.png" alt="Steueraufkommen in Deutschland (Stand: 2008)" width="800" height="512" loading="lazy"></a>
+    <figcaption>Steueraufkommen in Deutschland (Stand: 2008)</figcaption>
+</figure>
 
 Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_Tax">Flat Tax</a>&ldquo;, die Steuern einfacher machen soll. Ob das sinnvoll ist, kann ich nicht sagen. Aber eine Vereinfachung verbunden mit einer Europäischen Vereinheitlichung könnte Firmen entlasten und Steuerschlupflöcher schließen.
 

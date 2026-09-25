@@ -112,7 +112,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegerätes (Bildschirm, Beamer):
         $$R_d = \frac{I_{\text{max}} + k}{I_{\text{min}} + k}$$
 
-        $k$ ist dabei das Umgebungslicht, $I_{max} / I_{min}$ sind
+        $k$ ist dabei das Umgebungslicht, $I_{\max} / I_{\min}$ sind
         Konstanten des Displays und geben die maximale bzw. minimale Helligkeit
         an.</dd>
     <dt><dfn>Gamut</dfn> (<dfn>Farbgamut</dfn>)</dt>
@@ -912,44 +912,20 @@ Wenn ihr den Fehler
 bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 `build`-Ordner löschen und es neu versuchen.
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/11/color-cube.png" class="image">
-                  <img src="../images/2015/11/color-cube.png" alt="Color cube" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Color cube</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/11/gravity-field.png" class="image">
-                  <img src="../images/2015/11/gravity-field.png" alt="Gravity field" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Gravity field</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/11/temperature.png" class="image">
-                  <img src="../images/2015/11/temperature.png" alt="Temperature of a black body" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Temperature of a black body</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2015/11/color-cube.png"><img src="../images/2015/11/color-cube.png" alt="Color cube" width="120" height="120" loading="lazy"></a>
+        <figcaption>Color cube</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/11/gravity-field.png"><img src="../images/2015/11/gravity-field.png" alt="Gravity field" width="120" height="107" loading="lazy"></a>
+        <figcaption>Gravity field</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/11/temperature.png"><img src="../images/2015/11/temperature.png" alt="Temperature of a black body" width="120" height="120" loading="lazy"></a>
+        <figcaption>Temperature of a black body</figcaption>
+    </figure>
+</div>
 
 Außerdem:
 

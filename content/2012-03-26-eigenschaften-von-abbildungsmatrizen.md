@@ -120,7 +120,7 @@ Ich habe keine Ahnung, wie man nur mit den Basen B und C und der Abbildungsmatri
 Für jede lineare Abbildungen $\Phi: V \rightarrow W$ (wobei V und W <strong>endliche</strong> Vektorräume sind) gibt es eine Abbildungsmatrix.
 
 Wie sieht dann die Abbildungsmatrix folgender Abbildung aus?
-<blockquote>Sei $V:= \{p \in \mathbb{R}[t] | deg(t) \leq 5 \}$ der Vektorraum aller Polynome in t mit reellen Koeffizienten und Grad $ \leq 5$.
+<blockquote>Sei $V:= \{p \in \mathbb{R}[t] | \deg(p) \leq 5 \}$ der Vektorraum aller Polynome in t mit reellen Koeffizienten und Grad $ \leq 5$.
 Sei $F: V \rightarrow V$ die Shift-Abbildung $(Fp)(t) = p(t+1)$
 <p class="quote-source">(Quelle: <a href="http://matheraum.de/forum/Shift-Abbildung/t463098">Matheraum.de</a>)</p>
 </blockquote>

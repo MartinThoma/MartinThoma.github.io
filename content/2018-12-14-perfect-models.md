@@ -13,9 +13,9 @@ When you develop a model, you want the optimal model. The perfect one.
 
 The first problem with that desire is conflicting goals:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/12/model-pick-2.png"><img src="../images/2018/12/model-pick-2.png" alt="Conflicting goals in model development" style="width: 512px;"/></a>
-    <figcaption class="text-center">Conflicting goals in model development</figcaption>
+<figure>
+    <a href="../images/2018/12/model-pick-2.png"><img src="../images/2018/12/model-pick-2.png" alt="Conflicting goals in model development" width="242" height="176"></a>
+    <figcaption>Conflicting goals in model development</figcaption>
 </figure>
 
 Typical goals when designing a model are:
@@ -68,9 +68,9 @@ It happens that you get this property when you multiply the two values:
 
 Hence, with multiplication you can get the function directly:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/12/xor-dataset.png"><img src="../images/2018/12/xor-dataset.png" alt="XOR dataset solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">XOR dataset solution</figcaption>
+<figure>
+    <a href="../images/2018/12/xor-dataset.png"><img src="../images/2018/12/xor-dataset.png" alt="XOR dataset solution" width="512" height="306" loading="lazy"></a>
+    <figcaption>XOR dataset solution</figcaption>
 </figure>
 
 
@@ -97,9 +97,9 @@ $$
 
 Here the solution is pretty obvious: It's a linear model of the squared inputs:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/12/circles-dataset.png"><img src="../images/2018/12/circles-dataset.png" alt="Circles dataset solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Circles dataset solution</figcaption>
+<figure>
+    <a href="../images/2018/12/circles-dataset.png"><img src="../images/2018/12/circles-dataset.png" alt="Circles dataset solution" width="512" height="301" loading="lazy"></a>
+    <figcaption>Circles dataset solution</figcaption>
 </figure>
 
 
@@ -119,9 +119,9 @@ $$
 
 and hence the model:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/12/gaussian-dataset.png"><img src="../images/2018/12/gaussian-dataset.png" alt="Gaussian dataset solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Gaussian dataset solution</figcaption>
+<figure>
+    <a href="../images/2018/12/gaussian-dataset.png"><img src="../images/2018/12/gaussian-dataset.png" alt="Gaussian dataset solution" width="512" height="256" loading="lazy"></a>
+    <figcaption>Gaussian dataset solution</figcaption>
 </figure>
 
 
@@ -157,9 +157,9 @@ This is where I'm stuck. My intuition tells me that tanh is a nice activation
 function for this problem, because it is one of the geometric functions. Let's
 see how far we get with that:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/12/spiral-dataset.png"><img src="../images/2018/12/spiral-dataset.png" alt="Spiral dataset solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Spiral dataset solution</figcaption>
+<figure>
+    <a href="../images/2018/12/spiral-dataset.png"><img src="../images/2018/12/spiral-dataset.png" alt="Spiral dataset solution" width="512" height="288" loading="lazy"></a>
+    <figcaption>Spiral dataset solution</figcaption>
 </figure>
 
 So with 2 hidden layers, it can be done in about 250 epochs. No

@@ -10,7 +10,10 @@ tags: Software Engineering, Programming, Security, OWASP
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/credential-stuffing-ff58ee8c3320
 ---
-![Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo) on [Unsplash](https://unsplash.com)](../images/2021/03/credential-stuffing-1.jpg)*Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo) on [Unsplash](https://unsplash.com)*
+<figure>
+    <a href="../images/2021/03/credential-stuffing-1.jpg"><img src="../images/2021/03/credential-stuffing-1.jpg" alt="Photo by Max van den Oetelaar on Unsplash" width="2000" height="1333"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@maxvdo">Max van den Oetelaar</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
 
 Credential stuffing is a brute-force attack on a services’ user accounts. Not one specific account, but many. Typically by using credentials that were found in other hacks. As a user, you can see via [haveibeenpawned.com](https://haveibeenpwned.com/) if one of your accounts was compromised. Most likely, it was. Let’s learn what you can do!
 
@@ -24,7 +27,10 @@ Credential stuffing is a brute-force attack on a services’ user accounts. Not 
 
 ## How does a credential stuffing attack work?
 
-![Leaked credentials are replayed against many services; the login succeeds only where the password was reused](../images/2021/03/credential-stuffing-flow.svg)*Credentials from one breach are replayed everywhere; password reuse is what makes it work. Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/03/credential-stuffing-flow.svg"><img src="../images/2021/03/credential-stuffing-flow.svg" alt="Leaked credentials are replayed against many services; the login succeeds only where the password was reused" width="680" height="348" loading="lazy"></a>
+    <figcaption>Credentials from one breach are replayed everywhere; password reuse is what makes it work. Image by Martin Thoma</figcaption>
+</figure>
 
 1. The attacker gets a **list of valid credentials**, e.g. (username, password) for millions of people. [There are many leaks](https://haveibeenpwned.com/).
 2. The attacker **tries them** on big services (Gmail, Facebook, Twitter, Banks, Reddit, …)

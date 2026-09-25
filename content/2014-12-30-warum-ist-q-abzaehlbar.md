@@ -62,7 +62,7 @@ Diese Abbildung sieht wie folgt aus:
 
 
 <figure>
-    <a href="../images/2012/03/countable-set-n-times-n.png"><img src="../images/2012/03/countable-set-n-times-n.png" alt="Function that transforms N times N to N" title="Abbildung, die N x N auf N abbildet" width="322" height="288" class="size-full wp-image-20501" /></a>
+    <a href="../images/2012/03/countable-set-n-times-n.png"><img src="../images/2012/03/countable-set-n-times-n.png" alt="Function that transforms N times N to N" title="Abbildung, die N x N auf N abbildet" width="322" height="288"></a>
     <figcaption>Abbildung, die N x N auf N abbildet</figcaption>
 </figure>
 

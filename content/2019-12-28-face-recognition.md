@@ -42,19 +42,19 @@ There are four main tasks in face recognition:
 
 ## Problems
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/face_recongition_error_statue.jpg"><img src="../images/2019/04/face_recongition_error_statue.jpg" alt="A face, but not a human" style="width: 400px;"/></a>
-    <figcaption class="text-center">A face, but not a human</figcaption>
+<figure>
+    <a href="../images/2019/04/face_recongition_error_statue.jpg"><img src="../images/2019/04/face_recongition_error_statue.jpg" alt="A face, but not a human" width="400" height="400"></a>
+    <figcaption>A face, but not a human</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/face_recongition_error_statue-3.jpg"><img src="../images/2019/04/face_recongition_error_statue-3.jpg" alt="Again a couple of faces, but not human faces" style="width: 512px;"/></a>
-    <figcaption class="text-center">Again a couple of faces, but not human faces</figcaption>
+<figure>
+    <a href="../images/2019/04/face_recongition_error_statue-3.jpg"><img src="../images/2019/04/face_recongition_error_statue-3.jpg" alt="Again a couple of faces, but not human faces" width="512" height="171" loading="lazy"></a>
+    <figcaption>Again a couple of faces, but not human faces</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/face_recongition_error_noface.jpg"><img src="../images/2019/04/face_recongition_error_noface.jpg" alt="No face at all - not even close" style="width: 512px;"/></a>
-    <figcaption class="text-center">No face at all - not even close</figcaption>
+<figure>
+    <a href="../images/2019/04/face_recongition_error_noface.jpg"><img src="../images/2019/04/face_recongition_error_noface.jpg" alt="No face at all - not even close" width="298" height="299" loading="lazy"></a>
+    <figcaption>No face at all - not even close</figcaption>
 </figure>
 
 

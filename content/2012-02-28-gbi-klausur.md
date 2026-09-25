@@ -62,7 +62,7 @@ Was man auf jeden Fall üben sollte, sind die Aufgaben zu Turingmaschinen. Das k
   <li>Ein <a href="../minimierung-eines-automaten-mittels-aquivalenzklassenkonstruktion/">minimaler Endlicher Automat</a> zu einer reguläre Sprache L hat n Zustände $\Leftrightarrow$ Es gibt n Äquivalenzklassen bzgl. der Nerode-Relation zu L.</li>
   <li>Der Index der Nerode-Relation zu einer Sprache L ist nicht endlich $\Leftrightarrow$ L ist nicht regulär</li>
   <li>$S \circ R = \{(x, z) \in M_1 \times M_3 | \exists y \in M_2: (x, y) \in R \land (y, z) \in S\}$</li>
-  <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V : $ Es gibt genau einen Pfad von r nach x.</li>
+  <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V :$ Es gibt genau einen Pfad von r nach x.</li>
 </ul>
 
 Zum Üben habe ich mal eine "Klausur" erstellt. Hier ist die <a href='../images/2012/02/gbi-klausurvorbereitung.pdf'>PDF</a> und hier die <a href='../images/2012/02/gbi-klausurvorbereitung.zip'>LaTeX</a>-Datei.
@@ -79,7 +79,7 @@ $n! \leq c \cdot 2^n\\
 \Leftrightarrow \frac{\Pi_{i=1}^n i}{\Pi_{i=1}^n 2} \leq c\\
 \Leftrightarrow \Pi_{i=1}^n \frac{i}{2} \leq c$
 
-Es gilt: $\Pi_{i=1}^n \frac{i}{2} = \frac{1}{2} \cdot 1 \cdot \frac{3}{2} \Pi_{i=4}^n \frac{i}{2} \ge \frac{3}{4} \cdot 2^n $
+Es gilt: $\Pi_{i=1}^n \frac{i}{2} = \frac{1}{2} \cdot 1 \cdot \frac{3}{2} \Pi_{i=4}^n \frac{i}{2} \ge \frac{3}{4} \cdot 2^n$
 $\Rightarrow \forall c \in \mathbb{R} \exists n_0 \in \mathbb{N} \forall n \geq n_0: n! \geq c \cdot 2^n$
 
 Offensichtlich ist also $\mathcal{O}(n!) \nsubseteq \mathcal{O}(2^n)$.
@@ -104,7 +104,7 @@ Alle wichtigen Informationen stehen auf der <a href="http://gbi.ira.uka.de/pruef
 Die <a href="http://gbi.ira.uka.de/pruefungen/aushang.pdf">Ergebnisse</a> sind nun hier verfügbar.
 
 Das ist eine Notenverteilung, die mir ein Kommilitone zugeschickt hat:
-<figure class="aligncenter">
-            <a href="../images/2012/02/gbi-ergebnisse-300x231.jpg"><img src="../images/2012/02/gbi-ergebnisse-300x231.jpg" alt="GBI Ergebnisse" style="max-width:300px;max-height:231px" class="size-medium wp-image-19301"/></a>
-            <figcaption class="text-center">GBI Ergebnisse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/02/gbi-ergebnisse-300x231.jpg"><img src="../images/2012/02/gbi-ergebnisse-300x231.jpg" alt="GBI Ergebnisse" width="300" height="231" loading="lazy"></a>
+    <figcaption>GBI Ergebnisse</figcaption>
+</figure>

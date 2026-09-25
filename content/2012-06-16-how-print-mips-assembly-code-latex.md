@@ -11,10 +11,10 @@ featured_image: 2012/01/latex-logo.png
 ---
 If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exists by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='../images/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/mips-latex-highlight.png"><img src="../images/2012/06/mips-latex-highlight.png" alt="Highlight MIPS Assembly code with LaTeX listings." style="max-width:512px;max-height:197px" class="size-full wp-image-26981"/></a>
-            <figcaption class="text-center">Highlight MIPS Assembly code with LaTeX listings.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/mips-latex-highlight.png"><img src="../images/2012/06/mips-latex-highlight.png" alt="Highlight MIPS Assembly code with LaTeX listings." width="512" height="197"></a>
+    <figcaption>Highlight MIPS Assembly code with LaTeX listings.</figcaption>
+</figure>
 
 ```latex
 \documentclass[a4paper,12pt]{article}

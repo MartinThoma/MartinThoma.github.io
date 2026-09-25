@@ -54,11 +54,11 @@ Sei $L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}$
 
 $(\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)$ mit
 
-$\delta(q_0, 0, \#) = \{(q_0, \#), (q_1, \#)\}, $
-$\delta(q_1, 1, \#) = \{(q_1, 1)\}, $
-$\delta(q_1, 1, 1) = \{(q_1, 11)\}, $
-$\delta(q_1, 2, 1) = \{(q_2, \varepsilon)\}, $
-$\delta(p, a, Z) = \emptyset $ sonst.
+$\delta(q_0, 0, \#) = \{(q_0, \#), (q_1, \#)\},$
+$\delta(q_1, 1, \#) = \{(q_1, 1)\},$
+$\delta(q_1, 1, 1) = \{(q_1, 11)\},$
+$\delta(q_1, 2, 1) = \{(q_2, \varepsilon)\},$
+$\delta(p, a, Z) = \emptyset$ sonst.
 
 Der Kellerautomat akzeptiert durch einen leeren Stack. Aus diesem Grund legen wir am Anfang auch immer wieder # auf den Stack. Sonst würde der PDA zu früh akzeptieren.
 

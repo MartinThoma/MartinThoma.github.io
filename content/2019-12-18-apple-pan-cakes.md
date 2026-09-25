@@ -50,9 +50,9 @@ As side dishes, you might want one of the following:
 * [Peeler](https://en.wikipedia.org/wiki/Peeler) to cut away the skin of the apple
 * [Grater](https://en.wikipedia.org/wiki/Grater) (for cutting the apple into thin slices)
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/hand-mixer.jpg"><img src="../images/2019/12/hand-mixer.jpg" alt="Hand mixer" style="width: 512px;"/></a>
-    <figcaption class="text-center">Hand mixer</figcaption>
+<figure>
+    <a href="../images/2019/12/hand-mixer.jpg"><img src="../images/2019/12/hand-mixer.jpg" alt="Hand mixer" width="512" height="340"></a>
+    <figcaption>Hand mixer</figcaption>
 </figure>
 
 

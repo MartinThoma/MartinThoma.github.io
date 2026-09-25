@@ -97,32 +97,16 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Keyboard           | ?                  | Chiclet-keyboard without numpad   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   |
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/01/samsung-serie-9-keyboard-layout.png" class="image">
-                  <img src="../images/2014/01/samsung-serie-9-keyboard-layout.png" alt="Samsung Series 9" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Samsung Series 9</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" class="image">
-                  <img src="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" alt="Macbook Pro" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Macbook Pro</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/01/samsung-serie-9-keyboard-layout.png"><img src="../images/2014/01/samsung-serie-9-keyboard-layout.png" alt="Samsung Series 9" width="120" height="47" loading="lazy"></a>
+        <figcaption>Samsung Series 9</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg"><img src="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" alt="Macbook Pro" width="120" height="47" loading="lazy"></a>
+        <figcaption>Macbook Pro</figcaption>
+    </figure>
+</div>
 
 The WLAN chipset of the Samsung Series 9 seems to cause trouble with
 Linux, but this seems to be solved by a firmware update.[^5]

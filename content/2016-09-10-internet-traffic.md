@@ -61,9 +61,9 @@ network interface). It will create a `summary.png` image:
 $ vnstati -vs -i wlp3s0 -o ~/summary.png
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/09/vnstati-august.png" alt="Internet traffic of August" />
-    <figcaption class="text-center">Internet traffic of August</figcaption>
+<figure>
+    <a href="../images/2016/09/vnstati-august.png"><img src="../images/2016/09/vnstati-august.png" alt="Internet traffic of August" width="500" height="370" loading="lazy"></a>
+    <figcaption>Internet traffic of August</figcaption>
 </figure>
 
 
@@ -82,9 +82,9 @@ might be different than usually. So lets get a summary for this year:
 $ vnstati -vs -m -i wlp3s0 -o ~/summary.png
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/09/vnstati-2016.png" alt="Internet traffic of May, June, July, August" />
-    <figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>
+<figure>
+    <a href="../images/2016/09/vnstati-2016.png"><img src="../images/2016/09/vnstati-2016.png" alt="Internet traffic of May, June, July, August" width="500" height="158" loading="lazy"></a>
+    <figcaption>Internet traffic of May, June, July, August</figcaption>
 </figure>
 
 Now you have to realize that I am only recording my notebook. I have a tablet

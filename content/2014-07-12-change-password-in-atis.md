@@ -12,17 +12,17 @@ featured_image: logos/atis.png
 Recently, the [Heartbleed bug](https://en.wikipedia.org/wiki/Heartbleed) was
 discovered. It works like this:
 
-<figure class="aligncenter">
-            <a href="../images/xkcd/heartbleed_explanation.png"><img src="../images/xkcd/heartbleed_explanation.png" alt="Heartbleed Explanation" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Heartbleed Explanation<br/>From <a href='http://xkcd.com/1354/'>xkcd</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/xkcd/heartbleed_explanation.png"><img src="../images/xkcd/heartbleed_explanation.png" alt="Heartbleed Explanation" width="500" height="1066"></a>
+    <figcaption>Heartbleed Explanation<br/>From <a href='http://xkcd.com/1354/'>xkcd</a></figcaption>
+</figure>
 
 One effect of that bug is that you have to change your password.
 
-<figure class="aligncenter">
-            <a href="../images/xkcd/heartbleed.png"><img src="../images/xkcd/heartbleed.png" alt="Heartbleed" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">From <a href='http://xkcd.com/1353/'>xkcd</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/xkcd/heartbleed.png"><img src="../images/xkcd/heartbleed.png" alt="Heartbleed" width="500" height="207" loading="lazy"></a>
+    <figcaption>From <a href='http://xkcd.com/1353/'>xkcd</a></figcaption>
+</figure>
 
 You can do that from home via SSH. Just replace `s_thoma` by `s_[your last name]`:
 

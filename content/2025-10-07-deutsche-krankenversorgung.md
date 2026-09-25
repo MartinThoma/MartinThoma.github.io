@@ -17,9 +17,9 @@ der Welt
 Nur die USA, die Schweiz und Norwegen geben mehr für Gesundheit aus
 ([Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_total_health_expenditure_per_capita)).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/deutsche-krankenversorgung.png"><img src="../images/2025/10/deutsche-krankenversorgung.png" alt="Gesundheitsversorgung und sinkende Kosten" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Gesundheitsversorgung und sinkende Kosten</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/10/deutsche-krankenversorgung.png"><img src="../images/2025/10/deutsche-krankenversorgung.png" alt="Gesundheitsversorgung und sinkende Kosten" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Gesundheitsversorgung und sinkende Kosten</figcaption>
 </figure>
 
 **Das Problem:** Aufgrund der demographischen Entwicklung wird sich dieser Trend

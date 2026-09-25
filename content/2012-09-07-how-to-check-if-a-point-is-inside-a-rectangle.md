@@ -9,10 +9,10 @@ category: Code
 tags: Python, Geometry, Mathematics
 featured_image: 2012/09/rectangle-thumb.png
 ---
-<figure class="aligncenter">
-            <a href="../images/2012/09/rectangle.png"><img src="../images/2012/09/rectangle.png" alt="A rectangle" style="max-width:512px;max-height:409px;" class="size-full wp-image-43611 "/></a>
-            <figcaption class="text-center">A rectangle</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/rectangle.png"><img src="../images/2012/09/rectangle.png" alt="A rectangle" width="512" height="409"></a>
+    <figcaption>A rectangle</figcaption>
+</figure>
 
 I've just found this interesting question on <a href="http://math.stackexchange.com/q/190111/6876">StackExchange</a>:
 
@@ -24,17 +24,17 @@ The idea how to solve this problem is simply beautiful.
 
 If the point is in the rectangle, it divides it into four triangles:
 
-<figure class="aligncenter">
-            <a href="../images/2012/09/rectangle-2.png"><img src="../images/2012/09/rectangle-2.png" alt="Divided rectangle" style="max-width:512px;max-height:409px;" class="size-full wp-image-43651 "/></a>
-            <figcaption class="text-center">Divided rectangle</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/rectangle-2.png"><img src="../images/2012/09/rectangle-2.png" alt="Divided rectangle" width="512" height="409" loading="lazy"></a>
+    <figcaption>Divided rectangle</figcaption>
+</figure>
 
 If P is not inside of ABCD, you end up with something like this:
 
-<figure class="aligncenter">
-            <a href="../images/2012/09/rectangle-3.png"><img src="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle " style="max-width:512px;max-height:409px;" class="size-full wp-image-43661 "/></a>
-            <figcaption class="text-center">Point is outside of rectangle</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/rectangle-3.png"><img src="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle " width="512" height="409" loading="lazy"></a>
+    <figcaption>Point is outside of rectangle</figcaption>
+</figure>
 
 You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.
 

@@ -151,10 +151,10 @@ I failed to convert this to a version that uses GMP :-/
 
 But it converges quite fast:
 
-<figure class="aligncenter">
-            <a href="../images/2013/06/newton-correct-digits.png"><img src="../images/2013/06/newton-correct-digits.png" alt="Newton's method for calculating square roots" style="max-width:512px;max-height:235px" class="size-full wp-image-69511"/></a>
-            <figcaption class="text-center">Newton's method for calculating square roots</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/06/newton-correct-digits.png"><img src="../images/2013/06/newton-correct-digits.png" alt="Newton's method for calculating square roots" width="512" height="235" loading="lazy"></a>
+    <figcaption>Newton's method for calculating square roots</figcaption>
+</figure>
 
 <h2>Exponential identity</h2>
 According to Wikipedia (Source: <a href="http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Exponential_identity">Methods of computing square roots</a>) many calculators use the following identity:

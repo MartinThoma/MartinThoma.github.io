@@ -12,9 +12,9 @@ featured_image: logos/latex.png
 <h2>Chessboard</h2>
 <h3>Simple example</h3>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" />
-    <figcaption class="text-center">Chessboard - simple example</figcaption>
+<figure>
+    <a href="../images/2012/09/chess-chessboard-simple-example.png"><img src="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" width="296" height="268"></a>
+    <figcaption>Chessboard - simple example</figcaption>
 </figure>
 
 ```tex
@@ -42,9 +42,9 @@ From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</
 
 ### Simple example
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" />
-    <figcaption class="text-center">Simple example with skak</figcaption>
+<figure>
+    <a href="../images/2012/09/chess-skak-simple-example.png"><img src="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" width="254" height="289" loading="lazy"></a>
+    <figcaption>Simple example with skak</figcaption>
 </figure>
 
 ```tex

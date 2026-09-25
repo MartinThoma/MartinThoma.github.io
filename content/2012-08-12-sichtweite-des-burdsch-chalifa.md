@@ -15,7 +15,11 @@ Der Burdsch Chalifa war 2010 das höchste Gebäude der Erde. Bis zur Spitze sind
 Angenommen, die Erde wäre eine perfekte Kugel mit einem Radius von 6370 km und die Sicht wäre nicht durch Nebel, Wolken oder sonstige Hindernisse eingeschränkt. Aus welcher Entfernung, die man über die Erde direkt zum Burdsch Chalifa zurücklegt, könnte man den Burdsch Chalifa maximal sehen?
 
 <h3>Situationsskizze</h3>
-<a href="../images/2012/08/earth-skizze.png"><img src="../images/2012/08/earth-skizze.png" alt="Situationsskizze für die Berechnung" title="Situationsskizze für die Berechnung" width="500" height="553" class="aligncenter size-full wp-image-39311" /></a>
+
+<figure>
+    <a href="../images/2012/08/earth-skizze.png"><img src="../images/2012/08/earth-skizze.png" alt="Situationsskizze für die Berechnung" width="500" height="553"></a>
+</figure>
+
 Gesucht ist die Länge des neongrün hervorgehobenen Kreisbogens x.
 
 <h3>Rechenweg</h3>
@@ -40,7 +44,10 @@ Wie weit östlich darf das Dorf maximal liegen, damit man die Spitze des Burdsch
 Hinweis: Es gelten noch immer die gleichen Voraussetzungen wie im ersten Teil der Aufgabe.
 
 <h3>Situationsskizze</h3>
-<a href="../images/2012/08/earth-skizze-21.png"><img src="../images/2012/08/earth-skizze-21.png" alt="Skizze der Erde" title="Skizze der Erde" width="500" height="299" class="aligncenter size-full wp-image-39411" /></a>
+
+<figure>
+    <a href="../images/2012/08/earth-skizze-21.png"><img src="../images/2012/08/earth-skizze-21.png" alt="Skizze der Erde" width="500" height="299" loading="lazy"></a>
+</figure>
 
 Gesucht ist die grün eingezeichnete Kurve, die sich über die Erdoberfläche krümmt. Ihre Länge sei x.
 Um diese zu berechnen, müssen wir wissen welchen Radius die Kreisfläche hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der Radius dieser Kreisfläche sei $r_{25}$.

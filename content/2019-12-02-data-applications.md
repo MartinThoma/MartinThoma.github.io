@@ -111,9 +111,9 @@ The two parts that can consume arbitrarily much time are data cleaning and model
 optimization. Even after the PoC. If you're interested in that topic, ping me
 in the comments.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/data-warehouse-analytics.png"><img src="../images/2019/12/data-warehouse-analytics.png" alt="Relationship between Data Warehouse, Reports, Dashboards and Notebooks" style="width: 512px;"/></a>
-    <figcaption class="text-center">Relationship between Data Warehouse, Reports, Dashboards and Notebooks</figcaption>
+<figure>
+    <a href="../images/2019/12/data-warehouse-analytics.png"><img src="../images/2019/12/data-warehouse-analytics.png" alt="Relationship between Data Warehouse, Reports, Dashboards and Notebooks" width="512" height="507" loading="lazy"></a>
+    <figcaption>Relationship between Data Warehouse, Reports, Dashboards and Notebooks</figcaption>
 </figure>
 
 

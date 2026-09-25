@@ -30,10 +30,10 @@ I did a couple of very quick examples which look promising.
 
 Approximating $f(x) = x^2$ worked very good:
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/gauss-x2.png"><img src="../images/2016/01/gauss-x2.png" alt="f(x) = x^2" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">f(x) = x^2</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/gauss-x2.png"><img src="../images/2016/01/gauss-x2.png" alt="f(x) = x^2" width="500" height="377"></a>
+    <figcaption>f(x) = x^2</figcaption>
+</figure>
 
 I've tried if with higher order polynomials, more complex polynomials. No
 problem.
@@ -43,10 +43,10 @@ problem.
 
 Approximating $f(x) = \sin(3x)$ seems to be more complicated:
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/gaussian-process-sin-3x.png"><img src="../images/2016/01/gaussian-process-sin-3x.png" alt="f(x) = sin(3x)" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">f(x) = sin(3x)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/gaussian-process-sin-3x.png"><img src="../images/2016/01/gaussian-process-sin-3x.png" alt="f(x) = sin(3x)" width="500" height="377" loading="lazy"></a>
+    <figcaption>f(x) = sin(3x)</figcaption>
+</figure>
 
 I guess a human would see the wave pattern and do a better job here.
 
@@ -58,10 +58,10 @@ that it does not perfectly fit it, but compared the the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/gauss-exponential.png"><img src="../images/2016/01/gauss-exponential.png" alt="f(x) = e^x" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">f(x) = e^x</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/gauss-exponential.png"><img src="../images/2016/01/gauss-exponential.png" alt="f(x) = e^x" width="500" height="377" loading="lazy"></a>
+    <figcaption>f(x) = e^x</figcaption>
+</figure>
 
 
 ### noise
@@ -76,10 +76,10 @@ with point-wise gaussian noise $N \sim \mathcal{N}(0, 1)$. So the noise is
 quite domintant on that intervall. One of the examples where it worked better
 is:
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/gauss-noise.png"><img src="../images/2016/01/gauss-noise.png" alt="f(x) = x^2 with gaussian noise" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">f(x) = x^2 with gaussian noise</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/gauss-noise.png"><img src="../images/2016/01/gauss-noise.png" alt="f(x) = x^2 with gaussian noise" width="500" height="251" loading="lazy"></a>
+    <figcaption>f(x) = x^2 with gaussian noise</figcaption>
+</figure>
 
 
 ### Make it brake
@@ -89,10 +89,10 @@ This was the reason why I created the following function
 
 $$f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\\\-1 &\text{otherwise}\end{cases}$$
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/gauss-cases.png"><img src="../images/2016/01/gauss-cases.png" alt="Function with discontinuity" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Function with discontinuity</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/gauss-cases.png"><img src="../images/2016/01/gauss-cases.png" alt="Function with discontinuity" width="500" height="377" loading="lazy"></a>
+    <figcaption>Function with discontinuity</figcaption>
+</figure>
 
 The predicted value is obviously not correct, but you should note that almost
 all function values are within the 95% confidence intervall!

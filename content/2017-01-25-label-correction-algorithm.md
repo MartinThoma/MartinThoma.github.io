@@ -18,9 +18,9 @@ graph search algorithms like breadth first search (BFS), depth first search (DFS
 
 ## Pseudocode
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" />
-    <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
+<figure>
+    <a href="../images/2016/07/label-correction.png"><img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" width="512" height="457"></a>
+    <figcaption>Pseudocode for the Label correction algorithm</figcaption>
 </figure><br/>
 
 Explanation:

@@ -11,7 +11,10 @@ featured_image: logos/db.png
 subtitle: “If everything seems under control, you’re not going fast enough”
 medium_url: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739
 ---
-![Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!](../images/2021/04/8-techniques-to-speed-up-your-db-1.jpg)*Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!*
+<figure>
+    <a href="../images/2021/04/8-techniques-to-speed-up-your-db-1.jpg"><img src="../images/2021/04/8-techniques-to-speed-up-your-db-1.jpg" alt="Photo by Christina Morillo (original). Thank you!" width="2000" height="958"></a>
+    <figcaption>Photo by Christina Morillo (<a href="https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/">original</a>). Thank you!</figcaption>
+</figure>
 
 Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can forget about them. They just handle the data persistence for you… until they get slow.
 
@@ -72,7 +75,10 @@ Similarly, it might be OK to split your web service's data by user groups. Maybe
 
 ## 4. Replication
 
-![Image by Martin Thoma](../images/2021/04/8-techniques-to-speed-up-your-db-2.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/04/8-techniques-to-speed-up-your-db-2.png"><img src="../images/2021/04/8-techniques-to-speed-up-your-db-2.png" alt="Image by Martin Thoma" width="876" height="456" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 Replication is an easy solution if reads are your problem and if a bit of time-delay of updates is not a big deal. Replication continuously copies the database to another machine. It speeds up reads and acts as a failover mechanism.
 
@@ -86,7 +92,10 @@ Given a huge table, we could store some rows on one machine and others on anothe
 
 An image explains more than many words:
 
-![Conceptual example for horizontal partitioning. Image by Martin Thoma.](../images/2021/04/8-techniques-to-speed-up-your-db-3.png)*Conceptual example for horizontal partitioning. Image by Martin Thoma.*
+<figure>
+    <a href="../images/2021/04/8-techniques-to-speed-up-your-db-3.png"><img src="../images/2021/04/8-techniques-to-speed-up-your-db-3.png" alt="Conceptual example for horizontal partitioning. Image by Martin Thoma." width="2000" height="908" loading="lazy"></a>
+    <figcaption>Conceptual example for horizontal partitioning. Image by Martin Thoma.</figcaption>
+</figure>
 
 Partitioning simply by id works like this in [MySQL](https://dev.mysql.com/doc/refman/5.7/en/partitioning-range.html) / [MariaDB](https://mariadb.com/kb/en/range-partitioning-type):
 
@@ -117,7 +126,10 @@ Different parts of the application might not need most columns of a row. For thi
 
 One commonly done practice is to split metadata from the content. Here’s an image:
 
-![Image by Martin Thoma](../images/2021/04/8-techniques-to-speed-up-your-db-4.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/04/8-techniques-to-speed-up-your-db-4.png"><img src="../images/2021/04/8-techniques-to-speed-up-your-db-4.png" alt="Image by Martin Thoma" width="1323" height="1833" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!
 
@@ -161,7 +173,9 @@ The drawback is that you don’t know if the data you get is the most recent one
 
 ## Let’s Summarize!
 
-![Summary of the eight database speed-up techniques](../images/2021/04/8-techniques-to-speed-up-your-db-5.png)
+<figure>
+    <a href="../images/2021/04/8-techniques-to-speed-up-your-db-5.png"><img src="../images/2021/04/8-techniques-to-speed-up-your-db-5.png" alt="Summary of the eight database speed-up techniques" width="1839" height="507" loading="lazy"></a>
+</figure>
 
 ## What’s next?
 

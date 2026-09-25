@@ -229,128 +229,144 @@ table. Just click on them to see them in full size:
         <td>RBF SVR</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/04/airline-passengers-train-SVR.png"><img src="../images/2018/04/airline-passengers-train-SVR.png" alt="RBF SVR for extrapolation." style="width: 128px;"/></a></figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-SVR.png"><img src="../images/2018/04/airline-passengers-train-SVR.png" alt="RBF SVR for extrapolation." width="128" height="96" loading="lazy"></a>
+</figure></td>
         <td>Doesn't learn anything useful at all</td>
     </tr>
     <tr>
         <td>GaussianProcessRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td>Kind of</td>
-        <td><a href="../images/2018/04/airline-passengers-train-GaussianProcessRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-GaussianProcessRegressor.png" alt="GaussianProcessRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-GaussianProcessRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-GaussianProcessRegressor.png" alt="GaussianProcessRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td>Overshoots extremely</td>
     </tr>
     <tr>
         <td>AdaBoostRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/04/airline-passengers-train-AdaBoostRegressor.png"><img src="../images/2018/04/airline-passengers-train-AdaBoostRegressor.png" alt="AdaBoostRegressor for extrapolation." style="width: 128px;"/></a></figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-AdaBoostRegressor.png"><img src="../images/2018/04/airline-passengers-train-AdaBoostRegressor.png" alt="AdaBoostRegressor for extrapolation." width="128" height="96" loading="lazy"></a>
+</figure></td>
         <td></td>
     </tr>
     <tr>
         <td>BaggingRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-BaggingRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-BaggingRegressor.png" alt="BaggingRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-BaggingRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-BaggingRegressor.png" alt="BaggingRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>XGBoost</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-XGBoost.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-XGBoost.png" alt="XGBoost for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-XGBoost.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-XGBoost.png" alt="XGBoost for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>ExtraTreesRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-ExtraTreesRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-ExtraTreesRegressor.png" alt="ExtraTreesRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-ExtraTreesRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-ExtraTreesRegressor.png" alt="ExtraTreesRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td>Note the extreme overfitting</td>
     </tr>
     <tr>
         <td>RandomForestRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-RandomForestRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-RandomForestRegressor.png" alt="RandomForestRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-RandomForestRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-RandomForestRegressor.png" alt="RandomForestRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>GradientBoostingRegressor</td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png" alt="GradientBoostingRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png" alt="GradientBoostingRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>Lasso</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-Lasso.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-Lasso.png" alt="Lasso for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-Lasso.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-Lasso.png" alt="Lasso for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>Linear SVR</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-Linear SVR.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-Linear SVR.png" alt="Linear SVR for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-Linear SVR.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-Linear SVR.png" alt="Linear SVR for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>RANSACRegressor</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-RANSACRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-RANSACRegressor.png" alt="RANSACRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-RANSACRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-RANSACRegressor.png" alt="RANSACRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>LinearRegression</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-LinearRegression.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-LinearRegression.png" alt="LinearRegression for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-LinearRegression.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-LinearRegression.png" alt="LinearRegression for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>ElasticNet</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-ElasticNet.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-ElasticNet.png" alt="ElasticNet for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-ElasticNet.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-ElasticNet.png" alt="ElasticNet for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td></td>
     </tr>
     <tr>
         <td>SGDRegressor</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:red;" title="No">&#10008;</span></td>
-        <td><figure class="wp-caption aligncenter img-thumbnail"><a href="../images/2018/04/airline-passengers-train-SGDRegressor.png"><img src="../images/2018/04/airline-passengers-train-SGDRegressor.png" alt="SGDRegressor for extrapolation." style="width: 128px;"/></a>
-    </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-SGDRegressor.png"><img src="../images/2018/04/airline-passengers-train-SGDRegressor.png" alt="SGDRegressor for extrapolation." width="128" height="96" loading="lazy"></a>
+</figure></td>
         <td></td>
     </tr>
     <tr>
         <td>HuberRegressor</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-HuberRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-HuberRegressor.png" alt="HuberRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-HuberRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-HuberRegressor.png" alt="HuberRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td>Both are captured pretty bad</td>
     </tr>
     <tr>
         <td>PassiveAggressiveRegressor</td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
         <td><span style="color:green;" title="Yes">&#10004;</span></td>
-        <td><a href="../images/2018/04/airline-passengers-train-PassiveAggressiveRegressor.png"><figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-PassiveAggressiveRegressor.png" alt="PassiveAggressiveRegressor for extrapolation." style="width: 128px;"/></figure></a></td>
+        <td><a href="../images/2018/04/airline-passengers-train-PassiveAggressiveRegressor.png"><figure>
+    <img src="../images/2018/04/airline-passengers-train-PassiveAggressiveRegressor.png" alt="PassiveAggressiveRegressor for extrapolation." width="128" height="96" loading="lazy">
+</figure></a></td>
         <td>Both are captured pretty bad</td>
     </tr>
 </tbody>
@@ -397,9 +413,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td style="background-color: red;">0.5689</td>
         <td style="background-color: red;">0.6246</td>
         <td style="background-color: red;">2631.9</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png"><img src="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png" alt="Gradient Boosting Regressor" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png"><img src="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png" alt="Gradient Boosting Regressor" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>Linear Regression</td>
@@ -409,9 +425,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td style="background-color: green;">0.8958</td>
         <td style="background-color: green;">0.9096</td>
         <td style="background-color: green;">636.1</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-ResidualRegressor-LinearExtra.png"><img src="../images/2018/04/airline-passengers-train-ResidualRegressor-LinearExtra.png" alt="Linear Regression combined with Extra Trees" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-ResidualRegressor-LinearExtra.png"><img src="../images/2018/04/airline-passengers-train-ResidualRegressor-LinearExtra.png" alt="Linear Regression combined with Extra Trees" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>Lasso</td>
@@ -421,9 +437,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td style="background-color: green;">0.8803</td>
         <td style="background-color: green;">0.8992</td>
         <td style="background-color: green;">730.9</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>ElasticNet</td>
@@ -433,9 +449,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td>0.8382</td>
         <td>0.8403</td>
         <td>988.0</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>LinearSVR</td>
@@ -445,9 +461,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td style="background-color: red;">0.6841</td>
         <td style="background-color: red;">0.7081</td>
         <td style="background-color: red;">1928.2</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>LinearSVR</td>
@@ -457,9 +473,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td style="background-color: red;">0.6918</td>
         <td style="background-color: red;">0.7849</td>
         <td style="background-color: red;">1881.5</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>Lasso</td>
@@ -469,9 +485,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td>0.8034</td>
         <td>0.8143</td>
         <td style="background-color: red;">1200.4</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
     <tr>
         <td>ElasticNet</td>
@@ -481,9 +497,9 @@ I call this model `TrendSeasonRegressor`. Let's try a few combinations:
         <td>0.8098</td>
         <td>0.8229</td>
         <td style="background-color: red;">1161.2</td>
-        <td><figure class="wp-caption aligncenter img-thumbnail">
-            <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png" alt="Text" style="width: 128px;"/></a>
-        </figure></td>
+        <td><figure>
+    <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png"><img src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png" alt="Text" width="128" height="96" loading="lazy"></a>
+</figure></td>
     </tr>
 </tbody>
 </table>
@@ -763,9 +779,9 @@ with the trigonometric functions `sin` and `cos`) seem to be the better choice.
 Using the circular encoding was interesting. It made the prediction get
 "bumps":
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/04/airline-passengers-train-LinearRegressionCircularBumps.png" alt="Linear Regression with two circular-encoded features for the month" style="width: 512px;"/>
-    <figcaption class="text-center">Linear Regression with two circular-encoded features for the month</figcaption>
+<figure>
+    <a href="../images/2018/04/airline-passengers-train-LinearRegressionCircularBumps.png"><img src="../images/2018/04/airline-passengers-train-LinearRegressionCircularBumps.png" alt="Linear Regression with two circular-encoded features for the month" width="512" height="384" loading="lazy"></a>
+    <figcaption>Linear Regression with two circular-encoded features for the month</figcaption>
 </figure>
 
 However, both encodings did not yield better results than the simple integer

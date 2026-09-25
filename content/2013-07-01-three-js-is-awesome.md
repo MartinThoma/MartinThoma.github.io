@@ -19,50 +19,50 @@ They all worked smooth on my Notebook (<a href="http://ark.intel.com/products/50
 
 <h2>Stemkoski</h2>
 <h3>Textures</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-textures.png"><img src="../images/2013/07/threejs-textures.png" alt="Three.js textures example" style="max-width:512px;max-height:228px" class="size-full wp-image-72431"/></a>
-            <figcaption class="text-center">Three.js textures example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-textures.png"><img src="../images/2013/07/threejs-textures.png" alt="Three.js textures example" width="512" height="228"></a>
+    <figcaption>Three.js textures example</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Textures.html">Demonstration</a>
 
 <h3>Three.js</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-skybox.png"><img src="../images/2013/07/threejs-skybox.png" alt="Threejs Skybox example" style="max-width:512px;max-height:286px" class="size-full wp-image-72441"/></a>
-            <figcaption class="text-center">Threejs Skybox example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-skybox.png"><img src="../images/2013/07/threejs-skybox.png" alt="Threejs Skybox example" width="512" height="286" loading="lazy"></a>
+    <figcaption>Threejs Skybox example</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Skybox.html">Demonstration</a>
 
 <h3>Reflection</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-reflection.png"><img src="../images/2013/07/threejs-reflection.png" alt="Reflection example" style="max-width:512px;max-height:278px" class="size-full wp-image-72451"/></a>
-            <figcaption class="text-center">Reflection example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-reflection.png"><img src="../images/2013/07/threejs-reflection.png" alt="Reflection example" width="512" height="278" loading="lazy"></a>
+    <figcaption>Reflection example</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Reflection.html">Demonstration</a>
 
 <h3>Webcam</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-webcam.png"><img src="../images/2013/07/threejs-webcam.png" alt="Webcam example" style="max-width:512px;max-height:263px" class="size-full wp-image-72461"/></a>
-            <figcaption class="text-center">Webcam example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-webcam.png"><img src="../images/2013/07/threejs-webcam.png" alt="Webcam example" width="512" height="263" loading="lazy"></a>
+    <figcaption>Webcam example</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Many-Cameras.html">Demonstration</a>
 
 <h3>Motion detection</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-motion.png"><img src="../images/2013/07/threejs-motion.png" alt="Motion detection with three.js!" style="max-width:556px;max-height:326px" class="size-full wp-image-72471"/></a>
-            <figcaption class="text-center">Motion detection with three.js!</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-motion.png"><img src="../images/2013/07/threejs-motion.png" alt="Motion detection with three.js!" width="556" height="326" loading="lazy"></a>
+    <figcaption>Motion detection with three.js!</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Webcam-Motion-Detection.html">Demonstration</a>
 
 <h3>3D function plotter</h3>
-<figure class="aligncenter">
-            <a href="../images/2013/07/threejs-3d-function.png"><img src="../images/2013/07/threejs-3d-function.png" alt="3D function plotter" style="max-width:512px;max-height:312px" class="size-full wp-image-72481"/></a>
-            <figcaption class="text-center">3D function plotter</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/threejs-3d-function.png"><img src="../images/2013/07/threejs-3d-function.png" alt="3D function plotter" width="512" height="312" loading="lazy"></a>
+    <figcaption>3D function plotter</figcaption>
+</figure>
 
 <a href="http://stemkoski.github.io/Three.js/Graphulus-Function.html">Demonstration</a>
 
@@ -72,18 +72,18 @@ They all worked smooth on my Notebook (<a href="http://ark.intel.com/products/50
 <a href="http://hexgl.bkcore.com/">Demonstration</a>
 
 <h2>Solar System</h2>
-<figure class="aligncenter">
-            <a href="../images/2013/07/solar-system-simulation.png"><img src="../images/2013/07/solar-system-simulation.png" alt="Solar system simulation" style="max-width:512px;max-height:323px" class="size-full wp-image-72501"/></a>
-            <figcaption class="text-center">Solar system simulation</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/solar-system-simulation.png"><img src="../images/2013/07/solar-system-simulation.png" alt="Solar system simulation" width="512" height="323" loading="lazy"></a>
+    <figcaption>Solar system simulation</figcaption>
+</figure>
 
 <a href="http://www.webdev20.pl/skins/default/js/demos/solar_system/index.html">Demonstration</a>
 
 <h2>Planet Maker</h2>
-<figure class="aligncenter">
-            <a href="../images/2013/07/PlanetMaker.png"><img src="../images/2013/07/PlanetMaker.png" alt="PlanetMaker" style="max-width:512px;max-height:313px" class="size-full wp-image-72521"/></a>
-            <figcaption class="text-center">PlanetMaker</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/PlanetMaker.png"><img src="../images/2013/07/PlanetMaker.png" alt="PlanetMaker" width="512" height="313" loading="lazy"></a>
+    <figcaption>PlanetMaker</figcaption>
+</figure>
 
 <a href="http://planetmaker.wthr.us/?model=51b8d1021fef93.32065956">Demonstration</a> - takes ages to load, but when it's loaded it is fast
 

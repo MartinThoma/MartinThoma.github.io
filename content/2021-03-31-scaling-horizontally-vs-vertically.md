@@ -11,7 +11,10 @@ featured_image: logos/star.png
 subtitle: Be smart or throw money at the problem
 medium_url: https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925
 ---
-![Image by Martin Thoma](../images/2021/03/scaling-horizontally-vs-vertically-1.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/03/scaling-horizontally-vs-vertically-1.png"><img src="../images/2021/03/scaling-horizontally-vs-vertically-1.png" alt="Image by Martin Thoma" width="1335" height="612"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 The beauty of software development is that almost arbitrarily many people can profit from a developer’s work. Web services such as Facebook or YouTube have several hundred developers, but hundreds of millions of users. However, having many users is not for free. The servers need to do more work. At some point, the machine you started with is not enough.
 
@@ -25,7 +28,10 @@ Vertical scaling is awesome as long as it works. There are limits in what money 
 
 Vertical scaling is an early solution as long as you don’t reach the territory where the limits are:
 
-![Vertical scaling is pretty cheap in every respect when you start with a tiny machine. For example, the difference from a Raspberry Pi to a small PC is huge in computational power, but the cost is very small. At some point, improving the power even a tiny bit makes the machine way more expensive. Image by Martin Thoma](../images/2021/03/scaling-horizontally-vs-vertically-2.png)*Vertical scaling is pretty cheap in every respect when you start with a tiny machine. For example, the difference from a Raspberry Pi to a small PC is huge in computational power, but the cost is very small. At some point, improving the power even a tiny bit makes the machine way more expensive. Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/03/scaling-horizontally-vs-vertically-2.png"><img src="../images/2021/03/scaling-horizontally-vs-vertically-2.png" alt="Vertical scaling is pretty cheap in every respect when you start with a tiny machine. For example, the difference from a Raspberry Pi to a small PC is huge in computational power, but the cost is very small. At some point, improving the power even a tiny bit makes the machine way more expensive. Image by Martin Thoma" width="400" height="375" loading="lazy"></a>
+    <figcaption>Vertical scaling is pretty cheap in every respect when you start with a tiny machine. For example, the difference from a Raspberry Pi to a small PC is huge in computational power, but the cost is very small. At some point, improving the power even a tiny bit makes the machine way more expensive. Image by Martin Thoma</figcaption>
+</figure>
 
 Databases are typical examples that are scaled vertically as long as possible.
 

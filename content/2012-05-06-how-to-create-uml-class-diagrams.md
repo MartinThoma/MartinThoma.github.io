@@ -13,25 +13,25 @@ featured_image: 2012/05/UML-thumb.png
 Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool.
 
 Take a look at these screenshots:
-<figure class="aligncenter">
-            <a href="../images/2012/05/dia-create-class.png"><img src="../images/2012/05/dia-create-class.png" alt="Create a class for a class diagram in Dia" style="max-width:231px;max-height:611px" class="size-full wp-image-24211"/></a>
-            <figcaption class="text-center">Create a class for a class diagram in Dia</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/05/dia-create-class.png"><img src="../images/2012/05/dia-create-class.png" alt="Create a class for a class diagram in Dia" width="231" height="611"></a>
+    <figcaption>Create a class for a class diagram in Dia</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/05/dia-class-properties.png"><img src="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia" style="max-width:676px;max-height:589px" class="size-full wp-image-24221"/></a>
-            <figcaption class="text-center">Edit class properties in Dia</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/05/dia-class-properties.png"><img src="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia" width="676" height="589" loading="lazy"></a>
+    <figcaption>Edit class properties in Dia</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/05/dia-association.png"><img src="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" style="max-width:454px;max-height:447px" class="size-full wp-image-24231"/></a>
-            <figcaption class="text-center">Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/05/dia-association.png"><img src="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" width="454" height="447" loading="lazy"></a>
+    <figcaption>Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/05/Dia-ClassDiagram.png"><img src="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia" style="max-width:519px;max-height:104px" class="size-full wp-image-24251"/></a>
-            <figcaption class="text-center">A quick example for a class diagram created with Dia</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/05/Dia-ClassDiagram.png"><img src="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia" width="519" height="104" loading="lazy"></a>
+    <figcaption>A quick example for a class diagram created with Dia</figcaption>
+</figure>
 
 <h2>LaTeX</h2>
 I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different?
@@ -75,10 +75,10 @@ end
 You have to execute mpost before you can compile LaTeX. A working example is in this <a href='../images/2012/05/UML.zip'>UML Archive</a>.
 
 It looks like that in your generated PDF file:
-<figure class="aligncenter">
-            <a href="../images/2012/05/MetaUML-class-diagram.png"><img src="../images/2012/05/MetaUML-class-diagram.png" alt="MetaUML class diagram" style="max-width:676px;max-height:161px" class="size-full wp-image-24271"/></a>
-            <figcaption class="text-center">MetaUML class diagram</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/05/MetaUML-class-diagram.png"><img src="../images/2012/05/MetaUML-class-diagram.png" alt="MetaUML class diagram" width="676" height="161" loading="lazy"></a>
+    <figcaption>MetaUML class diagram</figcaption>
+</figure>
 
 <h2>See also</h2>
 <ul>

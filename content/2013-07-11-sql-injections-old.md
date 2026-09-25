@@ -14,17 +14,17 @@ featured_image: 2013/07/blackhat.png
 <h2>Example: IMDb</h2>
 Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/imdb-harry-potter-query.png"><img src="../images/2013/07/imdb-harry-potter-query.png" alt="IMDb: User Interface to search for a movie by title" style="max-width:300px;max-height:194px" class="size-medium"/></a>
-            <figcaption class="text-center">IMDb: User Interface to search for a movie by title</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/imdb-harry-potter-query.png"><img src="../images/2013/07/imdb-harry-potter-query.png" alt="IMDb: User Interface to search for a movie by title" width="299" height="194"></a>
+    <figcaption>IMDb: User Interface to search for a movie by title</figcaption>
+</figure>
 
 When you search for "Harry Potter" for example, the following happens:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/imdb-search-query-300x156.png"><img src="../images/2013/07/imdb-search-query-300x156.png" alt="Search query within URL and results" style="max-width:300px;max-height:156px" class="size-medium wp-image-73921"/></a>
-            <figcaption class="text-center">Search query within URL and results</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/imdb-search-query-300x156.png"><img src="../images/2013/07/imdb-search-query-300x156.png" alt="Search query within URL and results" width="300" height="156" loading="lazy"></a>
+    <figcaption>Search query within URL and results</figcaption>
+</figure>
 
 You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.
 
@@ -106,17 +106,17 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
 
 Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/hack-screenshot.png"><img src="../images/2013/07/hack-screenshot.png" alt="Screenshot of my minimal example" style="max-width:300px;max-height:85px" class="size-medium wp-image-73971"/></a>
-            <figcaption class="text-center">Screenshot of my minimal example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/hack-screenshot.png"><img src="../images/2013/07/hack-screenshot.png" alt="Screenshot of my minimal example" width="298" height="85" loading="lazy"></a>
+    <figcaption>Screenshot of my minimal example</figcaption>
+</figure>
 
 When you search for "Harry Potter" it should show you "1: Harry Potter". Note that there could be a lot of information, but I wanted to keep this example as small as possible.
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/hack-normal-use.png"><img src="../images/2013/07/hack-normal-use.png" alt="Normal use of the web service" style="max-width:300px;max-height:77px" class="size-medium"/></a>
-            <figcaption class="text-center">Normal use of the web service</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/hack-normal-use.png"><img src="../images/2013/07/hack-normal-use.png" alt="Normal use of the web service" width="297" height="77" loading="lazy"></a>
+    <figcaption>Normal use of the web service</figcaption>
+</figure>
 
 This resulted in the following query:
 
@@ -126,10 +126,10 @@ SELECT * FROM `movies` WHERE title='Harry Potter'
 
 But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/hack-hacky-use.png"><img src="../images/2013/07/hack-hacky-use.png" alt="What a hacker could do" style="max-width:300px;max-height:94px" class="size-medium"/></a>
-            <figcaption class="text-center">What a hacker could do</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/hack-hacky-use.png"><img src="../images/2013/07/hack-hacky-use.png" alt="What a hacker could do" width="298" height="94" loading="lazy"></a>
+    <figcaption>What a hacker could do</figcaption>
+</figure>
 
 Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:
 
@@ -145,17 +145,17 @@ SELECT * FROM `movies` WHERE title='' UNION SELECT table_name, table_type FROM i
 
 which gives:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/sql-injection-example.png"><img src="../images/2013/07/sql-injection-example.png" alt="Attacker got all table names" style="max-width:268px;max-height:300px" class="size-medium"/></a>
-            <figcaption class="text-center">Attacker got all table names</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/sql-injection-example.png"><img src="../images/2013/07/sql-injection-example.png" alt="Attacker got all table names" width="268" height="300" loading="lazy"></a>
+    <figcaption>Attacker got all table names</figcaption>
+</figure>
 
 This way, the attacker gets all table names from all databases on this machine. So he essentially can get everything stored in your database. And, of course, after getting everything he could drop it:
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/exploits_of_a_mom.png"><img src="../images/2013/07/exploits_of_a_mom.png" alt="xkcd 327: Exploits of a mom" style="max-width:300px;max-height:92px" class="size-medium"/></a>
-            <figcaption class="text-center">xkcd 327: Exploits of a mom</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/exploits_of_a_mom.png"><img src="../images/2013/07/exploits_of_a_mom.png" alt="xkcd 327: Exploits of a mom" width="299" height="92" loading="lazy"></a>
+    <figcaption>xkcd 327: Exploits of a mom</figcaption>
+</figure>
 
 <h2>History</h2>
 Just a few famous examples to show you that this happens all the time:

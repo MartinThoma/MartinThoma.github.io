@@ -46,7 +46,10 @@ moose@pc07:~/Desktop$ diff file1.txt file2.txt
 ```
 
 If you use meld it looks like this:
-<a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="meld-diff" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
+
+<figure>
+    <a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="meld-diff" width="300" height="156" loading="lazy"></a>
+</figure>
 
 <h2>My LaTeX configuration</h2>
 First, you have to install the latest LaTeX-Version: <a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>.

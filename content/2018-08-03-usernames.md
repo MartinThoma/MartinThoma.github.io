@@ -19,9 +19,9 @@ want to share some ideas on usernames.
 When I look into my Stack Overflow profile, they have something called
 "display name":
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/08/stackoverflow-profile.png"><img src="../images/2018/08/stackoverflow-profile.png" alt="Stack Overflow Profile edit page" style="width: 512px;"/></a>
-    <figcaption class="text-center">Stack Overflow Profile edit page</figcaption>
+<figure>
+    <a href="../images/2018/08/stackoverflow-profile.png"><img src="../images/2018/08/stackoverflow-profile.png" alt="Stack Overflow Profile edit page" width="512" height="199"></a>
+    <figcaption>Stack Overflow Profile edit page</figcaption>
 </figure>
 
 I like this a lot. It communicates clearly that it is something seen by others.

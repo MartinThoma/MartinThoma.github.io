@@ -13,9 +13,9 @@ featured_image: logos/cooking.png
 countries. It's always spicy, but not necessarily in the hot-spicy sense. There are
 just a lot of spices in curry 🙂.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-06.jpg"><img src="../images/2019/05/curry-06.jpg" alt="Vegetable Curry" style="width: 512px;"/></a>
-    <figcaption class="text-center">Vegetable Curry</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-06.jpg"><img src="../images/2019/05/curry-06.jpg" alt="Vegetable Curry" width="512" height="288"></a>
+    <figcaption>Vegetable Curry</figcaption>
 </figure>
 
 
@@ -69,14 +69,14 @@ Preparation:
    roughly 4 - 9 pieces out of the Zucchini, so that you can eat it
    comfortably.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-01.jpg"><img src="../images/2019/05/curry-01.jpg" alt="Cutting the vegetables" style="width: 512px;"/></a>
-    <figcaption class="text-center">Cutting the vegetables</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-01.jpg"><img src="../images/2019/05/curry-01.jpg" alt="Cutting the vegetables" width="512" height="288" loading="lazy"></a>
+    <figcaption>Cutting the vegetables</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-02.jpg"><img src="../images/2019/05/curry-02.jpg" alt="Cutting the vegetables" style="width: 512px;"/></a>
-    <figcaption class="text-center">Cutting the vegetables</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-02.jpg"><img src="../images/2019/05/curry-02.jpg" alt="Cutting the vegetables" width="512" height="288" loading="lazy"></a>
+    <figcaption>Cutting the vegetables</figcaption>
 </figure>
 
 Curry:
@@ -87,19 +87,19 @@ Curry:
 4. Add the coconut milk.
 5. Add the Broccoli and carrots.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-03.jpg"><img src="../images/2019/05/curry-03.jpg" alt="Fry the onions, spring onions and the curry" style="width: 512px;"/></a>
-    <figcaption class="text-center">Fry the onions, spring onions and the curry</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-03.jpg"><img src="../images/2019/05/curry-03.jpg" alt="Fry the onions, spring onions and the curry" width="512" height="288" loading="lazy"></a>
+    <figcaption>Fry the onions, spring onions and the curry</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-04.jpg"><img src="../images/2019/05/curry-04.jpg" alt="Add Zucchini and carrots" style="width: 512px;"/></a>
-    <figcaption class="text-center">Add Zucchini and carrots</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-04.jpg"><img src="../images/2019/05/curry-04.jpg" alt="Add Zucchini and carrots" width="512" height="288" loading="lazy"></a>
+    <figcaption>Add Zucchini and carrots</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-05.jpg"><img src="../images/2019/05/curry-05.jpg" alt="Add pepper and coconut milk" style="width: 512px;"/></a>
-    <figcaption class="text-center">Add pepper and coconut milk</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-05.jpg"><img src="../images/2019/05/curry-05.jpg" alt="Add pepper and coconut milk" width="512" height="288" loading="lazy"></a>
+    <figcaption>Add pepper and coconut milk</figcaption>
 </figure>
 
 
@@ -109,7 +109,7 @@ Serve (for each person):
 2. Put the Curry on the plate
 3. Put some french fried onions over the rice
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/curry-06.jpg"><img src="../images/2019/05/curry-06.jpg" alt="The finished curry" style="width: 512px;"/></a>
-    <figcaption class="text-center">The finished curry</figcaption>
+<figure>
+    <a href="../images/2019/05/curry-06.jpg"><img src="../images/2019/05/curry-06.jpg" alt="The finished curry" width="512" height="288" loading="lazy"></a>
+    <figcaption>The finished curry</figcaption>
 </figure>

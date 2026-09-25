@@ -13,23 +13,47 @@ save_as: sell/bett/index.html
 
 <div itemscope itemtype="http://schema.org/Product">
   <span itemprop="name">Bettgestell aus Holz für 2m x 90cm Matratzen</span>
-  <img src="../../images/2016/05/bett-1.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-2.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-3.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-4.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-5.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-6.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-7.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-8.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-9.jpg" alt="Bett" />
-  <img src="../../images/2016/05/bett-10.jpg" alt="Bett" />
+
+<div class="gallery">
+    <figure>
+        <a href="../../images/2016/05/bett-1.jpg"><img src="../../images/2016/05/bett-1.jpg" alt="Bett" width="2048" height="1536"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-2.jpg"><img src="../../images/2016/05/bett-2.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-3.jpg"><img src="../../images/2016/05/bett-3.jpg" alt="Bett" width="2048" height="1536" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-4.jpg"><img src="../../images/2016/05/bett-4.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-5.jpg"><img src="../../images/2016/05/bett-5.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-6.jpg"><img src="../../images/2016/05/bett-6.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-7.jpg"><img src="../../images/2016/05/bett-7.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-8.jpg"><img src="../../images/2016/05/bett-8.jpg" alt="Bett" width="2048" height="1536" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-9.jpg"><img src="../../images/2016/05/bett-9.jpg" alt="Bett" width="2048" height="1536" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../../images/2016/05/bett-10.jpg"><img src="../../images/2016/05/bett-10.jpg" alt="Bett" width="1683" height="2048" loading="lazy"></a>
+    </figure>
+</div>
+
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <!--price is 1000, a number, with locale-specific thousands separator
     and decimal mark, and the $ character is marked up with the
     machine-readable code "USD" -->
     <span itemprop="priceCurrency" content="EUR">&euro;</span><span
           itemprop="price" content="20.00">20.00</span>,
-    <link itemprop="availability" href="http://schema.org/InStock" />Verfügbar
+    <link itemprop="availability" href="http://schema.org/InStock" />Entsorgt</span>
   </div>
   <b>Beschreibung:</b>
   <span itemprop="description">Das Bettgestell ist aus Holz und für 2m x 90cm Matrazen geeignet.

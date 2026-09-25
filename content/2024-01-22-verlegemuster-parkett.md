@@ -10,9 +10,9 @@ tags: House, Money
 featured_image: logos/house.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg"><img src="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg" alt="Rustikales Eichenparkett im Schiffsbodenmuster verlegt" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Rustikales Eichenparkett im Schiffsbodenmuster verlegt</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg"><img src="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg" alt="Rustikales Eichenparkett im Schiffsbodenmuster verlegt" width="512" height="512"></a>
+    <figcaption>Rustikales Eichenparkett im Schiffsbodenmuster verlegt</figcaption>
 </figure>
 
 ## Herringbone

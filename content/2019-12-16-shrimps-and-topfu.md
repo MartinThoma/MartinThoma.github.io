@@ -11,9 +11,9 @@ featured_image: logos/cooking.png
 ---
 A nice dish which takes about 30 minutes to cook.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/finished-shrimps-and-tofu.jpg"><img src="../images/2019/12/finished-shrimps-and-tofu.jpg" alt="Finished tofu and shrimps" style="width: 512px;"/></a>
-    <figcaption class="text-center">Finished tofu and shrimps</figcaption>
+<figure>
+    <a href="../images/2019/12/finished-shrimps-and-tofu.jpg"><img src="../images/2019/12/finished-shrimps-and-tofu.jpg" alt="Finished tofu and shrimps" width="512" height="384"></a>
+    <figcaption>Finished tofu and shrimps</figcaption>
 </figure>
 
 ## Ingredients
@@ -41,28 +41,28 @@ A nice dish which takes about 30 minutes to cook.
 
 1. Cut onions, spring onions and tomatoes. Cut the chili peppers slightly diagonally.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/cut-onions.jpg"><img src="../images/2019/12/cut-onions.jpg" alt="Cut onions" style="width: 512px;"/></a>
-    <figcaption class="text-center">Cut onions</figcaption>
+<figure>
+    <a href="../images/2019/12/cut-onions.jpg"><img src="../images/2019/12/cut-onions.jpg" alt="Cut onions" width="512" height="439" loading="lazy"></a>
+    <figcaption>Cut onions</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/tomato-spring-onion.jpg"><img src="../images/2019/12/tomato-spring-onion.jpg" alt="Tomato, chili peppers and spring onion" style="width: 512px;"/></a>
-    <figcaption class="text-center">Tomato, chili peppers and spring onion</figcaption>
+<figure>
+    <a href="../images/2019/12/tomato-spring-onion.jpg"><img src="../images/2019/12/tomato-spring-onion.jpg" alt="Tomato, chili peppers and spring onion" width="512" height="323" loading="lazy"></a>
+    <figcaption>Tomato, chili peppers and spring onion</figcaption>
 </figure>
 
 2. Cut Tofu into cubes of edge length 1.5 cm - something that is comfortable to eat.
 3. Marinate the tofu with salt, pepper and garlic powder. Let it rest for 10 minutes.
 4. Put oil into the wok and fry the tofu in it. Take the tofu out after it is fried.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/frying-tofu.jpg"><img src="../images/2019/12/frying-tofu.jpg" alt="Frying the tofu" style="width: 512px;"/></a>
-    <figcaption class="text-center">Frying the tofu</figcaption>
+<figure>
+    <a href="../images/2019/12/frying-tofu.jpg"><img src="../images/2019/12/frying-tofu.jpg" alt="Frying the tofu" width="512" height="384" loading="lazy"></a>
+    <figcaption>Frying the tofu</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/fried-tofu.jpg"><img src="../images/2019/12/fried-tofu.jpg" alt="Fried tofu" style="width: 512px;"/></a>
-    <figcaption class="text-center">Fried tofu</figcaption>
+<figure>
+    <a href="../images/2019/12/fried-tofu.jpg"><img src="../images/2019/12/fried-tofu.jpg" alt="Fried tofu" width="512" height="501" loading="lazy"></a>
+    <figcaption>Fried tofu</figcaption>
 </figure>
 
 5. Fry the onions until they smell good. Add chili peppers and spring onions.
@@ -72,14 +72,14 @@ A nice dish which takes about 30 minutes to cook.
    of wheat flour.
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/shrimps-in-pan.jpg"><img src="../images/2019/12/shrimps-in-pan.jpg" alt="Shrimps in the wok" style="width: 512px;"/></a>
-    <figcaption class="text-center">Shrimps in the wok</figcaption>
+<figure>
+    <a href="../images/2019/12/shrimps-in-pan.jpg"><img src="../images/2019/12/shrimps-in-pan.jpg" alt="Shrimps in the wok" width="512" height="384" loading="lazy"></a>
+    <figcaption>Shrimps in the wok</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/finished-shrimps-and-tofu.jpg"><img src="../images/2019/12/finished-shrimps-and-tofu.jpg" alt="Finished tofu and shrimps" style="width: 512px;"/></a>
-    <figcaption class="text-center">Finished tofu and shrimps</figcaption>
+<figure>
+    <a href="../images/2019/12/finished-shrimps-and-tofu.jpg"><img src="../images/2019/12/finished-shrimps-and-tofu.jpg" alt="Finished tofu and shrimps" width="512" height="384" loading="lazy"></a>
+    <figcaption>Finished tofu and shrimps</figcaption>
 </figure>
 
 

@@ -23,18 +23,18 @@ is how I would define it: A data scientist is a person who applies data
 science. Data science is an academic field which deals with the extraction of
 knowledge and insights from data.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/06/data-science-ngram.png"><img src="../images/2018/06/data-science-ngram.png" alt="Popularity of Data Science and related terms in books." style="width: 512px;"/></a>
-    <figcaption class="text-center">Popularity of Data Science and related terms in books. One can see a linear increase for "machine learning" since about 1975, the term "data mining" exploded from 1992 to 2003. Other related terms like "big data", "deep learning", "information extraction" and "data science" are much less popular in books.</figcaption>
+<figure>
+    <a href="../images/2018/06/data-science-ngram.png"><img src="../images/2018/06/data-science-ngram.png" alt="Popularity of Data Science and related terms in books." width="512" height="230"></a>
+    <figcaption>Popularity of Data Science and related terms in books. One can see a linear increase for "machine learning" since about 1975, the term "data mining" exploded from 1992 to 2003. Other related terms like "big data", "deep learning", "information extraction" and "data science" are much less popular in books.</figcaption>
 </figure>
 
 I would also say it is a term used much more often in industry than in
 academia. The requirements between different job postings differ, but there are
 some general themes:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/06/word-cloud-skillset.png"><img src="../images/2018/06/word-cloud-skillset.png" alt="Word Cloud of the Skillset in 10 different Data Scientist job postings" style="width: 512px;"/></a>
-    <figcaption class="text-center">Word Cloud of the Skillset in 10 different Data Scientist job postings. If you're interested how to create word clouds, look <a href="https://gist.github.com/MartinThoma/d325e3cdc2fd68133241efa21d3205b4">here</a>.</figcaption>
+<figure>
+    <a href="../images/2018/06/word-cloud-skillset.png"><img src="../images/2018/06/word-cloud-skillset.png" alt="Word Cloud of the Skillset in 10 different Data Scientist job postings" width="512" height="376" loading="lazy"></a>
+    <figcaption>Word Cloud of the Skillset in 10 different Data Scientist job postings. If you're interested how to create word clouds, look <a href="https://gist.github.com/MartinThoma/d325e3cdc2fd68133241efa21d3205b4">here</a>.</figcaption>
 </figure>
 
 
@@ -49,9 +49,9 @@ so far. I gave them a list of six possible responses and asked for more if
 there is something that didn't match an entry in the list. I didn't get any answer
 outside of it. Here are the answers:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/06/data-science-projects.png"><img src="../images/2018/06/data-science-projects.png" alt="Data Science project types" style="width: 512px;"/></a>
-    <figcaption class="text-center">Data Science project types. EDA is short for "Exploratory Data Analysis". The bar chart was created with <a href="https://www.rapidtables.com/tools/bar-graph.html">rapidtables.com</a></figcaption>
+<figure>
+    <a href="../images/2018/06/data-science-projects.png"><img src="../images/2018/06/data-science-projects.png" alt="Data Science project types" width="512" height="351" loading="lazy"></a>
+    <figcaption>Data Science project types. EDA is short for "Exploratory Data Analysis". The bar chart was created with <a href="https://www.rapidtables.com/tools/bar-graph.html">rapidtables.com</a></figcaption>
 </figure>
 
 Let's first explain the different project types:
@@ -154,17 +154,17 @@ David Robinson made a really nice quote ([source](https://dzone.com/articles/the
 
 I usually say that ML is a strict subset of AI:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/ai-ml-deep-learning.png" alt="AI vs ML vs Deep Learning" style="width: 512px;"/>
-    <figcaption class="text-center">AI vs ML vs Deep Learning</figcaption>
+<figure>
+    <a href="../images/2018/06/ai-ml-deep-learning.png"><img src="../images/2018/06/ai-ml-deep-learning.png" alt="AI vs ML vs Deep Learning" width="512" height="443" loading="lazy"></a>
+    <figcaption>AI vs ML vs Deep Learning</figcaption>
 </figure>
 
 David Robinson's statement is not a contradiction to mine. I would say you need
 predictions about the future to take smart actions in a changing world.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/ds-ml-ai.png" alt="A more detailed view of Data Science, Machine Learning, and AI" style="width: 512px;"/>
-    <figcaption class="text-center">A more detailed view of Data Science, Machine Learning, and AI</figcaption>
+<figure>
+    <a href="../images/2018/06/ds-ml-ai.png"><img src="../images/2018/06/ds-ml-ai.png" alt="A more detailed view of Data Science, Machine Learning, and AI" width="512" height="146" loading="lazy"></a>
+    <figcaption>A more detailed view of Data Science, Machine Learning, and AI</figcaption>
 </figure>
 
 

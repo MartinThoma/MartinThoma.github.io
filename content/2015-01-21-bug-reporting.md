@@ -38,10 +38,10 @@ able to find out what such messages mean.
 
 I was curious, so I clicked on it. Then this appeared:
 
-<figure class="aligncenter">
-            <a href="../images/2015/01/apport-examine-locally.png"><img src="../images/2015/01/apport-examine-locally.png" alt="Apport 'examine locally' window" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Apport 'examine locally' window</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/01/apport-examine-locally.png"><img src="../images/2015/01/apport-examine-locally.png" alt="Apport 'examine locally' window" width="500" height="196"></a>
+    <figcaption>Apport 'examine locally' window</figcaption>
+</figure>
 
 > This will launch apport-retrace in a terminal window to examine the crash.
 
@@ -61,10 +61,10 @@ For example:
 
 Let's try 'Run gdb session'. By the way, 'gdb' is the GNU project debugger.
 
-<figure class="aligncenter">
-            <a href="../images/2015/01/run-gdb-session.png"><img src="../images/2015/01/run-gdb-session.png" alt="Error creating child process" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Error creating child process</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/01/run-gdb-session.png"><img src="../images/2015/01/run-gdb-session.png" alt="Error creating child process" width="500" height="341" loading="lazy"></a>
+    <figcaption>Error creating child process</figcaption>
+</figure>
 
 Hrmpf. Seems as if I found a bug while trying to report a bug...
 This happens for every option.
@@ -72,10 +72,10 @@ This happens for every option.
 Ok. Let's see if I can report the bug. As the automatic tools did not help,
 I check for a program version via *Help > About*:
 
-<figure class="aligncenter">
-            <a href="../images/2015/01/caja-about.png"><img src="../images/2015/01/caja-about.png" alt="Caja About window" style="max-width:323px;" class=""/></a>
-            <figcaption class="text-center">Caja About window</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/01/caja-about.png"><img src="../images/2015/01/caja-about.png" alt="Caja About window" width="323" height="306" loading="lazy"></a>
+    <figcaption>Caja About window</figcaption>
+</figure>
 
 Nice! It is obvious which version I use and how the program is called
 (Caja 1.8.2). There is even a link to a website where I could possibly report
@@ -90,10 +90,10 @@ That seems to be a blog article which explains they are moving to GitHub with a
 link to [github.com/mate-desktop](https://github.com/mate-desktop). There are
 many repositories, so I have to search. Hrmpf. Then I get:
 
-<figure class="aligncenter">
-            <a href="../images/2015/01/caja-github.png"><img src="../images/2015/01/caja-github.png" alt="Caja Repositories" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Caja Repositories</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/01/caja-github.png"><img src="../images/2015/01/caja-github.png" alt="Caja Repositories" width="500" height="566" loading="lazy"></a>
+    <figcaption>Caja Repositories</figcaption>
+</figure>
 
 5 repositories. Hrmpf. I guess it is simply 'caja'. When I click on this
 repository, I have to click on 'issues'.
@@ -109,68 +109,28 @@ about the crash.
 
 Just a few images...
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" alt="Step 1" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Step 1</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/01/bug-chrome-details-1.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-1.png" alt="Details 1" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Details 1</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/01/bug-chrome-details-2-dependencies.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-2-dependencies.png" alt="Details 2" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Details 2</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/01/bug-chrome-details-3.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-3.png" alt="Details 3" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Details 3</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/01/bug-chrome-details-4.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-4.png" alt="Details 4" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Details 4</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png"><img src="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" alt="Step 1" width="120" height="36" loading="lazy"></a>
+        <figcaption>Step 1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/bug-chrome-details-1.png"><img src="../images/2015/01/bug-chrome-details-1.png" alt="Details 1" width="97" height="121" loading="lazy"></a>
+        <figcaption>Details 1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/bug-chrome-details-2-dependencies.png"><img src="../images/2015/01/bug-chrome-details-2-dependencies.png" alt="Details 2" width="97" height="121" loading="lazy"></a>
+        <figcaption>Details 2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/bug-chrome-details-3.png"><img src="../images/2015/01/bug-chrome-details-3.png" alt="Details 3" width="97" height="121" loading="lazy"></a>
+        <figcaption>Details 3</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/bug-chrome-details-4.png"><img src="../images/2015/01/bug-chrome-details-4.png" alt="Details 4" width="97" height="121" loading="lazy"></a>
+        <figcaption>Details 4</figcaption>
+    </figure>
+</div>
 
 
 ## What's wrong and how to fix it

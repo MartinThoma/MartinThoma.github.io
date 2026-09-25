@@ -21,9 +21,9 @@ The internet is a network. It is not connecting your machine with every other
 one directly, but uses nodes in between. As it is basically connecting everybody,
 you also have some attackers within the network:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/internet.png"><img src="../images/2019/06/internet.png" alt="The Internet: Connecting you with Services and Attackers" style="width: 512px;"/></a>
-    <figcaption class="text-center">The Internet: Connecting you with Services and Attackers</figcaption>
+<figure>
+    <a href="../images/2019/06/internet.png"><img src="../images/2019/06/internet.png" alt="The Internet: Connecting you with Services and Attackers" width="372" height="267"></a>
+    <figcaption>The Internet: Connecting you with Services and Attackers</figcaption>
 </figure>
 
 The internet is engineered in a way that very often you can imagine the
@@ -33,9 +33,9 @@ reading your traffic (e.g. when you use a wireless connection that's called <a h
 when you're in the same network). In a worse case they might be able to change
 your communication. These types of attacks are called [Man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack):
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/man-in-the-middle.png"><img src="../images/2019/06/man-in-the-middle.png" alt="A Man in the Middle Attack" style="width: 512px;"/></a>
-    <figcaption class="text-center">A Man in the Middle Attack</figcaption>
+<figure>
+    <a href="../images/2019/06/man-in-the-middle.png"><img src="../images/2019/06/man-in-the-middle.png" alt="A Man in the Middle Attack" width="512" height="296" loading="lazy"></a>
+    <figcaption>A Man in the Middle Attack</figcaption>
 </figure>
 
 
@@ -105,9 +105,9 @@ timestamped OCSP response from the CA and "staples" it to the TLS handshake.
 You can see the Certificate Authority in Chrome by clicking on the lock icon
 left of the URL:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/chrome-ca.png"><img src="../images/2019/06/chrome-ca.png" alt="Checking the Certificate Authority in Chrome" style="width: 512px;"/></a>
-    <figcaption class="text-center">Checking the Certificate Authority in Chrome</figcaption>
+<figure>
+    <a href="../images/2019/06/chrome-ca.png"><img src="../images/2019/06/chrome-ca.png" alt="Checking the Certificate Authority in Chrome" width="512" height="323" loading="lazy"></a>
+    <figcaption>Checking the Certificate Authority in Chrome</figcaption>
 </figure>
 
 Commonly used Certificate Authorities are:

@@ -15,9 +15,9 @@ or both.
 Three typical data science project phases are understanding the data, creating
 a software component and then a storytelling part:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/ds-flowchart.png" alt="Typical Data Science project phases" style="width: 512px;"/>
-    <figcaption class="text-center">Typical Data Science project phases</figcaption>
+<figure>
+    <a href="../images/2018/06/ds-flowchart.png"><img src="../images/2018/06/ds-flowchart.png" alt="Typical Data Science project phases" width="305" height="174"></a>
+    <figcaption>Typical Data Science project phases</figcaption>
 </figure>
 
 There are two other steps which I left out as I don't have any rules to follow
@@ -141,9 +141,9 @@ features and see the output of a model, they will either build more trust in
 your model or you will get some examples where your model fails. Either way, it
 is a win for the project.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/06/model-playground.png"><img src="../images/2018/06/model-playground.png" alt="Poking a model" style="width: 512px;"/></a>
-    <figcaption class="text-center">Poking a model</figcaption>
+<figure>
+    <a href="../images/2018/06/model-playground.png"><img src="../images/2018/06/model-playground.png" alt="Poking a model" width="512" height="384" loading="lazy"></a>
+    <figcaption>Poking a model</figcaption>
 </figure>
 
 This wireframe is an idea for a web service which allows data scientists to

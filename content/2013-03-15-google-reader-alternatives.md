@@ -14,61 +14,29 @@ On July 1, 2013, Google will retire Google Reader (<a href="http://googleblog.bl
 <h2>How I used Google Reader</h2>
 Most important for me was the Chrome plugin:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/google-reader-icon.png" class="image">
-                  <img src="../images/2013/03/google-reader-icon.png" alt="Google Reader in Chrome - Icon indicates number of new items" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Google Reader in Chrome - Icon indicates number of new items</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/google-reader-chrome-popup.png" class="image">
-                  <img src="../images/2013/03/google-reader-chrome-popup.png" alt="Google Reader in Chrome - Show all new items" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Google Reader in Chrome - Show all new items</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/03/google-reader-icon.png"><img src="../images/2013/03/google-reader-icon.png" alt="Google Reader in Chrome - Icon indicates number of new items" width="120" height="90"></a>
+        <figcaption>Google Reader in Chrome - Icon indicates number of new items</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/03/google-reader-chrome-popup.png"><img src="../images/2013/03/google-reader-chrome-popup.png" alt="Google Reader in Chrome - Show all new items" width="103" height="121" loading="lazy"></a>
+        <figcaption>Google Reader in Chrome - Show all new items</figcaption>
+    </figure>
+</div>
 
 The website offered a nice, clean way to administrate my 109 Feeds. Last (and least) the Android App. I don't have my smartphone long enough to really use this app, but it is one of 10 Apps I've currently installed.
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/google-reader-website.png" class="image">
-                  <img src="../images/2013/03/google-reader-website.png" alt="Google Reader Website" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Google Reader Website</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/03/google-reader-android-app.png" class="image">
-                  <img src="../images/2013/03/google-reader-android-app.png" alt="Google Reader Android App" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Google Reader Android App</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/03/google-reader-website.png"><img src="../images/2013/03/google-reader-website.png" alt="Google Reader Website" width="120" height="60" loading="lazy"></a>
+        <figcaption>Google Reader Website</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/03/google-reader-android-app.png"><img src="../images/2013/03/google-reader-android-app.png" alt="Google Reader Android App" width="72" height="120" loading="lazy"></a>
+        <figcaption>Google Reader Android App</figcaption>
+    </figure>
+</div>
 
 Now, I am interested in alternatives. They should
 <ul>
@@ -84,20 +52,20 @@ Now, I am interested in alternatives. They should
 <h3>The Old Reader</h3>
 <a href="http://theoldreader.com/">The Old Reader</a> is a web service that wants to provide the same service as Google did before.
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/theoldreader.com-feeds-import-300x175.png"><img src="../images/2013/03/theoldreader.com-feeds-import-300x175.png" alt="The Old Reader" style="max-width:300px;max-height:175px" class="size-medium wp-image-61231"/></a>
-            <figcaption class="text-center">The Old Reader</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/theoldreader.com-feeds-import-300x175.png"><img src="../images/2013/03/theoldreader.com-feeds-import-300x175.png" alt="The Old Reader" width="300" height="175" loading="lazy"></a>
+    <figcaption>The Old Reader</figcaption>
+</figure>
 
 Looks pretty good, doesn't it? But it currently displays the message "There are 27283 users in the import queue ahead of you."
 
 <h3>BazQux Reader</h3>
 <a href="http://bazqux.com/">BazQux Reader</a> seemed to be a real alternative. It allowed me to sign in with Google, import my subscriptions and it looked familiar:
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/bazqux.com_-300x222.png"><img src="../images/2013/03/bazqux.com_-300x222.png" alt="BazQux Reader" style="max-width:300px;max-height:222px" class="size-medium wp-image-61261"/></a>
-            <figcaption class="text-center">BazQux Reader</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/bazqux.com_-300x222.png"><img src="../images/2013/03/bazqux.com_-300x222.png" alt="BazQux Reader" width="300" height="222" loading="lazy"></a>
+    <figcaption>BazQux Reader</figcaption>
+</figure>
 
 Another point for BazQux: It supports OPML-Export (Click on the icon at the top right corner &rarr; Subscriptions &rarr; Export OPML)
 
@@ -113,10 +81,10 @@ But now the drawbacks:
 
 <a href="http://www.bloglovin.com/">Bloglovin'</a> is another WebService that looks very nice and is free, and seems to be a real alternative. While importing my subscriptions, I got a 504 Gateway Time-out, but it imported my feeds anyway.
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/bloglovin-300x210.png"><img src="../images/2013/03/bloglovin-300x210.png" alt="bloglovin" style="max-width:300px;max-height:210px" class="size-medium wp-image-61271"/></a>
-            <figcaption class="text-center">bloglovin</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/bloglovin-300x210.png"><img src="../images/2013/03/bloglovin-300x210.png" alt="bloglovin" width="300" height="210" loading="lazy"></a>
+    <figcaption>bloglovin</figcaption>
+</figure>
 
 The service seems to be free, they have an <a href="https://play.google.com/store/apps/details?id=se.yo.android.bloglovin">Android App</a> and an <a href="https://itunes.apple.com/app/bloglovin/id421818340?mt=8">iPhone App</a>, but no Google Chrome App and I can't sign in with Google.
 
@@ -125,10 +93,10 @@ Bloglovin' does not provide an export function.
 <h3>Good Noows</h3>
 It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj">Chrome App</a>. It seems to be free.
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/goodnoows-300x183.png"><img src="../images/2013/03/goodnoows-300x183.png" alt="Good Noows" style="max-width:300px;max-height:183px" class="size-medium wp-image-61291"/></a>
-            <figcaption class="text-center">Good Noows</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/goodnoows-300x183.png"><img src="../images/2013/03/goodnoows-300x183.png" alt="Good Noows" width="300" height="183" loading="lazy"></a>
+    <figcaption>Good Noows</figcaption>
+</figure>
 
 However, it has no Android App and seems not to support export.
 
@@ -136,7 +104,10 @@ However, it has no Android App and seems not to support export.
 <a href="http://www.bloglines.com/index.html">Bloglines</a> offers an export function! I can't login with Google, but I can import my 109 Feeds.
 
 It looks like this:
-<a href="../images/2013/03/bloglines.png"><img src="../images/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" class="aligncenter size-medium wp-image-61351" /></a>
+
+<figure>
+    <a href="../images/2013/03/bloglines.png"><img src="../images/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" loading="lazy"></a>
+</figure>
 
 It has no Chrome App and the <a href="https://play.google.com/store/apps/details?id=org.nyquil.rss2bloglines#?t=W251bGwsMSwyLDEsIm9yZy5ueXF1aWwucnNzMmJsb2dsaW5lcyJd">Android App</a> is possibly not official.
 
@@ -144,10 +115,10 @@ It has no Chrome App and the <a href="https://play.google.com/store/apps/details
 <h3>Selfoss</h3>
 <a href="http://selfoss.aditu.de/">Selfoss</a> gives you the possibility to host your RSS-Aggregator by yourself. It looks quite good, requires only PHP 5.3 and MySQL and mobiles are supported.
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/selfoss-300x203.png"><img src="../images/2013/03/selfoss-300x203.png" alt="Screenshot of selfoss" style="max-width:300px;max-height:203px" class="size-medium wp-image-68361"/></a>
-            <figcaption class="text-center">Screenshot of selfoss</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/selfoss-300x203.png"><img src="../images/2013/03/selfoss-300x203.png" alt="Screenshot of selfoss" width="300" height="203" loading="lazy"></a>
+    <figcaption>Screenshot of selfoss</figcaption>
+</figure>
 
 <ul>
   <li>Selfoss: <a href="https://github.com/SSilence/selfoss">GitHub</a>, <a href="http://selfoss.aditu.de/">Download</a></li>

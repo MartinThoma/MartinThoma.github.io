@@ -19,10 +19,10 @@ changes from sunny to rainy is 0.2 and vice versa it is 0.4.
 
 You can visualize this with a graph like this:
 
-<figure class="aligncenter">
-            <a href="../images/2015/05/markov-chain-rain-sun.png"><img src="../images/2015/05/markov-chain-rain-sun.png" alt="Simple Markov chain weather model" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Simple Markov chain weather model</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/05/markov-chain-rain-sun.png"><img src="../images/2015/05/markov-chain-rain-sun.png" alt="Simple Markov chain weather model" width="500" height="237"></a>
+    <figcaption>Simple Markov chain weather model</figcaption>
+</figure>
 
 I am taking [a course about Markov chains](../markovketten-klausur/) this semester. Today, we've learned
 a bit about how to use [R](../r-lang/) (a programming language) to do very basic tasks.
@@ -115,10 +115,10 @@ for (step in 1:20) {
 
 This gives the following plot:
 
-<figure class="aligncenter">
-            <a href="../images/2015/05/reproductin-rplot.png"><img src="../images/2015/05/reproductin-rplot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with R)" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">State probabilities starting in S3 after 1..20 steps (plotted with R)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/05/reproductin-rplot.png"><img src="../images/2015/05/reproductin-rplot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with R)" width="500" height="384" loading="lazy"></a>
+    <figcaption>State probabilities starting in S3 after 1..20 steps (plotted with R)</figcaption>
+</figure>
 
 The Python equivalent is
 
@@ -164,10 +164,10 @@ pyplot.show()
 
 The result looks like this
 
-<figure class="aligncenter">
-            <a href="../images/2015/05/reproductin-python-plot.png"><img src="../images/2015/05/reproductin-python-plot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">State probabilities starting in S3 after 1..20 steps (plotted with Python)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/05/reproductin-python-plot.png"><img src="../images/2015/05/reproductin-python-plot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" width="500" height="356" loading="lazy"></a>
+    <figcaption>State probabilities starting in S3 after 1..20 steps (plotted with Python)</figcaption>
+</figure>
 
 I've played around with the [matplotlib markers](http://matplotlib.org/api/markers_api.html)
 to make sure all points are visible.

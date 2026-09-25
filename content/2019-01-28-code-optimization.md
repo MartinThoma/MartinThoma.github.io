@@ -176,9 +176,9 @@ def create_boxplot(duration_list):
     plt.savefig("output.png")
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/02/timeit-boxplot-4.png"><img src="../images/2019/02/timeit-boxplot-4.png" alt="Performance comparison of 4 algorithms." style="width: 512px;"/></a>
-    <figcaption class="text-center">Performance comparison of 4 algorithms. The filled part of the four box-plots shows where 50% of the data is. The line in the middle of the filled part is the median.</figcaption>
+<figure>
+    <a href="../images/2019/02/timeit-boxplot-4.png"><img src="../images/2019/02/timeit-boxplot-4.png" alt="Performance comparison of 4 algorithms." width="512" height="256" loading="lazy"></a>
+    <figcaption>Performance comparison of 4 algorithms. The filled part of the four box-plots shows where 50% of the data is. The line in the middle of the filled part is the median.</figcaption>
 </figure>
 
 You can clearly see that the markset_count and the category_count are way
@@ -191,9 +191,9 @@ case because looking up the category and doing the string comparison also takes
 a bit of time. The difference is way more clear when you only plot the two and
 increase the text length:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/02/timeit-boxplot-2.png"><img src="../images/2019/02/timeit-boxplot-2.png" alt="Performance comparison of markset_count and category_count." style="width: 512px;"/></a>
-    <figcaption class="text-center">Performance comparison of markset_count and category_count.</figcaption>
+<figure>
+    <a href="../images/2019/02/timeit-boxplot-2.png"><img src="../images/2019/02/timeit-boxplot-2.png" alt="Performance comparison of markset_count and category_count." width="512" height="256" loading="lazy"></a>
+    <figcaption>Performance comparison of markset_count and category_count.</figcaption>
 </figure>
 
 

@@ -206,9 +206,9 @@ The FP means we falsely say it is positive, although
 it isn't (the alarm rings, but there is no fire). And True Negative (TN) is
 most of the time the case: No fire, not alarm.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/confusion-matrix.jpg" alt="Confusion matrix for the smoke detector case" style="width: 512px;"/>
-    <figcaption class="text-center">Confusion matrix for the smoke detector case</figcaption>
+<figure>
+    <a href="../images/2018/06/confusion-matrix.jpg"><img src="../images/2018/06/confusion-matrix.jpg" alt="Confusion matrix for the smoke detector case" width="500" height="457" loading="lazy"></a>
+    <figcaption>Confusion matrix for the smoke detector case</figcaption>
 </figure>
 
 ## Accuracy
@@ -323,9 +323,9 @@ The [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 is a graphical plot that shows how a binary classifier changes when a threshold
 value is changed.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/roc-draft-xkcd-style.png" alt="ROC curve" style="width: 512px;"/>
-    <figcaption class="text-center">ROC curve</figcaption>
+<figure>
+    <a href="../images/2018/06/roc-draft-xkcd-style.png"><img src="../images/2018/06/roc-draft-xkcd-style.png" alt="ROC curve" width="512" height="384" loading="lazy"></a>
+    <figcaption>ROC curve</figcaption>
 </figure>
 
 

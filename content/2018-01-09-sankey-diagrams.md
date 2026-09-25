@@ -57,9 +57,9 @@ Day [0.9] Projects
 
 gives:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/01/typical-workday.png" alt="A typical workday in Munich" style="width: 512px;"/>
-    <figcaption class="text-center">A typical workday in Munich</figcaption>
+<figure>
+    <a href="../images/2018/01/typical-workday.png"><img src="../images/2018/01/typical-workday.png" alt="A typical workday in Munich" width="512" height="512"></a>
+    <figcaption>A typical workday in Munich</figcaption>
 </figure>
 
 
@@ -84,7 +84,7 @@ Day [0.5] Housekeeping
 Day [2.5] Projects
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/01/typical-study-day.png" alt="Typical workday in Karlsruhe (while studying)" style="width: 512px;"/>
-    <figcaption class="text-center">Typical workday in Karlsruhe (while studying)</figcaption>
+<figure>
+    <a href="../images/2018/01/typical-study-day.png"><img src="../images/2018/01/typical-study-day.png" alt="Typical workday in Karlsruhe (while studying)" width="512" height="512" loading="lazy"></a>
+    <figcaption>Typical workday in Karlsruhe (while studying)</figcaption>
 </figure>

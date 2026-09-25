@@ -211,7 +211,7 @@ sieht man dann "Aconitinum Dil. D5 (HAB, V. 5a)", "Atropinum sulfuricum Dil. D5"
 "Mercurius cyanatus Dil. D8".
 
 **Fehler beim Verdünnen** passieren. Und dann gibt es einen (schädlichen) Effekt
-über den Placebo-Effekt hinaus.[^5][^6]
+über den Placebo-Effekt hinaus.[^5]<sup>,</sup>[^6]
 
 Und selbstverständlich ist Homöopathie einfach **Geldverschwendung**.
 

@@ -64,10 +64,10 @@ venenatis, vel tristique risus blandit.
 
 It will look like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/09/latex-standard-table.png"><img src="../images/2014/09/latex-standard-table.png" alt="Standard LaTeX table" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Standard LaTeX table</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/09/latex-standard-table.png"><img src="../images/2014/09/latex-standard-table.png" alt="Standard LaTeX table" width="500" height="217" loading="lazy"></a>
+    <figcaption>Standard LaTeX table</figcaption>
+</figure>
 
 You can see two environments: `table` and `tabular`. Let's focus on `tabular`
 first. It is always followed by a list of characters `l`, `c`, `r` which
@@ -136,10 +136,10 @@ venenatis, vel tristique risus blandit.
 
 which looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/09/latex-table-booktabs.png"><img src="../images/2014/09/latex-table-booktabs.png" alt="LaTeX table with booktabs" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">LaTeX table with booktabs</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/09/latex-table-booktabs.png"><img src="../images/2014/09/latex-table-booktabs.png" alt="LaTeX table with booktabs" width="500" height="232" loading="lazy"></a>
+    <figcaption>LaTeX table with booktabs</figcaption>
+</figure>
 
 ### Combining cells
 
@@ -195,10 +195,10 @@ venenatis, vel tristique risus blandit.
 
 which looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/09/latex-multicols.png"><img src="../images/2014/09/latex-multicols.png" alt="LaTeX table with multicols" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">LaTeX table with multicols</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/09/latex-multicols.png"><img src="../images/2014/09/latex-multicols.png" alt="LaTeX table with multicols" width="500" height="271" loading="lazy"></a>
+    <figcaption>LaTeX table with multicols</figcaption>
+</figure>
 
 Note the `\cmidrule{2-4}` which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).

@@ -35,9 +35,9 @@ Disable autofill.
 
 For Chrome, go to `chrome://settings/search#Enable%20autofill` and uncheck it:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/01/autofill-chrome.png" alt="Autofill settings in Google Chrome" style="width:512px;"/>
-    <figcaption class="text-center">Autofill settings in Google Chrome</figcaption>
+<figure>
+    <a href="../images/2017/01/autofill-chrome.png"><img src="../images/2017/01/autofill-chrome.png" alt="Autofill settings in Google Chrome" width="512" height="162"></a>
+    <figcaption>Autofill settings in Google Chrome</figcaption>
 </figure>
 
 ### As a developer

@@ -121,9 +121,9 @@ In order to test how effective the spray is, I coated a piece of paper. I
 couldn't see a difference in the paper when I put water on it, but you can
 easily see where I coated the paper:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/09/impregnation-tile.jpg" alt="Impregnation of Tiles" style="width: 512px;"/>
-    <figcaption class="text-center">Impregnation of Tiles</figcaption>
+<figure>
+    <a href="../images/2017/09/impregnation-tile.jpg"><img src="../images/2017/09/impregnation-tile.jpg" alt="Impregnation of Tiles" width="512" height="384" loading="lazy"></a>
+    <figcaption>Impregnation of Tiles</figcaption>
 </figure>
 
 

@@ -21,19 +21,19 @@ Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquival
 <h2>Beispiel</h2>
 Gegeben sei folgender Endlicher Automat A:
 $A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgender Übergangsfunktion $\sigma$:
-<figure class="aligncenter">
-            <a href="../images/2012/02/endlicher-automat-gross.png"><img src="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit überflüssigen Zuständen" style="max-width:392px;max-height:389px" class="size-full wp-image-13451"/></a>
-            <figcaption class="text-center">Endlicher Automat mit überflüssigen Zuständen</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/02/endlicher-automat-gross.png"><img src="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit überflüssigen Zuständen" width="392" height="389"></a>
+    <figcaption>Endlicher Automat mit überflüssigen Zuständen</figcaption>
+</figure>
 
 Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden können. Algorithmisch kann man diese Zustände durch eine Tiefensuche bestimmen.
 
 Nach Schritt 1 haben wir also den Automaten
 $A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$:
-<figure class="aligncenter">
-            <a href="../images/2012/02/endlicher-automat-kleiner.png"><img src="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine überflüssen Zustände im Endlichen Automaten" style="max-width:340px;max-height:381px" class="size-full wp-image-13471"/></a>
-            <figcaption class="text-center">Keine überflüssen Zustände im Endlichen Automaten</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/02/endlicher-automat-kleiner.png"><img src="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine überflüssen Zustände im Endlichen Automaten" width="340" height="381" loading="lazy"></a>
+    <figcaption>Keine überflüssen Zustände im Endlichen Automaten</figcaption>
+</figure>
 
 In Schritt 2 erstellen wir also zuerst eine Äquivalenzklasse der Zustände:
 $\{S, A, B, C, D, E, F\}$.
@@ -42,22 +42,33 @@ Die akzeptierenden Zustände werden von den nicht akzeptierenden getrennt: $\{D\
 
 In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus $\Sigma$ durch:
 In welche Klassen führt "0"?
-<a href="../images/2012/02/aequivalenzklassen-1.png"><img src="../images/2012/02/aequivalenzklassen-1.png" alt="Äquivalenzklassen - Schritt 1" title="Äquivalenzklassen - Schritt 1" width="220" height="71" class="aligncenter size-full wp-image-13631" /></a>
+
+<figure>
+    <a href="../images/2012/02/aequivalenzklassen-1.png"><img src="../images/2012/02/aequivalenzklassen-1.png" alt="Äquivalenzklassen - Schritt 1" width="220" height="71" loading="lazy"></a>
+</figure>
 
 C wird also von $\{S, A, B, E, F\}$ getrennt. Wir haben folgende Klassen:
 $\{C\}, \{D\}, \{S, A, B, E, F\}$
 
 "1" trennt nun "A" von $\{S, B, E, F\}$:
-<a href="../images/2012/02/aequivalenzklasse-2.png"><img src="../images/2012/02/aequivalenzklasse-2.png" alt="Äquivalenzklassen - Schritt 2" title="Äquivalenzklassen - Schritt 2" width="246" height="66" class="aligncenter size-full wp-image-13661" /></a>
+
+<figure>
+    <a href="../images/2012/02/aequivalenzklasse-2.png"><img src="../images/2012/02/aequivalenzklasse-2.png" alt="Äquivalenzklassen - Schritt 2" width="246" height="66" loading="lazy"></a>
+</figure>
 
 "0" trennt nun "S" von $\{B, E, F\}$:
-<a href="../images/2012/02/aequivalenzklasse-3.png"><img src="../images/2012/02/aequivalenzklasse-3.png" alt="Äquivalenzklassen - Schritt 3" title="Äquivalenzklassen - Schritt 3" width="267" height="65" class="aligncenter size-full wp-image-13681" /></a>
+
+<figure>
+    <a href="../images/2012/02/aequivalenzklasse-3.png"><img src="../images/2012/02/aequivalenzklasse-3.png" alt="Äquivalenzklassen - Schritt 3" width="267" height="65" loading="lazy"></a>
+</figure>
 
 Wir haben nun die Äquivalenzklassen $\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}$.
 
 Im nächsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht nochmals etwas trennt. Wir sind also fertig. Die Zustände B, E und F können zu einem zusammengefasst werden. Ich nenne ihn mal T (für Trash, da man in diesem Zustand niemals mehr akzeptieren kann). Damit ist unser minimaler Endlicher Automat folgender:
 
-<a href="../images/2012/02/endlicher-automat-minimal.png"><img src="../images/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" title="Minimaler Endlicher Automat" width="346" height="278" class="aligncenter size-full wp-image-13711" /></a>
+<figure>
+    <a href="../images/2012/02/endlicher-automat-minimal.png"><img src="../images/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" width="346" height="278" loading="lazy"></a>
+</figure>
 
 <h2>LaTeX</h2>
 Das ist der [LaTeX-Code für die Automaten](../how-to-draw-a-finite-state-machine/):

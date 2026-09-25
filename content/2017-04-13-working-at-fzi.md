@@ -131,7 +131,7 @@ $ du -h .
 If you want to get your money back from the code card, you have to go to the
 "Personalabteilung". They have very limited opening times:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/06/fzi-opening-times.jpg" alt="Opening times of FZI" style="width: 512px;"/>
-    <figcaption class="text-center">Opening times of FZI</figcaption>
+<figure>
+    <a href="../images/2017/06/fzi-opening-times.jpg"><img src="../images/2017/06/fzi-opening-times.jpg" alt="Opening times of FZI" width="512" height="384" loading="lazy"></a>
+    <figcaption>Opening times of FZI</figcaption>
 </figure>

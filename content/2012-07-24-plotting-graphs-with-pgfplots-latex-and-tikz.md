@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Plotting graphs with PGFplots (LaTeX and Tikz)
 slug: plotting-graphs-with-pgfplots-latex-and-tikz
+lang: en
 author: Martin Thoma
 date: 2012-07-24 17:00:28.000000000 +02:00
 category: Code
@@ -22,10 +22,10 @@ Best of all: I didn't use anything which is not in LaTeX ☺ (Well, the generati
 The complete source is in the <a href='../images/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.
 
 <h2>Result</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/07/birthday-paradox.png"><img src="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" style="max-width:500px;max-height:264px" class="size-full wp-image-34821"/></a>
-            <figcaption class="text-center">Plot of the birthday paradox</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/birthday-paradox.png"><img src="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" width="500" height="264"></a>
+    <figcaption>Plot of the birthday paradox</figcaption>
+</figure>
 
 <h2>LaTeX-Code</h2>
 The following LaTeX-Code used TikZ and PGFplots:

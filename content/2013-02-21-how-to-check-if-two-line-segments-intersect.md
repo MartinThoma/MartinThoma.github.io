@@ -13,184 +13,72 @@ You have two line segments and you want to know if they intersect. I'll give you
 <h2>Test cases</h2>
 First of all, we should think about how lines can be arranged:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t1.png" class="image">
-                  <img src="../images/2013/02/line-segments-t1.png" alt="T1: One line is horizontal, one vertical and they cross" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T1</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t2.png" class="image">
-                  <img src="../images/2013/02/line-segments-t2.png" alt="T2: An endpoint of one line segment is on the other line segment" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T2</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t3.png" class="image">
-                  <img src="../images/2013/02/line-segments-t3.png" alt="T3: Similar to T4, but with negative coordinates" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T3</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t4.png" class="image">
-                  <img src="../images/2013/02/line-segments-t4.png" alt="T4: One line is horizontal, one vertical and an end point is on one line" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T4</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t5.png" class="image">
-                  <img src="../images/2013/02/line-segments-t5.png" alt="T5: One line is on the other line" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T5</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-t6.png" class="image">
-                  <img src="../images/2013/02/line-segments-t6.png" alt="T6: Line segments are identical" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase T6</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f1.png" class="image">
-                  <img src="../images/2013/02/line-segments-f1.png" alt="F1: In parallel, close together, one line is completely inside the bounding box of the other line" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F1</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f2.png" class="image">
-                  <img src="../images/2013/02/line-segments-f2.png" alt="F2: Both lines are parallel." style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F2</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f3.png" class="image">
-                  <img src="../images/2013/02/line-segments-f3.png" alt="F3: Both lines are horizontal." style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F3</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f4.png" class="image">
-                  <img src="../images/2013/02/line-segments-f4.png" alt="F4: One line is horizontal, one vertical. They don't cross." style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F4</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f5.png" class="image">
-                  <img src="../images/2013/02/line-segments-f5.png" alt="F5: Both line segments are on one line, but they don't intersect" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F5</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f6.png" class="image">
-                  <img src="../images/2013/02/line-segments-f6.png" alt="F6: Both line segments are close together" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F6</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f7.png" class="image">
-                  <img src="../images/2013/02/line-segments-f7.png" alt="F7: Both lines are horizontal" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F7</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/02/line-segments-f8.png" class="image">
-                  <img src="../images/2013/02/line-segments-f8.png" alt="F8: Like F6" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Testcase F8</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/02/line-segments-t1.png"><img src="../images/2013/02/line-segments-t1.png" alt="T1: One line is horizontal, one vertical and they cross" width="120" height="120"></a>
+        <figcaption>Testcase T1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-t2.png"><img src="../images/2013/02/line-segments-t2.png" alt="T2: An endpoint of one line segment is on the other line segment" width="120" height="81" loading="lazy"></a>
+        <figcaption>Testcase T2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-t3.png"><img src="../images/2013/02/line-segments-t3.png" alt="T3: Similar to T4, but with negative coordinates" width="120" height="120" loading="lazy"></a>
+        <figcaption>Testcase T3</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-t4.png"><img src="../images/2013/02/line-segments-t4.png" alt="T4: One line is horizontal, one vertical and an end point is on one line" width="74" height="121" loading="lazy"></a>
+        <figcaption>Testcase T4</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-t5.png"><img src="../images/2013/02/line-segments-t5.png" alt="T5: One line is on the other line" width="120" height="120" loading="lazy"></a>
+        <figcaption>Testcase T5</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-t6.png"><img src="../images/2013/02/line-segments-t6.png" alt="T6: Line segments are identical" width="120" height="91" loading="lazy"></a>
+        <figcaption>Testcase T6</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f1.png"><img src="../images/2013/02/line-segments-f1.png" alt="F1: In parallel, close together, one line is completely inside the bounding box of the other line" width="120" height="120" loading="lazy"></a>
+        <figcaption>Testcase F1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f2.png"><img src="../images/2013/02/line-segments-f2.png" alt="F2: Both lines are parallel." width="120" height="116" loading="lazy"></a>
+        <figcaption>Testcase F2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f3.png"><img src="../images/2013/02/line-segments-f3.png" alt="F3: Both lines are horizontal." width="91" height="120" loading="lazy"></a>
+        <figcaption>Testcase F3</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f4.png"><img src="../images/2013/02/line-segments-f4.png" alt="F4: One line is horizontal, one vertical. They don't cross." width="120" height="91" loading="lazy"></a>
+        <figcaption>Testcase F4</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f5.png"><img src="../images/2013/02/line-segments-f5.png" alt="F5: Both line segments are on one line, but they don't intersect" width="120" height="120" loading="lazy"></a>
+        <figcaption>Testcase F5</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f6.png"><img src="../images/2013/02/line-segments-f6.png" alt="F6: Both line segments are close together" width="120" height="120" loading="lazy"></a>
+        <figcaption>Testcase F6</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f7.png"><img src="../images/2013/02/line-segments-f7.png" alt="F7: Both lines are horizontal" width="120" height="74" loading="lazy"></a>
+        <figcaption>Testcase F7</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/02/line-segments-f8.png"><img src="../images/2013/02/line-segments-f8.png" alt="F8: Like F6" width="120" height="100" loading="lazy"></a>
+        <figcaption>Testcase F8</figcaption>
+    </figure>
+</div>
 
 <h2>Bounding boxes</h2>
 You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:
 
-<figure class="aligncenter">
-            <a href="../images/2013/02/line-segments-bounding-box-250x300.png"><img src="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" caption="Two line segments with their bounding boxes" style="max-width:250px;max-height:300px" class="size-medium wp-image-57731"/></a>
-            <figcaption class="text-center">Two line segments with their bounding boxes</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/02/line-segments-bounding-box-250x300.png"><img src="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" width="250" height="300" loading="lazy"></a>
+    <figcaption>Two line segments with their bounding boxes</figcaption>
+</figure>
 
 With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.
 
@@ -216,10 +104,10 @@ public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
 
 <h2>The algorithm</h2>
-<figure class="aligncenter">
-            <a href="../images/2013/02/flowchart.png"><img src="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" style="max-width:500px;max-height:228px" class="size-full wp-image-57771"/></a>
-            <figcaption class="text-center">Flowchart how to check if two lines intersect</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/02/flowchart.png"><img src="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" width="500" height="228" loading="lazy"></a>
+    <figcaption>Flowchart how to check if two lines intersect</figcaption>
+</figure>
 
 Looks quite simple, doesn't it?
 

@@ -9,9 +9,9 @@ category: The Web
 tags: Learning, Touch Typing
 featured_image: 2012/03/learn-how-to-type-thumb.png
 ---
-<figure class="aligncenter">
-            <a href="../images/2012/03/keybr.png"><img src="../images/2012/03/keybr.png" alt="keybr - learn how to type" style="max-width:476px;max-height:246px;" class=" wp-image-19691   "/></a>
-            <figcaption class="text-center">keybr</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/03/keybr.png"><img src="../images/2012/03/keybr.png" alt="keybr - learn how to type" width="475" height="246"></a>
+    <figcaption>keybr</figcaption>
+</figure>
 
 [keybr.com](http://keybr.com/) is a service that helps you learn touch typing (ten-finger typing).

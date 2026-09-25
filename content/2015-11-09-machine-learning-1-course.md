@@ -573,10 +573,10 @@ Siehe auch:
 * Alexander Ihler: <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">AdaBoost</a>.
 
 
-<figure class="aligncenter">
-            <a href="../images/2015/12/ml-ensemble-learning.png"><img src="../images/2015/12/ml-ensemble-learning.png" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/12/ml-ensemble-learning.png"><img src="../images/2015/12/ml-ensemble-learning.png" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" width="500" height="478" loading="lazy"></a>
+    <figcaption>Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches</figcaption>
+</figure>
 
 Weiteres:
 

@@ -115,14 +115,14 @@ Link: [udacity.com/course/cs373](https://www.udacity.com/course/cs373)
 
 ## Side notes
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2015/11/full-disk.png" alt="Make sure you have enough disk space" />
-    <figcaption class="text-center">Make sure you have enough disk space</figcaption>
+<figure>
+    <a href="../images/2015/11/full-disk.png"><img src="../images/2015/11/full-disk.png" alt="Make sure you have enough disk space" width="665" height="464" loading="lazy"></a>
+    <figcaption>Make sure you have enough disk space</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2015/11/delete-folder-time.png" alt="Even deleting that much takes a lot of time" />
-    <figcaption class="text-center">Even deleting that much takes a lot of time</figcaption>
+<figure>
+    <a href="../images/2015/11/delete-folder-time.png"><img src="../images/2015/11/delete-folder-time.png" alt="Even deleting that much takes a lot of time" width="1366" height="768" loading="lazy"></a>
+    <figcaption>Even deleting that much takes a lot of time</figcaption>
 </figure>
 
 

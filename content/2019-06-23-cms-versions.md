@@ -23,9 +23,9 @@ WordPress seems to have only one table where all revisions are stored. They deci
 
 I wonder if backups would be more complicated if the amount of data reached the level Wikipedia has.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/wordpress-cms.png"><img src="../images/2019/06/wordpress-cms.png" alt="How WordPress stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How WordPress stores page versions</figcaption>
+<figure>
+    <a href="../images/2019/06/wordpress-cms.png"><img src="../images/2019/06/wordpress-cms.png" alt="How WordPress stores page versions" width="384" height="829"></a>
+    <figcaption>How WordPress stores page versions</figcaption>
 </figure>
 
 
@@ -34,9 +34,9 @@ I wonder if backups would be more complicated if the amount of data reached the 
 Joomla seems to take an approach similar to WordPress, but moving the versions
 into another table. The current revision is always in `joomla_content`.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/joomla-cms.png"><img src="../images/2019/06/joomla-cms.png" alt="How Joomla stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How Joomla stores page versions</figcaption>
+<figure>
+    <a href="../images/2019/06/joomla-cms.png"><img src="../images/2019/06/joomla-cms.png" alt="How Joomla stores page versions" width="512" height="824" loading="lazy"></a>
+    <figcaption>How Joomla stores page versions</figcaption>
 </figure>
 
 
@@ -44,9 +44,9 @@ into another table. The current revision is always in `joomla_content`.
 
 MediaWiki stores the bulk of information in a separate table called "text". The page-metadata is stored in "page", the revision metadata in "revision".
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/mediawiki-cms.png"><img src="../images/2019/06/mediawiki-cms.png" alt="How MediaWiki stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How MediaWiki stores page versions</figcaption>
+<figure>
+    <a href="../images/2019/06/mediawiki-cms.png"><img src="../images/2019/06/mediawiki-cms.png" alt="How MediaWiki stores page versions" width="512" height="263" loading="lazy"></a>
+    <figcaption>How MediaWiki stores page versions</figcaption>
 </figure>
 
 If they want to get the current text of a page, they have to do something like

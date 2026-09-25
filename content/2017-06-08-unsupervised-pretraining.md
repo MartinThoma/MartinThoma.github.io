@@ -60,9 +60,9 @@ placed in a grid over the image (with some variable padding). Give the network
 the middle crop and randomly one of the 8 others. The network has to predict
 which crop it got. Hence the network has 8 output units.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/05/crop-position-prediction.png" alt="Predict the position of an image crop" style="width: 512px;"/>
-    <figcaption class="text-center">Predict the position of an image crop<br/>Image source: <a href="https://arxiv.org/pdf/1505.05192.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></figcaption>
+<figure>
+    <a href="../images/2017/05/crop-position-prediction.png"><img src="../images/2017/05/crop-position-prediction.png" alt="Predict the position of an image crop" width="512" height="344" loading="lazy"></a>
+    <figcaption>Predict the position of an image crop<br/>Image source: <a href="https://arxiv.org/pdf/1505.05192.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></figcaption>
 </figure>
 
 Literature:
@@ -78,9 +78,9 @@ give the network two samples and let it predict which one comes first.
 
 Or if you have a video, you can predict the next frame. See [Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning](https://arxiv.org/abs/1605.08104).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/06/predict-next-frame.png" alt="Predict the next frame of a video." style="width: 512px;"/>
-    <figcaption class="text-center">Predict the next frame of a video.<br/>Image source: <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a></figcaption>
+<figure>
+    <a href="../images/2017/06/predict-next-frame.png"><img src="../images/2017/06/predict-next-frame.png" alt="Predict the next frame of a video." width="512" height="478" loading="lazy"></a>
+    <figcaption>Predict the next frame of a video.<br/>Image source: <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a></figcaption>
 </figure>
 
 

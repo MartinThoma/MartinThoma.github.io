@@ -43,17 +43,17 @@ Balsamiq was carefully designed, is available (and working!) on Windows 7 and Ub
 
 Here are two screenshots of the GUI of the Balsamiq web service:
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/balsamiq-tabs-bar-300x137.png"><img src="../images/2012/12/balsamiq-tabs-bar-300x137.png" alt="Balsamiq GUI overview" style="max-width:300px;max-height:137px" class="size-medium wp-image-51021"/></a>
-            <figcaption class="text-center">Balsamiq GUI overview</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/balsamiq-tabs-bar-300x137.png"><img src="../images/2012/12/balsamiq-tabs-bar-300x137.png" alt="Balsamiq GUI overview" width="300" height="137" loading="lazy"></a>
+    <figcaption>Balsamiq GUI overview</figcaption>
+</figure>
 
 Do you see the arrow-symbol? This looks very cool in drafts. Why doesn't GIMP provide anything similar?
 
-<figure class="aligncenter">
-            <a href="../images/2012/12/balsamiq-edit-300x138.png"><img src="../images/2012/12/balsamiq-edit-300x138.png" alt="Edit an element with Balsamiq" style="max-width:300px;max-height:138px" class="size-medium wp-image-51031"/></a>
-            <figcaption class="text-center">Edit an element with Balsamiq</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/12/balsamiq-edit-300x138.png"><img src="../images/2012/12/balsamiq-edit-300x138.png" alt="Edit an element with Balsamiq" width="300" height="138" loading="lazy"></a>
+    <figcaption>Edit an element with Balsamiq</figcaption>
+</figure>
 
 <h3>What I've missed</h3>
 No application is perfect, so I also found some specials that Balsamiq didn't offer:

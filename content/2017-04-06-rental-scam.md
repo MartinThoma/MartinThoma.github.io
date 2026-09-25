@@ -108,56 +108,56 @@ Viele Grüße und einen schönen Tag noch!
 Da die Bilder von ImgUr eventuell verschwinden habe ich sie hier mal in
 niedriger Auflösung kopiert:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-1.jpg" alt="Wohnungsbild 1" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-1.jpg"><img src="../images/2017/04/flat-1.jpg" alt="Wohnungsbild 1" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-2.jpg" alt="Wohnungsbild 2" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-2.jpg"><img src="../images/2017/04/flat-2.jpg" alt="Wohnungsbild 2" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3.jpg" alt="Wohnungsbild 3" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3.jpg"><img src="../images/2017/04/flat-3.jpg" alt="Wohnungsbild 3" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-4.jpg" alt="Wohnungsbild 4" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-4.jpg"><img src="../images/2017/04/flat-4.jpg" alt="Wohnungsbild 4" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-5.jpg" alt="Wohnungsbild 5" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-5.jpg"><img src="../images/2017/04/flat-5.jpg" alt="Wohnungsbild 5" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-6.jpg" alt="Wohnungsbild 6" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-6.jpg"><img src="../images/2017/04/flat-6.jpg" alt="Wohnungsbild 6" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-7.jpg" alt="Wohnungsbild 7" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-7.jpg"><img src="../images/2017/04/flat-7.jpg" alt="Wohnungsbild 7" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-8.jpg" alt="Wohnungsbild 8" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-8.jpg"><img src="../images/2017/04/flat-8.jpg" alt="Wohnungsbild 8" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-9.jpg" alt="Wohnungsbild 9" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-9.jpg"><img src="../images/2017/04/flat-9.jpg" alt="Wohnungsbild 9" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-10.jpg" alt="Wohnungsbild 10" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-10.jpg"><img src="../images/2017/04/flat-10.jpg" alt="Wohnungsbild 10" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-11.jpg" alt="Wohnungsbild 11" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-11.jpg"><img src="../images/2017/04/flat-11.jpg" alt="Wohnungsbild 11" width="512" height="341" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-12.jpg" alt="Wohnungsbild 12" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-12.jpg"><img src="../images/2017/04/flat-12.jpg" alt="Wohnungsbild 12" width="512" height="768" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-13.jpg" alt="Wohnungsbild 13" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-13.jpg"><img src="../images/2017/04/flat-13.jpg" alt="Wohnungsbild 13" width="512" height="341" loading="lazy"></a>
 </figure>
 
 Meine Antwort:
@@ -231,9 +231,9 @@ P&lt;GBRGREGORY&lt;BARNETT&lt;&lt;&lt;&lt;&lt;
 2097423878GBR7912207M1904286&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;02
 </pre>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/gregory-barnett.jpg" alt="Gregory Barnett" style="width: 512px;"/>
-    <figcaption class="text-center">Gregory Barnett</figcaption>
+<figure>
+    <a href="../images/2017/04/gregory-barnett.jpg"><img src="../images/2017/04/gregory-barnett.jpg" alt="Gregory Barnett" width="512" height="709" loading="lazy"></a>
+    <figcaption>Gregory Barnett</figcaption>
 </figure>
 
 Mal schauen was / wer sich hinter chelsea-homes.co.uk steckt:
@@ -382,40 +382,40 @@ P.S.: Who is Denise Walter?
 
 Die Antwort von "claudia Marsik" (diesmal mit <code>Marsik &lt;Marsikclaudia@t-online.de&gt;</code>) waren nur ein paar Bilder:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-1.jpg" alt="Wohnungsbild 1 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-1.jpg"><img src="../images/2017/04/flat-3-1.jpg" alt="Wohnungsbild 1 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-2.jpg" alt="Wohnungsbild 2 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-2.jpg"><img src="../images/2017/04/flat-3-2.jpg" alt="Wohnungsbild 2 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-3.jpg" alt="Wohnungsbild 3 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-3.jpg"><img src="../images/2017/04/flat-3-3.jpg" alt="Wohnungsbild 3 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-4.jpg" alt="Wohnungsbild 4 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-4.jpg"><img src="../images/2017/04/flat-3-4.jpg" alt="Wohnungsbild 4 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-5.jpg" alt="Wohnungsbild 5 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-5.jpg"><img src="../images/2017/04/flat-3-5.jpg" alt="Wohnungsbild 5 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-6.jpg" alt="Wohnungsbild 6 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-6.jpg"><img src="../images/2017/04/flat-3-6.jpg" alt="Wohnungsbild 6 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-7.jpg" alt="Wohnungsbild 7 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-7.jpg"><img src="../images/2017/04/flat-3-7.jpg" alt="Wohnungsbild 7 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-8.jpg" alt="Wohnungsbild 8 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-8.jpg"><img src="../images/2017/04/flat-3-8.jpg" alt="Wohnungsbild 8 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/04/flat-3-9.jpg" alt="Wohnungsbild 9 von Claudia Marsik" style="width: 512px;"/>
+<figure>
+    <a href="../images/2017/04/flat-3-9.jpg"><img src="../images/2017/04/flat-3-9.jpg" alt="Wohnungsbild 9 von Claudia Marsik" width="512" height="247" loading="lazy"></a>
 </figure>
 
 Meine Antwort:

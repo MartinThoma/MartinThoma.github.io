@@ -18,9 +18,9 @@ the time.
 
 The Ubuntu [Powerline font](https://github.com/powerline/fonts) is what I use:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/ubuntu-mono-powerline.png"><img src="../images/2019/12/ubuntu-mono-powerline.png" alt="Ubuntu Mono Powerline" style="width: 512px;"/></a>
-    <figcaption class="text-center">Ubuntu Mono Powerline</figcaption>
+<figure>
+    <a href="../images/2019/12/ubuntu-mono-powerline.png"><img src="../images/2019/12/ubuntu-mono-powerline.png" alt="Ubuntu Mono Powerline" width="512" height="152"></a>
+    <figcaption>Ubuntu Mono Powerline</figcaption>
 </figure>
 
 ## Ligatures
@@ -95,9 +95,9 @@ How to Enable Ligatures:
 
 ## Fira Code
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/fira-code-retina.png"><img src="../images/2019/12/fira-code-retina.png" alt="Fira Code" style="width: 512px;"/></a>
-    <figcaption class="text-center">Fira Code</figcaption>
+<figure>
+    <a href="../images/2019/12/fira-code-retina.png"><img src="../images/2019/12/fira-code-retina.png" alt="Fira Code" width="512" height="235" loading="lazy"></a>
+    <figcaption>Fira Code</figcaption>
 </figure>
 
 [FiraCode](https://github.com/tonsky/FiraCode) is licensed under SIL Open Font License 1.1.

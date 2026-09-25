@@ -53,10 +53,10 @@ might be no way of classifying them correclty.
 
 Here are the results
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-1.png"><img src="../images/2016/01/ml-classifiers-1.png" alt="k nearest neighbors, linear and RBFSVM" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">k nearest neighbors, linear and RBFSVM</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/ml-classifiers-1.png"><img src="../images/2016/01/ml-classifiers-1.png" alt="k nearest neighbors, linear and RBFSVM" width="500" height="357"></a>
+    <figcaption>k nearest neighbors, linear and RBFSVM</figcaption>
+</figure>
 
 One can see that k nearest neighbors gives arbitrary decision boundaries.
 Overall, they look reasonable. However, there are often strange zig-zag
@@ -69,20 +69,20 @@ would be right in 50% of the cases.
 The RBF SVM has very nice decision boundary. It is smooth, matches the pattern
 and is able to adjust to all three examles.
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-2.png"><img src="../images/2016/01/ml-classifiers-2.png" alt="Decision Tree, Random Forest, AdaBoost" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Decision Tree, Random Forest, AdaBoost</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/ml-classifiers-2.png"><img src="../images/2016/01/ml-classifiers-2.png" alt="Decision Tree, Random Forest, AdaBoost" width="500" height="363" loading="lazy"></a>
+    <figcaption>Decision Tree, Random Forest, AdaBoost</figcaption>
+</figure>
 
 Decision Trees, Decision Forests and AdaBoost all show very similar
 patterns. The boundaries change in parallel to the coordinate axes which looks
 very unnatural.
 
 
-<figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-3.png"><img src="../images/2016/01/ml-classifiers-3.png" alt="Naive Bayes, LDA, QDA" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Naive Bayes, LDA, QDA</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2016/01/ml-classifiers-3.png"><img src="../images/2016/01/ml-classifiers-3.png" alt="Naive Bayes, LDA, QDA" width="500" height="342" loading="lazy"></a>
+    <figcaption>Naive Bayes, LDA, QDA</figcaption>
+</figure>
 
 Naive Bayes shows nice, smooth patterns. However, those patterns seem to be
 a bit too simple. LDA is again linear (see linear SVM). Comparing QDA to

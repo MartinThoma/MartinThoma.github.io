@@ -56,10 +56,10 @@ LIMIT 20
 
 which gives
 
-<figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages-count.png"><img src="../images/2015/12/pypi-imported-packages-count.png" alt="This bar chart displays which Python modules get imported by most Python packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">This bar chart displays which Python modules get imported by most Python packages</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/12/pypi-imported-packages-count.png"><img src="../images/2015/12/pypi-imported-packages-count.png" alt="This bar chart displays which Python modules get imported by most Python packages" width="500" height="230" loading="lazy"></a>
+    <figcaption>This bar chart displays which Python modules get imported by most Python packages</figcaption>
+</figure>
 
 and without the system packages:
 
@@ -82,8 +82,8 @@ LIMIT 20
 
 which gives
 
-<figure style="width: 510px" class="wp-caption aligncenter">
-    <img src="../images/2015/12/pypi-imported-packages-excluding-system-count.png" alt="This bar chart displays which Python modules (excluding system modules) get imported by most Python packages" />
+<figure>
+    <a href="../images/2015/12/pypi-imported-packages-excluding-system-count.png"><img src="../images/2015/12/pypi-imported-packages-excluding-system-count.png" alt="This bar chart displays which Python modules (excluding system modules) get imported by most Python packages" width="862" height="394" loading="lazy"></a>
     <figcaption>This bar chart displays which Python modules (excluding system modules) get imported by most Python packages</figcaption>
 </figure>
 
@@ -109,10 +109,10 @@ LIMIT 20
 2&nbsp;seconds later I've got the result:
 
 
-<figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages.png"><img src="../images/2015/12/pypi-imported-packages.png" alt="Number of imports of Python packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Number of imports of Python packages</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/12/pypi-imported-packages.png"><img src="../images/2015/12/pypi-imported-packages.png" alt="Number of imports of Python packages" width="500" height="215" loading="lazy"></a>
+    <figcaption>Number of imports of Python packages</figcaption>
+</figure>
 
 
 
@@ -138,10 +138,10 @@ LIMIT 20
 
 which gives me about 2&nbsp;seconds later the following result:
 
-<figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages-excluding-system.png"><img src="../images/2015/12/pypi-imported-packages-excluding-system.png" alt="Number of imports of Python packages, excluding system packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Number of imports of Python packages, excluding system packages</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/12/pypi-imported-packages-excluding-system.png"><img src="../images/2015/12/pypi-imported-packages-excluding-system.png" alt="Number of imports of Python packages, excluding system packages" width="500" height="216" loading="lazy"></a>
+    <figcaption>Number of imports of Python packages, excluding system packages</figcaption>
+</figure>
 
 
 ## Non-functional packages
@@ -241,92 +241,29 @@ Please let me know if you do something interesting with the data.
 
 I've only got some crappy images with Gephi / GraphViz:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered.png" alt="PyPI dependency graph (default layout)" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-circo-5000-x-small.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="PyPI dependency graph (circo layout)" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-twopi.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-twopi.png" alt="PyPI dependency graph (twopi layout)" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-x.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-x.png" alt="PyPI dependency graph (detailed view)" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/gephi-1.png" class="image">
-                  <img src="../images/2015/12/gephi-1.png" alt="Gephi visualization of the PyPI dependency graph" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/gephi-2.png" class="image">
-                  <img src="../images/2015/12/gephi-2.png" alt="Gephi visualization of the PyPI dependency graph (second layout)" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-graph-small.png" class="image">
-                  <img src="../images/2015/12/pypi-graph-small.png" alt="Small PyPI dependency graph" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2015/12/pypi-rendered.png"><img src="../images/2015/12/pypi-rendered.png" alt="PyPI dependency graph (default layout)" width="120" height="120" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/pypi-rendered-circo-5000-x-small.png"><img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="PyPI dependency graph (circo layout)" width="120" height="78" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/pypi-rendered-twopi.png"><img src="../images/2015/12/pypi-rendered-twopi.png" alt="PyPI dependency graph (twopi layout)" width="120" height="120" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/pypi-rendered-x.png"><img src="../images/2015/12/pypi-rendered-x.png" alt="PyPI dependency graph (detailed view)" width="120" height="98" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/gephi-1.png"><img src="../images/2015/12/gephi-1.png" alt="Gephi visualization of the PyPI dependency graph" width="120" height="67" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/gephi-2.png"><img src="../images/2015/12/gephi-2.png" alt="Gephi visualization of the PyPI dependency graph (second layout)" width="120" height="67" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2015/12/pypi-graph-small.png"><img src="../images/2015/12/pypi-graph-small.png" alt="Small PyPI dependency graph" width="120" height="120" loading="lazy"></a>
+    </figure>
+</div>
 
 
 ## Code

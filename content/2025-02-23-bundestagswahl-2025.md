@@ -19,9 +19,9 @@ eine "Indiskretion" bekannt, genau wie zuvor schon
 Die Vermutung liegt nahe, dass die FDP beides bewusst hat durchsickern lassen,
 um die Koalition zu sprengen.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/02/bundestagswahl-2025.png"><img src="../images/2025/02/bundestagswahl-2025.png" alt="Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/02/bundestagswahl-2025.png"><img src="../images/2025/02/bundestagswahl-2025.png" alt="Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude</figcaption>
 </figure>
 
 ## Update: Wahlergebnis

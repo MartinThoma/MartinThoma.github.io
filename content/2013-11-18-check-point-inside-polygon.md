@@ -17,10 +17,10 @@ An $n$-gon can be defined by a list of $n$ points.
 
 Note that the order is important:
 
-<figure class="aligncenter">
-            <a href="../images/2013/11/polygon-order.png"><img src="../images/2013/11/polygon-order.png" alt="The order of points is important for the definition of a polygon" style="max-width:512" height="233px;" class=""/></a>
-            <figcaption class="text-center">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/11/polygon-order.png"><img src="../images/2013/11/polygon-order.png" alt="The order of points is important for the definition of a polygon" width="512" height="233"></a>
+    <figcaption>[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
+</figure>
 
 
 I will not consider self-intersecting polygons for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygons that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).
@@ -35,8 +35,8 @@ Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be an $n$-gon. It is now muc
 <h3>Count Crossing Line Segments</h3>
 However, you can try another approach which I have visualized in the following image:
 
-<figure class="aligncenter">
-    <img src="../images/2013/11/polygon-is-point-inside.png" style="max-width: 512px; max-height: 481px;" class="size-full" alt="Check if P is inside of N"/>
+<figure>
+    <a href="../images/2013/11/polygon-is-point-inside.png"><img src="../images/2013/11/polygon-is-point-inside.png" alt="Check if P is inside of N" width="512" height="481" loading="lazy"></a>
     <figcaption>Check if P is inside of N</figcaption>
 </figure>
 

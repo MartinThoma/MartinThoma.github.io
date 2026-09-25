@@ -1117,16 +1117,16 @@ outdated.
 Well, please have a look at what a [3-way merge](https://stackoverflow.com/q/4129049/562769) would look like on your machine. This
 is what it looks like on mine:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/07/3-way-merge-80-chars.png"><img src="../images/2018/07/3-way-merge-80-chars.png" alt="3-way merge with 80 character lines" style="width: 512px;"/></a>
-    <figcaption class="text-center">3-way merge with 80 character lines</figcaption>
+<figure>
+    <a href="../images/2018/07/3-way-merge-80-chars.png"><img src="../images/2018/07/3-way-merge-80-chars.png" alt="3-way merge with 80 character lines" width="512" height="60" loading="lazy"></a>
+    <figcaption>3-way merge with 80 character lines</figcaption>
 </figure>
 
 And now look at files with 100 characters:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/07/3-way-merge-100-chars.png"><img src="../images/2018/07/3-way-merge-100-chars.png" alt="3-way merge with 100 character lines" style="width: 512px;"/></a>
-    <figcaption class="text-center">3-way merge with 100 character lines</figcaption>
+<figure>
+    <a href="../images/2018/07/3-way-merge-100-chars.png"><img src="../images/2018/07/3-way-merge-100-chars.png" alt="3-way merge with 100 character lines" width="512" height="86" loading="lazy"></a>
+    <figcaption>3-way merge with 100 character lines</figcaption>
 </figure>
 
 Sure, you can still do it. But for sure it also is less comfortable.

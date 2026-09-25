@@ -54,9 +54,9 @@ seen so far is nice:
 
 ## User Interface
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="https://martin-thoma.com/images/2016/12/lidl-connect-kunden.png" alt="User Interface of Lidl Connect" style="width:512px;" />
-    <figcaption class="text-center">User Interface of Lidl Connect</figcaption>
+<figure>
+    <img src="https://martin-thoma.com/images/2016/12/lidl-connect-kunden.png" alt="User Interface of Lidl Connect" width="512">
+    <figcaption>User Interface of Lidl Connect</figcaption>
 </figure>
 
 The Lidl connect app seems to work fine. It shows the important information.

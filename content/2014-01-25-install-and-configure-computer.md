@@ -104,25 +104,25 @@ ln -s ~/.gtk-bookmarks ~/.config/gtk-3.0/bookmarks
 I like the old menu bar quite a lot. It opens instantly and is customizable:
 
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/mate-old-menu.png"><img src="../images/2014/03/mate-old-menu.png" alt="Old menu bar" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Old menu bar</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/mate-old-menu.png"><img src="../images/2014/03/mate-old-menu.png" alt="Old menu bar" width="500" height="317" loading="lazy"></a>
+    <figcaption>Old menu bar</figcaption>
+</figure>
 
 You can get it back in MATE by doing a right-click on the menu. Then click on
 "add to panel":
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/mate-add-to-panel.png"><img src="../images/2014/03/mate-add-to-panel.png" alt="Add to panel" style="max-width:287px;" class=""/></a>
-            <figcaption class="text-center">Add to panel</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/mate-add-to-panel.png"><img src="../images/2014/03/mate-add-to-panel.png" alt="Add to panel" width="287" height="177" loading="lazy"></a>
+    <figcaption>Add to panel</figcaption>
+</figure>
 
 After that, the following dialog will pop up. Choose "Menu Bar":
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/mate-add-menu-bar.png"><img src="../images/2014/03/mate-add-menu-bar.png" alt="Add menu bar" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Add menu bar</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/mate-add-menu-bar.png"><img src="../images/2014/03/mate-add-menu-bar.png" alt="Add menu bar" width="500" height="458" loading="lazy"></a>
+    <figcaption>Add menu bar</figcaption>
+</figure>
 
 ### DRM-Stuff
 

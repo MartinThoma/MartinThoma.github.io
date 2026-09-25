@@ -47,15 +47,15 @@ http://download.eclipse.org/technology/subversive/0.7/update-site/
 Auch hier macht man es wie mit CheckStyle.
 
 Sobald alles klappt, sieht es etwa so aus:
-<figure class="aligncenter">
-            <a href="../images/2012/04/eclipse-subversive.png"><img src="../images/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse" style="max-width:666px;max-height:434px" class="size-full wp-image-23271"/></a>
-            <figcaption class="text-center">Subversive plugin in Eclipse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/04/eclipse-subversive.png"><img src="../images/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse" width="666" height="434" loading="lazy"></a>
+    <figcaption>Subversive plugin in Eclipse</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/04/subversive-300x290.png"><img src="../images/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse" style="max-width:300px;max-height:290px" class="size-medium wp-image-23751"/></a>
-            <figcaption class="text-center">Commit mit Subversive unter Eclipse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/04/subversive-300x290.png"><img src="../images/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse" width="300" height="290" loading="lazy"></a>
+    <figcaption>Commit mit Subversive unter Eclipse</figcaption>
+</figure>
 
 <h2>Grundeinstellungen</h2>
 Als erstes sollte man mal auf "Window" -> "Open Perspective" -> "Java" klicken.

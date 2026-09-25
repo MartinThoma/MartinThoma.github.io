@@ -136,7 +136,7 @@ There are many <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">C
 </dl>
 
 One line of work goes in the direction of matrix factorization with alternating
-least squares (ALS).[^5][^6] They have a training algorithm which has a time complexity
+least squares (ALS).[^5]<sup>,</sup>[^6] They have a training algorithm which has a time complexity
 of $\mathcal{O}(MNK^2)$ for one iteration, where $M$ is the number of users,
 $N$ is the number of items and $K$ is the dimension of the latent space.
 
@@ -183,7 +183,7 @@ Metrics for top-n recommenders:
     <dt>Hit Rate</dt>
     <dd>Number of hits in your $n$ recommendations, divided by the number of users</dd>
     <dt>Average Reciprocal Hit Rank (ARHR)</dt>
-    <dd>$\frac{1}{|Users|} \sum_{i=1}^n \frac{1}{rank_i}$</dd>
+    <dd>$\frac{1}{|Users|} \sum_{i=1}^n \frac{1}{\text{rank}_i}$</dd>
     <dt>Cumulative Hit Rate (cHR)</dt>
     <dd>Throw away low-ranking stuff (hence you need a threshold)</dd>
 </dl>
@@ -209,29 +209,29 @@ Other quality indicators for a recommendation system:
 
 Another way to evaluate is to ask the user:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-1.png"><img src="../images/2019/05/youtube-feedback-1.png" alt="YouTube asking for feedback" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 1 Star</figcaption>
+<figure>
+    <a href="../images/2019/05/youtube-feedback-1.png"><img src="../images/2019/05/youtube-feedback-1.png" alt="YouTube asking for feedback" width="512" height="105" loading="lazy"></a>
+    <figcaption>YouTube Asking for feedback: 1 Star</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-2.png"><img src="../images/2019/05/youtube-feedback-2.png" alt="YouTube asking for feedback" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 2 Star</figcaption>
+<figure>
+    <a href="../images/2019/05/youtube-feedback-2.png"><img src="../images/2019/05/youtube-feedback-2.png" alt="YouTube asking for feedback" width="512" height="99" loading="lazy"></a>
+    <figcaption>YouTube Asking for feedback: 2 Star</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-3.png"><img src="../images/2019/05/youtube-feedback-3.png" alt="YouTube asking for feedback" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 3 Star</figcaption>
+<figure>
+    <a href="../images/2019/05/youtube-feedback-3.png"><img src="../images/2019/05/youtube-feedback-3.png" alt="YouTube asking for feedback" width="512" height="96" loading="lazy"></a>
+    <figcaption>YouTube Asking for feedback: 3 Star</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-4.png"><img src="../images/2019/05/youtube-feedback-4.png" alt="YouTube asking for feedback" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 4 Star</figcaption>
+<figure>
+    <a href="../images/2019/05/youtube-feedback-4.png"><img src="../images/2019/05/youtube-feedback-4.png" alt="YouTube asking for feedback" width="512" height="96" loading="lazy"></a>
+    <figcaption>YouTube Asking for feedback: 4 Star</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-5.png"><img src="../images/2019/05/youtube-feedback-5.png" alt="YouTube asking for feedback" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 5 Star</figcaption>
+<figure>
+    <a href="../images/2019/05/youtube-feedback-5.png"><img src="../images/2019/05/youtube-feedback-5.png" alt="YouTube asking for feedback" width="512" height="99" loading="lazy"></a>
+    <figcaption>YouTube Asking for feedback: 5 Star</figcaption>
 </figure>
 
 

@@ -31,10 +31,10 @@ is my bachelor's thesis (work is still in (slow) progress).
 [JabRef](https://en.wikipedia.org/wiki/JabRef) is reference management
 software that uses BibTeX as its native format. It looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/06/jabref.png"><img src="../images/2014/06/jabref.png" alt="JabRef" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">JabRef</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/06/jabref.png"><img src="../images/2014/06/jabref.png" alt="JabRef" width="500" height="272"></a>
+    <figcaption>JabRef</figcaption>
+</figure>
 
 ## How can I get it?
 
@@ -53,27 +53,27 @@ where you have a JVM (thus: good news Windows / Mac users!).
 You can easily add the information where the PDF is located on your system and
 open the PDF directly via JabRef:
 
-<figure class="aligncenter">
-            <a href="../images/2014/06/jabref-pdf.png"><img src="../images/2014/06/jabref-pdf.png" alt="Adding PDF with JabRef" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Adding PDF with JabRef</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/06/jabref-pdf.png"><img src="../images/2014/06/jabref-pdf.png" alt="Adding PDF with JabRef" width="500" height="209" loading="lazy"></a>
+    <figcaption>Adding PDF with JabRef</figcaption>
+</figure>
 
 This is especially powerful with the search. As you can add quite a lot of
 information to the entries (such as the abstract and comments) and searching
 that is faster / easier than searching folders of PDFs, it's very convenient
 to use JabRef for opening your PDFs:
 
-<figure class="aligncenter">
-            <a href="../images/2014/06/jabref-searching.png"><img src="../images/2014/06/jabref-searching.png" alt="Searching with JabRef" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Searching with JabRef</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/06/jabref-searching.png"><img src="../images/2014/06/jabref-searching.png" alt="Searching with JabRef" width="500" height="238" loading="lazy"></a>
+    <figcaption>Searching with JabRef</figcaption>
+</figure>
 
 The preview also helps you to see how it might appear in your document:
 
-<figure class="aligncenter">
-            <a href="../images/2014/06/jabref-preview.png"><img src="../images/2014/06/jabref-preview.png" alt="JabRef preview" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">JabRef preview</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/06/jabref-preview.png"><img src="../images/2014/06/jabref-preview.png" alt="JabRef preview" width="500" height="182" loading="lazy"></a>
+    <figcaption>JabRef preview</figcaption>
+</figure>
 
 Another nice feature is the autocompletion of author names and titles.
 

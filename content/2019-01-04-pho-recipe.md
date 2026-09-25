@@ -11,9 +11,9 @@ featured_image: logos/cooking.png
 ---
 [Phở](https://en.wikipedia.org/wiki/Pho) is a Vietnamese beef noodle soup.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/01/pho.jpg"><img src="../images/2019/01/pho.jpg" alt="Pho" style="width: 512px;"/></a>
-    <figcaption class="text-center">Phở</figcaption>
+<figure>
+    <a href="../images/2019/01/pho.jpg"><img src="../images/2019/01/pho.jpg" alt="Pho" width="512" height="910"></a>
+    <figcaption>Phở</figcaption>
 </figure>
 
 ## Ingredients

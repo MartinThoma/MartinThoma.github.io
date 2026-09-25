@@ -101,7 +101,7 @@ G heißt gerichteter Graph $: \Leftrightarrow$ G ist nicht ungerichtet.
 G heißt streng zusammenhängend $: \Leftrightarrow \forall_{x, y \in V}:$ Es gibt einen Pfad von x nach y.
 G heißt vollständig $: \Leftrightarrow \forall_{x, y \in V}: (x, y) \in E$
 
-p heißt Pfad in G von $v_0$ nach $v_n: \Leftrightarrow p = (v_0, ..., v_n): \forall_{i \in \mathbb{G}_n}: (v_i, v_{i+1}) \in E $
+p heißt Pfad in G von $v_0$ nach $v_n: \Leftrightarrow p = (v_0, ..., v_n): \forall_{i \in \mathbb{G}_n}: (v_i, v_{i+1}) \in E$
 
 Ein Knoten $r \in V$ heißt Wurzel $: \Leftrightarrow \forall_{x \in V}:$ Es gibt genau einen Pfad von r nach x.
 G heißt Baum $: \Leftrightarrow \exists r \in V: \forall_{x \in V}$ Es gibt genau einen Pfad von r nach x.

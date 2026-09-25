@@ -31,10 +31,10 @@ The raw data can be downloaded with this toolkit.
 The toolkit can be used to classify data on your computer (without an internet
 connection):
 
-<figure class="aligncenter">
-            <a href="../images/2015/01/write-math-browser-ui.png"><img src="../images/2015/01/write-math-browser-ui.png" alt="Write math: Interactive Browser Interface (offline)" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Write math: Interactive Browser Interface (offline)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2015/01/write-math-browser-ui.png"><img src="../images/2015/01/write-math-browser-ui.png" alt="Write math: Interactive Browser Interface (offline)" width="500" height="400"></a>
+    <figcaption>Write math: Interactive Browser Interface (offline)</figcaption>
+</figure>
 
 ## nntoolkit
 

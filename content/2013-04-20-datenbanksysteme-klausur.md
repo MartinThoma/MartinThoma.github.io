@@ -202,10 +202,10 @@ Ein bisschen was zu <a href="http://en.wikipedia.org/wiki/Join_(SQL)">JOIN</a> s
 
 Ich habe übrigens das folgende Captcha bekommen:
 
-<figure class="aligncenter">
-            <a href="../images/2013/04/captcha-db.png"><img src="../images/2013/04/captcha-db.png" alt="Datenbanksysteme - Captcha" style="max-width:293px;max-height:221px" class="size-full wp-image-70581"/></a>
-            <figcaption class="text-center">Datenbanksysteme - Captcha</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/captcha-db.png"><img src="../images/2013/04/captcha-db.png" alt="Datenbanksysteme - Captcha" width="293" height="221" loading="lazy"></a>
+    <figcaption>Datenbanksysteme - Captcha</figcaption>
+</figure>
 
 Wie zur Hölle soll man das lösen? Ich hatte auf &bdquo;448444&ldquo; getippt, aber das war falsch.
 

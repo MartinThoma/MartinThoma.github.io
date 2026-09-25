@@ -18,9 +18,9 @@ bottom and self-actualization at the top. The hierarchy is often depicted as a
 pyramid, with the most fundamental needs at the base and higher-level needs
 building upon them.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/05/hierarchy-of-needs.png"><img src="../images/2025/05/hierarchy-of-needs.png" alt="Maslow's hierarchy of needs as a pyramid" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Illustration generated with Claude AI: Maslow's hierarchy of needs as a pyramid</figcaption>
+<figure>
+    <a href="../images/2025/05/hierarchy-of-needs.png"><img src="../images/2025/05/hierarchy-of-needs.png" alt="Maslow's hierarchy of needs as a pyramid" width="819" height="512"></a>
+    <figcaption>Illustration generated with Claude AI: Maslow's hierarchy of needs as a pyramid</figcaption>
 </figure>
 
 Let's examine which companies operate within each level of this hierarchy.

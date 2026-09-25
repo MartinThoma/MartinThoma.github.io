@@ -243,44 +243,44 @@ wieder sehr übersichtliche Hilfeseiten der TK über den Weg gelaufen.
 
 ## BKK Web Portal
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-01.png"><img src="../images/2019/05/bkk-01.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-01.png"><img src="../images/2019/05/bkk-01.png" alt="BKK Web Interface" width="512" height="306" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-02.png"><img src="../images/2019/05/bkk-02.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-02.png"><img src="../images/2019/05/bkk-02.png" alt="BKK Web Interface" width="512" height="289" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-03.png"><img src="../images/2019/05/bkk-03.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-03.png"><img src="../images/2019/05/bkk-03.png" alt="BKK Web Interface" width="512" height="215" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-04.png"><img src="../images/2019/05/bkk-04.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-04.png"><img src="../images/2019/05/bkk-04.png" alt="BKK Web Interface" width="512" height="203" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-05.png"><img src="../images/2019/05/bkk-05.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-05.png"><img src="../images/2019/05/bkk-05.png" alt="BKK Web Interface" width="512" height="178" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-06.png"><img src="../images/2019/05/bkk-06.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-06.png"><img src="../images/2019/05/bkk-06.png" alt="BKK Web Interface" width="512" height="218" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-07.png"><img src="../images/2019/05/bkk-07.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-07.png"><img src="../images/2019/05/bkk-07.png" alt="BKK Web Interface" width="512" height="238" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/bkk-08.png"><img src="../images/2019/05/bkk-08.png" alt="BKK Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">BKK Web Interface</figcaption>
+<figure>
+    <a href="../images/2019/05/bkk-08.png"><img src="../images/2019/05/bkk-08.png" alt="BKK Web Interface" width="512" height="276" loading="lazy"></a>
+    <figcaption>BKK Web Interface</figcaption>
 </figure>
 
 

@@ -84,7 +84,9 @@ außerdem keine enormen Schwankungen auf kurze Sicht geben.
 > Armutsgefährdung keine Einkommensteuer zahlen müssen. Das statistische
 > Bundesamt berechnet diese Grenze.
 
-![Google Ngram Viewer: Häufigkeit des Wortes Fachkräftemangel](../images/2024/09/google-ngrams-fachkraeftemangel.png)
+<figure>
+    <a href="../images/2024/09/google-ngrams-fachkraeftemangel.png"><img src="../images/2024/09/google-ngrams-fachkraeftemangel.png" alt="Google Ngram Viewer: Häufigkeit des Wortes Fachkräftemangel" width="2073" height="769" loading="lazy"></a>
+</figure>
 
 Für viele zentrale Dienstleistungen wie die Miete einer Wohnung oder das Eröffnen
 eines Bankkontos ist es notwendig, dass man sich ausweisen kann - manchmal

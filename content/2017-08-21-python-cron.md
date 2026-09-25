@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python Scheduling
 slug: python-scheduling
+lang: en
 author: Martin Thoma
 date: 2017-08-21 20:00
 category: Code
@@ -62,9 +62,9 @@ sendmessage(
 
 It looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/08/notification-python.png" alt="Notifications on Ubuntu" style="width: 512px;"/>
-    <figcaption class="text-center">Notifications on Ubuntu</figcaption>
+<figure>
+    <a href="../images/2017/08/notification-python.png"><img src="../images/2017/08/notification-python.png" alt="Notifications on Ubuntu" width="512" height="299"></a>
+    <figcaption>Notifications on Ubuntu</figcaption>
 </figure>
 
 Receiving the `last-modified` element from a website is as simple as

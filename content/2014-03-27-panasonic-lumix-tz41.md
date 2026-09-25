@@ -10,10 +10,10 @@ tags: Review, Camera, Hardware
 featured_image: 2014/03/panasonic-lumix-tz41.jpg
 itemtype: http://schema.org/Review
 ---
-<figure class="alignright">
-            <a href="../images/2014/03/panasonic-lumix-tz41.jpg"><img src="../images/2014/03/panasonic-lumix-tz41.jpg" alt="Panasonic Lumix TZ41" style="max-width:128px;" class=""/></a>
-            <figcaption class="text-center">Panasonic Lumix TZ41</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2014/03/panasonic-lumix-tz41.jpg"><img src="../images/2014/03/panasonic-lumix-tz41.jpg" alt="Panasonic Lumix TZ41" width="128" height="76"></a>
+    <figcaption>Panasonic Lumix TZ41</figcaption>
+</figure>
 
 The <span itemprop="name">Panasonic Lumix TZ41</span> is currently the best
 camera in the compact segment.
@@ -61,15 +61,15 @@ has an [<span itemprop="sameAs">official data sheet</span>](http://www.panasonic
 Panasonic doesn't use the standard European charger / cable combination that is
 used for smartphones.
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/panasonic-lumix-tz-41-charger.jpg"><img src="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" alt="Charging works via microUSB, but not via a standard charger." style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Charging works via microUSB, but not via a standard charger.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/panasonic-lumix-tz-41-charger.jpg"><img src="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" alt="Charging works via microUSB, but not via a standard charger." width="500" height="458" loading="lazy"></a>
+    <figcaption>Charging works via microUSB, but not via a standard charger.</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2014/03/panasonic-cable-standard-cable.jpg"><img src="../images/2014/03/panasonic-cable-standard-cable.jpg" alt="Panasonic does not use standard microUSB2USB cables for charging / data exchange" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Panasonic does not use standard microUSB2USB cables for charging / data exchange</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/03/panasonic-cable-standard-cable.jpg"><img src="../images/2014/03/panasonic-cable-standard-cable.jpg" alt="Panasonic does not use standard microUSB2USB cables for charging / data exchange" width="500" height="318" loading="lazy"></a>
+    <figcaption>Panasonic does not use standard microUSB2USB cables for charging / data exchange</figcaption>
+</figure>
 
 ### Software
 
@@ -99,88 +99,38 @@ works like this:
 1. Connect the camera with the SD card in it to the computer.
 2. Start gpsasist.exe with wine.
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/gpsasist.exe.png" class="image">
-                  <img src="../images/2014/03/gpsasist.exe.png" alt="gpsasist.exe" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">gpsasist.exe</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/gps-assist-tool.png" class="image">
-                  <img src="../images/2014/03/gps-assist-tool.png" alt="gps-assist-tool" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">gps-assist-tool</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/gps-update-completed.png" class="image">
-                  <img src="../images/2014/03/gps-update-completed.png" alt="update completed" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">update completed</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/gps-assist-settings.png" class="image">
-                  <img src="../images/2014/03/gps-assist-settings.png" alt="Settings" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Settings</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/gpsasist.exe.png"><img src="../images/2014/03/gpsasist.exe.png" alt="gpsasist.exe" width="120" height="19" loading="lazy"></a>
+        <figcaption>gpsasist.exe</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/gps-assist-tool.png"><img src="../images/2014/03/gps-assist-tool.png" alt="gps-assist-tool" width="120" height="64" loading="lazy"></a>
+        <figcaption>gps-assist-tool</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/gps-update-completed.png"><img src="../images/2014/03/gps-update-completed.png" alt="update completed" width="120" height="64" loading="lazy"></a>
+        <figcaption>update completed</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/gps-assist-settings.png"><img src="../images/2014/03/gps-assist-settings.png" alt="Settings" width="120" height="65" loading="lazy"></a>
+        <figcaption>Settings</figcaption>
+    </figure>
+</div>
 
 ### LUMIX Map Tool
 
 The LUMIX Map Tool should allow you to copy maps with information about the
 environment on your camera. It looks like this:
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/lumix-map-tool.png" class="image">
-                  <img src="../images/2014/03/lumix-map-tool.png" alt="lumix map tool" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/lumix-map-tool-no-drive-detection.png" class="image">
-                  <img src="../images/2014/03/lumix-map-tool-no-drive-detection.png" alt="lumix map tool no drive detection" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/lumix-map-tool.png"><img src="../images/2014/03/lumix-map-tool.png" alt="lumix map tool" width="120" height="109" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/lumix-map-tool-no-drive-detection.png"><img src="../images/2014/03/lumix-map-tool-no-drive-detection.png" alt="lumix map tool no drive detection" width="120" height="109" loading="lazy"></a>
+    </figure>
+</div>
 
 The drive detection for the SD card doesn't work on Linux, as you can see in the
 second image. So I have written a Linux version of that program which can be
@@ -193,393 +143,131 @@ with my old Casio Exilim EX-Z200.
 
 ### Macro photographs
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+</div>
 
 ### Normal range photographs
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/bank.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/bank.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/bank.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/bank.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+</div>
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/relief.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/relief.jpg" alt="relief" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/poor-light-conditions.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/poor-light-conditions.jpg" alt="poor light conditions" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/taube-fliegt.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/taube-fliegt.jpg" alt="taube fliegt" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-1.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-1.jpg" alt="enterich 1" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-2.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-2.jpg" alt="enterich 2" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-3.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-3.jpg" alt="enterich 3" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-4.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-4.jpg" alt="enterich 4" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-1.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-1.jpg" alt="ente 1" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-2.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-2.jpg" alt="ente 2" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-1.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-1.jpg" alt="ente und enterich 1" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-2.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-2.jpg" alt="ente und enterich 2" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" alt="facade" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" alt="facade statue" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen.jpg" alt="springbrunnen" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/relief.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/relief.jpg" alt="relief" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/poor-light-conditions.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/poor-light-conditions.jpg" alt="poor light conditions" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/taube-fliegt.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/taube-fliegt.jpg" alt="taube fliegt" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-1.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-1.jpg" alt="enterich 1" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-2.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-2.jpg" alt="enterich 2" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-3.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-3.jpg" alt="enterich 3" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-4.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-4.jpg" alt="enterich 4" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-1.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-1.jpg" alt="ente 1" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-2.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-2.jpg" alt="ente 2" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-1.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-1.jpg" alt="ente und enterich 1" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-2.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-2.jpg" alt="ente und enterich 2" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" alt="facade" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" alt="facade statue" width="120" height="90" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen.jpg" alt="springbrunnen" width="120" height="90" loading="lazy"></a>
+    </figure>
+</div>
 
 ### Long-range photographs
 
-<ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg" alt="Casio" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Casio</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg" alt="TZ41" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">TZ41</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg"><img src="../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg" alt="Casio" width="120" height="90" loading="lazy"></a>
+        <figcaption>Casio</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg"><img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg" alt="TZ41" width="120" height="90" loading="lazy"></a>
+        <figcaption>TZ41</figcaption>
+    </figure>
+</div>
 
 ## Conclusion
 Overall, the Panasonic Lumix TZ41 is a great camera. But the lack of a standard

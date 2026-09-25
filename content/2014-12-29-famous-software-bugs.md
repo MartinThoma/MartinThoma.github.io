@@ -12,13 +12,13 @@ featured_image: 2012/06/mars-climate-orbiter.jpg
 <div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 
 ## Mars Climate Orbiter
-<figure class="alignright">
-            <a href="../images/2012/06/mars-climate-orbiter.jpg"><img src="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Orbiter" style="max-width:128px;max-height:128px;" class="size-full wp-image-28651 "/></a>
-            <figcaption class="text-center">Mars Climate Orbiter</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/06/mars-climate-orbiter.jpg"><img src="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Orbiter" width="128" height="128"></a>
+    <figcaption>Mars Climate Orbiter</figcaption>
+</figure>
 **Type of Bug**: Bad specification<br/>
 **Description**:  The flight system software on the Mars Climate Orbiter was written to calculate thruster performance using the <em>metric unit</em> Newtons (N), while the ground crew was entering course correction and thruster data using the <em>Imperial measure</em> Pound-force (lbf).<br/>
-**Outcome**: The cost of the mission was $327.6 million total for both orbiter and lander, $193.1 million for spacecraft development, $91.7 million for launching it, and $42.8 million for mission operations.<br/>
+**Outcome**: The cost of the mission was \$327.6 million total for both orbiter and lander, \$193.1 million for spacecraft development, \$91.7 million for launching it, and \$42.8 million for mission operations.<br/>
 **Source**: <a href="http://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Wikipedia</a>
 
 ## Ariane V88

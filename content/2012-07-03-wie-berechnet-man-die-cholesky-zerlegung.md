@@ -78,10 +78,10 @@ Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.
 
 Die Cholesky-Zerlegung kann man folgendermaßen berechnen:
 
-<figure class="aligncenter">
-            <a href="../images/2012/07/cholesky-zerlegung-numerik.png"><img src="../images/2012/07/cholesky-zerlegung-numerik.png" alt="Berechnung der Cholesky-Zerlegung in Pseudocode" style="max-width:512px;max-height:390px" class="size-full wp-image-67881"/></a>
-            <figcaption class="text-center">Berechnung der Cholesky-Zerlegung in Pseudocode</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/cholesky-zerlegung-numerik.png"><img src="../images/2012/07/cholesky-zerlegung-numerik.png" alt="Berechnung der Cholesky-Zerlegung in Pseudocode" width="512" height="390" loading="lazy"></a>
+    <figcaption>Berechnung der Cholesky-Zerlegung in Pseudocode</figcaption>
+</figure>
 
 In Python sieht das dann so aus:
 

@@ -26,7 +26,7 @@ Es sei $f(x) = \cos(x)$ und $g'(x)= \sin(x)$.
 Es gilt: $f'(x) = - \sin(x)$ und $g(x)= - \cos(x)$.
 
 Durch partielle Integration erhält man:
-$\int \sin(x) \cdot \cos(x) \,\mathrm{d}x = -\cos^2(x) - \int \sin(x) \cdot \cos(x) \,\mathrm{d}x. $
+$\int \sin(x) \cdot \cos(x) \,\mathrm{d}x = -\cos^2(x) - \int \sin(x) \cdot \cos(x) \,\mathrm{d}x.$
 
 
 Addiert man auf beiden Seiten der Gleichung das Ausgangsintegral, ergibt sich:

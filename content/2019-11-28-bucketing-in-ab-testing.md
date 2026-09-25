@@ -238,9 +238,9 @@ look better:
     </tr>
     </thead>
     <tr>
-        <td><a href="../images/2019/11/1000-random-numbers-java.png"><img src="../images/2019/11/1000-random-numbers-java.png" alt="Java Pseudo-Random Number Generator" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-python.png"><img src="../images/2019/11/1000-random-numbers-python.png" alt="Python Pseudo-Random Number Generator" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img src="../images/2019/11/1000-random-numbers-numpy.png" alt="Numpy Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-java.png"><img src="../images/2019/11/1000-random-numbers-java.png" alt="Java Pseudo-Random Number Generator" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-python.png"><img src="../images/2019/11/1000-random-numbers-python.png" alt="Python Pseudo-Random Number Generator" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img src="../images/2019/11/1000-random-numbers-numpy.png" alt="Numpy Pseudo-Random Number Generator" width="300" height="300" loading="lazy"></a></td>
     </tr>
     <tr>
         <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
@@ -252,9 +252,9 @@ look better:
         <th>Xoroshiro128</th>
     </tr>
     <tr>
-        <td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img src="../images/2019/11/1000-random-numbers-MT19937.png" alt="MT19937 PRNG" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img src="../images/2019/11/1000-random-numbers-Philox.png" alt="Philox PRNG" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" alt="Xoroshiro128 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img src="../images/2019/11/1000-random-numbers-MT19937.png" alt="MT19937 PRNG" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img src="../images/2019/11/1000-random-numbers-Philox.png" alt="Philox PRNG" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" alt="Xoroshiro128 PRNG" width="300" height="300" loading="lazy"></a></td>
     </tr>
     <tr>
         <th>SFC64</th>
@@ -262,9 +262,9 @@ look better:
         <th>ThreeFry</th>
     </tr>
     <tr>
-        <td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img src="../images/2019/11/1000-random-numbers-SFC64.png" alt="SFC64 PRNG" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img src="../images/2019/11/1000-random-numbers-Xorshift1024.png" alt="Xorshift1024 PRNG" width="300" height="300"/></a></td>
-        <td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img src="../images/2019/11/1000-random-numbers-ThreeFry.png" alt="ThreeFry PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img src="../images/2019/11/1000-random-numbers-SFC64.png" alt="SFC64 PRNG" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img src="../images/2019/11/1000-random-numbers-Xorshift1024.png" alt="Xorshift1024 PRNG" width="300" height="300" loading="lazy"></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img src="../images/2019/11/1000-random-numbers-ThreeFry.png" alt="ThreeFry PRNG" width="300" height="300" loading="lazy"></a></td>
     </tr>
 </table>
 

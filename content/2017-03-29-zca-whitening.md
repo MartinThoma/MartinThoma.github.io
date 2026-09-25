@@ -56,7 +56,7 @@ Those number are the <a href="https://en.wikipedia.org/wiki/Singular_value">sing
 of $\Sigma$.
 
 Next, the principal components are calculated:
-\[u \cdot \frac{1}{\sqrt{s + 10^{-7}}} I \cdot u^T\]
+$$u \cdot \frac{1}{\sqrt{s + 10^{-7}}} I \cdot u^T$$
 
 By adding `10e-7` one prevents division by zero.
 

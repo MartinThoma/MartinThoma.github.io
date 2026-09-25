@@ -12,11 +12,15 @@ save_as: sell/external-hdd/index.html
 
 <div itemscope itemtype="http://schema.org/Product">
   <span itemprop="name">Externe Festplatte</span>
-  <img src="../../images/2016/05/external-hdd.jpg" alt="External HDD" />
+
+<figure>
+    <a href="../../images/2016/05/external-hdd.jpg"><img src="../../images/2016/05/external-hdd.jpg" alt="External HDD" width="800" height="412"></a>
+</figure>
+
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <span itemprop="priceCurrency" content="EUR">&euro;</span><span
           itemprop="price" content="30.00">30.00</span>,
-    <link itemprop="availability" href="http://schema.org/InStock" />Verfügbar
+    <link itemprop="availability" href="http://schema.org/InStock" />Entsorgt</span>
   </div>
   <b>Beschreibung:</b>
   <span itemprop="description">Festplatte ist in Ordnung; ich habe nur

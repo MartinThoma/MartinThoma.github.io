@@ -11,10 +11,10 @@ tags: LaTeX, PDF
 I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href='../images/2012/02/pdf-form.pdf'>example PDF-file</a>.
 
 It looks like this in Chromes PDF reader:
-<figure class="aligncenter">
-            <a href="../images/2012/02/pdf-latex-form-chrome.png"><img src="../images/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" style="max-width:421px;max-height:279px" class="size-full wp-image-16711"/></a>
-            <figcaption class="text-center">PDF LaTeX form in Chrome</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/02/pdf-latex-form-chrome.png"><img src="../images/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" width="421" height="279"></a>
+    <figcaption>PDF LaTeX form in Chrome</figcaption>
+</figure>
 
 ```latex
 \documentclass[a4paper,12pt]{article}

@@ -96,61 +96,37 @@ You need a webcam for this:
 </div>
 
 This is what it should look like:
-<figure class="aligncenter">
-            <a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" style="max-width:664px;max-height:395px" class="size-full wp-image-72801"/></a>
-            <figcaption class="text-center">Webcam example</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" width="664" height="395" loading="lazy"></a>
+    <figcaption>Webcam example</figcaption>
+</figure>
 
 And it gives these results:
 
-<ul class="gallery mw-gallery-traditional">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/07/prewitt-x-filter-example.png" class="image">
-                  <img src="../images/2013/07/prewitt-x-filter-example.png" alt="Prewitt x-filter example" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Prewitt x-filter example</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/07/prewitt-y-filter-example.png" class="image">
-                  <img src="../images/2013/07/prewitt-y-filter-example.png" alt="Prewitt y-filter example" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Prewitt y-filter example</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/07/laplace-filter-example.png" class="image">
-                  <img src="../images/2013/07/laplace-filter-example.png" alt="Laplace filter example" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Laplace filter example</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/07/prewitt-x-filter-example.png"><img src="../images/2013/07/prewitt-x-filter-example.png" alt="Prewitt x-filter example" width="120" height="90" loading="lazy"></a>
+        <figcaption>Prewitt x-filter example</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/07/prewitt-y-filter-example.png"><img src="../images/2013/07/prewitt-y-filter-example.png" alt="Prewitt y-filter example" width="120" height="90" loading="lazy"></a>
+        <figcaption>Prewitt y-filter example</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/07/laplace-filter-example.png"><img src="../images/2013/07/laplace-filter-example.png" alt="Laplace filter example" width="120" height="90" loading="lazy"></a>
+        <figcaption>Laplace filter example</figcaption>
+    </figure>
+</div>
 
 By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
 
-<figure class="aligncenter">
-            <a href="../images/2013/07/webcam-red-dot.png"><img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" style="max-width:370px;max-height:125px" class="size-full wp-image-72811"/></a>
-            <figcaption class="text-center">Webcam indicator on tab in Google Chrome</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/webcam-red-dot.png"><img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" width="370" height="125" loading="lazy"></a>
+    <figcaption>Webcam indicator on tab in Google Chrome</figcaption>
+</figure>
 
 If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
-<figure class="aligncenter">
-            <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enable Web-RTC in Chrome for Android" style="max-width:180px;max-height:300px" class="size-medium wp-image-73191"/></a>
-            <figcaption class="text-center">Enable Web-RTC in Chrome for Android</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enable Web-RTC in Chrome for Android" width="180" height="300" loading="lazy"></a>
+    <figcaption>Enable Web-RTC in Chrome for Android</figcaption>
+</figure>

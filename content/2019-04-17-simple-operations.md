@@ -102,9 +102,9 @@ lookup(np array)    : min: 711.1μs, mean: 855.7μs, max: 1665.5μs
 
 ### Sorting
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/04/sorting-speed.png"><img src="../images/2019/04/sorting-speed.png" alt="Sorting speed in Python" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sorting speed in Python</figcaption>
+<figure>
+    <a href="../images/2019/04/sorting-speed.png"><img src="../images/2019/04/sorting-speed.png" alt="Sorting speed in Python" width="512" height="272"></a>
+    <figcaption>Sorting speed in Python</figcaption>
 </figure>
 
 <table class="table">

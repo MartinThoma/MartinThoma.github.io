@@ -10,17 +10,17 @@ tags: Funny
 featured_image: 2013/07/wetter1.png
 ---
 <figure>
-    <img src="../images/2013/07/wetter.png" style="max-width:500px;" alt="Weather map"/>
+    <a href="../images/2013/07/wetter.png"><img src="../images/2013/07/wetter.png" alt="Weather map" width="341" height="456"></a>
     <figcaption>Weather map</figcaption>
 </figure>
 
 <figure>
-    <img src="../images/2013/07/wetterkarte-2013-07-26.png" style="max-width:500px;" alt="Wetterkarte vom 26.07.2013"/>
+    <a href="../images/2013/07/wetterkarte-2013-07-26.png"><img src="../images/2013/07/wetterkarte-2013-07-26.png" alt="Wetterkarte vom 26.07.2013" width="347" height="451" loading="lazy"></a>
     <figcaption>Wetterkarte vom 26.07.2013</figcaption>
 </figure>
 
 <figure>
-    <img src="../images/2013/07/wetterkarte-2015-07-04.png" style="max-width:500px;" alt="Wetterkarte vom 04.07.2015"/>
+    <a href="../images/2013/07/wetterkarte-2015-07-04.png"><img src="../images/2013/07/wetterkarte-2015-07-04.png" alt="Wetterkarte vom 04.07.2015" width="486" height="531" loading="lazy"></a>
     <figcaption>Wetterkarte vom 04.07.2015</figcaption>
 </figure>
 

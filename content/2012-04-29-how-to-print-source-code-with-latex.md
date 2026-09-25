@@ -17,10 +17,10 @@ I often need to print source code. Years ago for a German competition called "Bu
 
 ### Minimal Example
 
-<figure class="aligncenter">
-            <a href="../images/2012/04/latex-java-source-listings.png"><img src="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" style="max-width:590px;max-height:185px" class="size-full wp-image-23851"/></a>
-            <figcaption class="text-center">LaTeX Java Source Code: listings</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/04/latex-java-source-listings.png"><img src="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" width="590" height="185"></a>
+    <figcaption>LaTeX Java Source Code: listings</figcaption>
+</figure>
 
 Here is a minimal example of how you can print source code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
@@ -412,10 +412,10 @@ Lexers:
     YAML (filenames *.yaml, *.yml)
 ```
 <h3>Example</h3>
-<figure class="aligncenter">
-            <a href="../images/2012/04/latex-java-source-minted.png"><img src="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" style="max-width:613px;max-height:232px" class="size-full wp-image-23841"/></a>
-            <figcaption class="text-center">LaTeX Java Source Code: minted</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/04/latex-java-source-minted.png"><img src="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" width="613" height="232" loading="lazy"></a>
+    <figcaption>LaTeX Java Source Code: minted</figcaption>
+</figure>
 This is the <a href='../images/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
 
 ```latex

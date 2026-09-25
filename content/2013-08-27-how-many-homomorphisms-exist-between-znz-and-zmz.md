@@ -82,7 +82,7 @@ Case 2: $m < n$
 Now the image $\varphi(M)$ can't be all of $N$. This means $\varphi(M) = 1$ which is again the 0-mapping $\blacksquare$
 
 <h2>Any $n$ and $m$</h2>
-<strong>Theorem</strong>: $|H| = gcd(n, m)$
+<strong>Theorem</strong>: $|H| = \gcd(n, m)$
 <strong>Proof</strong>:
 
 First a sanity check: The theorems above are special cases of this theorem.

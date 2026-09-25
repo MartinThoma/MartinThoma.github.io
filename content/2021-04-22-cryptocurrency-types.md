@@ -11,12 +11,15 @@ featured_image: logos/bitcoin.png
 subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
 medium_url: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/04/cryptocurrency-types-banner.png"><img src="../images/2021/04/cryptocurrency-types-banner.png" alt="Cryptocurrency Types in Overview" style="width: 512px;"/></a>
-    <figcaption class="text-center">Cryptocurrency Types in Overview</figcaption>
+<figure>
+    <a href="../images/2021/04/cryptocurrency-types-banner.png"><img src="../images/2021/04/cryptocurrency-types-banner.png" alt="Cryptocurrency Types in Overview" width="512" height="195"></a>
+    <figcaption>Cryptocurrency Types in Overview</figcaption>
 </figure>
 
-![Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma](../images/2021/04/cryptocurrency-types-1.jpg)*Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/04/cryptocurrency-types-1.jpg"><img src="../images/2021/04/cryptocurrency-types-1.jpg" alt="Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma" width="2000" height="763" loading="lazy"></a>
+    <figcaption>Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma</figcaption>
+</figure>
 
 The crypto ecosystem grew rapidly in the past years — so rapidly that it’s hard
 for outsiders to even understand the various use cases in that space. After

@@ -9,7 +9,10 @@ category: German posts
 tags: Mathematics, Chess, Games
 featured_image: 2012/08/chess-thumbnail.png
 ---
-<a href="../images/2012/08/chessboard-rice.png"><img src="../images/2012/08/chessboard-rice.png" alt="Schachbrett mit Reis" title="Schachbrett mit Reis" width="191" height="128" class="alignright size-full wp-image-46151" /></a>
+<figure class="figure-right">
+    <a href="../images/2012/08/chessboard-rice.png"><img src="../images/2012/08/chessboard-rice.png" alt="Schachbrett mit Reis" width="191" height="128"></a>
+</figure>
+
 <h2>Aufgabenstellung</h2>
 Der Kaiser von China spielt mit einem Bauern Schach. Nachdem er das Spiel verloren hat, ist der Kaiser großzügig und will dem Bauern jeden Wunsch erfüllen. Der Bauer gibt sich bescheiden und verlangt für das erste Schachfeld ein Reiskorn, für das zweite zwei Reiskörner, usw.
 

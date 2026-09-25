@@ -24,10 +24,10 @@ You get some images of galaxies and you should identify some characteristics by
 looking at them. You get about three possible answers to every question.
 
 It looks like this:
-<figure class="aligncenter">
-            <a href="../images/2014/08/galaxyzoo.png"><img src="../images/2014/08/galaxyzoo.png" alt="Galaxy Zoo" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Galaxy Zoo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/08/galaxyzoo.png"><img src="../images/2014/08/galaxyzoo.png" alt="Galaxy Zoo" width="500" height="314"></a>
+    <figcaption>Galaxy Zoo</figcaption>
+</figure>
 
 ## Moon Zoo
 > High-resolution images of the Moon's surface provided by the Lunar
@@ -40,10 +40,10 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Moon_Zoo#Active_projects)
 
 It looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/08/moonzoo.png"><img src="../images/2014/08/moonzoo.png" alt="Moon Zoo" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Moon Zoo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/08/moonzoo.png"><img src="../images/2014/08/moonzoo.png" alt="Moon Zoo" width="500" height="350" loading="lazy"></a>
+    <figcaption>Moon Zoo</figcaption>
+</figure>
 
 ## EteRNA
 
@@ -53,10 +53,10 @@ that engages users to solve puzzles related to the folding of RNA molecules.
 
 It looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/08/eterna.png"><img src="../images/2014/08/eterna.png" alt="EteRNA" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">EteRNA</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/08/eterna.png"><img src="../images/2014/08/eterna.png" alt="EteRNA" width="500" height="348" loading="lazy"></a>
+    <figcaption>EteRNA</figcaption>
+</figure>
 
 ## Write Math
 
@@ -70,10 +70,10 @@ end of October (2014).
 
 It looks like this:
 
-<figure class="aligncenter">
-            <a href="../images/2014/08/write-math-front-page.png"><img src="../images/2014/08/write-math-front-page.png" alt="write math" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">write math</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/08/write-math-front-page.png"><img src="../images/2014/08/write-math-front-page.png" alt="write math" width="500" height="562" loading="lazy"></a>
+    <figcaption>write math</figcaption>
+</figure>
 
 The most interesting part might be the [interactive preprocessing experiments](http://write-math.com/render/?raw_data_id=19181).
 

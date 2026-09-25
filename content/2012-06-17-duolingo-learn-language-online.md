@@ -26,44 +26,44 @@ The inventor of duolingo, Luis von Ahn, did also a great TED-Talk in which he ex
 </object>
 
 Now some screenshots to give you a feeling what Duolingo offers:
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-advancement.png"><img src="../images/2012/06/duolingo-advancement.png" alt="Achievements in Duolingo" style="max-width:488px;max-height:530px" class="size-full wp-image-27071"/></a>
-            <figcaption class="text-center">Achievements in Duolingo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-advancement.png"><img src="../images/2012/06/duolingo-advancement.png" alt="Achievements in Duolingo" width="488" height="530"></a>
+    <figcaption>Achievements in Duolingo</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-translation-300x155.png"><img src="../images/2012/06/duolingo-translation-300x155.png" alt="Translation in Duolingo" style="max-width:300px;max-height:155px" class="size-medium wp-image-27081"/></a>
-            <figcaption class="text-center">Translation in Duolingo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-translation-300x155.png"><img src="../images/2012/06/duolingo-translation-300x155.png" alt="Translation in Duolingo" width="300" height="155" loading="lazy"></a>
+    <figcaption>Translation in Duolingo</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-typo-300x166.png"><img src="../images/2012/06/duolingo-typo-300x166.png" alt="Duolingo analyses your errors." style="max-width:300px;max-height:166px" class="size-medium wp-image-27091"/></a>
-            <figcaption class="text-center">Duolingo analyses your errors.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-typo-300x166.png"><img src="../images/2012/06/duolingo-typo-300x166.png" alt="Duolingo analyses your errors." width="300" height="166" loading="lazy"></a>
+    <figcaption>Duolingo analyses your errors.</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-speech-300x149.png"><img src="../images/2012/06/duolingo-speech-300x149.png" alt="Speech to text task in Duolingo" style="max-width:300px;max-height:149px" class="size-medium wp-image-27101"/></a>
-            <figcaption class="text-center">Speech to text task in Duolingo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-speech-300x149.png"><img src="../images/2012/06/duolingo-speech-300x149.png" alt="Speech to text task in Duolingo" width="300" height="149" loading="lazy"></a>
+    <figcaption>Speech to text task in Duolingo</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-photo-to-language-300x167.png"><img src="../images/2012/06/duolingo-photo-to-language-300x167.png" alt="Duolingo: Photo to language" style="max-width:300px;max-height:167px" class="size-medium wp-image-27111"/></a>
-            <figcaption class="text-center">Duolingo: Photo to language</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-photo-to-language-300x167.png"><img src="../images/2012/06/duolingo-photo-to-language-300x167.png" alt="Duolingo: Photo to language" width="300" height="167" loading="lazy"></a>
+    <figcaption>Duolingo: Photo to language</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-multiple-choice-300x137.png"><img src="../images/2012/06/duolingo-multiple-choice-300x137.png" alt="Multiple choice in Duolingo" style="max-width:300px;max-height:137px" class="size-medium wp-image-27121"/></a>
-            <figcaption class="text-center">Multiple choice in Duolingo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-multiple-choice-300x137.png"><img src="../images/2012/06/duolingo-multiple-choice-300x137.png" alt="Multiple choice in Duolingo" width="300" height="137" loading="lazy"></a>
+    <figcaption>Multiple choice in Duolingo</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lesson in Duolingo" style="max-width:300px;max-height:173px" class="size-medium wp-image-27131"/></a>
-            <figcaption class="text-center">A lesson in Duolingo</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lesson in Duolingo" width="300" height="173" loading="lazy"></a>
+    <figcaption>A lesson in Duolingo</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/duolingo-achivement-300x138.png"><img src="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered ☺" style="max-width:300px;max-height:138px" class="size-medium wp-image-27141"/></a>
-            <figcaption class="text-center">Level mastered ☺</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/duolingo-achivement-300x138.png"><img src="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered ☺" width="300" height="138" loading="lazy"></a>
+    <figcaption>Level mastered ☺</figcaption>
+</figure>
 
 I have 3 invitations left. If you like to test Duolingo, simply post a comment with your email-address. The first three will get the invitations.

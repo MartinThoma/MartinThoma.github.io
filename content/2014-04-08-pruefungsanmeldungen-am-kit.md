@@ -37,22 +37,22 @@ Zur Verbesserung dieser Situation schlage ich Folgendes vor:
 Studenten sollen die Möglichkeit bekommen, einen öffentlichen Schlüssel
 hochzuladen:
 
-<figure class="aligncenter">
-            <a href="../images/2014/04/kit-pgp-personal-data.png"><img src="../images/2014/04/kit-pgp-personal-data.png" alt="Einen Schlüssel hinzufügen" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Einen Schlüssel hinzufügen</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/04/kit-pgp-personal-data.png"><img src="../images/2014/04/kit-pgp-personal-data.png" alt="Einen Schlüssel hinzufügen" width="500" height="237"></a>
+    <figcaption>Einen Schlüssel hinzufügen</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2014/04/kit-pgp-personal-management.png"><img src="../images/2014/04/kit-pgp-personal-management.png" alt="Einen Schlüssel hinzufügen" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Einen Schlüssel hinzufügen</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/04/kit-pgp-personal-management.png"><img src="../images/2014/04/kit-pgp-personal-management.png" alt="Einen Schlüssel hinzufügen" width="500" height="317" loading="lazy"></a>
+    <figcaption>Einen Schlüssel hinzufügen</figcaption>
+</figure>
 
 Mit diesem signieren sie Prüfungsanmeldungen:
 
-<figure class="aligncenter">
-            <a href="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png"><img src="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png" alt="Prüfungsanmeldung signieren" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Prüfungsanmeldung signieren</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png"><img src="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png" alt="Prüfungsanmeldung signieren" width="500" height="250" loading="lazy"></a>
+    <figcaption>Prüfungsanmeldung signieren</figcaption>
+</figure>
 
 Bei jeder Prüfungsanmeldung soll innerhalb von 24h eine E-Mail in Textform
 (keine PDF) an u****@student.kit.edu, also die KIT E-Mail-Adresse des Studenten,
@@ -197,10 +197,10 @@ CREATE TABLE IF NOT EXISTS "openpgp_keys" (
 
 oder graphisch:
 
-<figure class="aligncenter">
-            <a href="../images/2014/04/openpgp_keys.png"><img src="../images/2014/04/openpgp_keys.png" alt="openpgp_keys Tabelle" style="max-width:188px;" class=""/></a>
-            <figcaption class="text-center">openpgp_keys Tabelle</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2014/04/openpgp_keys.png"><img src="../images/2014/04/openpgp_keys.png" alt="openpgp_keys Tabelle" width="188" height="156" loading="lazy"></a>
+    <figcaption>openpgp_keys Tabelle</figcaption>
+</figure>
 
 ### Ressourcen
 

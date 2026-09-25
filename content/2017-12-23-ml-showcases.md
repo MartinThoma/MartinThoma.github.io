@@ -23,9 +23,9 @@ described in <a href="https://arxiv.org/abs/1511.09030">my bachelors thesis</a>.
 The <a href="http://www.martin-thoma.de/write-math/data/#thoma2014">HWRT data is available</a>,
 also in its rendered form as <a href="https://arxiv.org/abs/1701.08380">HASYv2 dataset</a>.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="http://write-math.com/"><img src="../images/2017/12/write-math.png" alt="write-math.com" style="width: 512px;"/></a>
-    <figcaption class="text-center">write-math.com</figcaption>
+<figure>
+    <a href="http://write-math.com/"><img src="../images/2017/12/write-math.png" alt="write-math.com" width="512" height="327"></a>
+    <figcaption>write-math.com</figcaption>
 </figure>
 
 ### Drawings
@@ -33,18 +33,18 @@ also in its rendered form as <a href="https://arxiv.org/abs/1701.08380">HASYv2 d
 <a href="https://quickdraw.withgoogle.com">Quickdraw</a> lets you recognize
 drawings. They built a [database of 50 million drawings](https://quickdraw.withgoogle.com/data).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://quickdraw.withgoogle.com"><img src="../images/2017/12/quickdraw.png" alt="Quickdraw" style="width: 512px;"/></a>
-    <figcaption class="text-center">Quickdraw</figcaption>
+<figure>
+    <a href="https://quickdraw.withgoogle.com"><img src="../images/2017/12/quickdraw.png" alt="Quickdraw" width="512" height="257" loading="lazy"></a>
+    <figcaption>Quickdraw</figcaption>
 </figure>
 
 Using this kind of data, you can create an application which recognizes what
 was drawn and improves the drawing. <a href="https://www.autodraw.com/">autodraw.com</a>
 does so:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/autodraw.png" alt="autodraw.com: I wanted to draw a mouse (the animal)" style="width: 512px;"/>
-    <figcaption class="text-center">autodraw.com: I wanted to draw a mouse (the animal)</figcaption>
+<figure>
+    <a href="../images/2017/12/autodraw.png"><img src="../images/2017/12/autodraw.png" alt="autodraw.com: I wanted to draw a mouse (the animal)" width="512" height="493" loading="lazy"></a>
+    <figcaption>autodraw.com: I wanted to draw a mouse (the animal)</figcaption>
 </figure>
 
 
@@ -55,9 +55,9 @@ my paper [Creativity in Machine Learning](https://arxiv.org/abs/1601.03642) if
 you are interested in a very high level overview. If you just want to play with
 it, have a look at <a href="https://deepdreamgenerator.com">deepdreamgenerator.com</a>.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://commons.wikimedia.org/wiki/File:Aurelia-aurita-3-0099.jpg"><img src="../images/2017/12/Aurelia-aurita-3-0099.jpg" alt="Deep Dream of a Moon jelly" style="width: 512px;"/></a>
-    <figcaption class="text-center">Deep Dream of a <a href="https://commons.wikimedia.org/wiki/File:Aurelia-aurita-3.jpg">Moon jelly</a></figcaption>
+<figure>
+    <a href="https://commons.wikimedia.org/wiki/File:Aurelia-aurita-3-0099.jpg"><img src="../images/2017/12/Aurelia-aurita-3-0099.jpg" alt="Deep Dream of a Moon jelly" width="512" height="384" loading="lazy"></a>
+    <figcaption>Deep Dream of a <a href="https://commons.wikimedia.org/wiki/File:Aurelia-aurita-3.jpg">Moon jelly</a></figcaption>
 </figure>
 
 
@@ -68,23 +68,23 @@ want the source image to be in the style of the style image:
 
 Source image:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/Highland-cattle-1.jpg" alt="Original image of a highland cattle" style="width: 512px;"/>
-    <figcaption class="text-center">Original image of a highland cattle</figcaption>
+<figure>
+    <a href="../images/2017/12/Highland-cattle-1.jpg"><img src="../images/2017/12/Highland-cattle-1.jpg" alt="Original image of a highland cattle" width="512" height="384" loading="lazy"></a>
+    <figcaption>Original image of a highland cattle</figcaption>
 </figure>
 
 Style image:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/starry-night.jpg" alt="Style image" style="width: 512px;"/>
-    <figcaption class="text-center">Style image: <a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg">Van Gogh - Starry Night</a></figcaption>
+<figure>
+    <a href="../images/2017/12/starry-night.jpg"><img src="../images/2017/12/starry-night.jpg" alt="Style image" width="512" height="406" loading="lazy"></a>
+    <figcaption>Style image: <a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg">Van Gogh - Starry Night</a></figcaption>
 </figure>
 
 Output image:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://commons.wikimedia.org/wiki/File:Scottish-highland-cattle-1-style.jpg"><img src="../images/2017/12/Scottish-highland-cattle-1-style.jpg" alt="Applied style transfer" style="width: 512px;"/></a>
-    <figcaption class="text-center">Applied style transfer</figcaption>
+<figure>
+    <a href="https://commons.wikimedia.org/wiki/File:Scottish-highland-cattle-1-style.jpg"><img src="../images/2017/12/Scottish-highland-cattle-1-style.jpg" alt="Applied style transfer" width="512" height="384" loading="lazy"></a>
+    <figcaption>Applied style transfer</figcaption>
 </figure>
 
 <a href="https://deepart.io">https://deepart.io</a> seems to be a web service
@@ -107,16 +107,16 @@ Search for "super resolution":
 <a href="deepl.com/translate">DeepL.com</a> is much better than <a href="translate.google.com">https://translate.google.com</a>,
 but also more restricted. As always, you can find some... interesting... translations:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/12/deepl.png"><img src="../images/2017/12/deepl.png" alt="DeepL Fail" style="width: 512px;"/></a>
-    <figcaption class="text-center">DeepL Fail</figcaption>
+<figure>
+    <a href="../images/2017/12/deepl.png"><img src="../images/2017/12/deepl.png" alt="DeepL Fail" width="512" height="163" loading="lazy"></a>
+    <figcaption>DeepL Fail</figcaption>
 </figure>
 
 ### Sentiment Analysis
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="http://nlp.stanford.edu:8080/sentiment/rntnDemo.html"><img src="../images/2017/12/stanford-nlp.png" alt="Stanford NLP: Sentiment analysis" style="width: 512px;"/></a>
-    <figcaption class="text-center">Stanford NLP: Sentiment analysis</figcaption>
+<figure>
+    <a href="http://nlp.stanford.edu:8080/sentiment/rntnDemo.html"><img src="../images/2017/12/stanford-nlp.png" alt="Stanford NLP: Sentiment analysis" width="512" height="320" loading="lazy"></a>
+    <figcaption>Stanford NLP: Sentiment analysis</figcaption>
 </figure>
 
 ### Text To Speech (TTS)
@@ -136,9 +136,9 @@ Besides my small <a href="../k-nearest-neighbor-classification-interactive-examp
 Mapping datapoints in 2D makes it easier to find what you are looking for.
 Have a look at <a href="http://fontmap.ideo.com/">fontmap</a>:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/12/fontmap.png" alt="Fontmap: Organizing fonts in 2D map" style="width: 512px;"/>
-    <figcaption class="text-center">Fontmap: Organizing fonts in 2D map</figcaption>
+<figure>
+    <a href="../images/2017/12/fontmap.png"><img src="../images/2017/12/fontmap.png" alt="Fontmap: Organizing fonts in 2D map" width="512" height="358" loading="lazy"></a>
+    <figcaption>Fontmap: Organizing fonts in 2D map</figcaption>
 </figure>
 
 
@@ -152,9 +152,9 @@ of classifiers:
 * [CNN](http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html)
 * [Neural Network](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.98949&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,4,2&seed=0.60657&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false"><img src="../images/2017/12/playground-tensorflow.png" alt="Tensorflow Playground: See how neural networks learn" style="width: 512px;"/></a>
-    <figcaption class="text-center">Tensorflow Playground: See how neural networks learn</figcaption>
+<figure>
+    <a href="http://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=circle®Dataset=reg-plane&amp;learningRate=0.03®ularizationRate=0&amp;noise=0&amp;networkShape=4,4,2&amp;seed=0.60657&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false"><img src="../images/2017/12/playground-tensorflow.png" alt="Tensorflow Playground: See how neural networks learn" width="512" height="342" loading="lazy"></a>
+    <figcaption>Tensorflow Playground: See how neural networks learn</figcaption>
 </figure>
 
 

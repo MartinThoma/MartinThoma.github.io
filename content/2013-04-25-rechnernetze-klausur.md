@@ -313,7 +313,7 @@ Häufige Aufgabenstellungen sind:
 
 ## Ergebnisse
 Sind nun <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Ankuendigungen/DispForm.aspx?ID=11">online</a>. Hier ist die Statistik:
-<figure class="aligncenter">
-            <a href="../images/2013/04/klausur-rechnernetze-2013-300x274.png"><img src="../images/2013/04/klausur-rechnernetze-2013-300x274.png" alt="Klausurergebnisse Rechnernetze 2013" style="max-width:300px;max-height:274px" class="size-medium wp-image-76302"/></a>
-            <figcaption class="text-center">Klausurergebnisse Rechnernetze 2013</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/04/klausur-rechnernetze-2013-300x274.png"><img src="../images/2013/04/klausur-rechnernetze-2013-300x274.png" alt="Klausurergebnisse Rechnernetze 2013" width="300" height="274" loading="lazy"></a>
+    <figcaption>Klausurergebnisse Rechnernetze 2013</figcaption>
+</figure>

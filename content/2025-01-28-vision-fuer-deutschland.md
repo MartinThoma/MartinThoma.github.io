@@ -10,9 +10,9 @@ tags: German, German Politics, Politics
 featured_image: logos/germany.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/vision-fuer-deutschland.png"><img src="../images/2025/01/vision-fuer-deutschland.png" alt="Windkraft, Photovoltaik, Batteriespeicher, Wasserstoff und Recycling" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Windkraft, Photovoltaik, Batteriespeicher, Wasserstoff und Recycling</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/01/vision-fuer-deutschland.png"><img src="../images/2025/01/vision-fuer-deutschland.png" alt="Windkraft, Photovoltaik, Batteriespeicher, Wasserstoff und Recycling" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Windkraft, Photovoltaik, Batteriespeicher, Wasserstoff und Recycling</figcaption>
 </figure>
 
 * Batteriespeicher

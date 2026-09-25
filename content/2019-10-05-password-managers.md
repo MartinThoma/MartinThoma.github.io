@@ -62,9 +62,9 @@ The Wikipedia page lists several security incidents and one security breach:
 [KeePass](https://en.wikipedia.org/wiki/KeePass) is developed by Dominik Reichl.
 It is free and open source.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/10/keepass.png"><img src="../images/2019/10/keepass.png" alt="Keepass 2.38 on Ubuntu 18.04" style="width: 512px;"/></a>
-    <figcaption class="text-center">Keepass 2.38 on Ubuntu 18.04</figcaption>
+<figure>
+    <a href="../images/2019/10/keepass.png"><img src="../images/2019/10/keepass.png" alt="Keepass 2.38 on Ubuntu 18.04" width="512" height="344" loading="lazy"></a>
+    <figcaption>Keepass 2.38 on Ubuntu 18.04</figcaption>
 </figure>
 
 

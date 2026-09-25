@@ -58,9 +58,9 @@ while True:
 
 this is the pattern in which the numbers are generated:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/10/iterate-q.png" alt="Iterate over Q+" />
-    <figcaption class="text-center">Iterate over $\mathbb{Q}_0^+$</figcaption>
+<figure>
+    <a href="../images/2016/10/iterate-q.png"><img src="../images/2016/10/iterate-q.png" alt="Iterate over Q+" width="238" height="240"></a>
+    <figcaption>Iterate over $\mathbb{Q}_0^+$</figcaption>
 </figure>
 
 

@@ -93,15 +93,15 @@ Once you've read the task, you should understand some very basic ideas:
   <li>When your target is above the ground, you can let the diamond slide down to calculate the size of the basis.</li>
 </ul>
 
-<figure class="aligncenter">
-            <a href="../images/2013/05/falling-diamonds-base.jpg"><img src="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds" style="max-width:512px;max-height:323px" class="size-full wp-image-65431"/></a>
-            <figcaption class="text-center">You have to get those yellow diamonds first, before you can get the orange one.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/05/falling-diamonds-base.jpg"><img src="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds" width="512" height="323"></a>
+    <figcaption>You have to get those yellow diamonds first, before you can get the orange one.</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2013/05/falling-diamonds-slide.jpg"><img src="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down" style="max-width:512px;max-height:254px" class="size-full wp-image-65441"/></a>
-            <figcaption class="text-center">Let Diamonds slide down</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/05/falling-diamonds-slide.jpg"><img src="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down" width="512" height="254" loading="lazy"></a>
+    <figcaption>Let Diamonds slide down</figcaption>
+</figure>
 
 Note that you don't have to calculate a probability for the yellow pyramids. You get those with probability of 1.
 

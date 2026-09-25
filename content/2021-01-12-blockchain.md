@@ -11,13 +11,18 @@ featured_image: logos/star.png
 subtitle: An Introduction to Blockchain, Bitcoin ₿, and related concepts
 medium_url: https://medium.com/coinmonks/the-blockchain-473aac352e5
 ---
-![An example of a blockchain. Image by Martin Thoma.](../images/2021/01/blockchain-1.png)
+<figure>
+    <a href="../images/2021/01/blockchain-1.png"><img src="../images/2021/01/blockchain-1.png" alt="An example of a blockchain. Image by Martin Thoma." width="1803" height="843"></a>
+</figure>
 
 Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the best-known **cryptocurrency**. It is one application using a **blockchain**. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let’s start!
 
 ## The Idea of a Ledger
 
-![German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))](../images/2021/01/blockchain-2.jpg)*German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))*
+<figure>
+    <a href="../images/2021/01/blockchain-2.jpg"><img src="../images/2021/01/blockchain-2.jpg" alt="German Ledger from 1828 (Source: RaphaelQS)" width="1706" height="896" loading="lazy"></a>
+    <figcaption>German Ledger from 1828 (Source: <a href="https://commons.wikimedia.org/wiki/File:Ledger.png">RaphaelQS</a>)</figcaption>
+</figure>
 
 Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let’s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:
 
@@ -70,13 +75,19 @@ Being young students, all of them happen to have a website. So they come up with
 
 Then they notice two problems. The first one is the signature. Luckily, one of them heard of Public-Key Cryptography and digital signatures. They quickly realized that for any transaction, they can easily make a digital version of a signature that cannot be forged. The **digital signature** does not only prove who made the transaction but also makes sure that the content of the transaction is not modified. As the content of the transaction contains the transaction number, it is also not possible to delete a single transaction. As the longest list of transactions is shared, one cannot simply crop a whole lot of transactions off at the end.
 
-![Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma](../images/2021/01/blockchain-5.png)*Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/01/blockchain-5.png"><img src="../images/2021/01/blockchain-5.png" alt="Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma" width="1893" height="693" loading="lazy"></a>
+    <figcaption>Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma</figcaption>
+</figure>
 
 What happens if Anna sees a new transaction from Bob and a new transaction from Charlie? Let’s say Anna has already confirmed that both Bob and Charlie have the same indices up to #42. Bob and Charlie had a lot of transactions after that and the correct latest transaction #60. But Bob doesn’t like that he had to send quite a bit of money to Charlie in transactions #43 to #60, so he simply writes 10 transactions after #42. Charlie still receives some money, but less than he should. Anna sees that Charlie already has transaction number #70 and ignores what Charlie has.
 
 To prevent this, they make it more difficult to create a transaction. They have heard of [Hashcash](https://en.wikipedia.org/wiki/Hashcash) to prevent spammers from sending too many emails. The idea is to make the email sender (the potential spammer) execute a computationally heavy function. The result of that function is easy to verify, but there is no way to speed the execution of the function up in the first place. The result is then called **Proof of Work**. The specific kind of proof of work that is typically used is called a **nonce**: Number only used once. Finding such a nonce is intentionally computationally intensive. This is what **mining** is. Anna, Bob, and Charlie agree to add the proof of work to each transaction. Thus, recalculating a lot of transactions is just not worth it anymore.
 
-![Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma](../images/2021/01/blockchain-6.png)*Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/01/blockchain-6.png"><img src="../images/2021/01/blockchain-6.png" alt="Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma" width="1533" height="693" loading="lazy"></a>
+    <figcaption>Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma</figcaption>
+</figure>
 
 However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent $100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called **hash value**.
 

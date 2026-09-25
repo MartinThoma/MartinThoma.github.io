@@ -18,9 +18,9 @@ Menschen kennen zu lernen und Fähigkeiten in Gebieten aufzubauen welche nicht
 die eigene Fachrichtung sind. Oder auch neue Personen kennen zu lernen, die an
 der eigenen Fachrichtung interessiert sind.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/08/ryck-greifswald.jpg" alt="Ryck bei Greifswald" />
-    <figcaption class="text-center">Ryck bei Greifswald</figcaption>
+<figure>
+    <a href="../images/2016/08/ryck-greifswald.jpg"><img src="../images/2016/08/ryck-greifswald.jpg" alt="Ryck bei Greifswald" width="600" height="450"></a>
+    <figcaption>Ryck bei Greifswald</figcaption>
 </figure>
 
 Es gibt einige Standorte, an denen immer wieder Sommerakademien statt finden.
@@ -93,9 +93,9 @@ Die Stipendiaten werden im [Maritimen Jugenddorf Wieck](http://www.majuwi.de/)
 Das Problem haben wir gelöst, indem wir den Schlüssel an der Rezeption
 abgegeben haben.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2016/08/majuwi.jpg"><img src="../images/2016/08/majuwi-thumb.jpg" alt="MaJuWi" /></a>
-    <figcaption class="text-center">Photo-Sphere des MaJuWi</figcaption>
+<figure>
+    <a href="../images/2016/08/majuwi.jpg"><img src="../images/2016/08/majuwi-thumb.jpg" alt="MaJuWi" width="600" height="326" loading="lazy"></a>
+    <figcaption>Photo-Sphere des MaJuWi</figcaption>
 </figure>
 
 Auch an der Uni gibt es wenig Steckdosen. Wenn ihr also mit den Notebooks
@@ -130,9 +130,9 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
   Wer die Prüfung macht bekommt die Urkunde vom [VDWS](https://www.vdws.de/).
 * Zoo / Botanischer Garten
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/08/kreidefelsen-ruegen.jpg" alt="Kreidefelsen auf Rügen" />
-    <figcaption class="text-center">Kreidefelsen auf Rügen</figcaption>
+<figure>
+    <a href="../images/2016/08/kreidefelsen-ruegen.jpg"><img src="../images/2016/08/kreidefelsen-ruegen.jpg" alt="Kreidefelsen auf Rügen" width="600" height="450" loading="lazy"></a>
+    <figcaption>Kreidefelsen auf Rügen</figcaption>
 </figure>
 
 * Kreidefelsen und "Wandern" auf [Rügen](https://de.wikipedia.org/wiki/R%C3%BCgen) / [Usedom](https://de.wikipedia.org/wiki/Usedom) / [Hiddensee](https://de.wikipedia.org/wiki/Hiddensee) / [Stralsund](https://de.wikipedia.org/wiki/Stralsund) sind beliebte Ausflugsziele für das Wochenende
@@ -141,9 +141,9 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
   Strand auf der anderen Seite, wenn man aus der Bucht / dem Hafen / der
   Anlegestelle (keine Ahnung wie man das nennt) heraus paddelt ist ganz nett.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/08/lagerfeuer.jpg" alt="Lagerfeuer am MaJuWi" />
-    <figcaption class="text-center">Lagerfeuer am MaJuWi</figcaption>
+<figure>
+    <a href="../images/2016/08/lagerfeuer.jpg"><img src="../images/2016/08/lagerfeuer.jpg" alt="Lagerfeuer am MaJuWi" width="600" height="450" loading="lazy"></a>
+    <figcaption>Lagerfeuer am MaJuWi</figcaption>
 </figure>
 
 * Lagerfeuer mit Stockbrot und Gesang: Auf dem Gelände des MaJuWi ist eine

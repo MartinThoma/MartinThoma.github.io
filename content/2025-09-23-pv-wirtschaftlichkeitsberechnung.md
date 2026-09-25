@@ -53,9 +53,9 @@ Ich gehe von ca. 2% jährlichen Preissteigerungen aus.
 
 Für die Dimensionierung einer PV-Anlage sind die verfügbare Dachfläche und deren Ausrichtung entscheidend.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein.</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." width="768" height="512"></a>
+    <figcaption>ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein.</figcaption>
 </figure>
 
 

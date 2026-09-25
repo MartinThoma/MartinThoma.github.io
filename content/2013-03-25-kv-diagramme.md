@@ -169,13 +169,16 @@ Nun kann man eine Funktionstabelle aufstellen:
 
 Will man diese Tabelle in ein KV-Diagramm übernehmen, muss man nur die Spalte $f(w,x,y,z)$ in der richtigen Reihenfolge in die Tabelle füllen. Das macht man, indem man immer bei einem Eckpunkt beginnt und dann eine Z-Form durchgeht:
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/karnaugh-map4-300x236.png"><img src="../images/2013/03/karnaugh-map4-300x236.png" alt="KV-Speed-Zeichnen" style="max-width:300px;max-height:236px" class="size-medium wp-image-63191"/></a>
-            <figcaption class="text-center">KV-Speed-Zeichnen</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/karnaugh-map4-300x236.png"><img src="../images/2013/03/karnaugh-map4-300x236.png" alt="KV-Speed-Zeichnen" width="300" height="236" loading="lazy"></a>
+    <figcaption>KV-Speed-Zeichnen</figcaption>
+</figure>
 
 Am Ende sieht es so aus:
-<img src="../images/2013/03/karnaugh-map1.png" alt="KV-Diagramm" width="512" height="512" class="size-full wp-image-62871" />
+
+<figure>
+    <a href="../images/2013/03/karnaugh-map1.png"><img src="../images/2013/03/karnaugh-map1.png" alt="KV-Diagramm" width="512" height="512" loading="lazy"></a>
+</figure>
 
 <h2>Prim- und Kernprimimplikaten</h2>
 Sei $g(w,x,y,z)$ eine Schaltfunktion.
@@ -189,10 +192,10 @@ Das kann man nun sehr schön mit dem KV-Diagramm verknüpfen. Wenn man die beide
 Was hat es nun mit Primimplikanten auf sich? Wenn man diese Kästchen um 1-Blöcke macht, dann müssen sie jeweils insgesamt genau $2^k, k \in \mathbb{N}_0$ Einsen umfassen und dürfen an den Rändern fortgesetzt werden (siehe der grüne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen größeren Eins-Block geben.
 
 Beispiel:
-<figure class="aligncenter">
-            <a href="../images/2013/03/karnaugh-map2-300x300.png"><img src="../images/2013/03/karnaugh-map2-300x300.png" alt="KV-Diagramm - Beispiel mit Primimplikanten" style="max-width:300px;max-height:300px" class="size-medium wp-image-62901"/></a>
-            <figcaption class="text-center">KV-Diagramm - Beispiel mit Primimplikanten</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/karnaugh-map2-300x300.png"><img src="../images/2013/03/karnaugh-map2-300x300.png" alt="KV-Diagramm - Beispiel mit Primimplikanten" width="300" height="300" loading="lazy"></a>
+    <figcaption>KV-Diagramm - Beispiel mit Primimplikanten</figcaption>
+</figure>
 
 Das Rosa-Kästchen ist ein Implikant. Es ist jedoch kein Primimplikant, da das blaue Kästchen größer ist. Bis auf das rosa Kästchen und das braune Kästchen sind alle eingezeichneten Kästchen Primimplikanten. Es gibt keine weiteren Primimplikanten in dieser Funktion.
 
@@ -234,20 +237,20 @@ Nun kann man jeden Hasard noch aufteilen, je nach dem was der Wert der Funktion 
 <h3>Beispiel</h3>
 Hier ist ein Beispiel für einen dynamischen 1-0-Hasard:
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/karnaugh-map3-300x251.png"><img src="../images/2013/03/karnaugh-map3-300x251.png" alt="Beispiel eines dynamischen 1-0-Hasards" style="max-width:300px;max-height:251px" class="size-medium wp-image-63011"/></a>
-            <figcaption class="text-center">Beispiel eines dynamischen 1-0-Hasards</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/karnaugh-map3-300x251.png"><img src="../images/2013/03/karnaugh-map3-300x251.png" alt="Beispiel eines dynamischen 1-0-Hasards" width="300" height="251" loading="lazy"></a>
+    <figcaption>Beispiel eines dynamischen 1-0-Hasards</figcaption>
+</figure>
 
 <h2>Fallstricke</h2>
 Bei dem Suchen nach Eins- oder Nullblöcken darf man an den Spiegelachsen springen:
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png"><img src="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png" alt="KV Diagramm: Fallstrick 1" style="max-width:300px;max-height:180px" class="size-medium wp-image-63151"/></a>
-            <figcaption class="text-center">KV Diagramm: Fallstrick 1<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png"><img src="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png" alt="KV Diagramm: Fallstrick 1" width="300" height="180" loading="lazy"></a>
+    <figcaption>KV Diagramm: Fallstrick 1<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a></figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png"><img src="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png" alt="KV Diagramm: Fallstrick 2" style="max-width:300px;max-height:173px" class="size-medium wp-image-63161"/></a>
-            <figcaption class="text-center">KV Diagramm: Fallstrick 2<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png"><img src="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png" alt="KV Diagramm: Fallstrick 2" width="300" height="173" loading="lazy"></a>
+    <figcaption>KV Diagramm: Fallstrick 2<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a></figcaption>
+</figure>

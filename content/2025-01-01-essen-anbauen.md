@@ -10,9 +10,9 @@ tags: House, Garden, Food, Cooking
 featured_image: logos/house.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/essen-anbauen.png"><img src="../images/2025/01/essen-anbauen.png" alt="Beete mit Knoblauch, Tomaten und Heidelbeeren" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Beete mit Knoblauch, Tomaten und Heidelbeeren</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/01/essen-anbauen.png"><img src="../images/2025/01/essen-anbauen.png" alt="Beete mit Knoblauch, Tomaten und Heidelbeeren" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Beete mit Knoblauch, Tomaten und Heidelbeeren</figcaption>
 </figure>
 
 ## Karotten

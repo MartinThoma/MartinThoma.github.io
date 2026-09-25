@@ -12,10 +12,10 @@ featured_image: 2012/09/tikz-sizes-thumb.png
 Here is an overview of sizes in LaTeX:
 
 <h2>TikZ</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/09/tikz-sizes.png"><img src="../images/2012/09/tikz-sizes.png" alt="TikZ thickness" style="max-width:500px;max-height:503px" class="size-full"/></a>
-            <figcaption class="text-center">TikZ thickness</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/tikz-sizes.png"><img src="../images/2012/09/tikz-sizes.png" alt="TikZ thickness" width="500" height="503"></a>
+    <figcaption>TikZ thickness</figcaption>
+</figure>
 Usage example:
 `\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);`
 <ul>
@@ -29,7 +29,10 @@ Usage example:
     <li><a href="http://tex.stackexchange.com/q/106742/5645">more</a></li>
 </ul>
 <h2>Text</h2>
-<p style="text-align: center;"><a href="../images/2012/09/text-sizes-latex.png"><img class="size-full wp-image-45921 aligncenter" title="Text sizes in LaTeX" src="../images/2012/09/text-sizes-latex.png" alt="Text sizes in LaTeX" width="512" height="110" /></a></p>
+<figure>
+    <a href="../images/2012/09/text-sizes-latex.png"><img src="../images/2012/09/text-sizes-latex.png" alt="Text sizes in LaTeX" width="512" height="110" loading="lazy"></a>
+</figure>
+
 Usage example:
 <code>\Huge $\varepsilon$</code>
 <ul>
@@ -47,10 +50,10 @@ Usage example:
 
 ## Math
 ### Formulas
-<figure class="aligncenter">
-            <a href="../images/2012/09/latex-math-sizes.png"><img src="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" style="max-width:309px;max-height:145px;" class="size-full wp-image-45931"/></a>
-            <figcaption class="text-center">Sizes of different math modes</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/latex-math-sizes.png"><img src="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" width="309" height="145" loading="lazy"></a>
+    <figcaption>Sizes of different math modes</figcaption>
+</figure>
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>
@@ -70,7 +73,7 @@ $$-1+x ( x \big( 1+ x\Big(2 + x \bigg(3+ x\Bigg(4+x \Bigg) \bigg) \Big) \big) )$
 
 The result will look like this
 
-<figure class="aligncenter">
-            <a href="../images/2012/09/latex-parentheses-sizes.png"><img src="../images/2012/09/latex-parentheses-sizes.png" alt="Sizes of parentheses" style="max-width:500px;" class="size-full"/></a>
-            <figcaption class="text-center">Sizes of parentheses</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/09/latex-parentheses-sizes.png"><img src="../images/2012/09/latex-parentheses-sizes.png" alt="Sizes of parentheses" width="500" height="87" loading="lazy"></a>
+    <figcaption>Sizes of parentheses</figcaption>
+</figure>

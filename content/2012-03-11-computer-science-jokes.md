@@ -11,18 +11,18 @@ featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
 <div class="info">You have to read <a href="http://stackoverflow.com/q/234075/562769">What is your best programmer joke?</a>, <a href="http://stackoverflow.com/q/218123/562769">What was the strangest coding standard rule that you were forced to follow?</a> and <a href="http://stackoverflow.com/q/184618/562769">What is the best comment in source code you have ever encountered?</a></div>
 
-<figure class="aligncenter">
-            <a href="../images/2012/03/hello-world-cartoon.jpg"><img src="../images/2012/03/hello-world-cartoon.jpg" alt="Hello World Cartoon" style="max-width:512px;max-height:487px;" class=" wp-image-18071 "/></a>
-            <figcaption class="text-center">Hello World Cartoon</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/03/hello-world-cartoon.jpg"><img src="../images/2012/03/hello-world-cartoon.jpg" alt="Hello World Cartoon" width="512" height="487"></a>
+    <figcaption>Hello World Cartoon</figcaption>
+</figure>
 
 Programming is like sex:
 One mistake and you have to support it for the rest of your life.
 
-<figure class="aligncenter">
-            <a href="../images/2012/03/write-500-words-count-cpp.jpg"><img src="../images/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++" style="max-width:484px;max-height:162px" class="size-full wp-image-18111"/></a>
-            <figcaption class="text-center">Write 500 words on board with C++</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/03/write-500-words-count-cpp.jpg"><img src="../images/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++" width="484" height="162" loading="lazy"></a>
+    <figcaption>Write 500 words on board with C++</figcaption>
+</figure>
 
 What&rsquo;s the difference between drug dealers and computer programmers?
 <table>
@@ -68,8 +68,8 @@ What&rsquo;s the difference between drug dealers and computer programmers?
 </tr>
 </table>
 
-<figure class="wp-caption aligncenter">
-    <img src="http://imgs.xkcd.com/comics/compiling.png" alt="xkcd: Compiling">
+<figure>
+    <img src="http://imgs.xkcd.com/comics/compiling.png" alt="xkcd: Compiling" loading="lazy">
     <figcaption>xkcd: Compiling</figcaption>
 </figure>
 
@@ -79,17 +79,17 @@ CLIENT: I would, but I don&rsquo;t want to lose my icons.
 ```
 (Source: Clients From Hell)
 
-<figure class="aligncenter">
-            <a href="../images/2012/03/computer-science-major-282x300.png"><img src="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" style="max-width:282px;max-height:300px" class="size-medium"/></a>
-            <figcaption class="text-center">Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a></figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/03/computer-science-major-282x300.png"><img src="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" width="282" height="300" loading="lazy"></a>
+    <figcaption>Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a></figcaption>
+</figure>
 
 There are 10 types of people: those who understand binary, and those who do not understand it.
 
-<figure class="aligncenter">
-            <a href="../images/2012/03/why-people-seem-to-have-freetime-300x248.png"><img src="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" style="max-width:300px;max-height:248px" class="size-medium"/></a>
-            <figcaption class="text-center">Why people seem to have freetime</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/03/why-people-seem-to-have-freetime-300x248.png"><img src="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" width="300" height="248" loading="lazy"></a>
+    <figcaption>Why people seem to have freetime</figcaption>
+</figure>
 
 <h2>More Jokes!</h2>
 <ul>

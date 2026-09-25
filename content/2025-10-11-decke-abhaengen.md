@@ -25,9 +25,9 @@ Diese Anleitung führt euch Schritt für Schritt durch den gesamten Prozess.
 
 ## Unterkonstruktion bauen
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/decke-1-mit-profil.jpg"><img src="../images/2025/10/decke-1-mit-profil.jpg" alt="Decke mit Profil" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Decke mit Profil</figcaption>
+<figure>
+    <a href="../images/2025/10/decke-1-mit-profil.jpg"><img src="../images/2025/10/decke-1-mit-profil.jpg" alt="Decke mit Profil" width="682" height="512"></a>
+    <figcaption>Decke mit Profil</figcaption>
 </figure>
 
 **Material**:
@@ -109,9 +109,9 @@ Vorgehen:
 
 ## Decke beplanken
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/decke-2-beplankt.jpg"><img src="../images/2025/10/decke-2-beplankt.jpg" alt="Decke mit Gipskartonplatten" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Decke mit Gipskartonplatten</figcaption>
+<figure>
+    <a href="../images/2025/10/decke-2-beplankt.jpg"><img src="../images/2025/10/decke-2-beplankt.jpg" alt="Decke mit Gipskartonplatten" width="384" height="512" loading="lazy"></a>
+    <figcaption>Decke mit Gipskartonplatten</figcaption>
 </figure>
 
 **Material**:
@@ -142,9 +142,9 @@ Vorgehen:
 
 ## Q1 Spachteln
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/decke-3-q1-spachtel.jpg"><img src="../images/2025/10/decke-3-q1-spachtel.jpg" alt="Decke mit Q1-Spachtelung" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Decke mit Q1-Spachtelung</figcaption>
+<figure>
+    <a href="../images/2025/10/decke-3-q1-spachtel.jpg"><img src="../images/2025/10/decke-3-q1-spachtel.jpg" alt="Decke mit Q1-Spachtelung" width="384" height="512" loading="lazy"></a>
+    <figcaption>Decke mit Q1-Spachtelung</figcaption>
 </figure>
 
 Die Q1-Spachtelung ist die Grundbehandlung der Fugen und Schraubenlöcher.

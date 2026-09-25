@@ -15,10 +15,10 @@ software provides archives of all Emails that were sent over the list.
 
 They look like this:
 
-<figure class="aligncenter">
-            <a href="../images/2013/08/mailman-list-archive-300x277.png"><img src="../images/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" style="max-width:300px;max-height:277px" class="size-medium wp-image-76298"/></a>
-            <figcaption class="text-center">GNU Mailman list archive</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/08/mailman-list-archive-300x277.png"><img src="../images/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" width="300" height="277"></a>
+    <figcaption>GNU Mailman list archive</figcaption>
+</figure>
 
 Once in a while, I would like to search if a topic was already discussed. Here is how you can do it:
 

@@ -147,10 +147,10 @@ i += ((1 + 2) + 2) + 4;
 So you end up with <code>9</code>.
 
 A <a href="http://en.wikipedia.org/wiki/Parse_tree">parse tree</a> of this evaluation would look like this:
-<figure class="aligncenter">
-            <a href="../images/2012/07/evaluation-tree.gif"><img src="../images/2012/07/evaluation-tree.gif" alt="Parse tree" style="max-width:454px;max-height:638px" class="size-full wp-image-30711"/></a>
-            <figcaption class="text-center">Parse tree</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/evaluation-tree.gif"><img src="../images/2012/07/evaluation-tree.gif" alt="Parse tree" width="454" height="638" loading="lazy"></a>
+    <figcaption>Parse tree</figcaption>
+</figure>
 
 The explanation for the other three ones is similar.
 

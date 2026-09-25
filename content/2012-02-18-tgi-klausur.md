@@ -56,10 +56,10 @@ Die Klausurergebnisse sind nun <a href="http://i11www.iti.uni-karlsruhe.de/_medi
 
 edit: Das Leck scheint ausgebessert worden zu sein. Nun sind die Noten nach Klausur-ID sortiert. Sehr schön ☺
 
-<figure class="aligncenter">
-            <a href="../images/2012/02/tgi-notenverteilung-300x257.png"><img src="../images/2012/02/tgi-notenverteilung-300x257.png" alt="Notenverteilung der TGI Klausur im WS 2011/2012 am KIT" style="max-width:300px;max-height:257px" class="size-medium wp-image-18881"/></a>
-            <figcaption class="text-center">Notenverteilung der TGI Klausur im WS 2011/2012 am KIT</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/02/tgi-notenverteilung-300x257.png"><img src="../images/2012/02/tgi-notenverteilung-300x257.png" alt="Notenverteilung der TGI Klausur im WS 2011/2012 am KIT" width="300" height="257" loading="lazy"></a>
+    <figcaption>Notenverteilung der TGI Klausur im WS 2011/2012 am KIT</figcaption>
+</figure>
 
 
 <h2>Einzelnachweise</h2>

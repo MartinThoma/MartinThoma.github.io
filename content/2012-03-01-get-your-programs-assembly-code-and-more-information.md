@@ -11,8 +11,9 @@ featured_image: 2012/05/assembly-thumb.png
 ---
 I've talked today with a fellow student about some system internals and we weren't sure what actually happens. So I needed the assembly code of some example programs.
 
-<h2>General Information</h2>
-It is important to know that I will use <strong>AT&T syntax</strong> in this article!
+## General Information
+
+It is important to know that I will use **AT&T syntax** in this article!
 This is AT&T Syntax:
 
 ```text
@@ -25,46 +26,48 @@ And this is Intel Syntax:
 MOVL EBP, ESP
 ```
 
-<h3>Pointers</h3>
-<ul>
-  <li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
-  <li><strong>%ebp</strong>: Stack base pointer for holding the address of the current stack frame.</li>
-  <li><strong>%eax</strong>: Accumulator</li>
-</ul>
+### Pointers
 
-The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small>
+* `%esp`: Stack pointer for top address of the stack.
+* `%ebp`: Stack base pointer for holding the address of the current stack frame.
+* `%eax`: Accumulator
 
-<h3>$ Dollar and % Percentage signs</h3>
-$i, with $i \in mathbb{N}$, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11">[11]</a></sup></small>
+The size of the eax register will always be 32 bit, regardless of the system's register size.[^movl]
+
+### `$` Dollar and `%` Percentage signs
+
+`$i`, with $i \in \mathbb{N}$, is a constant[^dollar-asm] and percentages mean registers.[^dollar-percent]
+
+### Instruction
+
+* `pushl <register>`: To push the source operand onto the stack[^pushl]
+* `movl <from>, <to>`: moves a long[^ia32]
+* `call <function>`: Calls function (which might be printf, putchar, ...)
+* `subl $16, %esp`: allocate a local variable[^c-to-asm]
+* `ret`: transfers control back to the place where the current function was called.[^c-to-asm]
+* `leave`: sets the stack pointer to the base frame address, effectively releasing the whole frame[^leave]
+* `andl $-16, %esp`: ANDs the stack pointer with `0xfffffff0`, which effectively aligns it on a 16 byte boundary. Access to aligned values on the stack is much faster than if they were unaligned.[^align]
+* `jmp <target>`: Jump to target label.
+* `jbe <target>`: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
+* `leal <command-address> <store>`: Load effective address.[^leal] The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.
+
+#### Suffixes
+
+Many instructions have suffixes. This is what they mean[^movl]:
+
+* `b`: byte (8 bit)
+* `s`: short (16 bit integer) or single (32-bit floating point)
+* `w`: word (16 bit)
+* `l`: long (32 bit integer or 64-bit floating point)
+* `q`: quad (64 bit)
+* `t`: ten bytes (80-bit floating point)
 
 
-<h3>Instruction</h3>
-<strong>pushl <register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
-<strong>movl <from>, <to></strong>: moves a long<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
-<strong>call <function></strong>: Calls function (which might be printf, putchar, ...)
-<strong>subl $16, %esp</strong>: allocate a local variable<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
-<strong>ret</strong>: transfers control back to the place where the current function was called.<small><sup><a href="#ref3">[3]</a></sup></small>
-<strong>leave</strong>: sets the stack pointer to the base frame address, effectively releasing the whole frame<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
-<strong>andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>
-<strong>jmp <target></strong>: Jump to target label.
-<strong>jbe <target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
-<strong>leal <command-address> <store></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.
+## Simple example
 
-<h4>Suffixes</h4>
-Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>:
-<ul>
-  <li>b: byte (8 bit)</li>
-  <li>s: short (16 bit integer) or single (32-bit floating point)</li>
-  <li>w: word (16 bit)</li>
-  <li>l: long (32 bit integer or 64-bit floating point)</li>
-  <li>q: quad (64 bit)</li>
-  <li>t: ten bytes (80-bit floating point)</li>
-</ul>
+### C-Code
 
-
-<h2>Simple example</h2>
-<h3>C-Code</h3>
-This program simply outputs
+This program simply outputs the result of `1337*42`:
 
 ```c
 #include <stdio.h>
@@ -76,14 +79,15 @@ int main(void)
 }
 ```
 
-<h3>Assembly</h3>
+### Assembly
+
 Now I compile it and I save the assembly code:
 
 ```bash
 gcc -S test.c; gcc test.c -o test
 ```
 
-This gives me test.s (the assembly code) and an executable called "test".
+This gives me `test.s` (the assembly code) and an executable called `test`.
 
 ```text
 	.file	"test.c"
@@ -110,29 +114,31 @@ main:
 	.section	.note.GNU-stack,"",@progbits
 ```
 
-This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?
+This is code of the [GNU Assembler](https://en.wikipedia.org/wiki/GNU_Assembler). I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?
 
-The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.
+The first and most important thing you might notice is that neither `1337` nor `42` appear in the assembly code, but `56154` which is `1337*42`. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (`%esp`, `%ebp`) begin with a percent sign.
 
 The following ones are called assembly directives. They tell the assembler what to do next.
-<a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC90">.file</a>, <a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC119">.section</a>, <a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC123">.size</a> and <a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC95">.ident</a> are such directives. .data might be the most well-known one and tells the assembler to store something in the data segment of the program.
-.LC0 is a label for the immediately following string.
-.globl indicates that the following label (in this case "main") is a global symbol.
+[`.file`](http://tigcc.ticalc.org/doc/gnuasm.html#SEC90), [`.section`](http://tigcc.ticalc.org/doc/gnuasm.html#SEC119), [`.size`](http://tigcc.ticalc.org/doc/gnuasm.html#SEC123) and [`.ident`](http://tigcc.ticalc.org/doc/gnuasm.html#SEC95) are such directives. `.data` might be the most well-known one and tells the assembler to store something in the data segment of the program.
 
-Line 14: I'm not quite sure why you need the 4. I thought the integer size could be the reason (see <a href="http://www.cplusplus.com/doc/tutorial/variables/">variable sizes in C</a>), but as I used a string it still worked. As I used a character, it disappeared.
+* `.LC0` is a label for the immediately following string.
+* `.globl` indicates that the following label (in this case `main`) is a global symbol.
+
+Line 14 (`movl $56154, 4(%esp)`): I'm not quite sure why you need the 4. I thought the integer size could be the reason (see [variable sizes in C](http://www.cplusplus.com/doc/tutorial/variables/)), but as I used a string it still worked. As I used a character, it disappeared.
 
 
-<h3>Further information</h3>
-<code>objdump</code> gives even more information!
+### Further information
 
-Archive header information: objdump -a test
+`objdump` gives even more information!
+
+Archive header information: `objdump -a test`
 
 ```text
 test:     file format elf32-i386
 test
 ```
 
-File header information: objdump -f test
+File header information: `objdump -f test`
 
 ```text
 test:     file format elf32-i386
@@ -141,7 +147,7 @@ EXEC_P, HAS_SYMS, D_PAGED
 start address 0x08048330
 ```
 
-Object specific file header contents: objdump -p test
+Object specific file header contents: `objdump -p test`
 
 ```text
 test:     file format elf32-i386
@@ -191,7 +197,7 @@ Version References:
     0x0d696910 0x00 02 GLIBC_2.0
 ```
 
-Display the contents of the section headers: objdump -h test
+Display the contents of the section headers: `objdump -h test`
 
 ```text
 test:     file format elf32-i386
@@ -252,7 +258,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
 ```
 
-Display DWARF info in the file: objdump --dwarf test
+Display DWARF info in the file: `objdump --dwarf test`
 
 ```text
 test:     file format elf32-i386
@@ -262,11 +268,13 @@ Contents of the .eh_frame section:
 00000000 ZERO terminator
 ```
 
-By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.
+By the way, [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) is an executable file format and [DWARF](https://en.wikipedia.org/wiki/DWARF) is a debugging file format. I guess they had to think quite long to find this [backronym](https://en.wikipedia.org/wiki/Backronym).
 
-<h2>Fibonacci</h2>
-<h3>C-Code</h3>
-This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small>
+## Fibonacci
+
+### C-Code
+
+This is the most simple version of Fibonacci I could find:[^fib]
 
 ```c
 #include <stdio.h>
@@ -283,7 +291,7 @@ int main(void)
 }
 ```
 
-<h3>Assembly</h3>
+### Assembly
 
 ```text
 	.file	"test.c"
@@ -341,18 +349,15 @@ main:
 	.section	.note.GNU-stack,"",@progbits
 ```
 
-<h2>References</h2>
-<ol>
-  <li><a name="ref1" href="#anchor1">&uarr;</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
-  <li><a name="ref2" href="#anchor2">&uarr;</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>
-  <li><a name="ref3" href="#anchor3">&uarr;</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
-  <li><a name="ref4" href="#anchor4">&uarr;</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
-  <li><a name="ref5" href="#anchor5">&uarr;</a>: <a href="http://stackoverflow.com/a/1317324/562769">GCC's assembly output of an empty program on x86, win32</a>. nos, Stackoverflow.</li>
-  <li><a name="ref6" href="#anchor6">&uarr;</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use &ldquo;movl $1, %eax&rdquo; as opposed to, say, &ldquo;movb $1, %eax&rdquo;</a>. Jason, Stackoverflow.</li>
-  <li><a name="ref7" href="#anchor7">&uarr;</a>: <a href="http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive">Fibonacci numbers (C)</a>. Literate Programs.</li>
-  <li><a name="ref8" href="#anchor8">&uarr;</a>: <a href="http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf">
-The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
-  <li><a name="ref9" href="#anchor9">&uarr;</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
-  <li><a name="ref10" href="#anchor10">&uarr;</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
-  <li><a name="ref11" href="#anchor11">&uarr;</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
-</ol>
+## References
+
+[^movl]: [Why would one use "`movl $1, %eax`" as opposed to, say, "`movb $1, %eax`"](https://stackoverflow.com/a/1898896/562769). Jason, Stack Overflow.
+[^dollar-asm]: [What does this dollar sign mean in `__asm`?](https://stackoverflow.com/a/5367004/562769). Zimbabao, Stack Overflow.
+[^dollar-percent]: [What do the dollar (\$) and percentage (%) signs represent in assembly intel x86?](https://stackoverflow.com/a/9196757/562769). Necrolis, Stack Overflow.
+[^pushl]: [PUSHL Instruction](http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html). The University of Auckland, Department of Computer Science.
+[^ia32]: [IA-32 Assembly for Compiler Writers](http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html). Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.
+[^c-to-asm]: [From C To Assembly Language](http://linuxgazette.net/issue94/ramankutty.html). Hiran Ramankutty, Linux Gazette, Issue 94.
+[^leave]: [About leave in x86 assembly](https://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly). zneak, Stack Overflow.
+[^align]: [GCC's assembly output of an empty program on x86, win32](https://stackoverflow.com/a/1317324/562769). nos, Stack Overflow.
+[^leal]: [LEAL Assembler instruction](https://stackoverflow.com/questions/4003894/leal-assembler-instruction). Nils Pipenbrinck, Stack Overflow.
+[^fib]: [Fibonacci numbers (C)](http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive). Literate Programs.

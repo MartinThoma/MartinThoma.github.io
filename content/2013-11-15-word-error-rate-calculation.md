@@ -76,8 +76,8 @@ $$
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
 
-<figure class="aligncenter">
-    <img src="../images/2013/11/WER-calculation.png" style="max-width: 500px; max-height: 494px;" class="size-full" alt="WER calculation"/>
+<figure>
+    <a href="../images/2013/11/WER-calculation.png"><img src="../images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" loading="lazy"></a>
     <figcaption>WER calculation</figcaption>
 </figure>
 

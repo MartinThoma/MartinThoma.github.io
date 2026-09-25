@@ -9,10 +9,10 @@ category: German posts
 tags: BWInf
 featured_image: 2012/09/bwinf-thumb.png
 ---
-<figure class="alignright">
-            <a href="../images/2012/09/bwinf-thumb.png"><img src="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf" style="max-width:128px;max-height:128px;" class="size-full wp-image-43131"/></a>
-            <figcaption class="text-center">Logo des BwInf</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2012/09/bwinf-thumb.png"><img src="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf" width="128" height="128"></a>
+    <figcaption>Logo des BwInf</figcaption>
+</figure>
 
 Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Schüler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, könnt ihr noch teilnehmen.
 

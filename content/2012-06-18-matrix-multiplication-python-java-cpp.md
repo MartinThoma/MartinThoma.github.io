@@ -14,7 +14,7 @@ featured_image: 2011/09/Python-Logo.png
 
 This post is about simple implementations of matrix multiplications. The goal of this post is to find out how easy it is to implement a matrix multiplication in Python, Java and C++. Additionally, I want to get to know how good these solutions are.
 
-The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in $\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$ instead of $\cal O(n^3)$. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.
+The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in $\cal O(n^{\log_2(7)+o(1)}) \approx \cal O(n^{2.807})$ instead of $\cal O(n^3)$. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.
 
 The third post will be about parallel programming. I have two cores and I want to see if it will be significantly faster if I use both of them.
 
@@ -328,10 +328,10 @@ sys	0m0.488s
 ```
 
 <h3>Conclusion for Python</h3>
-<figure class="aligncenter">
-            <a href="../images/2012/06/python-execution-times.png"><img src="../images/2012/06/python-execution-times.png" alt="Python execution times for matrix multiplication" style="max-width:512px;max-height:315px" class="size-full wp-image-28301"/></a>
-            <figcaption class="text-center">Python execution times for matrix multiplication</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/python-execution-times.png"><img src="../images/2012/06/python-execution-times.png" alt="Python execution times for matrix multiplication" width="512" height="315" loading="lazy"></a>
+    <figcaption>Python execution times for matrix multiplication</figcaption>
+</figure>
 Using NumPy is by far the easiest and fastest option. I've needed about five minutes for each of the non-library scripts and about 10 minutes for the NumPy/SciPy scripts.
 
 By the way, it is useless to combine Psyco and NumPy. It gets a little bit faster (1 minute and 28 seconds), but this could also be a random effect. If you execute it many times, you will see that the execution time is never the same.
@@ -612,10 +612,10 @@ I still have no idea how to compile it with bash only.
 
 <h3>Conclusion for Java</h3>
 
-<figure class="aligncenter">
-            <a href="../images/2012/06/java-execution-time.png"><img src="../images/2012/06/java-execution-time.png" alt="Java execution times for matrix multiplication" style="max-width:512px;max-height:287px" class="size-full wp-image-28331"/></a>
-            <figcaption class="text-center">Java execution times for matrix multiplication</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/java-execution-time.png"><img src="../images/2012/06/java-execution-time.png" alt="Java execution times for matrix multiplication" width="512" height="287" loading="lazy"></a>
+    <figcaption>Java execution times for matrix multiplication</figcaption>
+</figure>
 
 You should definitely know if some Java-datastructures are synchronised or not. And you should know how the computer / caches work.
 
@@ -864,10 +864,10 @@ $ sudo apt-get install libblitz*
 Then I wanted to use it. Well, I have no clue how I could exactly use it! See my StackOverflow Question: <a href="http://stackoverflow.com/questions/11113993/is-a-documentation-of-blitz-matrices-available">Is a documentation of Blitz++ matrices available?</a>
 
 <h3>Conclusion for C++</h3>
-<figure class="aligncenter">
-            <a href="../images/2012/06/cpp-execution-time.png"><img src="../images/2012/06/cpp-execution-time.png" alt="C++ execution times for matrix multiplication" style="max-width:512px;max-height:249px" class="size-full wp-image-28351"/></a>
-            <figcaption class="text-center">C++ execution times for matrix multiplication</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/06/cpp-execution-time.png"><img src="../images/2012/06/cpp-execution-time.png" alt="C++ execution times for matrix multiplication" width="512" height="249" loading="lazy"></a>
+    <figcaption>C++ execution times for matrix multiplication</figcaption>
+</figure>
 
 Again, it brings a performance boost if you know how your CPU works. I was very astonished, that the library Boost is slower (actually MUCH slower) than my simplest approach was.
 

@@ -33,9 +33,9 @@ Schauen wir uns Zahlen von 2022 an und betrachten die Gesundheitsausgaben in %
 vom BIP, sehen wir, dass Deutschland mit 12,61% stark über dem Durchschnitt
 liegt.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/gesundheitsausgaben.png"><img src="../images/2025/01/gesundheitsausgaben.png" alt="Gesundheitsausgaben in der EU, 2022" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Gesundheitsausgaben in der EU, 2022 (<a href="https://ec.europa.eu/eurostat/databrowser/view/hlth_sha11_hc__custom_13673948/bookmark/table?lang=de&bookmarkId=8cec15e6-717d-448f-b59c-d23bb0c52f1c">Datenquelle</a>)</figcaption>
+<figure>
+    <a href="../images/2025/01/gesundheitsausgaben.png"><img src="../images/2025/01/gesundheitsausgaben.png" alt="Gesundheitsausgaben in der EU, 2022" width="524" height="512"></a>
+    <figcaption>Gesundheitsausgaben in der EU, 2022 (<a href="https://ec.europa.eu/eurostat/databrowser/view/hlth_sha11_hc__custom_13673948/bookmark/table?lang=de&bookmarkId=8cec15e6-717d-448f-b59c-d23bb0c52f1c">Datenquelle</a>)</figcaption>
 </figure>
 
 Diese 12,61% des BIP sind [488,7 Milliarden Euro](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitsausgaben/_inhalt.html). Davon waren 4,1 Mrd EUR für Corona.

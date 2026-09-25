@@ -10,10 +10,10 @@ tags: Python, Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>
-<figure class="aligncenter">
-            <a href="../images/2013/09/Calculate-Legendre.png"><img src="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" style="max-width:500px;max-height:528px" class="size-full wp-image-76379"/></a>
-            <figcaption class="text-center">Pseudocode: Calculate Legendre symbol</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/09/Calculate-Legendre.png"><img src="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" width="500" height="528"></a>
+    <figcaption>Pseudocode: Calculate Legendre symbol</figcaption>
+</figure>
 
 <h2>Python</h2>
 ```python

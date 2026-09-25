@@ -11,7 +11,10 @@ featured_image: logos/development.png
 subtitle: Let’s do it in an agile way
 medium_url: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
 ---
-![Image by Martin Thoma](../images/2021/02/shift-left-1.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/02/shift-left-1.png"><img src="../images/2021/02/shift-left-1.png" alt="Image by Martin Thoma" width="1410" height="663"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 The quicker you spot mistakes, the easier it is to fix them. This is the whole
 idea of “shift left”. When you are getting a call from your boss or the

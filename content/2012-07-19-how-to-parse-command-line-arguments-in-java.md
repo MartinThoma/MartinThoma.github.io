@@ -31,10 +31,10 @@ You can add this as an external jar to Eclipse:
 </ol>
 
 Now it should look like this:
-<figure class="aligncenter">
-            <a href="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png"><img src="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="Project properties in Eclipse - Libraries" style="max-width:300px;max-height:214px" class="size-medium wp-image-33151"/></a>
-            <figcaption class="text-center">Project properties in Eclipse - Libraries</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png"><img src="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="Project properties in Eclipse - Libraries" width="300" height="214"></a>
+    <figcaption>Project properties in Eclipse - Libraries</figcaption>
+</figure>
 
 Now you have to click on "Add External Jar" and add the args4j.jar file.
 
@@ -154,10 +154,10 @@ public class CommandLineValues {
 ```
 
 If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
-<figure class="aligncenter">
-            <a href="../images/2012/07/java-eclipse-cli-lib-error.png"><img src="../images/2012/07/java-eclipse-cli-lib-error.png" alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli" style="max-width:431px;max-height:89px" class="size-full wp-image-33201"/></a>
-            <figcaption class="text-center">Java error mentioned by Eclipse: Missing org.apache.commons.cli</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/07/java-eclipse-cli-lib-error.png"><img src="../images/2012/07/java-eclipse-cli-lib-error.png" alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli" width="431" height="89" loading="lazy"></a>
+    <figcaption>Java error mentioned by Eclipse: Missing org.apache.commons.cli</figcaption>
+</figure>
 
 <h3>Usage examples</h3>
 I have not found a single, complete and working usage example.

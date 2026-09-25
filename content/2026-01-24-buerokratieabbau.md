@@ -16,9 +16,9 @@ Beitrag möchte ich konkrete Maßnahmen vorschlagen, die meiner Meinung nach
 helfen könnten, die Bürokratie in Deutschland zu reduzieren und die Effizienz zu
 steigern.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/01/buerokratieabbau.png"><img src="../images/2026/01/buerokratieabbau.png" alt="Vom Papierstapel zum digitalen Bürgerportal" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Vom Papierstapel zum digitalen Bürgerportal</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/01/buerokratieabbau.png"><img src="../images/2026/01/buerokratieabbau.png" alt="Vom Papierstapel zum digitalen Bürgerportal" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Vom Papierstapel zum digitalen Bürgerportal</figcaption>
 </figure>
 
 ## Konkrete Beispiele

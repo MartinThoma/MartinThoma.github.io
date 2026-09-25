@@ -51,9 +51,9 @@ have that many. So here are the differences.
     </tr>
     <tr>
         <td>Image</td>
-        <td><img src="../images/2017/04/vga-connector.jpg" alt="VGA connector" style="width:200px;" /></td>
-        <td><img src="../images/2017/04/dvi-jack.jpg" alt="DVI jack" style="width:200px;" /></td>
-        <td><img src="../images/2017/04/hdmi-connector.jpg" alt="HDMI connector" style="width:200px;" /></td>
+        <td><a href="../images/2017/04/vga-connector.jpg"><img src="../images/2017/04/vga-connector.jpg" alt="VGA connector" width="200" height="143"></a></td>
+        <td><a href="../images/2017/04/dvi-jack.jpg"><img src="../images/2017/04/dvi-jack.jpg" alt="DVI jack" width="200" height="144" loading="lazy"></a></td>
+        <td><a href="../images/2017/04/hdmi-connector.jpg"><img src="../images/2017/04/hdmi-connector.jpg" alt="HDMI connector" width="200" height="150" loading="lazy"></a></td>
         <td><a href="https://commons.wikimedia.org/wiki/File:DisplayPort-rid.jpg">Image</a></td>
         <td><a href="https://commons.wikimedia.org/wiki/File:USB-C_type_c.jpg">Image</a></td>
     </tr>
@@ -117,7 +117,7 @@ have that many. So here are the differences.
         <td>Licensing cost</td>
         <td>?</td>
         <td>?</td>
-        <td>$10,000 per high-volume manufacturer plus $0.04 per device</td>
+        <td>\$10,000 per high-volume manufacturer plus \$0.04 per device</td>
         <td>Royalty-free</td>
         <td>?</td>
     </tr>

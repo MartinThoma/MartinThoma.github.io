@@ -399,4 +399,4 @@ want to use.
 * [YAML Lint](http://yamllint.com/)
 * [TOML](https://en.wikipedia.org/wiki/TOML): Very similar to INI files.
 
-<img src="https://vg09.met.vgwort.de/na/afda62ce660449a5baeb1b60133dc877" width="1" height="1" alt="">
+<img src="https://vg09.met.vgwort.de/na/afda62ce660449a5baeb1b60133dc877" alt="" width="1" height="1">

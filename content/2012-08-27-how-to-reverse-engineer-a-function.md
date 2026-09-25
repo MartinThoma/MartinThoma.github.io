@@ -12,26 +12,26 @@ featured_image: 2012/08/cubic-function-thumb.png
 I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ.
 
 Today, I've found <a href="http://commons.wikimedia.org/wiki/File:Intermediatevaluetheorem.png">this image</a> in the article about the Intermediate value theorem:
-<figure class="aligncenter">
-            <a href="../images/2012/08/Intermediatevaluetheorem.png"><img src="../images/2012/08/Intermediatevaluetheorem.png" alt="Pixel-image of a function from Wikipedia" style="max-width:327px;max-height:266px" class="size-full wp-image-42411"/></a>
-            <figcaption class="text-center">Pixel-image of a function from Wikipedia</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/Intermediatevaluetheorem.png"><img src="../images/2012/08/Intermediatevaluetheorem.png" alt="Pixel-image of a function from Wikipedia" width="327" height="266"></a>
+    <figcaption>Pixel-image of a function from Wikipedia</figcaption>
+</figure>
 
 <h2>Get special points</h2>
 As a first step, you should open the image with <a href="http://en.wikipedia.org/wiki/GIMP">GIMP</a> (or any other editor of your choice) and find the pixel-coordinates of special points:
-<figure class="aligncenter">
-            <a href="../images/2012/08/function-in-gimp.png"><img src="../images/2012/08/function-in-gimp.png" alt="Cubic function in GIMP" style="max-width:512px;max-height:391px" class="size-full wp-image-42441"/></a>
-            <figcaption class="text-center">Cubic function in GIMP</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/function-in-gimp.png"><img src="../images/2012/08/function-in-gimp.png" alt="Cubic function in GIMP" width="512" height="391" loading="lazy"></a>
+    <figcaption>Cubic function in GIMP</figcaption>
+</figure>
 
 <del datetime="2012-08-30T08:36:40+00:00">This function has a maximum at (123 | 105) and a minimum at (172 | 218)</del> ... well, thats not correct. Note that the axis of GIMP starts at the upper left. So the y-axis is wrong.
 
 I have cropped and flipped the image vertically. Now you can read the minimum / maximum coordinates with GIMP:
 
-<figure class="aligncenter">
-            <a href="../images/2012/08/gimp-function-cropped-flipped.png"><img src="../images/2012/08/gimp-function-cropped-flipped.png" alt="Cubic function cropped and flipped vertically" style="max-width:512px;max-height:507px" class="size-full wp-image-42631"/></a>
-            <figcaption class="text-center">Cubic function cropped and flipped vertically</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/gimp-function-cropped-flipped.png"><img src="../images/2012/08/gimp-function-cropped-flipped.png" alt="Cubic function cropped and flipped vertically" width="512" height="507" loading="lazy"></a>
+    <figcaption>Cubic function cropped and flipped vertically</figcaption>
+</figure>
 
 The local maximum is at (79 | 133) and the local minimum is at (131 | 20).
 
@@ -62,16 +62,16 @@ $f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c$
 Now you have to solve the equations. I took <a href="http://www.wolframalpha.com/input/?i=493039*a%2B6241*b%2B79*c%2Bd%3D133%2C+2352637*a%2B17689*b%2B131*c%2Bd%3D20%2C+18723*a%2B158*b%2Bc%3D0%2C+51483*a%2B262*b%2Bc%3D0">Wolfram|Alpha</a>, because the numbers are really ugly. If you like to do it by hand, you have to know how to use the <a href="http://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian algorithm</a>.
 
 Here is the exact solution:
-<figure class="aligncenter">
-            <a href="../images/2012/08/wolframalpha-solution-cubic-function.png"><img src="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpah" style="max-width:512px;max-height:70px" class="size-full wp-image-42461"/></a>
-            <figcaption class="text-center">Exact solution of a cubic function with Wolfram|Alpah</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/wolframalpha-solution-cubic-function.png"><img src="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpah" width="511" height="70" loading="lazy"></a>
+    <figcaption>Exact solution of a cubic function with Wolfram|Alpah</figcaption>
+</figure>
 
 And here is an approximation:
-<figure class="aligncenter">
-            <a href="../images/2012/08/wolframalpha-aproximate-form.png"><img src="../images/2012/08/wolframalpha-aproximate-form.png" alt="Approximate form with Wolfram|Alpha" style="max-width:512px;max-height:57px" class="size-full wp-image-42471"/></a>
-            <figcaption class="text-center">Approximate form with Wolfram|Alpha</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/wolframalpha-aproximate-form.png"><img src="../images/2012/08/wolframalpha-aproximate-form.png" alt="Approximate form with Wolfram|Alpha" width="512" height="57" loading="lazy"></a>
+    <figcaption>Approximate form with Wolfram|Alpha</figcaption>
+</figure>
 
 <h2>The LaTeX Code</h2>
 ```text
@@ -142,7 +142,7 @@ And here is an approximation:
 ```
 
 <h2>The result</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/08/cubic-function-intermediate-value-theorem.png"><img src="../images/2012/08/cubic-function-intermediate-value-theorem.png" alt="Cubic function intermediate value theorem - Result" style="max-width:500px;max-height:383px" class="size-full wp-image-42491"/></a>
-            <figcaption class="text-center">Cubic function intermediate value theorem - Result</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/08/cubic-function-intermediate-value-theorem.png"><img src="../images/2012/08/cubic-function-intermediate-value-theorem.png" alt="Cubic function intermediate value theorem - Result" width="452" height="383" loading="lazy"></a>
+    <figcaption>Cubic function intermediate value theorem - Result</figcaption>
+</figure>

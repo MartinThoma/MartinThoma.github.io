@@ -95,7 +95,10 @@ There are several concrete algorithms that fit in this category. The RSA cryptos
 
 Please also note that if the file is signed by encrypting it with the private key, you actually need the public key to read it at all. This might not be desired. Instead, you can [calculate the shorter hash value](../3-applications-of-hash-functions/) of the file and sign that hash value. The scheme is then:
 
-![Image by Martin Thoma](../images/2021/04/digital-signatures-2.png)*Image by Martin Thoma*
+<figure>
+    <a href="../images/2021/04/digital-signatures-2.png"><img src="../images/2021/04/digital-signatures-2.png" alt="Image by Martin Thoma" width="2000" height="1546" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
+</figure>
 
 ## Application #1: Communication (E-Mail, SMS)
 
@@ -107,7 +110,10 @@ that your provider does not deliver the message at all.
 
 ## Application #2: Code Contributions
 
-![Photo by [Yancy Min](https://unsplash.com/@yancymin) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-4.jpg)*Photo by [Yancy Min](https://unsplash.com/@yancymin) on [Unsplash](https://unsplash.com)*
+<figure>
+    <a href="../images/2021/04/digital-signatures-4.jpg"><img src="../images/2021/04/digital-signatures-4.jpg" alt="Photo by Yancy Min on Unsplash" width="1600" height="1060" loading="lazy"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@yancymin">Yancy Min</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
 
 Lots of code is written as open-source by plenty of individuals. They might be
 volunteers who just have fun coding or they might be paid for those
@@ -131,7 +137,10 @@ update.
 
 ## Application #4: Digital Diplomas
 
-![Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-6.jpg)*Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan) on [Unsplash](https://unsplash.com)*
+<figure>
+    <a href="../images/2021/04/digital-signatures-6.jpg"><img src="../images/2021/04/digital-signatures-6.jpg" alt="Photo by Marjan Blan | @marjanblan on Unsplash" width="2000" height="1333" loading="lazy"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@marjan_blan">Marjan Blan | @marjanblan</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
 
 When you apply for a job, your potential new employer might want to see
 reference letters and your diploma. Especially since the coronavirus is raging
@@ -169,7 +178,10 @@ gpg --output original.pdf --decrypt my-cv.pdf.gpg
 
 ## Application #5: Cryptocurrencies
 
-![Photo by [Dmitry Demidko](https://unsplash.com/@wildbook) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-7.jpg)*Photo by [Dmitry Demidko](https://unsplash.com/@wildbook) on [Unsplash](https://unsplash.com)*
+<figure>
+    <a href="../images/2021/04/digital-signatures-7.jpg"><img src="../images/2021/04/digital-signatures-7.jpg" alt="Photo by Dmitry Demidko on Unsplash" width="2000" height="1333" loading="lazy"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@wildbook">Dmitry Demidko</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
 
 In order to prove that you are the holder of a Bitcoin, the system uses
 asymmetric cryptography. At the very beginning, somebody is guaranteed to be

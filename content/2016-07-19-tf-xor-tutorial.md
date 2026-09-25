@@ -14,9 +14,9 @@ points with two features. The training set and the test set are exactly
 the same in this problem. So the interesting question is only if the model is
 able to find a decision boundary which classifies all four points correctly.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/07/xor-problem.png" alt="The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features." />
-    <figcaption class="text-center">The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features.</figcaption>
+<figure>
+    <a href="../images/2016/07/xor-problem.png"><img src="../images/2016/07/xor-problem.png" alt="The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features." width="512" height="489"></a>
+    <figcaption>The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features.</figcaption>
 </figure>
 
 
@@ -281,9 +281,9 @@ cost (ce)=0.00468077
 
 The resulting decision boundary looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/07/xor-classification.png" alt="Decision boundary of the trained network." />
-    <figcaption class="text-center">Decision boundary of the trained network.</figcaption>
+<figure>
+    <a href="../images/2016/07/xor-classification.png"><img src="../images/2016/07/xor-classification.png" alt="Decision boundary of the trained network." width="800" height="600" loading="lazy"></a>
+    <figcaption>Decision boundary of the trained network.</figcaption>
 </figure>
 
 I recommend reading the [Tensorflow Whitepaper](http://download.tensorflow.org/paper/whitepaper2015.pdf) if you want to understand Tensorflow better.

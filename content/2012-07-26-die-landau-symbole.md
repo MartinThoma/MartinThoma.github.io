@@ -10,15 +10,13 @@ tags: Algorithms, Big-O, Computer Science
 featured_image: 2012/07/landau-thumb.png
 ---
 <h2>Definitionen</h2>
-$
-\begin{eqnarray*}
+\begin{align*}
   {\cal O}(g(n)) &:= \{f(n) | \exists_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) < c \cdot g(n) \} \\
-  {\cal o}(g(n)) &:= \{f(n) | \forall_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) < c \cdot g(n) \} \\
+  o(g(n)) &:= \{f(n) | \forall_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) < c \cdot g(n) \} \\
   \Omega (g(n))  &:= \{f(n) | \exists_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) > c \cdot g(n) \} \\
   \omega (g(n))  &:= \{f(n) | \forall_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) > c \cdot g(n) \} \\
-\end{eqnarray*}
-$
-$\Theta (g(n))  := \{f(n) | \exists_{c_0 > 0} \exists_{c_1 > 0} \exists_{n_0 > 0} \forall_{n > n_0}: c_0 \cdot g(n) < f(n) < c_1 \cdot g(n) \}$
+  \Theta (g(n))  &:= \{f(n) | \exists_{c_0 > 0} \exists_{c_1 > 0} \exists_{n_0 > 0} \forall_{n > n_0}: c_0 \cdot g(n) < f(n) < c_1 \cdot g(n) \}
+\end{align*}
 
 <h2>Wichtige Aussagen der Mengen</h2>
 \begin{align}

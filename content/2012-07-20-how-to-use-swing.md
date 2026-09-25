@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Swing I: How to use Swing
 slug: how-to-use-swing
+lang: en
 author: Martin Thoma
 date: 2012-07-20 17:00:41.000000000 +02:00
 category: Code
@@ -28,7 +28,10 @@ public class test {
 ```
 
 You will get:
-<a href="../images/2012/07/java-swing-JFrame.png"><img src="../images/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" title="Java Swing: JFrame" width="300" height="201" class="size-full wp-image-33311" /></a>
+
+<figure>
+    <a href="../images/2012/07/java-swing-JFrame.png"><img src="../images/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" width="300" height="201"></a>
+</figure>
 
 <h3>JPanel</h3>
 You add your elements to a JPanel:
@@ -58,7 +61,10 @@ public class test {
 ```
 
 It looks like this:
-<a href="../images/2012/07/java-swing-jpanel.png"><img src="../images/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" title="Java Swing: JPanel, JLabel and JButton" width="300" height="151" class="size-full wp-image-33341" /></a>
+
+<figure>
+    <a href="../images/2012/07/java-swing-jpanel.png"><img src="../images/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" width="300" height="151" loading="lazy"></a>
+</figure>
 
 <h2>Action Listeners</h2>
 This is the most simple example of an <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/ActionListener.html">ActionListener</a>. When you click on the button, it creates a new JFrame.
