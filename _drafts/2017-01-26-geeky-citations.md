@@ -8,6 +8,7 @@ date: 2012-12-31 08:58:33
 category: Cyberculture
 tags: Funny
 featured_image:
+status: draft
 ---
 <blockquote>God used fork() to create Eve.</blockquote>
 <a href="http://bash.org/?362">source</a>

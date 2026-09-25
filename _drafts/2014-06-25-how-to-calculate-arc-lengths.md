@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Mathematics
 tags: Analysis, Mathematics
 featured_image: logos/calculus.png
+status: draft
 ---
 
 In the following article I will assume that every reader knows how to integrate

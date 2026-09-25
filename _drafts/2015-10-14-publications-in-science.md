@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Science, Publication, Authorship
 featured_image: logos/science.png
+status: draft
 ---
 <div class="info">I have a bachelors degree in computer science and I'm currently studying for a masters degree in computer science. This means I have some knowledge about research. But I haven't worked as a reviewer or at a journal. I have tried to publish a paper at a conference (<a href="https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition">ICDAR</a>), but it got rejected. So please take everything I write in this article with a grain of salt.</div>
 

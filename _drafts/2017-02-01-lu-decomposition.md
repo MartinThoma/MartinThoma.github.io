@@ -8,6 +8,7 @@ date: 2013-05-20 03:18:30
 category: Code
 tags: Mathematics, Matrix, Numerics, Linear Algebra
 featured_image: 2013/05/upper-triangular-matrix.png
+status: draft
 ---
 <div class="info">You have to know how <a href="http://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a> works to understand this article.</div>
 

@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Linux, Command Line
 featured_image: logos/shell.png
+status: draft
 ---
 This article shows you a few tricks how to get basic information about a file
 without opening it and without programming. It is adressed at Linux people.

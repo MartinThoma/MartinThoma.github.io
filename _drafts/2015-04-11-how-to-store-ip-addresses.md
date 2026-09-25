@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: Database, MySQL, IPv4, IPv6
 featured_image: logos/maria-db.png
+status: draft
 ---
 You hava a couple of possibilities when you want to store IP addresses. But
 first take a look at some examples:

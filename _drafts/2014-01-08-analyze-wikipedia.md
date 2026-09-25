@@ -8,6 +8,7 @@ date: 2014-01-08 12:28
 category: Code
 tags: Wikipedia
 featured_image:
+status: draft
 ---
 
 First of all, you have to download [Wikipedia Database dump](http://dumps.wikimedia.org/backup-index.html). I've chosen the German Wikipedia [`dewiki`](http://dumps.wikimedia.org/dewiki/20131229/). That includes quite a lot of HUGE files:

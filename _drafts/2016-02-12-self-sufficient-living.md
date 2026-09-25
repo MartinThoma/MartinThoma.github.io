@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Decentralization, Self-Sufficiency
 featured_image: logos/star.png
+status: draft
 ---
 
 I was recently thinking about self-sufficient living. Not that I plan to do so,
@@ -80,9 +81,12 @@ least need energy when it is available:
 * Washing can be done without electricity!
   [Drumi by Yirego](http://www.yirego.com/) proves it. However, you have to
   do it "by hand" (stay with it while it works / use your mussle power to
-  use it)
+  use it). The [pedal-powered GiraDora](http://inhabitat.com/human-powered-giradora-washer-needs-no-electricity-and-costs-only-40/)
+  works the same way and costs only about 40&nbsp;US-\$.
 * [Gravity Light](http://gravitylight.org/) is a possiblity to have light
-  to read.
+  to read. It was funded [on Indiegogo](https://www.indiegogo.com/projects/gravitylight-lighting-for-developing-countries)
+  as lighting for developing countries. In [Getting a Feeling for Energy](../get-a-feeling-for-energy/)
+  I calculated how much weight you would need to lift to power a laptop for 8 hours.
 
 
 ## Food
@@ -122,6 +126,10 @@ about rivers.
 Having your own well would be one option for drinking and cooking. Having a
 rain reservoir might be an option for the toilet and probably also for the
 shower and a washing machine. But what about the dishwasher?
+
+[Fontus](https://www.indiegogo.com/projects/fontus-the-self-filling-water-bottles-sport-camping)
+is a self-filling water bottle which claims to create water out of light and
+air.
 
 
 ## Hygiene stuff

@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: Python, Web Development
 featured_image: logos/python.png
+status: draft
 ---
 
 The following article will take you through the first steps in web development

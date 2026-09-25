@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: MySQL, CouchDB, SQL, Database
 featured_image: logos/sublime-text.png
+status: draft
 ---
 
 Most modern Web Applications make use of databases. Many of them need user

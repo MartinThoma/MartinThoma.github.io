@@ -8,6 +8,7 @@ date: 2011-10-26 09:05:09
 category: Code
 tags: PHP, Web Development
 featured_image:
+status: draft
 ---
 <h2>Installation</h2>
 [stackoverflow.com/…/php-gettext-debugging](http://stackoverflow.com/questions/5976068/php-gettext-debugging)

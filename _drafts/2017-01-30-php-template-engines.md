@@ -8,6 +8,7 @@ date: 2011-10-02 12:52:01
 category: Code
 tags: PHP
 featured_image:
+status: draft
 ---
 Template engines help to separate code and design. This concept is known as <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-view-controller</a> (MVC).
 

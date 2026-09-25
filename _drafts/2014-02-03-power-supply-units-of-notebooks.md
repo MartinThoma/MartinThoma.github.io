@@ -8,6 +8,7 @@ date: 2014-02-03 14:39
 category: Code
 tags: Hardware, Standardization
 featured_image:
+status: draft
 ---
 In 2009 the **Common External Power Supply** was introduced in
 Europe for Smartphones. From now on, all Smartphones have compatible

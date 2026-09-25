@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: Python, GTK, Glade, GUI
 featured_image: logos/Python.png
+status: draft
 ---
 GUI development is a completely new skill, independent of other programming
 skills. You have to know how the GUI library (GTK) works, know the tools to

@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: Linux, Hardware
 featured_image: logos/linux.png
+status: draft
 ---
 
 Linux support for hardware is still not optimal. Before I buy any new device,

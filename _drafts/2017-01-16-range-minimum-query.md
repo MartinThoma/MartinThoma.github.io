@@ -8,6 +8,7 @@ date: 2012-05-22 11:48:43
 category: Code
 tags: C, ICPC, TopCoder, Competitive Programming
 featured_image: 2012/05/icpc-logo.png
+status: draft
 ---
 A Range Minumum Query is a query for the minimum in a specified range.
 

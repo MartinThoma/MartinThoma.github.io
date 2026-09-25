@@ -8,6 +8,7 @@ date: 2012-08-25 11:16:26
 category: The Web
 tags: StackExchange
 featured_image:
+status: draft
 ---
 StackOverflow.com and all StackExchange Websites are great for asking questions
 and getting short, precise answers in a couple of minutes. But it seems to be

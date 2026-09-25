@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Exams, KIT, University
 featured_image: logos/design.png
+status: draft
 ---
 I am a student at KIT (University of Karlsruhe, Germany) for 9&nbsp;semesters
 now. I've made my bachelor's degree in 6&nbsp;semester and are now making a

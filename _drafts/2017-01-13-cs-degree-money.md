@@ -8,6 +8,7 @@ date: 2011-12-24 03:47:09
 category: My bits and bytes
 tags: Jobs, Work
 featured_image:
+status: draft
 ---
 You have quite a lot of possible employers if you have a bachelor or a master in computer science:
 

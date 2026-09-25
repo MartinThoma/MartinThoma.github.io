@@ -8,6 +8,7 @@ date: 2013-01-31 03:55:00
 category: The Web
 tags: Wikipedia
 featured_image: 2011/09/Wikipedia-logo.png
+status: draft
 ---
 Wikipedia is one of the most outstanding achievements of mankind. A free source of knowledge that everybody can access and contribute to, without any other purpose than sharing knowledge. It offers understandable articles to difficult topics like <a href="http://en.wikipedia.org/wiki/Group_(mathematics)">mathematical groups</a>, some amazing ones like "<a href="http://en.wikipedia.org/wiki/Patterns_in_nature">Patterns in nature</a>" or topics that might be of political interest like <a href="http://en.wikipedia.org/wiki/Global_warming">global warming</a>, the <a href="http://en.wikipedia.org/wiki/Manhattan_Project">Manhattan Project</a> or the <a href="http://en.wikipedia.org/wiki/Battle_of_Vukovar">Battle of Vukovar</a>.
 It even has <a href="http://en.wikipedia.org/wiki/Wikipedia:Spoken_articles">spoken articles</a>.

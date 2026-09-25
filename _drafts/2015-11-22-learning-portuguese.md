@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: My bits and bytes
 tags: Language
 featured_image: logos/portuguese.png
+status: draft
 ---
 
 I am currently learning Portuguese. One thing which was new to me is that there

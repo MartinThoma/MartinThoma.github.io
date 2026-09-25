@@ -8,5 +8,6 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Language
 featured_image: logos/star.png
+status: draft
 ---
 this appointment  --- vs --- dissapointment

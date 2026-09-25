@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: Python
 featured_image: logos/health.png
+status: draft
 ---
 
 I have recently seen a TED talk of Talithia Williams, a statistician who talked

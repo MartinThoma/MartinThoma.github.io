@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: Python, Markov Chain, Probability, Mathematics
 featured_image: logos/python.png
+status: draft
 ---
 Markov Chains are probabilistic processes which depend only on the previous
 state and not on the complete history. One common example is a very simple

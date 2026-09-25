@@ -8,6 +8,7 @@ date: 2013-11-10 03:55:31
 category: Code
 tags: Python
 featured_image:
+status: draft
 ---
 <h2>Install Python</h2>
 Python is already installed on most Linux systems. Just type <code>python --version</code> in terminal to test if you have Python.

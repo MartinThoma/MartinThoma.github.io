@@ -8,6 +8,7 @@ date: 2012-03-11 05:50:43
 category: Code
 tags: Java
 featured_image:
+status: draft
 ---
 <h2>List</h2>
 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html">Java Lists</a>:

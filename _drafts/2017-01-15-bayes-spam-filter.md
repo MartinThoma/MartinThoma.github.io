@@ -8,6 +8,7 @@ date: 2013-08-05 12:55:38
 category: Code
 tags: Probability, Mathematics
 featured_image:
+status: draft
 ---
 For a Bayes filter, you need training data. So you need emails that are labeled as "ham" and others that are labeled as "spam".
 

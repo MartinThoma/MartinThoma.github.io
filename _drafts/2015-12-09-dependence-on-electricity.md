@@ -8,6 +8,7 @@ date: 2015-12-09 17:19
 category: Cyberculture
 tags: Energy
 featured_image: logos/star.png
+status: draft
 ---
 Our dependence on ubiquitously available electricity gets stronger and stronger
 the more reliable it is available. Pharmacies in cities order drugs when they

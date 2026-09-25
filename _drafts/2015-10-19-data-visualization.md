@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Data
 featured_image: logos/data.png
+status: draft
 ---
 
 ## Reading Data

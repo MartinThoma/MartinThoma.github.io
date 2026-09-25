@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Cyberculture
 tags: AWS, AMT
 featured_image: logos/sublime-text.png
+status: draft
 ---
 
 Amazon Mechanical Turk (AMT) is a great possiblity to solve tasks that currently

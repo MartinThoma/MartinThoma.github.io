@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: Python, Dropbox
 featured_image: logos/python.png
+status: draft
 ---
 
 I am currently writing my bachelors thesis about on-line handwriting recognition

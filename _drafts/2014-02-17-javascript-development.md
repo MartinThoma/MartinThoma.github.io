@@ -8,6 +8,7 @@ date: 2014-02-17
 category: Code
 tags: JavaScript, Software Engineering, Best Practices
 featured_image:
+status: draft
 ---
 The possibilities you have today with JavaScript are fantastic. It's not even
 close to what you could do with JS in 2005. The speed increased A LOT and hence

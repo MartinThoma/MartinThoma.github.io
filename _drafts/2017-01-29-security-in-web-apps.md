@@ -8,6 +8,7 @@ date: 2013-06-24 01:48:31
 category: Cyberculture
 tags: PHP, Web Development
 featured_image:
+status: draft
 ---
 This article lists some thoughts to security in web applications.
 

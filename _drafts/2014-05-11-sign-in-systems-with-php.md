@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: PHP, SQL, Salt, Hash, MD5, Bootstrap, Database
 featured_image: logos/php.png
+status: draft
 ---
 
 The following few lines explain how to create a sign-in system today. It

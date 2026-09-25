@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Mathematics
 tags: Probability, Mathematics
 featured_image: logos/statistics.png
+status: draft
 ---
 
 Here are some very simple explanations of terms in probability theory.

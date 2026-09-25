@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Software Engineering
 featured_image: logos/star.png
+status: draft
 ---
 Programming is like writing a recepie for a really, relly stupid but very
 accurate person.<sup>[<a href="#target-audience" name="target-audience-ref">a</a>]</sup>

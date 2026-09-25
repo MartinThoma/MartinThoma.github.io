@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: GMM, Naive Bayes, Machine Learning, Classification, AI
 featured_image: logos/ai.png
+status: draft
 ---
 
 Gaussian Mixture Models (GMMs) can be used for classification tasks in

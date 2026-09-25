@@ -8,6 +8,7 @@ date: 2014-02-18
 category: Code
 tags: HTML, JavaScript
 featured_image:
+status: draft
 ---
 Did you know that you can draw with HTML5 and JavaScript?
 

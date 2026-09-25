@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Machine Learning
 tags: Machine Learning, CRF, Dynamic Programming, AI
 featured_image: logos/ai.png
+status: draft
 ---
 
 ## Videos

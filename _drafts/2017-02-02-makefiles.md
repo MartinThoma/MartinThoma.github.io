@@ -8,6 +8,7 @@ date: 2012-05-07 06:56:24
 category: Code
 tags: Makefile, Programming
 featured_image:
+status: draft
 ---
 Makefiles are great. They provide a very simple tool for executing some folder-specific tasks.
 

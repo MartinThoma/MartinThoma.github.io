@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Raspberry Pi
 featured_image: logos/raspberry-pi.png
+status: draft
 ---
 
 This mini-article describes what you need to get a Raspberry Pi to run.

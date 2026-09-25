@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: JavaScript, Programming
 featured_image: logos/star.png
+status: draft
 ---
 
 Just like I did before for [PHP](../php-a-strange-language/),

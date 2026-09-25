@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Cyberculture
 tags: Paradox
 featured_image: logos/pinocchio.png
+status: draft
 ---
 
 This is actually a very interesting point of view. Depending on how the nose-growing mechanism works, you can resolve the problem.

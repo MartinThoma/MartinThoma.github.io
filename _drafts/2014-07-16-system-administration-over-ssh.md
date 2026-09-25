@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: Linux
 featured_image: logos/linux.png
+status: draft
 ---
 
 I'm just making my first steps in system administration over SSH. I bought a

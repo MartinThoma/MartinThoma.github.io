@@ -8,6 +8,7 @@ date: 2012-11-01 10:03:04
 category: Cyberculture
 tags: Convention, Mathematics
 featured_image:
+status: draft
 ---
 I've sometimes wondered why mathematicans seemingly always used symbols that
 are very similar. One reason might be naming  conventions, the other might be

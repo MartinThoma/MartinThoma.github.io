@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: German posts
 tags: German
 featured_image: logos/star.png
+status: draft
 ---
 The following is probably the most difficult dictation for German:
 

@@ -8,6 +8,7 @@ date: 2014-11-22 17:19
 category: Code
 tags: Python, LaTeX
 featured_image: logos/latex.png
+status: draft
 ---
 
 I recently had to find a way to convert single-line LaTeX formulas to PNG.

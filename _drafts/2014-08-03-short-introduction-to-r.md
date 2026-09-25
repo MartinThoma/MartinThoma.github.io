@@ -8,6 +8,7 @@ date: 2014-03-20 21:09
 category: Code
 tags: R, Data Visualization, Statistics
 featured_image: logos/R.png
+status: draft
 ---
 
 ## Installation
