@@ -76,12 +76,11 @@ PLUGIN_PATHS = [
     "./pelican-tipue_search",
     "./pelican-toc",
     "./pelican-sitemap",
-    # './pelican-bootstrapify',
-    # './simple_footnotes',
 ]
 PLUGINS = [
     "pelican.plugins.render_math",
     "render_math_fixes",
+    "clean_summary",
     "tipue_search",
     "toc",
     "sitemap",
@@ -97,7 +96,9 @@ MARKDOWN = {
     },
     "output_format": "html5",
 }
-MATH_JAX = {"auto_insert": False}
+# process_summary appends a <script> to summaries with math. The templates strip
+# the tags, so its source code showed up in previews. base.html loads MathJax anyway.
+MATH_JAX = {"auto_insert": False, "process_summary": False}
 
 SITEMAP = {
     "exclude": ["tag/", "category/", "tags/", "archives/", "categories/", "search/"],
