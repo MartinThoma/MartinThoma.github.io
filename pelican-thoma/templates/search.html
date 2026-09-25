@@ -10,6 +10,7 @@ Search results for {{ SITENAME|striptags|e }} blog.
 
 {% block meta_tags_in_head %}
 {{ super() }}
+<meta name="robots" content="noindex">
 <meta property="og:title" content="Search · {{ SITENAME|striptags|e }}"/>
 <meta name="twitter:title" content="Search · {{ SITENAME|striptags|e }}">
 <meta property="og:url" content="{{ SITEURL }}/search/" />
@@ -25,35 +26,29 @@ Search results for {{ SITENAME|striptags|e }} blog.
 {% endblock meta_tags_in_head %}
 
 {% block script %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    {% if 'assets' in PLUGINS %}
-    {% include '_includes/minify_tipuesearch.html' with context %}
-    {% else %}
-<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
-<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
-    {% endif %}
-<script>
-$(document).ready(function() {
-     $('#tipue_search_input').tipuesearch({
-         {% if 'tipue_search' in PLUGINS %}
-             'mode' : 'json',
-         {% else %}
-             'mode': 'live',
-         {% endif %}
-         'show': 10,
-         'newWindow': false,
-         {# I cannot place following statements in the conditionals above because then Tipue Search fails to work. Possibly a bug in Tipue Search. #}
-         {% if 'tipue_search' in PLUGINS %}
-             'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
-         {% else %}
-             'liveDescription': '.article-content'
-         {% endif %}
-     });
-});
-</script>
+{{ super() }}
+<script src="{{ SITEURL }}/theme/js/search.js" defer></script>
 {% endblock script %}
 
 {% block content %}
-<header class="page-head"><h1>Search</h1></header>
-<div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
+<div class="search-page" id="search"
+     data-index="{{ SITEURL }}/search.json" data-siteurl="{{ SITEURL }}" data-images="{{ SITEURL }}/images/"
+     data-tags="{{ SITEURL }}/tags/" data-archives="{{ SITEURL }}/archives/">
+    <header class="page-head">
+        <h1 data-heading>Search</h1>
+        <p class="lead" data-intro>Search all {{ articles|length }} articles by title, text, category and tag.</p>
+        <form class="search big" role="search" aria-label="Search articles" action="{{ SITEURL }}/search/" method="get">
+            <input type="search" name="q" aria-label="Search articles" placeholder="Search articles" required enterkeyhint="search" autocomplete="off">
+            <button class="btn" type="submit">Search</button>
+        </form>
+        <p class="search-tip" data-intro>Use quotes for an exact phrase: <kbd>"unit testing"</kbd></p>
+    </header>
+    <p class="visually-hidden" role="status" data-status></p>
+    <div data-results></div>
+    <noscript>
+        <div class="search-panel">
+            <p>The search needs JavaScript. You can browse <a href="{{ SITEURL }}/tags/">all tags</a> and <a href="{{ SITEURL }}/archives/">the archive</a> instead.</p>
+        </div>
+    </noscript>
+</div>
 {% endblock content %}

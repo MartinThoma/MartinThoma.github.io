@@ -33,6 +33,7 @@
   --shadow: 0 1px 2px rgb(24 26 32 / 5%), 0 4px 10px rgb(24 26 32 / 5%), 0 16px 32px -8px rgb(24 26 32 / 8%);
   --shadow-lift: 0 2px 4px rgb(24 26 32 / 6%), 0 10px 22px rgb(24 26 32 / 8%), 0 28px 52px -14px rgb(24 26 32 / 14%);
   --header-bg: rgb(245 245 246 / 85%);
+  --thumb-well: #ffffff;
 
   --r-xs: 4px;
   --r-sm: 10px;
@@ -71,6 +72,7 @@
     --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 6px 14px rgb(0 0 0 / 25%);
     --shadow-lift: 0 2px 4px rgb(0 0 0 / 35%), 0 14px 28px rgb(0 0 0 / 35%);
     --header-bg: rgb(16 17 20 / 85%);
+    --thumb-well: #dde3df;
 
     --tok-comment: #8a988f;
     --tok-keyword: #8fb8ee;
@@ -482,18 +484,91 @@ html:has(.lightbox[open]) { overflow: hidden; scrollbar-gutter: stable; }
 .footnote { font-size: 0.9rem; color: var(--ink-muted); }
 .footnote hr { border-top: 1px solid var(--hairline); }
 
-/* ---------- Tipue search ---------- */
-#tipue_search_content { max-width: 44rem; padding: 0; }
-#tipue_search_loading { background: none; padding: 0; }
-#tipue_search_warning, #tipue_search_warning_head { color: var(--ink-muted); font: inherit; font-size: 0.95rem; }
-#tipue_search_warning a { color: var(--accent-strong); }
-.tipue_search_content_title { font: inherit; font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; }
-.tipue_search_content_title a, .tipue_search_content_url a { color: var(--accent-strong); }
-.tipue_search_content_text { color: var(--ink); }
-.tipue_search_content_url { color: var(--ink-muted); }
-#tipue_search_foot_boxes { padding: 0; margin: 1.5rem 0; list-style: none; display: flex; gap: 0.25rem; }
-#tipue_search_foot_boxes li a { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; border-radius: var(--pill); background: var(--surface); border: 1px solid var(--hairline); text-decoration: none; color: var(--ink); }
-#tipue_search_foot_boxes li.current { background: var(--accent-soft); color: var(--accent-strong); border-radius: var(--pill); min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+/* ---------- search (templates/search.html, js/search.js) ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.search-page { max-width: 44rem; }
+.search-page .page-head { margin-bottom: 1.75rem; }
+.search-page h1 { font-variant-numeric: tabular-nums; text-wrap: balance; }
+.search-page .lead { margin-bottom: 0; }
+.search-page .search.big { margin-top: 1.25rem; }
+.search-page .search.big input { font-size: 1.05rem; padding-inline: 1.25rem; }
+.search-tip { margin: 0.75rem 0 0 1.25rem; color: var(--ink-muted); font-size: 0.9rem; }
+.search-note { margin: 0 0 0.85rem; color: var(--ink-muted); font-size: 0.95rem; }
+
+/* One panel with hairline rows, like the archive list: denser than the home page cards. */
+.results {
+  list-style: none; margin: 0; padding: 0; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-md); box-shadow: var(--shadow);
+}
+.result {
+  position: relative; display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1.1rem; align-items: start;
+  padding: 1.1rem 1.35rem 1.2rem 1.1rem; border-top: 1px solid var(--hairline);
+  transition: background-color 0.15s;
+}
+.result:first-child { border-top: 0; }
+.result:hover { background: color-mix(in srgb, var(--surface-sunk) 50%, var(--surface)); }
+.result:has(:focus-visible) { outline: 3px solid var(--accent); outline-offset: -3px; }
+/* Logos are often dark lines on transparency: they sit on a light well in both themes,
+   as images in articles do. */
+.result-thumb {
+  display: block; width: 4.5rem; height: 4.5rem; object-fit: cover;
+  border: 1px solid var(--hairline); border-radius: var(--r-sm); background: var(--thumb-well);
+}
+.result-thumb.is-empty {
+  background: var(--surface-sunk) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2388888f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 3v5h5M9 13h6M9 17h4'/%3E%3C/svg%3E") center / 1.75rem no-repeat;
+}
+.result-title { margin: 0; font-size: 1.15rem; line-height: 1.25; letter-spacing: -0.015em; text-wrap: pretty; }
+.result-title a { color: var(--ink); text-decoration: none; }
+.result-title a::after { content: ""; position: absolute; inset: 0; }   /* the whole row is the link */
+.result-title a:focus-visible { outline: none; }
+.result:hover .result-title a { color: var(--accent-strong); text-decoration: underline; }
+.result-meta { margin: 0.25rem 0 0.4rem; color: var(--ink-muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.result-excerpt { margin: 0; color: var(--ink-muted); font-size: 0.95rem; line-height: 1.55; overflow-wrap: anywhere; }
+.result-excerpt mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--ink); border-radius: 3px; padding: 0 0.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+.result.is-loading .result-thumb { background: var(--surface-sunk); border-color: transparent; }
+.bone { display: block; height: 0.7rem; margin: 0.55rem 0 0; border-radius: var(--pill); background: var(--surface-sunk); }
+.bone-title { height: 1.1rem; width: 62%; margin-top: 0.2rem; }
+.bone-meta { width: 30%; height: 0.6rem; }
+.bone-short { width: 78%; }
+@media (prefers-reduced-motion: no-preference) {
+  .result.is-loading { animation: search-pulse 1.4s ease-in-out infinite; }
+  .result.is-loading:nth-child(2) { animation-delay: 0.15s; }
+  .result.is-loading:nth-child(3) { animation-delay: 0.3s; }
+  .result.is-loading:nth-child(4) { animation-delay: 0.45s; }
+}
+@keyframes search-pulse { 50% { opacity: 0.45; } }
+
+.search-panel {
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-md); box-shadow: var(--shadow);
+  padding: 1.25rem 1.5rem;
+}
+.search-panel p:last-child { margin-bottom: 0; }
+.search-panel ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+
+/* Same pill vocabulary as the main navigation. */
+.pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.3rem; margin: 2rem 0 0; }
+.pagination a, .pagination .gap {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;
+  padding: 0 0.8rem; border-radius: var(--pill); font-size: 0.95rem; font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--ink-muted); text-decoration: none;
+}
+.pagination a:hover { background: var(--surface-sunk); color: var(--ink); }
+.pagination a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-strong); }
+.pagination .step { background: var(--surface); border: 1px solid var(--hairline); color: var(--ink); padding-inline: 1.1rem; }
+.pagination .step:hover { background: var(--surface-sunk); }
+.pagination .gap { min-width: 0; padding: 0 0.2rem; }
+@media (max-width: 40rem) {
+  .result { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.85rem; padding: 0.95rem 1rem 1rem 0.9rem; }
+  .result-thumb { width: 3.5rem; height: 3.5rem; }
+  .result-title { font-size: 1.05rem; }
+  .search-tip { margin-left: 0.5rem; }
+  .pagination { gap: 0.15rem; }
+  .pagination a { padding-inline: 0.6rem; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, .nav::before { transition: none !important; }
