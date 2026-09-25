@@ -13,41 +13,25 @@ Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und al
 
 Interessant sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von der Art, wie diese aufgeschrieben werden, verwirren lassen: $q^t$ ist der Zustand des Flipflops zum Zeitpunkt $t$. Analog dazu ist $q^{t+1}$ der Zustand des Flipflops zum Zeitpunkt $t+1$. Nun steht rechts in der Tabelle, welche Signale man braucht um den Zustand $q^{t+1}$ zu erreichen, wenn man im Zustand $q^t$ ist.
 
-<ul class="gallery mw-gallery-traditional">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/d-latch.png" class="image">
-                  <img src="../images/2013/01/d-latch.png" alt="D-Latch" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">D-Latch</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/d-flipflop1.png" class="image">
-                  <img src="../images/2013/01/d-flipflop1.png" alt="D-Flipflop" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">D-Flipflop</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/01/d-latch.png"><img src="../images/2013/01/d-latch.png" alt="D-Latch" width="120" height="120"></a>
+        <figcaption>D-Latch</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/d-flipflop1.png"><img src="../images/2013/01/d-flipflop1.png" alt="D-Flipflop" width="120" height="120" loading="lazy"></a>
+        <figcaption>D-Flipflop</figcaption>
+    </figure>
+</div>
 
 <h2>D-Flipflops</h2>
 <abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzen den neuen Zustand einfach auf das d-Signal.
 
 D-Flipflops können aus D-Latches erstellt werden:
-<figure class="aligncenter">
-            <a href="../images/2013/01/d-flipflop.png"><img src="../images/2013/01/d-flipflop.png" alt="D-Flipflop" style="max-width:542px;max-height:182px" class="size-full wp-image-55641"/></a>
-            <figcaption class="text-center">D-Flipflop</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/d-flipflop.png"><img src="../images/2013/01/d-flipflop.png" alt="D-Flipflop" width="542" height="182" loading="lazy"></a>
+    <figcaption>D-Flipflop</figcaption>
+</figure>
 
 <h3>Ansteuertabelle</h3>
 <table>
@@ -82,10 +66,10 @@ D-Flipflops können aus D-Latches erstellt werden:
 </table>
 </td>
 <td>
-<figure class="aligncenter">
-            <a href="../images/2013/01/d-flipflop1-150x150.png"><img src="../images/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert." style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-55781"/></a>
-            <figcaption class="text-center">D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/d-flipflop1-150x150.png"><img src="../images/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert." width="150" height="150" loading="lazy"></a>
+    <figcaption>D-Flipflop mit Eingang D, unbenanntem Takt und Ausgang Q sowie Q negiert.</figcaption>
+</figure>
 </td>
 </tr>
 </table>
@@ -134,10 +118,10 @@ Ein RS-Flipflop hat zwei Eingänge und einen oder zwei Ausgänge.
 </table>
 </td>
 <td>
-<figure class="aligncenter">
-            <a href="../images/2013/01/rs-flipflop.png"><img src="../images/2013/01/rs-flipflop.png" alt="RS-Flipflop" style="max-width:128px;max-height:128px" class="size-full wp-image-55631"/></a>
-            <figcaption class="text-center">RS-Flipflop</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/rs-flipflop.png"><img src="../images/2013/01/rs-flipflop.png" alt="RS-Flipflop" width="128" height="128" loading="lazy"></a>
+    <figcaption>RS-Flipflop</figcaption>
+</figure>
 </td>
 </tr>
 </table>
@@ -178,10 +162,10 @@ Ein RS-Flipflop hat zwei Eingänge und einen oder zwei Ausgänge.
 </table>
 </td>
 <td>
-<figure class="aligncenter">
-            <a href="../images/2013/01/t-flipflop-150x150.png"><img src="../images/2013/01/t-flipflop-150x150.png" alt="T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q." style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-55831"/></a>
-            <figcaption class="text-center">T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/t-flipflop-150x150.png"><img src="../images/2013/01/t-flipflop-150x150.png" alt="T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q." width="150" height="150" loading="lazy"></a>
+    <figcaption>T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q.</figcaption>
+</figure>
 </td>
 </tr>
 </table>
@@ -227,10 +211,10 @@ Ein RS-Flipflop hat zwei Eingänge und einen oder zwei Ausgänge.
 </table>
 </td>
 <td>
-<figure class="aligncenter">
-            <a href="../images/2013/01/jk-flipflop-150x150.png"><img src="../images/2013/01/jk-flipflop-150x150.png" alt="JK-Flipflop" style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-55851"/></a>
-            <figcaption class="text-center">JK-Flipflop</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/jk-flipflop-150x150.png"><img src="../images/2013/01/jk-flipflop-150x150.png" alt="JK-Flipflop" width="150" height="150" loading="lazy"></a>
+    <figcaption>JK-Flipflop</figcaption>
+</figure>
 </td>
 </tr>
 </table>

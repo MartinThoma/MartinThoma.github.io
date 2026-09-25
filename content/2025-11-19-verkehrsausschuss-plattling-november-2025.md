@@ -9,9 +9,9 @@ category: German posts
 tags: Politics, Traffic, Plattling
 featured_image: logos/germany.png
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/11/verkehrsberuhigung.png"><img src="../images/2025/11/verkehrsberuhigung.png" alt="Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/11/verkehrsberuhigung.png"><img src="../images/2025/11/verkehrsberuhigung.png" alt="Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto</figcaption>
 </figure>
 
 Am 19.11.2025 hat der [Verkehrsausschuss der Stadt Plattling](https://buergerinfo-plattling.digitalfabrix.de/si0057.asp?__ksinr=958) getagt.

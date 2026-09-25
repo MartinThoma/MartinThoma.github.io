@@ -22,19 +22,19 @@ Scandinavian design is known for its simplicity, functionality, and minimalism.
 * Emphasis on light and airy spaces
 * Prioritized functionality with minimal clutter
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/scandinavian-living-room.jpg"><img src="../images/2024/01/scandinavian-living-room.jpg" alt="Scandinavian-style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Scandinavian-style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/scandinavian-living-room.jpg"><img src="../images/2024/01/scandinavian-living-room.jpg" alt="Scandinavian-style living room" width="512" height="512"></a>
+    <figcaption>Scandinavian-style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/scandinavian-kitchen.jpg"><img src="../images/2024/01/scandinavian-kitchen.jpg" alt="Scandinavian-style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Scandinavian-style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/scandinavian-kitchen.jpg"><img src="../images/2024/01/scandinavian-kitchen.jpg" alt="Scandinavian-style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Scandinavian-style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/scandinavian-bathroom.jpg"><img src="../images/2024/01/scandinavian-bathroom.jpg" alt="Scandinavian-style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Scandinavian-style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/scandinavian-bathroom.jpg"><img src="../images/2024/01/scandinavian-bathroom.jpg" alt="Scandinavian-style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Scandinavian-style bathroom</figcaption>
 </figure>
 
 
@@ -51,19 +51,19 @@ harmonious blend of simplicity, functionality, and warmth.
 * Focus on creating calm and balanced environments
 * Furniture featuring sleek Scandinavian design with organic Japanese shapes
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/japandi-living-room.jpg"><img src="../images/2024/01/japandi-living-room.jpg" alt="Japandi-style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Japandi-style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/japandi-living-room.jpg"><img src="../images/2024/01/japandi-living-room.jpg" alt="Japandi-style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Japandi-style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/japandi-kitchen.jpg"><img src="../images/2024/01/japandi-kitchen.jpg" alt="Japandi-style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Japandi-style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/japandi-kitchen.jpg"><img src="../images/2024/01/japandi-kitchen.jpg" alt="Japandi-style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Japandi-style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/japandi-bathroom.jpg"><img src="../images/2024/01/japandi-bathroom.jpg" alt="Japandi-style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Japandi-style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/japandi-bathroom.jpg"><img src="../images/2024/01/japandi-bathroom.jpg" alt="Japandi-style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Japandi-style bathroom</figcaption>
 </figure>
 
 
@@ -77,19 +77,19 @@ Often confused with contemporary design, modern style refers to a specific desig
 * Focus on functionality
 * Use of materials like steel, glass, and concrete
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Modern living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-kitchen.jpg"><img src="../images/2024/01/modern-kitchen.jpg" alt="Modern kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/modern-kitchen.jpg"><img src="../images/2024/01/modern-kitchen.jpg" alt="Modern kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Modern kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-bathroom.jpg"><img src="../images/2024/01/modern-bathroom.jpg" alt="Modern bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/modern-bathroom.jpg"><img src="../images/2024/01/modern-bathroom.jpg" alt="Modern bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Modern bathroom</figcaption>
 </figure>
 
 ## Contemporary
@@ -100,19 +100,19 @@ Often confused with contemporary design, modern style refers to a specific desig
 * Neutral color palettes with occasional bold accent colors
 * Innovative materials and modern furniture designs
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Contemporary living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-kitchen.jpg"><img src="../images/2024/01/contemporary-kitchen.jpg" alt="Contemporary kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/contemporary-kitchen.jpg"><img src="../images/2024/01/contemporary-kitchen.jpg" alt="Contemporary kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Contemporary kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-bathroom.jpg"><img src="../images/2024/01/contemporary-bathroom.jpg" alt="Contemporary bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/contemporary-bathroom.jpg"><img src="../images/2024/01/contemporary-bathroom.jpg" alt="Contemporary bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Contemporary bathroom</figcaption>
 </figure>
 
 ## Transitional
@@ -123,19 +123,19 @@ Often confused with contemporary design, modern style refers to a specific desig
 * Classic furniture shapes paired with modern finishes and accessories
 * Neutral color palettes with occasional pops of color
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-living-room.jpg"><img src="../images/2024/01/transitional-living-room.jpg" alt="Transitional style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/transitional-living-room.jpg"><img src="../images/2024/01/transitional-living-room.jpg" alt="Transitional style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Transitional style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-kitchen.jpg"><img src="../images/2024/01/transitional-kitchen.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/transitional-kitchen.jpg"><img src="../images/2024/01/transitional-kitchen.jpg" alt="Transitional style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Transitional style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Transitional style bathroom</figcaption>
 </figure>
 
 
@@ -147,19 +147,19 @@ Often confused with contemporary design, modern style refers to a specific desig
 * Neutral color palettes, clean lines, and functional focus
 * Clutter-free spaces that promote a sense of calm
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-living-room.jpg"><img src="../images/2024/01/minimalist-living-room.jpg" alt="Minimalist style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/minimalist-living-room.jpg"><img src="../images/2024/01/minimalist-living-room.jpg" alt="Minimalist style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Minimalist style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-kitchen.jpg"><img src="../images/2024/01/minimalist-kitchen.jpg" alt="Minimalist style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/minimalist-kitchen.jpg"><img src="../images/2024/01/minimalist-kitchen.jpg" alt="Minimalist style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Minimalist style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-bathroom.jpg"><img src="../images/2024/01/minimalist-bathroom.jpg" alt="Minimalist style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/minimalist-bathroom.jpg"><img src="../images/2024/01/minimalist-bathroom.jpg" alt="Minimalist style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Minimalist style bathroom</figcaption>
 </figure>
 
 
@@ -171,19 +171,19 @@ Often confused with contemporary design, modern style refers to a specific desig
 * Warm colors, textured walls, and rustic elements
 * Use of wrought iron, terracotta, and vibrant patterns
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-living-room.jpg"><img src="../images/2024/01/mediterranean-living-room.jpg" alt="Mediterranean style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/mediterranean-living-room.jpg"><img src="../images/2024/01/mediterranean-living-room.jpg" alt="Mediterranean style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mediterranean style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-kitchen.jpg"><img src="../images/2024/01/mediterranean-kitchen.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/mediterranean-kitchen.jpg"><img src="../images/2024/01/mediterranean-kitchen.jpg" alt="Mediterranean style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mediterranean style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mediterranean style bathroom</figcaption>
 </figure>
 
 
@@ -193,19 +193,19 @@ Inspired by beach and seaside living.
 Light and breezy colors, such as blues and whites.
 Natural materials like wood and rattan, as well as nautical motifs.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-living-room.jpg"><img src="../images/2024/01/coastal-living-room.jpg" alt="Coastal style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/coastal-living-room.jpg"><img src="../images/2024/01/coastal-living-room.jpg" alt="Coastal style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Coastal style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-kitchen.jpg"><img src="../images/2024/01/coastal-kitchen.jpg" alt="Coastal style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/coastal-kitchen.jpg"><img src="../images/2024/01/coastal-kitchen.jpg" alt="Coastal style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Coastal style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-bathroom.jpg"><img src="../images/2024/01/coastal-bathroom.jpg" alt="Coastal style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/coastal-bathroom.jpg"><img src="../images/2024/01/coastal-bathroom.jpg" alt="Coastal style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Coastal style bathroom</figcaption>
 </figure>
 
 
@@ -223,19 +223,19 @@ mid-century modern style.
 
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-living-room.jpg"><img src="../images/2024/01/midcentury-living-room.jpg" alt="Mid-century style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/midcentury-living-room.jpg"><img src="../images/2024/01/midcentury-living-room.jpg" alt="Mid-century style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mid-century style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-kitchen.jpg"><img src="../images/2024/01/midcentury-kitchen.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/midcentury-kitchen.jpg"><img src="../images/2024/01/midcentury-kitchen.jpg" alt="Mid-century style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mid-century style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Mid-century style bathroom</figcaption>
 </figure>
 
 
@@ -245,19 +245,19 @@ Embraces a cozy, country-inspired aesthetic.
 Natural materials, exposed wood, and vintage furnishings.
 Warm and inviting atmosphere.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-living-room.jpg"><img src="../images/2024/01/farmhouse-living-room.jpg" alt="Farmhouse style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/farmhouse-living-room.jpg"><img src="../images/2024/01/farmhouse-living-room.jpg" alt="Farmhouse style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Farmhouse style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-kitchen.jpg"><img src="../images/2024/01/farmhouse-kitchen.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/farmhouse-kitchen.jpg"><img src="../images/2024/01/farmhouse-kitchen.jpg" alt="Farmhouse style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Farmhouse style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Farmhouse style bathroom</figcaption>
 </figure>
 
 
@@ -269,19 +269,19 @@ Warm and inviting atmosphere.
 
 A blend of Art Deco and mid-century modern.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Hollywood Glam living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-kitchen.jpg"><img src="../images/2024/01/hollywood-glam-kitchen.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/hollywood-glam-kitchen.jpg"><img src="../images/2024/01/hollywood-glam-kitchen.jpg" alt="Hollywood Glam kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Hollywood Glam kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Hollywood Glam bathroom</figcaption>
 </figure>
 
 ## Art Deco
@@ -296,19 +296,19 @@ Symmetry and repetition are key design principles.
 
 Furniture often features streamlined, elegant shapes with intricate detailing.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-living-room.jpg"><img src="../images/2024/01/artdeco-living-room.jpg" alt="Art-deco style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/artdeco-living-room.jpg"><img src="../images/2024/01/artdeco-living-room.jpg" alt="Art-deco style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Art-deco style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-kitchen.jpg"><img src="../images/2024/01/artdeco-kitchen.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/artdeco-kitchen.jpg"><img src="../images/2024/01/artdeco-kitchen.jpg" alt="Art-deco style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Art-deco style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Art-deco style bathroom</figcaption>
 </figure>
 
 ## Traditional
@@ -316,19 +316,19 @@ Furniture often features streamlined, elegant shapes with intricate detailing.
 Rich, dark woods, ornate details, and symmetry are common.
 Formal furniture arrangements and a sense of elegance prevail.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-living-room.jpg"><img src="../images/2024/01/traditional-living-room.jpg" alt="Traditional living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/traditional-living-room.jpg"><img src="../images/2024/01/traditional-living-room.jpg" alt="Traditional living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Traditional living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-kitchen.jpg"><img src="../images/2024/01/traditional-kitchen.jpg" alt="Traditional kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/traditional-kitchen.jpg"><img src="../images/2024/01/traditional-kitchen.jpg" alt="Traditional kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Traditional kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-bathroom.jpg"><img src="../images/2024/01/traditional-bathroom.jpg" alt="Traditional bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/traditional-bathroom.jpg"><img src="../images/2024/01/traditional-bathroom.jpg" alt="Traditional bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Traditional bathroom</figcaption>
 </figure>
 
 
@@ -337,19 +337,19 @@ Formal furniture arrangements and a sense of elegance prevail.
 An eclectic and relaxed style with a mix of patterns, textures, and colors.
 Handcrafted and unique elements.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-living-room.jpg"><img src="../images/2024/01/boho-chic-living-room.jpg" alt="Boho-Chic style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/boho-chic-living-room.jpg"><img src="../images/2024/01/boho-chic-living-room.jpg" alt="Boho-Chic style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Boho-Chic style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-kitchen.jpg"><img src="../images/2024/01/boho-chic-kitchen.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/boho-chic-kitchen.jpg"><img src="../images/2024/01/boho-chic-kitchen.jpg" alt="Boho-Chic style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Boho-Chic style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Boho-Chic style bathroom</figcaption>
 </figure>
 
 ## Eclectic
@@ -357,19 +357,19 @@ Handcrafted and unique elements.
 Involves a mix of styles and periods, combining elements from different design aesthetics.
 Balance and cohesion are achieved through careful curation.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-living-room.jpg"><img src="../images/2024/01/eclectic-living-room.jpg" alt="Eclectic style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/eclectic-living-room.jpg"><img src="../images/2024/01/eclectic-living-room.jpg" alt="Eclectic style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Eclectic style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-kitchen.jpg"><img src="../images/2024/01/eclectic-kitchen.jpg" alt="Eclectic style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/eclectic-kitchen.jpg"><img src="../images/2024/01/eclectic-kitchen.jpg" alt="Eclectic style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Eclectic style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-bathroom.jpg"><img src="../images/2024/01/eclectic-bathroom.jpg" alt="Eclectic style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/eclectic-bathroom.jpg"><img src="../images/2024/01/eclectic-bathroom.jpg" alt="Eclectic style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Eclectic style bathroom</figcaption>
 </figure>
 
 ## Bohemian
@@ -385,19 +385,19 @@ preference for handmade and unique items.
 The overall look is laid-back and informal, creating a comfortable and inviting
 atmosphere.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/bohemian-living-room.jpg"><img src="../images/2024/01/bohemian-living-room.jpg" alt="Bohemian-style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Bohemian-style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/bohemian-living-room.jpg"><img src="../images/2024/01/bohemian-living-room.jpg" alt="Bohemian-style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Bohemian-style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/bohemian-kitchen.jpg"><img src="../images/2024/01/bohemian-kitchen.jpg" alt="Bohemian-style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Bohemian-style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/bohemian-kitchen.jpg"><img src="../images/2024/01/bohemian-kitchen.jpg" alt="Bohemian-style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Bohemian-style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/bohemian-bathroom.jpg"><img src="../images/2024/01/bohemian-bathroom.jpg" alt="Bohemian-style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Bohemian-style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/bohemian-bathroom.jpg"><img src="../images/2024/01/bohemian-bathroom.jpg" alt="Bohemian-style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Bohemian-style bathroom</figcaption>
 </figure>
 
 
@@ -414,19 +414,19 @@ Functional and practical furniture with a focus on simplicity and durability.
 
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/industrial-living-room.jpg"><img src="../images/2024/01/industrial-living-room.jpg" alt="Industrial-style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Industrial-style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/industrial-living-room.jpg"><img src="../images/2024/01/industrial-living-room.jpg" alt="Industrial-style living room" width="512" height="512" loading="lazy"></a>
+    <figcaption>Industrial-style living room</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/industrial-kitchen.jpg"><img src="../images/2024/01/industrial-kitchen.jpg" alt="Industrial-style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Industrial-style kitchen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/industrial-kitchen.jpg"><img src="../images/2024/01/industrial-kitchen.jpg" alt="Industrial-style kitchen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Industrial-style kitchen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/industrial-bathroom.jpg"><img src="../images/2024/01/industrial-bathroom.jpg" alt="Industrial-style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Industrial-style bathroom</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/industrial-bathroom.jpg"><img src="../images/2024/01/industrial-bathroom.jpg" alt="Industrial-style bathroom" width="512" height="512" loading="lazy"></a>
+    <figcaption>Industrial-style bathroom</figcaption>
 </figure>
 
 

@@ -11,7 +11,7 @@ featured_image: 2011/10/Motions-of-the-sun-thumb.png
 ---
 How is the sun moving, according to our latitude, the time of the day and the time of the year?
 Just take a look at <a href="http://astro.unl.edu/naap/motion3/animations/sunmotions.swf">astro.unl.edu</a> and find it out!
-<figure class="aligncenter">
-            <a href="../images/2011/10/Motions-of-the-sun.png"><img src="../images/2011/10/Motions-of-the-sun.png" alt="Motions of the sun" style="max-width:400px;max-height:186px" class="size-full wp-image-3601"/></a>
-            <figcaption class="text-center">Motions of the sun</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/Motions-of-the-sun.png"><img src="../images/2011/10/Motions-of-the-sun.png" alt="Motions of the sun" width="400" height="186"></a>
+    <figcaption>Motions of the sun</figcaption>
+</figure>

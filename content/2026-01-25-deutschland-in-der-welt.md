@@ -13,9 +13,9 @@ Wie steht Deutschland im internationalen Vergleich da? In diesem Beitrag möchte
 ich einige Bereiche hervorheben, in denen Deutschland sehr gut, gut,
 mittelmäßig oder schlecht abschneidet.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/01/deutschland-in-der-welt.png"><img src="../images/2026/01/deutschland-in-der-welt.png" alt="Ein Globus und ein Balkendiagramm zum internationalen Vergleich" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein Globus und ein Balkendiagramm zum internationalen Vergleich</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/01/deutschland-in-der-welt.png"><img src="../images/2026/01/deutschland-in-der-welt.png" alt="Ein Globus und ein Balkendiagramm zum internationalen Vergleich" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Ein Globus und ein Balkendiagramm zum internationalen Vergleich</figcaption>
 </figure>
 
 In einigen Fällen macht ein

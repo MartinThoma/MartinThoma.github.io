@@ -13,10 +13,10 @@ featured_image: 2011/12/gedit.png
 
 It belongs to GNOME, but it is also available for Windows. This is how it looks like:
 
-<figure class="aligncenter">
-            <a href="../images/2011/12/gedit-screenshot-300x208.png"><img src="../images/2011/12/gedit-screenshot-300x208.png" alt="gedit screenshot" style="max-width:300px;max-height:208px" class="size-medium wp-image-9571"/></a>
-            <figcaption class="text-center">gedit screenshot</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/12/gedit-screenshot-300x208.png"><img src="../images/2011/12/gedit-screenshot-300x208.png" alt="gedit screenshot" width="300" height="208"></a>
+    <figcaption>gedit screenshot</figcaption>
+</figure>
 
 You might want to install gedit-plugins:
 ```bash
@@ -25,16 +25,16 @@ sudo apt-get install gedit-plugins
 
 <h2>External Tools</h2>
 gedit allows you to run external command line tools by pressing shortcuts. You can find the external tools plugins in your preferences:
-<figure class="aligncenter">
-            <a href="../images/2011/12/gedit-external-tools1-300x209.png"><img src="../images/2011/12/gedit-external-tools1-300x209.png" alt="gedit external tools" style="max-width:300px;max-height:209px" class="size-medium wp-image-9601"/></a>
-            <figcaption class="text-center">gedit external tools</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/12/gedit-external-tools1-300x209.png"><img src="../images/2011/12/gedit-external-tools1-300x209.png" alt="gedit external tools" width="300" height="209" loading="lazy"></a>
+    <figcaption>gedit external tools</figcaption>
+</figure>
 
 You can assign shortcuts by clicking into an input field and simply using the shortcut once:
-<figure class="aligncenter">
-            <a href="../images/2011/12/external-tool-java-300x209.png"><img src="../images/2011/12/external-tool-java-300x209.png" alt="external tools java" style="max-width:300px;max-height:209px" class="size-medium wp-image-9611"/></a>
-            <figcaption class="text-center">external tools java</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/12/external-tool-java-300x209.png"><img src="../images/2011/12/external-tool-java-300x209.png" alt="external tools java" width="300" height="209" loading="lazy"></a>
+    <figcaption>external tools java</figcaption>
+</figure>
 
 <h3>Java</h3>
 ```bash

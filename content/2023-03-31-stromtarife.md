@@ -18,9 +18,9 @@ verbraucht wird**. Wenn diese Balance gestört wird, kann es zu Schwankungen in
 der Netzfrequenz und sogar zu Stromausfällen kommen. Deshalb ist es wichtig,
 dass das Stromnetz immer in einem stabilen Zustand gehalten wird.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg"><img src="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg" alt="Netzspannungen in der Welt" style="width: 750px;"/></a>
-<figcaption class="text-center">Netzspannungen in der Welt (<a href="https://commons.wikimedia.org/wiki/File:World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg">Quelle</a>)</figcaption>
+<figure>
+    <a href="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg"><img src="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg" alt="Netzspannungen in der Welt" width="750" height="381"></a>
+    <figcaption>Netzspannungen in der Welt (<a href="https://commons.wikimedia.org/wiki/File:World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg">Quelle</a>)</figcaption>
 </figure>
 
 Man kann <a href="https://www.netzfrequenzmessung.de/">die aktuelle Netzfrequenz online sehen</a>.

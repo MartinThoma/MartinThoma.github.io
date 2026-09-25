@@ -9,10 +9,10 @@ category: Code
 tags: Linux, Open Source
 featured_image: 2011/12/Richard-Stallman1.jpg
 ---
-<figure class="alignright">
-            <a href="../images/2011/12/Richard-Stallman-200x300.jpg"><img src="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" style="max-width:200px;max-height:300px;" class="size-medium wp-image-10141 "/></a>
-            <figcaption class="text-center">Richard Stallman</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2011/12/Richard-Stallman-200x300.jpg"><img src="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" width="200" height="300"></a>
+    <figcaption>Richard Stallman</figcaption>
+</figure>
 
 I've just installed vrms - the virtual Richard Stallman :D
 

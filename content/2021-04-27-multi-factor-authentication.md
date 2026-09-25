@@ -10,7 +10,10 @@ tags: Security, AppSec, MFA, 2FA
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/plain-and-simple/multi-factor-authentication-cefff819be95
 ---
-![Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex) on [Unsplash](https://unsplash.com/)](../images/2021/04/multi-factor-authentication-1.jpg)*Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex) on [Unsplash](https://unsplash.com/)*
+<figure>
+    <a href="../images/2021/04/multi-factor-authentication-1.jpg"><img src="../images/2021/04/multi-factor-authentication-1.jpg" alt="Photo by Lukenn Sabellano on Unsplash" width="2000" height="1333"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@luferlex">Lukenn Sabellano</a> on <a href="https://unsplash.com/">Unsplash</a></figcaption>
+</figure>
 
 Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called “factors” and they fall into three groups:
 
@@ -50,7 +53,10 @@ Luckily, I cannot think of any [incentive](https://martinthoma.medium.com/incent
 
 When you register, you prove that you have access to your email address. This works by sending you a random code to the address that should get confirmed.
 
-![How confirming that you have access to a mail address (e-mail and physical) works](../images/2021/04/multi-factor-authentication-2.png)*How confirming that you have access to a mail address (e-mail and physical) works*
+<figure>
+    <a href="../images/2021/04/multi-factor-authentication-2.png"><img src="../images/2021/04/multi-factor-authentication-2.png" alt="How confirming that you have access to a mail address (e-mail and physical) works" width="566" height="444" loading="lazy"></a>
+    <figcaption>How confirming that you have access to a mail address (e-mail and physical) works</figcaption>
+</figure>
 
 This schema works for e-mail, physical mail, and phone numbers. In this way, you can prove that you have access to the address/phone number. Or at least that you had access to it once.
 
@@ -74,7 +80,9 @@ Alternative TOTP apps to the [Google Authenticator](https://play.google.com/stor
 
 The Apps from Google, LastPass, and Microsoft look like this:
 
-![The TOTP apps from Google, LastPass, and Microsoft](../images/2021/04/multi-factor-authentication-3.png)
+<figure>
+    <a href="../images/2021/04/multi-factor-authentication-3.png"><img src="../images/2021/04/multi-factor-authentication-3.png" alt="The TOTP apps from Google, LastPass, and Microsoft" width="2000" height="1050" loading="lazy"></a>
+</figure>
 
 When you use the TOTP app, you first pair it with the web service. That typically works by clicking on the “+” symbol and scanning a QR code with your phone. After that, you can see the one-time passwords with a timer that goes down. They are valid for something like 30 seconds, then you’ll receive another password.
 

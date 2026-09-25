@@ -23,9 +23,9 @@ smartphone when the connection drops. You enter your favorite blog URL —
 martin-thoma.com, I hope — but you only get to know that you lost the internet
 connection:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/fallback-chrome.png"><img src="../images/2021/05/fallback-chrome.png" alt="Fallback option for Chrome" style="width: 512px;"/></a>
-    <figcaption class="text-center">Fallback option for Chrome</figcaption>
+<figure>
+    <a href="../images/2021/05/fallback-chrome.png"><img src="../images/2021/05/fallback-chrome.png" alt="Fallback option for Chrome" width="512" height="199"></a>
+    <figcaption>Fallback option for Chrome</figcaption>
 </figure>
 
 Your browser cannot get any information from the internet without a
@@ -51,9 +51,9 @@ a good fallback. Better than the mini-game.
 
 To get to this improved fallback, the browser has to retry to get to the website.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/error-loading-data-server.png"><img src="../images/2021/05/error-loading-data-server.png" alt="Image by Revansx from Wikimedia Commons" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image by <a href="https://commons.wikimedia.org/wiki/User:Revansx">Revansx</a> from <a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png">Wikimedia Commons</a></figcaption>
+<figure>
+    <a href="../images/2021/05/error-loading-data-server.png"><img src="../images/2021/05/error-loading-data-server.png" alt="Image by Revansx from Wikimedia Commons" width="396" height="202" loading="lazy"></a>
+    <figcaption>Image by <a href="https://commons.wikimedia.org/wiki/User:Revansx">Revansx</a> from <a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png">Wikimedia Commons</a></figcaption>
 </figure>
 
 Yes, that is a pattern. A trivial one, but an important one. I've used it when
@@ -125,7 +125,10 @@ By limiting both resources you make sure you’re not vulnerable to this issue.
 
 ## 4. Circuit Breaker
 
-![Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)](../images/2021/05/10-robustness-resiliency-design-patterns-1.jpg)*Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)*
+<figure>
+    <a href="../images/2021/05/10-robustness-resiliency-design-patterns-1.jpg"><img src="../images/2021/05/10-robustness-resiliency-design-patterns-1.jpg" alt="Photo of a two-pole circuit breaker on Wikimedia Commons by Dmitry G" width="416" height="599" loading="lazy"></a>
+    <figcaption>Photo of a two-pole circuit breaker on <a href="https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG">Wikimedia Commons</a> by <a href="https://commons.wikimedia.org/wiki/User:Dmitry_G">Dmitry G</a></figcaption>
+</figure>
 
 If something is wrong with the electricity in one room of your house, e.g. one
 part is having a short-circuit or consuming too much power, you want
@@ -160,9 +163,9 @@ Servers can fail due to [breaking hardware](https://www.datacenterdynamics.com/e
 For hard disks, we have various [RAID levels](https://en.wikipedia.org/wiki/Standard_RAID_levels). For APIs, we can start multiple instances and have a round-robin load balancing.
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/redundancy.png"><img src="../images/2021/05/redundancy.png" alt="Image by Martin Thoma" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+<figure>
+    <a href="../images/2021/05/redundancy.png"><img src="../images/2021/05/redundancy.png" alt="Image by Martin Thoma" width="512" height="224" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
 Let’s say each server is 99.0% available. That means it is down for 3.65 days

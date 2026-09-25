@@ -11,9 +11,9 @@ featured_image: logos/star.png
 subtitle: Learn what the difference is and when to use which
 medium_url: https://levelup.gitconnected.com/library-vs-service-7-arguments-to-consider-5088dced6022
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/library-vs-service.png"><img src="../images/2021/05/library-vs-service.png" alt="Shared code can be in a library or in a service" style="width: 512px;"/></a>
-    <figcaption class="text-center">Shared code can be in a library or in a service. Image by Martin Thoma.</figcaption>
+<figure>
+    <a href="../images/2021/05/library-vs-service.png"><img src="../images/2021/05/library-vs-service.png" alt="Shared code can be in a library or in a service" width="512" height="126"></a>
+    <figcaption>Shared code can be in a library or in a service. Image by Martin Thoma.</figcaption>
 </figure>
 
 Preventing code duplication is a software development principle called
@@ -136,9 +136,9 @@ might not be as reliable or fast as I would like it to be. It needs to be
 wrapped in a local “caching” layer that also abstracts away some of the
 complexity of the external service.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/external-service-library-vs-service.png"><img src="../images/2021/05/external-service-library-vs-service.png" alt="External Service Wrapper: Library vs Service" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+<figure>
+    <a href="../images/2021/05/external-service-library-vs-service.png"><img src="../images/2021/05/external-service-library-vs-service.png" alt="External Service Wrapper: Library vs Service" width="512" height="252" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
 In this case, it’s not so clear if the library option is better or worse than
@@ -204,9 +204,9 @@ and they need to define their interfaces.
 
 As an image, it might look like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/library-service-transition.png"><img src="../images/2021/05/library-service-transition.png" alt="Library to Service Transition" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+<figure>
+    <a href="../images/2021/05/library-service-transition.png"><img src="../images/2021/05/library-service-transition.png" alt="Library to Service Transition" width="512" height="237" loading="lazy"></a>
+    <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
 A transition I have seen a couple of times is to create a monolith first to

@@ -61,9 +61,9 @@ Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch I
 <li><a href="http://de.wikipedia.org/wiki/Harmonische_Reihe">Harmonische Reihe</a>: $\sum_{n=1}^\infty \frac{1}{n}$ (Divergent)</li>
 <li><a href="http://de.wikipedia.org/wiki/Geometrische_Reihe">Geometrische Reihe</a>: $\sum_{n=0}^{\infty} x^n (x \in \mathbb{R})$. Konvergiert, falls |x| < 1 gegen $\frac{1}{1-x}$</li>
 <li><a href="http://de.wikipedia.org/wiki/Alternierende_Reihe">Alternierende Harmonische Reihe</a>: $\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n}$</li>
-<li>$e^x = \sum_{n=0}{\infty} \frac{x^n}{x!}$</li>
-<li>Kosinus: $cos(x) = \sum_{n=0}{\infty} (-1)^n \cdot \frac{x^{2n}}{(2n)!} (x \in \mathbb{R})$</li>
-<li>Sinus: $sin(x) = \sum_{n=0}^{\infty} (-1)^n \cdot \frac{x^{2n+1}}{(2n+1)!} (x \in \mathbb{R}$</li>
+<li>$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}$</li>
+<li>Kosinus: $\cos(x) = \sum_{n=0}^{\infty} (-1)^n \cdot \frac{x^{2n}}{(2n)!} (x \in \mathbb{R})$</li>
+<li>Sinus: $\sin(x) = \sum_{n=0}^{\infty} (-1)^n \cdot \frac{x^{2n+1}}{(2n+1)!} (x \in \mathbb{R})$</li>
 <li>Cosinus Hyperbolikus: $cosh(x) = \frac{1}{2} (e^x + e^{-x}) (x \in \mathbb{R})$</li>
 <li>Sinus Hyperbolikus: $sinh(x) = \frac{1}{2} (e^x - e^{-x}) (x \in \mathbb{R})$</li>
 </ul>

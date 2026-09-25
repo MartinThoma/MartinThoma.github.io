@@ -10,9 +10,9 @@ tags: House, Money, DIY
 featured_image: logos/house.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/diy-gewaechshaus.png"><img src="../images/2025/01/diy-gewaechshaus.png" alt="Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/01/diy-gewaechshaus.png"><img src="../images/2025/01/diy-gewaechshaus.png" alt="Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie" width="819" height="512"></a>
+    <figcaption>Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie. Generiert mit Claude AI.</figcaption>
 </figure>
 
 ## Material

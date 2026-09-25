@@ -43,9 +43,9 @@ Das [BIP ist auf einem historischen Höchststand](https://de.statista.com/statis
 hatten wir einen Rückgang. Interessanter ist jedoch die [preisbereinigte
 Entwicklung](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/BIP-Langfristig.html):
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/bip-1950-heute.png"><img src="../images/2025/01/bip-1950-heute.png" alt="Das preisbereinigte BIP von 1950 bis 2024" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Das preisbereinigte BIP von 1950 bis 2024 zeigt: Nach der Finanzkrise 2009, der Corona-Pandemie 2020 und der Energiekrise 2023/2024 gab es Rückgänge. Langfristig zeigt sich jedoch ein stetiges Wachstum.</figcaption>
+<figure>
+    <a href="../images/2025/01/bip-1950-heute.png"><img src="../images/2025/01/bip-1950-heute.png" alt="Das preisbereinigte BIP von 1950 bis 2024" width="930" height="512"></a>
+    <figcaption>Das preisbereinigte BIP von 1950 bis 2024 zeigt: Nach der Finanzkrise 2009, der Corona-Pandemie 2020 und der Energiekrise 2023/2024 gab es Rückgänge. Langfristig zeigt sich jedoch ein stetiges Wachstum.</figcaption>
 </figure>
 
 Wenn wir uns die inflationsbereinigten Pro-Kopf-BIP-Werte ansehen, zeigt sich,
@@ -100,9 +100,9 @@ Steuern. Im Jahr 2021 setzte sich die Struktur der [Steuereinnahmen in
 Deutschland](https://de.wikipedia.org/wiki/Steueraufkommen_(Deutschland)) wie
 folgt zusammen:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/steuereinnahmen-2021-small.jpg"><img src="../images/2025/01/steuereinnahmen-2021-small.jpg" alt="Steuereinnahmen in Deutschland, 2021" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Steuereinnahmen in Deutschland, 2021</figcaption>
+<figure>
+    <a href="../images/2025/01/steuereinnahmen-2021-small.jpg"><img src="../images/2025/01/steuereinnahmen-2021-small.jpg" alt="Steuereinnahmen in Deutschland, 2021" width="690" height="512" loading="lazy"></a>
+    <figcaption>Steuereinnahmen in Deutschland, 2021</figcaption>
 </figure>
 
 Obwohl keine der großen Parteien eine Steuererhöhung offensiv propagiert, gibt
@@ -360,9 +360,9 @@ bleiben. Kein Verkauf und keine Partnerschaften mit privaten Investoren.
 
 Wer Vollbeschäftigung anstrebt, muss für bessere Bildung sorgen:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/arbeitslosenquote-nach-bildung.jpg"><img src="../images/2025/01/arbeitslosenquote-nach-bildung.jpg" alt="Entwicklung der Arbeitslosenquote in Deutschland nach Bildungsstand" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Entwicklung der Arbeitslosenquote in Deutschland nach Bildungsstand</figcaption>
+<figure>
+    <a href="../images/2025/01/arbeitslosenquote-nach-bildung.jpg"><img src="../images/2025/01/arbeitslosenquote-nach-bildung.jpg" alt="Entwicklung der Arbeitslosenquote in Deutschland nach Bildungsstand" width="706" height="512" loading="lazy"></a>
+    <figcaption>Entwicklung der Arbeitslosenquote in Deutschland nach Bildungsstand</figcaption>
 </figure>
 
 Von [Vollbeschäftigung](https://de.wikipedia.org/wiki/Vollbesch%C3%A4ftigung)

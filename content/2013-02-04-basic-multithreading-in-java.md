@@ -155,7 +155,7 @@ If you want to execute this more often, you could save it as a executable JAR an
   <li>$3: BIG_NR</li>
 </ul>
 
-The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occurred.
+The script executes the program `$1 * $2` times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occurred.
 
 ```bash
 

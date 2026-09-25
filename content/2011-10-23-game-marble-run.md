@@ -9,10 +9,10 @@ category: The Web
 tags: JavaScript Game, Games
 featured_image: 2011/10/marblerun-thumb.png
 ---
-<figure class="alignleft">
-            <a href="../images/2011/10/marblerun.png"><img src="../images/2011/10/marblerun.png" alt="Marble Run" style="max-width:584px;max-height:558px;" class="size-full wp-image-7181"/></a>
-            <figcaption class="text-center">Marble Run</figcaption>
-        </figure>
+<figure class="figure-left">
+    <a href="../images/2011/10/marblerun.png"><img src="../images/2011/10/marblerun.png" alt="Marble Run" width="584" height="558"></a>
+    <figcaption>Marble Run</figcaption>
+</figure>
 
 <b>Go to the Game</b>: <a href="http://marblerun.at/tracks/new" rel="nofollow">marblerun.at</a>
 <b>Task</b>: Create a Track for that little red dot, which is as long as possible.

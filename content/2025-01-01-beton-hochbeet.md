@@ -12,9 +12,9 @@ status: draft
 ---
 Wir wollen einen weißen Sichtbeton bekommen.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/beton-hochbeet.png"><img src="../images/2025/01/beton-hochbeet.png" alt="Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/01/beton-hochbeet.png"><img src="../images/2025/01/beton-hochbeet.png" alt="Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen" width="819" height="512"></a>
+    <figcaption>Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen. Generiert mit Claude AI.</figcaption>
 </figure>
 
 ## Materialien

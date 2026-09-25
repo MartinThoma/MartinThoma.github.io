@@ -10,9 +10,9 @@ tags: DIY, Energy
 featured_image: logos/star.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/diy-solarthermie.png"><img src="../images/2025/01/diy-solarthermie.png" alt="Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/01/diy-solarthermie.png"><img src="../images/2025/01/diy-solarthermie.png" alt="Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher" width="819" height="512"></a>
+    <figcaption>Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher. Mit Claude AI generierte Illustration.</figcaption>
 </figure>
 
 * https://www.heizung.de/solarthermie/wissen/solarfluessigkeit-das-traegermedium-der-sonnenwaerme.html

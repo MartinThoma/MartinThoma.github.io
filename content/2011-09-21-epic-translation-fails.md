@@ -13,16 +13,21 @@ Online translation programs are getting better and they are great if you want to
 
 "Spielzeugladen" is German and means "toy store"
 
-<div class="separator" style="clear: both; text-align: center;">
-<img border="0" height="160" width="400" src="../images/2011/09/Google-Translator-Dirty-Picture.png" /></div>
+<figure>
+    <a href="../images/2011/09/Google-Translator-Dirty-Picture.png"><img src="../images/2011/09/Google-Translator-Dirty-Picture.png" alt="" width="400" height="160"></a>
+</figure>
+
 Note the missing point.
 
-<div class="separator" style="clear: both; text-align: center;">
-<img border="0" height="193" width="400" src="../images/2011/09/Google-Translator-Was-hast-du-an.png" /></div>
+<figure>
+    <a href="../images/2011/09/Google-Translator-Was-hast-du-an.png"><img src="../images/2011/09/Google-Translator-Was-hast-du-an.png" alt="" width="400" height="193" loading="lazy"></a>
+</figure>
+
 "Was hast du an?" means "What do you wear?"
 
-<div class="separator" style="clear: both; text-align: center;">
-<img border="0" height="168" width="400" src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" /></div>
+<figure>
+    <a href="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png"><img src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" alt="" width="400" height="168" loading="lazy"></a>
+</figure>
 
 Did you know the Beatbox?
 Type "pv zk pv pv zk pv zk zk pv pv pv zk pv zk zk pzk pzk pvzkpkzvpvzk kkkkkk bsch", translate from German to German and listen to it:

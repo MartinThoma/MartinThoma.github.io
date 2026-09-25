@@ -11,7 +11,10 @@ featured_image: logos/lightbulb-on.png
 subtitle: Switching for a more efficient lightbulb for economic reasons
 medium_url: https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e
 ---
-![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](../images/2021/09/is-it-worth-changing-the-lightbulb-1.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png" alt="A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (Old, Halogen, CFL, LED)" width="1056" height="606"></a>
+    <figcaption>A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (<a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg">Old</a>, <a href="https://www.flaticon.com/free-icon/halogen-lamp_2605869">Halogen</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg">CFL</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg">LED</a>)</figcaption>
+</figure>
 
 Electricity is pretty expensive in Germany. We pay around 0.30 EUR/kWh. A normal two-person household uses around 2500 kWh/year which makes 750 EUR per year for electricity. This means it’s worth thinking about reducing the cost.
 
@@ -39,7 +42,10 @@ The next dimension to consider is the **color temperature**. It’s measured in 
 * 4200K — 4500K: Daylight white — good for office
 * 5500K — 7000K: Cool white
 
-![Color temperature. Image Source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)](../images/2021/09/is-it-worth-changing-the-lightbulb-2.png)*Color temperature. Image Source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)*
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-2.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-2.png" alt="Color temperature. Image Source: Wikimedia Commons, created by Bhutajata" width="512" height="131" loading="lazy"></a>
+    <figcaption>Color temperature. Image Source: <a href="https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg">Wikimedia Commons</a>, created by <a href="https://commons.wikimedia.org/wiki/User:Bhutajata">Bhutajata</a></figcaption>
+</figure>
 
 Finally, you might want to consider the light bulb's **shape**:
 
@@ -56,7 +62,9 @@ Now that you know which type of lamp you want, you can calculate energy savings.
 
 ## Calculate Energy Savings
 
-![Formula for the yearly energy consumption of a lamp](../images/2021/09/is-it-worth-changing-the-lightbulb-3.png)
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-3.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-3.png" alt="Formula for the yearly energy consumption of a lamp" width="1311" height="63" loading="lazy"></a>
+</figure>
 
 Let’s run through a simple example:
 
@@ -74,7 +82,10 @@ But that is not the interesting part. The interesting part is when the saved ele
 
 Light bulbs had crazy efficiency gains as you can see in the table below. If you look at light bulbs which give a brightness of 470lm, you can see that LEDs use about 90% less energy than the old incandescent bulbs!
 
-![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](../images/2021/09/is-it-worth-changing-the-lightbulb-1.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png" alt="A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (Old, Halogen, CFL, LED)" width="1056" height="606" loading="lazy"></a>
+    <figcaption>A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (<a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg">Old</a>, <a href="https://www.flaticon.com/free-icon/halogen-lamp_2605869">Halogen</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg">CFL</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg">LED</a>)</figcaption>
+</figure>
 
 I bought LED light bulbs recently:
 
@@ -83,19 +94,27 @@ I bought LED light bulbs recently:
 
 So let’s see how long it takes until the lamps paid for themselves:
 
-![Table of payback time for the new lamps](../images/2021/09/is-it-worth-changing-the-lightbulb-4.png)
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-4.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-4.png" alt="Table of payback time for the new lamps" width="927" height="137" loading="lazy"></a>
+</figure>
 
 * 2W: Every hour I run the light bulb, I spend 23W less. Now how long does it take until that is more than 1.82 EUR? Simple: (1.82 EUR / (0.30 EUR / kWh))/23W = (1.82 EUR / 0.0003 EUR/Wh)/23W = 6067 Wh / 23W = 264h. I probably run those lights about 1 hour per day, meaning it takes me **270 days until it was worth it**.
 * 13W: Going with the formula from above. (Unit price / Energy price) / Energy savings per hour = (3.66 EUR / 0.0003 EUR/Wh) / 87W = 140h.
   As I run that one probably 8 hours per day, it’s worth it **after 18 days**. Crazy.
 
-![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](../images/2021/09/is-it-worth-changing-the-lightbulb-1.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-1.png" alt="A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (Old, Halogen, CFL, LED)" width="1056" height="606" loading="lazy"></a>
+    <figcaption>A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart (<a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg">Old</a>, <a href="https://www.flaticon.com/free-icon/halogen-lamp_2605869">Halogen</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg">CFL</a>, <a href="https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg">LED</a>)</figcaption>
+</figure>
 
 Let’s take a worse match-up. If I had a energy-saving light (CFL) before I would have replaced a 4W light bulb by a 2W LED: (1.82 EUR / 0.0003 EUR/Wh) / 2W ≈ 3033h. As I run this only one hour per day it takes about 8 years until they paid for themselves.
 
 However, don’t forget that energy-saving lights contains Mercury (quicksilver). As Mercury is extremely toxic, I would avoid them. Also, CFLs typically take a while until they reach their maximum brightness. I hate that.
 
-![A rough overview over prices of LEDs in Germany.](../images/2021/09/is-it-worth-changing-the-lightbulb-5.png)*A rough overview over prices of LEDs in Germany.*
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-5.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-5.png" alt="A rough overview over prices of LEDs in Germany." width="1086" height="435" loading="lazy"></a>
+    <figcaption>A rough overview over prices of LEDs in Germany.</figcaption>
+</figure>
 
 ## Is it worth buying the more expensive light bulb?
 
@@ -103,7 +122,9 @@ Now you might wonder: Is it worth buying the more expensive one?
 
 The formula is:
 
-![Formula for the payback time](../images/2021/09/is-it-worth-changing-the-lightbulb-6.png)
+<figure>
+    <a href="../images/2021/09/is-it-worth-changing-the-lightbulb-6.png"><img src="../images/2021/09/is-it-worth-changing-the-lightbulb-6.png" alt="Formula for the payback time" width="1190" height="112" loading="lazy"></a>
+</figure>
 
 Let’s assume we have those two light bulbs:
 

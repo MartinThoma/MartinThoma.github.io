@@ -17,10 +17,10 @@ $\delta = \text{siehe Grafik}$
 $F = \{S\}$
 $NEA = \left( Q, \Sigma, \delta, S, F \right)$
 
-<figure class="aligncenter">
-            <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
-            <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" width="365" height="119"></a>
+    <figcaption>Nondeterministic finite-state machine</figcaption>
+</figure>
 
 Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.
 
@@ -98,10 +98,10 @@ $\tilde{F} = \{\{S\}, \{q_1, S\}\}$
 
 Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:
 
-<figure class="aligncenter">
-            <a href="../images/2011/10/deterministic-fsm.png"><img src="../images/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" style="max-width:512px;max-height:196px" class="size-full wp-image-8421"/></a>
-            <figcaption class="text-center">Deterministic Finite State machine (create from a non-deterministic version)</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/deterministic-fsm.png"><img src="../images/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" width="390" height="196" loading="lazy"></a>
+    <figcaption>Deterministic Finite State machine (create from a non-deterministic version)</figcaption>
+</figure>
 
 <h2>Material</h2>
 Die .gv sieht so aus:

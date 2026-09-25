@@ -72,7 +72,7 @@ Preis Heizöl / 9,8 = Preis Strom / 4
 
 oder
 
-Preis Heizöl = $2{,}45 \cdot $ Preis Strom
+$\text{Preis Heizöl} = 2{,}45 \cdot \text{Preis Strom}$
 
 Aktuell:
 

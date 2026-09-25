@@ -35,7 +35,9 @@ Wir haben über 43,4 Millionen Wohnungen mit durchschnittlich 92,2m² in Deutsch
 
 Leider sind diese nicht gleichmäßig verteilt:
 
-![Wohnungsleerstand in Deutschland](../images/2024/12/dl-wohnungsleerstand.png)
+<figure>
+    <a href="../images/2024/12/dl-wohnungsleerstand.png"><img src="../images/2024/12/dl-wohnungsleerstand.png" alt="Wohnungsleerstand in Deutschland" width="1067" height="1213"></a>
+</figure>
 
 Schaut man sich z.B. nur Nordrhein-Westfalen (NRW) an:
 

@@ -13,9 +13,9 @@ When I'm not at home, I still want to know if anything is happening. This is esp
 important when a person is in an unexpected location, but also for situations like
 someone being at the door.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/05/home-security-cameras-2025.png"><img src="../images/2025/05/home-security-cameras-2025.png" alt="A house with two outdoor security cameras and a live view on a phone" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Illustration generated with Claude AI: A house with two outdoor security cameras and a live view on a phone</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/05/home-security-cameras-2025.png"><img src="../images/2025/05/home-security-cameras-2025.png" alt="A house with two outdoor security cameras and a live view on a phone" width="819" height="512"></a>
+    <figcaption>A house with two outdoor security cameras and a live view on a phone. Illustration generated with Claude AI.</figcaption>
 </figure>
 
 In this article, I will compare different home security camera systems.

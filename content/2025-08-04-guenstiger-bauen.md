@@ -16,9 +16,9 @@ gestiegen, und viele fragen sich, wie sie sich ihr
 noch leisten können. In diesem Artikel will ich einige Möglichkeiten aufzeigen,
 wie wir den Immobilienkauf günstiger machen könnten.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/08/guenstiger-bauen.png"><img src="../images/2025/08/guenstiger-bauen.png" alt="Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/08/guenstiger-bauen.png"><img src="../images/2025/08/guenstiger-bauen.png" alt="Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen</figcaption>
 </figure>
 
 

@@ -18,45 +18,49 @@ Here is a neat explanation of SOPA:
 
 <h2>Wikipedia</h2>
 Completely blacked out:
-<a href="../images/2012/01/sopa-wikipedia.png"><img src="../images/2012/01/sopa-wikipedia-300x141.png" alt="Wikipedia SOPA protests" title="Wikipedia SOPA protests" width="300" height="141" class="aligncenter size-medium wp-image-12401" /></a>
+
+<figure>
+    <a href="../images/2012/01/sopa-wikipedia.png"><img src="../images/2012/01/sopa-wikipedia-300x141.png" alt="Wikipedia SOPA protests" width="300" height="141"></a>
+</figure>
+
 Twitter: #WikipediaBlackout
 
 By the way, if you disable JavaScript you can view Wikipedia as always.
 
 <h2>German Wiki</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/01/sopa-wiki-de-300x81.png"><img src="../images/2012/01/sopa-wiki-de-300x81.png" alt="German Wikipedia SOPA protests" style="max-width:300px;max-height:81px" class="size-medium wp-image-12411"/></a>
-            <figcaption class="text-center">German Wikipedia SOPA protests</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/sopa-wiki-de-300x81.png"><img src="../images/2012/01/sopa-wiki-de-300x81.png" alt="German Wikipedia SOPA protests" width="300" height="81" loading="lazy"></a>
+    <figcaption>German Wikipedia SOPA protests</figcaption>
+</figure>
 
 <h2>The Oatmeal</h2>
 <a href="http://theoatmeal.com/sopa">The Oatmeal</a> has also completely blacked out its website:
 
-<figure class="aligncenter">
-            <a href="../images/2012/01/sopa-oatmeal-300x241.png"><img src="../images/2012/01/sopa-oatmeal-300x241.png" alt="Oatmeals SOPA protest" style="max-width:300px;max-height:241px" class="size-medium wp-image-12541"/></a>
-            <figcaption class="text-center">Oatmeals SOPA protest</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/sopa-oatmeal-300x241.png"><img src="../images/2012/01/sopa-oatmeal-300x241.png" alt="Oatmeals SOPA protest" width="300" height="241" loading="lazy"></a>
+    <figcaption>Oatmeals SOPA protest</figcaption>
+</figure>
 
 <h2>Zachstronaut</h2>
 <a href="http://www.zachstronaut.com/lab/text-shadow-box/stop-sopa.html">zachstronaut.com</a> offers an interactive one:
-<figure class="aligncenter">
-            <a href="../images/2012/01/sopa-zachstronaut-300x154.png"><img src="../images/2012/01/sopa-zachstronaut-300x154.png" alt="SOPA - Zachstronaut protests" style="max-width:300px;max-height:154px" class="size-medium wp-image-12461"/></a>
-            <figcaption class="text-center">SOPA - Zachstronaut protests</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/sopa-zachstronaut-300x154.png"><img src="../images/2012/01/sopa-zachstronaut-300x154.png" alt="SOPA - Zachstronaut protests" width="300" height="154" loading="lazy"></a>
+    <figcaption>SOPA - Zachstronaut protests</figcaption>
+</figure>
 
 <h2>Boing Boing</h2>
 <a href="http://boingboing.net/2012/01/14/boing-boing-will-go-dark-on-ja.html">Boing Boing</a> is completely blacked out:
-<figure class="aligncenter">
-            <a href="../images/2012/01/sopa-boingboing-300x140.png"><img src="../images/2012/01/sopa-boingboing-300x140.png" alt="SOPA - BoingBoing protest" style="max-width:300px;max-height:140px" class="size-medium wp-image-12451"/></a>
-            <figcaption class="text-center">SOPA - BoingBoing protest</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/sopa-boingboing-300x140.png"><img src="../images/2012/01/sopa-boingboing-300x140.png" alt="SOPA - BoingBoing protest" width="300" height="140" loading="lazy"></a>
+    <figcaption>SOPA - BoingBoing protest</figcaption>
+</figure>
 
 <h2>Tucows</h2>
 Tucows - a site with $80.939 million USD revenue - offers some information and a <a href="http://tucowsinc.com/news/2012/01/why-we-dont-like-sopa/">link</a> on the top. They normally offer shareware and freeware:
-<figure class="aligncenter">
-            <a href="../images/2012/01/sopa-tucowsinc-300x182.png"><img src="../images/2012/01/sopa-tucowsinc-300x182.png" alt="SOPA Tucowsinc" style="max-width:300px;max-height:182px" class="size-medium wp-image-12431"/></a>
-            <figcaption class="text-center">SOPA Tucowsinc</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/sopa-tucowsinc-300x182.png"><img src="../images/2012/01/sopa-tucowsinc-300x182.png" alt="SOPA Tucowsinc" width="300" height="182" loading="lazy"></a>
+    <figcaption>SOPA Tucowsinc</figcaption>
+</figure>
 
 <h2>Notes</h2>
 Many big companies (AOL, eBay, Facebook, Google, LinkedIn, mozilla, twitter, Yahoo, zynga) wrote <a href="http://www.protectinnovation.com/downloads/letter.pdf">a letter</a> to the Committee on the Judiciary.

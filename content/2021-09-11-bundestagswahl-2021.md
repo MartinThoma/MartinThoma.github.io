@@ -233,9 +233,9 @@ Im [19. Deutschen Bundestag](https://de.wikipedia.org/wiki/19._Deutscher_Bundest
 * [LINKE](https://de.wikipedia.org/wiki/Fraktion_Die_Linke_im_Bundestag): 69
 * [GRÜNE](https://de.wikipedia.org/wiki/Bundestagsfraktion_B%C3%BCndnis_90/Die_Gr%C3%BCnen): 67
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/09/sitze-19-bundestag.png"><img src="../images/2021/09/sitze-19-bundestag.png" alt="Sitze im 19. Bundestag" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sitze im 19. Bundestag</figcaption>
+<figure>
+    <a href="../images/2021/09/sitze-19-bundestag.png"><img src="../images/2021/09/sitze-19-bundestag.png" alt="Sitze im 19. Bundestag" width="512" height="301" loading="lazy"></a>
+    <figcaption>Sitze im 19. Bundestag</figcaption>
 </figure>
 
 In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:

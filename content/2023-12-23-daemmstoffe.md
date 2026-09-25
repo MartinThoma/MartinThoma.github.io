@@ -252,9 +252,9 @@ Heizöl kostet aktuell ca. 1.13€/L und bringt 9.8 kWh/L, d.h. 0.12€/kWh:
 
 Ich möchte mein Haus besser dämmen, um Energie zu sparen. Hier sammle ich ein paar Ideen dazu.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/11/daemmung.png"><img src="../images/2025/11/daemmung.png" alt="Dämmung der obersten Geschossdecke zwischen und über den Balken" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Dämmung der obersten Geschossdecke zwischen und über den Balken</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/11/daemmung.png"><img src="../images/2025/11/daemmung.png" alt="Dämmung der obersten Geschossdecke zwischen und über den Balken" width="819" height="512" loading="lazy"></a>
+    <figcaption>Dämmung der obersten Geschossdecke zwischen und über den Balken. Mit Claude AI generierte Illustration.</figcaption>
 </figure>
 
 ### U-Werte

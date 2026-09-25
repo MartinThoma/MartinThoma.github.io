@@ -11,7 +11,7 @@ tags: Python, Java, Linear Algebra, Mathematics, Algorithms, Computer Science, M
 <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 
-The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeoff: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Let's see how the Strassen algorithm's execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
+The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{\log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeoff: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Let's see how the Strassen algorithm's execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
 
 <h2>The implementations</h2>
 As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times ☺
@@ -424,10 +424,10 @@ private static int[][] strassenR(int[][] A, int[][] B) {
 ```
 
 Here are the results for different leaf-sizes:
-<figure class="aligncenter">
-            <a href="../images/2013/01/bchart-simple.png"><img src="../images/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" style="max-width:500px;max-height:349px" class="size-full wp-image-54901"/></a>
-            <figcaption class="text-center">Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/bchart-simple.png"><img src="../images/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" width="500" height="349" loading="lazy"></a>
+    <figcaption>Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
+</figure>
 
 <h2>C++</h2>
 
@@ -700,10 +700,10 @@ int main (int argc, char* argv[]) {
 ```
 
 For C++, you get those user-times for the different leaf-sizes:
-<figure class="aligncenter">
-            <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with different leafsizes with C++" style="max-width:500px;max-height:333px" class="size-full wp-image-54921"/></a>
-            <figcaption class="text-center">Execution times in seconds with different leafsizes with C++</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with different leafsizes with C++" width="500" height="333" loading="lazy"></a>
+    <figcaption>Execution times in seconds with different leafsizes with C++</figcaption>
+</figure>
 
 <h2>Conclusion</h2>
 As always, C++ is the fastest solution.
@@ -714,4 +714,4 @@ For Java and C++, the Strassen algorithm had better execution times than the ikj
 
 Leafsizes from 64 to 256 seem to be the best solution.
 
-<img src="https://vg02.met.vgwort.de/na/bc95a35e98ed4c7aa757f50e22f8d634" width="1" height="1" alt="">
+<img src="https://vg02.met.vgwort.de/na/bc95a35e98ed4c7aa757f50e22f8d634" alt="" width="1" height="1">

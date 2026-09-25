@@ -21,9 +21,9 @@ Wohnungen, keine Mehrfamilienhäuser, keine Doppelhaushälften, kein Nießbrauch
 keine Erbpacht, kein Denkmalschutz, keine Gewerbe-Einheiten, keine vermieteten
 Einliegerwohnungen.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2023/03/Projekt-Eigenheim.drawio.png"><img src="../images/2023/03/Projekt-Eigenheim.drawio.png" alt="Der Fahrplan zum Projekt Eigenheim" style="width: 512px;"/></a>
-<figcaption class="text-center">Der Fahrplan zum Projekt Eigenheim - beim Altbau</figcaption>
+<figure>
+    <a href="../images/2023/03/Projekt-Eigenheim.drawio.png"><img src="../images/2023/03/Projekt-Eigenheim.drawio.png" alt="Der Fahrplan zum Projekt Eigenheim" width="512" height="204"></a>
+    <figcaption>Der Fahrplan zum Projekt Eigenheim - beim Altbau</figcaption>
 </figure>
 
 ## 1. Maximale Finanzierung berechnen

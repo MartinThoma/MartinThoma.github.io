@@ -15,10 +15,10 @@ featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
 
 ## Nondeterministic finite-state machine
-<figure class="aligncenter">
-            <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
-            <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" width="365" height="119"></a>
+    <figcaption>Nondeterministic finite-state machine</figcaption>
+</figure>
 
 This image is created from a gv-file. I saved it as fsm.gv:
 
@@ -49,10 +49,10 @@ dot -Tpng fsm.gv -o myFiniteStateMachine.png
 
 ## Deterministic Finite-State Machine
 
-<figure class="aligncenter">
-            <a href="../images/2011/10/deterministic-finite-state-machine.png"><img src="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" style="max-width:528px;max-height:248px" class="size-full wp-image-8171"/></a>
-            <figcaption class="text-center">Deterministic finite-state machine</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/deterministic-finite-state-machine.png"><img src="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" width="528" height="248" loading="lazy"></a>
+    <figcaption>Deterministic finite-state machine</figcaption>
+</figure>
 
 ```latex
 digraph finite_state_machine {
@@ -119,10 +119,10 @@ pdflatex latexsheet.tex -output-format=pdf
 
 If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
 
-<figure class="aligncenter">
-            <a href="../images/2011/10/latex-finite-state-machine.png"><img src="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" style="max-width:400px;max-height:147px" class="size-full wp-image-13421"/></a>
-            <figcaption class="text-center">Finite-state-machine with LaTeX</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/10/latex-finite-state-machine.png"><img src="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" width="400" height="147" loading="lazy"></a>
+    <figcaption>Finite-state-machine with LaTeX</figcaption>
+</figure>
 
 ```latex
 \documentclass{scrartcl}

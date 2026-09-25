@@ -11,9 +11,9 @@ featured_image: logos/perfect-design.png
 ---
 Ich habe gerade das Gefühl, dass es keine guten Frischhaltedosen gibt.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/frischhaltedosen-chaos.jpg"><img src="../images/2025/10/frischhaltedosen-chaos.jpg" alt="Mein Frischhaltedosen-Chaos" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mein Frischhaltedosen-Chaos</figcaption>
+<figure>
+    <a href="../images/2025/10/frischhaltedosen-chaos.jpg"><img src="../images/2025/10/frischhaltedosen-chaos.jpg" alt="Mein Frischhaltedosen-Chaos" width="683" height="512"></a>
+    <figcaption>Mein Frischhaltedosen-Chaos</figcaption>
 </figure>
 
 
@@ -46,16 +46,16 @@ Ich will ein Set von Frischhaltedosen, welche folgende Eigenschaften haben:
     Marke/das Modell der Dose sowie deren Volumen sollten auch auf dem Boden
     stehen. Außen. Nicht innen. Damit man sie immer noch leicht reinigen kann.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/dosen-beschriftung.jpg"><img src="../images/2025/10/dosen-beschriftung.jpg" alt="Beschriftung auf einer Frischhaltedose" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Beschriftung auf einer Frischhaltedose</figcaption>
+<figure>
+    <a href="../images/2025/10/dosen-beschriftung.jpg"><img src="../images/2025/10/dosen-beschriftung.jpg" alt="Beschriftung auf einer Frischhaltedose" width="683" height="512" loading="lazy"></a>
+    <figcaption>Beschriftung auf einer Frischhaltedose</figcaption>
 </figure>
 
 ## Die perfekten Maße
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/perfekte-frischhaltedose.jpg"><img src="../images/2025/10/perfekte-frischhaltedose.jpg" alt="ChatGPT-Rendering einer guten Frischhaltedose" style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering einer guten Frischhaltedose</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/10/perfekte-frischhaltedose.jpg"><img src="../images/2025/10/perfekte-frischhaltedose.jpg" alt="ChatGPT-Rendering einer guten Frischhaltedose" width="683" height="512" loading="lazy"></a>
+    <figcaption>ChatGPT-Rendering einer guten Frischhaltedose</figcaption>
 </figure>
 
 Ich denke, eine Deckelfläche von 11x16cm ist ideal. Der Deckel soll einen 1cm

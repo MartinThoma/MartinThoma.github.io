@@ -13,9 +13,9 @@ Es stört mich, dass es so viele Geräte mit schlechtem Design gibt.
 Wer will, soll sich das hier für Handstaubsauger nehmen. Wenn das wirklich jemand
 baut, will ich aber ein Exemplar davon haben 😉
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/akku-handstaubsauger.png"><img src="../images/2025/09/akku-handstaubsauger.png" alt="ChatGPT-Rendering eines Akku-Handstaubsaugers" style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering eines Akku-Handstaubsaugers</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/09/akku-handstaubsauger.png"><img src="../images/2025/09/akku-handstaubsauger.png" alt="ChatGPT-Rendering eines Akku-Handstaubsaugers" width="341" height="512"></a>
+    <figcaption>ChatGPT-Rendering eines Akku-Handstaubsaugers</figcaption>
 </figure>
 
 ## Use Case
@@ -85,26 +85,26 @@ Aufbau:
 
 ## Korpus
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/06/batterie-handstaubsauger-korpus.jpg"><img src="../images/2026/06/batterie-handstaubsauger-korpus.jpg" alt="ChatGPT-Rendering eines Akku-Handstaubsauger-Korpus" style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering eines Akku-Handstaubsauger-Korpus.</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/06/batterie-handstaubsauger-korpus.jpg"><img src="../images/2026/06/batterie-handstaubsauger-korpus.jpg" alt="ChatGPT-Rendering eines Akku-Handstaubsauger-Korpus" width="768" height="512" loading="lazy"></a>
+    <figcaption>ChatGPT-Rendering eines Akku-Handstaubsauger-Korpus.</figcaption>
 </figure>
 
 ## Ladestation
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/06/ladestation.jpg"><img src="../images/2026/06/ladestation.jpg" alt="Gemini-Rendering einer Ladestation für einen Akku-Handstaubsauger" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Gemini-Rendering einer Ladestation für einen Akku-Handstaubsauger. Das ist nicht ganz so geworden wie ich es mir vorstelle - die beiden Aufsätze sollten von unten in die Station eingeclipst werden, damit man sie für das Anbringen am Rohr nicht umdrehen muss. Außerdem sollte keine Mulde in der Station sein, damit sich dort kein Staub sammeln kann. Es sollte dreiecksförmig sein, damit man es hineingleiten lassen kann.</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/06/ladestation.jpg"><img src="../images/2026/06/ladestation.jpg" alt="Gemini-Rendering einer Ladestation für einen Akku-Handstaubsauger" width="938" height="512" loading="lazy"></a>
+    <figcaption>Gemini-Rendering einer Ladestation für einen Akku-Handstaubsauger. Das ist nicht ganz so geworden wie ich es mir vorstelle - die beiden Aufsätze sollten von unten in die Station eingeclipst werden, damit man sie für das Anbringen am Rohr nicht umdrehen muss. Außerdem sollte keine Mulde in der Station sein, damit sich dort kein Staub sammeln kann. Es sollte dreiecksförmig sein, damit man es hineingleiten lassen kann.</figcaption>
 </figure>
 
 ## Aufsätze
 
 ### Teppichbürste
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/06/staubsauger-teppichbuerste-mit-led.jpg"><img src="../images/2026/06/staubsauger-teppichbuerste-mit-led.jpg" alt="Gemini-Rendering einer Staubsauger-Teppichbürste" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Gemini-Rendering einer Staubsauger-Teppichbürste. Das ist nicht ganz so geworden wie ich es mir vorstelle - </figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/06/staubsauger-teppichbuerste-mit-led.jpg"><img src="../images/2026/06/staubsauger-teppichbuerste-mit-led.jpg" alt="Gemini-Rendering einer Staubsauger-Teppichbürste" width="938" height="512" loading="lazy"></a>
+    <figcaption>Gemini-Rendering einer Staubsauger-Teppichbürste. Das ist nicht ganz so geworden wie ich es mir vorstelle -</figcaption>
 </figure>
 
 Die Teppichbürste ist vermutlich der wichtigste Aufsatz für einen Staubsauger. Sie sollte folgende Eigenschaften haben:
@@ -119,9 +119,9 @@ Die Teppichbürste ist vermutlich der wichtigste Aufsatz für einen Staubsauger.
 
 ### Fugendüse
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/06/fugenduese.jpg"><img src="../images/2026/06/fugenduese.jpg" alt="ChatGPT-Rendering einer Fugendüse" style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering einer Fugendüse. Das ist nicht ganz so geworden wie ich es mir vorstelle - es wäre cool, wenn etwas nach hinten versetzt noch eine LED-Beleuchtung nach vorne zeigen würde. Und der Flexi-Clip sollte vorne und nicht an der Seite sein</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/06/fugenduese.jpg"><img src="../images/2026/06/fugenduese.jpg" alt="ChatGPT-Rendering einer Fugendüse" width="938" height="512" loading="lazy"></a>
+    <figcaption>ChatGPT-Rendering einer Fugendüse. Das ist nicht ganz so geworden wie ich es mir vorstelle - es wäre cool, wenn etwas nach hinten versetzt noch eine LED-Beleuchtung nach vorne zeigen würde. Und der Flexi-Clip sollte vorne und nicht an der Seite sein</figcaption>
 </figure>
 
 * Klick-Anschluss an das Rohr, damit sie sicher befestigt ist. Außen am Rohr ist dann auch der Stromanschluss, der gleichzeitig verbunden wird

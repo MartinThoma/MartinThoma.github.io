@@ -10,9 +10,9 @@ tags: Digital Sovereignty, Self-hosted, Cloud
 featured_image: logos/earth.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/06/homeserver.png"><img src="../images/2025/06/homeserver.png" alt="A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Illustration generated with Claude AI: A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/06/homeserver.png"><img src="../images/2025/06/homeserver.png" alt="A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS" width="819" height="512"></a>
+    <figcaption>Illustration generated with Claude AI: A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS</figcaption>
 </figure>
 
 ## Hardware
@@ -66,9 +66,9 @@ Services I currently run on my homeserver:
 
 ## Self-Hosted Cloud Solutions
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/06/self-hosted-cloud-solutions.png"><img src="../images/2025/06/self-hosted-cloud-solutions.png" alt="A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Illustration generated with Claude AI: A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/06/self-hosted-cloud-solutions.png"><img src="../images/2025/06/self-hosted-cloud-solutions.png" alt="A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server" width="819" height="512" loading="lazy"></a>
+    <figcaption>Illustration generated with Claude AI: A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server</figcaption>
 </figure>
 
 ### Features

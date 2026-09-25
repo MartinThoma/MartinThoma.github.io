@@ -9,9 +9,9 @@ category: German posts
 tags: House, Money, Energy
 featured_image: logos/house.png
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/pv-angebotsvergleich.png"><img src="../images/2025/10/pv-angebotsvergleich.png" alt="Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/10/pv-angebotsvergleich.png"><img src="../images/2025/10/pv-angebotsvergleich.png" alt="Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich</figcaption>
 </figure>
 
 Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hausdach aufgeführt:

@@ -24,9 +24,9 @@ kontinuierlich gesunken. 2024 lag er bei rund 512 TWh ([Quelle](https://de.stati
 Verbrauchs von 2007 entspricht. Allerdings wird der Strombedarf durch die
 Elektrifizierung von Verkehr und Wärme in den kommenden Jahren wieder steigen.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png"><img src="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png" alt="Bruttostromverbrauch in Deutschland von 1990 bis 2023" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Bruttostromverbrauch in Deutschland von 1990 bis 2023 (<a href="https://www.umweltbundesamt.de/daten/energie/stromverbrauch">Quelle</a>)</figcaption>
+<figure>
+    <a href="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png"><img src="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png" alt="Bruttostromverbrauch in Deutschland von 1990 bis 2023" width="871" height="512"></a>
+    <figcaption>Bruttostromverbrauch in Deutschland von 1990 bis 2023 (<a href="https://www.umweltbundesamt.de/daten/energie/stromverbrauch">Quelle</a>)</figcaption>
 </figure>
 
 Schon heute zeigt sich die Bedeutung der Effizienz: Der Nettostromverbrauch lag
@@ -36,9 +36,9 @@ optimieren und den Verbrauch gezielt zu steuern.
 
 ## Erzeugung: Erneuerbare Energien auf dem Vormarsch
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/strommix-2024.png"><img src="../images/2025/01/strommix-2024.png" alt="Strommix 2024" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Strommix 2024: Man sieht, dass Windkraft+Kohle+Erdgas+PV fast alles decken. Biomasse und Wasserkraft spielen noch eine gewisse Rolle. Komplett unwichtig sind Öl, Müll und Geothermie (<a href="https://www.energy-charts.info/charts/energy_pie/chart.htm?l=de&c=DE&interval=year&show_labels=1&legendItems=0wh&year=2024">Datenquelle</a>)</figcaption>
+<figure>
+    <a href="../images/2025/01/strommix-2024.png"><img src="../images/2025/01/strommix-2024.png" alt="Strommix 2024" width="1097" height="512" loading="lazy"></a>
+    <figcaption>Strommix 2024: Man sieht, dass Windkraft+Kohle+Erdgas+PV fast alles decken. Biomasse und Wasserkraft spielen noch eine gewisse Rolle. Komplett unwichtig sind Öl, Müll und Geothermie (<a href="https://www.energy-charts.info/charts/energy_pie/chart.htm?l=de&c=DE&interval=year&show_labels=1&legendItems=0wh&year=2024">Datenquelle</a>)</figcaption>
 </figure>
 
 
@@ -55,9 +55,9 @@ Im zeitlichen Verlauf sieht man:
 
 Das Fraunhofer-Institut für Solare Energiesysteme (ISE) hat eine [Live-Visualisierung](https://www.energy-charts.info/charts/energy/chart.htm?l=de&c=DE&stacking=stacked_absolute&timeslider=1&year=-1&interval=year&legendItems=lz0zczk) der Stromerzeugung in Deutschland:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/nettostromerzeugung-dl-bis-2025.png"><img src="../images/2025/01/nettostromerzeugung-dl-bis-2025.png" alt="Bruttostromerzeugung in DL von 2019 - 2023" style="max-height: 512px"/></a>
-    <figcaption class="text-center"><a href="https://www.energy-charts.info/charts/energy/chart.htm?l=de&c=DE&stacking=stacked_absolute&timeslider=1&year=-1&interval=year&legendItems=lz0zczk">Datenquelle</a></figcaption>
+<figure>
+    <a href="../images/2025/01/nettostromerzeugung-dl-bis-2025.png"><img src="../images/2025/01/nettostromerzeugung-dl-bis-2025.png" alt="Bruttostromerzeugung in DL von 2019 - 2023" width="835" height="512" loading="lazy"></a>
+    <figcaption><a href="https://www.energy-charts.info/charts/energy/chart.htm?l=de&c=DE&stacking=stacked_absolute&timeslider=1&year=-1&interval=year&legendItems=lz0zczk">Datenquelle</a></figcaption>
 </figure>
 
 
@@ -74,7 +74,7 @@ Unabhängigkeit – ökonomisch wie geopolitisch.
 * Erdgas: Deutschland hat 2023 [2 Millionen Terajoule Erdgas importiert](https://www.destatis.de/DE/Themen/Wirtschaft/Aussenhandel/Tabellen/erdgas-jaehrlich.html). Seit 2023 kommt ein Großteil aus Norwegen, den Niederlanden und Belgien ([Quelle](https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/))
 
 
-<a href="https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/" title="Infografik: Woher bezieht Deutschland sein Gas? | Statista"><img src="https://cdn.statcdn.com/Infographic/images/normal/30706.jpeg" alt="Infografik: Woher bezieht Deutschland sein Gas? | Statista" width="100%" height="auto" style="width: 100%; height: auto !important; max-width:960px;-ms-interpolation-mode: bicubic;"/></a> Mehr Infografiken finden Sie bei <a href="https://de.statista.com/infografik/">Statista</a>
+<a href="https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/" title="Infografik: Woher bezieht Deutschland sein Gas? | Statista"><img src="https://cdn.statcdn.com/Infographic/images/normal/30706.jpeg" alt="Infografik: Woher bezieht Deutschland sein Gas? | Statista" width="960" loading="lazy"></a> Mehr Infografiken finden Sie bei <a href="https://de.statista.com/infografik/">Statista</a>
 
 
 ## Strompreise: Stabilisierung nach der Krise
@@ -171,9 +171,9 @@ Um innerhalb von Deutschland einen guten Vergleich der Stromquellen zu bekommen,
 muss man sich die [Stromgestehungskosten](https://de.wikipedia.org/wiki/Stromgestehungskosten)
 ansehen:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png"><img src="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png" alt="Stromgestehungskosten in Deutschland, 2024" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Stromgestehungskosten in Deutschland, 2024 (<a href="https://commons.wikimedia.org/wiki/File:Stromgestehungskosten_Fraunhofer_2024.svg">Bildquelle</a>, <a href="https://www.ise.fraunhofer.de/content/dam/ise/de/documents/publications/studies/DE2024_ISE_Studie_Stromgestehungskosten_Erneuerbare_Energien.pdf">Datenquelle</a>)</figcaption>
+<figure>
+    <a href="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png"><img src="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png" alt="Stromgestehungskosten in Deutschland, 2024" width="831" height="512" loading="lazy"></a>
+    <figcaption>Stromgestehungskosten in Deutschland, 2024 (<a href="https://commons.wikimedia.org/wiki/File:Stromgestehungskosten_Fraunhofer_2024.svg">Bildquelle</a>, <a href="https://www.ise.fraunhofer.de/content/dam/ise/de/documents/publications/studies/DE2024_ISE_Studie_Stromgestehungskosten_Erneuerbare_Energien.pdf">Datenquelle</a>)</figcaption>
 </figure>
 
 Man sieht hier deutlich, dass selbst bei einer optimistischen Annahme bei

@@ -79,9 +79,9 @@ did, we change the position of the cursor on the screen and continue
 extracting the ZIP archive. The execution of the ZIP archive extraction and
 your mouse cursor moving is **interleaved**.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/parallel-interleaved.png"><img src="../images/2021/05/parallel-interleaved.png" alt="Sequential vs Interleaved vs Parallel" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sequential vs Interleaved vs Parallel</figcaption>
+<figure>
+    <a href="../images/2021/05/parallel-interleaved.png"><img src="../images/2021/05/parallel-interleaved.png" alt="Sequential vs Interleaved vs Parallel" width="512" height="245" loading="lazy"></a>
+    <figcaption>Sequential vs Interleaved vs Parallel</figcaption>
 </figure>
 
 As you can see, the execution times overlap in the parallel case. In the
@@ -149,9 +149,9 @@ Think about how you get a website. You type in the URL in your browser, your
 browser sends a request to the website, the website gets some data to build
 the website and sends the response back. Simple enough, right?
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/synchronous-response.png"><img src="../images/2021/05/synchronous-response.png" alt="Synchronous Response" style="width: 512px;"/></a>
-    <figcaption class="text-center">Synchronous Response</figcaption>
+<figure>
+    <a href="../images/2021/05/synchronous-response.png"><img src="../images/2021/05/synchronous-response.png" alt="Synchronous Response" width="512" height="349" loading="lazy"></a>
+    <figcaption>Synchronous Response</figcaption>
 </figure>
 
 It becomes more interesting when you realize that all of this takes time.
@@ -191,9 +191,9 @@ To phrase it in our example:
   request and returns the power to execute.
 * Alice's DB request returned an answer. The response is crafted and Alice can continue.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/asynchronous-response.png"><img src="../images/2021/05/asynchronous-response.png" alt="Asynchronous Response" style="width: 512px;"/></a>
-    <figcaption class="text-center">Asynchronous Response</figcaption>
+<figure>
+    <a href="../images/2021/05/asynchronous-response.png"><img src="../images/2021/05/asynchronous-response.png" alt="Asynchronous Response" width="512" height="653" loading="lazy"></a>
+    <figcaption>Asynchronous Response</figcaption>
 </figure>
 
 This makes responses faster as waiting times are reduced. Of course, this only

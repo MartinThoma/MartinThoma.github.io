@@ -9,10 +9,10 @@ category: Code
 tags: Funny, Joke, Computer Science
 featured_image: 2011/09/Nerd-Crossing.jpg
 ---
-<figure class="alignright">
-            <a href="../images/2011/09/Nerd-Crossing.jpg"><img src="../images/2011/09/Nerd-Crossing.jpg" alt="Nerd-Crossing" style="max-width:128px;max-height:127px;" class="size-full wp-image-2071"/></a>
-            <figcaption class="text-center">Nerd-Crossing</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2011/09/Nerd-Crossing.jpg"><img src="../images/2011/09/Nerd-Crossing.jpg" alt="Nerd-Crossing" width="128" height="127"></a>
+    <figcaption>Nerd-Crossing</figcaption>
+</figure>
 
 I've just stumbled upon this joke on <a href="http://wilk4.com/humor/humore2.htm">wilk4.com</a>. This is the reason why I didn't use OOP in any of my (small) projects and why I don't understand those people who want every piece of code in OOP-style:
 

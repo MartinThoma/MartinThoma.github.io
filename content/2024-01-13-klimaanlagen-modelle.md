@@ -443,9 +443,9 @@ SOYAL 12 GWH12AKC-K6DNA1A
             * V1: Einphasig
 * Support gut ([ronnie auf YouTube](https://www.youtube.com/watch?v=TjIAc9yl-ng))
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/daikin-models.png"><img src="../images/2024/01/daikin-models.png" alt="Suchaktivität in Google Trends bzgl. der Daikin Modellreihen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Suchaktivität in Google Trends bzgl. der Daikin Modellreihen</figcaption>
+<figure>
+    <a href="../images/2024/01/daikin-models.png"><img src="../images/2024/01/daikin-models.png" alt="Suchaktivität in Google Trends bzgl. der Daikin Modellreihen" width="1012" height="512" loading="lazy"></a>
+    <figcaption>Suchaktivität in Google Trends bzgl. der Daikin Modellreihen</figcaption>
 </figure>
 
 

@@ -18,10 +18,10 @@ pdflatex latex.tex -output-format=pdf
 ```
 
 <h2>gnuplot</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/01/gnuplot-300x246.png"><img src="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" style="max-width:300px;max-height:246px" class="size-medium wp-image-12781"/></a>
-            <figcaption class="text-center">gnuplot</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/gnuplot-300x246.png"><img src="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" width="300" height="246"></a>
+    <figcaption>gnuplot</figcaption>
+</figure>
 ```latex
 \documentclass{article}
 
@@ -40,10 +40,10 @@ pdflatex latex.tex -output-format=pdf
 ```
 
 <h2>tikzpicture</h2>
-<figure class="aligncenter">
-            <a href="../images/2012/01/tikzpicture1-180x300.png"><img src="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" style="max-width:180px;max-height:300px" class="size-medium wp-image-12821"/></a>
-            <figcaption class="text-center">tikzpicture</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2012/01/tikzpicture1-180x300.png"><img src="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" width="180" height="300" loading="lazy"></a>
+    <figcaption>tikzpicture</figcaption>
+</figure>
 ```latex
 \documentclass{article}
 

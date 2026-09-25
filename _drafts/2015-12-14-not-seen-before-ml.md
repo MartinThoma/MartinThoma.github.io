@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Things I haven't seen before ML
+slug: things-i-havent-seen-before-ml
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags:
-- Rating
+tags: Rating
 featured_image: logos/star.png
 ---
 
@@ -32,9 +33,9 @@ waiting times:
 * Opening a file with a single line which is very long &rightarrow; Sublime
   Text gets really slow
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2015/12/ml-not-seen-before-renaming-time.png" alt="Renaming becomes really slow" />
-    <figcaption class="text-center">Renaming becomes really slow</figcaption>
+<figure>
+    <a href="../images/2015/12/ml-not-seen-before-renaming-time.png"><img src="../images/2015/12/ml-not-seen-before-renaming-time.png" alt="Renaming becomes really slow" width="537" height="184"></a>
+    <figcaption>Renaming becomes really slow</figcaption>
 </figure>
 
 
@@ -53,7 +54,7 @@ This takes several minutes.
 
 ## Long saving times
 
-<figure class="wp-caption aligncenter img-thumbnail">
-     <img src="../images/2016/12/ml-not-seen-before-saving.png" alt="Saving your data suddenly takes a long time" /></a>
-    <figcaption class="text-center">Saving your data suddenly takes a long time</figcaption>
+<figure>
+    <a href="../images/2015/12/ml-not-seen-before-saving.png"><img src="../images/2015/12/ml-not-seen-before-saving.png" alt="Saving your data suddenly takes a long time" loading="lazy"></a>
+    <figcaption>Saving your data suddenly takes a long time</figcaption>
 </figure>

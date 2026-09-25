@@ -12,9 +12,9 @@ status: draft
 ---
 The world is transitioning to electric energy.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/06/energy-transition.png"><img src="../images/2025/06/energy-transition.png" alt="From fossil power plants to wind, solar, batteries, heat pumps and electric cars" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Illustration generated with Claude AI: From fossil power plants to wind, solar, batteries, heat pumps and electric cars</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/06/energy-transition.png"><img src="../images/2025/06/energy-transition.png" alt="From fossil power plants to wind, solar, batteries, heat pumps and electric cars" width="819" height="512"></a>
+    <figcaption>Illustration generated with Claude AI: From fossil power plants to wind, solar, batteries, heat pumps and electric cars</figcaption>
 </figure>
 
 Humanity started with **organic energy sources** like wood and animal power,

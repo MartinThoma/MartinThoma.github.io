@@ -38,7 +38,7 @@ Bei den folgenden Identitäten sei $n \in \mathbb{N}$.
 <strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte:
 $\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$<br/>
 <strong>I.S.</strong>:
-$\sum_{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1) \stackrel{I.V.}{=} \frac{1}{2} \cdot n \cdot (n+1) + (n+1) = $
+$\sum_{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1) \stackrel{I.V.}{=} \frac{1}{2} \cdot n \cdot (n+1) + (n+1) =$
 $= \frac{1}{2} \cdot (n^2 + n) + (n+1) = \frac{1}{2} \cdot (n^2 + 3n + 2) = \frac{1}{2} \cdot (n+1)(n+2) \blacksquare$
 
 <h4>Weitere</h4>

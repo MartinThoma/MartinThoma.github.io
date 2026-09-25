@@ -23,10 +23,10 @@ For loops have some properties you simply have to define:
 
 A for loop usually consists of an initialization part, a condition, and an iteration step:
 
-<figure class="aligncenter">
-            <a href="../images/2011/11/for-loop-structure1.png"><img src="../images/2011/11/for-loop-structure1.png" alt="for loop structure" style="max-width:285px;max-height:176px" class="size-full wp-image-9251"/></a>
-            <figcaption class="text-center">The structure of a for loop.</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/11/for-loop-structure1.png"><img src="../images/2011/11/for-loop-structure1.png" alt="for loop structure" width="285" height="176"></a>
+    <figcaption>The structure of a for loop.</figcaption>
+</figure>
 
 ## Python's Special Structure
 

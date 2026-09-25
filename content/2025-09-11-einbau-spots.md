@@ -12,9 +12,9 @@ featured_image: logos/house.png
 Ich werde hoffentlich noch dieses Jahr meine Küche renovieren und dabei einige
 Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/einbau-spots.png"><img src="../images/2025/09/einbau-spots.png" alt="Einbau-Spots in einer abgehängten Küchendecke" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Einbau-Spots in einer abgehängten Küchendecke</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/09/einbau-spots.png"><img src="../images/2025/09/einbau-spots.png" alt="Einbau-Spots in einer abgehängten Küchendecke" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Einbau-Spots in einer abgehängten Küchendecke</figcaption>
 </figure>
 
 <table>

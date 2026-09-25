@@ -44,12 +44,16 @@ schaffen werden, BSW jedoch nicht.
 
 Das Ergebnis könnte in etwa so aussehen:
 
-![Das zu erwartende Ergebnis der Landtagswahl in Sachsen-Anhalt 2026: 42%&nbsp;AfD, 22%&nbsp;CDU, 12%&nbsp;Linke, 8%&nbsp;SPD, 5%&nbsp;Grüne](../images/2026/09/sachsen-anhalt-umfrage-2026.png)
+<figure>
+    <a href="../images/2026/09/sachsen-anhalt-umfrage-2026.png"><img src="../images/2026/09/sachsen-anhalt-umfrage-2026.png" alt="Das zu erwartende Ergebnis der Landtagswahl in Sachsen-Anhalt 2026: 42%&amp;nbsp;AfD, 22%&amp;nbsp;CDU, 12%&amp;nbsp;Linke, 8%&amp;nbsp;SPD, 5%&amp;nbsp;Grüne" width="512" height="304"></a>
+</figure>
 
 Die **5%-Hürde** besagt, dass Parteien nur dann in den Landtag einziehen, wenn sie
 mindestens 5% der Stimmen erhalten. Das würde folgende Sitzverteilung ergeben:
 
-![Das zu erwartende Landesparlament für Sachsen-Anhalt](../images/2026/09/sachsen-anhalt-landesparlament-prognose.png)
+<figure>
+    <a href="../images/2026/09/sachsen-anhalt-landesparlament-prognose.png"><img src="../images/2026/09/sachsen-anhalt-landesparlament-prognose.png" alt="Das zu erwartende Landesparlament für Sachsen-Anhalt" width="512" height="389" loading="lazy"></a>
+</figure>
 
 Das hätte einige Konsequenzen:
 

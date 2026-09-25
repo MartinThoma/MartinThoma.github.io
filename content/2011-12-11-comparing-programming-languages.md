@@ -9,10 +9,10 @@ category: Code
 tags: Programming, Programming Language
 featured_image: 2011/12/compare-programming-languages.png
 ---
-<figure class="alignright">
-            <a href="../images/2011/12/compare-programming-languages.png"><img src="../images/2011/12/compare-programming-languages.png" alt="Compare programming languages" style="max-width:128px;max-height:128px;" class="size-full wp-image-9801 "/></a>
-            <figcaption class="text-center">Compare programming languages</figcaption>
-        </figure>
+<figure class="figure-right">
+    <a href="../images/2011/12/compare-programming-languages.png"><img src="../images/2011/12/compare-programming-languages.png" alt="Compare programming languages" width="128" height="128"></a>
+    <figcaption>Compare programming languages</figcaption>
+</figure>
 
 If you want to compare programming languages, I can recommend the following links:
 <ul>

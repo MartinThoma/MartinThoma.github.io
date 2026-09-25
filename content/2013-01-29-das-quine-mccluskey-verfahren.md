@@ -95,15 +95,15 @@ $g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d c
 
 <strong>Lösung</strong>:
 (Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)
-<figure class="aligncenter">
-            <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche Lösung der Aufgabe 7.2.1 aus DT" style="max-width:300px;max-height:236px" class="size-medium wp-image-56641"/></a>
-            <figcaption class="text-center">Handschriftliche Lösung der Aufgabe 7.2.1 aus DT</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche Lösung der Aufgabe 7.2.1 aus DT" width="300" height="236" loading="lazy"></a>
+    <figcaption>Handschriftliche Lösung der Aufgabe 7.2.1 aus DT</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" alt="Handschriftliche Lösung der Aufgabe 7.2.2 aus DT" style="max-width:300px;max-height:253px" class="size-medium wp-image-56651"/></a>
-            <figcaption class="text-center">Handschriftliche Lösung der Aufgabe 7.2.2 aus DT</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" alt="Handschriftliche Lösung der Aufgabe 7.2.2 aus DT" width="300" height="253" loading="lazy"></a>
+    <figcaption>Handschriftliche Lösung der Aufgabe 7.2.2 aus DT</figcaption>
+</figure>
 
 <h2>Quellen</h2>
 Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw&list=PL025B377F9094FCB9&index=13">Vorlesung</a> und dem Tutorium erstellt.

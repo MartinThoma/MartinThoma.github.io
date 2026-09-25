@@ -71,7 +71,7 @@ SEARCH_URL = "search/"
 SEARCH_SAVE_AS = "search/index.html"
 
 PLUGIN_PATHS = [
-    "./pelican_plugin-render_math",
+    "./plugins",
     "./pelican-tipue_search",
     "./pelican-toc",
     "./pelican-sitemap",
@@ -79,7 +79,8 @@ PLUGIN_PATHS = [
     # './simple_footnotes',
 ]
 PLUGINS = [
-    "pelican_plugin-render_math",
+    "pelican.plugins.render_math",
+    "render_math_fixes",
     "tipue_search",
     "toc",
     "sitemap",

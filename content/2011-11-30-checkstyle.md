@@ -58,28 +58,28 @@ checkstyle -c /home/moose/Downloads/Progr_WS11_Checkstyle1.xml -r .
 
 <h2>Checkstyle and eclipse</h2>
 Go to <code><u>H</u>elp &rarr; Install New <u>S</u>oftware ...</code>
-<figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-path-updates-300x173.png"><img src="../images/2011/11/eclipse-path-updates-300x173.png" alt="Install new software or plugins in eclipse" style="max-width:300px;max-height:173px" class="size-medium wp-image-9671"/></a>
-            <figcaption class="text-center">Install new software or plugins in eclipse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/11/eclipse-path-updates-300x173.png"><img src="../images/2011/11/eclipse-path-updates-300x173.png" alt="Install new software or plugins in eclipse" width="300" height="173"></a>
+    <figcaption>Install new software or plugins in eclipse</figcaption>
+</figure>
 
 Install <code>http://eclipse-cs.sf.net/update/</code> as a new "repository".
 
 After you have installed the plugin, you have to activate it for your project. To do so, you have to go to <code><u>P</u>roject &rarr; <u>P</u>roperties</code> and check <code>Checkstyle active for this project</code>. Then you have to change to the <code>Local Check Configurations</code> tab and load your personal checkstyle xml files.
 
-<figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-checkstyle-properties-300x104.png"><img src="../images/2011/11/eclipse-checkstyle-properties-300x104.png" alt="Checkstyle properties in eclipse" style="max-width:300px;max-height:104px" class="size-medium wp-image-9681"/></a>
-            <figcaption class="text-center">Checkstyle properties in eclipse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/11/eclipse-checkstyle-properties-300x104.png"><img src="../images/2011/11/eclipse-checkstyle-properties-300x104.png" alt="Checkstyle properties in eclipse" width="300" height="104" loading="lazy"></a>
+    <figcaption>Checkstyle properties in eclipse</figcaption>
+</figure>
 
 Click on <code>New</code>, give it a name and click on <code>import</code>. Go back to the main tab and use your personal checkstyle. You will have to rebuild the project.
 
 You might want to use more than one checkstyle file. You can do that if you uncheck <code>Use simple configuration</code>:
 
-<figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-checkstyle-multiple-files.png"><img src="../images/2011/11/eclipse-checkstyle-multiple-files.png" alt="Multiple Checkstyle files in Eclipse" style="max-width:598px;max-height:265px" class="size-full wp-image-9711"/></a>
-            <figcaption class="text-center">Multiple Checkstyle files in Eclipse</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/11/eclipse-checkstyle-multiple-files.png"><img src="../images/2011/11/eclipse-checkstyle-multiple-files.png" alt="Multiple Checkstyle files in Eclipse" width="598" height="265" loading="lazy"></a>
+    <figcaption>Multiple Checkstyle files in Eclipse</figcaption>
+</figure>
 
 Now you can set <code>File Set Configuration</code> to <code>All</code>, select your <code>Check Configuration</code>, click on <code>OK</code> and enable it in the <code>Main</code> tab.
 

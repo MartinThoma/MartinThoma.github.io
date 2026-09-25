@@ -17,38 +17,38 @@ Google has published the Ngram Viewer. This is a tool which allows the user to s
 
 Here is an example search:
 
-<figure class="alignnone">
-            <a href="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png"><img src="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France" style="max-width:300px;max-height:113px;" class="size-medium wp-image-1971"/></a>
-            <figcaption class="text-center">Google Ngram Viewer: Germany vs France</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png"><img src="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France" width="300" height="113"></a>
+    <figcaption>Google Ngram Viewer: Germany vs France</figcaption>
+</figure>
 
 The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.
 Don't worry about the exact numbers. If one curve is higher than the other, more books contained the specified Ngram.
 
 My example shows that the term "France" was more often in books than "Germany". Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote "germany" instead of "Germany". So it's case sensitive:
 
-<figure class="alignnone">
-            <a href="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png"><img src="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich" style="max-width:300px;max-height:112px;" class="size-medium wp-image-1981"/></a>
-            <figcaption class="text-center">Google Ngram Viewer: Germany vs. France vs. Third-Reich</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png"><img src="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich" width="300" height="112" loading="lazy"></a>
+    <figcaption>Google Ngram Viewer: Germany vs. France vs. Third-Reich</figcaption>
+</figure>
 
 You can compare how successful some books are:
-<figure class="alignnone">
-            <a href="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png"><img src="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" style="max-width:300px;max-height:112px;" class="size-medium wp-image-2001"/></a>
-            <figcaption class="text-center">Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png"><img src="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" width="300" height="112" loading="lazy"></a>
+    <figcaption>Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code</figcaption>
+</figure>
 
 Quite interesting is also the interest in famous physicists:
-<figure class="alignnone">
-            <a href="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png"><img src="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png" alt="Google Ngram Viewer: Famous physicists" style="max-width:300px;max-height:113px;" class="size-medium wp-image-2011"/></a>
-            <figcaption class="text-center">Google Ngram Viewer: Famous physicists</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png"><img src="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png" alt="Google Ngram Viewer: Famous physicists" width="300" height="113" loading="lazy"></a>
+    <figcaption>Google Ngram Viewer: Famous physicists</figcaption>
+</figure>
 
 You can try all sorts of things:
-<figure class="alignnone">
-            <a href="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png"><img src="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy" style="max-width:300px;max-height:111px;" class="size-medium wp-image-2031"/></a>
-            <figcaption class="text-center">Google Ngram Viewer: Happy</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png"><img src="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy" width="300" height="111" loading="lazy"></a>
+    <figcaption>Google Ngram Viewer: Happy</figcaption>
+</figure>
 
 Did you get some interesting results? Please post a link!
 

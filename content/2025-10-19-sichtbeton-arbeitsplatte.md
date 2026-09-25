@@ -10,9 +10,9 @@ tags: DIY, Home Improvement, House
 featured_image: logos/star.png
 status: draft
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/sichtbeton-arbeitsplatte.png"><img src="../images/2025/10/sichtbeton-arbeitsplatte.png" alt="Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/10/sichtbeton-arbeitsplatte.png"><img src="../images/2025/10/sichtbeton-arbeitsplatte.png" alt="Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe" width="819" height="512"></a>
+    <figcaption>Mit Claude AI generierte Illustration: Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe</figcaption>
 </figure>
 
 * https://www.bigmeatlove.de/beton-arbeitsplatte-DIY.html

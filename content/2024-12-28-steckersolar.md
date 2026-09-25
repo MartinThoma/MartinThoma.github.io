@@ -45,9 +45,9 @@ Ich habe die Anlage seit Juni 2025 in Betrieb. Das Frühjahr war ab März dieses
 Jahr allerdings super hell und sonnig, daher gehe ich hier mal recht
 optimistisch an die geschätzten Werte für März-Mai ran:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/12/steckersolar-ertrag.png"><img src="../images/2024/12/steckersolar-ertrag.png" alt="Ertrag und Sonnenstunden" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Ertrag und Sonnenstunden</figcaption>
+<figure>
+    <a href="../images/2024/12/steckersolar-ertrag.png"><img src="../images/2024/12/steckersolar-ertrag.png" alt="Ertrag und Sonnenstunden" width="975" height="512"></a>
+    <figcaption>Ertrag und Sonnenstunden</figcaption>
 </figure>
 
 * Januar (geschätzt): 21 kWh

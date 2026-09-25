@@ -36,9 +36,9 @@ Countersinks create a professional finish by allowing screw heads to sit flush w
 
 ## Pocket-Hole Jigs
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/industrial-living-room.jpg"><img src="../images/2024/01/industrial-living-room.jpg" alt="Industrial-style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Industrial-style living room</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/industrial-living-room.jpg"><img src="../images/2024/01/industrial-living-room.jpg" alt="Industrial-style living room" width="512" height="512"></a>
+    <figcaption>Industrial-style living room</figcaption>
 </figure>
 
 Pocket screws have a flat head that functions as a miniature clamp, pulling the joint tight.

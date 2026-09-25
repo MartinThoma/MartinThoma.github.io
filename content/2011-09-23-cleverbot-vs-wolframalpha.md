@@ -15,15 +15,15 @@ I was curious how Cleverbot would answer when I compared it to <a href="http://w
 
 Here are two of my conversations:
 
-<figure class="aligncenter">
-            <a href="../images/2011/09/Cleverbot.png"><img src="../images/2011/09/Cleverbot.png" alt="Cleverbot" style="max-width:324px;"/></a>
-            <figcaption class="text-center">Cleverbot</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Cleverbot.png"><img src="../images/2011/09/Cleverbot.png" alt="Cleverbot" width="324" height="528"></a>
+    <figcaption>Cleverbot</figcaption>
+</figure>
 
-<figure class="aligncenter">
-            <a href="../images/2011/09/Cleverbot-2.png"><img src="../images/2011/09/Cleverbot-2.png" alt="Cleverbot" style="max-width:323px;"/></a>
-            <figcaption class="text-center">Cleverbot</figcaption>
-        </figure>
+<figure>
+    <a href="../images/2011/09/Cleverbot-2.png"><img src="../images/2011/09/Cleverbot-2.png" alt="Cleverbot" width="323" height="514" loading="lazy"></a>
+    <figcaption>Cleverbot</figcaption>
+</figure>
 
 This Cleverbot isn't very clever...
 

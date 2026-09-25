@@ -10,7 +10,10 @@ tags: Software Architecture, Python, Software Engineering
 featured_image: logos/star.png
 medium_url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
 ---
-![An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.](../images/2024/02/event-driven-software.png)*An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.*
+<figure>
+    <a href="../images/2024/02/event-driven-software.png"><img src="../images/2024/02/event-driven-software.png" alt="An event-driven system decouples producers of events and the effects that those events should have on the remaining software system." width="1503" height="723"></a>
+    <figcaption>An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.</figcaption>
+</figure>
 
 An event-driven software architecture can help you write cleaner code. Most software engineers are likely familiar with pre-defined event systems such as those provided by frontend frameworks/languages: [keypress in JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event), [bind in Tkinter](https://www.geeksforgeeks.org/python-binding-function-in-tkinter/), or [keyPressEvent in PyQt/PySide](https://doc.qt.io/qtforpython-6/PySide6/QtGui/QKeyEvent.html#detailed-description). You might also know [Django Signals](https://docs.djangoproject.com/en/5.0/topics/signals/), or have heard of Apache Kafka or Google Cloud Pub/Sub in the context of distributed systems.
 
@@ -22,7 +25,10 @@ The components of an event-driven system are straightforward: You have events, p
 
 I recently started building the [flitz file manager](https://pypi.org/project/flitz/) to dip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.
 
-![A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.](../images/2024/02/flitz-file-explorer.png)*A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.*
+<figure>
+    <a href="../images/2024/02/flitz-file-explorer.png"><img src="../images/2024/02/flitz-file-explorer.png" alt="A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory." width="1219" height="848" loading="lazy"></a>
+    <figcaption>A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.</figcaption>
+</figure>
 
 For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an “up” button. When it is clicked, the current path shown in the URL bar is changed and the shown documents in the details pane are changed.
 

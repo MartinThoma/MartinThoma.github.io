@@ -11,44 +11,20 @@ featured_image: 2013/01/queens-moves.png
 ---
 In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.
 
-<ul class="gallery mw-gallery-traditional">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/tic-tac-toe.png" class="image">
-                  <img src="../images/2013/01/tic-tac-toe.png" alt="Tic Tac Toe" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Tic Tac Toe</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/battleships.png" class="image">
-                  <img src="../images/2013/01/battleships.png" alt="Battleships" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Battleships</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/queens-moves.png" class="image">
-                  <img src="../images/2013/01/queens-moves.png" alt="Moves of the queen in chess" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Moves of the queen in chess</div>
-      </div>
-   </li>
-</ul>
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/01/tic-tac-toe.png"><img src="../images/2013/01/tic-tac-toe.png" alt="Tic Tac Toe" width="120" height="104"></a>
+        <figcaption>Tic Tac Toe</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/battleships.png"><img src="../images/2013/01/battleships.png" alt="Battleships" width="120" height="120" loading="lazy"></a>
+        <figcaption>Battleships</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/queens-moves.png"><img src="../images/2013/01/queens-moves.png" alt="Moves of the queen in chess" width="120" height="120" loading="lazy"></a>
+        <figcaption>Moves of the queen in chess</figcaption>
+    </figure>
+</div>
 
 <h2>isOnBoard(int x, int y)</h2>
 You should create a method that checks if a coordinate is on your board. This can be as simple as this:

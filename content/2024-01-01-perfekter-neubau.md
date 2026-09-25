@@ -36,9 +36,9 @@ heißt:
 Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
 0,15 W/(m²K)) erreichen, luftdicht sein und Wärmebrücken vermeiden.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/05/ausenwand-maueraufbau.jpg"><img src="../images/2026/05/ausenwand-maueraufbau.jpg" alt="Außenwand Maueraufbau" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Außenwand Maueraufbau</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/05/ausenwand-maueraufbau.jpg"><img src="../images/2026/05/ausenwand-maueraufbau.jpg" alt="Außenwand Maueraufbau" width="429" height="512"></a>
+    <figcaption>Außenwand Maueraufbau</figcaption>
 </figure>
 
 Der Keller sollte als weiße Wanne
@@ -77,9 +77,9 @@ Der Keller sollte als weiße Wanne
 
 ### Heizung
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/heat-pump.jpg"><img src="../images/2024/01/heat-pump.jpg" alt="Wärmepumpe" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Wärmepumpe</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/heat-pump.jpg"><img src="../images/2024/01/heat-pump.jpg" alt="Wärmepumpe" width="512" height="512" loading="lazy"></a>
+    <figcaption>Wärmepumpe</figcaption>
 </figure>
 
 Ich habe lange überlegt, was aus meiner Sicht die beste Heizungsart für einen
@@ -111,7 +111,9 @@ Brauchwasser-Wärmepumpe setzen. Das hat einige Vorteile:
 Ein Hygienespeicher kann als zusätzlicher Speicher für Warmwasser dienen: Der
 Heizstab erhitzt das Wasser im Hygienespeicher.
 
-![Hygienespeicher im Heizungsraum](../images/2026/05/hygienespeicher.jpg)
+<figure class="ai-generated">
+    <a href="../images/2026/05/hygienespeicher.jpg"><img src="../images/2026/05/hygienespeicher.jpg" alt="Hygienespeicher im Heizungsraum" width="1074" height="1216" loading="lazy"></a>
+</figure>
 
 Wenn man dann Warmwasser
 benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
@@ -144,9 +146,9 @@ Alternativen zu den Klimasplitgeräten + Brauchwasser-Wärmepumpe:
 
 ### Smart Home
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/smart-home.jpg"><img src="../images/2024/01/smart-home.jpg" alt="Smart Home" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Smart Home</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/smart-home.jpg"><img src="../images/2024/01/smart-home.jpg" alt="Smart Home" width="512" height="512" loading="lazy"></a>
+    <figcaption>Smart Home</figcaption>
 </figure>
 
 * Ethernet-Buchse in jedem Raum
@@ -170,9 +172,9 @@ Alternativen zu den Klimasplitgeräten + Brauchwasser-Wärmepumpe:
 
 ## Türen
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/haustuer.jpg"><img src="../images/2024/01/haustuer.jpg" alt="Haustür" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Haustür</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/haustuer.jpg"><img src="../images/2024/01/haustuer.jpg" alt="Haustür" width="512" height="512" loading="lazy"></a>
+    <figcaption>Haustür</figcaption>
 </figure>
 
 Haustür:
@@ -392,9 +394,9 @@ Bei Feinsteinzeug-Fliesen:
   recht einfach: Außenputz, Wand (z.B. Ziegel oder Poroton?), Kalk-Putz (z.B. <a href="https://www.terralilia.de/produkte/terra-calce/">Terra Calce</a> oder <a href="https://www.alpenkalk.de/products/rollputz-fein-24-kg">AlpenKalk</a>) mit
   Kalk-Farbe.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten" width="512" height="512" loading="lazy"></a>
+    <figcaption>Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten</figcaption>
 </figure>
 
 ### Wandaufbau
@@ -407,9 +409,9 @@ Bei Feinsteinzeug-Fliesen:
 
 ### Fenster
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2026/05/fenster.jpg"><img src="../images/2026/05/fenster.jpg" alt="Fenster eines Neubaus" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Fenster eines Neubaus</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2026/05/fenster.jpg"><img src="../images/2026/05/fenster.jpg" alt="Fenster eines Neubaus" width="768" height="512" loading="lazy"></a>
+    <figcaption>Fenster eines Neubaus</figcaption>
 </figure>
 
 * Rollläden: Überall und elektrisch, ohne Verbindung nach innen. Aber mit einem
@@ -431,9 +433,9 @@ Bei Feinsteinzeug-Fliesen:
 
 ## Küche
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2023/12/beautiful-kitchen-white-gold.jpg"><img src="../images/2023/12/beautiful-kitchen-white-gold.jpg" alt="Küche" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Küche</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2023/12/beautiful-kitchen-white-gold.jpg"><img src="../images/2023/12/beautiful-kitchen-white-gold.jpg" alt="Küche" width="512" height="512" loading="lazy"></a>
+    <figcaption>Küche</figcaption>
 </figure>
 
 * **Spülbecken**: Flächenbündig oder Unterbaubecken. Im Gegensatz zur Einbauspüle
@@ -479,14 +481,14 @@ Luxus:
   Pendeltür. Mindestens 90x90cm, besser 120x120cm. Eine Revisionsdusche, also
   eine Dusche, bei der man ohne großen Aufwand an die Rohre kommt.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Badezimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Badezimmer</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/smart-mirror.jpg"><img src="../images/2024/01/smart-mirror.jpg" alt="Smart Mirror mit Wettervorhersage und Uhr" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Smart Mirror mit Wettervorhersage und Uhr</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/smart-mirror.jpg"><img src="../images/2024/01/smart-mirror.jpg" alt="Smart Mirror mit Wettervorhersage und Uhr" width="512" height="512" loading="lazy"></a>
+    <figcaption>Smart Mirror mit Wettervorhersage und Uhr</figcaption>
 </figure>
 
 Einrichtung:
@@ -502,9 +504,9 @@ Einrichtung:
 
 ## Wohnzimmer
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/living-room.jpg"><img src="../images/2024/01/living-room.jpg" alt="Wohnzimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Wohnzimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/living-room.jpg"><img src="../images/2024/01/living-room.jpg" alt="Wohnzimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Wohnzimmer</figcaption>
 </figure>
 
 * Sitzfenster
@@ -515,16 +517,16 @@ Einrichtung:
 
 * Integrierter "schwebender" Nachttisch; macht die Reinigung leichter
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/sleeping-room.jpg"><img src="../images/2024/01/sleeping-room.jpg" alt="Schlafzimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Schlafzimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/sleeping-room.jpg"><img src="../images/2024/01/sleeping-room.jpg" alt="Schlafzimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Schlafzimmer</figcaption>
 </figure>
 
 ## Büro
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/home-office.jpg"><img src="../images/2024/01/home-office.jpg" alt="Büro" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Büro</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/home-office.jpg"><img src="../images/2024/01/home-office.jpg" alt="Büro" width="512" height="512" loading="lazy"></a>
+    <figcaption>Büro</figcaption>
 </figure>
 
 Genug Platz für einen Schreibtisch mit Laptop und zweitem Bildschirm sowie ein
@@ -532,9 +534,9 @@ paar Aktenordner. Muss nicht groß sein.
 
 ## Kinderzimmer
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/house-childrens-room.jpg"><img src="../images/2024/01/house-childrens-room.jpg" alt="Kinderzimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Kinderzimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/house-childrens-room.jpg"><img src="../images/2024/01/house-childrens-room.jpg" alt="Kinderzimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Kinderzimmer</figcaption>
 </figure>
 
 * Sollte relativ groß sein, weil Kinder dort ja doch recht viel Zeit verbringen
@@ -542,16 +544,16 @@ paar Aktenordner. Muss nicht groß sein.
 
 ## Gästezimmer
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/guest-room.jpg"><img src="../images/2024/01/guest-room.jpg" alt="Gästezimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Gästezimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/guest-room.jpg"><img src="../images/2024/01/guest-room.jpg" alt="Gästezimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Gästezimmer</figcaption>
 </figure>
 
 ## Garage
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/garage.jpg"><img src="../images/2024/01/garage.jpg" alt="Garage" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Garage</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/garage.jpg"><img src="../images/2024/01/garage.jpg" alt="Garage" width="512" height="512" loading="lazy"></a>
+    <figcaption>Garage</figcaption>
 </figure>
 
 Man muss ein paar Sachen unterbringen können
@@ -568,42 +570,42 @@ Ein Waschbecken wäre auch gut. Und natürlich Steckdosen. Eine Wallbox.
 
 Eine Chill-Area mit Whirlpool hat schon was, obwohl ich den Energiebedarf nicht so toll finde.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/haus-whirlpool.jpg"><img src="../images/2024/01/haus-whirlpool.jpg" alt="Whirlpool" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Whirlpool</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/haus-whirlpool.jpg"><img src="../images/2024/01/haus-whirlpool.jpg" alt="Whirlpool" width="512" height="512" loading="lazy"></a>
+    <figcaption>Whirlpool</figcaption>
 </figure>
 
 Ein "sunken Firepit" am Pool ist auch cool:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/sunken-firepit.jpg"><img src="../images/2024/01/sunken-firepit.jpg" alt="Sunken Firepit" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Sunken Firepit</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/sunken-firepit.jpg"><img src="../images/2024/01/sunken-firepit.jpg" alt="Sunken Firepit" width="512" height="512" loading="lazy"></a>
+    <figcaption>Sunken Firepit</figcaption>
 </figure>
 
 Und natürlich viele Hochbeete.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hochbeet.jpg"><img src="../images/2024/01/hochbeet.jpg" alt="Hochbeet" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hochbeet</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/hochbeet.jpg"><img src="../images/2024/01/hochbeet.jpg" alt="Hochbeet" width="512" height="512" loading="lazy"></a>
+    <figcaption>Hochbeet</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/garden-beds.jpg"><img src="../images/2024/01/garden-beds.jpg" alt="Hochbeet" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hochbeet</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/garden-beds.jpg"><img src="../images/2024/01/garden-beds.jpg" alt="Hochbeet" width="512" height="512" loading="lazy"></a>
+    <figcaption>Hochbeet</figcaption>
 </figure>
 
 Mit Glasbrocken (Gabionen) in Türkis und LEDs kann man sehr schöne Sachen machen (Wege, Kräuterspirale, Mauern)
 
 ## Vorratskeller
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/vorratskeller.jpg"><img src="../images/2024/01/vorratskeller.jpg" alt="Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/vorratskeller.jpg"><img src="../images/2024/01/vorratskeller.jpg" alt="Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen" width="512" height="512" loading="lazy"></a>
+    <figcaption>Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/vorratskeller-2.jpg"><img src="../images/2024/01/vorratskeller-2.jpg" alt="Vorräte" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Vorräte</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/vorratskeller-2.jpg"><img src="../images/2024/01/vorratskeller-2.jpg" alt="Vorräte" width="512" height="512" loading="lazy"></a>
+    <figcaption>Vorräte</figcaption>
 </figure>
 
 * Bundesamt für Bevölkerungsschutz und Katastrophenhilfe: [Essen und Trinken bevorraten](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/Bevorraten/bevorraten_node.html)
@@ -624,9 +626,9 @@ Zwei Räume, auf die ich in einem Neubau nicht verzichten möchte:
 
 Meine Frau findet Ankleidezimmer toll:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/ankleidezimmer.jpg"><img src="../images/2024/01/ankleidezimmer.jpg" alt="Ankleidezimmer" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Ankleidezimmer</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2024/01/ankleidezimmer.jpg"><img src="../images/2024/01/ankleidezimmer.jpg" alt="Ankleidezimmer" width="512" height="512" loading="lazy"></a>
+    <figcaption>Ankleidezimmer</figcaption>
 </figure>
 
 
@@ -712,6 +714,6 @@ Generationen im Haus leben zu können.
 
 ## Einzelnachweise
 
-[^1] selfio.de: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
-[^2] Der Bauladen: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm)
-[^3] VBG: [Bodenbeläge – Fußbodenmaterial](https://www.vbg.de/SharedDocs/Medien-Center/DE/Faltblatt/Themen/Arbeitsstaetten_gestalten/fi_boden_fussboden.pdf?__blob=publicationFile&v=9)
+1. selfio.de: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
+2. Der Bauladen: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm)
+3. VBG: [Bodenbeläge – Fußbodenmaterial](https://www.vbg.de/SharedDocs/Medien-Center/DE/Faltblatt/Themen/Arbeitsstaetten_gestalten/fi_boden_fussboden.pdf?__blob=publicationFile&v=9)

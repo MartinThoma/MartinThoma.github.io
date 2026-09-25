@@ -27,7 +27,7 @@ $L_2 = \{a^i b^j c^k | i \lt j \lt k\}$.
 <strong>Annahme</strong>: $L_2$ sei regulär.
 
 Aus dem Pumping-Lemma folgt:
-$\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}: $
+$\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}:$
 $\exists \text{ Darstellung } uvx = w \text{ mit } v \neq \varepsilon \land |uv| \leq n$ für die gilt:
 
 $uv^i x \in L_2 \forall i \in \mathbb{N}_0$
@@ -38,10 +38,10 @@ Sei $n \in \mathbb{N}$ die Konstante aus dem Pumping-Lemma.
 
 Betrachte nun $w = a^n b^{n+1} c^{n+2}$. Offensichtlich gilt $w \in L_2$. Da $|uv| \leq n$ muss in v mindestens ein a sein.
 
-$\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1 $
-$\Rightarrow uv^2x \notin L_2 $
-$\Rightarrow \text{Widerspruch} $
-$\Rightarrow \text{Die Annahme war falsch.} $
+$\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1$
+$\Rightarrow uv^2x \notin L_2$
+$\Rightarrow \text{Widerspruch}$
+$\Rightarrow \text{Die Annahme war falsch.}$
 $\Rightarrow L_2$ ist nicht regulär.
 
 <em>Bemerkung</em>: Eigentlich ist es ein Beweis durch Kontraposition. Man weiß, es gilt:

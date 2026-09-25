@@ -16,9 +16,9 @@ einer sehr niedrigen Geschwindigkeit. Sie werden häufig als Ride-Pooling-System
 eingesetzt, bei denen mehrere Fahrgäste mit ähnlichen Routen gemeinsam befördert
 werden.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/12/autonomer-shuttle-bus.png"><img src="../images/2025/12/autonomer-shuttle-bus.png" alt="Ein autonomer elektrischer Shuttle-Bus mit Sensoren" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein autonomer elektrischer Shuttle-Bus mit Sensoren</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/12/autonomer-shuttle-bus.png"><img src="../images/2025/12/autonomer-shuttle-bus.png" alt="Ein autonomer elektrischer Shuttle-Bus mit Sensoren" width="819" height="512"></a>
+    <figcaption>Ein autonomer elektrischer Shuttle-Bus mit Sensoren. Mit Claude AI generierte Illustration.</figcaption>
 </figure>
 
 ## Vergangene Projekte

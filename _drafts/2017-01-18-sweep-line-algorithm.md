@@ -1,15 +1,13 @@
 ---
 layout: post
 title: Sweep-Line algorithm for intersections
+slug: sweep-line-algorithm-for-intersections
+lang: en
 author: Martin Thoma
 date: 2013-10-19 11:54:51
-categories:
-- Code
-tags:
-- algorithms
-- Geometry
-- Java
+tags: algorithms, Geometry, Java
 featured_image:
+categories: Code
 ---
 Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.
 
@@ -47,7 +45,12 @@ The list of lines might be something like this:
 </table>
 
 You can visualize the given lines like this:
-[caption id="attachment_53231" align="aligncenter" width="500"]<a href="../images/2013/01/lines-intersections.png"><img src="../images/2013/01/lines-intersections.png" alt="Some lines" width="500" height="201" class="size-full wp-image-53231" /></a> Some lines[/caption]
+
+<figure>
+    <a href="../images/2013/01/lines-intersections.png"><img src="../images/2013/01/lines-intersections.png" alt="Some lines" width="500" height="201"></a>
+    <figcaption>Some lines</figcaption>
+</figure>
+
 
 Now your list of pairs should look like this:
 [[a, b], [a, c], [a, d], [d, g], [e, b], [e, c], [e, d], [e, f], [e, g], [f, g], [k, l], [m, n], [h, o]]

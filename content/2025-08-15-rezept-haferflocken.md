@@ -11,9 +11,9 @@ featured_image: logos/cooking.png
 ---
 Ein gesunder Start in den Tag.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/schoko-power-muesli.jpg"><img src="../images/2025/09/schoko-power-muesli.jpg" alt="ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao." style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao.</figcaption>
+<figure class="ai-generated">
+    <a href="../images/2025/09/schoko-power-muesli.jpg"><img src="../images/2025/09/schoko-power-muesli.jpg" alt="ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao." width="768" height="512"></a>
+    <figcaption>ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao.</figcaption>
 </figure>
 
 ## Zutaten

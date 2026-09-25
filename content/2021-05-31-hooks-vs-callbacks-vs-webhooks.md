@@ -11,9 +11,9 @@ featured_image: logos/star.png
 subtitle: How do I use them and where is the difference?
 medium_url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Webhook banner" style="width: 512px;"/></a>
-    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp">Dan-Cristian Pădureț</a></figcaption>
+<figure>
+    <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Webhook banner" width="512" height="384"></a>
+    <figcaption>Photo by <a href="https://unsplash.com/@dancristianp">Dan-Cristian Pădureț</a></figcaption>
 </figure>
 
 The Unix programming philosophy is to do (just) one thing but do it well.
@@ -93,9 +93,9 @@ extend the functionality of a web service by using hooks. For example, Slack
 allows you to post messages to a URL
 ([source](https://api.slack.com/messaging/webhooks#create_a_webhook)).
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/polling-vs-webhook.png"><img src="../images/2021/05/polling-vs-webhook.png" alt="Two models how the client can get new information" style="width: 512px;"/></a>
-    <figcaption class="text-center">Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The “pull” model is also called “polling”. For the “push” model, the server needs to know the clients. So the clients need to subscribe. For this reason, it’s also called PubSub or Publisher-Subscriber-Model.</figcaption>
+<figure>
+    <a href="../images/2021/05/polling-vs-webhook.png"><img src="../images/2021/05/polling-vs-webhook.png" alt="Two models how the client can get new information" width="512" height="316" loading="lazy"></a>
+    <figcaption>Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The “pull” model is also called “polling”. For the “push” model, the server needs to know the clients. So the clients need to subscribe. For this reason, it’s also called PubSub or Publisher-Subscriber-Model.</figcaption>
 </figure>
 
 Webhooks allow websites to push information to you instead of you pulling (and
