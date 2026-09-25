@@ -14,20 +14,20 @@ to see them with my own eyes.
 
 ## Arctic
 
-<figure>
-    <a href="../images/2017/01/frost-flower.jpg"><img src="../images/2017/01/frost-flower.jpg" alt="Frost flower" width="640" height="429"></a>
-    <figcaption><a href="https://en.wikipedia.org/wiki/Frost_flower">Frost flower</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Cristaux_de_givre_au_Hohneck_-_dsdm11646.jpg">Wikimedia</a>)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/01/hair-ice.jpg"><img src="../images/2017/01/hair-ice.jpg" alt="Hair Ice" width="640" height="480" loading="lazy"></a>
-    <figcaption>Hair Ice (Image source: <a href="https://commons.wikimedia.org/wiki/File:FrostBeardDetail.jpg">Wikimedia</a>)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/01/nacreous-clouds.jpg"><img src="../images/2017/01/nacreous-clouds.jpg" alt="Nacreous Clouds" width="640" height="224" loading="lazy"></a>
-    <figcaption><a href="https://en.wikipedia.org/wiki/Polar_stratospheric_cloud">Nacreous Clouds</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Polar_Stratospheric_Cloud_type_I_above_Cirrus.jpg">Wikimedia</a>)</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/01/frost-flower.jpg"><img src="../images/2017/01/frost-flower.jpg" alt="Frost flower" width="640" height="429"></a>
+        <figcaption><a href="https://en.wikipedia.org/wiki/Frost_flower">Frost flower</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Cristaux_de_givre_au_Hohneck_-_dsdm11646.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/01/hair-ice.jpg"><img src="../images/2017/01/hair-ice.jpg" alt="Hair Ice" width="640" height="480" loading="lazy"></a>
+        <figcaption>Hair Ice (Image source: <a href="https://commons.wikimedia.org/wiki/File:FrostBeardDetail.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/01/nacreous-clouds.jpg"><img src="../images/2017/01/nacreous-clouds.jpg" alt="Nacreous Clouds" width="640" height="224" loading="lazy"></a>
+        <figcaption><a href="https://en.wikipedia.org/wiki/Polar_stratospheric_cloud">Nacreous Clouds</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Polar_Stratospheric_Cloud_type_I_above_Cirrus.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+</div>
 
 * Snow Chimneys
 
@@ -75,25 +75,24 @@ to see them with my own eyes.
 
 ### Iceland
 
-<figure>
-    <a href="../images/2017/01/vulcanic-lightning.jpg"><img src="../images/2017/01/vulcanic-lightning.jpg" alt="Vulcanic Lightning" width="640" height="415" loading="lazy"></a>
-    <figcaption>Vulcanic Lightning, for example at Eyjafjallajökull (Image source: <a href="https://commons.wikimedia.org/wiki/File:Rinjani_1994.jpg">Wikimedia</a>)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/01/ice-cave.jpg"><img src="../images/2017/01/ice-cave.jpg" alt="Ice cave" width="640" height="434" loading="lazy"></a>
-    <figcaption><a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Ice cave</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Wikimedia</a>)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/01/geyser.jpg"><img src="../images/2017/01/geyser.jpg" alt="Geyser" width="574" height="480" loading="lazy"></a>
-    <figcaption><a href="https://en.wikipedia.org/wiki/Geyser">Geyser</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Steam_Phase_eruption_of_Castle_geyser_with_double_rainbow.jpg">Wikimedia</a>)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/01/godafoss-waterfall-sunset.jpg"><img src="../images/2017/01/godafoss-waterfall-sunset.jpg" alt="Sunset at Goðafoss waterfall" width="640" height="360" loading="lazy"></a>
-    <figcaption>Sunset at <a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss">Goðafoss waterfall</a> (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5xwydp/i_went_on_a_roadtrip_in_iceland_and_i_captured/">reddit</a>). One can see the aurora there, too (<a href="https://www.reddit.com/r/EarthPorn/comments/62o70v/got_one_clear_night_on_a_recent_trip_to_iceland/">source</a>).</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/01/vulcanic-lightning.jpg"><img src="../images/2017/01/vulcanic-lightning.jpg" alt="Vulcanic Lightning" width="640" height="415" loading="lazy"></a>
+        <figcaption>Vulcanic Lightning, for example at Eyjafjallajökull (Image source: <a href="https://commons.wikimedia.org/wiki/File:Rinjani_1994.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/01/ice-cave.jpg"><img src="../images/2017/01/ice-cave.jpg" alt="Ice cave" width="640" height="434" loading="lazy"></a>
+        <figcaption><a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Ice cave</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/01/geyser.jpg"><img src="../images/2017/01/geyser.jpg" alt="Geyser" width="574" height="480" loading="lazy"></a>
+        <figcaption><a href="https://en.wikipedia.org/wiki/Geyser">Geyser</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Steam_Phase_eruption_of_Castle_geyser_with_double_rainbow.jpg">Wikimedia</a>)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/01/godafoss-waterfall-sunset.jpg"><img src="../images/2017/01/godafoss-waterfall-sunset.jpg" alt="Sunset at Goðafoss waterfall" width="640" height="360" loading="lazy"></a>
+        <figcaption>Sunset at <a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss">Goðafoss waterfall</a> (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5xwydp/i_went_on_a_roadtrip_in_iceland_and_i_captured/">reddit</a>). One can see the aurora there, too (<a href="https://www.reddit.com/r/EarthPorn/comments/62o70v/got_one_clear_night_on_a_recent_trip_to_iceland/">source</a>).</figcaption>
+    </figure>
+</div>
 
 * Steam Towers: Hverir
 * Auroras (e.g. in Reykjavik from late September to early April)

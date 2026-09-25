@@ -1,13 +1,12 @@
 ---
 layout: post
 title: First steps in Python Web Development
+slug: first-steps-in-python-web-development
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Python
-- Web Development
+category: Code
+tags: Python, Web Development
 featured_image: logos/python.png
 ---
 

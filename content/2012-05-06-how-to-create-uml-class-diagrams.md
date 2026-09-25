@@ -13,25 +13,24 @@ featured_image: 2012/05/UML-thumb.png
 Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool.
 
 Take a look at these screenshots:
-<figure>
-    <a href="../images/2012/05/dia-create-class.png"><img src="../images/2012/05/dia-create-class.png" alt="Create a class for a class diagram in Dia" width="231" height="611"></a>
-    <figcaption>Create a class for a class diagram in Dia</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/05/dia-class-properties.png"><img src="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia" width="676" height="589" loading="lazy"></a>
-    <figcaption>Edit class properties in Dia</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/05/dia-association.png"><img src="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" width="454" height="447" loading="lazy"></a>
-    <figcaption>Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/05/Dia-ClassDiagram.png"><img src="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia" width="519" height="104" loading="lazy"></a>
-    <figcaption>A quick example for a class diagram created with Dia</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2012/05/dia-create-class.png"><img src="../images/2012/05/dia-create-class.png" alt="Create a class for a class diagram in Dia" width="231" height="611"></a>
+        <figcaption>Create a class for a class diagram in Dia</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/05/dia-class-properties.png"><img src="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia" width="676" height="589" loading="lazy"></a>
+        <figcaption>Edit class properties in Dia</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/05/dia-association.png"><img src="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" width="454" height="447" loading="lazy"></a>
+        <figcaption>Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/05/Dia-ClassDiagram.png"><img src="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia" width="519" height="104" loading="lazy"></a>
+        <figcaption>A quick example for a class diagram created with Dia</figcaption>
+    </figure>
+</div>
 
 <h2>LaTeX</h2>
 I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different?

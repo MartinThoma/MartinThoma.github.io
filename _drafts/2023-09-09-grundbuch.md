@@ -2,12 +2,13 @@
 layout: post
 title: Grundbuch
 slug: grundbuch
+lang: de
 author: Martin Thoma
-status: draft
 date: 2018-08-08 20:00
 category: German posts
-tags: politics, German
+tags: Politics, German
 featured_image: logos/star.png
+status: draft
 ---
 
 1. Grundbuch kosten massiv durch digitale Verwaltung reduzieren

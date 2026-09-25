@@ -1,12 +1,12 @@
 ---
 layout: post
 title: System Administration over SSH
+slug: system-administration-over-ssh
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Linux
+category: Code
+tags: Linux
 featured_image: logos/linux.png
 ---
 

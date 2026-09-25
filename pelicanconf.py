@@ -28,12 +28,12 @@ READERS = {"html": None, "htm": None}
 # Blogroll
 LINKS = (("Pelican", "https://blog.getpelican.com/"),)
 
-# Social widget
+# Social widget: (kind of channel, URL)
 SOCIAL = (
-    ("Twitter", "https://twitter.com/_martinthoma"),
+    ("Microblogging", "https://bsky.app/profile/martin-thoma.bsky.social"),
     ("Email", "mailto:info@martin-thoma.de"),
-    ("Github", "https://github.com/MartinThoma"),
-    ("Stackoverflow", "http://stackoverflow.com/users/562769/martin-thoma"),
+    ("Code", "https://github.com/MartinThoma"),
+    ("Q&A", "https://stackoverflow.com/users/562769/martin-thoma"),
 )
 
 DEFAULT_PAGINATION = 10

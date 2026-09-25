@@ -1,17 +1,12 @@
 ---
 layout: post
 title: Sign-in systems with PHP
+slug: sign-in-systems-with-php
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- PHP
-- SQL
-- Salt
-- Hash
-- MD5
-- Bootstrap
+category: Code
+tags: PHP, SQL, Salt, Hash, MD5, Bootstrap, Database
 featured_image: logos/php.png
 ---
 

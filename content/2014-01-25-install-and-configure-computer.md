@@ -40,9 +40,9 @@ and [Linux Mint](https://en.wikipedia.org/wiki/Linux_Mint).
 
 If possible, I will give the Debian package names in the following list:
 
-* [`sublime_text`](//martin-thoma.com/sublime-text/)
+* [`sublime_text`](../sublime-text/)
 * [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
-    * [`jabref`](//martin-thoma.com/reference-management-with-jabref/): A reference manager
+    * [`jabref`](../reference-management-with-jabref/): A reference manager
     * `gnuplot`
     * `pdf2svg`
     * `aspell` and `aspell-de`

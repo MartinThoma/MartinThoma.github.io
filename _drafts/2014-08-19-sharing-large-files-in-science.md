@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Sharing large files in Science
+slug: sharing-large-files-in-science
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Python
-- Dropbox
+category: Code
+tags: Python, Dropbox
 featured_image: logos/python.png
 ---
 

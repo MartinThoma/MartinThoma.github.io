@@ -1,14 +1,12 @@
 ---
 layout: post
 title: Databases in Web Applications
+slug: databases-in-web-applications
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- MySQL
-- CouchDB
-- SQL
+category: Code
+tags: MySQL, CouchDB, SQL, Database
 featured_image: logos/sublime-text.png
 ---
 

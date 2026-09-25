@@ -56,7 +56,7 @@ When I give the path of the SDM_DE.msi I get:
 > "SDM_DE.msi" in einem Order, von dem aus Sie
 > "Secure Download Manager" installieren können.
 
-Then I got desperate and followed [threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu](https://threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu/) (similar: http://boris-spinner.de/secure-download-manager-sdm-unter-linux-ausfuehren/).
+Then I got desperate and followed [threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu](https://threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu/) (similar: [boris-spinner.de/secure-download-manager-sdm-unte…](http://boris-spinner.de/secure-download-manager-sdm-unter-linux-ausfuehren/)).
 
 It seems as if I need Linux to emulate Windows to get Windows ... it's a
 strange world.
@@ -65,8 +65,8 @@ strange world.
 
 Seems to be a 32-bit / 64-bit problem ...
 
-* http://wiki.winehq.org/FAQ#32_bit_wineprefix
-* https://appdb.winehq.org/objectManager.php?sClass=version&iId=31542
+* [wiki.winehq.org/FAQ](http://wiki.winehq.org/FAQ#32_bit_wineprefix)
+* [appdb.winehq.org/objectManager.php](https://appdb.winehq.org/objectManager.php?sClass=version&iId=31542)
 
 
 After trying to fix it, I get
@@ -137,7 +137,7 @@ If you are interested in the file format, you might want to read
 ## VMs
 
 Another try is installing a VM. You can download some at
-https://www.modern.ie/en-us/virtualization-tools#downloads
+[modern.ie/en-us/virtualization-tools](https://www.modern.ie/en-us/virtualization-tools#downloads)
 
 I downloaded IE11, Win 8.1. Importing the VM took about 15 minutes on my computer.
 Then I got another error:
@@ -155,7 +155,7 @@ probably take another 2 hours or so...
 
 13:23 - *argh* ... I just found another reason to hate Windows. I've just
 installed Windows 7. Cable-based network does not work out of the box.
-I have to install drivers from http://www.helpjet.net/files-Acer-TravelMate-5735Z.html#ANetwork
+I have to install drivers from [helpjet.net/files-Acer-TravelMate-5735Z.html](http://www.helpjet.net/files-Acer-TravelMate-5735Z.html#ANetwork)
 
 
 

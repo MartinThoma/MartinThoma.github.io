@@ -34,20 +34,20 @@ The [Tierpark Hellabrunn](https://de.wikipedia.org/wiki/Tierpark_Hellabrunn) ([m
 has about 19000 animals. It is open [from 9:00 to 17:00](http://www.hellabrunn.de/besuch-planen/oeffnungszeiten/) o'clock
 and costs [15.00 EUR for adults](http://www.hellabrunn.de/besuch-planen/tickets/).
 
-<figure>
-    <a href="../images/2017/12/Pongo-abelii.jpg"><img src="../images/2017/12/Pongo-abelii.jpg" alt="Monkey with its child" width="512" height="384" loading="lazy"></a>
-    <figcaption>Monkey with its child</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/12/Suricata-suricatta-1.jpg"><img src="../images/2017/12/Suricata-suricatta-1.jpg" alt="Meerkat" width="512" height="384" loading="lazy"></a>
-    <figcaption>Meerkat</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/12/Water-Elephants-4.jpg"><img src="../images/2017/12/Water-Elephants-4.jpg" alt="Elephant" width="512" height="384" loading="lazy"></a>
-    <figcaption>Elephant</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/12/Pongo-abelii.jpg"><img src="../images/2017/12/Pongo-abelii.jpg" alt="Monkey with its child" width="512" height="384" loading="lazy"></a>
+        <figcaption>Monkey with its child</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/12/Suricata-suricatta-1.jpg"><img src="../images/2017/12/Suricata-suricatta-1.jpg" alt="Meerkat" width="512" height="384" loading="lazy"></a>
+        <figcaption>Meerkat</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/12/Water-Elephants-4.jpg"><img src="../images/2017/12/Water-Elephants-4.jpg" alt="Elephant" width="512" height="384" loading="lazy"></a>
+        <figcaption>Elephant</figcaption>
+    </figure>
+</div>
 
 There is also [Sea Life](https://www.visitsealife.com/de/de/muenchen/). It
 costs 13.50 EUR.
@@ -63,7 +63,7 @@ You can go bouldering in at least three places in Munich:
 * [Boulderwelt West](https://www.boulderwelt-muenchen-west.de/) (near S8 station Neuaubing, 9.90 EUR, [virtual tour](https://www.boulderwelt-muenchen-west.de/halle/))
 * [DAV Kletterzentrum Thalkirchen](http://www.kbthalkirchen.de/einfuehrung-bouldern/) (near U3 station Brudermühlstraße, 10.00 EUR)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Lyb6vGkIfyM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Lyb6vGkIfyM?si=o1RzF6O2gaaoOV49" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Don't be afraid that you might fall. The floor is soft and you don't climb
 high. And most people are not that good anyway.

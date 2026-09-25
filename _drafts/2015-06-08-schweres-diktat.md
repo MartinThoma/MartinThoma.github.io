@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Schweres Diktat
+slug: schweres-diktat
+lang: de
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- My Bits and Bytes
-tags:
-- German
+category: German posts
+tags: German
 featured_image: logos/star.png
 ---
 The following is probably the most difficult dictation for German:

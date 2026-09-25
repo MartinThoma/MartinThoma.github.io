@@ -2,12 +2,13 @@
 layout: post
 title: MTG Multiplayer Rules
 slug: mtg-multiplayer
+lang: en
 author: Martin Thoma
-status: draft
 date: 2018-04-11 20:00
 category: My bits and bytes
 tags: MTG
 featured_image: logos/star.png
+status: draft
 ---
 In the past years I didn't play Magic the Gathering, but now I might do so
 again. I found some interesting multiplayer rules in the past, but I don't

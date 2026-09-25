@@ -1,6 +1,8 @@
 ---
 layout: post
 title: How to ask questions on StackOverflow
+slug: asking-questions-on-so
+lang: en
 author: Martin Thoma
 date: 2012-08-25 11:16:26
 category: The Web

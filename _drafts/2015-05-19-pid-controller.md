@@ -1,12 +1,12 @@
 ---
 layout: post
 title: PID-Controller
+slug: pid-controller
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Controller
+category: Cyberculture
+tags: Controller
 featured_image: logos/star.png
 ---
 PID controllers have three parts:
@@ -32,4 +32,4 @@ error as small as possible
 ## See also
 
 * [PID Control - A brief introduction](https://www.youtube.com/watch?v=UR0hOmjaHp0) 7:43 min + [Simple Examples of PID Control](https://www.youtube.com/watch?v=XfAt6hNV8XM) 13:09 min
-* http://www.frustfrei-lernen.de/thermodynamik/waermeenergie.html
+* [Wärmeenergie](http://www.frustfrei-lernen.de/thermodynamik/waermeenergie.html)

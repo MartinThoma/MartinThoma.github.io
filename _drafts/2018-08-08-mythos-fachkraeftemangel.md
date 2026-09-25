@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2018-08-08 20:00
 category: German posts
-tags: politics, German
+tags: Politics, German
 featured_image: logos/star.png
 status: draft
 ---
@@ -27,7 +27,7 @@ Titel auf Google News:
 
 Schlüsselstelle für 3:
 
-> Insbesondere die Landesverwaltung und die großen Kreisverwaltungen würden teilweise für dieselben Tätigkeiten deutlich mehr Geld zahlen und so die Abwanderung von Fachkräften fördern. – Quelle: https://www.svz.de/20641052 ©2018
+> Insbesondere die Landesverwaltung und die großen Kreisverwaltungen würden teilweise für dieselben Tätigkeiten deutlich mehr Geld zahlen und so die Abwanderung von Fachkräften fördern. – Quelle: [svz.de/20641052](https://www.svz.de/20641052) ©2018
 
 Schlüsselstelle für 5:
 

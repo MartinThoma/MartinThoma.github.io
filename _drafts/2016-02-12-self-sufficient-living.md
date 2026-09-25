@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Self-Sufficient Living
+slug: self-sufficient-living
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags:
-- decentralism
-- self-sufficient
-- off the grid
+tags: Decentralization, Self-Sufficiency
 featured_image: logos/star.png
 ---
 

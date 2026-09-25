@@ -411,7 +411,7 @@ interface. The REST interface is limited to 15 seconds of audio ([source](https:
 
 By default, SpeechRecognition package uses the endpoint
 
-> https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1
+> `https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1`
 
 Changing this to `conversation` changes the result to
 

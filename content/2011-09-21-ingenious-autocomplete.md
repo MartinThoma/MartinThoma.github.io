@@ -31,21 +31,20 @@ You can even find an article called "<a href="http://en.wikipedia.org/wiki/Epide
 
 I've heard of this in <a href="http://en.wikipedia.org/wiki/How_i_met_your_mother">How I Met Your Mother</a>.
 
-<figure>
-    <a href="../images/2011/09/autocomplete-germans-are-big.png"><img src="../images/2011/09/autocomplete-germans-are-big.png" alt="Germans are ..." width="400" height="81" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-germany-is-big.png"><img src="../images/2011/09/autocomplete-germany-is-big.png" alt="Germany is ..." width="400" height="74" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-why-are-germans-so-big.png"><img src="../images/2011/09/autocomplete-why-are-germans-so-big.png" alt="Why are Germans so ..." width="400" height="78" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-england-is-big.png"><img src="../images/2011/09/autocomplete-england-is-big.png" alt="England is ..." width="400" height="47" loading="lazy"></a>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/09/autocomplete-germans-are-big.png"><img src="../images/2011/09/autocomplete-germans-are-big.png" alt="Germans are ..." width="400" height="81" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-germany-is-big.png"><img src="../images/2011/09/autocomplete-germany-is-big.png" alt="Germany is ..." width="400" height="74" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-why-are-germans-so-big.png"><img src="../images/2011/09/autocomplete-why-are-germans-so-big.png" alt="Why are Germans so ..." width="400" height="78" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-england-is-big.png"><img src="../images/2011/09/autocomplete-england-is-big.png" alt="England is ..." width="400" height="47" loading="lazy"></a>
+    </figure>
+</div>
 
 <strong>Some systems:</strong>
 
@@ -65,17 +64,17 @@ I've heard of this in <a href="http://en.wikipedia.org/wiki/How_i_met_your_mothe
 
 <strong>And many others:</strong>
 
-<figure>
-    <a href="../images/2011/09/autocomplete-can-je-big.png"><img src="../images/2011/09/autocomplete-can-je-big.png" alt="Can Jesus ..." width="400" height="82" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-can-you-get-big.png"><img src="../images/2011/09/autocomplete-can-you-get-big.png" alt="Can you get ..." width="400" height="79" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-chuck-norris-big.png"><img src="../images/2011/09/autocomplete-chuck-norris-big.png" alt="Where ..." width="400" height="77" loading="lazy"></a>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/09/autocomplete-can-je-big.png"><img src="../images/2011/09/autocomplete-can-je-big.png" alt="Can Jesus ..." width="400" height="82" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-can-you-get-big.png"><img src="../images/2011/09/autocomplete-can-you-get-big.png" alt="Can you get ..." width="400" height="79" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-chuck-norris-big.png"><img src="../images/2011/09/autocomplete-chuck-norris-big.png" alt="Where ..." width="400" height="77" loading="lazy"></a>
+    </figure>
+</div>
 
 You don't search for Chuck Norris, Chuck Norris finds you!
 
@@ -89,39 +88,33 @@ You don't search for Chuck Norris, Chuck Norris finds you!
 
 I hope you have seen Terminator. Otherwise, you don't know <a href="http://en.wikipedia.org/wiki/Skynet_(Terminator)">Skynet</a>.
 
-<figure>
-    <a href="../images/2011/09/autocomplete-if-i-ate-big.png"><img src="../images/2011/09/autocomplete-if-i-ate-big.png" alt="If I ate ..." width="400" height="37" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-i-really-h-big.png"><img src="../images/2011/09/autocomplete-i-really-h-big.png" alt="I really h ..." width="400" height="49" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-is-it-wrong-to-big.png"><img src="../images/2011/09/autocomplete-is-it-wrong-to-big.png" alt="Is it wrong to ..." width="400" height="76" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-is-there-a-big.png"><img src="../images/2011/09/autocomplete-is-there-a-big.png" alt="Google autocomplete: Is there a ..." width="400" height="66" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-steve-jobs-is-big.png"><img src="../images/2011/09/autocomplete-steve-jobs-is-big.png" alt="Google autocomplete: Steve Jobs is ..." width="400" height="50" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-where-do-i-big.png"><img src="../images/2011/09/autocomplete-where-do-i-big.png" alt="Why do I ..." width="400" height="73" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/autocomplete-why-is-my-big.png"><img src="../images/2011/09/autocomplete-why-is-my-big.png" alt="Why is my ..." width="400" height="80" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/google-religion-is-big.png"><img src="../images/2011/09/google-religion-is-big.png" alt="Religion is ..." width="400" height="82" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/09/Autocomplete-I-hate-it-when-i-300x61.png"><img src="../images/2011/09/Autocomplete-I-hate-it-when-i-300x61.png" alt="Google Autocomplete: I hate it when ..." width="300" height="61" loading="lazy"></a>
-    <figcaption>Google Autocomplete: I hate it when ...</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/09/autocomplete-if-i-ate-big.png"><img src="../images/2011/09/autocomplete-if-i-ate-big.png" alt="If I ate ..." width="400" height="37" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-i-really-h-big.png"><img src="../images/2011/09/autocomplete-i-really-h-big.png" alt="I really h ..." width="400" height="49" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-is-it-wrong-to-big.png"><img src="../images/2011/09/autocomplete-is-it-wrong-to-big.png" alt="Is it wrong to ..." width="400" height="76" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-is-there-a-big.png"><img src="../images/2011/09/autocomplete-is-there-a-big.png" alt="Google autocomplete: Is there a ..." width="400" height="66" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-steve-jobs-is-big.png"><img src="../images/2011/09/autocomplete-steve-jobs-is-big.png" alt="Google autocomplete: Steve Jobs is ..." width="400" height="50" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-where-do-i-big.png"><img src="../images/2011/09/autocomplete-where-do-i-big.png" alt="Why do I ..." width="400" height="73" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/autocomplete-why-is-my-big.png"><img src="../images/2011/09/autocomplete-why-is-my-big.png" alt="Why is my ..." width="400" height="80" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/google-religion-is-big.png"><img src="../images/2011/09/google-religion-is-big.png" alt="Religion is ..." width="400" height="82" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/09/Autocomplete-I-hate-it-when-i-300x61.png"><img src="../images/2011/09/Autocomplete-I-hate-it-when-i-300x61.png" alt="Google Autocomplete: I hate it when ..." width="300" height="61" loading="lazy"></a>
+        <figcaption>Google Autocomplete: I hate it when ...</figcaption>
+    </figure>
+</div>

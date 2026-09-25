@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Python Markov Chain Packages
+slug: python-markov-chain-packages
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: Code
-tags: Python, Markov Chain
+category: Code
+tags: Python, Markov Chain, Probability, Mathematics
 featured_image: logos/python.png
 ---
 Markov Chains are probabilistic processes which depend only on the previous
@@ -17,7 +19,10 @@ changes from sunny do rainy is 0.2 and vice versa it is 0.4.
 
 You can visualize this with a graph like this:
 
-{% caption align="aligncenter" width="500" alt="Simple Markov chain weather model" text="Simple Markov chain weather model" url="../images/2015/05/markov-chain-rain-sun.png" %}
+<figure>
+    <a href="../images/2015/05/markov-chain-rain-sun.png"><img src="../images/2015/05/markov-chain-rain-sun.png" alt="Simple Markov chain weather model" width="500" height="237"></a>
+    <figcaption>Simple Markov chain weather model</figcaption>
+</figure>
 
 I am taking a course about markov chains this semester. Today, we've learned
 a bit how to use R (a programming language) to do very basic tasks.
@@ -110,7 +115,10 @@ for (step in 1:20) {
 
 This gives the following plot:
 
-{% caption align="aligncenter" width="500" alt="State probabilities starting in S3 after 1..20 steps (plotted with R)" text="State probabilities starting in S3 after 1..20 steps (plotted with R)" url="../images/2015/05/reproductin-rplot.png" %}
+<figure>
+    <a href="../images/2015/05/reproductin-rplot.png"><img src="../images/2015/05/reproductin-rplot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with R)" width="500" height="384" loading="lazy"></a>
+    <figcaption>State probabilities starting in S3 after 1..20 steps (plotted with R)</figcaption>
+</figure>
 
 The Python equivalent is
 
@@ -156,7 +164,10 @@ pyplot.show()
 
 The result looks like this
 
-{% caption align="aligncenter" width="500" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" text="State probabilities starting in S3 after 1..20 steps (plotted with Python)" url="../images/2015/01/image.png" %}
+<figure>
+    <a href="../images/2015/05/reproductin-python-plot.png"><img src="../images/2015/05/reproductin-python-plot.png" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" width="500" height="356" loading="lazy"></a>
+    <figcaption>State probabilities starting in S3 after 1..20 steps (plotted with Python)</figcaption>
+</figure>
 
 I've played around with the [matplotlib markers](http://matplotlib.org/api/markers_api.html)
 to make sure all points are visible.
@@ -250,6 +261,6 @@ markov chains.
 
 ## TODO
 
-* http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3097064/
-* https://pymc-devs.github.io/pymc/README.html
-* https://github.com/riccardoscalco/Pykov
+* [ncbi.nlm.nih.gov/pmc/articles/PMC3097064](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3097064/)
+* [pymc-devs.github.io/pymc/README.html](https://pymc-devs.github.io/pymc/README.html)
+* [github.com/riccardoscalco/Pykov](https://github.com/riccardoscalco/Pykov)

@@ -145,6 +145,35 @@ a.deepLink, .header-link { opacity: 0; text-decoration: none; color: var(--ink-m
 .nav a:hover { background: var(--surface-sunk); color: var(--ink); }
 .nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-strong); }
 
+/* Gliding pill: one ::before anchored to the current link (or the hovered/focused
+   one). Changing the anchor transitions its insets. Without anchor positioning
+   the per-link backgrounds above stay in effect. */
+@supports (anchor-name: --a) {
+  .nav { position: relative; isolation: isolate; }
+  .nav a:is(:hover, [aria-current="page"]) { background: none; }
+  .nav a[aria-current="page"],
+  .nav a:is(:hover, :focus-visible) { anchor-name: --nav-pill; }
+  .nav:has(a:is(:hover, :focus-visible)) a:not(:hover, :focus-visible) { anchor-name: none; }
+
+  .nav::before {
+    content: ""; position: absolute; z-index: -1; pointer-events: none;
+    position-anchor: --nav-pill;
+    inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+    border-radius: var(--pill); background: var(--surface-sunk);
+    /* no anchor (article pages, nothing hovered): fade out in place, then drop the position */
+    opacity: 0;
+    transition: opacity 0.2s, inset 0s 0.2s allow-discrete;
+  }
+  .nav:has(a:is([aria-current="page"], :hover, :focus-visible))::before {
+    opacity: 1;
+    transition: inset 0.35s cubic-bezier(0.3, 0.7, 0.2, 1), background-color 0.35s, opacity 0.2s;
+  }
+  /* green while it sits on the current page, grey while it visits another link */
+  .nav:has(a[aria-current="page"]):not(:has(a:not([aria-current="page"]):is(:hover, :focus-visible)))::before {
+    background: var(--accent-soft);
+  }
+}
+
 .search input, input[type="search"], input[type="text"], input[type="email"] {
   font: inherit; font-size: 0.95rem; color: var(--ink); background: var(--surface);
   border: 1px solid var(--hairline-strong); border-radius: var(--pill);
@@ -308,7 +337,8 @@ img { max-width: 100%; height: auto; }
      <a href="full-size.png"><img src="full-size.png" alt="…" width="…" height="…"></a>
      <figcaption>…</figcaption>
    </figure>
-   The link opens the original file in the browser: no JavaScript needed. */
+   lightbox.js opens a link to an image file in the lightbox below; without JavaScript the
+   link opens the original file in the browser. */
 figure { max-width: 100%; margin: 1.25rem auto; text-align: center; }
 figure img { border: 1px solid var(--hairline); border-radius: var(--r-sm); background: var(--surface); }
 figure > a { position: relative; display: inline-block; max-width: 100%; line-height: 0; cursor: zoom-in; }
@@ -323,24 +353,122 @@ figcaption { font-size: 0.85rem; color: var(--ink-muted); margin-top: 0.35rem; }
 }
 
 /* Gallery: <div class="gallery"> holding one figure per image. Every thumbnail sits
-   centered in a box of the same height, so the captions line up. */
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1rem; margin: 1.25rem 0; }
-.gallery figure { margin: 0; }
-.gallery figure > a { display: flex; align-items: center; justify-content: center; height: 8rem; }
-.gallery img { width: auto; max-height: 8rem; }
+   centered in a well of the same shape, so the captions line up. In the lightbox the
+   arrows move through the figures of the gallery. */
+.gallery {
+  /* the track maximum sets the column count: 4 in the reading column, 2 on phones */
+  --tile: 10.25rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, min(var(--tile), (100% - 1rem) / 2)));
+  justify-content: center; gap: 1.5rem 1rem; margin: 1.75rem 0;
+}
+.gallery:not(:has(> :nth-child(4))) { --tile: 13rem; }   /* up to three images: larger tiles */
+.gallery figure { margin: 0; min-width: 0; }
+.gallery figure > a {
+  display: block; aspect-ratio: 4 / 3;
+  border-radius: var(--r-md); background: var(--surface-sunk);
+}
+.gallery img {
+  position: absolute; inset: 0.6rem; margin: auto;
+  width: auto; height: auto; max-width: calc(100% - 1.2rem); max-height: calc(100% - 1.2rem);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;
+}
+/* expand hint, same dark pill as the AI badge */
+.gallery figure > a::before {
+  content: ""; position: absolute; z-index: 1; right: 0.4rem; bottom: 0.4rem;
+  width: 1.9rem; height: 1.9rem; border-radius: var(--pill);
+  background: rgb(0 0 0 / 0.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 0.95rem no-repeat;
+  opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
+.gallery figure > a:focus-visible::before { opacity: 1; }
+@media (hover: hover) {
+  .gallery figure > a:hover::before { opacity: 1; }
+  .gallery figure > a:hover img { transform: translateY(-2px) scale(1.03); box-shadow: var(--shadow-lift); }
+}
+.gallery figcaption { margin-top: 0.55rem; line-height: 1.35; text-wrap: pretty; }
+
+/* Lightbox (lightbox.js): one <dialog> for all figures. It keeps a dark palette in both
+   themes, because photos and screenshots read best on near-black. */
+.lightbox {
+  --accent: #4fc07d; --accent-strong: #7fd8a3;
+  --lb-ink: #e7ede9; --lb-muted: #9aa8a0; --lb-control: rgb(27 29 34 / 0.78); --lb-line: rgb(255 255 255 / 0.14);
+  width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0;
+  border: 0; background: transparent; color: var(--lb-ink); overflow: hidden;
+}
+.lightbox::backdrop {
+  background: rgb(10 11 13 / 0.94);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.lightbox[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+html:has(.lightbox[open]) { overflow: hidden; scrollbar-gutter: stable; }
+
+.lightbox-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 1rem; }
+.lightbox-count { font-size: 0.9rem; font-variant-numeric: tabular-nums; color: var(--lb-muted); padding-left: 0.35rem; }
+.lightbox-actions { display: flex; gap: 0.5rem; margin-left: auto; }
+.lightbox-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--lb-line); border-radius: var(--pill);
+  background: var(--lb-control); color: var(--lb-ink); cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+.lightbox-btn:hover { background: rgb(63 66 74 / 0.9); border-color: rgb(255 255 255 / 0.28); color: var(--lb-ink); }
+.lightbox-btn:active { transform: scale(0.94); }
+.lightbox-btn svg { width: 20px; height: 20px; }
+
+.lightbox-stage { position: relative; display: grid; place-items: center; container-type: size; touch-action: pinch-zoom; }
+.lightbox-frame { position: relative; line-height: 0; }
+.lightbox-img {
+  display: block; width: auto; height: auto;
+  max-width: calc(100cqw - 9rem); max-height: calc(100cqh - 0.5rem);
+  border-radius: var(--r-sm); background: #fff;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.45), 0 40px 90px -20px rgb(0 0 0 / 0.6);
+}
+.lightbox-img[src$=".svg"] { background: var(--surface); }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; translate: 0 -50%; }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox.is-single :is(.lightbox-prev, .lightbox-next, .lightbox-count) { display: none; }
+.lightbox.is-single .lightbox-img { max-width: calc(100cqw - 2rem); }
+
+.lightbox-stage.is-loading .lightbox-frame { opacity: 0.35; transition: opacity 0.2s; }
+.lightbox-stage.is-loading::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 2rem; height: 2rem;
+  border: 2px solid var(--lb-line); border-top-color: var(--lb-ink); border-radius: 50%;
+  animation: lightbox-spin 0.8s linear infinite;
+}
+@keyframes lightbox-spin { to { rotate: 1turn; } }
+.lightbox-error { max-width: 28rem; margin: 0; padding: 0 1rem; text-align: center; color: var(--lb-muted); }
+.lightbox-stage:not(.is-error) .lightbox-error, .lightbox-stage.is-error .lightbox-frame { display: none; }
+
+.lightbox-caption {
+  width: fit-content; max-width: min(100% - 2rem, 65ch); max-height: 30dvh; overflow-y: auto; margin: 0 auto; padding: 0.9rem 0 1.4rem;
+  font-size: 0.95rem; line-height: 1.5; text-align: center; text-wrap: pretty;
+}
+.lightbox-caption[hidden] { display: none; }
+
+::view-transition-group(lightbox-image) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+
+@media (max-width: 40rem) {
+  .lightbox-bar { padding: 0.5rem; }
+  .lightbox-img, .lightbox.is-single .lightbox-img { max-width: calc(100cqw - 1rem); }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+}
 
 /* AI marker: a small badge in the top-left corner of the image */
-.ai-generated > a::after, .ai-modified > a::after {
+.ai-generated > a::after, .ai-modified > a::after,
+.lightbox-frame:is(.ai-generated, .ai-modified)::after {
   position: absolute; top: 0.5rem; left: 0.5rem;
   padding: 0.15rem 0.5rem; border-radius: var(--pill);
   background: rgb(0 0 0 / 0.7); color: #fff;
   font-size: 0.7rem; font-weight: 600; line-height: 1.3; letter-spacing: 0.02em;
   pointer-events: none;
 }
-.ai-generated > a::after { content: "AI generated"; }
-.ai-modified > a::after { content: "AI modified"; }
-:lang(de) .ai-generated > a::after { content: "KI-generiert"; }
-:lang(de) .ai-modified > a::after { content: "KI-bearbeitet"; }
+.ai-generated > a::after, .lightbox-frame.ai-generated::after { content: "AI generated"; }
+.ai-modified > a::after, .lightbox-frame.ai-modified::after { content: "AI modified"; }
+:lang(de) .ai-generated > a::after, .lightbox-frame.ai-generated:lang(de)::after { content: "KI-generiert"; }
+:lang(de) .ai-modified > a::after, .lightbox-frame.ai-modified:lang(de)::after { content: "KI-bearbeitet"; }
 
 /* previous/next links at the end of a series */
 .navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; }
@@ -364,7 +492,7 @@ figcaption { font-size: 0.85rem; color: var(--ink-muted); margin-top: 0.35rem; }
 #tipue_search_foot_boxes li.current { background: var(--accent-soft); color: var(--accent-strong); border-radius: var(--pill); min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  *, .nav::before { transition: none !important; }
   .post-card:hover, .articles-timeline a:hover, .btn:hover { transform: none; }
 }
 @media (max-width: 46rem) {

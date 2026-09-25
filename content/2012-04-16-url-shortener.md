@@ -52,20 +52,20 @@ shorteners:
 The user interface should be minimalistic. Goo.gl is a good example, bitly
 and tinyurl are still ok:
 
-<figure>
-    <a href="../images/2015/01/googl.png"><img src="../images/2015/01/googl.png" alt="Goo.gl url shortener" width="500" height="260" loading="lazy"></a>
-    <figcaption>Goo.gl url shortener</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2015/01/tinyurl.png"><img src="../images/2015/01/tinyurl.png" alt="Tinyurl url shortener" width="500" height="261" loading="lazy"></a>
-    <figcaption>Tinyurl url shortener</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2015/01/bitly.png"><img src="../images/2015/01/bitly.png" alt="Bit.ly url shortener" width="500" height="247" loading="lazy"></a>
-    <figcaption>Bit.ly url shortener</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2015/01/googl.png"><img src="../images/2015/01/googl.png" alt="Goo.gl url shortener" width="500" height="260" loading="lazy"></a>
+        <figcaption>Goo.gl url shortener</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/tinyurl.png"><img src="../images/2015/01/tinyurl.png" alt="Tinyurl url shortener" width="500" height="261" loading="lazy"></a>
+        <figcaption>Tinyurl url shortener</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/bitly.png"><img src="../images/2015/01/bitly.png" alt="Bit.ly url shortener" width="500" height="247" loading="lazy"></a>
+        <figcaption>Bit.ly url shortener</figcaption>
+    </figure>
+</div>
 
 ### Choose your own name
 

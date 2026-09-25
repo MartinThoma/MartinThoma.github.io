@@ -1,14 +1,12 @@
 ---
 layout: post
 title: A short introduction to R
+slug: short-introduction-to-r
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- R
-- data visualization
-- statistics
+category: Code
+tags: R, Data Visualization, Statistics
 featured_image: logos/R.png
 ---
 

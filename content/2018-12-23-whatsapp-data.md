@@ -126,4 +126,4 @@ a couple of times:
 
 ## My analysis
 
-* weekday/weekend cycles: http://www.climate-lab-book.ac.uk/spirals/
+* weekday/weekend cycles: [climate-lab-book.ac.uk/spirals](http://www.climate-lab-book.ac.uk/spirals/)

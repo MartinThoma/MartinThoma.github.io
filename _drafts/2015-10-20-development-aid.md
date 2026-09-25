@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Development Aid
+slug: development-aid
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Help
-- Humanity
+category: Cyberculture
+tags: Help, Humanity
 featured_image: logos/star.png
 ---
 

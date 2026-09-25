@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Why Software Development is Hard
+slug: software-development-is-hard
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags:
-- Development
+tags: Software Engineering
 featured_image: logos/star.png
 ---
 Programming is like writing a recepie for a really, relly stupid but very

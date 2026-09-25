@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Social Engineering
+slug: social-engineering
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Rating
+category: Cyberculture
+tags: Security
 featured_image: logos/star.png
 ---
 

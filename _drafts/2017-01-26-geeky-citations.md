@@ -1,14 +1,12 @@
 ---
 layout: post
 title: Geeky Bash.org cites
+slug: geeky-citations
+lang: en
 author: Martin Thoma
 date: 2012-12-31 08:58:33
-categories:
-- Cyberculture
-- The Web
-tags:
-- bash.org
-- funny
+category: Cyberculture
+tags: Funny
 featured_image:
 ---
 <blockquote>God used fork() to create Eve.</blockquote>

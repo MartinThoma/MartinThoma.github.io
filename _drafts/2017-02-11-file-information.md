@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Get Information about Files
+slug: file-information
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags:
-- Linux
-- Command Line
+tags: Linux, Command Line
 featured_image: logos/shell.png
 ---
 This article shows you a few tricks how to get basic information about a file

@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Drawing on Canvas
+slug: drawing-on-canvas
+lang: en
 author: Martin Thoma
 date: 2014-02-18
-categories:
-- Code
-tags:
-- HTML
-- JavaScript
+category: Code
+tags: HTML, JavaScript
 featured_image:
 ---
 Did you know that you can draw with HTML5 and JavaScript?
@@ -38,7 +37,7 @@ The following draws a U-Shape
 ```
 
 ## Specification
-I think "W3C - HTML Canvas 2D Context" is the right place to look at. But I'm confused. According to Wikipedia ([source][https://en.wikipedia.org/wiki/World_Wide_Web_Consortium#Specification_Maturation]), "[Editors Drafts][http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas_CR/]" (from 18 February 2014) are before "[Candidate Recommendations][http://www.w3.org/TR/2dcontext]" (from 6 August 2013). And there is even a "Nightly" Version ([link][http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/]).
+I think "W3C - HTML Canvas 2D Context" is the right place to look at. But I'm confused. According to Wikipedia ([source](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium#Specification_Maturation)), "[Editors Drafts](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas_CR/)" (from 18 February 2014) are before "[Candidate Recommendations](http://www.w3.org/TR/2dcontext)" (from 6 August 2013). And there is even a "Nightly" Version ([link](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/)).
 
 I'll go with the "Candidate Recommendation" from 6th of August in the following.
 

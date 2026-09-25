@@ -1,13 +1,12 @@
 ---
 layout: post
 title: PHP Template Engines
+slug: php-template-engines
+lang: en
 author: Martin Thoma
 date: 2011-10-02 12:52:01
-categories:
-- Code
-- The Web
-tags:
-- PHP
+category: Code
+tags: PHP
 featured_image:
 ---
 Template engines help to separate code and design. This concept is known as <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-view-controller</a> (MVC).
@@ -33,7 +32,7 @@ Separating code and design is good for the following reasons:
 <h2>Which template engines could be used?</h2>
 
 <h2>Further reading</h2>
-http://docwiki.embarcadero.com/RadPHP/en/Component_Writer's_Guide_::_Template_Engines
-http://en.wikipedia.org/wiki/Template_engine_(web)
-http://gonzalo123.wordpress.com/2011/01/17/php-template-engine-comparison/
-http://stackoverflow.com/questions/tagged/template-engine
+[docwiki.embarcadero.com/…/Component\_Writer's\_Guid…](http://docwiki.embarcadero.com/RadPHP/en/Component_Writer's_Guide_::_Template_Engines)
+[en.wikipedia.org/wiki/Template\_engine\_(web)](http://en.wikipedia.org/wiki/Template_engine_%28web%29)
+[gonzalo123.wordpress.com/…/php-template-engine-co…](http://gonzalo123.wordpress.com/2011/01/17/php-template-engine-comparison/)
+[stackoverflow.com/questions/tagged/template-engine](http://stackoverflow.com/questions/tagged/template-engine)

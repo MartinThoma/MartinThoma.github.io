@@ -109,7 +109,7 @@ cash points, Volksbanken and Raiffeisenbanken (VR Bank) have around
         <td>3</td>
         <td><span style="color:red;" title="No">✘</span></td>
         <td>Mo-Fr from 8:00 - 20:00</td>
-        <td>https://www.sparkasse-karlsruhe.de</td>
+        <td><a href="https://www.sparkasse-karlsruhe.de">sparkasse-karlsruhe.de</a></td>
         <td style="color: red;">100</td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@ cash points, Volksbanken and Raiffeisenbanken (VR Bank) have around
         <td>2</td>
         <td><span style="color:red;" title="No">✘</span></td>
         <td>24/7</td>
-        <td>https://kunde.comdirect.de</td>
+        <td><a href="https://kunde.comdirect.de">kunde.comdirect.de</a></td>
         <td>70</td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ cash points, Volksbanken and Raiffeisenbanken (VR Bank) have around
         <td>2</td>
         <td><span style="color:red;" title="No">✘</span></td>
         <td><span style="color:red;" title="No">✘</span></td>
-        <td>https://n26.com</td>
+        <td><a href="https://n26.com">n26.com</a></td>
         <td style="color: green;">0</td>
     </tr>
 </table>

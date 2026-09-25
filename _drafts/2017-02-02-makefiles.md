@@ -1,13 +1,12 @@
 ---
 layout: post
 title: The 7 Wonders of Makefiles
+slug: makefiles
+lang: en
 author: Martin Thoma
 date: 2012-05-07 06:56:24
-categories:
-- Code
-tags:
-- Makefile
-- Programming
+category: Code
+tags: Makefile, Programming
 featured_image:
 ---
 Makefiles are great. They provide a very simple tool for executing some folder-specific tasks.

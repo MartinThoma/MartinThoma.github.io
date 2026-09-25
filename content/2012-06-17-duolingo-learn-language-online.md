@@ -26,44 +26,39 @@ The inventor of duolingo, Luis von Ahn, did also a great TED-Talk in which he ex
 </object>
 
 Now some screenshots to give you a feeling what Duolingo offers:
-<figure>
-    <a href="../images/2012/06/duolingo-advancement.png"><img src="../images/2012/06/duolingo-advancement.png" alt="Achievements in Duolingo" width="488" height="530"></a>
-    <figcaption>Achievements in Duolingo</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-translation-300x155.png"><img src="../images/2012/06/duolingo-translation-300x155.png" alt="Translation in Duolingo" width="300" height="155" loading="lazy"></a>
-    <figcaption>Translation in Duolingo</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-typo-300x166.png"><img src="../images/2012/06/duolingo-typo-300x166.png" alt="Duolingo analyses your errors." width="300" height="166" loading="lazy"></a>
-    <figcaption>Duolingo analyses your errors.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-speech-300x149.png"><img src="../images/2012/06/duolingo-speech-300x149.png" alt="Speech to text task in Duolingo" width="300" height="149" loading="lazy"></a>
-    <figcaption>Speech to text task in Duolingo</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-photo-to-language-300x167.png"><img src="../images/2012/06/duolingo-photo-to-language-300x167.png" alt="Duolingo: Photo to language" width="300" height="167" loading="lazy"></a>
-    <figcaption>Duolingo: Photo to language</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-multiple-choice-300x137.png"><img src="../images/2012/06/duolingo-multiple-choice-300x137.png" alt="Multiple choice in Duolingo" width="300" height="137" loading="lazy"></a>
-    <figcaption>Multiple choice in Duolingo</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lesson in Duolingo" width="300" height="173" loading="lazy"></a>
-    <figcaption>A lesson in Duolingo</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/06/duolingo-achivement-300x138.png"><img src="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered ☺" width="300" height="138" loading="lazy"></a>
-    <figcaption>Level mastered ☺</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2012/06/duolingo-advancement.png"><img src="../images/2012/06/duolingo-advancement.png" alt="Achievements in Duolingo" width="488" height="530"></a>
+        <figcaption>Achievements in Duolingo</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-translation-300x155.png"><img src="../images/2012/06/duolingo-translation-300x155.png" alt="Translation in Duolingo" width="300" height="155" loading="lazy"></a>
+        <figcaption>Translation in Duolingo</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-typo-300x166.png"><img src="../images/2012/06/duolingo-typo-300x166.png" alt="Duolingo analyses your errors." width="300" height="166" loading="lazy"></a>
+        <figcaption>Duolingo analyses your errors.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-speech-300x149.png"><img src="../images/2012/06/duolingo-speech-300x149.png" alt="Speech to text task in Duolingo" width="300" height="149" loading="lazy"></a>
+        <figcaption>Speech to text task in Duolingo</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-photo-to-language-300x167.png"><img src="../images/2012/06/duolingo-photo-to-language-300x167.png" alt="Duolingo: Photo to language" width="300" height="167" loading="lazy"></a>
+        <figcaption>Duolingo: Photo to language</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-multiple-choice-300x137.png"><img src="../images/2012/06/duolingo-multiple-choice-300x137.png" alt="Multiple choice in Duolingo" width="300" height="137" loading="lazy"></a>
+        <figcaption>Multiple choice in Duolingo</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-lection-300x173.png"><img src="../images/2012/06/duolingo-lection-300x173.png" alt="A lesson in Duolingo" width="300" height="173" loading="lazy"></a>
+        <figcaption>A lesson in Duolingo</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/06/duolingo-achivement-300x138.png"><img src="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered ☺" width="300" height="138" loading="lazy"></a>
+        <figcaption>Level mastered ☺</figcaption>
+    </figure>
+</div>
 
 I have 3 invitations left. If you like to test Duolingo, simply post a comment with your email-address. The first three will get the invitations.

@@ -56,20 +56,20 @@ make fertile land become unusable for agriculture.
 With [floodmap](https://www.floodmap.net/) you can get a feeling for how
 problematic the changes are:
 
-<figure>
-    <a href="../images/2019/12/floodmap-netherlands.png"><img src="../images/2019/12/floodmap-netherlands.png" alt="Floodmap of Netherlands (+1m sea level)" width="512" height="328" loading="lazy"></a>
-    <figcaption>Floodmap of Netherlands (+1m sea level)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/12/floodmap-jackarta.png"><img src="../images/2019/12/floodmap-jackarta.png" alt="Floodmap of Jakarta (Indonesia; +1m sea level)" width="512" height="282" loading="lazy"></a>
-    <figcaption>Floodmap of Jakarta (Indonesia; +1m sea level)</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/12/floodmap-new-york.png"><img src="../images/2019/12/floodmap-new-york.png" alt="Floodmap New York (+1m sea level)" width="512" height="355" loading="lazy"></a>
-    <figcaption>Floodmap New York (+1m sea level)</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2019/12/floodmap-netherlands.png"><img src="../images/2019/12/floodmap-netherlands.png" alt="Floodmap of Netherlands (+1m sea level)" width="512" height="328" loading="lazy"></a>
+        <figcaption>Floodmap of Netherlands (+1m sea level)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/12/floodmap-jackarta.png"><img src="../images/2019/12/floodmap-jackarta.png" alt="Floodmap of Jakarta (Indonesia; +1m sea level)" width="512" height="282" loading="lazy"></a>
+        <figcaption>Floodmap of Jakarta (Indonesia; +1m sea level)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/12/floodmap-new-york.png"><img src="../images/2019/12/floodmap-new-york.png" alt="Floodmap New York (+1m sea level)" width="512" height="355" loading="lazy"></a>
+        <figcaption>Floodmap New York (+1m sea level)</figcaption>
+    </figure>
+</div>
 
 
 ### Corals Die

@@ -240,7 +240,7 @@ Famous users are:
 
 Small examples:
 
-* https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks
+* [developer.mozilla.org/…/Web\_frameworks](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks)
 
 ## Flask
 
@@ -315,5 +315,5 @@ According to <a href="https://stackshare.io/netflix/netflix">stackshare.io</a>:
 
 ## See also
 
-* https://hotframeworks.com/
-* https://en.wikipedia.org/wiki/Comparison_of_web_frameworks
+* [hotframeworks.com](https://hotframeworks.com/)
+* [en.wikipedia.org/wiki/Comparison\_of\_web\_frameworks](https://en.wikipedia.org/wiki/Comparison_of_web_frameworks)

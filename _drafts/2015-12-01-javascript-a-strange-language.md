@@ -1,17 +1,16 @@
 ---
 layout: post
 title: JavaScript - A strange language
+slug: javascript-a-strange-language
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- JavaScript
-- Programming
+category: Code
+tags: JavaScript, Programming
 featured_image: logos/star.png
 ---
 
-Just like I did before for [PHP](//martin-thoma.com/php-a-strange-language/),
+Just like I did before for [PHP](../php-a-strange-language/),
 I would like to show some strange features of JavaScript. Quite a lot comes
 from [JS WAT Talk reup](https://www.youtube.com/watch?v=FqhZZNUyVFM).
 

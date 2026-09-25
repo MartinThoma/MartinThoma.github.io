@@ -2,12 +2,12 @@
 layout: post
 title: How much is a Computer Science degree worth in Germany?
 slug: how-much-is-a-computer-science-degree-worth-in-germany
-lang: de
+lang: en
 author: Martin Thoma
 date: 2011-12-24 03:47:09
-tags: jobs, working
+category: My bits and bytes
+tags: Jobs, Work
 featured_image:
-categories: My bits and bytes
 ---
 You have quite a lot of possible employers if you have a bachelor or a master in computer science:
 

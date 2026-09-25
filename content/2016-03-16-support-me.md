@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Blog, Community
 featured_image: logos/web.png
 ---
-<div class="info">In case you wanted to read something about me, go to the <a href="https://martin-thoma.com/author/martin-thoma/">about me page</a>.</div>
+<div class="info">In case you wanted to read something about me, go to the <a href="../author/martin-thoma/">about me page</a>.</div>
 
 Keeping my blog online costs money. When you like my blog, you should support
 me in keeping it online. You can either send money directly to me via PayPal,

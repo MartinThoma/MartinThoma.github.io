@@ -36,7 +36,7 @@ A long list of exceptions is on <a href="http://wuhrr.wordpress.com/2007/11/22/j
 
 <h2>See also</h2>
 <ul>
-  <li>http://docs.oracle.com/:
+  <li><a href="http://docs.oracle.com/">docs.oracle.com</a>:
     <ul>
       <li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html">Class Exception</a></li>
     </ul>

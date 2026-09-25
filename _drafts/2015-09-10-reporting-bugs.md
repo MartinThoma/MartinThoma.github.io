@@ -5,9 +5,9 @@ slug: bug-reporting-for-developers
 lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-tags:
+category: Cyberculture
+tags: Bugs, Software Engineering
 featured_image: logos/bug.png
-categories: Cyberculture
 ---
 
 Reporting bugs seems to be a problem for a lot of users and some developers.
@@ -37,7 +37,7 @@ And you should give a list of what you tried and what happened.
 
 Examples for this mistake:
 
-* http://stackoverflow.com/q/32665520/562769
+* [stackoverflow.com/q/32665520/562769](http://stackoverflow.com/q/32665520/562769)
 
 ### Not giving minimal examples
 
@@ -58,9 +58,9 @@ When you made the example minimal, give your peers the following information
 ## See also
 
 * My articles
-    * [Bug Reporting - A User's Perspective](//martin-thoma.com/bug-reporting/)
-    * [Debugging a C program](//martin-thoma.com/debugging-a-c-program/)
-    * [Profiling C programs](//martin-thoma.com/profiling-c-programs/)
+    * [Bug Reporting - A User's Perspective](../bug-reporting/)
+    * [Debugging a C program](../debugging-a-c-program/)
+    * [Profiling C programs](../profiling-c-programs/)
 * StackOverflow
     * [How to debug Rust programs?](http://stackoverflow.com/q/15871885/562769)
     * [How to debug Node.js applications](http://stackoverflow.com/q/1911015/562769)

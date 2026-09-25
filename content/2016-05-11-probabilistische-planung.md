@@ -2819,7 +2819,7 @@ Der Dozent nutzt folgende Notation:
     * [Does the Gauss-Newton algorithm work with the Hesse matrix or Jaccobi matrix?](http://math.stackexchange.com/q/1877948/6876)
     * [What is the relationship between the Markov property and optimal substructure?](http://cs.stackexchange.com/q/61157/2914)
 * [Optimization Basics](../optimization-basics/)
-* [Mein Prüfungsprotokoll](https://martin-thoma.com/pdf/propla-protokoll-kit.pdf)
+* [Mein Prüfungsprotokoll](../pdf/propla-protokoll-kit.pdf)
 
 
 ## Fazit

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Hard English
+slug: hard-english
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture

@@ -1,14 +1,12 @@
 ---
 layout: post
 title: Google App Engine
+slug: google-app-engine
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Python
-- Google
-- App Engine
+category: Code
+tags: Python, Google, App Engine
 featured_image: logos/app-engine.png
 ---
 
@@ -34,7 +32,7 @@ $ sudo pip install rpc
 
 Then go to the extracted folder and execute the `run_tests.py`.
 
-https://appengine.google.com/start
+[appengine.google.com/start](https://appengine.google.com/start)
 
 ## PHP
 

@@ -13,38 +13,34 @@ It's so funny what happens when Geeks become parents.
 
 This is what happens if your dad is a designer:
 
-<figure>
-    <a href="../images/2011/10/baby-8.jpg"><img src="../images/2011/10/baby-8.jpg" alt="Baby" width="519" height="367"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-9.jpg"><img src="../images/2011/10/baby-9.jpg" alt="Baby 9" width="520" height="367" loading="lazy"></a>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-batman.jpg"><img src="../images/2011/10/baby-batman.jpg" alt="Baby Batman" width="520" height="369" loading="lazy"></a>
-    <figcaption>Baby Batman</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-hogan.jpg"><img src="../images/2011/10/baby-hogan.jpg" alt="Baby Hulk Hogan" width="519" height="368" loading="lazy"></a>
-    <figcaption>Baby <a href='http://en.wikipedia.org/wiki/Terry_Gene_Bollea'>Hulk Hogan</a></figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-ogre.jpg"><img src="../images/2011/10/baby-ogre.jpg" alt="Baby Ogre" width="521" height="368" loading="lazy"></a>
-    <figcaption>Baby Ogre</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-soldier.jpg"><img src="../images/2011/10/baby-soldier.jpg" alt="Baby Soldier" width="521" height="368" loading="lazy"></a>
-    <figcaption>Baby Soldier</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/baby-vampire.jpg"><img src="../images/2011/10/baby-vampire.jpg" alt="Baby Vampire" width="520" height="369" loading="lazy"></a>
-    <figcaption>Baby Vampire</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/10/baby-8.jpg"><img src="../images/2011/10/baby-8.jpg" alt="Baby" width="519" height="367"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-9.jpg"><img src="../images/2011/10/baby-9.jpg" alt="Baby 9" width="520" height="367" loading="lazy"></a>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-batman.jpg"><img src="../images/2011/10/baby-batman.jpg" alt="Baby Batman" width="520" height="369" loading="lazy"></a>
+        <figcaption>Baby Batman</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-hogan.jpg"><img src="../images/2011/10/baby-hogan.jpg" alt="Baby Hulk Hogan" width="519" height="368" loading="lazy"></a>
+        <figcaption>Baby <a href='http://en.wikipedia.org/wiki/Terry_Gene_Bollea'>Hulk Hogan</a></figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-ogre.jpg"><img src="../images/2011/10/baby-ogre.jpg" alt="Baby Ogre" width="521" height="368" loading="lazy"></a>
+        <figcaption>Baby Ogre</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-soldier.jpg"><img src="../images/2011/10/baby-soldier.jpg" alt="Baby Soldier" width="521" height="368" loading="lazy"></a>
+        <figcaption>Baby Soldier</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/baby-vampire.jpg"><img src="../images/2011/10/baby-vampire.jpg" alt="Baby Vampire" width="520" height="369" loading="lazy"></a>
+        <figcaption>Baby Vampire</figcaption>
+    </figure>
+</div>
 
 The Original (or at least the highest resolution I found) is <a href="http://sneezl.com/wp-content/uploads/2008/04/graphic-designer-baby.pdf">here as PDF</a>.
 

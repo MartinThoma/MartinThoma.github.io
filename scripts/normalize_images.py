@@ -14,8 +14,10 @@ What it does:
   single images wrapped in ``<p>``/``<div>``/``<center>`` (Blogger's
   ``<div class="separator">``) and standalone Markdown images (``![alt](src)``)
   into that form,
-* turns MediaWiki galleries (``<ul class="gallery">``) and runs of consecutive
-  image lines into ``<div class="gallery">`` holding one figure per image,
+* turns MediaWiki galleries (``<ul class="gallery">``), runs of consecutive
+  image lines and runs of three or more figures with only blank lines between them
+  into ``<div class="gallery">`` holding one figure per image; figures next to a
+  gallery join it,
 * strips WordPress and Bootstrap leftovers (``wp-*``, ``size-*``, ``align*``,
   ``img-thumbnail``, ``border-0``, ``text-center`` on captions, inline ``style``),
 * turns ``style="width:512px"`` / ``max-width``/``max-height`` into
@@ -62,8 +64,15 @@ STANDALONE_RE = re.compile(
 # characters of text above the first image that still fit on the first screen
 EAGER_TEXT_LIMIT = 1500
 DROP_IMG_CLASS_RE = re.compile(r"^(wp-|size-|align|img-|text-center$|border-0$)")
+# a figure or gallery at the start of a line, i.e. not indented inside another block
+TOP_BLOCK_RE = re.compile(
+    r'^<figure\b[^>]*>.*?</figure>|^<div class="gallery">\n.*?\n</div>', re.I | re.S | re.M
+)
+BLOCK_TAG_RE = re.compile(r"<(/?)(?:div|details|table|ul|ol|blockquote|section|aside)\b", re.I)
+# this many figures in a row, without text between them, become a gallery
+MIN_GALLERY_RUN = 3
 
-stats = {"figures": 0, "standalone": 0, "imgs": 0, "warnings": []}
+stats = {"figures": 0, "standalone": 0, "imgs": 0, "galleries": 0, "warnings": []}
 
 
 def parse_attrs(tag):
@@ -285,6 +294,61 @@ def gallery_block(figures):
     return "\n".join(['<div class="gallery">', *lines, "</div>"])
 
 
+def group_figure_runs(body):
+    """Turn figures that follow each other into a gallery.
+
+    Only blank lines may separate them. A run of at least MIN_GALLERY_RUN figures becomes
+    a gallery; figures next to a gallery join it. Galleries next to each other stay
+    separate (they can be intended rows). Blocks nested in other elements (lists,
+    tables, info boxes) are left alone.
+    """
+    saved = []
+
+    def stash(match):
+        saved.append(match.group(0))
+        return f"\x00c{len(saved) - 1}\x00"
+
+    text = PROTECT_RE.sub(stash, body)
+
+    def nesting(pos):
+        return sum(-1 if m.group(1) else 1 for m in BLOCK_TAG_RE.finditer(text, 0, pos))
+
+    def canonical(figure):
+        # floats make no sense inside the grid; inner lines get one level of indentation
+        figure = re.sub(r"\s*\bfigure-(?:left|right)\b", "", figure, count=1)
+        figure = re.sub(r'\s*class="\s*"', "", figure, count=1)
+        lines = [line.strip() for line in figure.strip().split("\n") if line.strip()]
+        return "\n".join(line if line.startswith(("<figure", "</figure")) else "    " + line for line in lines)
+
+    items = []  # (match, figures, is_gallery)
+    for m in TOP_BLOCK_RE.finditer(text):
+        block = m.group(0)
+        if nesting(m.start()) > 0:
+            continue
+        if block.startswith("<div"):
+            figures = [f.group(0) for f in FIGURE_RE.finditer(block)]
+            items.append((m, figures, True))
+        elif "<img" in block and not re.search(r"<(?:iframe|video|audio)\b", block):
+            items.append((m, [block], False))
+
+    runs = []
+    for item in items:
+        if runs and not text[runs[-1][-1][0].end() : item[0].start()].strip():
+            runs[-1].append(item)
+        else:
+            runs.append([item])
+    for run in reversed(runs):
+        figures = [f for _, figs, _ in run for f in figs]
+        has_gallery = any(is_gallery for _, _, is_gallery in run)
+        loose = sum(not is_gallery for _, _, is_gallery in run)
+        if not loose or (not has_gallery and len(figures) < MIN_GALLERY_RUN):
+            continue  # galleries next to each other stay separate: rows can be intended
+        block = gallery_block([canonical(f) for f in figures])
+        text = text[: run[0][0].start()] + block + text[run[-1][0].end() :]
+        stats["galleries"] += 1
+    return re.sub(r"\x00c(\d+)\x00", lambda m: saved[int(m.group(1))], text)
+
+
 def convert_mw_gallery(match):
     figures = []
     for item in MW_GALLERY_ITEM_RE.finditer(match.group(1)):
@@ -396,7 +460,7 @@ def process(text):
         if new == body:
             break
         body = new
-    return head + eager_first_image(body)
+    return head + eager_first_image(group_figure_runs(body))
 
 
 def eager_first_image(body):
@@ -433,7 +497,8 @@ def main():
             if not args.dry_run:
                 f.write_text(new, encoding="utf-8")
     print(f"changed {changed} files; {stats['figures']} figures rebuilt, "
-          f"{stats['standalone']} standalone images wrapped, {stats['imgs']} <img> tags written")
+          f"{stats['standalone']} standalone images wrapped, {stats['imgs']} <img> tags written, "
+          f"{stats['galleries']} figure runs grouped into galleries")
     for w in sorted(set(stats["warnings"])):
         print("WARN", w, file=sys.stderr)
 

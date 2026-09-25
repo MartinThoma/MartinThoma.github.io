@@ -102,20 +102,20 @@ the output:
 
 I made some images to make this more clear:
 
-<figure>
-    <a href="../images/2017/03/bagging.jpg"><img src="../images/2017/03/bagging.jpg" alt="Bagging" width="512" height="260" loading="lazy"></a>
-    <figcaption>Bagging trains the classifiers on different data.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/boosting.jpg"><img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" width="512" height="266" loading="lazy"></a>
-    <figcaption>Boosting reweights the training data.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/stacking.jpg"><img src="../images/2017/03/stacking.jpg" alt="Stacking" width="512" height="357" loading="lazy"></a>
-    <figcaption>Stacking trains the combiner.</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/03/bagging.jpg"><img src="../images/2017/03/bagging.jpg" alt="Bagging" width="512" height="260" loading="lazy"></a>
+        <figcaption>Bagging trains the classifiers on different data.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/boosting.jpg"><img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" width="512" height="266" loading="lazy"></a>
+        <figcaption>Boosting reweights the training data.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/stacking.jpg"><img src="../images/2017/03/stacking.jpg" alt="Stacking" width="512" height="357" loading="lazy"></a>
+        <figcaption>Stacking trains the combiner.</figcaption>
+    </figure>
+</div>
 
 
 

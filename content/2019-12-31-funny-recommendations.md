@@ -192,6 +192,6 @@ But we Unicorns think of our lives as real things.  We are real, tangible, flesh
 
 ## Footnotes
 
-[^1]: https://worldwideinterweb.com/funniest-netflix-suggestions-ever-25-photos/
-[^2]: https://www.ranker.com/list/weird-netflix-photos/nathandavidson
-[^3]: https://www.funnyordie.com/2013/7/8/17702770/6-ridiculous-netflix-suggestions
+[^1]: [worldwideinterweb.com/funniest-netflix-suggestion…](https://worldwideinterweb.com/funniest-netflix-suggestions-ever-25-photos/)
+[^2]: [ranker.com/…/nathandavidson](https://www.ranker.com/list/weird-netflix-photos/nathandavidson)
+[^3]: [funnyordie.com/…/6-ridiculous-netflix-suggestions](https://www.funnyordie.com/2013/7/8/17702770/6-ridiculous-netflix-suggestions)

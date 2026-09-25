@@ -201,55 +201,48 @@ if __name__ == "__main__":
 
 ## Examples
 
-<figure>
-    <a href="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png"><img src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" alt="St Josep La Boqueria" width="500" height="370" loading="lazy"></a>
-    <figcaption>St Josep La Boqueria</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/053-Sagrada-Familia-det.png"><img src="../images/2017/03/053-Sagrada-Familia-det.png" alt="Sagrada Familia" width="494" height="369" loading="lazy"></a>
-    <figcaption>Sagrada Familia</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/065-Barcelona-Cat-1-det.png"><img src="../images/2017/03/065-Barcelona-Cat-1-det.png" alt="Cat" width="493" height="369" loading="lazy"></a>
-    <figcaption>Cat</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/069-Barcelona-det.png"><img src="../images/2017/03/069-Barcelona-det.png" alt="Barcelona" width="278" height="369" loading="lazy"></a>
-    <figcaption>Barcelona</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/EmiMa-079-det.png"><img src="../images/2017/03/EmiMa-079-det.png" alt="EmiMa-079" width="496" height="331" loading="lazy"></a>
-    <figcaption>EmiMa-079</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/EmiMa-100-det.png"><img src="../images/2017/03/EmiMa-100-det.png" alt="EmiMa-100" width="496" height="331" loading="lazy"></a>
-    <figcaption>EmiMa-100</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/EmiMa-103-det.png"><img src="../images/2017/03/EmiMa-103-det.png" alt="EmiMa-103" width="496" height="331" loading="lazy"></a>
-    <figcaption>EmiMa-103</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/EmiMa-105-det.png"><img src="../images/2017/03/EmiMa-105-det.png" alt="EmiMa-105" width="496" height="331" loading="lazy"></a>
-    <figcaption>EmiMa-105</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png"><img src="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png" alt="Ryck" width="501" height="348" loading="lazy"></a>
-    <figcaption>Ryck</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/03/Pittsburgh-13-det.png"><img src="../images/2017/03/Pittsburgh-13-det.png" alt="Pittsburgh" width="493" height="369" loading="lazy"></a>
-    <figcaption>Pittsburgh</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png"><img src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" alt="St Josep La Boqueria" width="500" height="370" loading="lazy"></a>
+        <figcaption>St Josep La Boqueria</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/053-Sagrada-Familia-det.png"><img src="../images/2017/03/053-Sagrada-Familia-det.png" alt="Sagrada Familia" width="494" height="369" loading="lazy"></a>
+        <figcaption>Sagrada Familia</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/065-Barcelona-Cat-1-det.png"><img src="../images/2017/03/065-Barcelona-Cat-1-det.png" alt="Cat" width="493" height="369" loading="lazy"></a>
+        <figcaption>Cat</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/069-Barcelona-det.png"><img src="../images/2017/03/069-Barcelona-det.png" alt="Barcelona" width="278" height="369" loading="lazy"></a>
+        <figcaption>Barcelona</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/EmiMa-079-det.png"><img src="../images/2017/03/EmiMa-079-det.png" alt="EmiMa-079" width="496" height="331" loading="lazy"></a>
+        <figcaption>EmiMa-079</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/EmiMa-100-det.png"><img src="../images/2017/03/EmiMa-100-det.png" alt="EmiMa-100" width="496" height="331" loading="lazy"></a>
+        <figcaption>EmiMa-100</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/EmiMa-103-det.png"><img src="../images/2017/03/EmiMa-103-det.png" alt="EmiMa-103" width="496" height="331" loading="lazy"></a>
+        <figcaption>EmiMa-103</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/EmiMa-105-det.png"><img src="../images/2017/03/EmiMa-105-det.png" alt="EmiMa-105" width="496" height="331" loading="lazy"></a>
+        <figcaption>EmiMa-105</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png"><img src="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png" alt="Ryck" width="501" height="348" loading="lazy"></a>
+        <figcaption>Ryck</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/03/Pittsburgh-13-det.png"><img src="../images/2017/03/Pittsburgh-13-det.png" alt="Pittsburgh" width="493" height="369" loading="lazy"></a>
+        <figcaption>Pittsburgh</figcaption>
+    </figure>
+</div>
 
 
 ## Conclusion

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: How to analyse Wikipedia
+slug: how-to-analyse-wikipedia
+lang: en
 author: Martin Thoma
 date: 2013-01-31 03:55:00
-categories:
-- The Web
-tags:
-- Wikipedia
+category: The Web
+tags: Wikipedia
 featured_image: 2011/09/Wikipedia-logo.png
 ---
 Wikipedia is one of the most outstanding achievements of mankind. A free source of knowledge that everybody can access and contribute to, without any other purpose than sharing knowledge. It offers understandable articles to difficult topics like <a href="http://en.wikipedia.org/wiki/Group_(mathematics)">mathematical groups</a>, some amazing ones like "<a href="http://en.wikipedia.org/wiki/Patterns_in_nature">Patterns in nature</a>" or topics that might be of political interest like <a href="http://en.wikipedia.org/wiki/Global_warming">global warming</a>, the <a href="http://en.wikipedia.org/wiki/Manhattan_Project">Manhattan Project</a> or the <a href="http://en.wikipedia.org/wiki/Battle_of_Vukovar">Battle of Vukovar</a>.
@@ -22,5 +22,5 @@ Wikipedia offers <a href="http://en.wikipedia.org/wiki/Wikipedia:Tools">a lot of
 Did you know that you can <a href="http://en.wikipedia.org/wiki/Wikipedia:Database_download">download Wikipedia</a>? You can get a dump of Wikipedia databases (→ <a href="http://dumps.wikimedia.org/backup-index.html">index page with all dumps</a>). I would like to analyse the english wiki so I've downloaded it (→ <a href="http://dumps.wikimedia.org/enwiki/20121101/">english dump</a>).
 
 
-http://www.sciencedirect.com/science/article/pii/S0169534709000548
-http://www.rene-pickhardt.de/algorithms-exercise-find-mistakes-in-wikipedia-articles/
+[sciencedirect.com/science/…/pii/S0169534709000548](http://www.sciencedirect.com/science/article/pii/S0169534709000548)
+[rene-pickhardt.de/algorithms-exercise-find-mistak…](http://www.rene-pickhardt.de/algorithms-exercise-find-mistakes-in-wikipedia-articles/)

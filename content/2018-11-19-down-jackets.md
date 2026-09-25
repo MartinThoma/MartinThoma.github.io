@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Down Jackets
 slug: down-jackets
+lang: en
 author: Martin Thoma
 date: 2018-11-19 20:00
 category: My bits and bytes
@@ -297,6 +297,6 @@ Comments ([source](https://www.reddit.com/r/Ultralight/comments/7tknq2/atom_lt_v
 ## See also
 
 * See [what down is suggested for](https://foxtrail.fjallraven.com/2017/11/03/down-vs-synthetic/)
-* https://www.packliste-reise.de/reise-equipment-test/beste-daunenjacke/
-* https://www.outdoor-magazin.com/test/jacken/daunenjacken-kunstfaserjacken-test-2017.1640170.3.htm
-* https://www.bergfreunde.de/basislager/test-patagonia-micro-puff/
+* [packliste-reise.de/…/beste-daunenjacke](https://www.packliste-reise.de/reise-equipment-test/beste-daunenjacke/)
+* [outdoor-magazin.com/…/daunenjacken-kunstfaserjack…](https://www.outdoor-magazin.com/test/jacken/daunenjacken-kunstfaserjacken-test-2017.1640170.3.htm)
+* [bergfreunde.de/…/test-patagonia-micro-puff](https://www.bergfreunde.de/basislager/test-patagonia-micro-puff/)

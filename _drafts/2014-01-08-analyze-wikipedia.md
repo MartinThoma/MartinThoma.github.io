@@ -1,12 +1,12 @@
 ---
 layout: post
 title: How to analyze Wikipedia
+slug: analyze-wikipedia
+lang: en
 author: Martin Thoma
 date: 2014-01-08 12:28
-categories:
-- Code
-tags:
-- Wikipedia
+category: Code
+tags: Wikipedia
 featured_image:
 ---
 
@@ -16,5 +16,5 @@ First of all, you have to download [Wikipedia Database dump](http://dumps.wikime
 
 
 ## See also ##
-* https://de.wikipedia.org/wiki/Hilfe:Download
-* https://de.wikipedia.org/wiki/Hilfe_Diskussion:Download#Wikipedia_als_Beispiel_eines_gro.C3.9Fen.2C_dynamischen_Graphs_mit_Kontext
+* [de.wikipedia.org/wiki/Hilfe:Download](https://de.wikipedia.org/wiki/Hilfe:Download)
+* [de.wikipedia.org/wiki/Hilfe\_Diskussion:Download](https://de.wikipedia.org/wiki/Hilfe_Diskussion:Download#Wikipedia_als_Beispiel_eines_gro.C3.9Fen.2C_dynamischen_Graphs_mit_Kontext)

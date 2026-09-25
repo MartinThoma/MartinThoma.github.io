@@ -1,12 +1,12 @@
 ---
 layout: post
 title: The Pinocchio Paradox
+slug: pinocchio
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Paradox
+category: Cyberculture
+tags: Paradox
 featured_image: logos/pinocchio.png
 ---
 

@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Mathematical naming conventions
+slug: mathematical-naming-conventions
+lang: en
 author: Martin Thoma
 date: 2012-11-01 10:03:04
-categories:
-- Cyberculture
-tags:
-- convention
-- mathematics
+category: Cyberculture
+tags: Convention, Mathematics
 featured_image:
 ---
 I've sometimes wondered why mathematicans seemingly always used symbols that

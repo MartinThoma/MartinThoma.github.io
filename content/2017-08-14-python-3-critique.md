@@ -10,7 +10,7 @@ tags: Python, Programming
 featured_image: logos/python.png
 ---
 Consistency is an important quality property of a language. One of my main
-points of critic agains PHP was inconsistency (see [PHP: A strange language](//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
+points of critic agains PHP was inconsistency (see [PHP: A strange language](../php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
 
 ## Naming
 
@@ -123,7 +123,7 @@ be nice.
 
 ## PyPI
 
-`gi` is for GTK, but the module https://pypi.python.org/pypi/gi "overrides" it.
+`gi` is for GTK, but the module [pypi.python.org/pypi/gi](https://pypi.python.org/pypi/gi) "overrides" it.
 That should not be possible. So there is an issue with namespaces.
 
 ## Joining lists

@@ -87,20 +87,20 @@ Curry:
 4. Add the coconut milk.
 5. Add the Broccoli and carrots.
 
-<figure>
-    <a href="../images/2019/05/curry-03.jpg"><img src="../images/2019/05/curry-03.jpg" alt="Fry the onions, spring onions and the curry" width="512" height="288" loading="lazy"></a>
-    <figcaption>Fry the onions, spring onions and the curry</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/05/curry-04.jpg"><img src="../images/2019/05/curry-04.jpg" alt="Add Zucchini and carrots" width="512" height="288" loading="lazy"></a>
-    <figcaption>Add Zucchini and carrots</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/05/curry-05.jpg"><img src="../images/2019/05/curry-05.jpg" alt="Add pepper and coconut milk" width="512" height="288" loading="lazy"></a>
-    <figcaption>Add pepper and coconut milk</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2019/05/curry-03.jpg"><img src="../images/2019/05/curry-03.jpg" alt="Fry the onions, spring onions and the curry" width="512" height="288" loading="lazy"></a>
+        <figcaption>Fry the onions, spring onions and the curry</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/05/curry-04.jpg"><img src="../images/2019/05/curry-04.jpg" alt="Add Zucchini and carrots" width="512" height="288" loading="lazy"></a>
+        <figcaption>Add Zucchini and carrots</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/05/curry-05.jpg"><img src="../images/2019/05/curry-05.jpg" alt="Add pepper and coconut milk" width="512" height="288" loading="lazy"></a>
+        <figcaption>Add pepper and coconut milk</figcaption>
+    </figure>
+</div>
 
 
 Serve (for each person):

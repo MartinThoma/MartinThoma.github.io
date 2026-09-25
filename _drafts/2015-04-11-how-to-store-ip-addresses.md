@@ -1,15 +1,12 @@
 ---
 layout: post
 title: How to store IP addresses
+slug: how-to-store-ip-addresses
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- database
-- MySQL
-- IPv4
-- IPv6
+category: Code
+tags: Database, MySQL, IPv4, IPv6
 featured_image: logos/maria-db.png
 ---
 You hava a couple of possibilities when you want to store IP addresses. But

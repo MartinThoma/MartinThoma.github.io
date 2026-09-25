@@ -42,20 +42,20 @@ There are four main tasks in face recognition:
 
 ## Problems
 
-<figure>
-    <a href="../images/2019/04/face_recongition_error_statue.jpg"><img src="../images/2019/04/face_recongition_error_statue.jpg" alt="A face, but not a human" width="400" height="400"></a>
-    <figcaption>A face, but not a human</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/04/face_recongition_error_statue-3.jpg"><img src="../images/2019/04/face_recongition_error_statue-3.jpg" alt="Again a couple of faces, but not human faces" width="512" height="171" loading="lazy"></a>
-    <figcaption>Again a couple of faces, but not human faces</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/04/face_recongition_error_noface.jpg"><img src="../images/2019/04/face_recongition_error_noface.jpg" alt="No face at all - not even close" width="298" height="299" loading="lazy"></a>
-    <figcaption>No face at all - not even close</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2019/04/face_recongition_error_statue.jpg"><img src="../images/2019/04/face_recongition_error_statue.jpg" alt="A face, but not a human" width="400" height="400"></a>
+        <figcaption>A face, but not a human</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/04/face_recongition_error_statue-3.jpg"><img src="../images/2019/04/face_recongition_error_statue-3.jpg" alt="Again a couple of faces, but not human faces" width="512" height="171" loading="lazy"></a>
+        <figcaption>Again a couple of faces, but not human faces</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/04/face_recongition_error_noface.jpg"><img src="../images/2019/04/face_recongition_error_noface.jpg" alt="No face at all - not even close" width="298" height="299" loading="lazy"></a>
+        <figcaption>No face at all - not even close</figcaption>
+    </figure>
+</div>
 
 
 ## See also

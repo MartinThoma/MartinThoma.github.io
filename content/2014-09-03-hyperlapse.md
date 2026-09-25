@@ -47,7 +47,7 @@ a look at the following image:
 
 <figure>
     <a href="../images/2014/09/Flight_dynamics_with_text.png"><img src="../images/2014/09/Flight_dynamics_with_text.png" alt="Roll, pitch and yaw&lt;br/&gt;By ZeroOne" width="320" height="240"></a>
-    <figcaption>Roll, pitch and yaw<br/>By [ZeroOne](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text.png)</figcaption>
+    <figcaption>Roll, pitch and yaw<br/>By <a href="https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text.png">ZeroOne</a></figcaption>
 </figure>
 
 The chosen path should meet several criteria:

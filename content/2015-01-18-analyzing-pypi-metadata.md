@@ -176,27 +176,27 @@ SELECT `name`, LENGTH(`name`) FROM `packages` ORDER BY LENGTH(`name`) DESC
     <tr>
         <td>home_page</td>
         <td>134</td>
-        <td>http://127.0.0.1:8888/USK@9X7bw5HD2ufYvJuL3qAVsYZb3KbI9~FyRu68zsw5HVg,lhHkYYluqHi7BcW1UHoVAMcRX7E5FaZjWCOruTspwQQ,AQACAAE/pyfcp-api/0/</td>
+        <td><code>http://127.0.0.1:8888/USK@9X7bw5HD2ufYvJuL3qAVsYZb3KbI9~FyRu68zsw5HVg,lhHkYYluqHi7BcW1UHoVAMcRX7E5FaZjWCOruTspwQQ,AQACAAE/pyfcp-api/0/</code></td>
     </tr>
     <tr>
         <td>release_url</td>
         <td>130</td>
-        <td>http://pypi.python.org/pypi/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5</td>
+        <td><code>http://pypi.python.org/pypi/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5</code></td>
     </tr>
     <tr>
         <td>bugtrack_url</td>
         <td>104</td>
-        <td>https://bugzilla.redhat.com/buglist.cgi?submit&amp;component=python-nss&amp;product=Fedora&amp;classification=Fedora</td>
+        <td><code>https://bugzilla.redhat.com/buglist.cgi?submit&amp;component=python-nss&amp;product=Fedora&amp;classification=Fedora</code></td>
     </tr>
     <tr>
         <td>download_url</td>
         <td>183</td>
-        <td>http://pypi.python.org/packages/source/s/softwarefabrica.django.appserver/softwarefabrica.django.appserver-1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5.tar.gz</td>
+        <td><code>http://pypi.python.org/packages/source/s/softwarefabrica.django.appserver/softwarefabrica.django.appserver-1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5.tar.gz</code></td>
     </tr>
     <tr>
         <td>package_url</td>
         <td>108</td>
-        <td>http://pypi.python.org/pypi/Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
+        <td><code>http://pypi.python.org/pypi/Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</code></td>
     </tr>
     <tr>
         <td>_pypi_hidden</td>
@@ -297,20 +297,20 @@ This one is very important. Users should have an easy way to report
 bugs. So please help them by adding your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:
 
-<figure>
-    <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your package's PyPI page" width="500" height="263" loading="lazy"></a>
-    <figcaption>Go to your package's PyPI page</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker URL" width="500" height="408" loading="lazy"></a>
-    <figcaption>Add your bugtracker / issue tracker URL</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2015/01/pypi-added-bugtracker.png"><img src="../images/2015/01/pypi-added-bugtracker.png" alt="Check if you really added it" width="500" height="271" loading="lazy"></a>
-    <figcaption>Check if you really added it</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your package's PyPI page" width="500" height="263" loading="lazy"></a>
+        <figcaption>Go to your package's PyPI page</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker URL" width="500" height="408" loading="lazy"></a>
+        <figcaption>Add your bugtracker / issue tracker URL</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2015/01/pypi-added-bugtracker.png"><img src="../images/2015/01/pypi-added-bugtracker.png" alt="Check if you really added it" width="500" height="271" loading="lazy"></a>
+        <figcaption>Check if you really added it</figcaption>
+    </figure>
+</div>
 
 
 ### License

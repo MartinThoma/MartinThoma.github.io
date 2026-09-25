@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Trust in a Modern World
+slug: trust-in-a-modern-world
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Cyberculture
-tags:
-- Science
-- Trust
+category: Cyberculture
+tags: Science, Trust
 featured_image: logos/web.png
 ---
 

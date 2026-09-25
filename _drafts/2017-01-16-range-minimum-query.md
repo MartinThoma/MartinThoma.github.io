@@ -1,14 +1,12 @@
 ---
 layout: post
 title: A fast solution for Range Minimum Query
+slug: range-minimum-query
+lang: en
 author: Martin Thoma
 date: 2012-05-22 11:48:43
-categories:
-- Code
-tags:
-- C
-- ICPC
-- TopCoder
+category: Code
+tags: C, ICPC, TopCoder, Competitive Programming
 featured_image: 2012/05/icpc-logo.png
 ---
 A Range Minumum Query is a query for the minimum in a specified range.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kitchen renovation - Part 1
+title: Kitchen renovation (My first one!)
 slug: kitchen-renovation-part-1
 lang: en
 author: Martin Thoma
@@ -21,20 +21,20 @@ The flat is shared by students. My hirer told me that he will pay all cost of ma
 	<li>The tube for hot water was loose.</li>
 </ul>
 <h3>Some photos</h3>
-<figure>
-    <a href="../images/2011/10/kitchen-before-countertop.jpg"><img src="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen" width="600" height="450"></a>
-    <figcaption>Old countertop of our kitchen</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-before-countertop-old.jpg"><img src="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop" width="375" height="500" loading="lazy"></a>
-    <figcaption>The old countertop</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-before-countertop-old-top.jpg"><img src="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop" width="600" height="450" loading="lazy"></a>
-    <figcaption>Top of the old countertop</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/10/kitchen-before-countertop.jpg"><img src="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen" width="600" height="450"></a>
+        <figcaption>Old countertop of our kitchen</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-before-countertop-old.jpg"><img src="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop" width="375" height="500" loading="lazy"></a>
+        <figcaption>The old countertop</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-before-countertop-old-top.jpg"><img src="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop" width="600" height="450" loading="lazy"></a>
+        <figcaption>Top of the old countertop</figcaption>
+    </figure>
+</div>
 <h2>Plans</h2>
 <figure>
     <a href="../images/2011/10/kitchen-before-plan.png"><img src="../images/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation" width="674" height="458" loading="lazy"></a>
@@ -49,83 +49,74 @@ The flat is shared by students. My hirer told me that he will pay all cost of ma
 <h3>Tools</h3>
 I needed quite a lot of tools. I had to buy most of them when I saw that I couldn't continue without them:
 
-<figure>
-    <a href="../images/2011/10/tool-drilling-machine.jpg"><img src="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine" width="400" height="255" loading="lazy"></a>
-    <figcaption>Drilling machine</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/tool-plumber-wrench.jpg"><img src="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench" width="400" height="127" loading="lazy"></a>
-    <figcaption>Plumber wrench</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/tool-screwdriver.jpg"><img src="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers" width="400" height="198" loading="lazy"></a>
-    <figcaption>Screwdrivers</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/tool-silicone-cartridge.jpg"><img src="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge" width="500" height="254" loading="lazy"></a>
-    <figcaption>Silicone cartridge</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/tool-spirit-level.jpg"><img src="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level" width="600" height="120" loading="lazy"></a>
-    <figcaption>Spirit level</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/tool-wrench.jpg"><img src="../images/2011/10/tool-wrench.jpg" alt="Wrench" width="290" height="350" loading="lazy"></a>
-    <figcaption>Wrench</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/10/tool-drilling-machine.jpg"><img src="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine" width="400" height="255" loading="lazy"></a>
+        <figcaption>Drilling machine</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/tool-plumber-wrench.jpg"><img src="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench" width="400" height="127" loading="lazy"></a>
+        <figcaption>Plumber wrench</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/tool-screwdriver.jpg"><img src="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers" width="400" height="198" loading="lazy"></a>
+        <figcaption>Screwdrivers</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/tool-silicone-cartridge.jpg"><img src="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge" width="500" height="254" loading="lazy"></a>
+        <figcaption>Silicone cartridge</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/tool-spirit-level.jpg"><img src="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level" width="600" height="120" loading="lazy"></a>
+        <figcaption>Spirit level</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/tool-wrench.jpg"><img src="../images/2011/10/tool-wrench.jpg" alt="Wrench" width="290" height="350" loading="lazy"></a>
+        <figcaption>Wrench</figcaption>
+    </figure>
+</div>
 
 Additionally I needed a hammer to get the wall plugs into the wall, some different screws and wall plugs, pliers, some tubes and some <a href="http://en.wikipedia.org/wiki/O-ring">O-rings</a>.
 
 <h3>Photos while working</h3>
-<figure>
-    <a href="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg"><img src="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall" width="196" height="300" loading="lazy"></a>
-    <figcaption>Crooked wall</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg"><img src="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes" width="225" height="300" loading="lazy"></a>
-    <figcaption>Heating pipes</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-washing-machine-300x225.jpg"><img src="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" width="300" height="225" loading="lazy"></a>
-    <figcaption>To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at its place.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-loose-tube-300x225.jpg"><img src="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall with some new (longer) screws." width="300" height="225" loading="lazy"></a>
-    <figcaption>As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-ledge2-300x225.jpg"><img src="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge" width="300" height="225" loading="lazy"></a>
-    <figcaption>Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it's exactly horizontal. Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-connection-300x214.jpg"><img src="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops" width="300" height="214" loading="lazy"></a>
-    <figcaption>You have to connect both countertops very well. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-tab-259x300.jpg"><img src="../images/2011/10/kitchen-working-tab-259x300.jpg" alt="The tab was fixed to the countertop." width="259" height="300" loading="lazy"></a>
-    <figcaption>This little metal plate fixates the tap to the countertop. I put it for two days into vinegar to get rid of most of the rust, dirt and chalk. Before I did so, the whole plate was brown.</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-angle-joints-300x225.jpg"><img src="../images/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall" width="300" height="225" loading="lazy"></a>
-    <figcaption>Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg"><img src="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers" width="300" height="225" loading="lazy"></a>
-    <figcaption>Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals.</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg"><img src="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall" width="196" height="300" loading="lazy"></a>
+        <figcaption>Crooked wall</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg"><img src="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes" width="225" height="300" loading="lazy"></a>
+        <figcaption>Heating pipes</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-washing-machine-300x225.jpg"><img src="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" width="300" height="225" loading="lazy"></a>
+        <figcaption>To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at its place.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-loose-tube-300x225.jpg"><img src="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall with some new (longer) screws." width="300" height="225" loading="lazy"></a>
+        <figcaption>As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-ledge2-300x225.jpg"><img src="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge" width="300" height="225" loading="lazy"></a>
+        <figcaption>Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it's exactly horizontal. Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-connection-300x214.jpg"><img src="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops" width="300" height="214" loading="lazy"></a>
+        <figcaption>You have to connect both countertops very well. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-tab-259x300.jpg"><img src="../images/2011/10/kitchen-working-tab-259x300.jpg" alt="The tab was fixed to the countertop." width="259" height="300" loading="lazy"></a>
+        <figcaption>This little metal plate fixates the tap to the countertop. I put it for two days into vinegar to get rid of most of the rust, dirt and chalk. Before I did so, the whole plate was brown.</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-angle-joints-300x225.jpg"><img src="../images/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall" width="300" height="225" loading="lazy"></a>
+        <figcaption>Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg"><img src="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers" width="300" height="225" loading="lazy"></a>
+        <figcaption>Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals.</figcaption>
+    </figure>
+</div>
 
 The chemicals I used are called "Max Bahr - Silikon Entferner". It seems to be
 called "Caulk Remover" in English. I had to apply mine with a brush which was

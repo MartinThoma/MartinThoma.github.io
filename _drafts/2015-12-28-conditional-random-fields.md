@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Conditional Random Fields
+slug: conditional-random-fields
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Machine Learning
-tags:
-- Machine Learning
-- CRF
-- Dynamic Programming
+tags: Machine Learning, CRF, Dynamic Programming, AI
 featured_image: logos/ai.png
 ---
 
@@ -36,8 +35,8 @@ quite well and step-by-step what CRFs are.
     <dd>The context window contains all information at a given position that
         influence the preference of different labels.</dd>
     <dt><dfn>unary log factors</dfn></dt>
-    <dd>The unary log factors \(a_u (y_k)\) express a preference of the value
-        of \(y\) at the position of \(k\) only. (The \(u\) is for unary.)</dd>
+    <dd>The unary log factors $a_u (y_k)$ express a preference of the value
+        of $y$ at the position of $k$ only. (The $u$ is for unary.)</dd>
 </dl>
 
 ### Part 4: Computing the Partition Function
@@ -45,10 +44,10 @@ quite well and step-by-step what CRFs are.
 <iframe width="512" height="384" src="https://www.youtube-nocookie.com/embed/fGdXkVv1qNQ" frameborder="0" allowfullscreen></iframe>
 
 The partition function is the normalization term which is the sum of the
-activations of all possible sequences (called \(Z(X)\) in his videos).
+activations of all possible sequences (called $Z(X)$ in his videos).
 
-Computing \(p(y | X)\) is in \(\mathcal{O}(k c^2)\) where \(c\) is the number
-of classes and \(k\) is the length of the sequence.
+Computing $p(y | X)$ is in $\mathcal{O}(k c^2)$ where $c$ is the number
+of classes and $k$ is the length of the sequence.
 
 The following algorihtms were covered:
 
@@ -67,8 +66,8 @@ The following algorihtms were covered:
 
 This seems to be the Viterbi decoding algorithm.
 
-Computing \(\max_{y^*} p(y^* | X)\) (hence making a prediction) is in
-\(\mathcal{O}(k c^2)\) where \(c\) is the number of classes and \(k\) is the
+Computing $\max_{y^*} p(y^* | X)$ (hence making a prediction) is in
+$\mathcal{O}(k c^2)$ where $c$ is the number of classes and $k$ is the
 length of the sequence.
 
 
@@ -111,7 +110,7 @@ length of the sequence.
 
 ## See also
 
-* [What is the relationship between Markov Random Fields and Conditional Random Fields?](http://datascience.stackexchange.com/q/9617/8820) (formerly http://stats.stackexchange.com/q/188481/25741)
+* [What is the relationship between Markov Random Fields and Conditional Random Fields?](http://datascience.stackexchange.com/q/9617/8820) (formerly [stats.stackexchange.com/q/188481/25741](http://stats.stackexchange.com/q/188481/25741))
 * [Is every Conditional Random Field simply a Markov Random Field with restricted structure?](http://stats.stackexchange.com/q/169369/25741)
 * [What's the difference between a Markov Random Field and a Conditional Random Field?](http://stats.stackexchange.com/q/156697/25741)
 * Online Courses

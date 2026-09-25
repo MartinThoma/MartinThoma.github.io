@@ -33,7 +33,7 @@ description of what TensorFlow is:
 > interface and an implementation of that interface that we have built at
 > Google. The TensorFlow API and a reference implementation were released as an
 > open-source package under the Apache 2.0 license in November, 2015 and are
-> available at www.tensorflow.org.
+> available at [tensorflow.org](https://www.tensorflow.org).
 
 The core seems to be written in C++, but it has a Python front end.
 

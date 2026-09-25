@@ -36,7 +36,7 @@ Webserver with:
 1. Download the latest version from [wordpress.org](http://wordpress.org/download/)
 2. Decompress it and upload it to your web server. It should be directly in your root directory.
 
-   *Example: Use www.martin-thoma.com, not www.martin-thoma.com/wordpress/*
+   *Example: Use `www.martin-thoma.com`, not `www.martin-thoma.com/wordpress/`*
 
 3. Run the installation setup:
    1. Fill in your database information (database name, host, database user, database password)
@@ -66,7 +66,7 @@ Webserver with:
 
 ## Fine-tuning
 
-**www or non-www URL**: Decide whether you want www.martin-thoma.com or martin-thoma.com as your standard URL. Both should work, but one should redirect to the other. I chose martin-thoma.com because I prefer short URLs. Add this to your [`.htaccess`](../tricks-with-htaccess/) if you want www.martin-thoma.com:
+**www or non-www URL**: Decide whether you want `www.martin-thoma.com` or `martin-thoma.com` as your standard URL. Both should work, but one should redirect to the other. I chose martin-thoma.com because I prefer short URLs. Add this to your [`.htaccess`](../tricks-with-htaccess/) if you want `www.martin-thoma.com`:
 
 ```apache
 RewriteEngine on

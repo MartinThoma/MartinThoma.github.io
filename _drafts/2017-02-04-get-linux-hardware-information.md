@@ -1,13 +1,12 @@
 ---
 layout: post
 title: How to get Hardware Information on Linux Systems
+slug: get-linux-hardware-information
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Linux
-- Hardware
+category: Code
+tags: Linux, Hardware
 featured_image: logos/linux.png
 ---
 

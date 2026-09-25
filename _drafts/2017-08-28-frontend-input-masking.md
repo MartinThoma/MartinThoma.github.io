@@ -2,12 +2,13 @@
 layout: post
 title: Frontend Input Masking
 slug: frontend-input-masking
+lang: en
 author: Martin Thoma
-status: draft
 date: 2017-08-28 20:00
 category: Code
-tags: Frontend
+tags: Frontend, Web Development
 featured_image: logos/frontend.png
+status: draft
 ---
 
 Input Masks are neat, because they guide the user when he has to type in common

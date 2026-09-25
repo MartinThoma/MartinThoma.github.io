@@ -86,25 +86,24 @@ similar to the marker:
 * Cross-like: `*`, `+`, `1`, `2`, `3`, `4`
 * Circle-like: `o`, `.`, `h`, `p`, `H`, `8`
 
-<figure>
-    <a href="../images/2017/02/matplotlib-markers-1.png"><img src="../images/2017/02/matplotlib-markers-1.png" alt="Markers 1" width="512" height="384" loading="lazy"></a>
-    <figcaption>Markers 1</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/02/matplotlib-markers-2.png"><img src="../images/2017/02/matplotlib-markers-2.png" alt="Markers 2" width="512" height="384" loading="lazy"></a>
-    <figcaption>Markers 2</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/02/matplotlib-markers-3.png"><img src="../images/2017/02/matplotlib-markers-3.png" alt="Markers 3" width="512" height="384" loading="lazy"></a>
-    <figcaption>Markers 3</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2017/02/matplotlib-markers-4.png"><img src="../images/2017/02/matplotlib-markers-4.png" alt="Markers 4" width="512" height="384" loading="lazy"></a>
-    <figcaption>Markers 4</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2017/02/matplotlib-markers-1.png"><img src="../images/2017/02/matplotlib-markers-1.png" alt="Markers 1" width="512" height="384" loading="lazy"></a>
+        <figcaption>Markers 1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/02/matplotlib-markers-2.png"><img src="../images/2017/02/matplotlib-markers-2.png" alt="Markers 2" width="512" height="384" loading="lazy"></a>
+        <figcaption>Markers 2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/02/matplotlib-markers-3.png"><img src="../images/2017/02/matplotlib-markers-3.png" alt="Markers 3" width="512" height="384" loading="lazy"></a>
+        <figcaption>Markers 3</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2017/02/matplotlib-markers-4.png"><img src="../images/2017/02/matplotlib-markers-4.png" alt="Markers 4" width="512" height="384" loading="lazy"></a>
+        <figcaption>Markers 4</figcaption>
+    </figure>
+</div>
 
 
 ## Line Types

@@ -1,13 +1,12 @@
 ---
 layout: post
 title: How to design exams
+slug: how-to-design-exams
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- exams
-- KIT
+category: Cyberculture
+tags: Exams, KIT, University
 featured_image: logos/design.png
 ---
 I am a student at KIT (University of Karlsruhe, Germany) for 9&nbsp;semesters

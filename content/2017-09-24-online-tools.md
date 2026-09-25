@@ -49,7 +49,7 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
     <dd>Create tables for HTML, LaTeX, Markdown, reStructuredText, ...</dd>
     <dt><a href="http://pep8online.com">pep8online.com</a> <span class="label label-default">Python</span></dt>
     <dd>Check a file for PEP8 complience.</dd>
-    <dt><a href="https://www.deepl.com/translate">deep.com</a></dt>
+    <dt><a href="https://www.deepl.com/translate">deepl.com</a></dt>
     <dd>Translation between some common languages.<br/>
         Alternatives: <a href="https://translate.google.com/">Google Translate</a></dd>
 </dl>

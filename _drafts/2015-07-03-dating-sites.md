@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Dating Sites
+slug: dating-sites
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Dating
+category: Cyberculture
+tags: Dating
 featured_image: logos/dating.png
 ---
 
@@ -40,7 +40,7 @@ Free-text:
 
 ## Sites
 
-https://www.parship.de:
+[parship.de](https://www.parship.de):
 
 + Nice design (especially profile pages)
 + Matching points

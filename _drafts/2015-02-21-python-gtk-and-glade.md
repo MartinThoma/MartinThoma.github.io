@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Python, GTK and Glade
+slug: python-gtk-and-glade
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- Python
-- GTK
-- Glade
-- GUI
+category: Code
+tags: Python, GTK, Glade, GUI
 featured_image: logos/Python.png
 ---
 GUI development is a completely new skill, independent of other programming
@@ -51,4 +48,4 @@ If this works, the installation went fine. If not, you should ask for help
 * [Sublime Text 3 with Python 3](https://coderwall.com/p/nhq2gg/setting-up-sublimerepl-with-python3)
 * [Python GI API Reference](http://lazka.github.io/pgi-docs/index.html#Gtk-3.0)
 
-http://www.pygtk.org/articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm
+[pygtk.org: Create a GUI using PyGTK and Glade](http://www.pygtk.org/articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm)

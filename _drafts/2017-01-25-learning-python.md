@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Learning Python
+slug: learning-python
+lang: en
 author: Martin Thoma
 date: 2013-11-10 03:55:31
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image:
 ---
 <h2>Install Python</h2>

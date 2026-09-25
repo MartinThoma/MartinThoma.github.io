@@ -55,20 +55,20 @@ As I had a wall plug in my ceiling I needed to remove it before I could start. I
 
 So I tried to stretch it:
 
-<figure>
-    <a href="../images/2012/03/hohlraumduebel-hammer-220x300.jpg"><img src="../images/2012/03/hohlraumduebel-hammer-220x300.jpg" alt="Stretching the wall plug with the hammer didn't work" width="220" height="300" loading="lazy"></a>
-    <figcaption>Stretching the wall plug with the hammer didn&#039;t work</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/03/hohlraumduebel-zange-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-zange-300x300.jpg" alt="Stretching the wall plug with a wrench worked ..." width="300" height="300" loading="lazy"></a>
-    <figcaption>Stretching the wall plug with a wrench worked ...</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2012/03/hohlraumduebel-auseinander-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-auseinander-300x300.jpg" alt="... kind of" width="300" height="300" loading="lazy"></a>
-    <figcaption>... kind of</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2012/03/hohlraumduebel-hammer-220x300.jpg"><img src="../images/2012/03/hohlraumduebel-hammer-220x300.jpg" alt="Stretching the wall plug with the hammer didn't work" width="220" height="300" loading="lazy"></a>
+        <figcaption>Stretching the wall plug with the hammer didn&#039;t work</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/03/hohlraumduebel-zange-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-zange-300x300.jpg" alt="Stretching the wall plug with a wrench worked ..." width="300" height="300" loading="lazy"></a>
+        <figcaption>Stretching the wall plug with a wrench worked ...</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2012/03/hohlraumduebel-auseinander-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-auseinander-300x300.jpg" alt="... kind of" width="300" height="300" loading="lazy"></a>
+        <figcaption>... kind of</figcaption>
+    </figure>
+</div>
 
 <h2>Filling the hole</h2>
 First you need to clean both holes so that the acrylic paint can stick. Then you have to use the masking tape to get a clean border:

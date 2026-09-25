@@ -37,7 +37,7 @@ They also got a new URL. Before the new one is kit.edu, but it seems as if many 
   <li><a href="http://www.fsmi.uni-karlsruhe.de/">fsmi.uni-karlsruhe.de</a>: fsmi.kit.edu</li>
   <li><a href="http://www2.mach.uni-karlsruhe.de/srmach/srmach.php">mach.uni-karlsruhe.de</a>: should be mach.kit.edu</li>
     </ul>
-  <li>http://www.ira.uka.de/: <a href="https://webinscribe.ira.uka.de/">webinscribe.ira.uka.de</a>: should be webinscribe.kit.edu. Additionally, a link from studium.kit.edu to this service should be created.</li>
+  <li><a href="http://www.ira.uka.de/">ira.uka.de</a>: <a href="https://webinscribe.ira.uka.de/">webinscribe.ira.uka.de</a>: should be webinscribe.kit.edu. Additionally, a link from studium.kit.edu to this service should be created.</li>
   <li><a href="http://www.itas.fzk.de/">www.itas.fzk.de</a>: should be itas.kit.edu. (I guess fzk means "Forschungszentrum Karlsruhe" - research center Karlsruhe)</li>
 </ul>
 
@@ -46,7 +46,7 @@ This could be fixed with the following steps:
     <li>Find old URLs / Links (e.g. with <abbr title="Regular Expressions">RegEx</abbr> and a <a href="http://en.wikipedia.org/wiki/Web_crawler">crawler</a>)</li>
     <li>Introduce the new URL by one of those two possibilities:
         <ul>
-          <li>Make HTML-redirections for the new ones (e.g. from fsmi.kit.edu to www.fsmi.uni-karlsruhe.de)</li>
+          <li>Make HTML-redirections for the new ones (e.g. from fsmi.kit.edu to <a href="https://www.fsmi.uni-karlsruhe.de">fsmi.uni-karlsruhe.de</a>)</li>
           <li>Move the content from the old space to the new space. Make sure that nothing breaks by adding a <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection">301 status code</a>.</li>
         </ul>
     <li>Replace all links to the old URL by the new URL.</li>
@@ -90,10 +90,10 @@ All redundant URLs should point to ONE target, of course. It's best to use a 301
 <h3>Short, but meaningful URLs</h3>
 At the moment KIT makes use of such URLs:
 <ul>
-  <li>www.kit.edu/index.php should be kit.edu</li>
-  <li>www.informatik.kit.edu/index.php should be informatik.kit.edu</li>
+  <li><code>www.kit.edu/index.php</code> should be <code>kit.edu</code></li>
+  <li><code>www.informatik.kit.edu/index.php</code> should be <code>informatik.kit.edu</code></li>
   <li><a href="http://www.informatik.kit.edu/883.php">www.informatik.kit.edu/883.php</a> should be informatik.kit.edu/informatik-bachelor</li>
-  <li>www.informatik.kit.edu/interact.php should be informatik.kit.edu/interact</li>
+  <li><code>www.informatik.kit.edu/interact.php</code> should be <code>informatik.kit.edu/interact</code></li>
 </ul>
 
 This can be done by modifying the .htaccess-file (for the decision to redirect calls prefixed with www to a non-www page).

@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Our Dependence on Electricity
+slug: dependence-on-electricity
+lang: en
 author: Martin Thoma
 date: 2015-12-09 17:19
 category: Cyberculture
-tags:
-- Rating
+tags: Energy
 featured_image: logos/star.png
 ---
 Our dependence on ubiquitously available electricity gets stronger and stronger

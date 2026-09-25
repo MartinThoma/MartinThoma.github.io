@@ -86,16 +86,18 @@ MathJax.Hub.Queue(function() {
                     <span class="brand-name">{{ SITENAME }}</span>
                     {% if SITESUBTITLE %}<span class="brand-tagline">{{ SITESUBTITLE }}</span>{% endif %}
                 </a>
+                {# page_name is the save path without extension: "index", "tags/index", "tag/python/index" #}
+                {% set nav_section = (page_name or '').split('/')[0] %}
                 <nav class="nav" aria-label="Main">
-                    <a href="{{ SITEURL }}/"{% if page_name == 'index' %} aria-current="page"{% endif %}>Home</a>
+                    <a href="{{ SITEURL }}/"{% if nav_section == 'index' %} aria-current="page"{% endif %}>Home</a>
                     {% if DISPLAY_PAGES_ON_MENU %}
                     {% for p in pages %}
                     <a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} aria-current="page"{% endif %}>{{ p.title }}</a>
                     {% endfor %}
                     {% endif %}
-                    <a href="{{ SITEURL }}/tags/"{% if page_name == 'tags' %} aria-current="page"{% endif %}>Tags</a>
-                    <a href="{{ SITEURL }}/archives/"{% if page_name == 'archives' %} aria-current="page"{% endif %}>Archives</a>
-                    <a href="{{ SITEURL }}/support-me/">Support me</a>
+                    <a href="{{ SITEURL }}/tags/"{% if nav_section in ('tags', 'tag') %} aria-current="page"{% endif %}>Tags</a>
+                    <a href="{{ SITEURL }}/archives/"{% if nav_section == 'archives' %} aria-current="page"{% endif %}>Archives</a>
+                    <a href="{{ SITEURL }}/support-me/"{% if article and article.slug == 'support-me' %} aria-current="page"{% endif %}>Support me</a>
                     <form class="search" role="search" action="{{ SITEURL }}/search/" onsubmit="return validateForm(this.elements['q'].value);">
                         <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
                     </form>
@@ -108,6 +110,7 @@ MathJax.Hub.Queue(function() {
         </main>
         {% include '_includes/footer.html' %}
         {% block script %}
+        <script src="{{ SITEURL }}/theme/js/lightbox.js" defer></script>
         <script>
             function validateForm(query)
             {

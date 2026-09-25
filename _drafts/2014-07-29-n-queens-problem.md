@@ -1,12 +1,12 @@
 ---
 layout: post
 title: n Queens Problem
+slug: n-queens-problem
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: logos/sublime-text.png
 ---
 

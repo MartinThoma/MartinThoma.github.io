@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Usability issues in 2014
+slug: usability
+lang: en
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Cyberculture
-tags:
-- Python
+category: Cyberculture
+tags: Usability, Design
 featured_image: 2014/03/usability-fail-thumb.png
 ---
 
@@ -48,8 +48,8 @@ should only have a flat surface.
 
 ## University Websites
 
-* http://www.webdesigndegreecenter.org/best-designed-college-websites/
-* https://www.nngroup.com/articles/university-sites/
+* [webdesigndegreecenter.org/best-designed-college-w…](http://www.webdesigndegreecenter.org/best-designed-college-websites/)
+* [nngroup.com/articles/university-sites](https://www.nngroup.com/articles/university-sites/)
 
 
 ## Traffic Lights
@@ -60,7 +60,10 @@ to be patient: Show them how long it will take until it gets green.
 (I think the design is for cars, but I don't know any car driver who ignores
 a red light. So I think one could adapt it for pedestrians.)
 
-{% caption align="aligncenter" width="500" alt="Traffic light design by relogik (relogik.com/eko)" text="Traffic light design by relogik (relogik.com/eko)" url="../images/2014/10/eko-traffic-light-design-relogik.jpg" %}
+<figure>
+    <a href="../images/2014/10/eko-traffic-light-design-relogik.jpg"><img src="../images/2014/10/eko-traffic-light-design-relogik.jpg" alt="Traffic light design by relogik (relogik.com/eko)" width="500" height="371" loading="lazy"></a>
+    <figcaption>Traffic light design by relogik (relogik.com/eko)</figcaption>
+</figure>
 
 Source: [relogik.com/eko](http://relogik.com/eko)
 
@@ -70,7 +73,10 @@ Sometimes you get coffee stains because a little drop of the coffee (or tea)
 drops down at the side of the mug. The following design by "Yanko Design"
 prevents that:
 
-{% caption align="aligncenter" width="500" alt="Yanko design coffee mug<br/> Source: <a href='http://www.yankodesign.com/2013/05/29/a-drip-free-world/'>yankodesign.com</a>" text="Yanko design coffee mug<br/> Source: <a href='http://www.yankodesign.com/2013/05/29/a-drip-free-world/'>yankodesign.com</a>" url="../images/2014/10/yanko-design-mug-coffee-stains.jpg" %}
+<figure>
+    <a href="../images/2014/10/yanko-design-mug-coffee-stains.jpg"><img src="../images/2014/10/yanko-design-mug-coffee-stains.jpg" alt="Yanko design coffee mug" width="500" height="441" loading="lazy"></a>
+    <figcaption>Yanko design coffee mug<br> Source: <a href='http://www.yankodesign.com/2013/05/29/a-drip-free-world/'>yankodesign.com</a></figcaption>
+</figure>
 
 ## Medicine
 
@@ -79,7 +85,10 @@ drugs. I can't find it any more 😕.
 
 ## Brush
 
-{% caption align="aligncenter" width="500" alt="A brush with which you can easily remove the hair.<br/>Source: <a href='http://www.brainparking.com/view/topic.cfm?key_or=1166625&lenta_type=4'>brainparking.com</a>" text="A brush with which you can easily remove the hair.<br/>Source: <a href=''>brainparking.com</a>" url="../images/2014/10/brush.jpg" %}
+<figure>
+    <a href="../images/2014/10/brush.jpg"><img src="../images/2014/10/brush.jpg" alt="A brush with which you can easily remove the hair." width="500" height="500" loading="lazy"></a>
+    <figcaption>A brush with which you can easily remove the hair.<br>Source: <a href=''>brainparking.com</a></figcaption>
+</figure>
 
 ## Floor plans
 
@@ -119,17 +128,29 @@ in the context of websites.
 
 It seems as if Google doesn't want me to read long comments:
 
-{% caption align="aligncenter" width="500" alt="Google+ allows me to +1 a comment in collapsed mode" text="Google+ allows me to +1 a comment in collapsed mode" url="../images/2014/03/google-plus-plus-exits.png" %}
+<figure>
+    <a href="../images/2014/03/google-plus-plus-exits.png"><img src="../images/2014/03/google-plus-plus-exits.png" alt="Google+ allows me to +1 a comment in collapsed mode" width="500" height="408" loading="lazy"></a>
+    <figcaption>Google+ allows me to +1 a comment in collapsed mode</figcaption>
+</figure>
 
-{% caption align="aligncenter" width="500" alt="But I can't +1 when I can read the complete comment." text="But I can't +1 when I can read the complete comment." url="../images/2014/03/google-plus-no-plus.png" %}
+<figure>
+    <a href="../images/2014/03/google-plus-no-plus.png"><img src="../images/2014/03/google-plus-no-plus.png" alt="But I can't +1 when I can read the complete comment." width="500" height="383" loading="lazy"></a>
+    <figcaption>But I can't +1 when I can read the complete comment.</figcaption>
+</figure>
 
 ### YouTube
 
 YouTube offers no way to dismiss recommendet videos:
 
-{% caption align="aligncenter" width="500" alt="YouTube recommended videos - a 'dismiss' function is missing" text="YouTube recommended videos - a 'dismiss' function is missing" url="../images/2014/03/youtube-no-dismiss.png" %}
+<figure>
+    <a href="../images/2014/03/youtube-no-dismiss.png"><img src="../images/2014/03/youtube-no-dismiss.png" alt="YouTube recommended videos - a 'dismiss' function is missing" width="500" height="204" loading="lazy"></a>
+    <figcaption>YouTube recommended videos - a 'dismiss' function is missing</figcaption>
+</figure>
 
 Although amazon does also not have a 'block this item' function, it helps you to
 understand (and eventually fix) the problem why you get undesired recommendations:
 
-{% caption align="aligncenter" width="500" alt="Amazon recommendations" text="Amazon recommendations" url="../images/2014/03/amazon-recommendation.png" %}
+<figure>
+    <a href="../images/2014/03/amazon-recommendation.png"><img src="../images/2014/03/amazon-recommendation.png" alt="Amazon recommendations" width="500" height="241" loading="lazy"></a>
+    <figcaption>Amazon recommendations</figcaption>
+</figure>

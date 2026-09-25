@@ -1,14 +1,12 @@
 ---
 layout: post
 title: JavaScript development
+slug: javascript-development
+lang: en
 author: Martin Thoma
 date: 2014-02-17
-categories:
-- Code
-tags:
-- JavaScript
-- development
-- best practice
+category: Code
+tags: JavaScript, Software Engineering, Best Practices
 featured_image:
 ---
 The possibilities you have today with JavaScript are fantastic. It's not even

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Java Datastructures
+slug: java-datastructures
+lang: en
 author: Martin Thoma
 date: 2012-03-11 05:50:43
-categories:
-- Code
-tags:
-- Java
+category: Code
+tags: Java
 featured_image:
 ---
 <h2>List</h2>

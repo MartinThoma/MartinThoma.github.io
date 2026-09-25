@@ -2,12 +2,13 @@
 layout: post
 title: Correlation and Causality
 slug: correlation-and-causality
+lang: en
 author: Martin Thoma
-status: draft
 date: 2017-03-27 20:00
 category: Cyberculture
 tags: Correlation, Causality
 featured_image: logos/ml.png
+status: draft
 ---
 Correlation and Causality are two phenomens which are often confused. This
 fallacy is called *cum hoc ergo propter hoc*: "with this, therefore because of
@@ -37,7 +38,7 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Correlation_and_dependence)
 Most of the time, people say that two random variables $X$ and $Y$ are correlated,
 when the Pearson's product-moment coefficient is not zero:
 
-\[\mathrm{corr}(X,Y)={\mathrm{cov}(X,Y) \over \sigma_X \sigma_Y} ={E[(X-\mu_X)(Y-\mu_Y)] \over \sigma_X\sigma_Y}\]
+$$\mathrm{corr}(X,Y)={\mathrm{cov}(X,Y) \over \sigma_X \sigma_Y} ={E[(X-\mu_X)(Y-\mu_Y)] \over \sigma_X\sigma_Y}$$
 
 
 ## Relationship between Causality and Correlation
@@ -55,7 +56,7 @@ $Y$ can be correlated. Hence no causation implies no correlation(?)
 
 Let $X \sim \mathcal{N}(0, 1)$ be a random variable and $Y$ be defined as
 
-\[Y = X + 1\]
+$$Y = X + 1$$
 
 This means $Y \sim \\mathcal{N}(1, 1)$.
 

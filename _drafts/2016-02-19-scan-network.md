@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Scan the LAN
+slug: scan-network
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags:
-- Rating
-- Linux
+tags: Linux
 featured_image: logos/star.png
 ---
 

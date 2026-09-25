@@ -14,7 +14,7 @@ to its developers - intelligently. That could be anything. Typical examples
 are route-finding algorithms, chess programs, first-person shooter computer opponents
 and classifiers. The last category of AIs (classifiers) is huge and includes
 programs which try to find out what you were writing (see
-[my bachelor's thesis](//martin-thoma.com/write-math/)), try to
+[my bachelor's thesis](../write-math/)), try to
 figure out who is in an image (face recognition) or what was spoken (automatic
 speech recognition).
 
@@ -23,8 +23,8 @@ Science fiction literature distinguishes two kinds of AIs: Weak AIs and strong
 AIs.
 
 Currently, we only know weak AIs. They can do incredible things (see
-[A.I. in Computer Games](//martin-thoma.com/ai-in-computer-games/) and
-[Awesome Robots](//martin-thoma.com/awesome-robots/)), but that is nothing
+[A.I. in Computer Games](../ai-in-computer-games/) and
+[Awesome Robots](../awesome-robots/)), but that is nothing
 compared to a strong AI. Strong AIs are capable of adapting to completely new
 tasks. They can do creative work. In other words, they can do any task any
 human could do. They can do research and compose the most beautiful art. As

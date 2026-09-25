@@ -225,7 +225,7 @@ And some other reference points:
     * [https://google.de](https://google.de): 110ms - 170ms
     * [https://joyn.de](https://joyn.de/): 130ms - 190ms
     * [https://blog.fefe.de](https://blog.fefe.de/): 150ms - 180ms
-    * [https://martin-thoma.com](https://martin-thoma.com/) via GitHub: 320ms - 420ms
+    * [https://martin-thoma.com](../) via GitHub: 320ms - 420ms
     * [https://netflix.com](https://netflix.com/): 230ms - 500ms
 * API request with network:
     * [https://write-math.com](https://write-math.com) via namecheap; a symbol classification request: 550ms - 820ms

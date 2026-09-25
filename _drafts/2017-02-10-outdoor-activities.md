@@ -2,12 +2,13 @@
 layout: post
 title: Outdoor Activities
 slug: outdoor-activities
+lang: en
 author: Martin Thoma
-status: draft
 date: 2016-07-09 20:00
 category: My bits and bytes
-tags: Rating
+tags: Travel
 featured_image: logos/star.png
+status: draft
 ---
 There are a couple of outdoor activities I would like to try
 

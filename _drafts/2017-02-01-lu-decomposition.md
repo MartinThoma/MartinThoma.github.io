@@ -1,14 +1,12 @@
 ---
 layout: post
 title: LU decomposition of a matrix
+slug: lu-decomposition
+lang: en
 author: Martin Thoma
 date: 2013-05-20 03:18:30
-categories:
-- Code
-tags:
-- mathematics
-- Matrix
-- numerics
+category: Code
+tags: Mathematics, Matrix, Numerics, Linear Algebra
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 <div class="info">You have to know how <a href="http://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a> works to understand this article.</div>

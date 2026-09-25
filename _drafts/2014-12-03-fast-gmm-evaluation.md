@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Fast Evaluation of GMMs
+slug: fast-gmm-evaluation
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- GMM
-- Naive Bayes classifier
+category: Code
+tags: GMM, Naive Bayes, Machine Learning, Classification, AI
 featured_image: logos/ai.png
 ---
 

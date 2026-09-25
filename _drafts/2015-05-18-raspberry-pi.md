@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Raspberry Pi
+slug: raspberry-pi
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Raspberry Pi
+category: Cyberculture
+tags: Raspberry Pi
 featured_image: logos/raspberry-pi.png
 ---
 

@@ -502,7 +502,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 
 ### ÜB 1
 
-* Aufgabe 1.1: http://math.stackexchange.com/q/1919394/6876
+* Aufgabe 1.1: [math.stackexchange.com/q/1919394/6876](http://math.stackexchange.com/q/1919394/6876)
 * Aufgabe 1.2: $P(A) = 0.5 = P(B) = P(C)$,
   $$
   \begin{align}

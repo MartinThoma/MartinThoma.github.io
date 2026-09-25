@@ -65,7 +65,7 @@ My email from 06.07.2013 to kundencenter@avv-augsburg.de:
 <blockquote>Sehr geehrte Damen und Herren,
 
 ich habe gerade gesehen, dass Google die Möglichkeit anbietet, die Fahrplaninformationen in Google Maps einzubinden:
-http://maps.google.com/help/maps/mapcontent/transit/index.html
+<a href="http://maps.google.com/help/maps/mapcontent/transit/index.html">maps.google.com/help/…/transit/index.html</a>
 
 Könnten Sie das anbieten? Es ist vermutlich deutlich einfacher, die Fahrplanauskunft von Google zu nutzen als auf die AVV-Seite zu gehen.
 

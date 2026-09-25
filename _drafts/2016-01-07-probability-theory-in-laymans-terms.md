@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Probability Theory in Laymans Terms
+slug: probability-theory-in-laymans-terms
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Mathematics
-tags:
-- Probability Theory
+tags: Probability, Mathematics
 featured_image: logos/statistics.png
 ---
 
@@ -41,9 +42,9 @@ is also called the "density".
 ## Joint Distribution
 
 Think of the students example. You have three random variables: Intelligence
-\(I\), difficulty of a test \(D\) and grade \(G\). The possible values of those
-variables are \(I \in \{dumb, smart\}\),
-\(D \in \{easy, hard\}\) and \(G \in \{A, B, C\}\). Then the joint distribution
+$I$, difficulty of a test $D$ and grade $G$. The possible values of those
+variables are $I \in \{dumb, smart\}$,
+$D \in \{easy, hard\}$ and $G \in \{A, B, C\}$. Then the joint distribution
 is just a table over all combinations of those three variables:
 
 | Intelligence I | Difficulty D | Grade G | P(I, D, G) |
@@ -97,15 +98,15 @@ variables. For example, say you marginalize to I. Then you would get:
 
 ## Factor
 
-A function / table \(\phi(X_1, \dots, X_n)\) which maps the values of random
+A function / table $\phi(X_1, \dots, X_n)$ which maps the values of random
 variables to real numbers:
 
-\[\phi: Val(X_1, \dots, X_n) \rightarrow \mathbb{R}\]
+$$\phi: Val(X_1, \dots, X_n) \rightarrow \mathbb{R}$$
 
 So essentially, a factor is again a table.
 
-Factors \(\phi_1\), \(\phi_2\) can also be multiplied. The new factor is
-defined on the union of the random variables of \(\phi_1\) and \(\phi_2\).
+Factors $\phi_1$, $\phi_2$ can also be multiplied. The new factor is
+defined on the union of the random variables of $\phi_1$ and $\phi_2$.
 
 
 ## Abbreviations

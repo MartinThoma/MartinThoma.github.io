@@ -20,7 +20,7 @@ awesome educational resources to most people. But we lack the software.
 This post is work in progress. I would like to build and deploy an improved
 platform for teaching and learning. I've been thinking about this for quite a
 while and very often I'm blocked by the complexity of the task. Although the
-[current draft](https://martin-thoma.com/pdf/education-portal.pdf) is far
+[current draft](../pdf/education-portal.pdf) is far
 from being finished, I think it's important to start sharing ideas. A talk with
 my flatmate gave me many more ideas. Thank you, Thomas!
 

@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Migrate from Jekyll to Pelican
+slug: migrate-from-jekyll-to-pelican
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture
-tags: Jekyll, Blogging
+tags: Jekyll, Blog
 featured_image: logos/star.png
 ---
 
@@ -58,7 +60,7 @@ In the main directory, above `content`, execute
 $ git submodule add https://github.com/barrysteyn/pelican_plugin-render_math
 ```
 
-Then I had https://github.com/barrysteyn/pelican_plugin-render_math/issues/32,
+Then I had [github.com/barrysteyn/…/issues/32](https://github.com/barrysteyn/pelican_plugin-render_math/issues/32),
 but by adding my own code it worked.
 
 ### Inline Math
@@ -121,8 +123,8 @@ CSS you had before.
 
 ## TODO
 
-* https://martin-thoma.com/author/martin-thoma/ and https://github.com/getpelican/pelican/issues/1735
-* http://127.0.0.1:8000/5-online-comic-websites/
+* [martin-thoma.com/author/martin-thoma](../author/martin-thoma/) and [github.com/getpelican/pelican/issues/1735](https://github.com/getpelican/pelican/issues/1735)
+* `http://127.0.0.1:8000/5-online-comic-websites/`
 
 
 ## Pelican Initialization
@@ -132,4 +134,4 @@ Execute `pelican-quickstart` in your folder.
 
 ## See also
 
-* https://jawher.me/2012/10/19/moving-from-jekyll-to-pelican/
+* [jawher.me/2012/10/19/moving-from-jekyll-to-pelican](https://jawher.me/2012/10/19/moving-from-jekyll-to-pelican/)

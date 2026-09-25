@@ -147,7 +147,7 @@ class Location(builtins.object)
 
 <div class="info">You should note the single leading underscore - that is Python's way to denote private attributes. It is not meant as the public interface of the class.<br/>
 <br/>
-There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming collisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ & __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
+There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming collisions. Just have a look at `dir(some_example_class)`. See also: <a href="https://www.youtube.com/watch?v=ALZmCy2u0jQ">What's the meaning of underscores (_ &amp; __) in Python variable names?</a></div>
 
 And then note how the class attribute `latitude` now is not a float anymore, but a `property` object!
 

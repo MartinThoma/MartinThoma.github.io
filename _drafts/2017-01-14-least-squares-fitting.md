@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Fitting linear data points with least squares method
+slug: least-squares-fitting
+lang: en
 author: Martin Thoma
 date: 2013-09-08 06:40:21
-categories:
-- Mathematics
-tags:
-- Data
+category: Mathematics
+tags: Data
 featured_image:
 ---
 Suppose you have $n$ 2D data points $p_1, p_2, \dots, p_n$ and you want to get the line that fits those data points best. A line has the format $y = a \cdot x + b$ where $a$ and $b$ describe the line.

@@ -99,7 +99,7 @@ You can do everything with the terminal. When the system is slowing down, I pres
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F4</kbd>, log into the shell,
 call `top` and `kill` the process which slows my system down.
 
-And I really like [ZSH and Oh-My-ZSH](//martin-thoma.com/working-terminal/).
+And I really like [ZSH and Oh-My-ZSH](../working-terminal/).
 
 ## Linux is gratis
 

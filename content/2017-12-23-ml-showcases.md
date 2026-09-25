@@ -104,7 +104,7 @@ Search for "super resolution":
 
 ### Translation
 
-<a href="deepl.com/translate">DeepL.com</a> is much better than <a href="translate.google.com">https://translate.google.com</a>,
+<a href="https://www.deepl.com/translate">DeepL.com</a> is much better than <a href="https://translate.google.com">translate.google.com</a>,
 but also more restricted. As always, you can find some... interesting... translations:
 
 <figure>

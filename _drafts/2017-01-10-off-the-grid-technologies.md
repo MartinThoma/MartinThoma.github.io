@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Off-the-Grid technologies
+slug: off-the-grid-technologies
+lang: en
 author: Martin Thoma
 date: 2017-01-10 21:09
 category: My bits and bytes

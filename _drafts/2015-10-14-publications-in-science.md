@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Publications in Science
+slug: publications-in-science
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Rating
-- Science
-- Publication
-- Authorship
+category: Cyberculture
+tags: Science, Publication, Authorship
 featured_image: logos/science.png
 ---
 <div class="info">I have a bachelors degree in computer science and I'm currently studying for a masters degree in computer science. This means I have some knowledge about research. But I haven't worked as a reviewer or at a journal. I have tried to publish a paper at a conference (<a href="https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition">ICDAR</a>), but it got rejected. So please take everything I write in this article with a grain of salt.</div>
@@ -41,7 +38,7 @@ I wrote my bachelors thesis about a symbol recognition system I've created
 (<a href="http://write-math.com">write-math.com</a>). The more or less complete
 description of all experiments I did as well as a detailed description of the
 methods I used has 92&nbsp;pages. The paper I wrote only had 5&nbsp;pages
-(see [martin-thoma.com/write-math](//martin-thoma.com/write-math/) for
+(see [martin-thoma.com/write-math](../write-math/) for
 the thesis, the paper and other material). Even after I shortened the
 bachelor's thesis to 5&nbsp;pages, I had to adjust the language. That took me
 at least 20&nbsp;hours.

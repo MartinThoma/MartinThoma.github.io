@@ -1,32 +1,31 @@
 ---
 layout: post
 title: Parallel Mergesort
+slug: parallel-mergesort
+lang: en
 author: Martin Thoma
 date: 2013-03-05 05:23:42
-categories:
-- Code
-tags:
-- Big Data
-- concurrency
-- Java
-- parallel programming
-- Python
+category: Code
+tags: Big Data, Concurrency, Java, Parallel Programming, Python
 featured_image: 2012/07/java-thumb.png
 ---
 Before we start sorting huge amounts of numbers in parallel, we have to generate some numbers.
 
 <h2>Generate numbers</h2>
 I'll do the number generation in Python aka executable pseudocode:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from random import randint
 
+
 def generateNumbers(min=-1000, max=1000, n=1000000):
-    f = open('numbers.txt', 'wb')
+    f = open("numbers.txt", "wb")
     for i in xrange(n):
-        f.write(str(randint(min,1000)) + "\n")
+        f.write(str(randint(min, 1000)) + "\n")
     f.close()
+
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
@@ -34,21 +33,42 @@ if __name__ == "__main__":
     parser = ArgumentParser()
 
     # Add more options if you like
-    parser.add_argument("-f", "--file", dest="myFilenameVariable",
-                      help="write report to FILE", metavar="FILE")
-    parser.add_argument("-n", metavar='N', type=int, dest="n",
-                        default=1000000, help="The number of "
-                        + "numbers you want to generate.")
-    parser.add_argument("-min", metavar='N', type=int, dest="min",
-                        default=-1000, help="The minimum number "
-                        + "that might get generated.")
-    parser.add_argument("-max", metavar='N', type=int, dest="max",
-                        default=1000, help="The maximum number that "
-                        + "might get generated.")
+    parser.add_argument(
+        "-f",
+        "--file",
+        dest="myFilenameVariable",
+        help="write report to FILE",
+        metavar="FILE",
+    )
+    parser.add_argument(
+        "-n",
+        metavar="N",
+        type=int,
+        dest="n",
+        default=1000000,
+        help="The number of " + "numbers you want to generate.",
+    )
+    parser.add_argument(
+        "-min",
+        metavar="N",
+        type=int,
+        dest="min",
+        default=-1000,
+        help="The minimum number " + "that might get generated.",
+    )
+    parser.add_argument(
+        "-max",
+        metavar="N",
+        type=int,
+        dest="max",
+        default=1000,
+        help="The maximum number that " + "might get generated.",
+    )
     args = parser.parse_args()
     print("Started generating")
     generateNumbers(args.min, args.max, args.n)
-    print("Generating %i numbers finished" % args.n){% endhighlight %}
+    print("Generating %i numbers finished" % args.n)
+```
 
 I generated 100,000,000 numbers (this is a 418.8 MB file!).
 
@@ -64,10 +84,13 @@ When I try to solve a problem, I always try the trivial things first. In this ca
 <h3>Initial problems</h3>
 I've implemented this approach and added the executable to Github.
 You can call it like this:
-{% highlight bash %}java -jar Sort.jar -i numbers.txt -o outputsorted.txt{% endhighlight %}
+```bash
+java -jar Sort.jar -i numbers.txt -o outputsorted.txt
+```
 
 This time, I got some unexpected problem:
-{% highlight bash %}Read numbers
+```bash
+Read numbers
 Not enough heap space.
 Got 38647475 numbers.
 java.lang.OutOfMemoryError: Java heap space
@@ -76,20 +99,24 @@ Exception in thread "main" java.lang.reflect.InvocationTargetException
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:616)
-	at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoader.java:56){% endhighlight %}
+	at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoader.java:56)
+```
 
 Seems as ArrayList can only store 38,647,475 numbers.
 
 I also tried LinkedList, but it only stored 21,267,753 numbers and aborted after 3m14.704s - ArrayList only needed about a minute. This makes sense, as LinkedList needs more memory than ArrayList. Interestingly, this number differs. In a second execution it were 21,267,754 numbers.
 
 Ok, let's increase the heap size:
-{% highlight bash %}java -Xms2500m -Xmx2500m -jar Sort.jar -i numbers.txt -o outputsorted.txt{% endhighlight %}
+```bash
+java -Xms2500m -Xmx2500m -jar Sort.jar -i numbers.txt -o outputsorted.txt
+```
 2 GB was not enough for ArrayList. It could only store 86,956,820 numbers. We get closer. How much space do we need at minimum? $(\text{number of numbers}) \cdot (\text{size of one number}) = 32 \text{bit } \cdot 100,000,000 = 4 Byte \cdot 100,000,000 = 400 MB$.
 
 <h3>Use an array</h3>
 Hmm ... ok, lets make it more efficient and use an array.
 
-{% highlight bash %}moose@pc07:~$ time java -jar Sort.jar -i numbers.txt -o outputsorted.txt
+```bash
+moose@pc07:~$ time java -jar Sort.jar -i numbers.txt -o outputsorted.txt
 Version 1.0.3
 Read numbers
 Needed 18.015201115 seconds for reading
@@ -100,7 +127,8 @@ Finished
 
 real	0m55.276s
 user	0m50.131s
-sys	0m2.868s{% endhighlight %}
+sys	0m2.868s
+```
 
 It works :-)
 
@@ -116,10 +144,10 @@ This file needs $4,391,810,004 \text{ bytes} = 4.1 \text{ GB}$
 <h2>Workflow for Big Data</h2>
 
 <h2>Related pages</h2>
-http://stackoverflow.com/questions/1062113/fastest-way-to-write-huge-data-in-text-file-java
-http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=sorting
-https://plus.google.com/u/0/114317830537891572122/posts/KNE1a4GRDJb?cfem=1
-http://stackoverflow.com/questions/tagged/external-sorting
-https://code.google.com/p/externalsortinginjava/
-http://stackoverflow.com/questions/7918060/how-do-i-sort-very-large-files
-http://docs.oracle.com/javase/7/docs/api/java/nio/channels/FileChannel.html
+[stackoverflow.com/…/fastest-way-to-write-huge-dat…](http://stackoverflow.com/questions/1062113/fastest-way-to-write-huge-data-in-text-file-java)
+[community.topcoder.com/tc](http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=sorting)
+[plus.google.com/u/…/posts/KNE1a4GRDJb](https://plus.google.com/u/0/114317830537891572122/posts/KNE1a4GRDJb)
+[stackoverflow.com/…/external-sorting](http://stackoverflow.com/questions/tagged/external-sorting)
+[code.google.com/p/externalsortinginjava](https://code.google.com/p/externalsortinginjava/)
+[stackoverflow.com/…/how-do-i-sort-very-large-files](http://stackoverflow.com/questions/7918060/how-do-i-sort-very-large-files)
+[docs.oracle.com/javase/…/channels/FileChannel.html](http://docs.oracle.com/javase/7/docs/api/java/nio/channels/FileChannel.html)

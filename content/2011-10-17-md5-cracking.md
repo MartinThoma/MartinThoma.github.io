@@ -63,7 +63,7 @@ Here is the time, john needed to crack the hashes:
 <li>"r4Nd0m9": after 38 min it wasn't cracked</li>
 </ul>
 
-Okay, these results aren't good. But you can also use a wordlist (e.g. the 15 MB list from http://www.bright-shadows.net/download/downloads.php) and the command
+Okay, these results aren't good. But you can also use a wordlist (e.g. the 15 MB list from [bright-shadows.net/download/downloads.php](http://www.bright-shadows.net/download/downloads.php)) and the command
 john --wordlist:tbswordlist1.txt --format=raw-MD5 md5.txt
 <ul>
 <li>"computer": df53ca268240ca76670c8566ee54568a</li>

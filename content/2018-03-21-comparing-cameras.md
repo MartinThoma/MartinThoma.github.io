@@ -57,10 +57,10 @@ Optional:
 
 ## Websites for Comparisons
 
-* http://cameradecision.com/compare/Panasonic-Lumix-DMC-ZS100-vs-Panasonic-Lumix-DMC-ZS30
-* http://snapsort.com/compare/Panasonic-Lumix-DMC-ZS100-(Lumix-DMC-TZ100)-vs-Panasonic-Lumix-TZ40
-* https://versus.com/de/sony-cyber-shot-dsc-rx100-iii-vs-panasonic-lumix-dmc-tz100eb
-* https://www.digicamdb.com/compare/panasonic_lumix-dmc-tz100-vs-panasonic_lumix-dmc-tz40/
+* [cameradecision.com/…/Panasonic-Lumix-DMC-ZS100-vs…](http://cameradecision.com/compare/Panasonic-Lumix-DMC-ZS100-vs-Panasonic-Lumix-DMC-ZS30)
+* [snapsort.com/…/Panasonic-Lumix-DMC-ZS100-(Lumix-D…](http://snapsort.com/compare/Panasonic-Lumix-DMC-ZS100-%28Lumix-DMC-TZ100%29-vs-Panasonic-Lumix-TZ40)
+* [versus.com/…/sony-cyber-shot-dsc-rx100-iii-vs-pan…](https://versus.com/de/sony-cyber-shot-dsc-rx100-iii-vs-panasonic-lumix-dmc-tz100eb)
+* [digicamdb.com/…/panasonic\_lumix-dmc-tz100-vs-pana…](https://www.digicamdb.com/compare/panasonic_lumix-dmc-tz100-vs-panasonic_lumix-dmc-tz40/)
 * [Size comparison](http://camerasize.com/compare/#688,555)
-* https://www.imaging-resource.com/cameras/sony/rx100-iii/vs/panasonic/lx10/
-* http://cameradecision.com/compare/Panasonic-Lumix-DMC-LX10-vs-Sony-Cyber-shot-DSC-RX100-III - I like the "what is it good for"
+* [imaging-resource.com/cameras/…/panasonic/lx10](https://www.imaging-resource.com/cameras/sony/rx100-iii/vs/panasonic/lx10/)
+* [cameradecision.com/…/Panasonic-Lumix-DMC-LX10-vs-…](http://cameradecision.com/compare/Panasonic-Lumix-DMC-LX10-vs-Sony-Cyber-shot-DSC-RX100-III) - I like the "what is it good for"

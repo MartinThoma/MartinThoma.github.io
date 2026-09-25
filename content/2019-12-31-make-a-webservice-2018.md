@@ -246,8 +246,8 @@ See also:
 
 * [Font Awesome](https://fontawesome.com/) ([icon search](https://fontawesome.com/icons?d=gallery))
 * [Feather Icons](https://feathericons.com/)
-* https://favicon.io/favicon-generator/
-* https://icons8.de/icons
+* [favicon.io/favicon-generator](https://favicon.io/favicon-generator/)
+* [icons8.de/icons](https://icons8.de/icons)
 * [gridicons](https://github.com/Automattic/gridicons) (WordPress)
 
 
@@ -297,19 +297,19 @@ stuff from your site and being active on that site. Or at least reachable.
 
 ## TODO
 
-* OpenID: https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1 and https://developer.okta.com/product/, [Coding Horror](https://blog.codinghorror.com/openid-does-the-world-really-need-yet-another-username-and-password/)
+* OpenID: [developer.okta.com/blog/…/25/oidc-primer-part-1](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) and [developer.okta.com/product](https://developer.okta.com/product/), [Coding Horror](https://blog.codinghorror.com/openid-does-the-world-really-need-yet-another-username-and-password/)
 * [Login design](https://blog.codinghorror.com/the-god-login/)
 * Bootstrap:
-    * https://startbootstrap.com/templates/
-    * https://getbootstrap.com/docs/4.1/examples/
-    * https://getbootstrap.com/docs/4.1/examples/dashboard/
+    * [startbootstrap.com/templates](https://startbootstrap.com/templates/)
+    * [getbootstrap.com/docs/4.1/examples](https://getbootstrap.com/docs/4.1/examples/)
+    * [getbootstrap.com/docs/4.1/examples/dashboard](https://getbootstrap.com/docs/4.1/examples/dashboard/)
 * Stock Photos:
-    * https://www.pexels.com/photo/beach-blue-sky-idyllic-island-373394/
-    * https://blog.snappa.com/free-stock-photos/
-    * https://pixabay.com/de/
-    * https://www.foleon.com/blog/5-sites-for-free-stock-photos
-    * https://www.canva.com/photos/free/
-    * https://unsplash.com/free-stock-photos
+    * [pexels.com/…/beach-blue-sky-idyllic-island-373394](https://www.pexels.com/photo/beach-blue-sky-idyllic-island-373394/)
+    * [blog.snappa.com/free-stock-photos](https://blog.snappa.com/free-stock-photos/)
+    * [pixabay.com/de](https://pixabay.com/de/)
+    * [foleon.com/blog/5-sites-for-free-stock-photos](https://www.foleon.com/blog/5-sites-for-free-stock-photos)
+    * [canva.com/photos/free](https://www.canva.com/photos/free/)
+    * [unsplash.com/free-stock-photos](https://unsplash.com/free-stock-photos)
 * Flask-Admin for database management
 * Flask-Assets for asset management
 * Flask-Security for authentication

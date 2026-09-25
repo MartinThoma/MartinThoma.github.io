@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Data Visualization
+slug: reading-writing-and-visualizing-data
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- data
+category: Cyberculture
+tags: Data
 featured_image: logos/data.png
 ---
 
@@ -29,8 +29,8 @@ featured_image: logos/data.png
 
 See also:
 
-* http://data.heapanalytics.com/how-to-lie-with-data-visualization/
-* http://gizmodo.com/how-to-lie-with-data-visualization-1563576606
+* [data.heapanalytics.com/how-to-lie-with-data-visua…](http://data.heapanalytics.com/how-to-lie-with-data-visualization/)
+* [gizmodo.com/how-to-lie-with-data-visualization-15…](http://gizmodo.com/how-to-lie-with-data-visualization-1563576606)
 
 ## See also
 

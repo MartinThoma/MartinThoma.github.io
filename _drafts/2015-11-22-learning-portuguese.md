@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Learning Portuguese as a German
+slug: learning-portuguese
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- My bits and bytes
-tags:
-- Languages
+category: My bits and bytes
+tags: Language
 featured_image: logos/portuguese.png
 ---
 
@@ -53,7 +53,7 @@ And some options were not simple / good enough:
 * [Google Translate](https://translate.google.com/#pt/en/sou%20carioca)
 * [German ↔ Portugues](http://dict.leo.org/ptde/index_de.html)
 * Conjugate verbs:
-    * http://verben.woxikon.de/verbformen-portugiesisch/trabalhar.php
-    * http://www.conjugateverb.com/pt/viver
-    * http://www.conjuga-me.net/en/verbo-querer
-    * http://www.portugiesischkurs.net/index.php?id=verbenkonjugator&pw=falar&pwID=1181
+    * [verben.woxikon.de/…/trabalhar.php](http://verben.woxikon.de/verbformen-portugiesisch/trabalhar.php)
+    * [conjugateverb.com/pt/viver](http://www.conjugateverb.com/pt/viver)
+    * [conjuga-me.net/en/verbo-querer](http://www.conjuga-me.net/en/verbo-querer)
+    * [portugiesischkurs.net/index.php](http://www.portugiesischkurs.net/index.php?id=verbenkonjugator&pw=falar&pwID=1181)

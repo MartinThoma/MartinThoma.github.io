@@ -677,7 +677,7 @@ Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \fra
 * Blog-Artikel
     * [The Absolute Value Function](../abs-function/) - vgl. Konfidenzintervalle
     * [The p value](../p-value/)
-* [Anki-Karten](https://ankiweb.net/shared/info/245843947) ([direct download](https://martin-thoma.com/anki/Statistik.apkg))
+* [Anki-Karten](https://ankiweb.net/shared/info/245843947) ([direct download](../anki/Statistik.apkg))
 * [Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution) als Tabelle
 * [Inverse Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z) als Tabelle
 * Fehlende Musterlösungen: [KIT-Musterloesungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Statistik) - Verbesserungshinweise nehme ich immer gerne entgegen (`info@martin-thoma.de`)
