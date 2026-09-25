@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -110,13 +110,19 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="An event-driven system decouples producers of events and the effects that those events should have on the remaining software system." src="../images/2024/02/event-driven-software.png"/><em>An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.</em></p>
+    <figure>
+<a href="../images/2024/02/event-driven-software.png"><img alt="An event-driven system decouples producers of events and the effects that those events should have on the remaining software system." height="723" src="../images/2024/02/event-driven-software.png" width="1503"/></a>
+<figcaption>An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.</figcaption>
+</figure>
 <p>An event-driven software architecture can help you write cleaner code. Most software engineers are likely familiar with pre-defined event systems such as those provided by frontend frameworks/languages: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event">keypress in JavaScript</a>, <a href="https://www.geeksforgeeks.org/python-binding-function-in-tkinter/">bind in Tkinter</a>, or <a href="https://doc.qt.io/qtforpython-6/PySide6/QtGui/QKeyEvent.html#detailed-description">keyPressEvent in PyQt/PySide</a>. You might also know <a href="https://docs.djangoproject.com/en/5.0/topics/signals/">Django Signals</a>, or have heard of Apache Kafka or Google Cloud Pub/Sub in the context of distributed systems.</p>
 <p><strong>An event-driven software architecture does not have to be that complicated.</strong></p>
 <p>The components of an event-driven system are straightforward: You have events, producers of those events, and consumers of the events. Then you need some glue code that forwards the events from the producers to the consumers. This is called the event registry.</p>
 <h2 id="building-event-driven-software">Building Event-Driven Software</h2>
 <p>I recently started building the <a href="https://pypi.org/project/flitz/">flitz file manager</a> to dip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.</p>
-<p><img alt="A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory." src="../images/2024/02/flitz-file-explorer.png"/><em>A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.</em></p>
+<figure>
+<a href="../images/2024/02/flitz-file-explorer.png"><img alt="A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory." height="848" loading="lazy" src="../images/2024/02/flitz-file-explorer.png" width="1219"/></a>
+<figcaption>A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.</figcaption>
+</figure>
 <p>For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an &ldquo;up&rdquo; button. When it is clicked, the current path shown in the URL bar is changed and the shown documents in the details pane are changed.</p>
 <p>Conceptually, the code could look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>

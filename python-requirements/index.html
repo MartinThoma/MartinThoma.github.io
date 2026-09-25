@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -109,9 +109,9 @@ MathJax.Hub.Queue(function() {
     
     <p>Python's package management is a constant source of confusion. One part of the
 confusion is in which format dependencies should be denoted. It gets worse because there are <a href="https://stackoverflow.com/q/25337706/562769">too many tools</a>. <a href="https://xkcd.com/1987/">xkcd</a> shows this pretty well:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 512px;"/></a>
-<figcaption class="text-center">xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
+<figure>
+<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" width="512"/></a>
+<figcaption>xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
 </figure>
 <p>After reading this post, you will know the difference between abstract and concrete requirements, the relationship between setup.py, setup.cfg, requirements.txt, Pipfile, Pipfile.lock, and pyproject.toml.</p>
 <p>I will not cover anything related to Anaconda at all, and I will not go into detail on how to use various tools.</p>
@@ -134,9 +134,9 @@ confusion is in which format dependencies should be denoted. It gets worse becau
 library is likely not the only one your users use. If you give concrete
 dependencies, you might make it impossible for your users to have one set of
 packages installed which fulfills all requirements:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/05/dependency-graph-pinning-conflict.svg"><img alt="A package version conflict if two packages pinned different versions of urllib" src="../images/2020/05/dependency-graph-pinning-conflict.svg" style="width: 512px;"/></a>
-<figcaption class="text-center">A package version conflict if two packages pinned different versions of urllib</figcaption>
+<figure>
+<a href="../images/2020/05/dependency-graph-pinning-conflict.svg"><img alt="A package version conflict if two packages pinned different versions of urllib" height="301" loading="lazy" src="../images/2020/05/dependency-graph-pinning-conflict.svg" width="512"/></a>
+<figcaption>A package version conflict if two packages pinned different versions of urllib</figcaption>
 </figure>
 <p>So, <strong>for library/framework code, you keep dependencies abstract</strong>.</p>
 <p>For application code on the other hand, the user just wants to run the
@@ -144,9 +144,9 @@ application. You want to be as sure as possible that nothing fails. So you
 specify concrete dependencies. You say for everything your application needs
 where it comes from and in which version it is used. But this might not be
 enough.</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/05/dependency-graph.png"><img alt="Dependency graph where wasabi could make things fail if only the version of spacy is pinned" src="../images/2020/05/dependency-graph.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Dependency graph where wasabi could make things fail if only the version of spacy is pinned</figcaption>
+<figure>
+<a href="../images/2020/05/dependency-graph.png"><img alt="Dependency graph where wasabi could make things fail if only the version of spacy is pinned" height="261" loading="lazy" src="../images/2020/05/dependency-graph.png" width="512"/></a>
+<figcaption>Dependency graph where wasabi could make things fail if only the version of spacy is pinned</figcaption>
 </figure>
 <p>So, <strong>for application code, you specify concrete dependencies and you apply
 version pinning</strong>. That means you specify the exact version you need for all of

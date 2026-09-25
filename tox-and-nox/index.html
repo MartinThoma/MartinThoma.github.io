@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -119,9 +119,9 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" src="../images/2020/07/alice-full- Andrea-Caprotti.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
+    <figure>
+<a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" height="256" src="../images/2020/07/alice-full- Andrea-Caprotti.png" width="512"/></a>
+<figcaption>Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
 </figure>
 <p>When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.</p>
 <p>After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for <a href="../ci-pipelines/">Continuous Integration</a> tools like Travis. I assume you already know <a href="../unit-testing-basics/">the basics of unit testing in Python</a> and <a href="https://packaging.python.org/tutorials/packaging-projects/">how to package your code</a>.</p>
@@ -238,13 +238,11 @@ can do this with pyenv and make them available with the following command:</p>
 <div class="highlight"><pre><span></span><code>tox<span class="w"> </span>-p
 </code></pre></div>
 <p>If one of them fails, you get this type of output:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
+<figure>
 <a href="../images/2020/07/tox-parallel-run.png"><img alt="Run tox in parallel, showing a linter issue. This output is way cleaner than
 if you had run flake8 and black via pytest. It might be a tiny bit faster, but
-that difference is not relevant." src="../images/2020/07/tox-parallel-run.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Run tox in parallel, showing a linter issue. This output is way cleaner than
-if you had run flake8 and black via pytest. It might be a tiny bit faster, but
-that difference is not relevant.</figcaption>
+that difference is not relevant." height="190" loading="lazy" src="../images/2020/07/tox-parallel-run.png" width="512"/></a>
+<figcaption>Run tox in parallel, showing a linter issue. This output is way cleaner than if you had run flake8 and black via pytest. It might be a tiny bit faster, but that difference is not relevant.</figcaption>
 </figure>
 <p>If you want to run just the linter, <code>tox -e linter</code> is your friend 🙂</p>
 <p>You can also create a matrix of different combinations of Python environments and dependencies you install. Thea Flowers showed this at PyCon 2019 (<a href="https://youtu.be/-BHverY7IwU?t=678">video</a>), but I never had the need to go down that rabbit hole.</p>
@@ -268,9 +266,9 @@ that difference is not relevant.</figcaption>
     <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"black"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">,</span> <span class="s2">"--check"</span><span class="p">)</span>
 </code></pre></div>
 <p>You can run a single session of nox with <code>nox -s lint</code>:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/07/nox-single-session.png"><img alt="A single nox session" src="../images/2020/07/nox-single-session.png" style="width: 512px;"/></a>
-<figcaption class="text-center">A single nox session</figcaption>
+<figure>
+<a href="../images/2020/07/nox-single-session.png"><img alt="A single nox session" height="122" loading="lazy" src="../images/2020/07/nox-single-session.png" width="512"/></a>
+<figcaption>A single nox session</figcaption>
 </figure>
 <p>Overall, not a huge difference. The output of nox is way nicer and for people who get started, I think the Python code written with nox is a bit simpler to read and understand than the tox.ini configuration file.</p>
 <h2 id="more-in-this-series">More in this series</h2>

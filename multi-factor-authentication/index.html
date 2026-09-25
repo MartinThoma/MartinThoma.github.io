@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -113,7 +113,10 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="Photo by Lukenn Sabellano on Unsplash" src="../images/2021/04/multi-factor-authentication-1.jpg"/><em>Photo by <a href="https://unsplash.com/@luferlex">Lukenn Sabellano</a> on <a href="https://unsplash.com/">Unsplash</a></em></p>
+    <figure>
+<a href="../images/2021/04/multi-factor-authentication-1.jpg"><img alt="Photo by Lukenn Sabellano on Unsplash" height="1333" src="../images/2021/04/multi-factor-authentication-1.jpg" width="2000"/></a>
+<figcaption>Photo by <a href="https://unsplash.com/@luferlex">Lukenn Sabellano</a> on <a href="https://unsplash.com/">Unsplash</a></figcaption>
+</figure>
 <p>Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called &ldquo;factors&rdquo; and they fall into three groups:</p>
 <ul>
 <li><strong>Something you know</strong>: A password</li>
@@ -136,7 +139,10 @@ MathJax.Hub.Queue(function() {
 <p>Luckily, I cannot think of any <a href="https://martinthoma.medium.com/incentives-of-malware-creators-62319053caf9">incentive</a> for attackers to abuse this weak authentication &mdash; except wanting to harm you personally. Let me know what I missed!</p>
 <h2 id="something-you-have">Something you have</h2>
 <p>When you register, you prove that you have access to your email address. This works by sending you a random code to the address that should get confirmed.</p>
-<p><img alt="How confirming that you have access to a mail address (e-mail and physical) works" src="../images/2021/04/multi-factor-authentication-2.png"/><em>How confirming that you have access to a mail address (e-mail and physical) works</em></p>
+<figure>
+<a href="../images/2021/04/multi-factor-authentication-2.png"><img alt="How confirming that you have access to a mail address (e-mail and physical) works" height="444" loading="lazy" src="../images/2021/04/multi-factor-authentication-2.png" width="566"/></a>
+<figcaption>How confirming that you have access to a mail address (e-mail and physical) works</figcaption>
+</figure>
 <p>This schema works for e-mail, physical mail, and phone numbers. In this way, you can prove that you have access to the address/phone number. Or at least that you had access to it once.</p>
 <p>This brings us to the first problem: You can lose what you have. You could change your phone number because you switch the provider. You could move and thus get a new physical address. You could give up your sassy mail address from your school times for something professional. Hence the website that uses this factor needs to prepare for change.</p>
 <p>There are two other solutions for &ldquo;something you have&rdquo; which are way more secure than the mentioned ones: Security keys/cards and time-based one-time password (TOTP) applications. The best-known provider for security keys is Yubico and a popular TOTP app is the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=de&amp;gl=US">Google Authenticator</a>.</p>
@@ -148,7 +154,9 @@ MathJax.Hub.Queue(function() {
 <p>The idea of TOTP is to provide the user with a one-time password via an App on their smartphone.</p>
 <p>Alternative TOTP apps to the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=de&amp;gl=US">Google Authenticator</a> are <a href="https://play.google.com/store/apps/details?id=com.authy.authy&amp;hl=de&amp;gl=US">Twilio Authy</a>, <a href="https://play.google.com/store/apps/details?id=com.lastpass.authenticator&amp;hl=de&amp;gl=US">LastPass Authenticator</a>, <a href="https://play.google.com/store/apps/details?id=com.yubico.yubioath&amp;hl=de&amp;gl=US">Yubico Authenticator</a>, and the <a href="https://play.google.com/store/apps/details?id=com.azure.authenticator">Microsoft Authenticator</a>.</p>
 <p>The Apps from Google, LastPass, and Microsoft look like this:</p>
-<p><img alt="The TOTP apps from Google, LastPass, and Microsoft" src="../images/2021/04/multi-factor-authentication-3.png"/></p>
+<figure>
+<a href="../images/2021/04/multi-factor-authentication-3.png"><img alt="The TOTP apps from Google, LastPass, and Microsoft" height="1050" loading="lazy" src="../images/2021/04/multi-factor-authentication-3.png" width="2000"/></a>
+</figure>
 <p>When you use the TOTP app, you first pair it with the web service. That typically works by clicking on the &ldquo;+&rdquo; symbol and scanning a QR code with your phone. After that, you can see the one-time passwords with a timer that goes down. They are valid for something like 30 seconds, then you&rsquo;ll receive another password.</p>
 <p>The exact way this works is specified in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238</a>. It&rsquo;s only a few pages, so I recommend reading the RFC if you&rsquo;re interested. Let me summarize it:</p>
 <ol>

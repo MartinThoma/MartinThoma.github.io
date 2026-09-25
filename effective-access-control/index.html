@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -149,7 +149,10 @@ could be that you need to add code to every route which is not public. This
 makes it easy to forget. And it's easy to miss in a code review that it was
 forgotten, even if everybody agrees that the route needs access control.</p>
 <h3 id="client-side-access-control">Client-side access control</h3>
-<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="../images/2020/12/effective-access-control-1.png"/><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
+<figure>
+<a href="../images/2020/12/effective-access-control-1.png"><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." height="600" loading="lazy" src="../images/2020/12/effective-access-control-1.png" width="1200"/></a>
+<figcaption>Age verification for adult content is a typical example of client-side access control. Image by the author.</figcaption>
+</figure>
 <p>I haven&rsquo;t seen client-side access control in a long time, but please don&rsquo;t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.</p>
 <h3 id="trusting-the-client">Trusting the client</h3>
 <p>Authentication typically means that the user needs to enter a username/email
@@ -236,7 +239,10 @@ has. RBAC is used by all content management systems (CMS) I know. Famous
 examples are Wikipedia, Reddit, and Stack Exchange.</p>
 <p>To apply RBAC, you need a role table (could also be called <code>group</code>) and a table
 that connects users with groups:</p>
-<p><img alt="Image by author" src="../images/2020/12/effective-access-control-2.png"/><em>Image by author</em></p>
+<figure>
+<a href="../images/2020/12/effective-access-control-2.png"><img alt="Image by author" height="145" loading="lazy" src="../images/2020/12/effective-access-control-2.png" width="772"/></a>
+<figcaption>Image by author</figcaption>
+</figure>
 <p>Then you need to get all roles a user has:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">role_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">role_user</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="k">current_user</span>
 </code></pre></div>

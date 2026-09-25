@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -110,9 +110,9 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2022/03/redos-title.png"><img alt="A redos example" src="../images/2022/03/redos-title.png" style="width: 512px;"/></a>
-<figcaption class="text-center">A redos example</figcaption>
+    <figure>
+<a href="../images/2022/03/redos-title.png"><img alt="A redos example" height="153" src="../images/2022/03/redos-title.png" width="512"/></a>
+<figcaption>A redos example</figcaption>
 </figure>
 <p>Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically fast and sometimes a clean solution. However, in some cases, an attacker can craft input to a vulnerable regular expression which causes the time to check the input for the regex to be way longer than expected.</p>
 <h2 id="why-you-should-care">Why you should care</h2>
@@ -133,9 +133,9 @@ MathJax.Hub.Queue(function() {
 <p>The idea of recursive backtracking is to match the string step-by-step. It keeps a list of possibilities that could match and eliminates them step-by-step.</p>
 <h2 id="how-does-a-redos-attack-work">How does a ReDoS Attack work?</h2>
 <p>Think about the regular expression (a|a)+b as represented here:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2022/03/regex-automaton.png"><img alt="Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com" src="../images/2022/03/regex-automaton.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com</figcaption>
+<figure>
+<a href="../images/2022/03/regex-automaton.png"><img alt="Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com" height="295" loading="lazy" src="../images/2022/03/regex-automaton.png" width="512"/></a>
+<figcaption>Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com</figcaption>
 </figure>
 <p>Although both sides of the first group are identical &mdash; just &ldquo;a&rdquo; &mdash; the recursive backtracking algorithm will still keep track of both possible matches. Meaning with every &ldquo;a&rdquo; in the input, it doubles the possible paths to match. Meaning if you have 26 times a, there will be 2&sup2;⁶ = 67,108,864 paths to evaluate:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>

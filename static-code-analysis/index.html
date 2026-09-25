@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -123,7 +123,7 @@ MathJax.Hub.Queue(function() {
 <p>In this article, you will learn how to perform various types of static code analysis in Python. While the article focuses on Python, the types of analysis can be done in any programming language.</p>
 <h2 id="code-complexity">Code Complexity</h2>
 <p>One way to measure code complexity is the <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a>, also called McCabe complexity as defined in <a href="https://books.google.de/books?id=vtNWAAAAMAAJ&amp;pg=PA3&amp;redir_esc=y">A Complexity Measure</a>:</p>
-<p>$$CC = E - N + 2 \cdot P$$</p>
+<div class="math">$$CC = E - N + 2 \cdot P$$</div>
 <p>where N is the number of nodes in the control flow graph, E is the number of edges, and P is the number of connected components (P = 1 for a single function).</p>
 <p>You can calculate it in Python with <a href="https://pypi.org/project/radon/">radon</a>:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>radon
@@ -152,9 +152,9 @@ mpu/aws.py
 <p>Writing code in a similar style to other Python projects is valuable as people will have an easier time reading the code. This is important as we read software more often than we write it (<a href="https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is">source</a>).</p>
 <p>So, what is pythonic code?</p>
 <p>Let&rsquo;s start with <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>: It&rsquo;s a style guide written and accepted by the Python community in 2001. So it&rsquo;s been around for a while and most people want to follow most of it. The main part I&rsquo;ve seen most people disagree with is the <a href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">maximum line length of 79</a>. I always recommend following this advice in 95% of your codebase. I gave <a href="../python-style-guide/#maximum-line-length">reasons</a> for that.</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/black-logo.png"><img alt="Logo of the black project" src="../images/2020/08/black-logo.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Logo of the black project. Image source: <a href="https://github.com/psf/black/blob/master/docs/_static/logo2.png">Black Contributors</a></figcaption>
+<figure>
+<a href="../images/2020/08/black-logo.png"><img alt="Logo of the black project" height="188" loading="lazy" src="../images/2020/08/black-logo.png" width="512"/></a>
+<figcaption>Logo of the black project. Image source: <a href="https://github.com/psf/black/blob/master/docs/_static/logo2.png">Black Contributors</a></figcaption>
 </figure>
 <p>For pure code formatting, you should use an autoformatter. I grew to like <a href="https://pypi.org/project/black/">black</a> because it does NOT allow customization. Code formatted by black always looks the same. As you cannot customize it, you don&rsquo;t need to discuss it. It just solves the issue of conflicting styles and arguments around it. Black is maintained by the Python Software Foundation and likely the most commonly adopted autoformatter for Python.</p>
 <p><a href="https://github.com/google/yapf">yapf</a> by Google is another autoformatter.</p>
@@ -304,7 +304,10 @@ mpu/aws.py
 </ul>
 <p>This is one of the most valuable categories for me. If you know more plugins which help to use new styles, let me know 😃</p>
 <h2 id="flake8-meta-plugins">Flake8 Meta Plugins</h2>
-<p><img alt="Image created by Martin Thoma via imgflip.com" src="../images/2020/08/static-code-analysis-7.jpg"/><em>Image created by Martin Thoma via imgflip.com</em></p>
+<figure>
+<a href="../images/2020/08/static-code-analysis-7.jpg"><img alt="Image created by Martin Thoma via imgflip.com" height="757" loading="lazy" src="../images/2020/08/static-code-analysis-7.jpg" width="1200"/></a>
+<figcaption>Image created by Martin Thoma via imgflip.com</figcaption>
+</figure>
 <p>Flake8 has some plugins which don&rsquo;t add more linting functionality, but improve flake8 in another way:</p>
 <ul>
 <li><a href="https://pypi.org/project/flake8-colors/">flake8-colors</a>: ANSI colors highlight for Flake8</li>
@@ -321,7 +324,10 @@ mpu/aws.py
 <p>To Flake8 plugin authors: Please make sure that you list the error codes your plugin introduces and that you give at least some examples of what your plugin considers bad / good.</p>
 </blockquote>
 <h2 id="type-annotations-and-type-checking">Type Annotations and Type Checking</h2>
-<p><img alt="The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma." src="../images/2020/08/static-code-analysis-8.png"/><em>The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.</em></p>
+<figure>
+<a href="../images/2020/08/static-code-analysis-8.png"><img alt="The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma." height="219" loading="lazy" src="../images/2020/08/static-code-analysis-8.png" width="1721"/></a>
+<figcaption>The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.</figcaption>
+</figure>
 <p>It&rsquo;s possible in Python, but you need to do it. It&rsquo;s not done automatically. I&rsquo;ve written a longer article about how <a href="../type-annotations/">type annotations work in Python</a>. There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using <code>flake8-mypy</code>, but I prefer to run it separately. The main reason for it is that the output given by <a href="../ci-pipelines/">CI pipelines</a> is cleaner.</p>
 <p>You can integrate type checking (e.g. via mypy) into your editor, but the type annotations alone already go a long way as they document what is expected.</p>
 <h2 id="package-structure">Package Structure</h2>

@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -102,14 +102,14 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#hardware" title="Hardware">Hardware</a></li><li><a class="toc-href" href="#operating-system" title="Operating System">Operating System</a></li><li><a class="toc-href" href="#software" title="Software">Software</a><ul><li><a class="toc-href" href="#currently-running" title="Currently Running">Currently Running</a></li><li><a class="toc-href" href="#ideas-for-future-implementation" title="Ideas for Future Implementation">Ideas for Future Implementation</a></li></ul></li><li><a class="toc-href" href="#configuration_1" title="Configuration">Configuration</a><ul><li><a class="toc-href" href="#automatic-updates" title="Automatic Updates">Automatic Updates</a></li><li><a class="toc-href" href="#ssh-hardening" title="SSH Hardening">SSH Hardening</a></li></ul></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#hardware" title="Hardware">Hardware</a></li><li><a class="toc-href" href="#operating-system" title="Operating System">Operating System</a></li><li><a class="toc-href" href="#software" title="Software">Software</a><ul><li><a class="toc-href" href="#currently-running" title="Currently Running">Currently Running</a></li><li><a class="toc-href" href="#ideas-for-future-implementation" title="Ideas for Future Implementation">Ideas for Future Implementation</a></li></ul></li><li><a class="toc-href" href="#self-hosted-cloud-solutions_1" title="Self-Hosted Cloud Solutions">Self-Hosted Cloud Solutions</a><ul><li><a class="toc-href" href="#features" title="Features">Features</a></li><li><a class="toc-href" href="#owncloud-infinite-scale" title="ownCloud Infinite Scale">ownCloud Infinite Scale</a></li><li><a class="toc-href" href="#nextcloud" title="NextCloud">NextCloud</a></li><li><a class="toc-href" href="#opencloud" title="OpenCloud">OpenCloud</a></li></ul></li><li><a class="toc-href" href="#configuration_1" title="Configuration">Configuration</a><ul><li><a class="toc-href" href="#automatic-updates" title="Automatic Updates">Automatic Updates</a></li><li><a class="toc-href" href="#ssh-hardening" title="SSH Hardening">SSH Hardening</a></li></ul></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
     
-    <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2025/06/homeserver.png"><img alt="A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS" src="../images/2025/06/homeserver.png" style="max-height: 512px"/></a>
-<figcaption class="text-center">Illustration generated with Claude AI: A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS</figcaption>
+    <figure class="ai-generated">
+<a href="../images/2025/06/homeserver.png"><img alt="A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS" height="512" src="../images/2025/06/homeserver.png" width="819"/></a>
+<figcaption>Illustration generated with Claude AI: A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS</figcaption>
 </figure>
 <h2 id="hardware">Hardware</h2>
 <p>I use a Mini PC with the following specifications:</p>
@@ -145,7 +145,7 @@ MathJax.Hub.Queue(function() {
 <li><strong>Password Management</strong>: <a href="https://vaultwarden.com/">vaultwarden</a> - Bitwarden-compatible server</li>
 <li><strong>Network</strong>: OPNsense - Firewall and router</li>
 <li><strong>Calendar/Contacts</strong>: Baikal server</li>
-<li><strong>File Storage</strong>: ownCloud / Nextcloud / <a href="https://www.seafile.com/en/home/">Seafile</a> with Samba</li>
+<li><strong>File Storage</strong>: ownCloud / Nextcloud / OpenCloud (see <a href="#self-hosted-cloud-solutions">Self-Hosted Cloud Solutions</a>) / <a href="https://www.seafile.com/en/home/">Seafile</a> with Samba</li>
 <li><strong>Media Server</strong>: Jellyfin / Emby / Plex</li>
 <li><strong>VPN</strong>: WireGuard / OpenVPN</li>
 <li><strong>DNS Server</strong>: Unbound</li>
@@ -154,6 +154,85 @@ MathJax.Hub.Queue(function() {
 <li><strong>Backup</strong>: Borg / Restic</li>
 <li><strong>Containerization</strong>: Docker / Podman</li>
 <li><strong>Virtualization</strong>: Proxmox / KVM</li>
+</ul>
+<h2 id="self-hosted-cloud-solutions_1">Self-Hosted Cloud Solutions</h2>
+<figure class="ai-generated">
+<a href="../images/2025/06/self-hosted-cloud-solutions.png"><img alt="A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server" height="512" loading="lazy" src="../images/2025/06/self-hosted-cloud-solutions.png" width="819"/></a>
+<figcaption>Illustration generated with Claude AI: A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server</figcaption>
+</figure>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>File Administration</strong>: Similar to Google Drive or Dropbox<ul>
+<li>Full-text search capabilities</li>
+</ul>
+</li>
+<li><strong>Calendar</strong>: Scheduling and event management</li>
+<li><strong>Contacts</strong>: Contact management system</li>
+<li><strong>Notes</strong>: Note-taking and organization</li>
+<li><strong>Office Suite</strong>:<ul>
+<li>OnlyOffice or Collabora integration</li>
+<li>Built-in spellchecker</li>
+</ul>
+</li>
+<li><strong>Email</strong>:<ul>
+<li>IMAP client support (e.g., for mailbox.org or Posteo)</li>
+</ul>
+</li>
+<li><strong>Backups</strong>: Data backup and restoration</li>
+</ul>
+<h3 id="owncloud-infinite-scale">ownCloud Infinite Scale</h3>
+<p><a href="https://en.wikipedia.org/wiki/OwnCloud">ownCloud</a> is a free and open-source
+software platform for file synchronization and sharing. It allows users to store
+files on a private server and access them from various devices, providing a
+secure alternative to public cloud services.</p>
+<ul>
+<li><strong>License</strong>: AGPL-3.0-or-later</li>
+<li><strong>History</strong>:<ul>
+<li>Founded in 2010 by Frank Karlitschek</li>
+<li>Developed by ownCloud GmbH and the open-source community</li>
+<li>Major rewrite in 2020 to create ownCloud Infinite Scale</li>
+</ul>
+</li>
+<li><strong>Technology Stack</strong>:<ul>
+<li>Backend: Go</li>
+<li>Frontend: Vue.js (ownCloud Web)</li>
+<li>Database: none; metadata is stored on the file system</li>
+</ul>
+</li>
+</ul>
+<h3 id="nextcloud">NextCloud</h3>
+<p><a href="https://en.wikipedia.org/wiki/Nextcloud">Nextcloud</a> is a free and open-source software suite for file hosting, similar to ownCloud. It is designed to provide a secure and private cloud storage solution, allowing users to store and share files, calendars, contacts, and more.</p>
+<ul>
+<li><strong>License</strong>: AGPL-3.0</li>
+<li><strong>History</strong>:<ul>
+<li>Forked from ownCloud in 2016</li>
+<li>Developed by Nextcloud GmbH and the Nextcloud community</li>
+</ul>
+</li>
+<li><strong>Technology Stack</strong>:<ul>
+<li>Backend: PHP running on Apache or Nginx</li>
+<li>Frontend: JavaScript with Vue.js</li>
+<li>Database: MySQL/MariaDB/PostgreSQL/SQLite</li>
+</ul>
+</li>
+<li><strong>Security Features</strong>:<ul>
+<li>TOTP (Time-based One-Time Password) two-factor authentication</li>
+</ul>
+</li>
+</ul>
+<h3 id="opencloud">OpenCloud</h3>
+<p><a href="https://github.com/opencloud-eu/opencloud/tree/main">OpenCloud</a> is a free and open-source software platform
+for cloud computing, designed to provide secure and scalable infrastructure
+for hosting applications and services. It aims to offer a flexible and
+customizable cloud environment, allowing users to deploy and manage their own
+cloud solutions.</p>
+<ul>
+<li>
+<p><strong>Technology Stack</strong>: Go backend, Vue.js frontend, no database</p>
+</li>
+<li>
+<p><strong>License</strong>: Apache-2.0</p>
+</li>
 </ul>
 <h2 id="configuration_1">Configuration</h2>
 <h3 id="automatic-updates">Automatic Updates</h3>

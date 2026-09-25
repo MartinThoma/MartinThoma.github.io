@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to check if a point is inside of a polygon? "/>
 <meta property="og:url" content="check-point-inside-polygon/" />
-<meta property="og:description" content="Suppose you have a polygon with $n$ sides. This is called an $n$-gon. Basics about polygons An $n$-gon can be defined by a list of $n$ points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I …" />
+<meta property="og:description" content="Suppose you have a polygon with \(n\) sides. This is called an \(n\)-gon. Basics about polygons An \(n\)-gon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-11-18T21:36:09+01:00" />
 <meta name="twitter:title" content="How to check if a point is inside of a polygon? ">
-<meta name="twitter:description" content="Suppose you have a polygon with $n$ sides. This is called an $n$-gon. Basics about polygons An $n$-gon can be defined by a list of $n$ points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I …">
+<meta name="twitter:description" content="Suppose you have a polygon with \(n\) sides. This is called an \(n\)-gon. Basics about polygons An \(n\)-gon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
 <meta property="og:image" content="2013/11/polygon-is-point-inside-thumb.png" />
 <meta name="twitter:image" content="2013/11/polygon-is-point-inside-thumb.png" >
 
@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -101,7 +101,7 @@ MathJax.Hub.Queue(function() {
             <span>6</span>
 </a></li>
         <li><a href="../tags/#mathematics-ref">Mathematics
-            <span>92</span>
+            <span>91</span>
 </a></li>
         <li><a href="../tags/#python-ref">Python
             <span>181</span>
@@ -116,31 +116,31 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p>Suppose you have a polygon with $n$ sides. This is called an $n$-gon.</p>
+    <p>Suppose you have a polygon with <span class="math">\(n\)</span> sides. This is called an <span class="math">\(n\)</span>-gon.</p>
 <h2 id="basics-about-polygons">Basics about polygons</h2>
-<p>An $n$-gon can be defined by a list of $n$ points.</p>
+<p>An <span class="math">\(n\)</span>-gon can be defined by a list of <span class="math">\(n\)</span> points.</p>
 <p>Note that the order is important:</p>
-<figure class="aligncenter">
-<a href="../images/2013/11/polygon-order.png"><img alt="The order of points is important for the definition of a polygon" class="" height="233px;" src="../images/2013/11/polygon-order.png" style="max-width:512"/></a>
-<figcaption class="text-center">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
+<figure>
+<a href="../images/2013/11/polygon-order.png"><img alt="The order of points is important for the definition of a polygon" height="233" src="../images/2013/11/polygon-order.png" width="512"/></a>
+<figcaption>[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
 </figure>
 <p>I will not consider self-intersecting polygons for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygons that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
 <h2 id="is-a-point-in-a-triangle-a-rectangle">Is a point in a triangle / a rectangle</h2>
 <p>It is quite easy to check whether a point is inside of a triangle or inside of a rectangle. I have already written an article about <a href="../how-to-check-if-a-point-is-inside-a-rectangle/">how to check if a point is inside of a rectangle</a>.</p>
 <h2 id="is-a-point-inside-of-an-n-gon">Is a point inside of an n-gon?</h2>
-<p>Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be an $n$-gon. It is now much more difficult to check if $P$ is inside of $N$. The area-approach works for convex $n$-gons, but that's it.</p>
+<p>Let <span class="math">\(P\)</span> be a point and <span class="math">\(N = [P_1, P_2, \dots, P_n]\)</span> be an <span class="math">\(n\)</span>-gon. It is now much more difficult to check if <span class="math">\(P\)</span> is inside of <span class="math">\(N\)</span>. The area-approach works for convex <span class="math">\(n\)</span>-gons, but that's it.</p>
 <h3 id="count-crossing-line-segments">Count Crossing Line Segments</h3>
 <p>However, you can try another approach which I have visualized in the following image:</p>
-<figure class="aligncenter">
-<img alt="Check if P is inside of N" class="size-full" src="../images/2013/11/polygon-is-point-inside.png" style="max-width: 512px; max-height: 481px;"/>
+<figure>
+<a href="../images/2013/11/polygon-is-point-inside.png"><img alt="Check if P is inside of N" height="481" loading="lazy" src="../images/2013/11/polygon-is-point-inside.png" width="512"/></a>
 <figcaption>Check if P is inside of N</figcaption>
 </figure>
-<p>When $P$ is inside of $N$, every line $P_{1}P, P_{2}P, \dots, P_{n}P$ will cross the polygon lines $P_{1}P_2,P_{2}P_3, \dots, P_{n}P_1$ an even number of times. If P is outside, at least one of the lines $P_{i}P$ will cross a polygon line $P_{j}P_{j+1}$ once.</p>
-<p>This means, for every check you have to check $n^2$ pairs of line segments for crossings. How you can do that is explained in my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
-<p>This algorithm is in $\mathcal{O}(n^2)$ time complexity (it does need a constant amount of additional space).</p>
+<p>When <span class="math">\(P\)</span> is inside of <span class="math">\(N\)</span>, every line <span class="math">\(P_{1}P, P_{2}P, \dots, P_{n}P\)</span> will cross the polygon lines <span class="math">\(P_{1}P_2,P_{2}P_3, \dots, P_{n}P_1\)</span> an even number of times. If P is outside, at least one of the lines <span class="math">\(P_{i}P\)</span> will cross a polygon line <span class="math">\(P_{j}P_{j+1}\)</span> once.</p>
+<p>This means, for every check you have to check <span class="math">\(n^2\)</span> pairs of line segments for crossings. How you can do that is explained in my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
+<p>This algorithm is in <span class="math">\(\mathcal{O}(n^2)\)</span> time complexity (it does need a constant amount of additional space).</p>
 <h3 id="triangularization">Triangularization</h3>
-<p>When you have a lot of queries, you might want to divide your polygon into convex polygons. The easiest way to do this might be dividing $N$ into triangles.</p>
-<p>That way, you can check for every triangle if $P$ is inside of it. I assume that the number of triangles is not bigger than $n$. As the check is in constant time for one triangle, you would have an algorithm that needs $\mathcal{O}(n)$ time and space for its checks (+ some preprocessing which is done only once).</p>
+<p>When you have a lot of queries, you might want to divide your polygon into convex polygons. The easiest way to do this might be dividing <span class="math">\(N\)</span> into triangles.</p>
+<p>That way, you can check for every triangle if <span class="math">\(P\)</span> is inside of it. I assume that the number of triangles is not bigger than <span class="math">\(n\)</span>. As the check is in constant time for one triangle, you would have an algorithm that needs <span class="math">\(\mathcal{O}(n)\)</span> time and space for its checks (+ some preprocessing which is done only once).</p>
     
 </div>
 

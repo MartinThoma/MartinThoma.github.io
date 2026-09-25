@@ -56,7 +56,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -172,27 +172,27 @@ First you should get your assembly code. If you're running a Linux machine, you 
 <div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-S<span class="w"> </span>-O3<span class="w"> </span>cpuzzle-1.c<span class="w"> </span><span class="p">;</span><span class="w"> </span>gcc<span class="w"> </span>cpuzzle-1.c<span class="w"> </span>-o<span class="w"> </span>cpuzzle<span class="p">;</span><span class="w"> </span>mv<span class="w"> </span>cpuzzle-1.s<span class="w"> </span>cpuzzle-1-O3.s
 </code></pre></div>
 <p>Now you can compare those two with meld or any other diff Tool:</p>
-<figure class="aligncenter">
-<a href="../images/2012/05/c-puzzle-1.1-meld-300x188.png"><img alt="C Puzzle #1 - Assembly code part 1" class="size-medium wp-image-24851" src="../images/2012/05/c-puzzle-1.1-meld-300x188.png" style="max-width:300px;max-height:188px"/></a>
-<figcaption class="text-center">C Puzzle #1 - Assembly code part 1</figcaption>
+<figure>
+<a href="../images/2012/05/c-puzzle-1.1-meld-300x188.png"><img alt="C Puzzle #1 - Assembly code part 1" height="188" loading="lazy" src="../images/2012/05/c-puzzle-1.1-meld-300x188.png" width="300"/></a>
+<figcaption>C Puzzle #1 - Assembly code part 1</figcaption>
 </figure>
 <p>The O3 code got an additional <code>.p2align 4,,15</code></p>
 <blockquote>.p2align 4,,15 means:
 When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
 <p><span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span></p>
 <p>It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make two (slow) memory-accesses.</p>
-<figure class="aligncenter">
-<a href="../images/2012/05/c-puzzle-1.2-meld-300x113.png"><img alt="C Puzzle #1 - Assembly code part 2 (the main)" class="size-medium wp-image-24881" src="../images/2012/05/c-puzzle-1.2-meld-300x113.png" style="max-width:300px;max-height:113px"/></a>
-<figcaption class="text-center">C Puzzle #1 - Assembly code part 2 (the main)</figcaption>
+<figure>
+<a href="../images/2012/05/c-puzzle-1.2-meld-300x113.png"><img alt="C Puzzle #1 - Assembly code part 2 (the main)" height="113" loading="lazy" src="../images/2012/05/c-puzzle-1.2-meld-300x113.png" width="300"/></a>
+<figcaption>C Puzzle #1 - Assembly code part 2 (the main)</figcaption>
 </figure>
 <p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations ☹</p>
-<figure class="aligncenter">
-<a href="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png"><img alt="C Puzzle #1, Assembly code part 1: Annotated" class="size-medium wp-image-24941" src="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" style="max-width:300px;max-height:188px"/></a>
-<figcaption class="text-center">C Puzzle #1, Assembly code part 1: Annotated</figcaption>
+<figure>
+<a href="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png"><img alt="C Puzzle #1, Assembly code part 1: Annotated" height="188" loading="lazy" src="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" width="300"/></a>
+<figcaption>C Puzzle #1, Assembly code part 1: Annotated</figcaption>
 </figure>
-<figure class="aligncenter">
-<a href="../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png"><img alt="C Puzzle #1, Assembly code part 2: Annotated" class="size-medium wp-image-24951" src="../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" style="max-width:300px;max-height:113px"/></a>
-<figcaption class="text-center">C Puzzle #1, Assembly code part 2: Annotated</figcaption>
+<figure>
+<a href="../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png"><img alt="C Puzzle #1, Assembly code part 2: Annotated" height="113" loading="lazy" src="../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" width="300"/></a>
+<figcaption>C Puzzle #1, Assembly code part 2: Annotated</figcaption>
 </figure>
 <p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
 <h2 id="what-you-should-have-learned_1">What you should have learned</h2>

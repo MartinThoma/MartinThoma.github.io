@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -107,7 +107,10 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="The dmesg output. Screenshot taken by Martin Thoma." src="../images/2020/09/logging-basics-in-python-1.png"/><em>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</em></p>
+    <figure>
+<a href="../images/2020/09/logging-basics-in-python-1.png"><img alt="The dmesg output. Screenshot taken by Martin Thoma." height="436" src="../images/2020/09/logging-basics-in-python-1.png" width="1880"/></a>
+<figcaption>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</figcaption>
+</figure>
 <p>Logging is the act of recording information about the current state of execution. It&rsquo;s typically done for two purposes:</p>
 <ol>
 <li><strong>Debugging</strong>: To enable the developer to narrow down the cause of a system failure</li>
@@ -131,7 +134,10 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span><code>2020-09-07 22:40:32,101 INFO     Hello World!
 </code></pre></div>
 <p><strong>BasicConfig should probably not be used</strong>. Please continue reading &ldquo;the 4 logging classes&rdquo; to learn why 😁</p>
-<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="../images/2020/09/logging-basics-in-python-2.jpg"/><em>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></em></p>
+<figure>
+<a href="../images/2020/09/logging-basics-in-python-2.jpg"><img alt="Image by Oliver Widder from geek-and-poke.com" height="1623" loading="lazy" src="../images/2020/09/logging-basics-in-python-2.jpg" width="2000"/></a>
+<figcaption>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></figcaption>
+</figure>
 <h2 id="the-4-logging-classes">The 4 Logging Classes</h2>
 <p>Python has a logger hierarchy in a tree structure. This means you can apply a log configuration for a single logger and make all child loggers behave the same way. This is useful if you want to configure a package. <code>logging.basicConfig</code> acts on the root logger. For this reason, it should only be used within application code, but not in library or framework code.</p>
 <p>Python distinguishes 4 main components that you can adjust to your needs: Loggers, handlers, filters, and formatters. They act on log records that are created when you pass your log message to the logger.</p>
@@ -165,7 +171,10 @@ MathJax.Hub.Queue(function() {
 <p>Commonly, you also want to set the log level on either the logger or the log handler:</p>
 <div class="highlight"><pre><span></span><code><span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="../images/2020/09/logging-basics-in-python-3.jpg"/><em>Image by Oliver Widder from <a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">geek-and-poke.com</a></em></p>
+<figure>
+<a href="../images/2020/09/logging-basics-in-python-3.jpg"><img alt="Image by Oliver Widder from geek-and-poke.com" height="1608" loading="lazy" src="../images/2020/09/logging-basics-in-python-3.jpg" width="688"/></a>
+<figcaption>Image by Oliver Widder from <a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">geek-and-poke.com</a></figcaption>
+</figure>
 <h3 id="log-formatters">Log Formatters</h3>
 <p>The log formatter changes the log message string. A formatter is attached to a log handler:</p>
 <div class="highlight"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"{"</span><span class="p">)</span>

@@ -58,7 +58,7 @@ MathJax.Hub.Queue(function() {
 // -->
 </script>
 <script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
@@ -131,9 +131,9 @@ response.</p>
 approaches to this:</p>
 <p><em>Synchronous call</em>: We could make a small REST API, but then we would again
 have the problem that the conversion can take arbitrarily long.</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-sync.png"><img alt="Communication by a synchronous request with a conversion server" src="../images/2019/06/conversion-server-sync.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by a synchronous request with a conversion server</figcaption>
+<figure>
+<a href="../images/2019/06/conversion-server-sync.png"><img alt="Communication by a synchronous request with a conversion server" height="302" src="../images/2019/06/conversion-server-sync.png" width="512"/></a>
+<figcaption>Communication by a synchronous request with a conversion server</figcaption>
 </figure>
 <p><em>Polling</em>: We could make the web app poll, hence give the conversion server
 <code>/videos/&lt;id&gt;</code> and let it return <code>{"status": 0.0}</code>, <code>{"status": 0.5}</code>, ...,
@@ -144,16 +144,16 @@ this e-mail ASAP. So you need to keep polling once the request was sent. During
 peak times the number of videos in the conversion queue might get longer and
 thus we might end up polling a lot of videos, putting unnecessary load on the
 (internal) API of the conversion server.</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-polling.png"><img alt="Communication by polling" src="../images/2019/06/conversion-server-polling.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by polling</figcaption>
+<figure>
+<a href="../images/2019/06/conversion-server-polling.png"><img alt="Communication by polling" height="486" loading="lazy" src="../images/2019/06/conversion-server-polling.png" width="512"/></a>
+<figcaption>Communication by polling</figcaption>
 </figure>
 <p><em>Callback</em>: Instead of having to ask again and again if the conversion is done,
 we could give the conversion server a callback URL. Once it is done, it calls
 the callback URL. Hence the name. It works like this:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-callback.png"><img alt="Communication by a callback" src="../images/2019/06/conversion-server-callback.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by a callback</figcaption>
+<figure>
+<a href="../images/2019/06/conversion-server-callback.png"><img alt="Communication by a callback" height="191" loading="lazy" src="../images/2019/06/conversion-server-callback.png" width="512"/></a>
+<figcaption>Communication by a callback</figcaption>
 </figure>
 <h2 id="solution-2-message-queue">Solution 2: Message Queue</h2>
 <p>All three variants of the first solution have one fundamental problem: They
@@ -163,9 +163,9 @@ videos. So you would like to spin up new instances and basically be able to
 do double the work with double the number of machines.</p>
 <p>How would you do that, starting with a single conversion server?</p>
 <p>You would probably create a conversion service:</p>
-<figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-service-callback-api.png"><img alt="A file conversion service based on callbacks" src="../images/2019/06/conversion-service-callback-api.png" style="width: 512px;"/></a>
-<figcaption class="text-center">A file conversion service based on callbacks</figcaption>
+<figure>
+<a href="../images/2019/06/conversion-service-callback-api.png"><img alt="A file conversion service based on callbacks" height="254" loading="lazy" src="../images/2019/06/conversion-service-callback-api.png" width="512"/></a>
+<figcaption>A file conversion service based on callbacks</figcaption>
 </figure>
 <p>Here the API and the load balancer are overhead. And it is not clear how the
 "load balancer" would actually work.</p>
