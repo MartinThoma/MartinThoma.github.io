@@ -105,6 +105,51 @@ It can be "learned" (calculated) with
 
 $$\beta = {(X^T X)}^{-1} X^T y$$
 
+#### Example: Fitting a line with least squares
+
+To see where such a formula comes from, look at the simplest case. Suppose you
+have $n$ 2D data points $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$ and you
+want the line $y = a \cdot x + b$ that fits those data points best.
+
+Now we have to think about what "fits best" means. The least squares method
+finds $a$ and $b$ that minimize the sum of squared errors
+$f: \mathbb{R}^2 \rightarrow \mathbb{R}$ with
+
+$$f(a, b) := \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2$$
+
+Let's say $a$ was constant. Then $f$ is a quadratic function in $b$, and we
+find its minimum where the derivative is zero:
+
+$$\begin{align}
+f(a,b) &= \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2\\
+ &= \sum_{i=1}^n ((a x_i +b)^2 - 2 (a x_i+b) y_i + y_i^2)\\
+ &= \sum_{i=1}^n ((a x_i)^2 + 2 a x_i b + b^2 -2 (a x_i+b) y_i + y_i^2)\\
+\frac{\partial f(a,b)}{\partial b} &= \sum_{i=1}^n (2a x_i +2b - 2y_i)\\
+ 0 &\stackrel{!}{=} 2  \sum_{i=1}^n (a x_i +b - y_i)\\
+\Leftrightarrow 0 &\stackrel{!}{=} a \sum_{i=1}^n x_i + n \cdot b - \sum_{i=1}^n y_i\\
+\Leftrightarrow b &\stackrel{!}{=} \frac{\sum_{i=1}^n y_i -a \sum_{i=1}^n x_i}{n}\\
+\Leftrightarrow b &\stackrel{!}{=} \bar y -a \bar x
+\end{align}$$
+
+where $(\bar x, \bar y)$ is the center of all points. So the best line always
+goes through the center of the points. Let's do the same with $a$ and insert
+$b = \bar y - a \bar x$ and $\sum_{i=1}^n x_i = n \bar x$:
+
+$$\begin{align}
+\frac{\partial f(a,b)}{\partial a} &= \sum_{i=1}^n (2a x_i^2 +2 x_i b - 2 x_i y_i)\\
+ 0 &\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow 0 &\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + (\bar y - a \bar x) \cdot n \bar x - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow a &\stackrel{!}{=} \frac{\sum_{i=1}^n x_i y_i - n \bar x \bar y}{\sum_{i=1}^n x_i^2 - n \bar x^2}
+ = \frac{\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n (x_i - \bar x)^2}
+\end{align}$$
+
+This only works if not all $x_i$ are equal; otherwise the denominator is zero
+and every line through the center is equally good. As $f$ is a sum of squares,
+this point is a minimum and not a maximum. It is the same result as the
+matrix formula above with
+
+$$X = \begin{pmatrix}x_1 & 1\\ \vdots & \vdots\\ x_n & 1\end{pmatrix} \text{ and } \beta = \begin{pmatrix}a\\ b\end{pmatrix}$$
+
 
 ### Logistic regression
 
