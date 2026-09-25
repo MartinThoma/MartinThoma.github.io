@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="algorithms, Geometry, Java, misc, " />
+
+<meta property="og:title" content="Sweep-Line algorithm for intersections "/>
+<meta property="og:url" content="sweep-line-algorithm-for-intersections/" />
+<meta property="og:description" content="Suppose you&#39;re given a lot of lines. Your task is to give a list of all pairs of lines that cross. The list of lines might be something like this: a: {(1|4),(6|1)} b: {(2|1),(5|4)} c: {(3|1),(6|4)} d: {(4|1),(8|5 …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-10-19T11:54:51+02:00" />
+<meta name="twitter:title" content="Sweep-Line algorithm for intersections ">
+<meta name="twitter:description" content="Suppose you&#39;re given a lot of lines. Your task is to give a list of all pairs of lines that cross. The list of lines might be something like this: a: {(1|4),(6|1)} b: {(2|1),(5|4)} c: {(3|1),(6|4)} d: {(4|1),(8|5 …">
+
+        <title>Sweep-Line algorithm for intersections  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, the Web and Cyberculture</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../sweep-line-algorithm-for-intersections/">Sweep-Line algorithm for intersections</a></h1>
+    <p class="meta">
+<time datetime="2013-10-19T11:54:51+02:00">Okt 19, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algorithms-ref">algorithms
+            <span>21</span>
+</a></li>
+        <li><a href="../tags/#geometry-ref">Geometry
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#java-ref">Java
+            <span>39</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents</summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#what-is-an-intersection" title="What is an intersection?">What is an intersection?</a></li><li><a class="toc-href" href="#how-many-intersections-can-exist" title="How many intersections can exist?">How many intersections can exist?</a></li><li><a class="toc-href" href="#a-simple-solution" title="A simple solution">A simple solution</a><ul><li><a class="toc-href" href="#first-way-to-think-about-it" title="First way to think about it">First way to think about it</a></li><li><a class="toc-href" href="#second-way-to-think-about-it" title="Second way to think about it">Second way to think about it</a></li></ul></li><li><a class="toc-href" href="#sweep-line-algorithm_1" title="Sweep-Line algorithm">Sweep-Line algorithm</a></li></ul></div>
+</details>
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.</p>
+<p>The list of lines might be something like this:</p>
+<table>
+<tr>
+<td>
+<ul>
+<li>a: {(1|4),(6|1)}</li>
+<li>b: {(2|1),(5|4)}</li>
+<li>c: {(3|1),(6|4)}</li>
+<li>d: {(4|1),(8|5)}</li>
+<li>e: {(3|4),(9|3)}</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>f: {(7|2),(9|3)}</li>
+<li>g: {(6|7),(9|1)}</li>
+<li>h: {(11|1),(16|5)}</li>
+<li>i: {(13|3),(13|4)}</li>
+<li>j: {(15|3),(15|4)}</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>k: {(13|2),(14|2)}</li>
+<li>l: {(14|1),(14|2)}</li>
+<li>m: {(17|3),(21|3)}</li>
+<li>n: {(19|5),(19|1)}</li>
+<li>o: {(11|1),(16|5)}</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>You can visualize the given lines like this:</p>
+<figure>
+<a href="../images/2013/01/lines-intersections.png"><img alt="Some lines" height="201" src="../images/2013/01/lines-intersections.png" width="500"/></a>
+<figcaption>Some lines</figcaption>
+</figure>
+<p>Now your list of pairs should look like this:
+[[a, b], [a, c], [a, d], [d, g], [e, b], [e, c], [e, d], [e, f], [e, g], [f, g], [k, l], [m, n], [h, o]]
+So we have 15 lines and 13 intersections.</p>
+<h2 id="what-is-an-intersection">What is an intersection?</h2>
+<div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>
+<p _="%" endgallery="">This means, all of the following images show intersecting lines:
+{% gallery columns="3" %}
+    ../images/2013/01/intersecting-lines-1.png  "Intersecting lines: #1"
+    ../images/2013/01/intersecting-lines-2.png  "Intersecting lines: #2"
+    ../images/2013/01/intersecting-lines-3.png  "Intersecting lines: #3"
+    ../images/2013/01/intersecting-lines-4.png  "Intersecting lines: #4"
+    ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"</p>
+<p>You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.</p>
+<h2 id="how-many-intersections-can-exist">How many intersections can exist?</h2>
+<p>Let <span class="math">\(n\)</span> be the number of lines.</p>
+<p><span class="math">\(n=1\)</span>: If you have only one line, there is obviously no intersection. A line can only intersect with another line</p>
+<p><span class="math">\(n=2\)</span>: The new line can only intersect with lines that are already there. So there is one new intersection.</p>
+<p><span class="math">\(n=3\)</span>: As before, the new line can only intersect with existing lines. So you get at most two new intersection points. As the old lines can only have 1 intersection point at most, you have a maximum of 3 intersection points.</p>
+<p>I guess you noticed the pattern. The maximum of intersection points of <span class="math">\(n\)</span> is <span class="math">\(\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}\)</span></p>
+<p>At the moment, this is only an upper border. We didn't prove that you can actually get that much intersections. We only showed that you can't get more intersections.</p>
+<h2 id="a-simple-solution">A simple solution</h2>
+<p>I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have <span class="math">\(n\)</span> line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:</p>
+<h3 id="first-way-to-think-about-it">First way to think about it</h3>
+<ul>
+<li>First, I can check if the first line crosses the second, third, forth, ... n-th line.</li>
+<li>Then I check if the second line crosses the third, forth, ... n-th line.</li>
+<li>...</li>
+<li>I check if the (n-1)-th line crosses the n-th line.</li>
+</ul>
+<p>So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} $checks.</p>
+<h3 id="second-way-to-think-about-it">Second way to think about it</h3>
+<p>I don't care about order. I have to do every check. So when I have <span class="math">\(n\)</span> elements and I want to choose <span class="math">\(\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}\)</span></p>
+<h2 id="sweep-line-algorithm_1">Sweep-Line algorithm</h2>
+<p>The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only a x-coordinate!) goes over a new line segment, it adds this to a datastructure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#misc-ref">misc</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, the Web and Cyberculture</li>
+            <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+            <li><a href="https://martin-thoma.com/feeds/index.xml">RSS feed</a></li>
+            <li><a href="https://www.martin-thoma.de/privacy.htm">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+</html>

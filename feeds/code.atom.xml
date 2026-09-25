@@ -2842,6 +2842,7 @@ pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;.2.1
 &lt;/ul&gt;
 &lt;h3 id="deserialization-speed"&gt;Deserialization Speed&lt;/h3&gt;
 &lt;p&gt;The speed of my hard drive gives a lower bound for the time to read. I&amp;rsquo;ve included it as a baseline in the following 3 charts.&lt;/p&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2020/10/read-twitter.png"&gt;&lt;img alt="Read a complex, but small JSON" height="256" loading="lazy" src="../images/2020/10/read-twitter.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Read a complex, but small JSON&lt;/figcaption&gt;
@@ -2862,6 +2863,7 @@ pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;.2.1
 &lt;a href="../images/2020/10/read-twitter-fail.png"&gt;&lt;img alt="Read a faulty twitter.json" height="256" loading="lazy" src="../images/2020/10/read-twitter-fail.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Read a faulty twitter.json&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;p&gt;The conclusion from this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Rapidjson is slow, but for small JSONs like the twitter.json, you will not notice a difference. One can see this with the structured logs.&lt;/li&gt;
@@ -2870,6 +2872,7 @@ pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;.2.1
 &lt;/ul&gt;
 &lt;h3 id="serialization-speed"&gt;Serialization Speed&lt;/h3&gt;
 &lt;p&gt;In this case, I created the JSON string beforehand and measured the time it takes to write it to disk as a baseline.&lt;/p&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2020/10/write-twitter.png"&gt;&lt;img alt="Write a twitter.json" height="256" loading="lazy" src="../images/2020/10/write-twitter.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Write a twitter.json&lt;/figcaption&gt;
@@ -2886,6 +2889,7 @@ pip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;.2.1
 &lt;a href="../images/2020/10/write-structured-log.png"&gt;&lt;img alt="Write a structured log file" height="256" loading="lazy" src="../images/2020/10/write-structured-log.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Write a structured log file&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;p&gt;What I conclude from this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;orjson is just insanely fast. It is super close to maxing out my hard drive. And ujson is pretty close to that.&lt;/li&gt;
@@ -7385,6 +7389,7 @@ all &lt;code&gt;books.title&lt;/code&gt; written by that author:&lt;/p&gt;
 &lt;h3 id="problem-3-missing-editor-support"&gt;Problem 3: Missing Editor Support&lt;/h3&gt;
 &lt;p&gt;This problem is quite dumb, but still an open issue for many languages / editors: When developers write their SQL just in a string within their language, how should the editor know that this string needs to be parsed? How should the editor know that they want syntax highlighting and auto-completion?&lt;/p&gt;
 &lt;p&gt;You can see already in the example above that syntax highlighting is missing, but let me give you screenshots of well-known editors:&lt;/p&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2020/07/sublime-raw-sql.png"&gt;&lt;img alt="Sublime Text 3.2" height="72" loading="lazy" src="../images/2020/07/sublime-raw-sql.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Sublime Text 3.2&lt;/figcaption&gt;
@@ -7397,7 +7402,9 @@ all &lt;code&gt;books.title&lt;/code&gt; written by that author:&lt;/p&gt;
 &lt;a href="../images/2020/07/vim.png"&gt;&lt;img alt="vim 8.1" height="75" loading="lazy" src="../images/2020/07/vim.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;vim 8.1&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;p&gt;In contrast, here is the same query in a &lt;code&gt;query.sql&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2020/07/sublime-query.png"&gt;&lt;img alt="Sublime Text 3.2" height="24" loading="lazy" src="../images/2020/07/sublime-query.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Sublime Text 3.2&lt;/figcaption&gt;
@@ -7410,6 +7417,7 @@ all &lt;code&gt;books.title&lt;/code&gt; written by that author:&lt;/p&gt;
 &lt;a href="../images/2020/07/vim-query.png"&gt;&lt;img alt="vim 8.1" height="27" loading="lazy" src="../images/2020/07/vim-query.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;vim 8.1&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;p&gt;I&amp;rsquo;ve tried PyCharm as well. Besides having another color for strings, it looks
 the same. It does not recognize that the string contains SQL.&lt;/p&gt;
 &lt;p&gt;If you really need raw queries and if you still want syntax highlighting, you
@@ -11957,7 +11965,7 @@ most active authors are:&lt;/p&gt;
 &lt;td&gt;release_url&lt;/td&gt;
 &lt;td&gt;560&lt;/td&gt;
 &lt;td&gt;128&lt;/td&gt;
-&lt;td&gt;https://pypi.org/project/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5/&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://pypi.org/project/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5/&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;package_url&lt;/td&gt;
@@ -12325,6 +12333,7 @@ I've asked a &lt;a href="https://stackoverflow.com/q/59721109/562769"&gt;Stack O
 &lt;li&gt;208&amp;times; tar.bz2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="dependencies"&gt;Dependencies&lt;/h2&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2020/01/pypi-imported-packages.png"&gt;&lt;img alt="Weighted module imports by Python packages" height="464" loading="lazy" src="../images/2020/01/pypi-imported-packages.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Weighted module imports by Python packages&lt;/figcaption&gt;
@@ -12341,6 +12350,7 @@ I've asked a &lt;a href="https://stackoverflow.com/q/59721109/562769"&gt;Stack O
 &lt;a href="../images/2020/01/pypi-imported-packages-excluding-system-count.png"&gt;&lt;img alt="Module imports of Python modules excluding system modules" height="448" loading="lazy" src="../images/2020/01/pypi-imported-packages-excluding-system-count.png" width="512"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Module imports of Python modules excluding system modules&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;h2 id="build-systems"&gt;Build Systems&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Total Packages Analyzed: 198,996&lt;/li&gt;
@@ -13216,11 +13226,11 @@ Total loc: 277469
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="problems"&gt;Problems&lt;/h2&gt;
 &lt;h3 id="could-not-find-languages-directory"&gt;could not find languages directory&lt;/h3&gt;
-&lt;p&gt;https://github.com/CISOfy/lynis/issues/213&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/CISOfy/lynis/issues/213"&gt;github.com/CISOfy/lynis/issues/213&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="ubuntu-1804-audit_1"&gt;Ubuntu 18.04 Audit&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;-H&lt;span class="w"&gt; &lt;/span&gt;./lynis&lt;span class="w"&gt; &lt;/span&gt;audit&lt;span class="w"&gt; &lt;/span&gt;system&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;ansi2html&lt;span class="w"&gt; &lt;/span&gt;-la&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;~/report.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The &lt;a href="https://martin-thoma.com/pdf/lynis-report.pdf"&gt;lynis report of Ubuntu 18.04&lt;/a&gt; is super long.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="../pdf/lynis-report.pdf"&gt;lynis report of Ubuntu 18.04&lt;/a&gt; is super long.&lt;/p&gt;
 &lt;h2 id="hardening"&gt;Hardening&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;update
 $&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;upgrade
@@ -13306,6 +13316,7 @@ in free software.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf"&gt;Deep Face recognition&lt;/a&gt; (&lt;a href="https://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15"&gt;summary&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="problems"&gt;Problems&lt;/h2&gt;
+&lt;div class="gallery"&gt;
 &lt;figure&gt;
 &lt;a href="../images/2019/04/face_recongition_error_statue.jpg"&gt;&lt;img alt="A face, but not a human" height="400" src="../images/2019/04/face_recongition_error_statue.jpg" width="400"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;A face, but not a human&lt;/figcaption&gt;
@@ -13318,6 +13329,7 @@ in free software.&lt;/p&gt;
 &lt;a href="../images/2019/04/face_recongition_error_noface.jpg"&gt;&lt;img alt="No face at all - not even close" height="299" loading="lazy" src="../images/2019/04/face_recongition_error_noface.jpg" width="298"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;No face at all - not even close&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;PyPI: &lt;a href="https://pypi.org/project/face_recognition/"&gt;&lt;code&gt;face_recognition&lt;/code&gt;&lt;/a&gt; uses &lt;a href="http://dlib.net/"&gt;dlib&lt;/a&gt;. It's fast, it's good. Use it.&lt;/li&gt;
@@ -15689,10 +15701,10 @@ the beginning of the absolute path to the database file.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;URL&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;http://www.gevent.org/&lt;/td&gt;
-&lt;td&gt;https://eventlet.net/&lt;/td&gt;
+&lt;td&gt;&lt;a href="http://www.gevent.org/"&gt;gevent.org&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://eventlet.net/"&gt;eventlet.net&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;https://aiohttp.readthedocs.io/en/stable/&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://aiohttp.readthedocs.io/en/stable/"&gt;aiohttp.readthedocs.io/en/stable&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -16071,7 +16083,7 @@ lookup(np array)    : min: 711.1&amp;mu;s, mean: 855.7&amp;mu;s, max: 1665.5&amp
 &lt;li&gt;&lt;a href="https://google.de"&gt;https://google.de&lt;/a&gt;: 110ms - 170ms&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://joyn.de/"&gt;https://joyn.de&lt;/a&gt;: 130ms - 190ms&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://blog.fefe.de/"&gt;https://blog.fefe.de&lt;/a&gt;: 150ms - 180ms&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/"&gt;https://martin-thoma.com&lt;/a&gt; via GitHub: 320ms - 420ms&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;https://martin-thoma.com&lt;/a&gt; via GitHub: 320ms - 420ms&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://netflix.com/"&gt;https://netflix.com&lt;/a&gt;: 230ms - 500ms&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -17588,7 +17600,7 @@ class Location(builtins.object)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class="info"&gt;You should note the single leading underscore - that is Python's way to denote private attributes. It is not meant as the public interface of the class.&lt;br/&gt;
 &lt;br/&gt;
-There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming collisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ &amp;amp; __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)&lt;/div&gt;
+There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming collisions. Just have a look at `dir(some_example_class)`. See also: &lt;a href="https://www.youtube.com/watch?v=ALZmCy2u0jQ"&gt;What's the meaning of underscores (_ &amp;amp; __) in Python variable names?&lt;/a&gt;&lt;/div&gt;
 &lt;p&gt;And then note how the class attribute &lt;code&gt;latitude&lt;/code&gt; now is not a float anymore, but a &lt;code&gt;property&lt;/code&gt; object!&lt;/p&gt;
 &lt;p&gt;This makes use of the &lt;a href="https://docs.python.org/3/howto/descriptor.html"&gt;descriptor protocol&lt;/a&gt; (&lt;code&gt;__get__&lt;/code&gt; and &lt;code&gt;__set__&lt;/code&gt;). So by using this, there is a strong relationship
 between the getter/setter and the attribute!&lt;/p&gt;

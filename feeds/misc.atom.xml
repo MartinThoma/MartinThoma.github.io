@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - misc</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/misc.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2013-10-19T11:54:51+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Sweep-Line algorithm for intersections</title><link href="https://martin-thoma.com/sweep-line-algorithm-for-intersections/" rel="alternate"></link><published>2013-10-19T11:54:51+02:00</published><updated>2013-10-19T11:54:51+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-10-19:/sweep-line-algorithm-for-intersections/</id><summary type="html">&lt;p&gt;Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.&lt;/p&gt;
+&lt;p&gt;The list of lines might be something like this:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;a: {(1|4),(6|1)}&lt;/li&gt;
+&lt;li&gt;b: {(2|1),(5|4)}&lt;/li&gt;
+&lt;li&gt;c: {(3|1),(6|4)}&lt;/li&gt;
+&lt;li&gt;d: {(4|1),(8|5 …&lt;/li&gt;&lt;/ul&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.&lt;/p&gt;
+&lt;p&gt;The list of lines might be something like this:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;a: {(1|4),(6|1)}&lt;/li&gt;
+&lt;li&gt;b: {(2|1),(5|4)}&lt;/li&gt;
+&lt;li&gt;c: {(3|1),(6|4)}&lt;/li&gt;
+&lt;li&gt;d: {(4|1),(8|5)}&lt;/li&gt;
+&lt;li&gt;e: {(3|4),(9|3)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;f: {(7|2),(9|3)}&lt;/li&gt;
+&lt;li&gt;g: {(6|7),(9|1)}&lt;/li&gt;
+&lt;li&gt;h: {(11|1),(16|5)}&lt;/li&gt;
+&lt;li&gt;i: {(13|3),(13|4)}&lt;/li&gt;
+&lt;li&gt;j: {(15|3),(15|4)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;k: {(13|2),(14|2)}&lt;/li&gt;
+&lt;li&gt;l: {(14|1),(14|2)}&lt;/li&gt;
+&lt;li&gt;m: {(17|3),(21|3)}&lt;/li&gt;
+&lt;li&gt;n: {(19|5),(19|1)}&lt;/li&gt;
+&lt;li&gt;o: {(11|1),(16|5)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You can visualize the given lines like this:&lt;/p&gt;
+&lt;figure&gt;
+&lt;a href="../images/2013/01/lines-intersections.png"&gt;&lt;img alt="Some lines" height="201" src="../images/2013/01/lines-intersections.png" width="500"/&gt;&lt;/a&gt;
+&lt;figcaption&gt;Some lines&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Now your list of pairs should look like this:
+[[a, b], [a, c], [a, d], [d, g], [e, b], [e, c], [e, d], [e, f], [e, g], [f, g], [k, l], [m, n], [h, o]]
+So we have 15 lines and 13 intersections.&lt;/p&gt;
+&lt;h2 id="what-is-an-intersection"&gt;What is an intersection?&lt;/h2&gt;
+&lt;div class="definition"&gt;Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$&lt;/div&gt;
+&lt;p _="%" endgallery=""&gt;This means, all of the following images show intersecting lines:
+{% gallery columns="3" %}
+    ../images/2013/01/intersecting-lines-1.png  "Intersecting lines: #1"
+    ../images/2013/01/intersecting-lines-2.png  "Intersecting lines: #2"
+    ../images/2013/01/intersecting-lines-3.png  "Intersecting lines: #3"
+    ../images/2013/01/intersecting-lines-4.png  "Intersecting lines: #4"
+    ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"&lt;/p&gt;
+&lt;p&gt;You might want to read my article &lt;a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect"&gt;How to check if two line segments intersect&lt;/a&gt;, as we need a method that gets two line segments as parameters returns if they intersect.&lt;/p&gt;
+&lt;h2 id="how-many-intersections-can-exist"&gt;How many intersections can exist?&lt;/h2&gt;
+&lt;p&gt;Let &lt;span class="math"&gt;\(n\)&lt;/span&gt; be the number of lines.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(n=1\)&lt;/span&gt;: If you have only one line, there is obviously no intersection. A line can only intersect with another line&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(n=2\)&lt;/span&gt;: The new line can only intersect with lines that are already there. So there is one new intersection.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(n=3\)&lt;/span&gt;: As before, the new line can only intersect with existing lines. So you get at most two new intersection points. As the old lines can only have 1 intersection point at most, you have a maximum of 3 intersection points.&lt;/p&gt;
+&lt;p&gt;I guess you noticed the pattern. The maximum of intersection points of &lt;span class="math"&gt;\(n\)&lt;/span&gt; is &lt;span class="math"&gt;\(\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;At the moment, this is only an upper border. We didn't prove that you can actually get that much intersections. We only showed that you can't get more intersections.&lt;/p&gt;
+&lt;h2 id="a-simple-solution"&gt;A simple solution&lt;/h2&gt;
+&lt;p&gt;I know how to check if two line segments intersect (see &lt;a href="../how-to-check-if-two-line-segments-intersect"&gt;article&lt;/a&gt;). But lets say I have &lt;span class="math"&gt;\(n\)&lt;/span&gt; line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:&lt;/p&gt;
+&lt;h3 id="first-way-to-think-about-it"&gt;First way to think about it&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;First, I can check if the first line crosses the second, third, forth, ... n-th line.&lt;/li&gt;
+&lt;li&gt;Then I check if the second line crosses the third, forth, ... n-th line.&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;li&gt;I check if the (n-1)-th line crosses the n-th line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} $checks.&lt;/p&gt;
+&lt;h3 id="second-way-to-think-about-it"&gt;Second way to think about it&lt;/h3&gt;
+&lt;p&gt;I don't care about order. I have to do every check. So when I have &lt;span class="math"&gt;\(n\)&lt;/span&gt; elements and I want to choose &lt;span class="math"&gt;\(\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="sweep-line-algorithm_1"&gt;Sweep-Line algorithm&lt;/h2&gt;
+&lt;p&gt;The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only a x-coordinate!) goes over a new line segment, it adds this to a datastructure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.&lt;/p&gt;</content><category term="misc"></category><category term="algorithms"></category><category term="Geometry"></category><category term="Java"></category></entry></feed>
