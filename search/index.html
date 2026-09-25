@@ -14,6 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
+<meta name="robots" content="noindex">
 <meta property="og:title" content="Search · Martin Thoma"/>
 <meta name="twitter:title" content="Search · Martin Thoma">
 <meta property="og:url" content="../search/" />
@@ -25,7 +26,6 @@
 </title>
         <meta name="color-scheme" content="light dark">
         <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
         <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
         <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
@@ -71,14 +71,32 @@ MathJax.Hub.Queue(function() {
                     <a href="../archives/">Archives</a>
                     <a href="../support-me/">Support me</a>
                     <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
-                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
                     </form>
                 </nav>
             </div>
         </header>
         <main id="main" class="wrap">
-<header class="page-head"><h1>Search</h1></header>
-<div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
+<div class="search-page" id="search"
+     data-index="../search.json" data-siteurl=".." data-images="../images/"
+     data-tags="../tags/" data-archives="../archives/">
+    <header class="page-head">
+        <h1 data-heading>Search</h1>
+        <p class="lead" data-intro>Search all 911 articles by title, text, category and tag.</p>
+        <form class="search big" role="search" aria-label="Search articles" action="../search/" method="get">
+            <input type="search" name="q" aria-label="Search articles" placeholder="Search articles" required enterkeyhint="search" autocomplete="off">
+            <button class="btn" type="submit">Search</button>
+        </form>
+        <p class="search-tip" data-intro>Use quotes for an exact phrase: <kbd>"unit testing"</kbd></p>
+    </header>
+    <p class="visually-hidden" role="status" data-status></p>
+    <div data-results></div>
+    <noscript>
+        <div class="search-panel">
+            <p>The search needs JavaScript. You can browse <a href="../tags/">all tags</a> and <a href="../archives/">the archive</a> instead.</p>
+        </div>
+    </noscript>
+</div>
         </main>
 <footer class="site-footer no-print">
     <div class="wrap">
@@ -91,18 +109,48 @@ MathJax.Hub.Queue(function() {
             <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
         </ul>
     </div>
-</footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript" src="../theme/tipuesearch/tipuesearch_set.js"></script>
-<script type="text/javascript" src="../theme/tipuesearch/tipuesearch.min.js"></script>
-<script>
-$(document).ready(function() {
-     $('#tipue_search_input').tipuesearch({
-             'mode' : 'json',
-         'show': 10,
-         'newWindow': false,
-             'contentLocation': '../tipuesearch_content.json'
-     });
-});
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
 </script>
+
+<script src="../theme/js/search.js" defer></script>
     </body>
 </html>
