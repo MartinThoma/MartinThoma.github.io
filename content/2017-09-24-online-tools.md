@@ -28,7 +28,8 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
         Alternatives: <a href="https://pastebin.com">Pastebin</a></dd>
     <dt><a href="https://requestb.in/">requestb.in</a></dt>
     <dd>Test / inspect if your service sends the right requests.<br/>
-        Alternatives: <a href="http://httpbin.org/">httpbin.org</a>, <a href="https://hookbin.com">hookbin.com</a>, <a href="http://mockbin.org">mockbin.org</a></dd>
+        Alternatives: <a href="http://httpbin.org/">httpbin.org</a>, <a href="https://hookbin.com">hookbin.com</a>, <a href="http://mockbin.org">mockbin.org</a><br/>
+        Reference: <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">List of HTTP status codes</a></dd>
     <dt><a href="https://stackedit.io/">StackEdit.io</a></dt>
     <dd>Write Markdown (+ LaTeX).<br/>
         Alternatives: <a href="https://hackmd.io/">hackmd.io</a></dd>
@@ -42,7 +43,10 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
     <dt><a href="https://bundlephobia.com">bundlephobia.com</a></dt>
     <dd>Find the cost of adding a npm package to your bundle</dd>
     <dt><a href="https://jsonformatter.org/">jsonformatter.org</a></dt>
-    <dd>Format and validate your JSON data</dd>
+    <dd>Format and validate your JSON data<br/>
+        Alternatives: <a href="https://jsonformatter.curiousconcept.com/">jsonformatter.curiousconcept.com</a></dd>
+    <dt><a href="https://beautifier.io/">beautifier.io</a> <span class="label label-default">JavaScript</span></dt>
+    <dd>Format minified or messy JavaScript code</dd>
     <dt><a href="http://unicode.party">Unicode.party</a></dt>
     <dd>Search engine for emoticons</dd>
     <dt><a href="http://truben.no/table/">truben.no/table</a></dt>
@@ -54,5 +58,31 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
         Alternatives: <a href="https://translate.google.com/">Google Translate</a></dd>
 </dl>
 
-If you know more, just let me know. If you know alternatives, I'm interested in
-up to 3 Tools per usecase.
+
+## Platforms
+
+The following are not small single-purpose tools, but platforms I have used for
+my projects:
+
+* Code: [GitHub](https://github.com/) for version control,
+  [Docker Hub](https://hub.docker.com/) for container images
+* Hosting: [DigitalOcean](https://www.digitalocean.com/) for cloud servers,
+  [Amazon S3](https://aws.amazon.com/s3/) for storage,
+  [Amazon EC2](https://aws.amazon.com/ec2/) for cloud computing
+* Domains: [Namecheap](https://www.namecheap.com/) is relatively cheap and very
+  easy to use
+* Crowdsourcing: [Amazon Mechanical Turk](https://www.mturk.com/) lets human
+  workers do small tasks, e.g. labeling data for machine learning
+* Communication: [Slack](https://slack.com/) for team chat
+* Design: [logotournament.com](https://logotournament.com/) to get a custom,
+  high quality logo (see [my experience](../logo-design-tournament/))
+
+
+## Code Beautifier
+
+* [JavaScript](http://jsbeautifier.org/)
+* [JSON](http://jsonformatter.curiousconcept.com/)
+
+## MISC
+
+* [List of HTTP status codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
