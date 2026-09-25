@@ -210,7 +210,7 @@ our lives:
   significantly due to the growth of the electric vehicle market and the need
   for energy storage systems. This could lead to lithium shortages, which could
   drive up prices and make battery production more difficult:
-  https://www.spiegel.de/auto/lithium-fuer-e-autos-koennte-laut-neuer-studie-knapp-werden-a-012ff29e-cc7f-47fd-bc36-5ea5ff243d29
+  [spiegel.de/…/lithium-fuer-e-autos-koennte-laut-ne…](https://www.spiegel.de/auto/lithium-fuer-e-autos-koennte-laut-neuer-studie-knapp-werden-a-012ff29e-cc7f-47fd-bc36-5ea5ff243d29)
 * **Electricity demand**: The transition to electric energy will increase
   electricity demand, potentially straining the existing grid and leading to
   blackouts. We need to invest in grid infrastructure and energy storage systems
@@ -222,4 +222,4 @@ our lives:
 
 ## News
 
-* https://www.youtube.com/watch?v=d3ByTNIdpTI Schleswig-Holstein (Bollingstedt) of EcoStor - https://www.pv-magazine.de/2025/06/05/batteriespeicher-von-eco-stor-mit-1035-megawatt-offiziell-eingeweiht/
+* [youtube.com/watch?v=d3ByTNIdpTI](https://www.youtube.com/watch?v=d3ByTNIdpTI) Schleswig-Holstein (Bollingstedt) of EcoStor - [pv-magazine.de/…/batteriespeicher-von-eco-stor-mi…](https://www.pv-magazine.de/2025/06/05/batteriespeicher-von-eco-stor-mit-1035-megawatt-offiziell-eingeweiht/)

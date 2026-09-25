@@ -152,37 +152,37 @@ This problem is quite dumb, but still an open issue for many languages / editors
 
 You can see already in the example above that syntax highlighting is missing, but let me give you screenshots of well-known editors:
 
-<figure>
-    <a href="../images/2020/07/sublime-raw-sql.png"><img src="../images/2020/07/sublime-raw-sql.png" alt="Sublime Text 3.2" width="512" height="72" loading="lazy"></a>
-    <figcaption>Sublime Text 3.2</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/07/vs-code-1-47.png"><img src="../images/2020/07/vs-code-1-47.png" alt="VS Code 1.47" width="512" height="91" loading="lazy"></a>
-    <figcaption>VS Code 1.47</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/07/vim.png"><img src="../images/2020/07/vim.png" alt="vim 8.1" width="512" height="75" loading="lazy"></a>
-    <figcaption>vim 8.1</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2020/07/sublime-raw-sql.png"><img src="../images/2020/07/sublime-raw-sql.png" alt="Sublime Text 3.2" width="512" height="72" loading="lazy"></a>
+        <figcaption>Sublime Text 3.2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/07/vs-code-1-47.png"><img src="../images/2020/07/vs-code-1-47.png" alt="VS Code 1.47" width="512" height="91" loading="lazy"></a>
+        <figcaption>VS Code 1.47</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/07/vim.png"><img src="../images/2020/07/vim.png" alt="vim 8.1" width="512" height="75" loading="lazy"></a>
+        <figcaption>vim 8.1</figcaption>
+    </figure>
+</div>
 
 In contrast, here is the same query in a `query.sql` file:
 
-<figure>
-    <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" width="512" height="24" loading="lazy"></a>
-    <figcaption>Sublime Text 3.2</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/07/vs-code-query.png"><img src="../images/2020/07/vs-code-query.png" alt="VS Code 1.47" width="512" height="27" loading="lazy"></a>
-    <figcaption>VS Code 1.47</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/07/vim-query.png"><img src="../images/2020/07/vim-query.png" alt="vim 8.1" width="512" height="27" loading="lazy"></a>
-    <figcaption>vim 8.1</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" width="512" height="24" loading="lazy"></a>
+        <figcaption>Sublime Text 3.2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/07/vs-code-query.png"><img src="../images/2020/07/vs-code-query.png" alt="VS Code 1.47" width="512" height="27" loading="lazy"></a>
+        <figcaption>VS Code 1.47</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/07/vim-query.png"><img src="../images/2020/07/vim-query.png" alt="vim 8.1" width="512" height="27" loading="lazy"></a>
+        <figcaption>vim 8.1</figcaption>
+    </figure>
+</div>
 
 I’ve tried PyCharm as well. Besides having another color for strings, it looks
 the same. It does not recognize that the string contains SQL.

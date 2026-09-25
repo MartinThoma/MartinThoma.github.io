@@ -185,7 +185,7 @@ Als Daumenregel: Anzahl Quadratmeter des Raumes ⋅ 80 W/m² = Benötigte Heizle
 Besser: Heizlastberechnung
 
 ## Förderung
-Liste der förderfähigen Wärmepumpenanlagen: https://www.bafa.de/SharedDocs/Downloads/DE/Energie/beg_waermepumpen_anlagenliste.html
+Liste der förderfähigen Wärmepumpenanlagen: [bafa.de/…/beg\_waermepumpen\_anlagenliste.html](https://www.bafa.de/SharedDocs/Downloads/DE/Energie/beg_waermepumpen_anlagenliste.html)
 
 
 Förderung über Umfeldmaßnahme (bis zu 40%, max. 60k€ pro Kalenderjahr!)
@@ -194,7 +194,7 @@ Zuerst Antrag stellen!!!!!
 
 ## Split-Klimaanlagen
 
-https://www.akkudoktor.net/forum/heizungssysteme/split-klimas-in-schweden/
+[akkudoktor.net/…/split-klimas-in-schweden](https://www.akkudoktor.net/forum/heizungssysteme/split-klimas-in-schweden/)
 
 1. Panasonic - 20644 Beiträge
 2. Mitsubishi Electric - 8749 Beiträge

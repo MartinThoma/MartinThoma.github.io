@@ -178,5 +178,5 @@ Selbst hier sind wir noch konservativ:
     * [PVTool Rechner](https://www.akkudoktor.net/pvtool-rechner/)
     * [Mikrowechselrichter-Liste](https://akkudoktor.net/pub/mikrowechselrichter-liste)
 * [Wechselrichter: Test und Vergleich 2024](https://gruenes.haus/wechselrichter-test-vergleich/)
-* Lidl und Netto besser nicht: https://www.youtube.com/watch?v=2fDy71J2E_M
+* Lidl und Netto besser nicht: [youtube.com/watch?v=2fDy71J2E\_M](https://www.youtube.com/watch?v=2fDy71J2E_M)
 * [Anker Solix](https://www.anker.com/eu-de/ankerpower/balkonkraftwerk-produkteinfuehrung) klang auch interessant. Einfach nur deshalb, weil Anker eine bekannte Marke ist.

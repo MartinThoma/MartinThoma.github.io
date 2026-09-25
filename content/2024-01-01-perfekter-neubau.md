@@ -561,7 +561,7 @@ Man muss ein paar Sachen unterbringen können
 * Werkzeug fürs Auto / Fahrrad
 * Ersatzschläuche
 * Gartenwerkzeug
-* Stecktafel ("Pegboard") zur Lagerung vom Werkzeug; https://makerworld.com/en/models/134882#profileId-146324; https://www.franks-shed.com/
+* Stecktafel ("Pegboard") zur Lagerung vom Werkzeug; [makerworld.com/en/models/134882](https://makerworld.com/en/models/134882#profileId-146324); [franks-shed.com](https://www.franks-shed.com/)
 
 Ein Waschbecken wäre auch gut. Und natürlich Steckdosen. Eine Wallbox.
 

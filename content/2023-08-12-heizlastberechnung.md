@@ -178,5 +178,5 @@ dominiert hier das schwächste Glied.
 
 ## Weiteres
 
-* https://www.ubakus.de/u-wert-rechner/
-* https://www.sbz-monteur.de/gut-zu-wissen/norm-waermeleistung-oder-reale-bedingungen
+* [ubakus.de/u-wert-rechner](https://www.ubakus.de/u-wert-rechner/)
+* [sbz-monteur.de/…/norm-waermeleistung-oder-reale-b…](https://www.sbz-monteur.de/gut-zu-wissen/norm-waermeleistung-oder-reale-bedingungen)

@@ -51,7 +51,7 @@ Klemens Jakob
 
 about 18m^2
 
-https://ownworld.org/
+[ownworld.org](https://ownworld.org/)
 
 
 ## Self-Sufficiency
@@ -211,10 +211,10 @@ The following professions are needed to build a house:
     </tr>
 </table>
 
-* https://www.haus-bau-blog.de/kosten/kosten-hausbau-tabelle-aufstellung-baukosten-liste/
+* [haus-bau-blog.de/…/kosten-hausbau-tabelle-aufstel…](https://www.haus-bau-blog.de/kosten/kosten-hausbau-tabelle-aufstellung-baukosten-liste/)
 
 
-* https://www.fernstudiumcheck.de/fernstudium/bauingenieurwesen
+* [fernstudiumcheck.de/fernstudium/bauingenieurwesen](https://www.fernstudiumcheck.de/fernstudium/bauingenieurwesen)
 *
 
 ### Base
@@ -225,7 +225,7 @@ The following professions are needed to build a house:
 ## Cheap credits
 
 * Kreditanstalt für Wiederaufbau (KfW)
-* https://www.haus-selber-bauen.com/fenster-einbauen.html#wegweiser
+* [haus-selber-bauen.com/fenster-einbauen.html](https://www.haus-selber-bauen.com/fenster-einbauen.html#wegweiser)
 
 
 ## Standort

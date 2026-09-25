@@ -163,4 +163,4 @@ Quellen:
 
 ## Link
 
-* https://balkonkraftwerk-vertrieb.de/zahlen/
+* [balkonkraftwerk-vertrieb.de/zahlen](https://balkonkraftwerk-vertrieb.de/zahlen/)

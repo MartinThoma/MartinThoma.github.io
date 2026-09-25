@@ -329,10 +329,10 @@ Unter den Balken sind 15cm Platz, der Balken ist 20cm hoch. Also würde ich eine
 
 Optionen:
 
-* 16cm Glaswolle (λ=0.032 W/(m·K)) Rolle: 15.20€/m²: https://www.bausep.de/aktion-dachbodendaemmung-wlg-032-glaswolle.html?361=675956
-    * Dämmständer: https://www.bausep.de/isocell-woodyfix-daemmstaender.html?361=676385
-* 16cm Glaswolle (λ=0.035 W/(m·K)) Rolle: 15.53€/m²: https://www.baustoffshop.de/knauf-insulation-kerndammrolle-ti-kd-435-n385-00063-grp.html
-* 18cm Glaswolle (λ=0.035 W/(m·K)) 125cm x 60cm für 22.69€: https://www.baustoffshop.de/knauf-insulation-kerndammplatte-tp-kd-432-n385-00048-grp.html
+* 16cm Glaswolle (λ=0.032 W/(m·K)) Rolle: 15.20€/m²: [bausep.de/aktion-dachbodendaemmung-wlg-032-glaswo…](https://www.bausep.de/aktion-dachbodendaemmung-wlg-032-glaswolle.html?361=675956)
+    * Dämmständer: [bausep.de/isocell-woodyfix-daemmstaender.html?361…](https://www.bausep.de/isocell-woodyfix-daemmstaender.html?361=676385)
+* 16cm Glaswolle (λ=0.035 W/(m·K)) Rolle: 15.53€/m²: [baustoffshop.de/knauf-insulation-kerndammrolle-ti…](https://www.baustoffshop.de/knauf-insulation-kerndammrolle-ti-kd-435-n385-00063-grp.html)
+* 18cm Glaswolle (λ=0.035 W/(m·K)) 125cm x 60cm für 22.69€: [baustoffshop.de/knauf-insulation-kerndammplatte-t…](https://www.baustoffshop.de/knauf-insulation-kerndammplatte-tp-kd-432-n385-00048-grp.html)
 
 #### Dachbodentreppe
 
@@ -340,9 +340,9 @@ Maßnahmen:
 
 1. 200€ [DOLLE Bodentreppe wärmegedämmt U-Wert 1,16 120 x 70 cm](https://www.amazon.de/Bodentreppe-w%C3%A4rmeged%C3%A4mmt-Leiternteil-Dachbodenluke-Dachbodentreppe/dp/B07CPPKKLL/): Ob das so viel besser ist als meine alte Treppe, in die ich manuell Styropor eingelegt habe?
 2. Dachboden-Treppen-Isolierabdeckung: Ich brauche 67cm x 117cm x 35cm (Innenmaße der Luke), also: 2x 35x117 + 2x 35x67 + 117x67.
-    * https://www.amazon.de/Dachbodentreppen-Isolierabdeckung-T%C3%BCrabdeckung-Energiesparende-Rei%C3%9Fverschluss/dp/B0CT5FHZ7C/ 140x67, 23.50€, Verkauf von wendry, 448g, eine Bewertung, mit Reißverschluss
-    * https://www.amazon.de/Dachbodentreppe-Dachbodentreppen-Isolationsabdeckung-Energiesparend-Rei%C3%9Fverschluss/dp/B0DNMZDMDL/ 140x67, 28.59€, Verkauf von shangbaiyi store, 440g, keine Bewertung
-    * https://www.amazon.de/Ollewiellan-Isolierfolie-Reflexionsfolie-Alu-Luftpolsterfolie-Gew%C3%A4chsh%C3%A4user/dp/B0D69S8TG8/ : 1m x 10m x 3mm, 30.99€
+    * [amazon.de/…/B0CT5FHZ7C](https://www.amazon.de/Dachbodentreppen-Isolierabdeckung-T%C3%BCrabdeckung-Energiesparende-Rei%C3%9Fverschluss/dp/B0CT5FHZ7C/) 140x67, 23.50€, Verkauf von wendry, 448g, eine Bewertung, mit Reißverschluss
+    * [amazon.de/…/B0DNMZDMDL](https://www.amazon.de/Dachbodentreppe-Dachbodentreppen-Isolationsabdeckung-Energiesparend-Rei%C3%9Fverschluss/dp/B0DNMZDMDL/) 140x67, 28.59€, Verkauf von shangbaiyi store, 440g, keine Bewertung
+    * [amazon.de/…/B0D69S8TG8](https://www.amazon.de/Ollewiellan-Isolierfolie-Reflexionsfolie-Alu-Luftpolsterfolie-Gew%C3%A4chsh%C3%A4user/dp/B0D69S8TG8/) : 1m x 10m x 3mm, 30.99€
 
 ### Kellerwände
 
@@ -352,7 +352,7 @@ Mit 32cm EPS (λ=0.035 W/(m·K)) kommt man auf einen U-Wert von 0.11 W/(m²·K).
 
 TODO: Wie groß ist die Fläche?
 
-* https://www.bausep.de/fassadenplatte-eps-wdv-neo-032-1000-x-500-mm.html?361=675965 - 24.44€/m² bei WLS 032 mit 20cm
+* [bausep.de/fassadenplatte-eps-wdv-neo-032-1000-x-5…](https://www.bausep.de/fassadenplatte-eps-wdv-neo-032-1000-x-500-mm.html?361=675965) - 24.44€/m² bei WLS 032 mit 20cm
 
 ### Sockel unter Tür
 
@@ -364,9 +364,9 @@ TODO: Tutorial für Sockeldämmung
 * Armierungsgewebe?
 * Auf Boden oder auf Sockelschiene kleben?
 
-* https://www.bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm.html?361=675965 33.40€/m² bei 20cm, WLS 035
-* https://www.bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mit-stufenfalz.html : 19.20€/m² bei 12cm WLS 036
-* https://www.baustoffshop.de/knauf-dammplatte-eps-standard-035-weiss-1000x500-mm.html : 36.60€/m² bei 40cm WLS 035
+* [bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm…](https://www.bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm.html?361=675965) 33.40€/m² bei 20cm, WLS 035
+* [bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mi…](https://www.bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mit-stufenfalz.html) : 19.20€/m² bei 12cm WLS 036
+* [baustoffshop.de/knauf-dammplatte-eps-standard-035…](https://www.baustoffshop.de/knauf-dammplatte-eps-standard-035-weiss-1000x500-mm.html) : 36.60€/m² bei 40cm WLS 035
 
 ## Einzelnachweise
 

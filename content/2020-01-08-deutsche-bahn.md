@@ -64,20 +64,20 @@ On top of that, there are some other complaints:
 
 Please have a look at the "last update" in the following:
 
-<figure>
-    <a href="../images/2019/02/bahn-app-2019-02-05-07-51.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-07-51.jpg" alt="DB App" width="512" height="911" loading="lazy"></a>
-    <figcaption>Laut Ansage voraussichtlich 5 min später, laut App 9 min später</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/02/bahn-app-2019-02-05-07-57.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-07-57.jpg" alt="DB App" width="512" height="911" loading="lazy"></a>
-    <figcaption>6 min später kommen nochmals 2 min hinzu - hier ist die Bahnsteigsansage schon offensichtlich falsch</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2019/02/bahn-app-2019-02-05-08-01.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-08-01.jpg" alt="DB App am 2019-02-05" width="512" height="911" loading="lazy"></a>
-    <figcaption>Nochmals 4 min später kommen nochmals 2 min hinzu</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2019/02/bahn-app-2019-02-05-07-51.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-07-51.jpg" alt="DB App" width="512" height="911" loading="lazy"></a>
+        <figcaption>Laut Ansage voraussichtlich 5 min später, laut App 9 min später</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/02/bahn-app-2019-02-05-07-57.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-07-57.jpg" alt="DB App" width="512" height="911" loading="lazy"></a>
+        <figcaption>6 min später kommen nochmals 2 min hinzu - hier ist die Bahnsteigsansage schon offensichtlich falsch</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2019/02/bahn-app-2019-02-05-08-01.jpg"><img src="../images/2019/02/bahn-app-2019-02-05-08-01.jpg" alt="DB App am 2019-02-05" width="512" height="911" loading="lazy"></a>
+        <figcaption>Nochmals 4 min später kommen nochmals 2 min hinzu</figcaption>
+    </figure>
+</div>
 
 That's why I feel they screw with me. They pretend that they were sending
 consistent messages, when they are not.

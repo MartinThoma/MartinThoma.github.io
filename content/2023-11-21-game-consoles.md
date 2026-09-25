@@ -295,4 +295,4 @@ Panasonic UB9000 is way better:
     * [Google Stadia](https://en.wikipedia.org/wiki/Google_Stadia): It was announced in 2022 and shut down in January 2023.
     * [Steam Machines](https://en.wikipedia.org/wiki/Steam_Machine_(computer)): The last one was offered in 2018.
     * [Steam Deck](https://en.wikipedia.org/wiki/Steam_Deck): Same form factor as the Switch, but way better specs. I'm uncertain about the available games + if you can even play it on a big screen. [Pummel Party](https://store.steampowered.com/app/880940/Pummel_Party/) looks very fun though.
-* https://gamerant.com/co-op-games-to-play-after-it-takes-two/
+* [gamerant.com/co-op-games-to-play-after-it-takes-t…](https://gamerant.com/co-op-games-to-play-after-it-takes-two/)

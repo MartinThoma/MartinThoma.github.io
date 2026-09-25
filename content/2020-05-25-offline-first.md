@@ -13,6 +13,6 @@ status: draft
 
 ## See also
 
-* https://alistapart.com/article/offline-first/
-* http://offlinefirst.org/
-* https://itstillworks.com/build-own-website-offline-6769224.html
+* [alistapart.com/article/offline-first](https://alistapart.com/article/offline-first/)
+* [offlinefirst.org](http://offlinefirst.org/)
+* [itstillworks.com/build-own-website-offline-676922…](https://itstillworks.com/build-own-website-offline-6769224.html)

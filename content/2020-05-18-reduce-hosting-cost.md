@@ -134,12 +134,12 @@ There is a `passenger_wsgi.py`
 
 See also:
 
-* https://help.krystal.uk/python/creating-a-python-app-using-the-django-framework
-* https://www.internetivo.com/clients/knowledgebase/99/Start-your-Python-Django-app-on-cPanel.html
-* https://help.dreamhost.com/hc/en-us/articles/215769548-Passenger-and-Python-WSGI
-* https://docs.cpanel.net/knowledge-base/web-services/how-to-install-a-python-wsgi-application/
-* https://www.phusionpassenger.com/library/walkthroughs/start/python.html
-* https://www.phusionpassenger.com/docs/tutorials/quickstart/python/
+* [help.krystal.uk/…/creating-a-python-app-using-the…](https://help.krystal.uk/python/creating-a-python-app-using-the-django-framework)
+* [internetivo.com/…/Start-your-Python-Django-app-on…](https://www.internetivo.com/clients/knowledgebase/99/Start-your-Python-Django-app-on-cPanel.html)
+* [help.dreamhost.com/…/215769548-Passenger-and-Pyth…](https://help.dreamhost.com/hc/en-us/articles/215769548-Passenger-and-Python-WSGI)
+* [docs.cpanel.net/…/how-to-install-a-python-wsgi-ap…](https://docs.cpanel.net/knowledge-base/web-services/how-to-install-a-python-wsgi-application/)
+* [phusionpassenger.com/library/…/start/python.html](https://www.phusionpassenger.com/library/walkthroughs/start/python.html)
+* [phusionpassenger.com/docs/…/quickstart/python](https://www.phusionpassenger.com/docs/tutorials/quickstart/python/)
 
 I was a bit confused because there was a wsgi.py automatically created which
 overwrote my wsgi.py. Luckily, I use git and could simply run `git checkout .`
@@ -170,6 +170,6 @@ They differ in:
 
 See:
 
-* https://www.hostinger.com/web-hosting
-* https://www.bluehost.com/hosting/shared
-* https://docs.google.com/spreadsheets/d/e/2PACX-1vTXQ11WibUUePRjr4k2HAFS3t0P_mRJVLLQgvKCdisiEUZS8jg3Z2eSLB9uBbsNzOJ2MLdkr9jWPQpC/pubhtml
+* [hostinger.com/web-hosting](https://www.hostinger.com/web-hosting)
+* [bluehost.com/hosting/shared](https://www.bluehost.com/hosting/shared)
+* [docs.google.com/…/pubhtml](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXQ11WibUUePRjr4k2HAFS3t0P_mRJVLLQgvKCdisiEUZS8jg3Z2eSLB9uBbsNzOJ2MLdkr9jWPQpC/pubhtml)

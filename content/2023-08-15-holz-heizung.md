@@ -68,4 +68,4 @@ verfügbar zu sein als alles andere.
     * [Brennholz Buche](https://holzhof24.de/brennholz/buche/brennholz-buche-20-25-cm-1-raummeter-palette/)
     * [Holzpellets](https://www.heizpellets24.de/holzpellet-sorten)
     * [Holzbriketts](https://www.heizpellets24.de/holzbriketts/)
-* https://www.hackschnitzel-mair.com/de/heizwert.php
+* [hackschnitzel-mair.com/de/heizwert.php](https://www.hackschnitzel-mair.com/de/heizwert.php)

@@ -271,30 +271,28 @@ In order to benchmark the different libraries properly, I thought of the followi
 
 The speed of my hard drive gives a lower bound for the time to read. I’ve included it as a baseline in the following 3 charts.
 
-<figure>
-    <a href="../images/2020/10/read-twitter.png"><img src="../images/2020/10/read-twitter.png" alt="Read a complex, but small JSON" width="512" height="256" loading="lazy"></a>
-    <figcaption>Read a complex, but small JSON</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/read-geojson.png"><img src="../images/2020/10/read-geojson.png" alt="Read a GeoJSON" width="512" height="256" loading="lazy"></a>
-    <figcaption>Read a GeoJSON</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/read-float.png"><img src="../images/2020/10/read-float.png" alt="Read a massive float array" width="512" height="256" loading="lazy"></a>
-    <figcaption>Read a massive float array</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/read-structured-log.png"><img src="../images/2020/10/read-structured-log.png" alt="Read a structured log file" width="512" height="256" loading="lazy"></a>
-    <figcaption>Read a structured log file</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/read-twitter-fail.png"><img src="../images/2020/10/read-twitter-fail.png" alt="Read a faulty twitter.json" width="512" height="256" loading="lazy"></a>
-    <figcaption>Read a faulty twitter.json</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2020/10/read-twitter.png"><img src="../images/2020/10/read-twitter.png" alt="Read a complex, but small JSON" width="512" height="256" loading="lazy"></a>
+        <figcaption>Read a complex, but small JSON</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/read-geojson.png"><img src="../images/2020/10/read-geojson.png" alt="Read a GeoJSON" width="512" height="256" loading="lazy"></a>
+        <figcaption>Read a GeoJSON</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/read-float.png"><img src="../images/2020/10/read-float.png" alt="Read a massive float array" width="512" height="256" loading="lazy"></a>
+        <figcaption>Read a massive float array</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/read-structured-log.png"><img src="../images/2020/10/read-structured-log.png" alt="Read a structured log file" width="512" height="256" loading="lazy"></a>
+        <figcaption>Read a structured log file</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/read-twitter-fail.png"><img src="../images/2020/10/read-twitter-fail.png" alt="Read a faulty twitter.json" width="512" height="256" loading="lazy"></a>
+        <figcaption>Read a faulty twitter.json</figcaption>
+    </figure>
+</div>
 
 The conclusion from this:
 
@@ -306,25 +304,24 @@ The conclusion from this:
 
 In this case, I created the JSON string beforehand and measured the time it takes to write it to disk as a baseline.
 
-<figure>
-    <a href="../images/2020/10/write-twitter.png"><img src="../images/2020/10/write-twitter.png" alt="Write a twitter.json" width="512" height="256" loading="lazy"></a>
-    <figcaption>Write a twitter.json</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/write-geojson.png"><img src="../images/2020/10/write-geojson.png" alt="Write a GeoJSON" width="512" height="256" loading="lazy"></a>
-    <figcaption>Write a GeoJSON</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/write-float.png"><img src="../images/2020/10/write-float.png" alt="Write a massive float array" width="512" height="256" loading="lazy"></a>
-    <figcaption>Write a massive float array</figcaption>
-</figure>
-
-<figure>
-    <a href="../images/2020/10/write-structured-log.png"><img src="../images/2020/10/write-structured-log.png" alt="Write a structured log file" width="512" height="256" loading="lazy"></a>
-    <figcaption>Write a structured log file</figcaption>
-</figure>
+<div class="gallery">
+    <figure>
+        <a href="../images/2020/10/write-twitter.png"><img src="../images/2020/10/write-twitter.png" alt="Write a twitter.json" width="512" height="256" loading="lazy"></a>
+        <figcaption>Write a twitter.json</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/write-geojson.png"><img src="../images/2020/10/write-geojson.png" alt="Write a GeoJSON" width="512" height="256" loading="lazy"></a>
+        <figcaption>Write a GeoJSON</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/write-float.png"><img src="../images/2020/10/write-float.png" alt="Write a massive float array" width="512" height="256" loading="lazy"></a>
+        <figcaption>Write a massive float array</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2020/10/write-structured-log.png"><img src="../images/2020/10/write-structured-log.png" alt="Write a structured log file" width="512" height="256" loading="lazy"></a>
+        <figcaption>Write a structured log file</figcaption>
+    </figure>
+</div>
 
 What I conclude from this:
 

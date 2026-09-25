@@ -136,7 +136,7 @@ implement the thing from scratch.
 > (IoC) is a programming principle. [...] with inversion of control,
 > [a framework] calls into the custom, or task-specific, code.
 
-See https://martinfowler.com/articles/injection.html
+See [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html) by Martin Fowler.
 
 Liskov substitution principle
 
@@ -147,7 +147,7 @@ Liskov substitution principle
     * bagrat: [What is a Pythonic way for Dependency Injection?](https://stackoverflow.com/q/31678827/562769), 2015
 * Yeray Díaz: [Import as an antipattern - Demystifying Dependency Injection in modern Python](https://www.youtube.com/watch?v=qkGxy4c64Jg) at PyCon UK, 2019. On YouTube (21 minutes).
 * Ilya Pekelny: [Inversion of Control — Python anti-pattern](https://medium.com/@pekelny/inversion-of-control-python-anti-pattern-eff3943f64f), 2018.
-* https://www.quora.com/unanswered/What-are-non-spring-examples-where-IoC-is-used-Python-examples-are-appreciated
+* [quora.com/…/What-are-non-spring-examples-where-Io…](https://www.quora.com/unanswered/What-are-non-spring-examples-where-IoC-is-used-Python-examples-are-appreciated)
 
 
 ## Footnotes

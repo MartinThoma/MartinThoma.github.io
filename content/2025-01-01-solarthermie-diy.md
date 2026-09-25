@@ -15,10 +15,10 @@ status: draft
     <figcaption>Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher. Mit Claude AI generierte Illustration.</figcaption>
 </figure>
 
-* https://www.heizung.de/solarthermie/wissen/solarfluessigkeit-das-traegermedium-der-sonnenwaerme.html
+* [heizung.de/…/solarfluessigkeit-das-traegermedium-…](https://www.heizung.de/solarthermie/wissen/solarfluessigkeit-das-traegermedium-der-sonnenwaerme.html)
     * Glykol kann als Frostschutzmittel verwendet werden, besser ist aber ein Auffangbehälter und reines Wasser
 
-* https://www.heimwerker.de/thermische-solaranlage-selber-bauen/
+* [heimwerker.de/thermische-solaranlage-selber-bauen](https://www.heimwerker.de/thermische-solaranlage-selber-bauen/)
 
 2 Stück Holzbalken 8 x 8 x 266 cm
 2 Stück Holzbalken 8 x 8 x 96 cm

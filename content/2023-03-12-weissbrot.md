@@ -81,7 +81,7 @@ Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
 
 ## Nährwerte
 
-Ich würde von https://fdc.nal.usda.gov/fdc-app.html#/food-details/172687/nutrients
+Ich würde von [fdc.nal.usda.gov/fdc-app.html](https://fdc.nal.usda.gov/fdc-app.html#/food-details/172687/nutrients)
 ausgehen, also insbesondere:
 
 <table>

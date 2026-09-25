@@ -242,9 +242,9 @@ Einbau-Anleitungen:
 
 ## Siehe auch
 
-* Kalkfarbe: Kann auf Beton https://www.kalkfarbe.com/
+* Kalkfarbe: Kann auf Beton [kalkfarbe.com](https://www.kalkfarbe.com/)
 * Globus: [Baufan Streichkalk](https://www.globus-baumarkt.de/p/baufan-streichkalk-10-l-weiss-0765050005/)
-* https://www.sakret.de/de/systeme/systeme-putze/sakret-putzsysteme/neubau-sakret-putze/okologische-und-emissionsarme-kalkputze
+* [sakret.de/…/okologische-und-emissionsarme-kalkput…](https://www.sakret.de/de/systeme/systeme-putze/sakret-putzsysteme/neubau-sakret-putze/okologische-und-emissionsarme-kalkputze)
 * Sanier:
     * [Silikatputz](https://www.sanier.de/malerarbeiten/putz/silikatputz)
     * [Kalkzementputz](https://www.sanier.de/malerarbeiten/putz/kalkzementputz)

@@ -35,4 +35,4 @@ status: draft
 2. Wände bauen
 
 
-https://www.youtube.com/watch?v=STZT3LitIYk
+[youtube.com/watch?v=STZT3LitIYk](https://www.youtube.com/watch?v=STZT3LitIYk)

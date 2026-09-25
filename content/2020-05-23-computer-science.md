@@ -103,7 +103,7 @@ into direct access ones (arrays) and sequential access data structures:
 
 access / write /
 
-* https://www.cseworldonline.com/data-structure/Introduction-Data-Structures.php
+* [cseworldonline.com/…/Introduction-Data-Structures…](https://www.cseworldonline.com/data-structure/Introduction-Data-Structures.php)
 
 
 ### String Algorithms
@@ -120,7 +120,7 @@ access / write /
 
 See [my German article about sorting algorithms](../ubersicht-uber-sortieralgorithmen/)
 
-⇒ Link article: https://en.wikiversity.org/wiki/Algorithms/Overview
+⇒ Link article: [en.wikiversity.org/wiki/Algorithms/Overview](https://en.wikiversity.org/wiki/Algorithms/Overview)
 
 
 
@@ -165,7 +165,7 @@ Some components:
 
 ## Machine Learning
 
-* https://medium.com/ml-research-lab/machine-learning-algorithm-overview-5816a2e6303
+* [medium.com/…/machine-learning-algorithm-overview-…](https://medium.com/ml-research-lab/machine-learning-algorithm-overview-5816a2e6303)
 
 
 ## Marvin

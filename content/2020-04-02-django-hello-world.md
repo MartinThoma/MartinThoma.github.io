@@ -156,4 +156,4 @@ $ python manage.py createsuperuser
 
 ## See also
 
-* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+* [developer.mozilla.org/en-US/…/Server-side/Django](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)

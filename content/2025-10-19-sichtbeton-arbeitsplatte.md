@@ -15,8 +15,8 @@ status: draft
     <figcaption>Mit Claude AI generierte Illustration: Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe</figcaption>
 </figure>
 
-* https://www.bigmeatlove.de/beton-arbeitsplatte-DIY.html
-* https://www.grey-element.de/diy-designm%C3%B6bel/diy-k%C3%BCchenarbeitsplatte-aus-beton/
+* [bigmeatlove.de/beton-arbeitsplatte-DIY.html](https://www.bigmeatlove.de/beton-arbeitsplatte-DIY.html)
+* [grey-element.de/…/diy-küchenarbeitsplatte-aus-bet…](https://www.grey-element.de/diy-designm%C3%B6bel/diy-k%C3%BCchenarbeitsplatte-aus-beton/)
 
 
 Ich will eine weiße Sichtbeton-Tischplatte mit den Maßen 150cm x 60cm x 2.5cm herstellen.

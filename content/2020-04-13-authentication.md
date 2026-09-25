@@ -60,6 +60,6 @@ Con:
 ## See also
 
 * [What are the main differences between JWT and OAuth authentication?](https://stackoverflow.com/q/39909419/562769)
-* https://github.com/hasgeek/lastuser
-* https://en.wikipedia.org/wiki/Argon2
-* https://de.slideshare.net/StefanKienzl/api-authentifizierung-und-autorisierung
+* [github.com/hasgeek/lastuser](https://github.com/hasgeek/lastuser)
+* [en.wikipedia.org/wiki/Argon2](https://en.wikipedia.org/wiki/Argon2)
+* [de.slideshare.net/…/api-authentifizierung-und-aut…](https://de.slideshare.net/StefanKienzl/api-authentifizierung-und-autorisierung)
