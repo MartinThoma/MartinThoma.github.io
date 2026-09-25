@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
             <span>102</span>
 </a></li>
         <li><a href="../tags/#machine-learning-ref">Machine Learning
-            <span>92</span>
+            <span>93</span>
 </a></li>
         <li><a href="../tags/#regression-ref">Regression
             <span>3</span>
@@ -187,6 +187,41 @@ between the input points and the line. This usually gives pretty good results.</
 <div class="math">$$\hat{y}(X) = X \cdot \beta \text{ with }\beta \in \mathbb{R}^n$$</div>
 <p>It can be "learned" (calculated) with</p>
 <div class="math">$$\beta = {(X^T X)}^{-1} X^T y$$</div>
+<h4 id="example-fitting-a-line-with-least-squares">Example: Fitting a line with least squares</h4>
+<p>To see where such a formula comes from, look at the simplest case. Suppose you
+have <span class="math">\(n\)</span> 2D data points <span class="math">\((x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\)</span> and you
+want the line <span class="math">\(y = a \cdot x + b\)</span> that fits those data points best.</p>
+<p>Now we have to think about what "fits best" means. The least squares method
+finds <span class="math">\(a\)</span> and <span class="math">\(b\)</span> that minimize the sum of squared errors
+<span class="math">\(f: \mathbb{R}^2 \rightarrow \mathbb{R}\)</span> with</p>
+<div class="math">$$f(a, b) := \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2$$</div>
+<p>Let's say <span class="math">\(a\)</span> was constant. Then <span class="math">\(f\)</span> is a quadratic function in <span class="math">\(b\)</span>, and we
+find its minimum where the derivative is zero:</p>
+<div class="math">$$\begin{align}
+f(a,b) &amp;= \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2\\
+ &amp;= \sum_{i=1}^n ((a x_i +b)^2 - 2 (a x_i+b) y_i + y_i^2)\\
+ &amp;= \sum_{i=1}^n ((a x_i)^2 + 2 a x_i b + b^2 -2 (a x_i+b) y_i + y_i^2)\\
+\frac{\partial f(a,b)}{\partial b} &amp;= \sum_{i=1}^n (2a x_i +2b - 2y_i)\\
+ 0 &amp;\stackrel{!}{=} 2  \sum_{i=1}^n (a x_i +b - y_i)\\
+\Leftrightarrow 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i + n \cdot b - \sum_{i=1}^n y_i\\
+\Leftrightarrow b &amp;\stackrel{!}{=} \frac{\sum_{i=1}^n y_i -a \sum_{i=1}^n x_i}{n}\\
+\Leftrightarrow b &amp;\stackrel{!}{=} \bar y -a \bar x
+\end{align}$$</div>
+<p>where <span class="math">\((\bar x, \bar y)\)</span> is the center of all points. So the best line always
+goes through the center of the points. Let's do the same with <span class="math">\(a\)</span> and insert
+<span class="math">\(b = \bar y - a \bar x\)</span> and <span class="math">\(\sum_{i=1}^n x_i = n \bar x\)</span>:</p>
+<div class="math">$$\begin{align}
+\frac{\partial f(a,b)}{\partial a} &amp;= \sum_{i=1}^n (2a x_i^2 +2 x_i b - 2 x_i y_i)\\
+ 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + (\bar y - a \bar x) \cdot n \bar x - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow a &amp;\stackrel{!}{=} \frac{\sum_{i=1}^n x_i y_i - n \bar x \bar y}{\sum_{i=1}^n x_i^2 - n \bar x^2}
+ = \frac{\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n (x_i - \bar x)^2}
+\end{align}$$</div>
+<p>This only works if not all <span class="math">\(x_i\)</span> are equal; otherwise the denominator is zero
+and every line through the center is equally good. As <span class="math">\(f\)</span> is a sum of squares,
+this point is a minimum and not a maximum. It is the same result as the
+matrix formula above with</p>
+<div class="math">$$X = \begin{pmatrix}x_1 &amp; 1\\ \vdots &amp; \vdots\\ x_n &amp; 1\end{pmatrix} \text{ and } \beta = \begin{pmatrix}a\\ b\end{pmatrix}$$</div>
 <h3 id="logistic-regression">Logistic regression</h3>
 <p><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic regression</a>
 tries to fit the logistic function <span class="math">\(y(x) = \frac{1}{1+e^{-x}}\)</span> to the input.

@@ -1260,6 +1260,41 @@ between the input points and the line. This usually gives pretty good results.&l
 &lt;div class="math"&gt;$$\hat{y}(X) = X \cdot \beta \text{ with }\beta \in \mathbb{R}^n$$&lt;/div&gt;
 &lt;p&gt;It can be "learned" (calculated) with&lt;/p&gt;
 &lt;div class="math"&gt;$$\beta = {(X^T X)}^{-1} X^T y$$&lt;/div&gt;
+&lt;h4 id="example-fitting-a-line-with-least-squares"&gt;Example: Fitting a line with least squares&lt;/h4&gt;
+&lt;p&gt;To see where such a formula comes from, look at the simplest case. Suppose you
+have &lt;span class="math"&gt;\(n\)&lt;/span&gt; 2D data points &lt;span class="math"&gt;\((x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\)&lt;/span&gt; and you
+want the line &lt;span class="math"&gt;\(y = a \cdot x + b\)&lt;/span&gt; that fits those data points best.&lt;/p&gt;
+&lt;p&gt;Now we have to think about what "fits best" means. The least squares method
+finds &lt;span class="math"&gt;\(a\)&lt;/span&gt; and &lt;span class="math"&gt;\(b\)&lt;/span&gt; that minimize the sum of squared errors
+&lt;span class="math"&gt;\(f: \mathbb{R}^2 \rightarrow \mathbb{R}\)&lt;/span&gt; with&lt;/p&gt;
+&lt;div class="math"&gt;$$f(a, b) := \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2$$&lt;/div&gt;
+&lt;p&gt;Let's say &lt;span class="math"&gt;\(a\)&lt;/span&gt; was constant. Then &lt;span class="math"&gt;\(f\)&lt;/span&gt; is a quadratic function in &lt;span class="math"&gt;\(b\)&lt;/span&gt;, and we
+find its minimum where the derivative is zero:&lt;/p&gt;
+&lt;div class="math"&gt;$$\begin{align}
+f(a,b) &amp;amp;= \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2\\
+ &amp;amp;= \sum_{i=1}^n ((a x_i +b)^2 - 2 (a x_i+b) y_i + y_i^2)\\
+ &amp;amp;= \sum_{i=1}^n ((a x_i)^2 + 2 a x_i b + b^2 -2 (a x_i+b) y_i + y_i^2)\\
+\frac{\partial f(a,b)}{\partial b} &amp;amp;= \sum_{i=1}^n (2a x_i +2b - 2y_i)\\
+ 0 &amp;amp;\stackrel{!}{=} 2  \sum_{i=1}^n (a x_i +b - y_i)\\
+\Leftrightarrow 0 &amp;amp;\stackrel{!}{=} a \sum_{i=1}^n x_i + n \cdot b - \sum_{i=1}^n y_i\\
+\Leftrightarrow b &amp;amp;\stackrel{!}{=} \frac{\sum_{i=1}^n y_i -a \sum_{i=1}^n x_i}{n}\\
+\Leftrightarrow b &amp;amp;\stackrel{!}{=} \bar y -a \bar x
+\end{align}$$&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\((\bar x, \bar y)\)&lt;/span&gt; is the center of all points. So the best line always
+goes through the center of the points. Let's do the same with &lt;span class="math"&gt;\(a\)&lt;/span&gt; and insert
+&lt;span class="math"&gt;\(b = \bar y - a \bar x\)&lt;/span&gt; and &lt;span class="math"&gt;\(\sum_{i=1}^n x_i = n \bar x\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$\begin{align}
+\frac{\partial f(a,b)}{\partial a} &amp;amp;= \sum_{i=1}^n (2a x_i^2 +2 x_i b - 2 x_i y_i)\\
+ 0 &amp;amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow 0 &amp;amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + (\bar y - a \bar x) \cdot n \bar x - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow a &amp;amp;\stackrel{!}{=} \frac{\sum_{i=1}^n x_i y_i - n \bar x \bar y}{\sum_{i=1}^n x_i^2 - n \bar x^2}
+ = \frac{\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n (x_i - \bar x)^2}
+\end{align}$$&lt;/div&gt;
+&lt;p&gt;This only works if not all &lt;span class="math"&gt;\(x_i\)&lt;/span&gt; are equal; otherwise the denominator is zero
+and every line through the center is equally good. As &lt;span class="math"&gt;\(f\)&lt;/span&gt; is a sum of squares,
+this point is a minimum and not a maximum. It is the same result as the
+matrix formula above with&lt;/p&gt;
+&lt;div class="math"&gt;$$X = \begin{pmatrix}x_1 &amp;amp; 1\\ \vdots &amp;amp; \vdots\\ x_n &amp;amp; 1\end{pmatrix} \text{ and } \beta = \begin{pmatrix}a\\ b\end{pmatrix}$$&lt;/div&gt;
 &lt;h3 id="logistic-regression"&gt;Logistic regression&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Logistic_regression"&gt;Logistic regression&lt;/a&gt;
 tries to fit the logistic function &lt;span class="math"&gt;\(y(x) = \frac{1}{1+e^{-x}}\)&lt;/span&gt; to the input.

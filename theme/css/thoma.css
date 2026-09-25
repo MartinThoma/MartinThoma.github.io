@@ -84,7 +84,11 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
+html { -webkit-text-size-adjust: 100%; }
+/* Keep jump targets and focused content below the sticky header. Not as scroll-padding
+   on html: the header's search field lies inside that padding, so the browser scrolled
+   the page up on every keystroke to reveal the caret. */
+:target, main :focus { scroll-margin-top: 5.5rem; }
 
 body {
   margin: 0;

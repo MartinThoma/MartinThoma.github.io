@@ -1,8 +1,10 @@
 /* Lightbox for figures: a click on a figure's image shows it as large as the window
-   allows, with its caption. In a gallery, arrow buttons, arrow keys and swiping move
-   through its figures and those of the galleries directly before and after it.
-   Escape, the close button or a click beside the image close it. Only links to image
-   files open here; without JavaScript (or with a modifier key) the link opens the file. */
+   allows, with its caption. In a gallery, arrow buttons, left/right arrow keys and
+   swiping move through its figures. Up/down jump to the previous/next gallery on the
+   page; a figure outside a gallery counts as a gallery of one. Escape, the close button
+   or a click beside the image close it, and the page scrolls to the figure shown last.
+   Only links to image files open here; without JavaScript (or with a modifier key) the
+   link opens the file. */
 (function () {
     'use strict';
 
@@ -61,7 +63,9 @@
     var img = dialog.querySelector('.lightbox-img');
     var caption = dialog.querySelector('.lightbox-caption');
 
-    var figures = [];   // figures of the open gallery, or the one figure opened
+    var groups = [];    // figures of the page, one array per gallery or single figure
+    var group = 0;      // group shown
+    var figures = [];   // groups[group]
     var index = 0;      // figure shown
     var request = 0;    // counts show() calls, so a slow image cannot overwrite a newer one
 
@@ -82,7 +86,8 @@
     }
     function animate() { return !reduceMotion.matches; }
 
-    function show(i, direction) {
+    // direction: -1 or 1 for the slide-in animation along axis 'X' (default) or 'Y', 0 for none
+    function show(i, direction, axis) {
         var mine = ++request;
         var figure = figures[i];
         var href = hrefOf(figure);
@@ -90,6 +95,7 @@
         var slow = setTimeout(function () { stage.classList.add('is-loading'); }, 200);
 
         index = i;
+        dialog.classList.toggle('is-single', figures.length < 2);
         count.textContent = (i + 1) + ' / ' + figures.length;
         original.href = href;
         loader.src = href;
@@ -115,7 +121,7 @@
             caption.hidden = !figcaption;
             if (direction && animate()) {
                 frame.animate(
-                    [{ opacity: 0, transform: 'translateX(' + (direction * 2.5) + 'rem)' }, { opacity: 1, transform: 'none' }],
+                    [{ opacity: 0, transform: 'translate' + (axis || 'X') + '(' + (direction * 2.5) + 'rem)' }, { opacity: 1, transform: 'none' }],
                     { duration: 280, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' });
             }
             if (figures.length > 1) {
@@ -136,6 +142,15 @@
         }
     }
 
+    // to the first figure of the previous or next group; no wrap-around at the page ends
+    function jump(direction) {
+        if (group + direction >= 0 && group + direction < groups.length) {
+            group += direction;
+            figures = groups[group];
+            show(0, direction, 'Y');
+        }
+    }
+
     // Morph between thumbnail and lightbox image with a view transition where the
     // browser supports it; otherwise, and with reduced motion, switch instantly.
     function morph(from, to, update) {
@@ -151,22 +166,23 @@
 
     function isGallery(el) { return el && el.classList.contains('gallery'); }
 
-    // galleries directly after each other (rows of one collection) are paged as one
-    function sequenceOf(figure) {
-        var gallery = figure.parentElement, first = gallery, all = [];
-        if (!isGallery(gallery)) { return [figure]; }
-        while (isGallery(first.previousElementSibling)) { first = first.previousElementSibling; }
-        for (var g = first; isGallery(g); g = g.nextElementSibling) {
-            Array.prototype.forEach.call(g.children, function (el) {
-                if (el.tagName === 'FIGURE' && imageLink(el)) { all.push(el); }
-            });
-        }
+    // the figures that open here, in page order: one group per gallery, one per figure
+    // outside a gallery. Figures in a closed <details> (exam answers) are left out.
+    function figureGroups() {
+        var all = [], last = null;
+        document.querySelectorAll('figure').forEach(function (figure) {
+            if (!imageLink(figure) || figure.closest('details:not([open])')) { return; }
+            var home = isGallery(figure.parentElement) ? figure.parentElement : figure;
+            if (home !== last) { all.push([]); last = home; }
+            all[all.length - 1].push(figure);
+        });
         return all;
     }
 
     function open(figure) {
-        figures = sequenceOf(figure);
-        dialog.classList.toggle('is-single', figures.length < 2);
+        groups = figureGroups();
+        group = groups.findIndex(function (g) { return g.indexOf(figure) >= 0; });
+        figures = groups[group];
         img.removeAttribute('src');   // no stale image from the last gallery
         morph(thumbOf(figure), img, function () {
             var shown = show(figures.indexOf(figure), 0);
@@ -176,8 +192,14 @@
         });
     }
 
+    // after paging or jumping, the figure shown last may be far from the one opened
+    function reveal(el) {
+        if (!inView(el)) { el.scrollIntoView({ block: 'center' }); }
+    }
+
     function close() {
         var thumb = thumbOf(figures[index]);
+        reveal(thumb);
         if (stage.classList.contains('is-error') || !inView(thumb)) {
             dialog.close();
             return;
@@ -207,6 +229,8 @@
     dialog.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft') { step(-1); }
         else if (event.key === 'ArrowRight') { step(1); }
+        else if (event.key === 'ArrowUp') { jump(-1); }
+        else if (event.key === 'ArrowDown') { jump(1); }
         else if (event.key === 'Escape') { close(); }
         else { return; }
         event.preventDefault();
@@ -215,7 +239,10 @@
     // after any close (also the Android back gesture): focus the thumbnail shown last
     dialog.addEventListener('close', function () {
         var link = figures[index] && imageLink(figures[index]);
-        if (link) { link.focus({ preventScroll: true }); }
+        if (link) {
+            reveal(link);
+            link.focus({ preventScroll: true });
+        }
     });
 
     var start = null;
