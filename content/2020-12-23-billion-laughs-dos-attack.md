@@ -11,7 +11,10 @@ featured_image: logos/cybersecurity.png
 subtitle: Consume arbitrarily much RAM by repeated referencing
 medium_url: https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139
 ---
-![Image by the author](../images/2020/12/billion-laughs-dos-1.png)*Image by the author*
+<figure>
+    <a href="../images/2020/12/billion-laughs-dos-1.png"><img src="../images/2020/12/billion-laughs-dos-1.png" alt="Image by the author" width="1854" height="466"></a>
+    <figcaption>Image by the author</figcaption>
+</figure>
 
 The billion laughs attack has been known since 2003 ([source](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564)). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.
 

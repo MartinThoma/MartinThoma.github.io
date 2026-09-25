@@ -86,9 +86,9 @@ generate the data which is to be sorted.
 I can imagine two ways to generate data to sort: Random numbers and UUIDs.
 Let's see which is faster ([code on GitHub](https://github.com/MartinThoma/algorithms/blob/master/sorting/timing.py)):
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/03/number-generation-speed.png"><img src="../images/2020/03/number-generation-speed.png" alt="Time for generating 10k random elements" style="width: 512px;"/></a>
-    <figcaption class="text-center">Time for generating 10k random elements</figcaption>
+<figure>
+    <a href="../images/2020/03/number-generation-speed.png"><img src="../images/2020/03/number-generation-speed.png" alt="Time for generating 10k random elements" width="512" height="256" loading="lazy"></a>
+    <figcaption>Time for generating 10k random elements</figcaption>
 </figure>
 
 As you can see, numpy is the fastest and UUIDv4 generation is by far the

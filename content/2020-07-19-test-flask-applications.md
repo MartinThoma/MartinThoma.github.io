@@ -390,9 +390,9 @@ locust -f locustfile.py --host=https://your-website.com
 
 It then gives output like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/locust.png"><img src="../images/2020/07/locust.png" alt="I've chosen to simulate 100 users" style="width: 512px;"/></a>
-    <figcaption class="text-center">I've chosen to simulate 100 users</figcaption>
+<figure>
+    <a href="../images/2020/07/locust.png"><img src="../images/2020/07/locust.png" alt="I've chosen to simulate 100 users" width="512" height="262" loading="lazy"></a>
+    <figcaption>I've chosen to simulate 100 users</figcaption>
 </figure>
 
 There is a lot more to make this realistic than just calling a “static” endpoint. We want the users to interact in some way. So we can define a [SequentialTaskSet](https://docs.locust.io/en/stable/writing-a-locustfile.html#sequentialtaskset-class). At this point, I will leave it up to you to decide if you want to know more about load testing with Locust.

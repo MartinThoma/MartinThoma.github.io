@@ -119,9 +119,9 @@ If the test parametrization is unfamiliar, you might want to
 [read up on pytest.mark.parametrize](../unit-testing-structure/).
 It’s awesome and those few lines run 8 tests:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-parametrize.png"><img src="../images/2020/08/pytest-parametrize.png" alt="Running pytest" style="width: 512px;"/></a>
-    <figcaption class="text-center">Running pytest</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-parametrize.png"><img src="../images/2020/08/pytest-parametrize.png" alt="Running pytest" width="512" height="88" loading="lazy"></a>
+    <figcaption>Running pytest</figcaption>
 </figure>
 
 What would a property-based test look like for `factorize`?
@@ -153,9 +153,9 @@ def test_factorize_multiplication_property(n):
 
 Now we run the tests with `pytest`:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-factorize-hypothesis.png"><img src="../images/2020/08/pytest-factorize-hypothesis.png" alt="Hypothesis found an issue!" style="width: 512px;"/></a>
-    <figcaption class="text-center">Hypothesis found an issue!</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-factorize-hypothesis.png"><img src="../images/2020/08/pytest-factorize-hypothesis.png" alt="Hypothesis found an issue!" width="512" height="442" loading="lazy"></a>
+    <figcaption>Hypothesis found an issue!</figcaption>
 </figure>
 
 As you can see in the example above, hypothesis discovered that `factorize(5)`
@@ -257,9 +257,9 @@ def test_is_ipv4(ip):
 
 ## Invertible functions
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/inverse-function.svg"><img src="../images/2020/08/inverse-function.svg" alt="A function and its inverse function" style="width: 512px;"/></a>
-    <figcaption class="text-center">A function and its inverse function</figcaption>
+<figure>
+    <a href="../images/2020/08/inverse-function.svg"><img src="../images/2020/08/inverse-function.svg" alt="A function and its inverse function" width="512" height="248" loading="lazy"></a>
+    <figcaption>A function and its inverse function</figcaption>
 </figure>
 
 If you have a function and its inverse function, such as encrypt / decrypt or a

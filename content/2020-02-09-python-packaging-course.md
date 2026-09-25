@@ -12,9 +12,9 @@ featured_image: logos/python.png
 The Python Environment is old. Python development started before the internet.
 Naturally, such a grown environment is messy:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." style="width: 512px;"/></a>
-    <figcaption class="text-center">Python Environment</figcaption>
+<figure>
+    <a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." width="512"></a>
+    <figcaption>Python Environment</figcaption>
 </figure>
 
 In this course, you will learn the details about Python packaging and how all

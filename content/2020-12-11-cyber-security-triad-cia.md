@@ -21,7 +21,10 @@ The Cyber Security Triad, also called the CIA triad, is a set of three goals:
 * **Availability**: Systems are available to their users according to the
   service level agreements (SLAs).
 
-![A triangle with Confidentiality at the apex and Integrity and Availability at the base corners](../images/2020/12/cia-triad.svg)*The three goals of the CIA triad. Image by Martin Thoma*
+<figure>
+    <a href="../images/2020/12/cia-triad.svg"><img src="../images/2020/12/cia-triad.svg" alt="A triangle with Confidentiality at the apex and Integrity and Availability at the base corners" width="680" height="464"></a>
+    <figcaption>The three goals of the CIA triad. Image by Martin Thoma</figcaption>
+</figure>
 
 ## Email Example
 

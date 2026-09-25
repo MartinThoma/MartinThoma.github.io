@@ -50,9 +50,9 @@ A
 This is simple because every class inherits from exactly one other class
 and the inheritance tree looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/inheritance-a-b-c.svg"><img src="../images/2020/06/inheritance-a-b-c.svg" alt="Inheritance tree where A is the parent of B and B is the parent of C." style="width: 512px;"/></a>
-    <figcaption class="text-center">Inheritance tree where A is the parent of B and B is the parent of C.</figcaption>
+<figure>
+    <a href="../images/2020/06/inheritance-a-b-c.svg"><img src="../images/2020/06/inheritance-a-b-c.svg" alt="Inheritance tree where A is the parent of B and B is the parent of C." width="512" height="396"></a>
+    <figcaption>Inheritance tree where A is the parent of B and B is the parent of C.</figcaption>
 </figure>
 
 
@@ -93,9 +93,9 @@ C()
 
 The inheritance tree looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img src="../images/2020/06/inheritance-a-b1-b2-c.svg" alt="Inheritance tree where A is the parent of B1 and B2. They are the parents of C." style="width: 512px;"/></a>
-    <figcaption class="text-center">Inheritance tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
+<figure>
+    <a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img src="../images/2020/06/inheritance-a-b1-b2-c.svg" alt="Inheritance tree where A is the parent of B1 and B2. They are the parents of C." width="512" height="290" loading="lazy"></a>
+    <figcaption>Inheritance tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
 </figure>
 
 The output of this script is:

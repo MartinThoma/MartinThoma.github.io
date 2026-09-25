@@ -82,16 +82,16 @@ you compare the execution times with big $m$.
 The inefficient solution changes its execution time as shown in the image
 below for increasing m and constant n = 100,000:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/02/total-execution-time.png"><img src="../images/2020/02/total-execution-time.png" alt="Total execution time of find_biggest_subarray_slice" style="width: 512px;"/></a>
-    <figcaption class="text-center">Total execution time of find_biggest_subarray_slice</figcaption>
+<figure>
+    <a href="../images/2020/02/total-execution-time.png"><img src="../images/2020/02/total-execution-time.png" alt="Total execution time of find_biggest_subarray_slice" width="512" height="384" loading="lazy"></a>
+    <figcaption>Total execution time of find_biggest_subarray_slice</figcaption>
 </figure>
 
 In contrast, the efficient solution looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/02/find_biggest_subarray_iterative.png"><img src="../images/2020/02/find_biggest_subarray_iterative.png" alt="Total execution time of the efficient solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Total execution time of the efficient solution</figcaption>
+<figure>
+    <a href="../images/2020/02/find_biggest_subarray_iterative.png"><img src="../images/2020/02/find_biggest_subarray_iterative.png" alt="Total execution time of the efficient solution" width="512" height="384" loading="lazy"></a>
+    <figcaption>Total execution time of the efficient solution</figcaption>
 </figure>
 
 Three things to notice:

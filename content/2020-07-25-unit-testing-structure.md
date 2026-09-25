@@ -59,9 +59,9 @@ When you have a `fibonacci(n: int) -> int` function, you will likely have a `tes
 
 You will see the name of this function when the test fails. Which name will help you to quickly understand what was tested?
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/geek-and-poke-tdd.jpg"><img src="../images/2020/07/geek-and-poke-tdd.jpg" alt="Comic by Oliver Widder on geek-and-poke.com" style="width: 512px;"/></a>
-    <figcaption class="text-center">Comic by Oliver Widder on <a href="http://geek-and-poke.com/geekandpoke/2013/7/28/tdd">geek-and-poke.com</a></figcaption>
+<figure>
+    <a href="../images/2020/07/geek-and-poke-tdd.jpg"><img src="../images/2020/07/geek-and-poke-tdd.jpg" alt="Comic by Oliver Widder on geek-and-poke.com" width="512" height="742"></a>
+    <figcaption>Comic by Oliver Widder on <a href="http://geek-and-poke.com/geekandpoke/2013/7/28/tdd">geek-and-poke.com</a></figcaption>
 </figure>
 
 
@@ -197,9 +197,9 @@ def test_bar(show_isolation):
 
 If you want real examples, have a look at my tutorial [how to test Flask Applications](../test-flask-applications/). There I show how to use fixtures to mock the database.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img src="../images/2020/07/geek-and-poke-good-coders.jpg" alt="Comic by Oliver Widder from geek-and-poke.com" style="width: 512px;"/></a>
-    <figcaption class="text-center">Comic by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2011/7/24/good-coders.html">geek-and-poke.com</a></figcaption>
+<figure>
+    <a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img src="../images/2020/07/geek-and-poke-good-coders.jpg" alt="Comic by Oliver Widder from geek-and-poke.com" width="512" height="724" loading="lazy"></a>
+    <figcaption>Comic by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2011/7/24/good-coders.html">geek-and-poke.com</a></figcaption>
 </figure>
 
 ## Parametrizing test functions
@@ -291,7 +291,10 @@ fail for every single parameter which is wrong. As an example, I manipulated
 the Fibonacci function to return `42` for `n=2` and `n=3`. Here is what the
 error looks like with pytest's parametrization:
 
-![Screenshot taken by Martin Thoma](../images/2020/07/unit-testing-structure-1.png)*Screenshot taken by Martin Thoma*
+<figure>
+    <a href="../images/2020/07/unit-testing-structure-1.png"><img src="../images/2020/07/unit-testing-structure-1.png" alt="Screenshot taken by Martin Thoma" width="888" height="640" loading="lazy"></a>
+    <figcaption>Screenshot taken by Martin Thoma</figcaption>
+</figure>
 
 Both the test and the test output in case of failure are now more readable! I
 love this so much 😍

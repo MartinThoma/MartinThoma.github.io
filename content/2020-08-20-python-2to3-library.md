@@ -10,7 +10,10 @@ tags: Python, Software Engineering, Packaging
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
 ---
-![Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)](../images/2020/08/python-2to3-library-1.jpg)*Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)*
+<figure>
+    <a href="../images/2020/08/python-2to3-library-1.jpg"><img src="../images/2020/08/python-2to3-library-1.jpg" alt="Image by skylarvision from needpix.com" width="1280" height="853"></a>
+    <figcaption>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></figcaption>
+</figure>
 
 Last year, I gave a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting, and I’ll share here how I did it — or rather how I would do it if I had the same situation again.
 
@@ -253,7 +256,10 @@ It’s not strictly necessary to do this, but it makes your code more modern and
 
 I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers’ support. You can simply create a so-called *fork*: A copy of the original project which you control.
 
-![SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma](../images/2020/08/python-2to3-library-4.png)*SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma*
+<figure>
+    <a href="../images/2020/08/python-2to3-library-4.png"><img src="../images/2020/08/python-2to3-library-4.png" alt="SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma" width="797" height="269" loading="lazy"></a>
+    <figcaption>SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma</figcaption>
+</figure>
 
 Forking happens all the time with free software. It’s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (GitHub calls this a pull request, PR).
 

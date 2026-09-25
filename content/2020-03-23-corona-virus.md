@@ -73,9 +73,9 @@ Germany) were infected, the virus will basically stop due to herd immunity. I
 don't know if this is a reasonable assumption. The higher this number needs to
 be, the more depressing the picture looks:
 
-<figure class="aligncenter img-thumbnail">
-    <a href="../images/2020/03/flatten-the-curve.png"><img src="../images/2020/03/flatten-the-curve.png" alt="The number of new infections by day. Note that the total number of infections in both cases is the same, but the number of people over the capacity of hospitals is lower. This means less people die because of missing medical equipment" style="width: 512px;"/></a>
-    <figcaption class="text-center">The number of new infections by day. Note that the total number of infections in both cases is the same, but the flatter curve is within the carrying capacity of the hospitals. This means no people die because of missing medical equipment.</figcaption>
+<figure>
+    <a href="../images/2020/03/flatten-the-curve.png"><img src="../images/2020/03/flatten-the-curve.png" alt="The number of new infections by day. Note that the total number of infections in both cases is the same, but the number of people over the capacity of hospitals is lower. This means less people die because of missing medical equipment" width="512" height="242" loading="lazy"></a>
+    <figcaption>The number of new infections by day. Note that the total number of infections in both cases is the same, but the flatter curve is within the carrying capacity of the hospitals. This means no people die because of missing medical equipment.</figcaption>
 </figure>
 
 You can find the [code on GitHub](https://github.com/MartinThoma/algorithms/tree/master/Python/covid-19).

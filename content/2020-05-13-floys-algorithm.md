@@ -55,9 +55,9 @@ to the same index.
 
 For example, the list `[1, 2, 3, 4, 2]` represents the graph below:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/singly-linked-list.svg"><img src="../images/2020/05/singly-linked-list.svg" alt="Graph represented by the list [1,2,3,4,2]" style="width: 512px;"/></a>
-    <figcaption class="text-center">Graph represented by the list [1,2,3,4,2]</figcaption>
+<figure>
+    <a href="../images/2020/05/singly-linked-list.svg"><img src="../images/2020/05/singly-linked-list.svg" alt="Graph represented by the list [1,2,3,4,2]" width="512" height="197"></a>
+    <figcaption>Graph represented by the list [1,2,3,4,2]</figcaption>
 </figure>
 
 The number `2` is the duplicate here. With the following algorithm, we can

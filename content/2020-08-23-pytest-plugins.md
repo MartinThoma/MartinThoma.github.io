@@ -10,9 +10,9 @@ tags: Python, pytest, Testing, Software Engineering
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-sugar-big.png"><img src="../images/2020/08/pytest-sugar-big.png" alt="Plugins can modify and extend a lot of aspects of pytest, including how the output is done" style="width: 512px;"/></a>
-    <figcaption class="text-center">Plugins can modify and extend a lot of aspects of pytest, including how the output is done</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-sugar-big.png"><img src="../images/2020/08/pytest-sugar-big.png" alt="Plugins can modify and extend a lot of aspects of pytest, including how the output is done" width="512" height="155"></a>
+    <figcaption>Plugins can modify and extend a lot of aspects of pytest, including how the output is done</figcaption>
 </figure>
 
 Pytest is extensible and has plenty of plugins. You don’t need to use any of
@@ -71,9 +71,9 @@ yourself!
 The default output of pytest is already good, but some plugins make it amazing.
 [pytest-sugar](https://github.com/Teemu/pytest-sugar) is one of those plugins ❤
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-sugar.png"><img src="../images/2020/08/pytest-sugar.png" alt="Pytest sugar changes the dots to checkmarks and the percentage to a bar." style="width: 512px;"/></a>
-    <figcaption class="text-center">Pytest sugar changes the dots to checkmarks and the percentage to a bar.</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-sugar.png"><img src="../images/2020/08/pytest-sugar.png" alt="Pytest sugar changes the dots to checkmarks and the percentage to a bar." width="512" height="129" loading="lazy"></a>
+    <figcaption>Pytest sugar changes the dots to checkmarks and the percentage to a bar.</figcaption>
 </figure>
 
 If those dots or checkmarks are too subtle for you,
@@ -85,16 +85,16 @@ the actual value can be improved.
 [pytest-icdiff](https://pypi.org/project/pytest-icdiff/) is a plugin I’ve only
 found while researching this article — and it was love at first sight 🥰❤
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-error-message-normal-vs-icdiff.png"><img src="../images/2020/08/pytest-error-message-normal-vs-icdiff.png" alt="Normal pytest output vs pytest-icdiff" style="width: 512px;"/></a>
-    <figcaption class="text-center">Normal pytest output vs pytest-icdiff</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-error-message-normal-vs-icdiff.png"><img src="../images/2020/08/pytest-error-message-normal-vs-icdiff.png" alt="Normal pytest output vs pytest-icdiff" width="512" height="145" loading="lazy"></a>
+    <figcaption>Normal pytest output vs pytest-icdiff</figcaption>
 </figure>
 
 Very similar is [pytest-clarity](https://pypi.org/project/pytest-clarity/) — be aware that pytest-clarity is only active when you execute `pytest -vv`:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-error-message-normal-vs-clarity.png"><img src="../images/2020/08/pytest-error-message-normal-vs-clarity.png" alt="Comparison of the normal output with pytest-clarity" style="width: 512px;"/></a>
-    <figcaption class="text-center">Comparison of the normal output with pytest-clarity</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-error-message-normal-vs-clarity.png"><img src="../images/2020/08/pytest-error-message-normal-vs-clarity.png" alt="Comparison of the normal output with pytest-clarity" width="512" height="138" loading="lazy"></a>
+    <figcaption>Comparison of the normal output with pytest-clarity</figcaption>
 </figure>
 
 Once you're happy with the terminal output, you might think about getting
@@ -103,9 +103,9 @@ things, want to scroll and search. Then
 [pytest-html](https://pypi.org/project/pytest-html/) is your friend. It
 generates reports like this one:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-html.png"><img src="../images/2020/08/pytest-html.png" alt="Output of pytest-html" style="width: 512px;"/></a>
-    <figcaption class="text-center">Output of pytest-html</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-html.png"><img src="../images/2020/08/pytest-html.png" alt="Output of pytest-html" width="512" height="355" loading="lazy"></a>
+    <figcaption>Output of pytest-html</figcaption>
 </figure>
 
 Now that we are happy with the output, we want to make it lightning fast!
@@ -149,9 +149,9 @@ should not be a surprise that factorizing 3072 takes longer than factorizing
 argmax of 3 examples is super quick, but factorization just needs way more
 computation:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-benchmark.png"><img src="../images/2020/08/pytest-benchmark.png" alt="Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution</figcaption>
+<figure>
+    <a href="../images/2020/08/pytest-benchmark.png"><img src="../images/2020/08/pytest-benchmark.png" alt="Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution" width="512" height="37" loading="lazy"></a>
+    <figcaption>Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution</figcaption>
 </figure>
 
 

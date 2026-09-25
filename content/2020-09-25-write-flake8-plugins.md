@@ -36,7 +36,10 @@ and thus can suggest using the following instead:
 a != b
 ```
 
-![Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)](../images/2020/09/write-flake8-plugins-1.png)*Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)*
+<figure>
+    <a href="../images/2020/09/write-flake8-plugins-1.png"><img src="../images/2020/09/write-flake8-plugins-1.png" alt="Cartoon by Geek-and-Poke (Oliver Widder)" width="2000" height="621"></a>
+    <figcaption>Cartoon by <a href="http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices">Geek-and-Poke</a> (Oliver Widder)</figcaption>
+</figure>
 
 ## About Flake8
 
@@ -63,7 +66,10 @@ flake8 --ignore E1,W512 .
 Plugins need a 3-character prefix. For my plugin [flake8-simplify](https://pypi.org/project/flake8-simplify/0.1.0/), I chose SIM as a prefix.
 > The 3-character prefix should not start with E or W as people might want to completely block Flake8 W-rules.
 
-![Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)](../images/2020/09/write-flake8-plugins-2.jpg)*Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)*
+<figure>
+    <a href="../images/2020/09/write-flake8-plugins-2.jpg"><img src="../images/2020/09/write-flake8-plugins-2.jpg" alt="Comic by Geek and Poke (Oliver Widder)" width="2000" height="341" loading="lazy"></a>
+    <figcaption>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</figcaption>
+</figure>
 
 ## The Flake8 Plugin Skeleton
 
@@ -233,7 +239,10 @@ This is part of [flake8-simplify 0.2.0](https://github.com/MartinThoma/flake8-si
 
 Please make me proud and automate your reviews — make the following comic true for Flake8 plugins as well :-)
 
-![Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)](../images/2020/09/write-flake8-plugins-3.jpg)*Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)*
+<figure>
+    <a href="../images/2020/09/write-flake8-plugins-3.jpg"><img src="../images/2020/09/write-flake8-plugins-3.jpg" alt="Comic by geek-and-poke (Oliver Widder)" width="754" height="433" loading="lazy"></a>
+    <figcaption>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html">geek-and-poke</a> (Oliver Widder)</figcaption>
+</figure>
 
 ## See also
 

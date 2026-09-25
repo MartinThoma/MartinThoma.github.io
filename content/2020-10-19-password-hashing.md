@@ -119,7 +119,10 @@ As a user, I hope you can checkmark the following points:
 
 As a developer, you can prevent some user mistakes with a password policy. For example, making it mandatory to have at least 8 characters and maybe running the password through a simple dictionary attack before you allow it. I wouldn’t put password rules up, though. [XKCD 936](https://xkcd.com/936/) explains why.
 
-![Image by Oliver Widder ([Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html))](../images/2020/10/password-hashing-2.jpg)*Image by Oliver Widder ([Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html))*
+<figure>
+    <a href="../images/2020/10/password-hashing-2.jpg"><img src="../images/2020/10/password-hashing-2.jpg" alt="Image by Oliver Widder (Geek and Poke)" width="1496" height="254" loading="lazy"></a>
+    <figcaption>Image by Oliver Widder (<a href="https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html">Geek and Poke</a>)</figcaption>
+</figure>
 
 ## What can I do as a user?
 

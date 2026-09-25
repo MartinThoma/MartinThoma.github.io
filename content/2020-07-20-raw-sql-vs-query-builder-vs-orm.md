@@ -10,9 +10,9 @@ tags: SQL, SQLAlchemy, Python, Database
 featured_image: logos/db.png
 medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" style="width: 512px;"/></a>
-    <figcaption class="text-center">Screenshot of phpmyadmin</figcaption>
+<figure>
+    <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" width="512" height="148"></a>
+    <figcaption>Screenshot of phpmyadmin</figcaption>
 </figure>
 
 Databases are the core of storing state for almost all web applications. For
@@ -50,9 +50,9 @@ SQL](http://wiki.postgresql.org/wiki/Mandelbrot_set), for example.
 
 In order to illustrate the problems of raw SQL statements, take the example of a book portal. The users can see data about books, for example, their title, original language and the author:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/books-authors.png"><img src="../images/2020/07/books-authors.png" alt="Every book has exactly one author, but every author might have an arbitrary number of books." style="width: 512px;"/></a>
-    <figcaption class="text-center">Every book has exactly one author, but every author might have an arbitrary number of books.</figcaption>
+<figure>
+    <a href="../images/2020/07/books-authors.png"><img src="../images/2020/07/books-authors.png" alt="Every book has exactly one author, but every author might have an arbitrary number of books." width="512" height="140" loading="lazy"></a>
+    <figcaption>Every book has exactly one author, but every author might have an arbitrary number of books.</figcaption>
 </figure>
 
 For an author page, we are given the `authors.id` and want to see a list of
@@ -114,9 +114,9 @@ However, there are six negative aspects about using raw SQL to be aware of.
 
 ### Problem 1: SQL Injections
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/xkcd-327.png"><img src="../images/2020/07/xkcd-327.png" alt="xkcd 327" style="width: 512px;"/></a>
-    <figcaption class="text-center"><a href="https://xkcd.com/327/">xkcd 327</a></figcaption>
+<figure>
+    <a href="../images/2020/07/xkcd-327.png"><img src="../images/2020/07/xkcd-327.png" alt="xkcd 327" width="512" height="158" loading="lazy"></a>
+    <figcaption><a href="https://xkcd.com/327/">xkcd 327</a></figcaption>
 </figure>
 
 An [SQL injection](../sql-injections/) is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:
@@ -152,36 +152,36 @@ This problem is quite dumb, but still an open issue for many languages / editors
 
 You can see already in the example above that syntax highlighting is missing, but let me give you screenshots of well-known editors:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/sublime-raw-sql.png"><img src="../images/2020/07/sublime-raw-sql.png" alt="Sublime Text 3.2" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sublime Text 3.2</figcaption>
+<figure>
+    <a href="../images/2020/07/sublime-raw-sql.png"><img src="../images/2020/07/sublime-raw-sql.png" alt="Sublime Text 3.2" width="512" height="72" loading="lazy"></a>
+    <figcaption>Sublime Text 3.2</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vs-code-1-47.png"><img src="../images/2020/07/vs-code-1-47.png" alt="VS Code 1.47" style="width: 512px;"/></a>
-    <figcaption class="text-center">VS Code 1.47</figcaption>
+<figure>
+    <a href="../images/2020/07/vs-code-1-47.png"><img src="../images/2020/07/vs-code-1-47.png" alt="VS Code 1.47" width="512" height="91" loading="lazy"></a>
+    <figcaption>VS Code 1.47</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vim.png"><img src="../images/2020/07/vim.png" alt="vim 8.1" style="width: 512px;"/></a>
-    <figcaption class="text-center">vim 8.1</figcaption>
+<figure>
+    <a href="../images/2020/07/vim.png"><img src="../images/2020/07/vim.png" alt="vim 8.1" width="512" height="75" loading="lazy"></a>
+    <figcaption>vim 8.1</figcaption>
 </figure>
 
 In contrast, here is the same query in a `query.sql` file:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sublime Text 3.2</figcaption>
+<figure>
+    <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" width="512" height="24" loading="lazy"></a>
+    <figcaption>Sublime Text 3.2</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vs-code-query.png"><img src="../images/2020/07/vs-code-query.png" alt="VS Code 1.47" style="width: 512px;"/></a>
-    <figcaption class="text-center">VS Code 1.47</figcaption>
+<figure>
+    <a href="../images/2020/07/vs-code-query.png"><img src="../images/2020/07/vs-code-query.png" alt="VS Code 1.47" width="512" height="27" loading="lazy"></a>
+    <figcaption>VS Code 1.47</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vim-query.png"><img src="../images/2020/07/vim-query.png" alt="vim 8.1" style="width: 512px;"/></a>
-    <figcaption class="text-center">vim 8.1</figcaption>
+<figure>
+    <a href="../images/2020/07/vim-query.png"><img src="../images/2020/07/vim-query.png" alt="vim 8.1" width="512" height="27" loading="lazy"></a>
+    <figcaption>vim 8.1</figcaption>
 </figure>
 
 I’ve tried PyCharm as well. Besides having another color for strings, it looks

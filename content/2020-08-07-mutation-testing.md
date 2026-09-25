@@ -10,7 +10,10 @@ tags: Python, pytest, Testing, Software Engineering
 featured_image: logos/mutation-testing.png
 medium_url: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
 ---
-![Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)](../images/2020/08/mutation-testing-1.jpg)*Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)*
+<figure>
+    <a href="../images/2020/08/mutation-testing-1.jpg"><img src="../images/2020/08/mutation-testing-1.jpg" alt="Based on the Monster Character set by macrovector" width="1200" height="544"></a>
+    <figcaption>Based on the <a href="https://www.freepik.com/free-vector/monster-character-set_1538770.htm">Monster Character set</a> by <a href="https://www.freepik.com/macrovector">macrovector</a></figcaption>
+</figure>
 
 We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m
 a software engineer who wants to improve unit tests.
@@ -190,14 +193,14 @@ $ mutmut html
 
 gives you:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/mutmut-html-report.png"><img src="../images/2020/08/mutmut-html-report.png" alt="Index page of the mutmut HTML report" style="width: 512px;"/></a>
-    <figcaption class="text-center">Index page of the mutmut HTML report</figcaption>
+<figure>
+    <a href="../images/2020/08/mutmut-html-report.png"><img src="../images/2020/08/mutmut-html-report.png" alt="Index page of the mutmut HTML report" width="512" height="276" loading="lazy"></a>
+    <figcaption>Index page of the mutmut HTML report</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/mutmut-html-pd.png"><img src="../images/2020/08/mutmut-html-pd.png" alt="The complete pd.py report" style="width: 512px;"/></a>
-    <figcaption class="text-center">The complete pd.py report</figcaption>
+<figure>
+    <a href="../images/2020/08/mutmut-html-pd.png"><img src="../images/2020/08/mutmut-html-pd.png" alt="The complete pd.py report" width="512" height="327" loading="lazy"></a>
+    <figcaption>The complete pd.py report</figcaption>
 </figure>
 
 As you can see, the index claims that 108 mutants survived and the HTML report
@@ -214,16 +217,16 @@ $ junit2html mutmut-results.xml mutmut-report.html
 
 The report shows this index page:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/mutmut-report.png"><img src="../images/2020/08/mutmut-report.png" alt="Test report generated from JUnit XML" style="width: 512px;"/></a>
-    <figcaption class="text-center">Test report generated from JUnit XML</figcaption>
+<figure>
+    <a href="../images/2020/08/mutmut-report.png"><img src="../images/2020/08/mutmut-report.png" alt="Test report generated from JUnit XML" width="512" height="315" loading="lazy"></a>
+    <figcaption>Test report generated from JUnit XML</figcaption>
 </figure>
 
 Clicking on one mutant, you get this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/mutmut-result-2.png"><img src="../images/2020/08/mutmut-result-2.png" alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests" style="width: 512px;"/></a>
-    <figcaption class="text-center">Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests</figcaption>
+<figure>
+    <a href="../images/2020/08/mutmut-result-2.png"><img src="../images/2020/08/mutmut-result-2.png" alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests" width="512" height="195" loading="lazy"></a>
+    <figcaption>Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests</figcaption>
 </figure>
 
 The issue with this generated HTML report is that it shows many results for a single line of code and no grouping. If the failures were grouped by file and if one could see the code in which lines with surviving mutants would be highlighted, it would be way more useful.

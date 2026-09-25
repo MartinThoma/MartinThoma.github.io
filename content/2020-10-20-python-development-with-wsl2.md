@@ -35,7 +35,10 @@ Download and install all 4 “[DejaVu Sans Mono Powerline](https://github.com/po
 
 Launch a terminal and navigate to the settings. It’s this small downward-pointing “arrow”:
 
-![Click on “Settings”. The screenshot was taken by Martin Thoma](../images/2020/10/python-development-with-wsl2-1.png)*Click on “Settings”. The screenshot was taken by Martin Thoma*
+<figure>
+    <a href="../images/2020/10/python-development-with-wsl2-1.png"><img src="../images/2020/10/python-development-with-wsl2-1.png" alt="Click on “Settings”. The screenshot was taken by Martin Thoma" width="380" height="364" loading="lazy"></a>
+    <figcaption>Click on “Settings”. The screenshot was taken by Martin Thoma</figcaption>
+</figure>
 
 You should see a JSON file which you can change to fit your taste. I have the following:
 
@@ -67,7 +70,10 @@ $ sudo apt-get update; sudo apt-get install --no-install-recommends make build-e
 
 Close all terminals and open one again. Now the command `pyenv` should show you the help:
 
-![Screenshot by Martin Thoma](../images/2020/10/python-development-with-wsl2-2.png)*Screenshot by Martin Thoma*
+<figure>
+    <a href="../images/2020/10/python-development-with-wsl2-2.png"><img src="../images/2020/10/python-development-with-wsl2-2.png" alt="Screenshot by Martin Thoma" width="925" height="720" loading="lazy"></a>
+    <figcaption>Screenshot by Martin Thoma</figcaption>
+</figure>
 
 Most importantly, the command `pyenv install --list` shows you all the different Python versions you can install. I recommend installing 3.8.6 as of October 2020.
 

@@ -10,9 +10,9 @@ tags: Python, pytest, tox, Unit Testing, Testing, Software Engineering
 featured_image: logos/python.png
 medium_url: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729
 ---
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img src="../images/2020/07/alice-full- Andrea-Caprotti.png" alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
+<figure>
+    <a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img src="../images/2020/07/alice-full- Andrea-Caprotti.png" alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" width="512" height="256"></a>
+    <figcaption>Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
 </figure>
 
 When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.
@@ -172,13 +172,11 @@ tox -p
 
 If one of them fails, you get this type of output:
 
-<figure class="wp-caption aligncenter img-thumbnail">
+<figure>
     <a href="../images/2020/07/tox-parallel-run.png"><img src="../images/2020/07/tox-parallel-run.png" alt="Run tox in parallel, showing a linter issue. This output is way cleaner than
 if you had run flake8 and black via pytest. It might be a tiny bit faster, but
-that difference is not relevant." style="width: 512px;"/></a>
-    <figcaption class="text-center">Run tox in parallel, showing a linter issue. This output is way cleaner than
-if you had run flake8 and black via pytest. It might be a tiny bit faster, but
-that difference is not relevant.</figcaption>
+that difference is not relevant." width="512" height="190" loading="lazy"></a>
+    <figcaption>Run tox in parallel, showing a linter issue. This output is way cleaner than if you had run flake8 and black via pytest. It might be a tiny bit faster, but that difference is not relevant.</figcaption>
 </figure>
 
 If you want to run just the linter, `tox -e linter` is your friend 🙂
@@ -210,9 +208,9 @@ def lint(session):
 
 You can run a single session of nox with `nox -s lint`:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/nox-single-session.png"><img src="../images/2020/07/nox-single-session.png" alt="A single nox session" style="width: 512px;"/></a>
-    <figcaption class="text-center">A single nox session</figcaption>
+<figure>
+    <a href="../images/2020/07/nox-single-session.png"><img src="../images/2020/07/nox-single-session.png" alt="A single nox session" width="512" height="122" loading="lazy"></a>
+    <figcaption>A single nox session</figcaption>
 </figure>
 
 Overall, not a huge difference. The output of nox is way nicer and for people who get started, I think the Python code written with nox is a bit simpler to read and understand than the tox.ini configuration file.

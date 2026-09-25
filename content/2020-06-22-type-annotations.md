@@ -38,9 +38,9 @@ def some_function(param_name: typename) -> return_type_name:
 
 Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use CPython, PyPy, or something more exotic.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/mypy.svg"><img src="../images/2020/06/mypy.svg" alt="mypy logo" style="width: 512px;"/></a>
-    <figcaption class="text-center">mypy logo</figcaption>
+<figure>
+    <a href="../images/2020/06/mypy.svg"><img src="../images/2020/06/mypy.svg" alt="mypy logo" width="512" height="103"></a>
+    <figcaption>mypy logo</figcaption>
 </figure>
 
 
@@ -247,9 +247,9 @@ def fib_list(n: int) -> List[int]:
 
 [pyright](https://github.com/microsoft/pyright) is a Python static type checker written by Microsoft, [pyre](https://pyre-check.org/) is one by Facebook, and pytype is one by Google. All of them claim to be faster than mypy, all of them have lower adoption than mypy. I haven’t used them so far.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/pyre.png"><img src="../images/2020/06/pyre.png" alt="pyre logo" style="width: 512px;"/></a>
-    <figcaption class="text-center">pyre logo</figcaption>
+<figure>
+    <a href="../images/2020/06/pyre.png"><img src="../images/2020/06/pyre.png" alt="pyre logo" width="317" height="159" loading="lazy"></a>
+    <figcaption>pyre logo</figcaption>
 </figure>
 
 Install them:

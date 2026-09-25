@@ -16,9 +16,9 @@ Running the test suite for all of those pull requests costs quite a bit of time.
 
 The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) [linting](../static-code-analysis/) with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/ci-feedback-github.png"><img src="../images/2020/07/ci-feedback-github.png" alt="Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." style="width: 512px;"/></a>
-    <figcaption class="text-center">Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.</figcaption>
+<figure>
+    <a href="../images/2020/07/ci-feedback-github.png"><img src="../images/2020/07/ci-feedback-github.png" alt="Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." width="512" height="280"></a>
+    <figcaption>Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.</figcaption>
 </figure>
 
 In the following article, I will show you how to run unit tests automatically with various different CI Services such as GitHub Actions, Azure Pipelines, Travis CI, and CircleCI.
@@ -47,39 +47,39 @@ The [tox-travis](https://github.com/tox-dev/tox-travis) package is awesome. I ju
 
 The configuration file definitely looks less scary than the one of GitHub Actions. The interface of Travis is also pretty and clean:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/travis-overview.png"><img src="../images/2020/07/travis-overview.png" alt="Web interface of Travis" style="width: 512px;"/></a>
-    <figcaption class="text-center">Web interface of Travis</figcaption>
+<figure>
+    <a href="../images/2020/07/travis-overview.png"><img src="../images/2020/07/travis-overview.png" alt="Web interface of Travis" width="512" height="262" loading="lazy"></a>
+    <figcaption>Web interface of Travis</figcaption>
 </figure>
 
 ## GitHub Actions
 
 [GitHub Actions](https://github.com/features/actions) is the CI/CD solution integrated into GitHub. It was released in November 2019 and thus is the most recently released service. The main advantage it has over the others is the integration into GitHub. You can create a new action by clicking on the offered tabs:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-create.png"><img src="../images/2020/07/github-action-create.png" alt="Start to create a GitHub Action" style="width: 512px;"/></a>
-    <figcaption class="text-center">Start to create a GitHub Action</figcaption>
+<figure>
+    <a href="../images/2020/07/github-action-create.png"><img src="../images/2020/07/github-action-create.png" alt="Start to create a GitHub Action" width="512" height="207" loading="lazy"></a>
+    <figcaption>Start to create a GitHub Action</figcaption>
 </figure>
 
 The defaults are OK, but you might want to adjust a few things in the file. For example, I don’t support any Python version older than 3.6 in my private projects. I also want to install the dependencies from my `requirements.txt`. If you want to adjust the file name, you can do it. Commit when it looks fine.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-create-2.png"><img src="../images/2020/07/github-action-create-2.png" alt="The next steps to create a GitHub Action via the Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">The next steps to create a GitHub Action via the Web Interface</figcaption>
+<figure>
+    <a href="../images/2020/07/github-action-create-2.png"><img src="../images/2020/07/github-action-create-2.png" alt="The next steps to create a GitHub Action via the Web Interface" width="512" height="238" loading="lazy"></a>
+    <figcaption>The next steps to create a GitHub Action via the Web Interface</figcaption>
 </figure>
 
 Finally, you can see the nice green check mark indicating that the run was successful.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-checkmark.png"><img src="../images/2020/07/github-action-checkmark.png" alt="See that the run was successful in GitHub Actions" style="width: 512px;"/></a>
-    <figcaption class="text-center">See that the run was successful in GitHub Actions</figcaption>
+<figure>
+    <a href="../images/2020/07/github-action-checkmark.png"><img src="../images/2020/07/github-action-checkmark.png" alt="See that the run was successful in GitHub Actions" width="512" height="97" loading="lazy"></a>
+    <figcaption>See that the run was successful in GitHub Actions</figcaption>
 </figure>
 
 You can also click on the Actions tab and inspect the last run:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-inspect.png"><img src="../images/2020/07/github-action-inspect.png" alt="Inspect the last run" style="width: 512px;"/></a>
-    <figcaption class="text-center">Inspect the last run</figcaption>
+<figure>
+    <a href="../images/2020/07/github-action-inspect.png"><img src="../images/2020/07/github-action-inspect.png" alt="Inspect the last run" width="512" height="239" loading="lazy"></a>
+    <figcaption>Inspect the last run</figcaption>
 </figure>
 
 
@@ -120,9 +120,9 @@ workflows:
 
 The CircleCI web interface looks nice and clean:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/circleci-overview.png"><img src="../images/2020/07/circleci-overview.png" alt="CircleCI Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">CircleCI Web Interface</figcaption>
+<figure>
+    <a href="../images/2020/07/circleci-overview.png"><img src="../images/2020/07/circleci-overview.png" alt="CircleCI Web Interface" width="512" height="258" loading="lazy"></a>
+    <figcaption>CircleCI Web Interface</figcaption>
 </figure>
 
 I’ve added a CircleCI check to mpu and, of course, the badge should not be missing:
@@ -174,9 +174,9 @@ linters:
 
 In the web interface, it looks like this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/gitlab-pipelines.png"><img src="../images/2020/07/gitlab-pipelines.png" alt="Web interface of GitLab" style="width: 512px;"/></a>
-    <figcaption class="text-center">Web interface of GitLab</figcaption>
+<figure>
+    <a href="../images/2020/07/gitlab-pipelines.png"><img src="../images/2020/07/gitlab-pipelines.png" alt="Web interface of GitLab" width="512" height="200" loading="lazy"></a>
+    <figcaption>Web interface of GitLab</figcaption>
 </figure>
 
 You can also tick a checkbox in the “Settings” section of your repository to prevent merges if the pipelines fail. You should do it.
@@ -240,16 +240,16 @@ The first thing I did after the pipeline itself worked was to add a project badg
 
 The main reason for adding the badge was that Azure tries to create new accounts for me. I have a super hard time coming back to the main overview page 😢
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/azure-overview.png"><img src="../images/2020/07/azure-overview.png" alt="Azure project overview page" style="width: 512px;"/></a>
-    <figcaption class="text-center">Azure project overview page</figcaption>
+<figure>
+    <a href="../images/2020/07/azure-overview.png"><img src="../images/2020/07/azure-overview.png" alt="Azure project overview page" width="512" height="263" loading="lazy"></a>
+    <figcaption>Azure project overview page</figcaption>
 </figure>
 
 If you click on one of the failing jobs, you can see this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/azure-failing-pytest.png"><img src="../images/2020/07/azure-failing-pytest.png" alt="A failing pytest run" style="width: 512px;"/></a>
-    <figcaption class="text-center">A failing pytest run</figcaption>
+<figure>
+    <a href="../images/2020/07/azure-failing-pytest.png"><img src="../images/2020/07/azure-failing-pytest.png" alt="A failing pytest run" width="512" height="258" loading="lazy"></a>
+    <figcaption>A failing pytest run</figcaption>
 </figure>
 
 
@@ -267,9 +267,9 @@ All of the presented CI Services send an email when you break the pipeline and w
 
 A point which I didn’t bring up so far is **continuous delivery (CD)**. All of the presented services can also be used for CD. Would you like to read an article specifically about CD?
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/geek-and-poke-automated-tests.jpg"><img src="../images/2020/07/geek-and-poke-automated-tests.jpg" alt="Geek and Poke: CI" style="width: 512px;"/></a>
-    <figcaption class="text-center">Geek and Poke: <a href="http://geek-and-poke.com/geekandpoke/2010/10/26/geekpokes-list-of-best-practices-today-continuous-integratio.html">CI</a></figcaption>
+<figure>
+    <a href="../images/2020/07/geek-and-poke-automated-tests.jpg"><img src="../images/2020/07/geek-and-poke-automated-tests.jpg" alt="Geek and Poke: CI" width="512" height="578" loading="lazy"></a>
+    <figcaption>Geek and Poke: <a href="http://geek-and-poke.com/geekandpoke/2010/10/26/geekpokes-list-of-best-practices-today-continuous-integratio.html">CI</a></figcaption>
 </figure>
 
 ## See also

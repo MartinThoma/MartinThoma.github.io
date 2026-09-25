@@ -12,9 +12,9 @@ featured_image: logos/python.png
 Python's package management is a constant source of confusion. One part of the
 confusion is in which format dependencies should be denoted. It gets worse because there are [too many tools](https://stackoverflow.com/q/25337706/562769). [xkcd](https://xkcd.com/1987/) shows this pretty well:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." style="width: 512px;"/></a>
-    <figcaption class="text-center">xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
+<figure>
+    <a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." width="512"></a>
+    <figcaption>xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
 </figure>
 
 After reading this post, you will know the difference between abstract and concrete requirements, the relationship between setup.py, setup.cfg, requirements.txt, Pipfile, Pipfile.lock, and pyproject.toml.
@@ -58,9 +58,9 @@ library is likely not the only one your users use. If you give concrete
 dependencies, you might make it impossible for your users to have one set of
 packages installed which fulfills all requirements:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/dependency-graph-pinning-conflict.svg"><img src="../images/2020/05/dependency-graph-pinning-conflict.svg" alt="A package version conflict if two packages pinned different versions of urllib" style="width: 512px;"/></a>
-    <figcaption class="text-center">A package version conflict if two packages pinned different versions of urllib</figcaption>
+<figure>
+    <a href="../images/2020/05/dependency-graph-pinning-conflict.svg"><img src="../images/2020/05/dependency-graph-pinning-conflict.svg" alt="A package version conflict if two packages pinned different versions of urllib" width="512" height="301" loading="lazy"></a>
+    <figcaption>A package version conflict if two packages pinned different versions of urllib</figcaption>
 </figure>
 
 So, **for library/framework code, you keep dependencies abstract**.
@@ -71,9 +71,9 @@ specify concrete dependencies. You say for everything your application needs
 where it comes from and in which version it is used. But this might not be
 enough.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/dependency-graph.png"><img src="../images/2020/05/dependency-graph.png" alt="Dependency graph where wasabi could make things fail if only the version of spacy is pinned" style="width: 512px;"/></a>
-    <figcaption class="text-center">Dependency graph where wasabi could make things fail if only the version of spacy is pinned</figcaption>
+<figure>
+    <a href="../images/2020/05/dependency-graph.png"><img src="../images/2020/05/dependency-graph.png" alt="Dependency graph where wasabi could make things fail if only the version of spacy is pinned" width="512" height="261" loading="lazy"></a>
+    <figcaption>Dependency graph where wasabi could make things fail if only the version of spacy is pinned</figcaption>
 </figure>
 
 So, **for application code, you specify concrete dependencies and you apply

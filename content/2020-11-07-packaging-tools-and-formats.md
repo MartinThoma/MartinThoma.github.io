@@ -440,7 +440,10 @@ $ python setup.py bdist_wheel
 
 For example, [NumPy](https://pypi.org/project/numpy/#files) does this:
 
-![The screenshot of pypi.org was taken by the author.](../images/2020/11/python-packaging-tools-and-formats-1.png)*The screenshot of pypi.org was taken by the author.*
+<figure>
+    <a href="../images/2020/11/python-packaging-tools-and-formats-1.png"><img src="../images/2020/11/python-packaging-tools-and-formats-1.png" alt="The screenshot of pypi.org was taken by the author." width="919" height="1031" loading="lazy"></a>
+    <figcaption>The screenshot of pypi.org was taken by the author.</figcaption>
+</figure>
 
 ## Problem 9: Specification of build-system
 

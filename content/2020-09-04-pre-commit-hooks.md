@@ -54,9 +54,9 @@ Before I used it, I was worried about losing control. I want to know exactly whi
 git commit --no-verify
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/09/geek-and-poke-code-review.jpg"><img src="../images/2020/09/geek-and-poke-code-review.jpg" alt="Image by geek-and-poke under CC-BY-3.0" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image by <a href="http://geek-and-poke.com/geekandpoke/2010/11/1/how-to-make-a-good-code-review.html">geek-and-poke</a> under CC-BY-3.0</figcaption>
+<figure>
+    <a href="../images/2020/09/geek-and-poke-code-review.jpg"><img src="../images/2020/09/geek-and-poke-code-review.jpg" alt="Image by geek-and-poke under CC-BY-3.0" width="512" height="175" loading="lazy"></a>
+    <figcaption>Image by <a href="http://geek-and-poke.com/geekandpoke/2010/11/1/how-to-make-a-good-code-review.html">geek-and-poke</a> under CC-BY-3.0</figcaption>
 </figure>
 
 
@@ -87,9 +87,9 @@ repos:
     -   id: mixed-line-ending
 ```
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/09/pre-commit-batman-slap.jpg"><img src="../images/2020/09/pre-commit-batman-slap.jpg" alt="Created via imgflip.com by Martin Thoma" style="width: 512px;"/></a>
-    <figcaption class="text-center">Created via <a href="https://imgflip.com/i/4dqpwf">imgflip.com</a> by Martin Thoma</figcaption>
+<figure>
+    <a href="../images/2020/09/pre-commit-batman-slap.jpg"><img src="../images/2020/09/pre-commit-batman-slap.jpg" alt="Created via imgflip.com by Martin Thoma" width="508" height="491" loading="lazy"></a>
+    <figcaption>Created via <a href="https://imgflip.com/i/4dqpwf">imgflip.com</a> by Martin Thoma</figcaption>
 </figure>
 
 
@@ -100,9 +100,9 @@ difference in runtime, but there are differences in readability.
 
 ### Code Autoformatter
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/09/xkcd-code_quality_2x.png"><img src="../images/2020/09/xkcd-code_quality_2x.png" alt="When your code looks ugly, don’t waste your time with learning style guides and applying them by hand. Run a code formatter. Image by Randall Munroe (xkcd)" style="width: 512px;"/></a>
-    <figcaption class="text-center">When your code looks ugly, don’t waste your time with learning style guides and applying them by hand. Run a code formatter. Image by Randall Munroe (<a href="https://xkcd.com/1513/">xkcd</a>)</figcaption>
+<figure>
+    <a href="../images/2020/09/xkcd-code_quality_2x.png"><img src="../images/2020/09/xkcd-code_quality_2x.png" alt="When your code looks ugly, don’t waste your time with learning style guides and applying them by hand. Run a code formatter. Image by Randall Munroe (xkcd)" width="512" height="179" loading="lazy"></a>
+    <figcaption>When your code looks ugly, don’t waste your time with learning style guides and applying them by hand. Run a code formatter. Image by Randall Munroe (<a href="https://xkcd.com/1513/">xkcd</a>)</figcaption>
 </figure>
 
 Automatic code formatting has the same advantages as the file formatting.

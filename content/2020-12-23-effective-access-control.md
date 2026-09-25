@@ -61,7 +61,10 @@ forgotten, even if everybody agrees that the route needs access control.
 
 ### Client-side access control
 
-![Age verification for adult content is a typical example of client-side access control. Image by the author.](../images/2020/12/effective-access-control-1.png)*Age verification for adult content is a typical example of client-side access control. Image by the author.*
+<figure>
+    <a href="../images/2020/12/effective-access-control-1.png"><img src="../images/2020/12/effective-access-control-1.png" alt="Age verification for adult content is a typical example of client-side access control. Image by the author." width="1200" height="600" loading="lazy"></a>
+    <figcaption>Age verification for adult content is a typical example of client-side access control. Image by the author.</figcaption>
+</figure>
 
 I haven’t seen client-side access control in a long time, but please don’t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.
 
@@ -171,7 +174,10 @@ examples are Wikipedia, Reddit, and Stack Exchange.
 To apply RBAC, you need a role table (could also be called `group`) and a table
 that connects users with groups:
 
-![Image by author](../images/2020/12/effective-access-control-2.png)*Image by author*
+<figure>
+    <a href="../images/2020/12/effective-access-control-2.png"><img src="../images/2020/12/effective-access-control-2.png" alt="Image by author" width="772" height="145" loading="lazy"></a>
+    <figcaption>Image by author</figcaption>
+</figure>
 
 Then you need to get all roles a user has:
 

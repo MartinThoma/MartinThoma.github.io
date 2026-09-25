@@ -29,14 +29,14 @@ Please let me know if you have headphones you're really happy with 🙂
 
 Before you buy anything below 40 EUR on Amazon, look at the seller:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/amazon-seller.png"><img src="../images/2020/06/amazon-seller.png" alt="Go to the seller page" style="width: 512px;"/></a>
-    <figcaption class="text-center">Go to the seller page</figcaption>
+<figure>
+    <a href="../images/2020/06/amazon-seller.png"><img src="../images/2020/06/amazon-seller.png" alt="Go to the seller page" width="345" height="666"></a>
+    <figcaption>Go to the seller page</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/amazon-seller-page.png"><img src="../images/2020/06/amazon-seller-page.png" alt="Look at the country of the shop" style="width: 512px;"/></a>
-    <figcaption class="text-center">Look at the country of the shop</figcaption>
+<figure>
+    <a href="../images/2020/06/amazon-seller-page.png"><img src="../images/2020/06/amazon-seller-page.png" alt="Look at the country of the shop" width="512" height="452" loading="lazy"></a>
+    <figcaption>Look at the country of the shop</figcaption>
 </figure>
 
 Very often, they are either in the UK or in China (CN). If you buy stuff below

@@ -10,7 +10,10 @@ tags: Python, Logging
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9
 ---
-![The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.](../images/2020/09/logging-basics-in-python-1.png)*The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.*
+<figure>
+    <a href="../images/2020/09/logging-basics-in-python-1.png"><img src="../images/2020/09/logging-basics-in-python-1.png" alt="The dmesg output. Screenshot taken by Martin Thoma." width="1880" height="436"></a>
+    <figcaption>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</figcaption>
+</figure>
 
 Logging is the act of recording information about the current state of execution. It’s typically done for two purposes:
 
@@ -43,7 +46,10 @@ It gives output like this:
 
 **BasicConfig should probably not be used**. Please continue reading “the 4 logging classes” to learn why 😁
 
-![Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)](../images/2020/09/logging-basics-in-python-2.jpg)*Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)*
+<figure>
+    <a href="../images/2020/09/logging-basics-in-python-2.jpg"><img src="../images/2020/09/logging-basics-in-python-2.jpg" alt="Image by Oliver Widder from geek-and-poke.com" width="2000" height="1623" loading="lazy"></a>
+    <figcaption>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></figcaption>
+</figure>
 
 ## The 4 Logging Classes
 
@@ -97,7 +103,10 @@ Commonly, you also want to set the log level on either the logger or the log han
 sh.setLevel(logging.INFO)
 ```
 
-![Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)](../images/2020/09/logging-basics-in-python-3.jpg)*Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)*
+<figure>
+    <a href="../images/2020/09/logging-basics-in-python-3.jpg"><img src="../images/2020/09/logging-basics-in-python-3.jpg" alt="Image by Oliver Widder from geek-and-poke.com" width="688" height="1608" loading="lazy"></a>
+    <figcaption>Image by Oliver Widder from <a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">geek-and-poke.com</a></figcaption>
+</figure>
 
 ### Log Formatters
 

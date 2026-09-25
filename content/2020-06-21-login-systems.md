@@ -13,9 +13,9 @@ status: draft
 Authentication is one core component of all web communities. While building
 [enzado.com](https://enzado.com/), I started thinking about it in detail.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/authentication.png"><img src="../images/2019/06/authentication.png" alt="Authentication in Web Services" style="width: 512px;"/></a>
-    <figcaption class="text-center">Authentication in Web Services</figcaption>
+<figure>
+    <a href="../images/2019/06/authentication.png"><img src="../images/2019/06/authentication.png" alt="Authentication in Web Services" width="512" height="227"></a>
+    <figcaption>Authentication in Web Services</figcaption>
 </figure>
 
 ## HTML

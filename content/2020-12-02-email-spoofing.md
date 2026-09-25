@@ -56,28 +56,28 @@ s.quit()
 
 Which then looks like this in Gmail:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/12/email-spoofing-gmail-1.png"><img src="../images/2020/12/email-spoofing-gmail-1.png" alt="Spoofed Email in Gmail" style="width: 512px;"/></a>
-    <figcaption class="text-center">Spoofed Email in Gmail</figcaption>
+<figure>
+    <a href="../images/2020/12/email-spoofing-gmail-1.png"><img src="../images/2020/12/email-spoofing-gmail-1.png" alt="Spoofed Email in Gmail" width="512" height="23" loading="lazy"></a>
+    <figcaption>Spoofed Email in Gmail</figcaption>
 </figure>
 
 When I click on it, I see this:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/12/email-spoofing-gmail-1-full.png"><img src="../images/2020/12/email-spoofing-gmail-1-full.png" alt="Spoofed Email in Gmail - full view" style="width: 512px;"/></a>
-    <figcaption class="text-center">Spoofed Email in Gmail - full view</figcaption>
+<figure>
+    <a href="../images/2020/12/email-spoofing-gmail-1-full.png"><img src="../images/2020/12/email-spoofing-gmail-1-full.png" alt="Spoofed Email in Gmail - full view" width="512" height="210" loading="lazy"></a>
+    <figcaption>Spoofed Email in Gmail - full view</figcaption>
 </figure>
 
 Even when I look at the details, I see:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/12/gmail-show-original.png"><img src="../images/2020/12/gmail-show-original.png" alt="'Show original' in Gmail" style="width: 512px;"/></a>
-    <figcaption class="text-center">'Show original' in Gmail</figcaption>
+<figure>
+    <a href="../images/2020/12/gmail-show-original.png"><img src="../images/2020/12/gmail-show-original.png" alt="'Show original' in Gmail" width="512" height="270" loading="lazy"></a>
+    <figcaption>'Show original' in Gmail</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/12/gmail-original-mail.png"><img src="../images/2020/12/gmail-original-mail.png" alt="Original view of email" style="width: 512px;"/></a>
-    <figcaption class="text-center">Original view of email</figcaption>
+<figure>
+    <a href="../images/2020/12/gmail-original-mail.png"><img src="../images/2020/12/gmail-original-mail.png" alt="Original view of email" width="512" height="293" loading="lazy"></a>
+    <figcaption>Original view of email</figcaption>
 </figure>
 
 The attacker might also put a reply-to in the mail:
@@ -97,7 +97,10 @@ msg["From"] = formataddr(("Santa Clause", fake_address))
 
 Interestingly, that triggered Gmail's spam detection:
 
-![Screenshot taken by Martin Thoma](../images/2020/12/email-spoofing-1.png)*Screenshot taken by Martin Thoma*
+<figure>
+    <a href="../images/2020/12/email-spoofing-1.png"><img src="../images/2020/12/email-spoofing-1.png" alt="Screenshot taken by Martin Thoma" width="1488" height="539" loading="lazy"></a>
+    <figcaption>Screenshot taken by Martin Thoma</figcaption>
+</figure>
 
 ## How can I prevent Email Spoofing?
 

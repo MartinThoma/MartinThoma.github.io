@@ -58,9 +58,9 @@ So, what is pythonic code?
 
 Let’s start with [PEP-8](https://www.python.org/dev/peps/pep-0008/): It’s a style guide written and accepted by the Python community in 2001. So it’s been around for a while and most people want to follow most of it. The main part I’ve seen most people disagree with is the [maximum line length of 79](https://www.python.org/dev/peps/pep-0008/#maximum-line-length). I always recommend following this advice in 95% of your codebase. I gave [reasons](../python-style-guide/#maximum-line-length) for that.
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/black-logo.png"><img src="../images/2020/08/black-logo.png" alt="Logo of the black project" style="width: 512px;"/></a>
-    <figcaption class="text-center">Logo of the black project. Image source: <a href="https://github.com/psf/black/blob/master/docs/_static/logo2.png">Black Contributors</a></figcaption>
+<figure>
+    <a href="../images/2020/08/black-logo.png"><img src="../images/2020/08/black-logo.png" alt="Logo of the black project" width="512" height="188" loading="lazy"></a>
+    <figcaption>Logo of the black project. Image source: <a href="https://github.com/psf/black/blob/master/docs/_static/logo2.png">Black Contributors</a></figcaption>
 </figure>
 
 For pure code formatting, you should use an autoformatter. I grew to like [black](https://pypi.org/project/black/) because it does NOT allow customization. Code formatted by black always looks the same. As you cannot customize it, you don’t need to discuss it. It just solves the issue of conflicting styles and arguments around it. Black is maintained by the Python Software Foundation and likely the most commonly adopted autoformatter for Python.
@@ -230,7 +230,10 @@ This is one of the most valuable categories for me. If you know more plugins whi
 
 ## Flake8 Meta Plugins
 
-![Image created by Martin Thoma via imgflip.com](../images/2020/08/static-code-analysis-7.jpg)*Image created by Martin Thoma via imgflip.com*
+<figure>
+    <a href="../images/2020/08/static-code-analysis-7.jpg"><img src="../images/2020/08/static-code-analysis-7.jpg" alt="Image created by Martin Thoma via imgflip.com" width="1200" height="757" loading="lazy"></a>
+    <figcaption>Image created by Martin Thoma via imgflip.com</figcaption>
+</figure>
 
 Flake8 has some plugins which don’t add more linting functionality, but improve flake8 in another way:
 
@@ -248,7 +251,10 @@ And some plugins people might need for legal reasons like flake8-author, flake8-
 
 ## Type Annotations and Type Checking
 
-![The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.](../images/2020/08/static-code-analysis-8.png)*The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.*
+<figure>
+    <a href="../images/2020/08/static-code-analysis-8.png"><img src="../images/2020/08/static-code-analysis-8.png" alt="The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma." width="1721" height="219" loading="lazy"></a>
+    <figcaption>The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.</figcaption>
+</figure>
 
 It’s possible in Python, but you need to do it. It’s not done automatically. I’ve written a longer article about how [type annotations work in Python](../type-annotations/). There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using `flake8-mypy`, but I prefer to run it separately. The main reason for it is that the output given by [CI pipelines](../ci-pipelines/) is cleaner.
 

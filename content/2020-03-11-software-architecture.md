@@ -32,17 +32,17 @@ also helps with Analysability, Modifiability and Testability.
         <th>Description</th>
     </tr>
     <tr>
-        <td>Database<br/><img src="../images/2020/03/db.png" alt="Database" /></td>
+        <td>Database<br/><a href="../images/2020/03/db.png"><img src="../images/2020/03/db.png" alt="Database" width="256" height="256"></a></td>
         <td>MySQL, PostgreSQL</td>
         <td>Databases are a typical way to store data and state. One distinguishes relational databases from NoSQL Databases. <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> properties are important.</td>
     </tr>
     <tr>
-        <td>Queue / Kafka Topic<br/><img src="../images/2020/03/queue.png" alt="Queue" /></td>
+        <td>Queue / Kafka Topic<br/><a href="../images/2020/03/queue.png"><img src="../images/2020/03/queue.png" alt="Queue" width="256" height="256" loading="lazy"></a></td>
         <td><a href="http://www.celeryproject.org/">Celery</a></td>
         <td>A job queue can be used to distribute computationally intensive tasks. Think about encoding a video on YouTube.</td>
     </tr>
     <tr>
-        <td>Object Storage<br/><img src="../images/2020/03/s3.png" alt="AWS S3" /></td>
+        <td>Object Storage<br/><a href="../images/2020/03/s3.png"><img src="../images/2020/03/s3.png" alt="AWS S3" width="256" height="256" loading="lazy"></a></td>
         <td>AWS S3 / Google Cloud Storage</td>
         <td>Storing files is often useful for various parts of machine learning projects. In the YouTube example, storing an encoded file.</td>
     </tr>
@@ -52,12 +52,12 @@ also helps with Analysability, Modifiability and Testability.
         <td>The front-ends can typically be separated pretty well into different teams. They need to access the same backend services.</td>
     </tr>
     <tr>
-        <td>Cache<br/><img src="../images/2020/03/cache.png" alt="Cache" /></td>
+        <td>Cache<br/><a href="../images/2020/03/cache.png"><img src="../images/2020/03/cache.png" alt="Cache" width="256" height="256" loading="lazy"></a></td>
         <td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a>, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a> for static files, Redis, Cassandra</td>
         <td>Caches are important to make things fast and reduce load. There are many different ways to cache.</td>
     </tr>
     <tr>
-        <td>Load Balancer<br/><img src="../images/2020/03/load-balancer.png" alt="Load Balancer" /></td>
+        <td>Load Balancer<br/><a href="../images/2020/03/load-balancer.png"><img src="../images/2020/03/load-balancer.png" alt="Load Balancer" width="256" height="256" loading="lazy"></a></td>
         <td><a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>, <a href="https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/">NGINX</a></td>
         <td>If you build your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
     </tr>
