@@ -455,11 +455,24 @@ html:has(.lightbox[open]) { overflow: hidden; scrollbar-gutter: stable; }
 ::view-transition-group(lightbox-image) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
 
+/* Phones: previous/next in a row below the image, where they cover nothing and the thumb
+   reaches them (swiping works too). An opaque backdrop keeps the page from showing
+   through behind the caption. */
 @media (max-width: 40rem) {
+  .lightbox::backdrop { background: rgb(10 11 13); }
   .lightbox-bar { padding: 0.5rem; }
   .lightbox-img, .lightbox.is-single .lightbox-img { max-width: calc(100cqw - 1rem); }
-  .lightbox-prev { left: 0.5rem; }
-  .lightbox-next { right: 0.5rem; }
+  .lightbox:not(.is-single) .lightbox-stage { grid-template: minmax(0, 1fr) auto / 1fr 1fr; }
+  .lightbox:not(.is-single) :is(.lightbox-frame, .lightbox-error) { grid-area: 1 / 1 / 2 / 3; }
+  .lightbox:not(.is-single) .lightbox-img { max-height: calc(100cqh - 44px - 1rem); }
+  .lightbox-prev, .lightbox-next { position: static; translate: none; margin: 0.5rem 0.5rem 0; }
+  .lightbox-prev { grid-area: 2 / 1; justify-self: start; }
+  .lightbox-next { grid-area: 2 / 2; justify-self: end; }
+}
+/* Phones in landscape: less padding around the controls and caption, more for the image. */
+@media (max-height: 30rem) {
+  .lightbox-bar { padding: 0.35rem 0.75rem; }
+  .lightbox-caption { padding: 0.4rem 0 0.6rem; max-height: 25dvh; }
 }
 
 /* AI marker: a small badge in the top-left corner of the image */
@@ -561,13 +574,29 @@ html:has(.lightbox[open]) { overflow: hidden; scrollbar-gutter: stable; }
 .pagination .step { background: var(--surface); border: 1px solid var(--hairline); color: var(--ink); padding-inline: 1.1rem; }
 .pagination .step:hover { background: var(--surface-sunk); }
 .pagination .gap { min-width: 0; padding: 0 0.2rem; }
+.pagination-summary { display: none; }
+/* the page has its own search field; on phones the header one would sit right above it */
+@media (max-width: 46rem) {
+  body:has(.search-page) .nav .search { display: none; }
+}
+/* Phones: a small image beside title and date, the excerpt below at full width (4 lines),
+   and "Previous · Page 2 of 15 · Next" instead of the page numbers. */
 @media (max-width: 40rem) {
-  .result { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.85rem; padding: 0.95rem 1rem 1rem 0.9rem; }
-  .result-thumb { width: 3.5rem; height: 3.5rem; }
-  .result-title { font-size: 1.05rem; }
+  .search-page .page-head { margin-bottom: 1.25rem; }
   .search-tip { margin-left: 0.5rem; }
-  .pagination { gap: 0.15rem; }
-  .pagination a { padding-inline: 0.6rem; }
+  .result { grid-template-columns: 3rem minmax(0, 1fr); gap: 0 0.8rem; align-items: center; padding: 0.9rem 1rem 1rem; }
+  .result-body { display: contents; }
+  .result-thumb { grid-row: 1 / span 2; width: 3rem; height: 3rem; }
+  .result-title { grid-column: 2; align-self: end; font-size: 1.05rem; }
+  .result-meta { grid-column: 2; align-self: start; margin: 0.15rem 0 0; }
+  .result-excerpt {
+    grid-column: 1 / -1; margin-top: 0.6rem;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden;
+  }
+  .result.is-loading .bone:not(.bone-title, .bone-meta) { grid-column: 1 / -1; }
+  .pagination { flex-wrap: nowrap; justify-content: space-between; gap: 0.5rem; }
+  .pagination a:not(.step), .pagination .gap { display: none; }
+  .pagination-summary { display: block; flex: 1; text-align: center; color: var(--ink-muted); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
 }
 
 @media (prefers-reduced-motion: reduce) {
