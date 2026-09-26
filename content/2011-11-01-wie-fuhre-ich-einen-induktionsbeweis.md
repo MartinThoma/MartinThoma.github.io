@@ -116,8 +116,8 @@ Die Idee habe ich aus dem <a href="http://www.matheboard.de/archive/470377/threa
 Definition: Aussagenlogischer Ausdruck
 <ol type="i" style="list-style-type: lower-roman;">
   <li>Jede Variable $p_i, i \in \mathbb{N}$ ist ein aussagenlogischer Ausdruck über V.</li>
-  <li>Sind A und B aussagenlogische Ausdrücke über V, so sind auch $\neg A, A \land B, A \lor B, A \Rightarrow B, A \Leftrightarrow B, (A)$.</li>
-  <li>Ein Wort über V ist nur dann ein aussagenlogischer Ausdruck über V, falls dies aufgrund endlich oftmaliger Anwendung von (i) und (ii) der Fall ist.</li>
+  <li>Sind A und B aussagenlogische Ausdrücke über V, so sind auch $\neg A, A \land B, A \lor B, A \Rightarrow B, A \Leftrightarrow B, (A)$.</li>
+  <li>Ein Wort über V ist nur dann ein aussagenlogischer Ausdruck über V, falls dies aufgrund endlich oftmaliger Anwendung von (i) und (ii) der Fall ist.</li>
 </ol>
 
 <strong>Behauptung</strong> Jeder aussagenlogischer Ausdruck endet entweder auf eine Variable oder auf eine schließende Klammer.<br/>

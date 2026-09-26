@@ -168,7 +168,7 @@ String: -Hello World!-
 Size: 4 Byte
 Characters: 12
 
-String: -Hello World!-
+String: -Hello World!␑-
 Size: 4 Byte
 Characters: 13
 ```

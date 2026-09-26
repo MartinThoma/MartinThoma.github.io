@@ -60,7 +60,7 @@ My HDD (a Samsung SSD) is roughly 40°C.
 
 ```shell
 $ sudo hddtemp /dev/sda
-/dev/sda: SAMSUNG MZ7LN512HCHP-0001L              �: 39°C
+/dev/sda: SAMSUNG MZ7LN512HCHP-0001L              ␐�: 39°C
 ```
 
 
