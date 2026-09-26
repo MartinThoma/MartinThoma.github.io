@@ -139,13 +139,14 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
       Dabei ist $d \in \{1, \dots, n\}$ beliebig wählbar.
 
       Die Transformation der Daten $X$ findet durch eine Matrixmultiplikation
-      $Y = P \cdot X$ statt. Die Matrix $P$ besteht aus den ersten $d$
-      Eigenvektoren der Kovarianzmatrix der Features $X$:
+      $Y = P^T \cdot X$ statt. Die Matrix $P$ besteht aus den Eigenvektoren
+      zu den $d$ größten Eigenwerten der Kovarianzmatrix der Features $X$:
 
       $P = (v_1, \dots, v_d)$ mit
       $\lambda_j v_j = C_X v_j$ für $j=1,\dots,d$
 
-      Außerdem gilt: $C_X = \frac{1}{n-1} X X^T$ </dd>
+      Außerdem gilt: $C_X = \frac{1}{N-1} X X^T$ (für zentrierte Daten $X$ mit
+      $N$ Datenpunkten als Spalten)</dd>
 </dl>
 
 ### V03: LVQ
@@ -165,7 +166,7 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
   <dd>Ein MCP-Neuron ist ein Algorithmus zur binären Klassifizierung. Er hat
-      $m+1$, mit $m \in \mathbb{N}_{> 0}$ inputs $x_i \in \{0, 1\}$. Davon
+      $m+1$ Inputs $x_i \in \{0, 1\}$ (mit $m \in \mathbb{N}_{> 0}$). Davon
       ist der erste (nullte) konstant gleich Eins und wird <i>Bias</i> genannt.
       Jeder Input wird mit einem Gewicht $w_i \in \mathbb{R}$ multipliziert,
       alle gewichteten Inputs werden addiert und schließlich wird die
@@ -512,8 +513,8 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     Training:
     <ol>
         <li><b>Initialisierung</b>: Die Gewichte
-            <span markdown="0">$w_{ji}$</span> von dem
-            <span markdown="0">$i$</span>-ten Input-Neuron zum Neuron (<span markdown="0">$i = 1, ..., n$</span>)
+            <span markdown="0">$w_{ji}$</span> vom
+            <span markdown="0">$i$</span>-ten Input-Neuron (<span markdown="0">$i = 1, \dots, n$</span>) zum Neuron
             <span markdown="0">$j$</span> auf dem Gitter werden zufällig
             initialisiert.</li>
         <li><b>Sampling</b>: Nimm ein zufälliges Beispiel
@@ -584,7 +585,7 @@ Slide name: `V11_2015-05-27_RBMs`
       Trainingsverfahren (Contrastive Divergence).
 
       Die Energie des Netzwerkes ist
-      $$- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i$$
+      $$E = - \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i$$
       wobei $s_i, s_j$ die binären Zustände der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
       Wahrscheinlichkeiten zuweisen, die direkt proportional zu $e^{-E}$
@@ -677,8 +678,9 @@ Slide name: `V12_2015-06-02_RNNs.pdf`
         Ausgabeschicht im nächsten Zeitschritt als Eingabe verwendet wird.</dd>
     <dt><dfn>Backpropagation through Time</dfn> (<dfn>BPTT</dfn>)</dt>
     <dd>Ein Trainingsalgorithmus für rekurrente neuronale Netze, bei dem
-        das Netz "ausgerollt" wird. Das rekurrente Netz wird also als unendlich
-        großes nicht-rekurrentes Netz behandelt.</dd>
+        das Netz über die Zeit "ausgerollt" wird. Das rekurrente Netz wird also
+        als nicht-rekurrentes Netz mit einer Kopie der Schichten pro
+        Zeitschritt behandelt.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><dfn>Vanishing gradient problem</dfn></a></dt>
     <dd>Das Problem des verschwindenden Gradienten ist eine Herausforderung im
         Kontext neuronaler Netze, welche mit Backpropagation trainiert
@@ -929,7 +931,7 @@ training data will help you with your problem.
         <td><span markdown="0">$\varphi(x) = \max(\alpha x, x)$</span> mit typischerweise <span markdown="0">$\alpha = 0.01$</span></td>
         <td style="text-align: center;"><span markdown="0">$(-\infty, +\infty)$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
-        <td><span markdown="0">$\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}$</span></td>
+        <td><span markdown="0">$\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\\alpha &\text{if } x < 0\end{cases}$</span></td>
         <td style="text-align: center;">No</td>
         <td>Fixes the dying ReLU problem<sup>[<a href="http://datascience.stackexchange.com/q/5706/8820">1</a>]</sup></td>
     </tr>

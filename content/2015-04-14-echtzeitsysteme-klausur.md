@@ -108,8 +108,8 @@ habe ich unter anderem in der folgenden Tabelle aufgeführt.
   → Ja, falls der Realanteil aller Pole negativ ist.
 * Ist der geschlossene Regelkreis mit der Übertragungsfunktion $G(s)$ des offenen Kreises stabil?
   → Ja, falls die Nullstellen der Gleichung $G(s)+1=0$ links der $i$-Achse liegen.
-* Ist $G(i \omega)$ stabil?
-  → Ja, falls die Kurve (-1, 0i) NICHT umfährt (siehe [Nyquistkriterium](https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C))
+* Ist der geschlossene Regelkreis stabil, wenn die Ortskurve $G(i \omega)$ des (stabilen) offenen Kreises gegeben ist?
+  → Ja, falls die Kurve den Punkt $-1 + 0i$ NICHT umfährt (siehe [Nyquistkriterium](https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C))
 
 #### Hurwitz-Kriterium
 
@@ -117,7 +117,7 @@ Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ i
 wenn
 
 1. alle Koeffizienten $a_i > 0$ UND
-2. alle [Hauptabschnittsdeterminanten](https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren) (auch Hauptminoren genannt) positiv sind.
+2. alle [Hauptabschnittsdeterminanten](https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren) (auch führende Hauptminoren genannt) der Hurwitz-Matrix positiv sind.
 
 Insbesondere gilt für $a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$, dass die
 Hauptabschnittsdeterminanten von
@@ -139,7 +139,7 @@ zu überprüfen, also:
 
 * Subtrahierer: $U_A = \frac{R_0 (R_1 + R_3)}{R_1 (R_0 + R_2)} \cdot U_2 - \frac{R_3}{R_1} \cdot U_1$
 * Invertierender Addierer: $U_A = - \left (\sum_{i=1}^{N-1} \frac{U_i}{R_i} \right ) \cdot R_N$
-* Integrierer: $- \frac{1}{RC} \int U_E \mathrm{d}t$
+* Integrierer: $U_A = - \frac{1}{RC} \int U_E \mathrm{d}t$
 * Differenzierer: $U_A = - R_N \cdot I_E$
 * Invertierender OP: $y = - \frac{R_N}{R_1}$
 * Nicht-Invertierender OP: $y = \frac{R_N+R_1}{R_1}$
@@ -187,16 +187,16 @@ Die Klausuren sind alle sehr ähnlich zueinander:
         * A/D-Wandler: 2 Punkte
 * Echtzeitkommunikation / Programmierung
     * Echtzeitkommunikation: 7 Punkte
-    * ISO / OSI-Schichtenmodell: 1.5 Punkte
-    * Manchester-Codierung: 1.5 Punkte
-    * Übertragungsfehler: 1.5 Punkte
-    * CAN-Dataframes: 2.5 Punkte
+        * ISO / OSI-Schichtenmodell: 1.5 Punkte
+        * Manchester-Codierung: 1.5 Punkte
+        * Übertragungsfehler: 1.5 Punkte
+        * CAN-Dataframes: 2.5 Punkte
     * Echtzeitprogrammierung
-    * Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt
-    * FPP-Scheduling: 2 Punkte
-    * Periodenabweichung: 2 Punkte
-    * Optimales Scheduling: 1 Punkt
-    * Schwankungen: 1 Punkt
+        * Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt
+        * FPP-Scheduling: 2 Punkte
+        * Periodenabweichung: 2 Punkte
+        * Optimales Scheduling: 1 Punkt
+        * Schwankungen: 1 Punkt
 * Echtzeit-OS / SPS
     * Echtzeit-OS: 7 Punkte
         * Zusätzliche Anforderungen: 1 Punkt

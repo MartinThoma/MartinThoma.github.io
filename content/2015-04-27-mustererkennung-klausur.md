@@ -154,11 +154,14 @@ Mahalanobis-Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 1. Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
    $m_0 = \frac{1}{N} \sum_{k=1}^N m_k$
 2. Finde Gerade $h: m = \bar{m} + ae$, welche die Punkte optimal repräsentiert.
-    1. Finden der $a_k$ (TODO: Was ist das?)<br/>
+    1. Finden der $a_k$: $a_k$ ist die Koordinate des auf die Gerade
+       projizierten Punktes $m_k$ (mit $\|e\| = 1$).<br/>
        Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.<br/>
        Ergibt: $a_k = e^T (m_k - \bar{m})$
     2. Berechnung des optimalen Richtungsvektors<br/>
-       Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
+       Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$<br/>
+       Der optimale Richtungsvektor $e$ ist der Eigenvektor von $S$ zum größten
+       Eigenwert.
 3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
    welcher die Daten $D$ mit minimalem quadratischem Fehler repräsentiert.
 
@@ -297,7 +300,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 <div class="answer">
 <ul>
   <li>Unterschiedliche Einheiten (→ Entdimensionalisieren)</li>
-  <li>Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)</li>
+  <li>Unterschiedliche Skalen (→ Teilen durch Standardabweichung oder durch Wertebereich; teilt man eine normalverteilte Variable durch ihre Standardabweichung, erhält man eine standardisierte Variable)</li>
   <li>Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)</li>
 </ul>
 </div>
@@ -307,7 +310,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 <summary>Wie funktioniert MDA?</summary>
 <div class="answer">
 Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 + {s'}_2^2}$
-(im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
+(im 2-Klassen-Fall, wobei $w$ die Richtung der Geraden ist, auf die projiziert wird)
 </div>
 </details>
 

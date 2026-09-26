@@ -155,9 +155,9 @@ Slides: `ProPlan-1-Anschrieb.pdf`
       <i>Wahrscheinlichkeitsmaß</i>, wenn die Kolmogorov'schen Axiome gelten:
 
       <ul>
-          <li>Nicht-negativität: $\forall M \in \mathcal{A}: P(M) \geq 0$</li>
+          <li>Nichtnegativität: $\forall M \in \mathcal{A}: P(M) \geq 0$</li>
           <li>Normiertheit: $P(S) = 1$</li>
-          <li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
+          <li>$\sigma$-Additivität: Für paarweise disjunkte $M_1, M_2, \dots \in \mathcal{A}$ gilt $P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
       </ul>
 
       </dd>
@@ -246,9 +246,11 @@ Slides: `11.05.2016`
       eine Nutzenfunktion, welche $\geq$ abbildet, wenn gilt:
       $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$
 
-      Jede Präferenzrelation hat mindestens eine Nutzenfunktion. Sie ist
-      eindeutig bis auf streng monoton steigende Transformationen.</dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn id="von-neumann-morgenstern-axioms">Von-Neumann-Morgenstern Axiome</dfn></a></dt>
+      Ist $\mathcal{X}$ abzählbar, so hat jede Präferenzrelation mindestens
+      eine Nutzenfunktion (für überabzählbare Mengen gilt das nicht, z.B. für
+      die lexikographische Ordnung auf $\mathbb{R}^2$). Die Präferenzrelation ist eindeutig bis
+      auf streng monoton steigende Transformationen.</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn id="von-neumann-morgenstern-axioms">Von-Neumann-Morgenstern-Axiome</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
 
@@ -311,8 +313,7 @@ Slides: `11.05.2016`
   </dd>
   <dt><dfn id="theorem-rational-decisions">Satz der rationalen Entscheidungen</dfn> (PrPlan-2, Folie 19)</dt>
   <dd>
-
-       Eine Relation $\geq$ auf $P$ erfüllt die Von-Neumann-Morgenstern Axiome
+       Eine Relation $\geq$ auf $\mathcal{P}$ erfüllt die Von-Neumann-Morgenstern-Axiome
        genau dann, wenn eine Funktion $u: X \rightarrow \mathbb{R}$ existiert,
        sodass
        $$P \geq Q \Leftrightarrow \mathbb{E}_P (u(x)) \geq \mathbb{E}_Q (u(x))$$
@@ -484,7 +485,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 \end{align}
       $$
       <br/>
-      Probleme, für die man eine Bellman-Gleichung aufstellen kann haben
+      Probleme, für die man eine Bellman-Gleichung aufstellen kann, haben
       <b>optimale Substruktur</b>.
       <br/>
       Example with the value function:
@@ -839,7 +840,7 @@ $$
         wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
 
         <div class="bg-info">
-        Insgesamt ergeben sich folgende notwendigen Bedingungen an die
+        Insgesamt ergeben sich folgende notwendige Bedingungen an die
         optimale Lösung für $k=0, \dots, N-1$ mit $\lambda_N = g_N^x(x_N)$ und
         $x_0$ fest:
 
@@ -849,8 +850,8 @@ $$
             <li>$0 = \nabla_{a_k} H_k(x_k, a_k, \lambda_{k+1})$ (oder $a_k = \text{arg }\min H_k (x_k, a_k, \lambda_{k+1})$)</li>
         </ul>
 
-        Diese (insbesondere das arg min) ist als Pontryagins Minimum-Prinzip
-        bekannt.
+        Diese Bedingungen (insbesondere das arg min) sind als Pontryagins
+        Minimum-Prinzip bekannt.
         </div>
 
         </dd>
@@ -911,7 +912,7 @@ $$
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
+        in welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
         $\Rightarrow$ Deterministisches Problem</dd>
@@ -950,7 +951,7 @@ $$
 
                 <ul>
                     <li>Diskrete Beobachtungen $\rightarrow$ bedingte Zähldichte
-                $$f(z_k | x_k a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$</li>
+                $$f(z_k | x_k, a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$</li>
                     <li>Kontinuierliche Beobachtungen $\rightarrow$ bedingte Wahrscheinlichkeitsdichte
                     $$f(z_k | x_k, a_{k-1}) = \frac{\partial f(z | x_k, a_{k-1})}{\partial z} |_{z=z_k}$$</li>
                 </ul>
@@ -981,7 +982,7 @@ $$
 
                 Der Informationsvektor $\mathcal{I}_k$ beschreibt die zeitliche
                 Entwicklung des Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist
-                sämtliche Information gegeben um zum Zeitpunkt $k$ eine
+                sämtliche Information gegeben, um zum Zeitpunkt $k$ eine
                 Planungsentscheidung zu treffen.
 
                 Das korrespondierende MDP wird <b>Informations-MDP</b> genannt.
@@ -1022,7 +1023,7 @@ $$
         <ul>
             <li>Der Stichprobenmittelwert $\hat{z}$ von $n$ unabhängigen
                 Stichproben $z_i$ einer normalverteilten Zufallsvariablen
-                $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
+                $z \sim \mathcal{N}(\mu, \sigma^2)$ ist eine hinreichende
                 Statistik für $\mu$.</li>
         </ul>
     </dd>
@@ -1048,7 +1049,9 @@ $$
         Source: <a href="https://en.wikipedia.org/w/index.php?title=Bayes_estimator&oldid=731403554#Definition">Wikipedia</a>
 
         In general, the Bayes estimator has no closed-form solution.
-        The Extended Kalman filter is a Bayes estimator.
+        The Kalman filter is a Bayes estimator for linear systems with
+        Gaussian noise; the Extended Kalman filter approximates it for
+        nonlinear systems.
 
         See also:
         <ul>
@@ -1106,7 +1109,7 @@ $$
 
         Prädiktion ($k \rightarrow k+1$)
         <ul>
-            <li>Gegeben: A posteriori Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$</li>
+            <li>Gegeben: A-posteriori-Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$</li>
             <li>Gesucht: prädizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)$</li>
             <li>Berechnung der Parameter:
 
@@ -1121,7 +1124,7 @@ $$
         Filterschritt ($k \overset{Z_k}{\rightarrow} k$)
         <ul>
             <li>Gegeben: prädizierte Dichte $f_k^P(x_k)$, Messung $z_k$</li>
-            <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)$</li>
+            <li>Gesucht: A-posteriori-Dichte $f_k^e(x_k)$</li>
             <li>Berechnung der Parameter:
 
             <ul>
@@ -1144,8 +1147,8 @@ $$
         anstrebt.</dd>
     <dt><dfn id="ol-planung">Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
     <dd>Unter einem Open-loop Control system (offener Regelkreis) versteht man
-        ein technisches System welches ohne Zustandsrückführung, also ohne
-        Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.<br/>
+        ein technisches System, welches ohne Zustandsrückführung, also ohne
+        Messung des Zustands, nachdem die Regelung begonnen wurde, arbeitet.<br/>
         Beispiele sind Spülmaschinen und Rasensprenger.<br/>
         In der Open-loop Planung wird ein optimaler Plan bestimmt:
         $$a_{0:N-1}^* = \text{arg}\min_{a_{0:N-1}} \mathbb{E}\{g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, a_k)\}$$
@@ -1153,11 +1156,11 @@ $$
         deterministische Planungsverfahren anstelle von DP anwendbar.
     </dd>
     <dt><dfn>Closed-loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
-    <dd>Unter einem Closed-loop control system (geschlossenem Regelkreis)
-        versteht man ein technisches System welches mit Zustandsrückführung, also
+    <dd>Unter einem Closed-loop control system (geschlossener Regelkreis)
+        versteht man ein technisches System, welches mit Zustandsrückführung, also
         mit Messung des Zustands während der Regelung, arbeitet.<br/>
         Beispiele sind Systeme im Auto zum Halten der Geschwindigkeit oder
-        Rasensprenger welche die Feuchtigkeit überprüfen.<br/>
+        Rasensprenger, welche die Feuchtigkeit überprüfen.<br/>
         Closed-loop Planung kann mit dynamischer Programmierung gelöst werden.
         Geschlossene Lösung nur in Ausnahmefällen, sonst numerische
         Lösungsverfahren.<br/>
@@ -1167,7 +1170,7 @@ $$
     <dd>
 
         OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
-        wird der aktuelle Informationsvektor $\mathcal{I}_k$ verwendet um
+        wird der aktuelle Informationsvektor $\mathcal{I}_k$ verwendet, um
         $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
         Plan $a_{k:N-1}^*$ bestimmt.
 
@@ -1280,11 +1283,10 @@ $$
         <br/>
         $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$<br/>
         <br/>
-        In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
-        Verfahren, gegeben die initiale Verteilung $P(x_0)$, dieselben Kosten.
+        In der Sensoreinsatzplanung liefern Open-Loop- und Closed-Loop-Verfahren, gegeben die initiale Verteilung $P(x_0)$, dieselben Kosten.
         Daher wird Open-Loop-Planung verwendet. Das heißt, der optimale Plan
         $a_{0:N-1}^*$ wird mittels deterministischer Planung
-        (also Kürzeste-Wege-Suche), bestimmt.
+        (also Kürzeste-Wege-Suche) bestimmt.
 
         <ul>
             <li>$g_i(x_i, a)$: Schrittkosten</li>
@@ -1451,7 +1453,7 @@ $$
         <li>Prinzipien des biologischen Lernens (Negatives / Positives Verstärken)
 
             <ul>
-                <li>Intrinsische Motivation etwas erreichen zu wollen:
+                <li>Intrinsische Motivation, etwas erreichen zu wollen:
                     Abstraktion als Kosten- / Belohnungsfunktion, die es über
                     die Zeit zu min. / max. gilt.</li>
                 <li>Exploratives Lernen</li>
@@ -1462,7 +1464,7 @@ $$
                 <li>Lernen erfolgt unüberwacht und explorativ durch
                     aktive Interaktion mit der Umwelt.</li>
                 <li>RL kombiniert Aspekte der Planung mit Lernmethodik.
-                    Da RL unüberwacht ist erfolgt die Entscheidung aufgrund
+                    Da RL unüberwacht ist, erfolgt die Entscheidung aufgrund
                     eigener Erfahrung.</li>
             </ul>
         </li>
@@ -1533,18 +1535,18 @@ $$
     <dt><dfn id="episode">Episode</dfn></dt>
     <dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
         a start state to an end state.</dd>
-    <dt><dfn id="monte-carlo-methods">Monte-Carlo Methoden</dfn></dt>
+    <dt><dfn id="monte-carlo-methods">Monte-Carlo-Methoden</dfn></dt>
     <dd>
 
         <u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
 
         Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
-        $$\mathbb{E}(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        $$\mathbb{E}(R) \approx \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
         wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
-        Monte-Carlo Methoden funktionieren ausschließlich auf episodischen
+        Monte-Carlo-Methoden funktionieren ausschließlich auf episodischen
         Problemen (d.h. mit Ende), wie z.B. Spielen, da die Aktualisierung nach
         Beendigung einer Episode stattfindet.
 
@@ -1641,7 +1643,7 @@ $$
     <dt><dfn id="epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</dfn></dt>
     <dd>The $\varepsilon$-greedy exploration strategy is a probabilistic
         strategy:<br/>
-        Explore $\varepsilon$% of the time. Otherwise, follow what you
+        Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best.<br/>
         <br/>
         gierige Aktion: Aktion mit höchster erwarteter Belohnung:
@@ -1681,12 +1683,12 @@ $$
 
     </dd>
     <dt><dfn id="epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</dfn></dt>
-    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+    <dd>Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ over time.</dd>
     <dt><dfn id="epsilon-first-strategy">$\varepsilon$-first Strategy</dfn></dt>
     <dd>Explore for $\varepsilon$ steps and then do what you think is best.</dd>
     <dt><dfn id="adaptive-epsilon-greedy-strategy">Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
-    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+    <dd>Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ based on what you
         learn.</dd>
     <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
@@ -1705,11 +1707,11 @@ $$
 
         <ul>
             <li>$\varepsilon$ mit Zeit abklingen lassen</li>
-            <li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ zählt wie häufig der Zustand $x$ besucht wurde.</li>
+            <li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ zählt, wie häufig der Zustand $x$ besucht wurde.</li>
         </ul>
 
     </dd>
-    <dt><dfn>Fazit Monte Carlo-Verfahren</dfn></dt>
+    <dt><dfn>Fazit Monte-Carlo-Verfahren</dfn></dt>
     <dd>
         Vorteile
         <ul>
@@ -1727,7 +1729,7 @@ $$
         </ul>
 
     </dd>
-    <dt><dfn id="temporal-difference">Temporal Difference Verfahren</dfn> (<dfn>TD</dfn>)</dt>
+    <dt><dfn id="temporal-difference">Temporal-Difference-Verfahren</dfn> (<dfn>TD</dfn>)</dt>
     <dd>TD-Verfahren nutzen die zeitliche Differenz zweier Schätzungen
         eines Zustandswertes. Die Aktualisierungen erfolgen nach jedem
         Zustandswechsel. Das heißt, im Gegensatz zu MC-Verfahren, sind
@@ -1780,7 +1782,7 @@ $$
     is the discount factor.
 
     As SARSA chooses $a_{k+1}$ according
-    to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
+    to the policy $\pi$, it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
     <br/>
     <figure>
         <a href="../images/2016/07/sarsa.png"><img src="../images/2016/07/sarsa.png" alt="Pseudocode for SARSA" width="512" height="396" loading="lazy"></a>
@@ -1788,8 +1790,8 @@ $$
     </figure>
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
-    <dd>$Q$-Learning ist ein TD-Verfahren um ohne Modell ein
-        Reinforcement-Learning Problem zu lösen.
+    <dd>$Q$-Learning ist ein TD-Verfahren, um ohne Modell ein
+        Reinforcement-Learning-Problem zu lösen.
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
@@ -1829,20 +1831,21 @@ $$
         Nachteile:
 
         <ul>
-            <li>Bootstrapping problematisch wenn Markov-Annahme nicht erfüllt.
+            <li>Bootstrapping problematisch, wenn Markov-Annahme nicht erfüllt.
             </li>
         </ul>
 
     </dd>
     <dt><dfn>Monte-Carlo RL vs. TD RL</dfn></dt>
-    <dd>Sowohl Monte-Carlo Methoden als auch TD-Methoden benötigen Erfahrung um
+    <dd>Sowohl Monte-Carlo-Methoden als auch TD-Methoden benötigen Erfahrung, um
         die State-Value Function $V$ zu schätzen.
 
-        Die Monte-Carlo Methoden gehen wie folgt vor:
+        Die Monte-Carlo-Methoden gehen wie folgt vor:
 
         $$V(s_t) = V(s_t) + \alpha (R_t - V(s_t))$$
 
-        wobei $R_t$ der reward am Ende der Episode ist.
+        wobei $R_t$ die (diskontierte) Summe der Belohnungen ab $t$ bis zum
+        Ende der Episode ist.
 
         Die Temporal Difference (TD) Verfahren gehen wie folgt vor:
 
@@ -1878,7 +1881,7 @@ $$
     <dt><dfn id="eligibility-trace">Eligibility Trace</dfn> (<dfn>Verantwortlichkeitsspur</dfn>)</dt>
     <dd>
 
-        Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
+        Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt.
         Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).<br/>
         <br/>
         <u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
@@ -1886,11 +1889,11 @@ $$
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
         Beim Erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ für $n > N-k-1$.<br/>
         <br/>
-        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.<br/>
+        Abgewichtung von $R_k^{(n)}$ bei steigendem $n$.<br/>
         <br/>
         <u>Spezialfälle</u>:
         <ul>
-            <li>$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD</li>
+            <li>$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ entspricht einem Ein-Schritt-TD</li>
             <li>$\lambda = 1$: $R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^{N-k-1} \lambda^{n-1} R_k^{(n)} + \lambda^{N-k-1} R_k = R_k$ ist ein Monte Carlo Verfahren</li>
         </ul>
 
@@ -1909,7 +1912,7 @@ $$
         indem die Variable erhöht wird. Im ersten Fall ist es immer eine
         Reduktion.<br/>
         <br/>
-        Wir speichern welche Zustände <u>kürzlich</u> besucht wurden.<br/>
+        Wir speichern, welche Zustände <u>kürzlich</u> besucht wurden.<br/>
         <br/>
         <u>Strategiebewertung $TD(\lambda)$</u>
         <ul>
@@ -1946,7 +1949,7 @@ $$
 
         <u>Wichtig</u>: $Q$-Learning wählt gelegentlich nicht-gierige Aktion,
         korrigiert $Q$ aber mit gieriger Aktion! Um das angemessen zu
-        berücksichtigen wird die Verantwortlichkeitsspur zurückgesetzt. Das
+        berücksichtigen, wird die Verantwortlichkeitsspur zurückgesetzt. Das
         passiert insbesondere zu Beginn des Lernens häufiger, da dort eine
         Exploration zugelassen wird.
 
@@ -1983,7 +1986,7 @@ $$
     <dt><dfn>Funktionsapproximatoren im RL</dfn></dt>
     <dd>
 
-        Bisher: Diskrete Zustände und diskrete Aktionen
+        Bisher: Diskrete Zustände und diskrete Aktionen<br/>
         Nun: Kontinuierliche Zustände und Aktionen
 
         Bei kontinuierlichen Zuständen/Aktionen ist eine Iteration über alle
@@ -1995,7 +1998,7 @@ $$
         <ul>
             <li>Keine statische Trainingsmenge; Daten werden online generiert</li>
             <li>Nichtstationarität: Die Zielfunktion (z.B. $Q$-Funktion oder direkt die Strategie $\pi$)
-                verändern sich über die Zeit. Dies schränkt die Menge der
+                verändert sich über die Zeit. Dies schränkt die Menge der
                 Funktionsapproximatoren ein.
 
                 <ul>
@@ -2033,7 +2036,7 @@ $$
                 wobei $\alpha$ die Schrittweite ist.<br/>
                 <br/>
                 <u>Problem</u>: $J_\pi(x_k)$ ist unbekannt. Allerdings kann
-                es durch eine Schätzung
+                es durch eine Schätzung ersetzt werden:
 
                 $$J_\pi(x_k) \approx r_k + \gamma \cdot \tilde{J}(x_{k+1}, \Theta_k)$$
 
@@ -2266,7 +2269,7 @@ $$
             <ul>
                 <li>Roboter navigiert durch Labyrinth</li>
                 <li>Tic-Tac-Toe</li>
-                <li>Kürzeste Wege Suche</li>
+                <li>Kürzeste-Wege-Suche</li>
                 <li>Aufzugsteuerung</li>
             </ul>
 
@@ -2328,7 +2331,7 @@ $$
                         <li>Sicherheitsäquivalenz:
 
                         <ul>
-                            <li>Diskret: Label-Korrektur Algorithmus</li>
+                            <li>Diskret: Label-Korrektur-Algorithmus</li>
                             <li>Kontinuierlich: Pontryagins Minimumprinzip</li>
                         </ul>
                         </li>
@@ -2397,7 +2400,7 @@ Eine Tabelle in <a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POM
         <th>Yes</th>
     </tr>
     <tr>
-        <th rowspan="2">Are the states completely observable</th>
+        <th rowspan="2">Are the states completely observable?</th>
         <th>Yes</th>
         <td><abbr title="Markov Chain">MC</abbr></td>
         <td><abbr title="Markov Decision Process">MDP</abbr></td>
@@ -2423,7 +2426,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 </details>
 
 <details class="question">
-<summary>Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?</summary>
+<summary>Welche Paradoxa haben wir in den Vorlesungen kennengelernt?</summary>
 <div class="answer">
 Allais-Paradoxon
 </div>
@@ -2435,7 +2438,8 @@ Allais-Paradoxon
 <details class="question">
 <summary>Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?</summary>
 <div class="answer">
-Die Nutzenfunktion ist einfacher zu erstellen.
+Mit einer Nutzenfunktion kann man rechnen, z.B. Erwartungswerte bilden und
+optimieren. Mit einer Präferenzrelation allein geht das nicht.
 </div>
 </details>
 
@@ -2480,8 +2484,8 @@ Label-Korrektur-Algorithmus; LQR wenn linear
 <details class="question">
 <summary>Wann existiert kein globales Minimum für ein Optimierungsproblem?</summary>
 <div class="answer">
-Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
-$\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
+Wenn die Zielfunktion auf der Menge der zulässigen Lösungen nach unten
+unbeschränkt ist, d.h. $\inf_x f(x) = - \infty$, oder wenn die untere Schranke nicht
 angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
 </div>
 </details>
@@ -2489,7 +2493,7 @@ angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
 <details class="question">
 <summary>Wie löst man Optimierungsprobleme mit Nebenbedingungen?</summary>
 <div class="answer">
-Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
+Lagrange-Ansatz, wenn nur Gleichungsnebenbedingungen vorliegen, und der
 <abbr title="Karush-Kuhn-Tucker">KKT</abbr>-Ansatz für Gleichungs- und
 Ungleichungsnebenbedingungen. Numerisch gibt es noch
 <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
@@ -2497,10 +2501,10 @@ Ungleichungsnebenbedingungen. Numerisch gibt es noch
 </details>
 
 <details class="question">
-<summary>Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?</summary>
+<summary>Wann ist es leichter / schwerer, das Optimierungsproblem zu lösen?</summary>
 <div class="answer">
-Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
-wenn die zu optimierende Funktion linear oder konkav ist.
+Leichter: keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
+wenn die zu minimierende Funktion linear oder <a href="https://de.wikipedia.org/wiki/Konvexe_und_konkave_Funktionen">konvex</a> ist.
 </div>
 </details>
 
@@ -2522,7 +2526,7 @@ Penalty-Ansätze
 <details class="question">
 <summary>Was bedeutet es, dass ein Problem geschlossen lösbar ist?</summary>
 <div class="answer">
-Das ist nicht eindeutig definiert. Streng könnte man folgendes sagen: Wenn
+Das ist nicht eindeutig definiert. Streng könnte man Folgendes sagen: Wenn
 auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
 Monte-Carlo-Verfahren, etc.) verzichtet werden kann und die Lösung in Form von
 mathematischen Grundfunktionen angegeben werden kann. Aber das wird häufig
@@ -2624,17 +2628,17 @@ Siehe <a href="#bellman-equation">oben</a>.
 <summary>Was ist an den Bellman-Gleichungen problematisch?</summary>
 <div class="answer">
 i) Erwartungswertberechnung (kann aufwendig sein), ii) Lösen des
-Minimierungsproblems und iii) Repräsentation der Wertfunktion insbes. bei
+Minimierungsproblems und iii) Repräsentation der Wertefunktion insbesondere bei
 kontinuierlichem Zustand
 </div>
 </details>
 
 <details class="question">
-<summary>Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?</summary>
+<summary>Wie hängt ein deterministisches MDP mit der Kürzeste-Wege-Suche zusammen?</summary>
 <div class="answer">
 Die optimale Lösung eines deterministischen MDPs ist der kürzeste Weg in
-dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
-den Zuständen als Gewicht dargestellt wird.
+dem Graphen, dessen Knoten die Zustände des MDPs sind und dessen
+Kantengewichte die Kosten zwischen den Zuständen sind.
 </div>
 </details>
 
@@ -2730,7 +2734,7 @@ Siehe <a href="#sensoreinsatzplanung">oben</a>.
 <details class="question">
 <summary>Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?</summary>
 <div class="answer">
-Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
+Kovarianzbasiert oder informationstheoretisch (Entropie, Transinformation)
 </div>
 </details>
 
@@ -2774,14 +2778,16 @@ beobachtet werden. Das erleichtert das Planen / Finden der Strategie.
 <details class="question">
 <summary>Was ist der große Vorteil von Off-policy RL?</summary>
 <div class="answer">
-TODO (See <a href="http://datascience.stackexchange.com/q/13029/8820">What are the advantages / disadvantages of off-policy RL vs on-policy RL?</a>)
+Man kann mit einer explorativen Verhaltensstrategie (oder mit alten Daten
+bzw. den Erfahrungen anderer Agenten) lernen und trotzdem die optimale,
+gierige Zielstrategie bestimmen. (Siehe auch <a href="http://datascience.stackexchange.com/q/13029/8820">What are the advantages / disadvantages of off-policy RL vs on-policy RL?</a>)
 </div>
 </details>
 
 <details class="question">
 <summary>Warum ist Q-Learning Off-policy?</summary>
 <div class="answer">
-Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+Q-Learning verwendet eine gierige Aktion, um die Q-Funktion zu
 aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
 Zustandsfortschreibung <em>nicht</em> einer gierigen Strategie folgt, sondern etwa
 einer $\epsilon$-gierigen Strategie. SARSA dagegen nutzt dieselbe
@@ -2807,7 +2813,7 @@ Der Dozent nutzt folgende Notation:
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_proplan.php)
-* [Anki-Karteikarten Deck](../anki/Probabilistische Planung.apkg)
+* [Anki-Karteikarten-Deck](../anki/Probabilistische%20Planung.apkg)
 * Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 * Dan Simon: Optimal State Estimation (Kalman-Filter)
@@ -2825,7 +2831,7 @@ Der Dozent nutzt folgende Notation:
 ## Fazit
 
 Die Vorlesung führt in das **Reinforcement Learning** ein. Um das Problem und die
-möglichen Algorithmen zu verstehen werden **MDPs** und **POMDPs** eingeführt.
+möglichen Algorithmen zu verstehen, werden **MDPs** und **POMDPs** eingeführt.
 
 Die Vorlesung ist sehr gut strukturiert. Alle Grundlagen werden eingeführt,
 sodass sehr wenig Vorwissen nötig ist. Dennoch sind absolute Grundlagen der
@@ -2833,7 +2839,7 @@ Wahrscheinlichkeitstheorie und der Optimierungstheorie / Analysis
 empfehlenswert; sonst geht es zu schnell.
 
 Aktuell sieht man als Student immer wieder mal Zusammenhänge nicht. Es ist in
-dieser Vorlesung essentiell am Ball zu bleiben, sonst wird man schnell
+dieser Vorlesung essentiell, am Ball zu bleiben, sonst wird man schnell
 abgehängt. Ich empfehle <a href="#table-mdp-pomdp-rl">die Tabelle</a>
 anzuschauen; daran kann man einige Zusammenhänge gut erkennen.
 
@@ -2842,7 +2848,7 @@ Fragen kompetent und sorgt allgemein für eine sehr angenehme Atmosphäre sowohl
 in der Vorlesung als auch in der Prüfung.
 
 Das Tempo der Vorlesung ist eigentlich sehr gut, aber es gibt immer wieder
-Stellen wo man schnell abgehängt wird. Daher wäre es wünschenswert, auf den
+Stellen, an denen man schnell abgehängt wird. Daher wäre es wünschenswert, auf den
 längeren Stücken vielleicht an der Tafel den aktuellen Kontext zu geben
 (z.B.: POMDP, linearer Spezialfall).
 
@@ -2863,7 +2869,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Mustererkennung](../mustererkennung-klausur/)
 * [Neuronale Netze](../neuronale-netze-vorlesung/)
 * [Lokalisierung Mobiler Agenten](../lma/)
-* [Probabilistische Planung](../probabilistische-planung/)
+* **Probabilistische Planung**
 
 Weitere:
 

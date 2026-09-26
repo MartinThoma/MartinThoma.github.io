@@ -240,8 +240,8 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
 
 <h2>Fakten und interessante Fragen</h2>
 <ul>
-  <li>Algorithmus ist konservativ $\Rightarrow$ Algorithmus ist k-kompetitiv. (Quelle: <a href="http://ls2-www.cs.uni-dortmund.de/~sieling/online07/material/online.pdf#page=5">Begleitmaterial zur Vorlesung Online-Algorihmen</a>, Uni Dortmund)</li>
-  <li>$c(S, V \setminus S) := \sum_{(i,j) \in E,\\i \in S, j \in V \setminus S} c(i,j)$</li>
+  <li>Algorithmus ist konservativ $\Rightarrow$ Algorithmus ist k-kompetitiv. (Quelle: <a href="http://ls2-www.cs.uni-dortmund.de/~sieling/online07/material/online.pdf#page=5">Begleitmaterial zur Vorlesung Online-Algorithmen</a>, Uni Dortmund)</li>
+  <li>$c(S, V \setminus S) := \sum_{\substack{(i,j) \in E,\\ i \in S, j \in V \setminus S}} c(i,j)$</li>
 </ul>
 
 <details class="question">
@@ -254,7 +254,7 @@ Gegeben seien $m \cdot (m-1)$ Jobs &agrave; 1 Sekunde und danach ein Job mit $m$
 <details class="question">
 <summary>Was ist der Worst-Case für <span class="smallCaps">Next Fit</span>?</summary>
 <div class="answer">
-$n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2 \cdot n}$.
+Abwechselnd $2n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2 \cdot n}$, also $\frac{1}{2}, \frac{1}{2n}, \frac{1}{2}, \frac{1}{2n}, \dots$. <span class="smallCaps">Next Fit</span> benötigt $2n$ Behälter, optimal sind $n+1$ Behälter.
 </div>
 </details>
 

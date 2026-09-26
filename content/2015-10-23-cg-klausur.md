@@ -526,7 +526,8 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         schneiden, den gleichen Aufwand verursachen, egal welcher Kindknoten
         traversiert wird.</dd>
     <dt><dfn>Bounding-Volume-Hierarchies</dfn> (<dfn>BVH</dfn>)</dt>
-    <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
+    <dd>BVHs sind eine Datenstruktur, welche die Objekte der Szene
+        hierarchisch in Hüllkörper gruppiert (und nicht den Raum unterteilt).
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnitttests
         machen. Das bedeutet im einfachsten Fall, dass man für $n$ Dreiecke
         und einen Strahl genau $n$ Schnitttests machen muss.

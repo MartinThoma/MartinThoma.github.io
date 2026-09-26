@@ -226,7 +226,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><dfn id="distributive-aggregatfunktion">Distributive Aggregatfunktion</dfn></dt>
     <dd>
         Es gibt eine Funktion $G$, so dass
-        $$F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})$$
+        $$F(\{X_{i,j}\}) = G(\{F(\{X_{i,j} | i=1, \dots, l\}) | j = 1, \dots, J\})$$
         MIN, MAX und COUNT sind distributive Aggregatfunktionen.
     </dd>
     <dt><dfn id="algebraische-aggregatfunktion">Algebraische Aggregatfunktion</dfn></dt>
@@ -696,9 +696,9 @@ Slides: `8-ConstrainedAssociationRules.pdf`
         Beispiele:
         <ul>
             <li>$\min(S) \geq v, \;\;\; v \in \mathbb{R}$ ist anti-monoton</li>
-            <li>$\max(s) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton</li>
-            <li>$\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton</li>
-            <li>$\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton</li>
+            <li>$\max(S) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton</li>
+            <li>$\text{size}(S) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton</li>
+            <li>$\text{size}(S) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton</li>
         </ul>
 
         Anti-Monotonizität ist eine gutartige Eigenschaft von Constraints. Hier
@@ -760,9 +760,11 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         aus, dass jeder Medoid durch einen Datenpunkt im Datensatz
         repräsentiert werden kann. Für eine zufällige Wahl von $k$ Punkten
         $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann überprüft
-        man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
-        für beliebige $p_i \in M$ und $p_j \notin M$ am Score ändern würde.
-        Den besten Tausch führt man durch.<br/>
+        man für zufällig gewählte Paare $p_i \in M$ und $p_j \notin M$, was der
+        Tausch von $p_i$ durch $p_j$ am Score ändern würde. Verbessert ein
+        Tausch den Score, führt man ihn durch und macht mit der neuen
+        Medoid-Menge weiter. Bringt eine vorgegebene Anzahl zufälliger Tausche
+        keine Verbesserung, hat man ein lokales Optimum gefunden.<br/>
         <br/>
         Siehe auch: <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1033770&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F22199%2F01033770.pdf%3Farnumber%3D1033770">CLARANS: a method for clustering objects for spatial data mining</a>
         </dd>
@@ -816,7 +818,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.</dd>
     <dt><dfn>Zentrum eines Clusters</dfn></dt>
-    <dd>$$Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i$$</dd>
+    <dd>$$Z_{i} = \frac{1}{|C_i|} \sum_{j \in C_i} X_j$$</dd>
     <dt><dfn>Radius eines Clusters</dfn></dt>
     <dd>
 
@@ -861,7 +863,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         nun das erste Objekt einer neu erstellten sogenannten Splittergruppe
         $S = \{o\}$
         (engl. <i>splinter group</i>). Nun gibt es noch das Maß
-        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o'} \frac{d(o, o')}{|S|}$$
+        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o' \in S} \frac{d(o, o')}{|S|}$$
         Solange $D(o) > 0$ für ein $o \in C \setminus S$ wird $o^* = \text{arg max}_{o \in C \setminus S} D(o)$ aus dem Cluster in die Splittergruppe gesteckt.
         <br/>
         Siehe auch:
@@ -955,8 +957,8 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Er veranschaulicht das Ergebnis von OPTICS.
 
         <figure>
-            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" width="500" height="342" loading="lazy"></a>
-            <figcaption>OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
+            <a href="../images/2016/04/optics.png"><img src="../images/2016/04/optics.png" alt="OPTICS" width="500" height="342" loading="lazy"></a>
+            <figcaption>OPTICS: Der Reachability-Plot ist ganz unten. (Quelle: <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg">Wikimedia Commons</a>)</figcaption>
         </figure>
 
     </dd>
@@ -1072,7 +1074,7 @@ Slides: `10-StatistModellierung.pdf`
     <dd>$$P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}$$</dd>
     <dt><dfn>Laplace-Smoothing</dfn></dt>
     <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initialisiert.
-        Beachte, dass man auch die Gesamtzahl dann um $k$ erhöhen muss.</dd>
+        Beachte, dass man dann auch die Gesamtzahl um $k$ erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
     <dd>Siehe <a href="../machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
     <dt><dfn>Duplikateliminierung</dfn></dt>
@@ -1186,8 +1188,11 @@ Siehe <a href="#r-tree">oben</a>.
 <summary>Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?</summary>
 <div class="answer">
 Man fügt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
-ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
-so lange das höchstpriore Objekt aus der Queue entfernt
+ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im Folgenden
+so lange das höchstpriore Objekt aus der Queue entfernt, bis ein
+Datenobjekt entnommen wird. Das ist der nächste Nachbar. Wird dagegen ein
+Knoten entnommen, so werden seine Kinder mit ihrem minimalen Abstand zum
+Anfragepunkt in die Queue eingefügt.
 </div>
 </details>
 
@@ -1209,8 +1214,8 @@ gegebenenfalls mehr Knoten betrachtet werden.
 <details class="question">
 <summary>Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?</summary>
 <div class="answer">
-R-Bäume partitionieren im Gegensatz zu kD- und kDB-Bäumen den Datensatz
-nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
+R-Bäume partitionieren im Gegensatz zu kD- und kDB-Bäumen nicht den Raum
+(ihre Rechtecke können sich überlappen), sondern nur den Datensatz. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
 balanciert.
 </div>
 </details>
@@ -1339,7 +1344,8 @@ False-Positive, False-Negative (oder: Konfusionsmatrix)
 <details class="question">
 <summary>Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich berücksichtigen?</summary>
 <div class="answer">
-F score und Gesamtfehler.
+Gesamtfehlerrate (bzw. Erfolgsquote) und Kappa-Koeffizient. Der F-Score
+berücksichtigt nur FP und FN, aber nicht die TN.
 </div>
 </details>
 
@@ -1374,14 +1380,18 @@ wobei A und B Item-Mengen sind.
 <details class="question">
 <summary>Wie findet man Association Rules?</summary>
 <div class="answer">
-In der Warenkorbanalyse / in Transaktionen.
+Mit dem Apriori-Algorithmus oder mit FP-Trees: Zuerst findet man die
+Frequent Itemsets, dann leitet man daraus die Regeln mit ausreichender
+Confidence ab. Typische Daten sind Transaktionen, z.B. in der
+Warenkorbanalyse.
 </div>
 </details>
 
 <details class="question">
 <summary>Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?</summary>
 <div class="answer">
-<a href="#fp-tree">FP-Trees</a>
+Mit einem <a href="#hash-tree">Hash-Tree</a> über den Kandidaten.
+<a href="#fp-tree">FP-Trees</a> vermeiden die Kandidatengenerierung ganz.
 </div>
 </details>
 
@@ -1423,7 +1433,10 @@ selten auch $B$.
 <details class="question">
 <summary>Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?</summary>
 <div class="answer">
-(Antwort: 24.11.2015, 14:34)
+Die Kandidaten für $k=2$ werden aus den frequent 1-Itemsets gebildet. Ihre
+einzigen 1-elementigen Teilmengen sind genau diese beiden Items, die nach
+Konstruktion frequent sind. Der Prune-Schritt könnte also nichts entfernen.
+(Siehe Aufzeichnung vom 24.11.2015, 14:34)
 </div>
 </details>
 
@@ -1438,8 +1451,10 @@ Grenze.
 <details class="question">
 <summary>Was sind multidimensionale Association Rules?</summary>
 <div class="answer">
-Association Rules, die auf verschiedenen Begriffsebenen sind, z.B.
-Oreo $\Rightarrow$ Milch
+Association Rules, die mehrere Dimensionen (Prädikate) umfassen, z.B.
+Alter(X, 20–29) $\land$ kauft(X, Laptop) $\Rightarrow$ kauft(X, Drucker).
+Regeln über verschiedene Begriffsebenen (z.B. Oreo $\Rightarrow$ Milch)
+heißen dagegen Multilevel- bzw. Level-Crossing-Association-Rules.
 </div>
 </details>
 
@@ -1525,10 +1540,12 @@ Endlicher Automat
 <summary>Was versteht man unter dem Antagonismus von Support-basiertem und Constraint-basiertem Pruning?</summary>
 <div class="answer">
 Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
-könnte man versucht sein die Kandidaten schon früh auf die Constraints zu
-überprüfen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
-Frequent sein muss, muss nicht für jede Teilmenge das Constraint erfüllt
-sein. Dies gilt jedoch nicht für die Nebenbedingungen.
+könnte man versucht sein, die Kandidaten schon früh auf die Constraints zu
+überprüfen. Jede Teilmenge eines Frequent Itemsets (FI) ist auch frequent.
+Für Constraints, die nicht anti-monoton sind, gilt das aber nicht: Eine
+Teilmenge eines Itemsets, welches das Constraint erfüllt, muss das
+Constraint nicht erfüllen. Entfernt man solche Kandidaten früh, fehlen
+später Teilmengen, die das Support-basierte Pruning braucht.
 </div>
 </details>
 

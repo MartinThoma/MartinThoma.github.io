@@ -44,12 +44,7 @@ featured_image: logos/klausur.png
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
     <dd>$$\rho_{X,Y} =\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=\frac{\sigma_{X,Y}^2}{\sigma_{X}\sigma_{Y}}$$</dd>
-<!--     <dt><dfn>Rechenregeln Multivariate Normalverteilung</dfn></dt>
-    <dd>
 
-
-
-    </dd> -->
 </dl>
 
 
@@ -378,10 +373,9 @@ featured_image: logos/klausur.png
 
     </dd>
     <dt><dfn>Summenrestriktionen</dfn></dt>
-    <dd>Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
-        Dann muss
+    <dd>Bei einem balancierten Design ($n_1 = n_2 = \dots = n_k$) fordert man
         $$\sum_{i=1}^k \alpha_i = 0$$
-        gelten.
+        (bei einem unbalancierten Design $\sum_{i=1}^k n_i \alpha_i = 0$).
 
         Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
         $$X = \begin{pmatrix}1      & 1& 0      &        &0\\

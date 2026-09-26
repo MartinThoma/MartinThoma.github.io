@@ -204,7 +204,7 @@ Siehe auch:
   </dd>
   <dt><dfn>Partially observable Markov decision process</dfn> (<dfn>POMDP</dfn>)<a name="pomdp-definition"></a></dt>
   <dd>Ein <i>partially observable Markov decision process</i> ist ein
-      7-Tupel <span markdown="0">$S, A, T, R, \Omega, O, \gamma$</span>, wobei
+      7-Tupel <span markdown="0">$(S, A, T, R, \Omega, O, \gamma)$</span>, wobei
 
       <ul>
           <li>$S$ die Zustandsmenge,</li>
@@ -294,9 +294,10 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
       für eine detailliertere Beschreibung.</dd>
   <dt><dfn id="bayes-filter">Bayes Filter</dfn></dt>
-  <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
-      die $(x,y,z)$ Position eines GPS-Sensors sein. Diese Position ist
-      verrauscht.
+  <dd>Ein Bayes-Filter ist ein Verfahren, um den nicht direkt beobachtbaren
+      Zustand $X_t$ eines Systems rekursiv aus verrauschten Messungen $Z_t$
+      zu schätzen. Das könnte z.B. die $(x,y,z)$-Position eines Fahrzeugs
+      sein, die mit einem GPS-Sensor verrauscht gemessen wird.
 
       Nun gibt es drei mögliche Anfragen:
 
@@ -310,7 +311,8 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
               sage die Position $X_{t+k}$ vorher:
               $$P(X_{t+k} | Z_t, \dots, Z_0)$$</li>
           <li><b>Glätten</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
-              sage die Position $P(X_{t-k} | Z_t, \dots, Z_0)$ vorher.</li>
+              schätze die frühere Position $X_{t-k}$:
+              $$P(X_{t-k} | Z_t, \dots, Z_0)$$</li>
       </ul>
 
       Beispiele für Bayes-Filter sind
@@ -444,7 +446,7 @@ Siehe auch:
   <ul>
       <li>einer Klassenmenge $\mathbf{C} = \{C_1, \dots, C_n\}$,</li>
       <li>einer partiellen Ordnung über C, welche die Klassenhierarchie definiert,</li>
-      <li>einer Menge einfacher, nicht probabilistischer Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}$,</li>
+      <li>einer Menge einfacher, nicht probabilistischer Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n\} \forall C \in \mathbf{C}$,</li>
       <li>einer Menge beschreibender Attribute $\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}$,</li>
       <li>einer Menge komplexer Attribute $\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}$.
           Die komplexen Attribute beschreiben funktionale Beziehungen zwischen Klassen.</li>
@@ -498,9 +500,12 @@ See also:
       den linearen Zusammenhang zwischen zwei Zufallsvariablen $X, Y$. Er
       ist definiert als
       $$\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}$$</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>, <a href="https://www.youtube.com/watch?v=4vGiHC35j9s">Machine learning - Introduction to Gaussian processes</a> by Nando De Freitas)</dt>
-  <dd>Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
-      Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.<br/>
+  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gaußscher Prozess</dfn></a> (<dfn>Kriging</dfn>, <a href="https://www.youtube.com/watch?v=4vGiHC35j9s">Machine learning - Introduction to Gaussian processes</a> by Nando De Freitas)</dt>
+    <dd>Ein Gaußscher Prozess ist eine Verteilung über Funktionen, bei der jede
+      endliche Menge von Funktionswerten gemeinsam normalverteilt ist.
+      Gaußsche Prozesse approximieren eine Funktion also dadurch, dass sie an
+      jedem Punkt eine Normalverteilung (Gauß-Verteilung) annehmen.<br/>
+
       <br/>
       Siehe <a href="https://en.wikipedia.org/wiki/Kriging">Gaussian process regression</a>.</dd>
 </dl>
@@ -517,8 +522,10 @@ Siehe auch:
 
 <dl>
   <dt><dfn>Deep Belief Netz</dfn> (<dfn>DBN</dfn>)</dt>
-  <dd>Ein Deep Belief Netz ist ein gerichtetes, azyklisches, probabilistisches
-      graphisches Modell.</dd>
+  <dd>Ein Deep Belief Netz ist ein probabilistisches graphisches Modell aus
+      mehreren Schichten versteckter Variablen. Die obersten beiden Schichten
+      sind ungerichtet verbunden (wie eine RBM), die übrigen Verbindungen
+      sind gerichtet (von oben nach unten).</dd>
   <dt><dfn>Restricted Boltzmann machine</dfn> (<dfn>RBM</dfn>)</dt>
   <dd>Siehe <a href="../neuronale-netze-vorlesung/#rbm">Neuronale Netze</a></dd>
   <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-$k$</dfn>)</dt>
@@ -616,16 +623,17 @@ Slides: `10_SpikingNeuralNets.pdf`
   <dt><dfn>Hodgkin-Huxley Neuronenmodell</dfn></dt>
   <dd>Das <i>Hodgkin-Huxley Neuronenmodell</i> modelliert die elektrochemischen
       Vorgänge innerhalb eines Neurons mit elektrischen Baugliedern. Dies
-      resultiert in Differenzialgleichungen mit 4&nbsp;Variablen (Kapazität
-      der Membran, Widerstände der Ionenkanäle, Gleichgewichtspotentiale,
-      Öffnung der Ionenkanäle).
+      resultiert in Differenzialgleichungen mit 4&nbsp;Zustandsvariablen
+      (Membranpotential sowie drei Variablen für die Öffnung der Natrium- und
+      Kaliumkanäle). Parameter sind u.a. die Kapazität der Membran, die
+      Leitfähigkeiten der Ionenkanäle und die Gleichgewichtspotentiale.
 
       Das Modell ist realistisch, aber sehr komplex. </dd>
   <dt><dfn>LIF Neuronenmodell</dfn> (Leaky integrate and Fire)</dt>
   <dd>Das <i>LIF Neuronenmodell</i> modelliert ein Neuron durch eine
       gewöhnliche Differentialgleichung erster Ordnung.</dd>
   <dt><dfn>SRM Neuronenmodell</dfn> (Spike Response Model)</dt>
-  <dd>Das <i>SRM Neuronenmodell</i> modelliert die Refraktionszeit. Das ist
+  <dd>Das <i>SRM Neuronenmodell</i> modelliert die <a href="https://de.wikipedia.org/wiki/Refrakt%C3%A4rzeit">Refraktärzeit</a>. Das ist
       die Zeit, in der kein neues Aktionspotential aufgebaut werden kann.
 
       Das SRM ist ein rein phänomenologisches Modell, welches trotz der
@@ -741,9 +749,9 @@ die Trennebene durch eine Region geringer Dichte zu legen.
 <div class="answer">
 $$\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2$$
 unter den Nebenbedingungen
-$$\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1$$
+$$\forall i \in \{1, \dots, n\}: y_i (w \cdot x_i - b) \geq 1$$
 und
-$$\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}$$
+$$\forall j \in \{1, \dots, k\}: y_j^* (w \cdot x_j^* -b) \geq 1\text{ mit }y_j^* \in \{-1, 1\}$$
 
 Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
 </div>

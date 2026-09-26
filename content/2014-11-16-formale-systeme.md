@@ -95,7 +95,7 @@ featured_image: logos/klausur.png
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
     <td>Modallogik; Bakery-Algorithmus; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
   </tr>
-<tr>
+  <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
     <td>JML</td>
   </tr>
@@ -396,8 +396,8 @@ können und verstehen:
 * $\stackrel{+}{\rightarrow}$ bezeichnet die transitive Hülle von $\succ$.
 * $\leftrightarrow$ bezeichnet die reflexive, transitive und symmetrische Hülle
   von $\succ$.
-* $(D, \succ)$ heißt konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D$ mit $s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
-* $(D, \succ)$ heißt lokal konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D$ mit $s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
+* $(D, \succ)$ heißt konfluent $:\Leftrightarrow \forall s, s_1, s_2 \in D$ mit $s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
+* $(D, \succ)$ heißt lokal konfluent $:\Leftrightarrow \forall s, s_1, s_2 \in D$ mit $s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
 * $(D, \succ)$ heißt noethersch, wenn es keine unendlichen Folgen $s_0 \succ s_1 \dots \succ s_i \succ \dots$ gibt.
 * Ein konfluentes und noethersches Reduktionssystem heißt kanonisch.
 * Ein Element $s \in D$ heißt irreduzibel (oder eine Normalform) in
@@ -429,16 +429,17 @@ können und verstehen:
 * Für $K \in V^*$ und $J \in V^\omega$ ist $KJ=\{w_1 w_2 | w_1 \in K, w_2 \in J\}$
 * Für $K \in V^*$ ist $\overset{\rightarrow}{K}=\{w \in V^\omega | w \downarrow (n) \in K \text{ für unendlich viele } n\}$
 * Ein Büchi-Automat ist ein nichtdeterministischer endlicher Automat, der
-  Wörter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen
-  Finalzuständen gibt. (vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6">Beispiel</a>)
+  Wörter akzeptiert, wenn es eine Berechnungsfolge gibt, die unendlich oft
+  einen Finalzustand besucht. (vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6">Beispiel</a>)
 * A **U** B: A gilt, bis B gilt (das U steht für "until"). Allerdings gilt B
   auch irgendwann. Es kann also nicht sein, dass A unendlich lange gilt und B
   nie.
 * $A\;\textbf{U}_W\;B$ bedeutet, dass entweder immer A und gleichzeitig nie B
   gilt, oder dass irgendwann B gilt und davor gilt immer A. Das 'W' steht für
   'weak'.
-* $A\;\textbf{V}\;B$: B gilt so lange, bis A gilt. Daher wird V auch
-  'Release-Operator' genannt.
+* $A\;\textbf{V}\;B$: B gilt so lange, bis einschließlich zu dem Zeitpunkt, an
+  dem A gilt. A muss aber nie gelten; dann gilt B immer. A "befreit" B also von
+  der Pflicht zu gelten, daher wird V auch 'Release-Operator' genannt.
 * $\diamond \square P$: Es gibt einen Zeitpunkt, ab dem immer P gilt.
 * Zu jeder LTL-Formel gibt es einen effektiv konstruierbaren Büchi-Automaten.
 * Erfüllbarkeit und Allgemeingültigkeit von LTL-Formeln sind entscheidbar.
@@ -471,8 +472,8 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
   - Grundterm: Ein Term, der keine Variablen enthält. Instanz: Für quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: Für alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen überhaupt keine Variablen mehr.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
-  - Ich vermute mal, dass $Term_\Sigma^0 :=$ Menge der Grundterme. Beachte (sofern die Definition stimmt): $Term_\Sigma^0  \subseteq Term_\Sigma$, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
-Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
+  - Ich vermute mal, dass $Term_\Sigma^0 :=$ Menge der Grundterme. Beachte (sofern die Definition stimmt): $Term_\Sigma^0 \subseteq Term_\Sigma$, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
+* Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 * Haben reflexive Relationen irreduzible Elemente?
@@ -486,7 +487,7 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist $Th(N)$ und was ist $Cn(PA)$?
   - $Th(N)$: Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Arithmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass $Th(N)$ nicht rekursiv ist?
-  - Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Arithmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn $Th(N)$ entscheidbar wäre und P(x) allgemeingültig, dann entsteht ein Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.
+  - Rekursiv heißt entscheidbar. Kurz: Wäre $Th(N)$ entscheidbar, dann wäre $Th(N)$ eine rekursiv aufzählbare, widerspruchsfreie und vollständige Theorie, die PA enthält. Das widerspricht dem Gödelschen Unvollständigkeitssatz. Ausführlicher: Da die Peano-Axiome durch die Peano-Arithmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn $Th(N)$ entscheidbar wäre und P(x) allgemeingültig, dann entsteht ein Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strukturen und insbesondere was bedeutet $2^P$?
   - Eine Omega-Struktur ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. $2^P$ ist die Potenzmenge von P.
@@ -513,8 +514,8 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
   hätte in der Vorlesung gesagt, dass wir W und F verwenden sollen.
 * Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der
   PL1 abzählbar?
-  Jede Teilmenge aus $\Sigma^*$ ist abzählbar für ein endliches Alphabet $\Sigma$.
-  Es gibt aber überabzählbar viele Teilmengen, deren Elemente zwar wieder abzählbar sind, aber sowohl die Teilmengen selbst als auch ihre Elemente nicht aufzählbar sind. Beachte: Aufzählbar $\neq$ Abzählbar.
+  - Ja: Jede Teilmenge von $\Sigma^*$ ist abzählbar für ein endliches Alphabet $\Sigma$.
+    Es gibt aber überabzählbar viele solcher Teilmengen, und die meisten davon sind nicht (rekursiv) aufzählbar. Beachte: Aufzählbar $\neq$ Abzählbar.
 * Wie kann man $U$ durch $U_W$ darstellen?
 
 

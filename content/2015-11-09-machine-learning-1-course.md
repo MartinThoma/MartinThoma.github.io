@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2015-11-09 16:02
 category: German posts
-tags: Klausur, Reinforcement Learning, Clustering, University, Machine Learning, AI
+tags: Klausur, Reinforcement Learning, Clustering, University, Machine Learning, AI, KIT, Dynamic Programming
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="../machine-learning-2-course/">Machine Learning 2</a>.</div>
@@ -513,8 +513,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       werden können. Dabei muss es nur eine Teilmenge $X' \subseteq X$ der
       Größe $n$ geben, damit $VC(H, X) \geq n$ gilt.
 
-      Falls beliebige Teilmengen von $X$ durch $H$ separiert werden können,
-      so gilt $VC(H, X) = \infty$.
+      Falls es für jedes $n \in \mathbb{N}$ eine Teilmenge der Größe $n$ gibt,
+      die durch $H$ beliebig separiert werden kann, so gilt $VC(H, X) = \infty$.
 
       Praktisch gesehen ist $X$, die Menge aller möglichen Features, sowie
       $H$, die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.
@@ -535,8 +535,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
 * Lernproblemtypen: Sei die Menge der Lernbeispiele in $X \times Y$, mit $X \times Y =$...
-    * $\{Attribut_1, Attribut_2, ...\} \times \{True, False\}$: Konzeptlernen
-    * $\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}$: Klassifikation
+    * $\{\text{Attribut}_1, \text{Attribut}_2, \dots\} \times \{\text{True}, \text{False}\}$: Konzeptlernen
+    * $\mathbb{R}^n \times \{\text{Klasse}_1, \dots, \text{Klasse}_k\}$: Klassifikation
     * $\mathbb{R}^n \times \mathbb{R}$: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
@@ -552,7 +552,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       Trainingsbeispiele unterschiedlich gewichtet werden.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
   <dd>Kombiniere mehrere schwache Modelle, um ein gutes zu bekommen. Dabei
-      bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
+      bekommt jedes schwache Modell nur eine zufällige Stichprobe (mit
+      Zurücklegen) der Trainingsdaten.</dd>
   <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>; see <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">YouTube</a>)</dt>
   <dd>Learn a classifier for data. Get examples where the classifier got it
       wrong. Train new classifier on the wrong ones.</dd>
@@ -596,8 +597,8 @@ Weiteres:
   <dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a> und [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]</dt>
   <dd>Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
       VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
-      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
-      werden können.</dd>
+      Anzahl von (geeignet platzierten) Datenpunkten, die von $H^\alpha$
+      beliebig separiert werden können.</dd>
 </dl>
 
 * Folie 44: $\eta \in [0, 1]$ ist ein Parameter, der beliebig gewählt
@@ -637,13 +638,15 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Jedes Gewicht wird unabhängig von den anderen behandelt.
 
         Der Algorithmus hat Konstanten $\eta^- \in \mathbb{R}_{\le 1}$ sowie
-        $\eta^+ \in \mathbb{R}_{\ge 1}$. Für jedes Gewicht ist außerdem
-        $\eta=1$ zu Beginn.
+        $\eta^+ \in \mathbb{R}_{\ge 1}$ (typisch: $\eta^- = 0.5$, $\eta^+ = 1.2$). Jedes Gewicht
+        hat außerdem eine eigene Schrittweite $\eta$, zu Beginn z.B. $\eta = 1$.
 
         Bei jedem Gewichtsupdate wird überprüft, ob sich das Vorzeichen des
-        Gradienten für dieses Gewicht geändert hat. Falls ja, wird das Gewicht
-        um $\eta \cdot \eta^+$ bzw. $\eta \cdot \eta^-$ geändert. Außerdem
-        kann eine minimale bzw. eine maximale Änderung gesetzt werden.
+        Gradienten für dieses Gewicht geändert hat. Falls ja, wird die
+        Schrittweite auf $\eta \cdot \eta^-$ verkleinert, falls nein, auf
+        $\eta \cdot \eta^+$ vergrößert. Dann wird das Gewicht um die Schrittweite
+        entgegen dem Vorzeichen des Gradienten geändert. Außerdem kann eine
+        minimale bzw. eine maximale Schrittweite gesetzt werden.
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
     <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur
@@ -980,7 +983,8 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben das HMM $\lambda$,
       ist dann einfach die Summe der $\alpha_i$ des letzten Zeitschritts.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"><dfn>Rückwärts-Algorithmus</dfn></a></dt>
-  <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu
+  <dd>Der Rückwärts-Algorithmus löst ebenfalls das Evaluierungsproblem und
+      wird im Forward-Backward- und im Baum-Welch-Algorithmus gebraucht. Er benutzt dazu
       dynamische Programmierung: Die Variablen $\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)$ geben
       die Wahrscheinlichkeit an, dass die Sequenz $o_{t+1} o_{t+2} \dots o_{T}$
       beobachtet werden wird, gegeben das HMM&nbsp;$\lambda$ und den
@@ -1032,10 +1036,10 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 Die drei Probleme von HMMs sind
 
 * **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz
-  $\bf{o} = o_1 o_2 \dots o_T$
-  gegeben ein HMM $\lambda$, also $P(\bf{o}|\lambda)$.
+  $\mathbf{o} = o_1 o_2 \dots o_T$
+  gegeben ein HMM $\lambda$, also $P(\mathbf{o}|\lambda)$.
 * **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0">$s_1, \dots, s_T$</span>,
-  gegeben eine Sequenz von Beobachtungen $\bf{o} = o_1 o_2 \dots o_T$.
+  gegeben eine Sequenz von Beobachtungen $\mathbf{o} = o_1 o_2 \dots o_T$.
 * **P3 - Lernproblem**: Optimieren der Modellparameter
 
 
@@ -1535,7 +1539,7 @@ Mutation, Rekombination, Fitness-Funktion, Selektion
 
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
-   * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)
+  * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)
 * [Zusammenfassung der Vorlesung ML 2](../machine-learning-2-course/)
 * Udacity
   * [Knowledge-Based AI: Cognitive Systems](https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409): Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erklärungsbasierte Generalisierung)

@@ -39,7 +39,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
       </tr>
       <tr>
         <td>ECB</td>
-        <td>$c_i = ENC(K, m_i)$<br/>$m_i = DEC(K, m_i)$</td>
+        <td>$c_i = ENC(K, m_i)$<br/>$m_i = DEC(K, c_i)$</td>
         <td>Ja</td>
         <td>Ja</td>
       </tr>
@@ -320,8 +320,8 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
   <li>$pk = (\mathbb{G}, g, g^x)$, $sk=(\mathbb{G}, g, x)$, wobei $x$ zufällig gewählt wird.</li>
 </ol>
 
-Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ &rarr; Verschlüsselung ist zufällig!
-Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
+Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ &rarr; Verschlüsselung ist zufällig!<br/>
+Entschlüsselung eines Chiffrats $(Y, Z)$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
 </details>
 
@@ -330,8 +330,9 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
 <div class="answer">
 <ul>
   <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schlüsselaustausch vornehmen wollen.</li>
-  <li>Das KC schickt Alice ihren Schlüssel $K_A$, den sie für die Kommunikation mit Bob verwenden kann. Zusätzlich wird ein Zeitstempel $T_{KC}$, eine Gültigkeitsdauer $L$ sowie ein frischer Schlüssel $K$ übertragen.</li>
-  <li>TODO!!!!</li>
+  <li>Das KC wählt einen frischen Schlüssel $K$, einen Zeitstempel $T_{KC}$ und eine Gültigkeitsdauer $L$. Es schickt Alice $Enc(K_A, (T_{KC}, L, K, B))$ und das Ticket $Enc(K_B, (T_{KC}, L, K, A))$. Dabei ist $K_A$ bzw. $K_B$ der langfristige Schlüssel, den Alice bzw. Bob mit dem KC teilt.</li>
+  <li>Alice entschlüsselt den ersten Teil und erhält so $K$. Sie schickt Bob das Ticket sowie $Enc(K, (A, T_A))$ mit einem eigenen Zeitstempel $T_A$.</li>
+  <li>Bob entschlüsselt das Ticket, erhält so $K$ und prüft Zeitstempel und Gültigkeitsdauer. Zur Bestätigung schickt er $Enc(K, T_A + 1)$ an Alice.</li>
 </ul>
 
 Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibt's auch.

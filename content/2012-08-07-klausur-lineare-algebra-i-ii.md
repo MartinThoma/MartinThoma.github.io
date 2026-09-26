@@ -34,14 +34,14 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
   <li><strong>Lineare Abbildungen</strong> (Definitionen, Beispiele):
     <ul>
       <li>Lineare Fortsetzung, $\phi: V \rightarrow W$</li>
-      <li>Dimensionssatz $\dim \text{Bild} \phi = \dim V - \dim \phi^2$</li>
+      <li>Dimensionssatz $\dim \text{Bild}\, \phi = \dim V - \dim \phi^2$</li>
       <li>$\text{Hom}(V, W) \cong \mathbb{K}^{m \times n}$ Abbildungsmatrix</li>
-      <li><b>Dualraum</b>: $W = \mathbb{R}$, $V^* = \text{Hom}(V, \mathbb{K})$</li>
-      <li>$\phi: V \rightarrow W$ A</li>
-      <li>$\phi: W* \rightarrow V*$ $A^T$</li>
+      <li><b>Dualraum</b>: $W = \mathbb{K}$, $V^* = \text{Hom}(V, \mathbb{K})$</li>
+      <li>$\phi: V \rightarrow W$ hat die Abbildungsmatrix $A$</li>
+      <li>$\phi^*: W^* \rightarrow V^*$ hat bzgl. der dualen Basen die Abbildungsmatrix $A^T$</li>
       <li>duale Basis, duale Abbildung</li>
       <li>Basiswechsel für Endomorphismen, Formel</li>
-      <li>$\tilde{A} = S^{-1} A S$, S = Matrix des Basiswechsels</li>
+      <li>$\tilde{A} = S^{-1} A S$, $S$ = Matrix des Basiswechsels</li>
     </ul>
   </li>
   <li><strong>Determinante</strong>:
@@ -62,8 +62,8 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
   </li>
   <li><a href="../wie-bestimme-ich-das-inverse-einer-matrix/">Wie bestimme ich das Inverse einer Matrix?</a></li>
   <li><strong>Lösungstheorie von LGSen</strong> (Gauß-Algorithmus)</li>
-  <li><strong>Eigenwerte</strong>, Eigenvektoren  ($\phi(x) = \lambda x, x \neq 0$)</li>
-  <li>charakteristisches Polynom $\phi|_{[x]} = \lambda_{id_{[x]}}$ - <a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a></li>
+  <li><strong>Eigenwerte</strong>, Eigenvektoren ($\phi(x) = \lambda x, x \neq 0$)</li>
+  <li>charakteristisches Polynom $\phi|_{[x]} = \lambda_{id_{[x]}}$ &ndash; <a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a></li>
   <li>$\mathbb{K} = \mathbb{C} \leadsto$ <strong>Jordansche Normalform</strong> (Algorithmus)</li>
 </ul>
 
@@ -119,22 +119,19 @@ Mit diesen Aufgabentypen sollte man rechnen:
   <li><a href="http://de.wikipedia.org/wiki/Gram-Schmidtsches_Orthogonalisierungsverfahren">Gram-Schmidtsches Orthogonalisierungsverfahren</a>: $w_j = v_j - \sum_{i=1}^{j-1} \frac{\langle v_j, w_i \rangle}{\langle w_i, w_i \rangle} \cdot w_i$</li>
   <li>Projektion eines Vektors auf eine Ebene (ÜB 4, A3)</li>
   <li>"Gute" Abbildungen bzgl. $\langle, \rangle: \phi: V \rightarrow V$</li>
-  <li>(Selbst-)adjungierte: $\langle \phi(x), y \rangle = \langle x, \phi*(y) \rangle \rightarrow A = A^T$</li>
+  <li>(Selbst-)adjungierte: $\langle \phi(x), y \rangle = \langle x, \phi^*(y) \rangle \rightarrow A = A^T$</li>
   <li>Lineare Isometrien $\langle \phi(x), \phi(y) \rangle \rightarrow A$ orthogonal<br/>$\varphi$ heißt lineare Isometrie $:\Leftrightarrow \langle \varphi(x), \varphi(y) \rangle = \langle x, y \rangle$</li>
-  <li>Abbildungsmatrizen bzgl. ONB</li>
-  <li>Spektralsatz: $\phi s.a. \Rightarrow \phi \text{ diagonalisierbar}, \exists S \in O(n) \text{ mit } S^{-1} A S = D$.</li>
+  <li>Spektralsatz: $\phi$ s.a. $\Rightarrow \phi$ diagonalisierbar, $\exists S \in O(n)$ mit $S^{-1} A S = D$.</li>
   <li>Abbildungsmatrizen bzgl. ONB</li>
   <li>$\phi$ s.a. Basis: ONB $\Rightarrow$ Abb. Matrix symmetrisch, aber noch mehr: $\exists$ ONB aus EV mit Abb. Matrix = Diagonalmatrix (Spektralsatz)</li>
   <li>$\phi$ lin. Isometrie, Basis ONB $\Rightarrow$ Abb. Matrix ist orthogonal / unitär, aber noch mehr: $\exists$ ONB mit Abb.-Matrix in euklidischer Normalform</li>
   <li><strong><a href="../berechnung-der-euklidischen-normalform/">Berechnung der euklidischen Normalform</a></strong></li>
   <li>Kriterien für pos. definit (Ist geg. BF $\beta$ ein SP?)</li>
   <li><a href="http://de.wikipedia.org/wiki/Hauptachsentransformation">Hauptachsentransformation</a></li>
-  <li>$(V, \langle , \rangle)$ VR mit SP. $\beta =$ Bilinearform  kann man simultan diagonalisieren $\exists$ ONB von $V$, so dass Matrix von $\langle, \rangle E_n$  (nach Definition von ONB)</li>
-  <li><a href="http://de.wikipedia.org/wiki/Hurwitzpolynom#Hurwitz-Kriterium">Hurwitz-Kriterium</a></li>
+  <li>$(V, \langle \cdot, \cdot \rangle)$ VR mit SP, $\beta$ symmetrische Bilinearform: $\langle \cdot, \cdot \rangle$ und $\beta$ kann man simultan diagonalisieren, d. h. $\exists$ ONB von $V$, so dass die Matrix von $\langle \cdot, \cdot \rangle$ gleich $E_n$ ist (nach Definition von ONB) und die Matrix von $\beta$ eine Diagonalmatrix ist</li>
+  <li><a href="https://de.wikipedia.org/wiki/Definitheit">Hurwitz-Kriterium</a> (Hauptminorenkriterium für positive Definitheit)</li>
+  <li><strong>Affine / euklidische Geometrie</strong>: $\operatorname{Aff}(\mathbb{R}^n)$, $\operatorname{Iso}(\mathbb{R}^n)$: Gruppe der Affinitäten bzw. Isometrien</li>
 </ul>
-
-Affine / Euklidische Geometrie
-$\operatorname{Aff}(\mathbb{R}^n), \mathrm{Iso}(\mathbb{R}^n)$ Gruppe der Affinität bzgl. Isometrie
 
 <h2>Lernplan</h2>
 Es empfiehlt sich, einen Lernplan aufzustellen. Wenn ich die Übungsblätter mache, dann lese ich mir zuerst die relevanten Kapitel im <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/Forms/AllItems.aspx">Skript</a> durch.
