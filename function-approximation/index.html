@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#square" title="Square">Square</a></li><li><a class="toc-href" href="#sin" title="Sin">Sin</a></li><li><a class="toc-href" href="#exp" title="exp">exp</a></li><li><a class="toc-href" href="#noise" title="noise">noise</a></li><li><a class="toc-href" href="#make-it-brake" title="Make it brake">Make it brake</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#square" title="Square">Square</a></li><li><a class="toc-href" href="#sin" title="Sin">Sin</a></li><li><a class="toc-href" href="#exp" title="exp">exp</a></li><li><a class="toc-href" href="#noise" title="noise">noise</a></li><li><a class="toc-href" href="#make-it-break" title="Make it break">Make it break</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -116,18 +116,18 @@ Gaussian processes are great for function approximation!</p>
 <ul>
 <li><strong>Interpolation</strong>: What values does the function have in between of known
   values?</li>
-<li><strong>Extrapolation</strong>: What values does the function have outsive of the known
+<li><strong>Extrapolation</strong>: What values does the function have outside of the known
   values?</li>
 </ul>
 <p>I did a couple of very quick examples which look promising.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="square">Square</h3>
-<p>Approximating <span class="math">\(f(x) = x^2\)</span> worked very good:</p>
+<p>Approximating <span class="math">\(f(x) = x^2\)</span> worked very well:</p>
 <figure>
 <a href="../images/2016/01/gauss-x2.png"><img alt="f(x) = x^2" height="377" src="../images/2016/01/gauss-x2.png" width="500"/></a>
 <figcaption>f(x) = x^2</figcaption>
 </figure>
-<p>I've tried if with higher order polynomials, more complex polynomials. No
+<p>I've tried it with higher order polynomials, more complex polynomials. No
 problem.</p>
 <h3 id="sin">Sin</h3>
 <p>Approximating <span class="math">\(f(x) = \sin(3x)\)</span> seems to be more complicated:</p>
@@ -137,8 +137,8 @@ problem.</p>
 </figure>
 <p>I guess a human would see the wave pattern and do a better job here.</p>
 <h3 id="exp">exp</h3>
-<p>Approximating <span class="math">\(f(x) = e^x\)</span> works similar well as polynomials. One can see
-that it does not perfectly fit it, but compared the the range of values seen
+<p>Approximating <span class="math">\(f(x) = e^x\)</span> works similarly well as for polynomials. One can see
+that it does not perfectly fit it, but compared to the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:</p>
 <figure>
@@ -147,17 +147,17 @@ acceptable:</p>
 </figure>
 <h3 id="noise">noise</h3>
 <p>It is claimed that Gaussian processes implicitly model noise so that they can
-easily deal with noise. However, in my experients this seems not to work so
+easily deal with noise. However, in my experiments this seems not to work so
 great. The reason might be that I had points in <span class="math">\([-3, 3]\)</span> of the function</p>
 <div class="math">$$f(x) = x^2$$</div>
 <p>with point-wise gaussian noise <span class="math">\(N \sim \mathcal{N}(0, 1)\)</span>. So the noise is
-quite domintant on that intervall. One of the examples where it worked better
+quite dominant on that interval. One of the examples where it worked better
 is:</p>
 <figure>
 <a href="../images/2016/01/gauss-noise.png"><img alt="f(x) = x^2 with gaussian noise" height="251" loading="lazy" src="../images/2016/01/gauss-noise.png" width="500"/></a>
 <figcaption>f(x) = x^2 with gaussian noise</figcaption>
 </figure>
-<h3 id="make-it-brake">Make it brake</h3>
+<h3 id="make-it-break">Make it break</h3>
 <p>I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function</p>
 <div class="math">$$f(x) = \begin{cases}x^2 &amp;\text{if } x \geq 0\\\\-1 &amp;\text{otherwise}\end{cases}$$</div>
@@ -166,7 +166,7 @@ This was the reason why I created the following function</p>
 <figcaption>Function with discontinuity</figcaption>
 </figure>
 <p>The predicted value is obviously not correct, but you should note that almost
-all function values are within the 95% confidence intervall!</p>
+all function values are within the 95% confidence interval!</p>
 <h2 id="code_1">Code</h2>
 <p>The following code needs <a href="http://docs.scipy.org/doc/numpy-1.10.1/user/install.html"><code>numpy</code></a>
 and <a href="http://scikit-learn.org/stable/install.html"><code>sklearn</code></a>. For the plots,
@@ -175,11 +175,11 @@ you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib<
 
 <span class="sd">"""Example how to use gaussion processes for regression."""</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">gaussian_process</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_process</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create the dataset</span>
     <span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
     <span class="n">y_train</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -196,7 +196,7 @@ you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib<
     <span class="n">plot_graph</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="s2">"x^2"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Function which gets approximated</span>
 <span class="sd">    """</span>
@@ -214,11 +214,11 @@ you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib<
     <span class="c1"># return np.array(y)</span>
 
 
-<span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">function_tex</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">function_tex</span><span class="p">):</span>
     <span class="c1"># Plot the function, the prediction and the 95% confidence interval</span>
     <span class="c1"># based on the MSE</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
-    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">pl</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">pl</span>
 
     <span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>

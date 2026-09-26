@@ -122,20 +122,21 @@ then applies the update rule</p>
 <h2 id="example">Example</h2>
 <div class="math">$$\nabla f(x, y) = \begin{pmatrix}6x + 2y\\6y + 2x\end{pmatrix}$$</div>
 <div class="math">\begin{align}
-x_0 &amp;= (6, 6)       &amp; d_k(6, 6)       &amp;= (-24, -24)\\
-x_1 &amp;= (-18, -18)   &amp; d_k(-18, -18)   &amp;= (72, 72\\
-x_2 &amp;= (54, 54)     &amp; d_k(54, 54)     &amp;= (-216, -216)\\
-x_3 &amp;= (-162, -162) &amp; d_k(-162, -162) &amp;= (648, 648)
+x_0 &amp;= (6, 6)       &amp; \eta d_k(6, 6)       &amp;= (-24, -24)\\
+x_1 &amp;= (-18, -18)   &amp; \eta d_k(-18, -18)   &amp;= (72, 72)\\
+x_2 &amp;= (54, 54)     &amp; \eta d_k(54, 54)     &amp;= (-216, -216)\\
+x_3 &amp;= (-162, -162) &amp; \eta d_k(-162, -162) &amp;= (648, 648)
 \end{align}</div>
 <p>In general:</p>
 <div class="math">\begin{align}
 x_n &amp;= (x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1}, x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1})\\
 x_n &amp;= (-3x_{n-1}, -3x_{n-1})
 \end{align}</div>
-<p>You can clearly see that any learning rate <span class="math">\(\eta &gt; \frac{1}{8}\)</span> will diverge.
-For this example, the learning rate <span class="math">\(\eta = \frac{1}{8}\)</span> would find the
-solution in one step and any <span class="math">\(\eta &lt; \frac{1}{8}\)</span> will converge to the global
-optimum.</p>
+<p>In general, <span class="math">\(x_n = (1 - 8\eta) \cdot x_{n-1}\)</span>. You can clearly see that any learning
+rate <span class="math">\(\eta &gt; \frac{1}{4}\)</span> will diverge (with <span class="math">\(\eta = \frac{1}{4}\)</span> it jumps back and
+forth between <span class="math">\((6, 6)\)</span> and <span class="math">\((-6, -6)\)</span>). For this example, the learning rate
+<span class="math">\(\eta = \frac{1}{8}\)</span> would find the solution in one step and any
+<span class="math">\(\eta &lt; \frac{1}{4}\)</span> will converge to the global optimum.</p>
     
 </div>
 

@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
 <h2 id="why-it-matters">Why it Matters</h2>
 <p>Leaking secrets and credentials happens more often than one would think. I&rsquo;m a bit astonished that we don&rsquo;t see this more often in news articles, but there are certainly some hacks that could be traced back to leaked secrets:</p>
 <ul>
-<li><strong>2017</strong>: Uber paid $100,000 to hackers who got personal data of 57 million customers.</li>
+<li><strong>2017</strong>: Uber paid \$100,000 to hackers who got personal data of 57 million customers.</li>
 <li><strong>2019</strong>: Researchers find over 200,000 unique secrets on GitHub. They describe their methodology and findings in &ldquo;<a href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf">How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories</a>&rdquo;</li>
 <li><strong>2020</strong>: Daimler's internal GitLab was open to the public (<a href="https://www.zdnet.com/article/mercedes-benz-onboard-logic-unit-olu-source-code-leaks-online/">source</a>). If there were any credentials in any of the repositories, they are now public as well. This is why <a href="https://en.wikipedia.org/wiki/Defence_in_depth">Defence in Depth</a> makes sense. Don&rsquo;t store your secrets in a repository, even if the repository is private.</li>
 </ul>
@@ -163,10 +163,10 @@ MathJax.Hub.Queue(function() {
 <p>Supplying the secrets via environment variables has two major drawbacks: (1) Every process can access them; (2) Developers might want to log environment variables and thus leak secrets into the logs.</p>
 <p>Having a dedicated store for secrets and only getting the secrets once it&rsquo;s necessary is one solution to this problem.</p>
 <p>AWS SSM is a very common solution. Here is how you use it with Python:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
 
 
-<span class="k">def</span> <span class="nf">get_ssm_param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_ssm_param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">"ssm"</span><span class="p">)</span>
     <span class="n">param</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="n">Name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">WithDecryption</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">param</span><span class="p">[</span><span class="s2">"Parameter"</span><span class="p">][</span><span class="s2">"Value"</span><span class="p">]</span>

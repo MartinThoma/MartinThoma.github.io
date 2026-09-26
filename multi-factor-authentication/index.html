@@ -164,10 +164,10 @@ MathJax.Hub.Queue(function() {
 <li>The shared secret and the time are used to derive a current one-time password.</li>
 </ol>
 <p>Such a key derivative function could look similar to this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 
-<span class="k">def</span> <span class="nf">derive_key</span><span class="p">(</span><span class="n">shared_secret</span><span class="p">,</span> <span class="n">time_step</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">derive_key</span><span class="p">(</span><span class="n">shared_secret</span><span class="p">,</span> <span class="n">time_step</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="n">unix_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
     <span class="n">time_bucket</span> <span class="o">=</span> <span class="p">(</span><span class="n">unix_time</span> <span class="o">-</span> <span class="n">unix_time</span> <span class="o">%</span> <span class="n">time_step</span><span class="p">)</span> <span class="o">//</span> <span class="n">time_step</span>
     <span class="k">return</span> <span class="n">sha512</span><span class="p">(</span><span class="n">shared_secret</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_bucket</span><span class="p">))</span>

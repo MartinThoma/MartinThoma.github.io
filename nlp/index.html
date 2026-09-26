@@ -140,9 +140,9 @@ language in textual form.</p>
   computer mouse or the animal.</li>
 <li><strong>POS Tagging</strong>: Detect adjectives, verbs, nouns in a sentence.</li>
 <li><strong>Summarization</strong> / <strong>Paraphrasing</strong></li>
-<li><strong>Information extraction</strong>: For example, find the date in a calender
+<li><strong>Information extraction</strong>: For example, find the date in a calendar
   application when the user enters the name of the event. Or dates in an e-mail
-  in order to allow users to create a calender date.<ul>
+  in order to allow users to create a calendar date.<ul>
 <li><a href="https://en.wikipedia.org/wiki/Named-entity_recognition"><strong>Named Entity Recognition</strong></a> (NER):<ul>
 <li>Find names in a text</li>
 <li>Classify names into names of places, people, organizations and non-names.</li>
@@ -152,7 +152,7 @@ language in textual form.</p>
 </ul>
 </li>
 <li><strong>Compound splitting</strong>: For German, "Donaudampfschiffskapit&auml;n" can be split
-  into the compounds "Donau" (a river) "dampfschiff" (steam boat) and "kapit&auml;n"
+  into the compounds "Donau" (a river), "Dampfschiff" (steam boat) and "Kapit&auml;n"
   (captain).</li>
 </ul>
 <h3 id="sentiment-analysis">Sentiment analysis</h3>
@@ -180,12 +180,12 @@ language in textual form.</p>
 </ul>
 </li>
 <li><a href="http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar">Bing Liu Opinion Lexicon</a><ul>
-<li>6786 words (2006 positive, 4783 negative)</li>
+<li>6789 words (2006 positive, 4783 negative)</li>
 </ul>
 </li>
 <li><a href="http://sentiwordnet.isti.cnr.it">SentiWordNet</a></li>
 </ul>
-<p>Positivity of a word can be infered from reviews. Reviews with many stars
+<p>Positivity of a word can be inferred from reviews. Reviews with many stars
 should have positive words, reviews with only one or two stars should have
 negative words.</p>
 <h3 id="text-generation">Text generation</h3>
@@ -195,7 +195,7 @@ negative words.</p>
 </ul>
 <h3 id="named-entity-recognition">Named Entity Recognition</h3>
 <p>Named entities are sequences of word tokens. Each word token can either be other (O),
-the beginning of a namend entity (B) or the continuation of a named entity (I):</p>
+the beginning of a named entity (B) or the continuation of a named entity (I):</p>
 <div class="highlight"><pre><span></span><code>           IO-encoding   IOB-encoding
 Adam       PER           B-PER
 gives      O             O
@@ -216,7 +216,7 @@ table      O             O
 </ul>
 <p>One approach is taking seed relations to find language patterns. For example, a
 seed relation could be <code>BORN-IN(Albert Einstein, Ulm)</code>. Now find all sentences
-in a corpus which contain "Albert Einstain" and "Ulm". You might find find
+in a corpus which contain "Albert Einstein" and "Ulm". You might find
 patterns like:</p>
 <ul>
 <li>Albert Einstein, born in Ulm, ...</li>
@@ -306,17 +306,17 @@ way to do it.</p>
 <li>n-gram model: Model language by counting word-tuples of length n.</li>
 <li>Naive Bayes</li>
 <li>OOV: Out of vocabulary, <code>&lt;UNK&gt;</code> token</li>
-<li>Porters Algorithms</li>
+<li>Porter's algorithm</li>
 <li>Regular expressions (see <a href="http://regexpal.com/">regexpal.com</a> to test)</li>
 <li>sentence2vec: Similar to word2vec.</li>
 <li>Statistical parsing</li>
-<li>Stemming: Bring a word in a normed form (the stem). Mostly for verbs.</li>
+<li>Stemming: Bring a word into a normalized form (the stem). Mostly for verbs.</li>
 <li>Tokenization: Segment the text into tokens.</li>
 <li>Tokenizer: Splits a text into tokens.</li>
 <li>Viterbi Algorithm</li>
-<li>word2vec: Embedd any word in a (high-dimensional) vector space. Allows vector arithmetic.</li>
+<li>word2vec: Embed any word in a (high-dimensional) vector space. Allows vector arithmetic.</li>
 </ul>
-<p>More might me in <a href="../ml-glossary/">my ML Glossary</a>.</p>
+<p>More might be in <a href="../ml-glossary/">my ML Glossary</a>.</p>
 <h3 id="smoothing">Smoothing</h3>
 <p>A common task in NLP is estimating the probability of a word given some other
 words: <span class="math">\(P(w_i | w_{i-1}, w_{i-2})\)</span>. You can do that by counting n-grams <span class="math">\((w_{i-2}, w_{i-1}, w_{i})\)</span>:</p>
@@ -327,7 +327,7 @@ words: <span class="math">\(P(w_i | w_{i-1}, w_{i-2})\)</span>. You can do that 
 uses things you've seen once to estimate things you've never seen:</p>
 <div class="math">$$P^*_{GT}(\text{things never seen}) = \frac{N_1}{N}$$</div>
 <div class="math">$$P^*_{GT}(\text{thing seen}) = (\frac{(c+1) N_{c+1}}{N_c}) / N$$</div>
-<p>when <span class="math">\(c\)</span> bekomes "large" (depends on the dataset), just replace <span class="math">\(N_c\)</span> by a
+<p>when <span class="math">\(c\)</span> becomes "large" (depends on the dataset), just replace <span class="math">\(N_c\)</span> by a
 best-fit power law.</p>
 <p>Other smoothing methods</p>
 <ul>
@@ -336,10 +336,10 @@ best-fit power law.</p>
 <li>Stupid backoff: For very large N-grams</li>
 </ul>
 <p>Another important concept is the continuation probability. While some words (like "a", "to", "the", ...)
-can be followed / preceeded by many different words, others (like "San", "Angelo", "D.C.", "United States of", ...).
+can be followed / preceded by many different words, others (like "San", "Angelo", "D.C.", "United States of", ...) almost always appear next to the same few words.
 The continuation probability quantifies how likely it is that a word is continued by something novel. Putting this together with absolute discounting gives the Kneser-Ney Smoothing algorithm:</p>
 <div class="math">$$P_{KN}(w_i | w_{i-1}) = \frac{\max( c(w_{i-1}, w_i) - d, 0)}{c(w_{i-1})} + \lambda (w_{i-1}) P_{continuation}(w_i)$$</div>
-<p>where <span class="math">\(\lambda \in \mathbb{R}\)</span> weights how important the continuation probability is,</p>
+<p>where <span class="math">\(\lambda \in \mathbb{R}\)</span> weights how important the continuation probability is.</p>
 <h2 id="data-structures_1">Data structures</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a>: a space-efficient probabilistic data structure that is used to test whether an element is a member of a set</li>

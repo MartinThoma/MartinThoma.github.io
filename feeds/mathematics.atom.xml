@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Mathematics</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/mathematics.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-02-21T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>The p value</title><link href="https://martin-thoma.com/p-value/" rel="alternate"></link><published>2017-02-21T20:00:00+01:00</published><updated>2017-02-21T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-21:/p-value/</id><summary type="html">&lt;p&gt;The &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is often used in applications to determine if some improvement
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Mathematics</title><link href="https://martin-thoma.com/" rel="alternate"/><link href="https://martin-thoma.com/feeds/mathematics.atom.xml" rel="self"/><id>https://martin-thoma.com/</id><updated>2017-02-21T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>The p value</title><link href="https://martin-thoma.com/p-value/" rel="alternate"/><published>2017-02-21T20:00:00+01:00</published><updated>2017-02-21T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-21:/p-value/</id><summary type="html">&lt;p&gt;The &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is often used in applications to determine if some improvement
 is &lt;em&gt;significant&lt;/em&gt; or if it was just random chance. Loosely speaking, it defines
-how likely it is (under the assumption of an hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
+how likely it is (under the assumption of a hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
 extreme results.&lt;/p&gt;
 &lt;p&gt;This is interesting for studies in medicine and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is often used in applications to determine if some improvement
 is &lt;em&gt;significant&lt;/em&gt; or if it was just random chance. Loosely speaking, it defines
-how likely it is (under the assumption of an hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
+how likely it is (under the assumption of a hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
 extreme results.&lt;/p&gt;
 &lt;p&gt;This is interesting for studies in medicine and similar scenarios. You have a
 drug and a placebo. You want to figure out if the drug is better than the
@@ -18,27 +18,27 @@ placebo.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Define a hypothesis and an alternative&lt;/strong&gt;: For example &lt;span class="math"&gt;\(H_0: \mu = 100\)&lt;/span&gt; and
   &lt;span class="math"&gt;\(H_1: \mu &amp;gt; 100\)&lt;/span&gt; might be hypotheses if you want to check if a drug increases
   the IQ.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Controll errors&lt;/strong&gt;: You can make two errors. Either &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is true and you
+&lt;li&gt;&lt;strong&gt;Control errors&lt;/strong&gt;: You can make two errors. Either &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is true and you
   reject it or &lt;span class="math"&gt;\(H_1\)&lt;/span&gt; is true, but you don't reject &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;. In statistics, the
   first error is usually controlled. So the test is made in such a way that
   the first error is less than some &lt;span class="math"&gt;\(\alpha \in (0, 1)\)&lt;/span&gt;. Usually, &lt;span class="math"&gt;\(\alpha = 0.05\)&lt;/span&gt;
   or &lt;span class="math"&gt;\(\alpha = 0.01\)&lt;/span&gt; or even lower.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Test statistic&lt;/strong&gt;: You have a value which indicates something about the parameters
-  in the hypotheses. For example &lt;span class="math"&gt;\(T(X_1, \dots, X_n) = \frac{1}{n}\sum_{i=1} X_i\)&lt;/span&gt;.&lt;/li&gt;
+  in the hypotheses. For example &lt;span class="math"&gt;\(T(X_1, \dots, X_n) = \frac{1}{n}\sum_{i=1}^n X_i\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Test statistic distribution&lt;/strong&gt;: &lt;span class="math"&gt;\(T\)&lt;/span&gt; itself is a random variable and you can calculate its distribution
   (e.g. &lt;span class="math"&gt;\(T \stackrel{H_0}{\sim} \mathcal{N}(\mu, \frac{\sigma^2}{n})\)&lt;/span&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Calculate test decision&lt;/strong&gt;: Hence you can calculate a &lt;span class="math"&gt;\(c \in \mathbb{R}\)&lt;/span&gt; such that
-  &lt;span class="math"&gt;\(P_{H_0}(H_0 \text{ is rejected}) = P_{H_0}(T \leq c) \leq \alpha\)&lt;/span&gt;.
-  It does not have to be &lt;span class="math"&gt;\(T &amp;lt; c\)&lt;/span&gt;, but often it is.&lt;/li&gt;
+  &lt;span class="math"&gt;\(P_{H_0}(H_0 \text{ is rejected}) = P_{H_0}(T \geq c) \leq \alpha\)&lt;/span&gt;.
+  It does not have to be &lt;span class="math"&gt;\(T \geq c\)&lt;/span&gt;, but often it is.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="the-p-value"&gt;The p value&lt;/h2&gt;
 &lt;p&gt;Now note that you could also make it the other way round. You could calculate&lt;/p&gt;
 &lt;div class="math"&gt;$$p^* = P_{H_0} (T(X) \geq T(x))$$&lt;/div&gt;
-&lt;p&gt;If &lt;span class="math"&gt;\(p^* \leq \alpha\)&lt;/span&gt;, then &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; can be rejected on Niveau &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If &lt;span class="math"&gt;\(p^* \leq \alpha\)&lt;/span&gt;, then &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; can be rejected at level &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id="interesting-statements"&gt;Interesting statements&lt;/h2&gt;
-&lt;p&gt;I just came across the following statments which I think are interesting enough
+&lt;p&gt;I just came across the following statements which I think are interesting enough
 to share them. &lt;strong&gt;All of them are wrong.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The follwing was takine from a German statistics exam by Dr. Klar (KIT, WS 2013/2014).&lt;/p&gt;
+&lt;p&gt;The following was taken from a German statistics exam by Dr. Klar (KIT, WS 2013/2014).&lt;/p&gt;
 &lt;p&gt;Assume for the following, that an experiment resulted in a &lt;span class="math"&gt;\(p\)&lt;/span&gt; value of &lt;span class="math"&gt;\(0.01\)&lt;/span&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is certainly false.&lt;/li&gt;
@@ -56,20 +56,20 @@ to share them. &lt;strong&gt;All of them are wrong.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2015.1069760"&gt;The p-Value You Can&amp;rsquo;t Buy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Mathematics"></category><category term="Statistics"></category></entry><entry><title>The Absolute Value Function</title><link href="https://martin-thoma.com/abs-function/" rel="alternate"></link><published>2017-02-20T20:00:00+01:00</published><updated>2017-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-20:/abs-function/</id><summary type="html">&lt;p&gt;I was never really taught how to deal with the absolute value function, but
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Mathematics"/><category term="Statistics"/></entry><entry><title>The Absolute Value Function</title><link href="https://martin-thoma.com/abs-function/" rel="alternate"/><published>2017-02-20T20:00:00+01:00</published><updated>2017-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-20:/abs-function/</id><summary type="html">&lt;p&gt;I was never really taught how to deal with the absolute value function, but
 I need it from time to time. So here are a few hints.&lt;/p&gt;
 &lt;h2 id="solving-equations"&gt;Solving Equations&lt;/h2&gt;
-&lt;p&gt;Lets say you want to solve the equation&lt;/p&gt;
+&lt;p&gt;Let's say you want to solve the equation&lt;/p&gt;
 &lt;div class="math"&gt;$$|x - a | = b$$&lt;/div&gt;
 &lt;p&gt;for &lt;span class="math"&gt;\(x\)&lt;/span&gt;. Then you need to realize that this equation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was never really taught how to deal with the absolute value function, but
 I need it from time to time. So here are a few hints.&lt;/p&gt;
 &lt;h2 id="solving-equations"&gt;Solving Equations&lt;/h2&gt;
-&lt;p&gt;Lets say you want to solve the equation&lt;/p&gt;
+&lt;p&gt;Let's say you want to solve the equation&lt;/p&gt;
 &lt;div class="math"&gt;$$|x - a | = b$$&lt;/div&gt;
 &lt;p&gt;for &lt;span class="math"&gt;\(x\)&lt;/span&gt;. Then you need to realize that this equation is equivalent to two
 equations:&lt;/p&gt;
 &lt;div class="math"&gt;$$x - a = b \qquad \text{ and } \qquad -(x-a) = b$$&lt;/div&gt;
-&lt;p&gt;you can solve both of them independantly. You can get 0, 1 or 2 solutions
+&lt;p&gt;you can solve both of them independently. You can get 0, 1 or 2 solutions
 when the absolute function is involved:&lt;/p&gt;
 &lt;div class="math"&gt;$$x = a + b \qquad \text{ and } \qquad x = a - b$$&lt;/div&gt;
 &lt;p&gt;
@@ -77,19 +77,19 @@ or shorter
 &lt;/p&gt;
 &lt;div class="math"&gt;$$x = a \pm b$$&lt;/div&gt;
 &lt;h2 id="solving-inequalities"&gt;Solving Inequalities&lt;/h2&gt;
-&lt;p&gt;Lets say you want to solve the inequality&lt;/p&gt;
+&lt;p&gt;Let's say you want to solve the inequality&lt;/p&gt;
 &lt;div class="math"&gt;$$|a - x| \leq b$$&lt;/div&gt;
 &lt;p&gt;for &lt;span class="math"&gt;\(x\)&lt;/span&gt;. Again, this inequality is equivalent to the two inequalities&lt;/p&gt;
 &lt;div class="math"&gt;$$a - x \leq b \qquad \text{ and } \qquad -(a-x) \leq b$$&lt;/div&gt;
-&lt;p&gt;You can solve both of them independantly for &lt;span class="math"&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
-&lt;div class="math"&gt;$$a - b \leq x \qquad \text{ and } \qquad -x \leq a + b$$&lt;/div&gt;
+&lt;p&gt;You can solve both of them independently for &lt;span class="math"&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$a - b \leq x \qquad \text{ and } \qquad x \leq a + b$$&lt;/div&gt;
 &lt;p&gt;leading to&lt;/p&gt;
 &lt;div class="math"&gt;$$a - b \leq x \leq a + b$$&lt;/div&gt;
 &lt;p&gt;Note that both inequalities have to be fulfilled at the same time! Just try it
 for &lt;span class="math"&gt;\(a = 0\)&lt;/span&gt; and &lt;span class="math"&gt;\(b = -5\)&lt;/span&gt;!&lt;/p&gt;
 &lt;h2 id="derivatives"&gt;Derivatives&lt;/h2&gt;
 &lt;p&gt;The function &lt;span class="math"&gt;\(f(x) = |x|\)&lt;/span&gt; is equivalent to &lt;span class="math"&gt;\(f(x) = \sqrt{x^2}\)&lt;/span&gt;. Hence you can
-derive the absolute value by deriving the root of the square function of its
+differentiate the absolute value by differentiating the root of the square of its
 argument. And the chain rule, of course:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
     f'(x) &amp;amp;= (\sqrt{x^2})'\\
@@ -98,11 +98,11 @@ argument. And the chain rule, of course:&lt;/p&gt;
           &amp;amp;= \frac{x}{|x|}\\
           &amp;amp;= \text{sign}(x)
 \end{align}&lt;/div&gt;
-&lt;p&gt;Note that the derivative is not devined at 0.&lt;/p&gt;
+&lt;p&gt;Note that the derivative is not defined at 0.&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Absolute_value"&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Mathematics"></category><category term="Analysis"></category></entry><entry><title>Estimating Demand</title><link href="https://martin-thoma.com/estimating-demand/" rel="alternate"></link><published>2016-07-15T20:00:00+02:00</published><updated>2016-07-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-15:/estimating-demand/</id><summary type="html">&lt;p&gt;I've just had the problem that I'm helping to plan a group event, where the
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Mathematics"/><category term="Analysis"/></entry><entry><title>Estimating Demand</title><link href="https://martin-thoma.com/estimating-demand/" rel="alternate"/><published>2016-07-15T20:00:00+02:00</published><updated>2016-07-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-15:/estimating-demand/</id><summary type="html">&lt;p&gt;I've just had the problem that I'm helping to plan a group event, where the
 participants should all have bikes. There are 170 participants and 80 bikes.
 Some of the participants might be able to bring their own bikes. So we asked
 them to tell us who can't bring a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've just had the problem that I'm helping to plan a group event, where the
@@ -114,7 +114,7 @@ them can bring their own bike.&lt;/p&gt;
 &lt;h2 id="modelling"&gt;Modelling&lt;/h2&gt;
 &lt;p&gt;Let &lt;span class="math"&gt;\(X\)&lt;/span&gt; be the random variable which represents the number of people who will
 not bring their own bikes. I will assume that the participants bring or bring
-not their bikes independent of each other. So have a binomial distribution:&lt;/p&gt;
+not their bikes independently of each other. So we have a binomial distribution:&lt;/p&gt;
 &lt;div class="math"&gt;$$X \sim Bin(n=91, p=\frac{79-7}{79})$$&lt;/div&gt;
 &lt;p&gt;The sample of &lt;span class="math"&gt;\(n=79\)&lt;/span&gt; people who answered will be called &lt;span class="math"&gt;\(S\)&lt;/span&gt;. Let &lt;span class="math"&gt;\(b \in \mathbb{N}_0\)&lt;/span&gt; be our guess of the number of people of those &lt;span class="math"&gt;\(91\)&lt;/span&gt; who do not bring their bikes. The higher we estimate &lt;span class="math"&gt;\(b\)&lt;/span&gt;, the more conservative we are. This means a higher certainty (e.g. 99% instead of 95%) should result in a higher &lt;span class="math"&gt;\(b\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;We want to be &lt;span class="math"&gt;\(95\%\)&lt;/span&gt; confident that we have enough bikes.&lt;/p&gt;
@@ -122,19 +122,19 @@ not their bikes independent of each other. So have a binomial distribution:&lt;/
 &lt;div class="math"&gt;$$
 \begin{align}
 P(X \leq b) &amp;amp;\geq 95\%\\
-\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;amp;\geq 95\%\\
+\sum_{k=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;amp;\geq 95\%\\
 b &amp;amp;= \lceil binom.ppf(95\%, n, p) \rceil
 \end{align}
 $$&lt;/div&gt;
-&lt;p&gt;I am lazy with calculating, so lets do it with Python:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scipy.stats&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;binom&lt;/span&gt;
+&lt;p&gt;I am lazy with calculating, so let's do it with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;scipy.stats&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;binom&lt;/span&gt;
 
 &lt;span class="n"&gt;confidence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.95&lt;/span&gt;
 &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;91&lt;/span&gt;
 &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;7.0&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;79&lt;/span&gt;
 &lt;span class="n"&gt;binom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ppf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;confidence&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This gives 87. So we assume only 4 more people will bring their own bike.&lt;/p&gt;</content><category term="Mathematics"></category><category term="Statistics"></category><category term="Mathematics"></category></entry><entry><title>Distribution of Random Variables when max gets applied</title><link href="https://martin-thoma.com/max-distribution/" rel="alternate"></link><published>2015-01-22T11:07:00+01:00</published><updated>2015-01-22T11:07:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2015-01-22:/max-distribution/</id><summary type="html">&lt;p&gt;I just wanted to solve an exercise where I had random variables &lt;span class="math"&gt;\(X_1, \dots, X_n\)&lt;/span&gt;
+&lt;p&gt;This gives 87. So we assume only 4 more people will bring their own bike.&lt;/p&gt;</content><category term="Mathematics"/><category term="Statistics"/><category term="Mathematics"/></entry><entry><title>Distribution of Random Variables when max gets applied</title><link href="https://martin-thoma.com/max-distribution/" rel="alternate"/><published>2015-01-22T11:07:00+01:00</published><updated>2015-01-22T11:07:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2015-01-22:/max-distribution/</id><summary type="html">&lt;p&gt;I just wanted to solve an exercise where I had random variables &lt;span class="math"&gt;\(X_1, \dots, X_n\)&lt;/span&gt;
 which were all &lt;span class="math"&gt;\(U([0, 1])\)&lt;/span&gt; distributed and &lt;span class="math"&gt;\(Y_n = \max(X_1, \dots, X_n)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;I wondered what the distribution of &lt;span class="math"&gt;\(Y_n\)&lt;/span&gt; is (for big &lt;span class="math"&gt;\(n\)&lt;/span&gt;), so I wanted to plot
 it. How do I plot it …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I just wanted to solve an exercise where I had random variables &lt;span class="math"&gt;\(X_1, \dots, X_n\)&lt;/span&gt;
@@ -144,11 +144,11 @@ it. How do I plot it? With Python, of course ☺&lt;/p&gt;
 &lt;p&gt;Here is the program:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;numpy.random&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="c1"&gt;# Generate Data&lt;/span&gt;
     &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;
     &lt;span class="n"&gt;numbers_a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -182,11 +182,11 @@ it. How do I plot it? With Python, of course ☺&lt;/p&gt;
 harder to read:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;numpy.random&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="c1"&gt;# Generate Data&lt;/span&gt;
     &lt;span class="n"&gt;numbers_l&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
     &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
@@ -210,8 +210,8 @@ harder to read:&lt;/p&gt;
     &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_parser&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ArgumentDefaultsHelpFormatter&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;get_parser&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;argparse&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ArgumentDefaultsHelpFormatter&lt;/span&gt;
 
     &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
         &lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="vm"&gt;__doc__&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;formatter_class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ArgumentDefaultsHelpFormatter&lt;/span&gt;
@@ -244,7 +244,7 @@ harder to read:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/List_of_probability_distributions"&gt;List of probability distributions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bespokeblog.wordpress.com/2011/07/11/basic-data-plotting-with-matplotlib-part-3-histograms/"&gt;Basic Data Plotting with Matplotlib Part 3: Histograms&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Python"></category><category term="NumPy"></category><category term="Matplotlib"></category><category term="Probability"></category><category term="Mathematics"></category></entry><entry><title>Calculations with quaternions</title><link href="https://martin-thoma.com/calculations-with-quaternions/" rel="alternate"></link><published>2013-09-09T14:45:17+02:00</published><updated>2013-09-09T14:45:17+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-09:/calculations-with-quaternions/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Quaternion"&gt;Quaternions&lt;/a&gt; are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion &lt;span class="math"&gt;\(h\)&lt;/span&gt; can be written as a vector or in the form of &lt;span class="math"&gt;\(h = h_0 + ih_1 + j h_2 + kh_3\)&lt;/span&gt;, where &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; and &lt;span class="math"&gt;\(k\)&lt;/span&gt; are related to the &lt;span class="math"&gt;\(i\)&lt;/span&gt; in complex …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Quaternion"&gt;Quaternions&lt;/a&gt; are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion &lt;span class="math"&gt;\(h\)&lt;/span&gt; can be written as a vector or in the form of &lt;span class="math"&gt;\(h = h_0 + ih_1 + j h_2 + kh_3\)&lt;/span&gt;, where &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; and &lt;span class="math"&gt;\(k\)&lt;/span&gt; are related to the &lt;span class="math"&gt;\(i\)&lt;/span&gt; in complex numbers. Accordingly &lt;span class="math"&gt;\(h_0\)&lt;/span&gt; is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Python"/><category term="NumPy"/><category term="Matplotlib"/><category term="Probability"/><category term="Mathematics"/></entry><entry><title>Calculations with quaternions</title><link href="https://martin-thoma.com/calculations-with-quaternions/" rel="alternate"/><published>2013-09-09T14:45:17+02:00</published><updated>2013-09-09T14:45:17+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-09:/calculations-with-quaternions/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Quaternion"&gt;Quaternions&lt;/a&gt; are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion &lt;span class="math"&gt;\(h\)&lt;/span&gt; can be written as a vector or in the form of &lt;span class="math"&gt;\(h = h_0 + ih_1 + j h_2 + kh_3\)&lt;/span&gt;, where &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; and &lt;span class="math"&gt;\(k\)&lt;/span&gt; are related to the &lt;span class="math"&gt;\(i\)&lt;/span&gt; in complex …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Quaternion"&gt;Quaternions&lt;/a&gt; are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion &lt;span class="math"&gt;\(h\)&lt;/span&gt; can be written as a vector or in the form of &lt;span class="math"&gt;\(h = h_0 + ih_1 + j h_2 + kh_3\)&lt;/span&gt;, where &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; and &lt;span class="math"&gt;\(k\)&lt;/span&gt; are related to the &lt;span class="math"&gt;\(i\)&lt;/span&gt; in complex numbers. Accordingly &lt;span class="math"&gt;\(h_0\)&lt;/span&gt; is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.&lt;/p&gt;
 &lt;p&gt;For &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; and &lt;span class="math"&gt;\(k\)&lt;/span&gt; the following rules are applied:&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(i^2 = j^2 = k^2 = -1\)&lt;/span&gt;
 and
@@ -325,7 +325,7 @@ z &amp;amp;= \frac{m_{21} - m_{12}}{4s}
 &lt;p&gt;In this case &lt;span class="math"&gt;\(R_y\)&lt;/span&gt; is the y-axis, so
 &lt;/p&gt;
 &lt;div class="math"&gt;$$\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$$&lt;/div&gt;
-&lt;p&gt;.&lt;/p&gt;</content><category term="Mathematics"></category><category term="Algebra"></category><category term="Mathematics"></category></entry><entry><title>How to solve linear congruence equations</title><link href="https://martin-thoma.com/solve-linear-congruence-equations/" rel="alternate"></link><published>2013-09-01T17:43:49+02:00</published><updated>2013-09-01T17:43:49+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-01:/solve-linear-congruence-equations/</id><summary type="html">&lt;p&gt;When you have a system of linear congruences like:&lt;/p&gt;
+&lt;p&gt;.&lt;/p&gt;</content><category term="Mathematics"/><category term="Algebra"/><category term="Mathematics"/></entry><entry><title>How to solve linear congruence equations</title><link href="https://martin-thoma.com/solve-linear-congruence-equations/" rel="alternate"/><published>2013-09-01T17:43:49+02:00</published><updated>2013-09-01T17:43:49+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-01:/solve-linear-congruence-equations/</id><summary type="html">&lt;p&gt;When you have a system of linear congruences like:&lt;/p&gt;
 &lt;div class="math"&gt;$$
 \begin{align}
 x &amp;amp;\equiv 4 \mod 19\\
@@ -354,7 +354,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 &lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;ExtendedEuclideanAlgorithm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;ExtendedEuclideanAlgorithm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;        Calculates gcd(a,b) and a linear combination such that&lt;/span&gt;
 &lt;span class="sd"&gt;        gcd(a,b) = a*x + b*y&lt;/span&gt;
@@ -376,7 +376,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;lastx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;lasty&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"gcd"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aO&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;lastx&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;bO&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;lasty&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;solveLinearCongruenceEquations&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rests&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;modulos&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;solveLinearCongruenceEquations&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rests&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;modulos&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    Solve a system of linear congruences.&lt;/span&gt;
 
@@ -396,7 +396,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;doctest&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;doctest&lt;/span&gt;
 
     &lt;span class="n"&gt;doctest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testmod&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -404,7 +404,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem"&gt;Try it online&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/SolveLinearCongruences"&gt;Sources&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Python"></category><category term="Mathematics"></category></entry><entry><title>How to calculate the Legendre symbol</title><link href="https://martin-thoma.com/calculate-legendre-symbol/" rel="alternate"></link><published>2013-09-01T13:05:46+02:00</published><updated>2013-09-01T13:05:46+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-01:/calculate-legendre-symbol/</id><summary type="html">&lt;h2&gt;Pseudocode&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Python"/><category term="Mathematics"/></entry><entry><title>How to calculate the Legendre symbol</title><link href="https://martin-thoma.com/calculate-legendre-symbol/" rel="alternate"/><published>2013-09-01T13:05:46+02:00</published><updated>2013-09-01T13:05:46+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-09-01:/calculate-legendre-symbol/</id><summary type="html">&lt;h2&gt;Pseudocode&lt;/h2&gt;
 
 
 &lt;h2&gt;Python&lt;/h2&gt;
@@ -413,12 +413,12 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 &lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;isPrime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;isPrime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
 
 &lt;span class="c1"&gt;# http://stackoverflow.com/a/14793082/562769&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;factorize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;factorize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;factors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
 
     &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
@@ -433,12 +433,12 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 &lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;isPrime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;isPrime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
 
 &lt;span class="c1"&gt;# http://stackoverflow.com/a/14793082/562769&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;factorize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;factorize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;factors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
 
     &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
@@ -454,7 +454,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;factors&lt;/span&gt;
 
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;calculateLegendre&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;calculateLegendre&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    Calculate the legendre symbol (a, p) with p is prime.&lt;/span&gt;
 &lt;span class="sd"&gt;    The result is either -1, 0 or 1&lt;/span&gt;
@@ -506,7 +506,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;doctest&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;doctest&lt;/span&gt;
 
     &lt;span class="n"&gt;doctest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testmod&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -514,7 +514,7 @@ Johannes Schickling has written a very nice &lt;a href="http://schickling.github
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/eaz"&gt;Rules how to calculate with Legendre symbols&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Calculate-Legendre"&gt;Python and Pseudocode source files&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Python"></category><category term="Algebra"></category><category term="Mathematics"></category></entry><entry><title>How many Homomorphisms exist between Z/nZ and Z/mZ?</title><link href="https://martin-thoma.com/how-many-homomorphisms-exist-between-znz-and-zmz/" rel="alternate"></link><published>2013-08-27T15:26:38+02:00</published><updated>2013-08-27T15:26:38+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-27:/how-many-homomorphisms-exist-between-znz-and-zmz/</id><summary type="html">&lt;p&gt;Today I've wondered how many homomorphisms are between the groups &lt;span class="math"&gt;\((\mathbb{Z}/n\mathbb{Z},+)\)&lt;/span&gt; and &lt;span class="math"&gt;\((\mathbb{Z}/m\mathbb{Z},+)\)&lt;/span&gt; with &lt;span class="math"&gt;\(m, n \geq 2\)&lt;/span&gt;. Does it make a difference if I use + or &lt;span class="math"&gt;\(\cdot\)&lt;/span&gt; as operators?&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Python"/><category term="Algebra"/><category term="Mathematics"/></entry><entry><title>How many Homomorphisms exist between Z/nZ and Z/mZ?</title><link href="https://martin-thoma.com/how-many-homomorphisms-exist-between-znz-and-zmz/" rel="alternate"/><published>2013-08-27T15:26:38+02:00</published><updated>2013-08-27T15:26:38+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-27:/how-many-homomorphisms-exist-between-znz-and-zmz/</id><summary type="html">&lt;p&gt;Today I've wondered how many homomorphisms are between the groups &lt;span class="math"&gt;\((\mathbb{Z}/n\mathbb{Z},+)\)&lt;/span&gt; and &lt;span class="math"&gt;\((\mathbb{Z}/m\mathbb{Z},+)\)&lt;/span&gt; with &lt;span class="math"&gt;\(m, n \geq 2\)&lt;/span&gt;. Does it make a difference if I use + or &lt;span class="math"&gt;\(\cdot\)&lt;/span&gt; as operators?&lt;/p&gt;
 &lt;p&gt;Let &lt;span class="math"&gt;\(M := (\mathbb{Z}/m\mathbb{Z},+)\)&lt;/span&gt; and &lt;span class="math"&gt;\(N := (\mathbb{Z}/n …&lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Today I've wondered how many homomorphisms are between the groups &lt;span class="math"&gt;\((\mathbb{Z}/n\mathbb{Z},+)\)&lt;/span&gt; and &lt;span class="math"&gt;\((\mathbb{Z}/m\mathbb{Z},+)\)&lt;/span&gt; with &lt;span class="math"&gt;\(m, n \geq 2\)&lt;/span&gt;. Does it make a difference if I use + or &lt;span class="math"&gt;\(\cdot\)&lt;/span&gt; as operators?&lt;/p&gt;
 &lt;p&gt;Let &lt;span class="math"&gt;\(M := (\mathbb{Z}/m\mathbb{Z},+)\)&lt;/span&gt; and &lt;span class="math"&gt;\(N := (\mathbb{Z}/n\mathbb{Z},+)\)&lt;/span&gt; be groups and &lt;span class="math"&gt;\(\varphi: M \rightarrow N\)&lt;/span&gt; be a group homomorphism.
 Let &lt;span class="math"&gt;\(H := \{\varphi: M \rightarrow N\}\)&lt;/span&gt;&lt;/p&gt;
@@ -585,7 +585,7 @@ But I've created a little &lt;a href="https://gist.github.com/MartinThoma/635347
 &lt;h2 id="related"&gt;Related&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://math.stackexchange.com/q/45663/6876"&gt;Quick way to find the number of the group homomorphisms &amp;varphi;:Z3&amp;rarr;Z6?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Algebra"></category><category term="Mathematics"></category></entry><entry><title>Why is the stabilizer subgroup a subgroup?</title><link href="https://martin-thoma.com/stabilizer-subgroup-subgroup/" rel="alternate"></link><published>2013-08-26T11:24:54+02:00</published><updated>2013-08-26T11:24:54+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-26:/stabilizer-subgroup-subgroup/</id><summary type="html">&lt;div class="definition"&gt;Let $(G, \cdot)$ be a group and $M$ a set. A &lt;strong&gt;group action&lt;/strong&gt; is a function:
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Algebra"/><category term="Mathematics"/></entry><entry><title>Why is the stabilizer subgroup a subgroup?</title><link href="https://martin-thoma.com/stabilizer-subgroup-subgroup/" rel="alternate"/><published>2013-08-26T11:24:54+02:00</published><updated>2013-08-26T11:24:54+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-26:/stabilizer-subgroup-subgroup/</id><summary type="html">&lt;div class="definition"&gt;Let $(G, \cdot)$ be a group and $M$ a set. A &lt;strong&gt;group action&lt;/strong&gt; is a function:
 $G \circ M \rightarrow M$
 that satisfies the following two conditions
 &lt;ul&gt;
@@ -608,7 +608,7 @@ that satisfies the following two conditions
 &lt;p&gt;Let &lt;span class="math"&gt;\(a, b \in G_m\)&lt;/span&gt;.
 Then: &lt;span class="math"&gt;\(a \circ m = m\)&lt;/span&gt; and &lt;span class="math"&gt;\(b \circ m = m\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(\Rightarrow a \circ (b \circ m) = m\)&lt;/span&gt;
-&lt;span class="math"&gt;\(\stackrel{associativity}{\Rightarrow} (a \cdot b) \circ m = m \Leftrightarrow (a \cdot b) \in G_m \blacksquare\)&lt;/span&gt;&lt;/p&gt;</content><category term="Mathematics"></category><category term="Algebra"></category><category term="Mathematics"></category></entry><entry><title>Why is the intersection of two normal subgroups a normal subgroup?</title><link href="https://martin-thoma.com/intersection-two-normal-subgroups-normal-subgroup/" rel="alternate"></link><published>2013-08-25T18:04:56+02:00</published><updated>2013-08-25T18:04:56+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-25:/intersection-two-normal-subgroups-normal-subgroup/</id><summary type="html">&lt;p&gt;Let &lt;span class="math"&gt;\((G, \cdot)\)&lt;/span&gt; be a group and &lt;span class="math"&gt;\(X \lhd G\)&lt;/span&gt; and &lt;span class="math"&gt;\(Y \lhd G\)&lt;/span&gt; be two normal subgroups.&lt;/p&gt;
+&lt;span class="math"&gt;\(\stackrel{associativity}{\Rightarrow} (a \cdot b) \circ m = m \Leftrightarrow (a \cdot b) \in G_m \blacksquare\)&lt;/span&gt;&lt;/p&gt;</content><category term="Mathematics"/><category term="Algebra"/><category term="Mathematics"/></entry><entry><title>Why is the intersection of two normal subgroups a normal subgroup?</title><link href="https://martin-thoma.com/intersection-two-normal-subgroups-normal-subgroup/" rel="alternate"/><published>2013-08-25T18:04:56+02:00</published><updated>2013-08-25T18:04:56+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-08-25:/intersection-two-normal-subgroups-normal-subgroup/</id><summary type="html">&lt;p&gt;Let &lt;span class="math"&gt;\((G, \cdot)\)&lt;/span&gt; be a group and &lt;span class="math"&gt;\(X \lhd G\)&lt;/span&gt; and &lt;span class="math"&gt;\(Y \lhd G\)&lt;/span&gt; be two normal subgroups.&lt;/p&gt;
 &lt;p&gt;I will show this in two steps:&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Show that $X \cap Y$ is a group&lt;/li&gt;
@@ -640,7 +640,7 @@ $N \lhd G :\Leftrightarrow \forall n \in N \forall g \in G: g \cdot n \cdot g^{-
 &lt;p&gt;&lt;span class="math"&gt;\(\forall n \in (X \cap Y) \forall g \in G: g \cdot n \cdot g^{-1} \in X\)&lt;/span&gt; and
 &lt;span class="math"&gt;\(\forall n \in (X \cap Y) \forall g \in G: g \cdot n \cdot g^{-1} \in Y\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(\Rightarrow \forall n \in (X \cap Y) \forall g \in G: g \cdot n \cdot g^{-1} \in (X \cap Y)\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(\Rightarrow (X \cap Y) \lhd G \blacksquare\)&lt;/span&gt;&lt;/p&gt;</content><category term="Mathematics"></category><category term="Mathematics"></category><category term="Algebra"></category></entry><entry><title>Why everybody should know about conditional probability</title><link href="https://martin-thoma.com/why-everybody-should-know-about-conditional-probability/" rel="alternate"></link><published>2013-07-23T15:37:39+02:00</published><updated>2013-07-23T15:37:39+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-07-23:/why-everybody-should-know-about-conditional-probability/</id><summary type="html">&lt;p&gt;Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\Rightarrow (X \cap Y) \lhd G \blacksquare\)&lt;/span&gt;&lt;/p&gt;</content><category term="Mathematics"/><category term="Mathematics"/><category term="Algebra"/></entry><entry><title>Why everybody should know about conditional probability</title><link href="https://martin-thoma.com/why-everybody-should-know-about-conditional-probability/" rel="alternate"/><published>2013-07-23T15:37:39+02:00</published><updated>2013-07-23T15:37:39+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-07-23:/why-everybody-should-know-about-conditional-probability/</id><summary type="html">&lt;p&gt;Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.&lt;/p&gt;
 &lt;p&gt;Suppose you go to the doctor to make a cancer test. The test is positive. That means you have cancer, right? Wrong!&lt;/p&gt;
 &lt;h2&gt;Basics&lt;/h2&gt;
 &lt;p&gt;A probability is a numerical …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.&lt;/p&gt;
@@ -756,7 +756,7 @@ Pr[C|+-] &amp;amp;= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{
 &lt;p&gt;Woooha! So if one test says you have cancer, don't worry. When two tests say you have cancer, you have a 17% chance of having cancer.&lt;/p&gt;
 &lt;p&gt;On the other hand: One negative and one positive test is better than no test at all, because without a test you have a probability of 0.01 to have cancer. With both tests, you only have a probability of 0.006.&lt;/p&gt;
 &lt;h2 id="why-probability-is-important-for-you"&gt;Why probability is important for you&lt;/h2&gt;
-&lt;p&gt;As you might have seen, your intuition about probability is wrong. But we hear numbers all the time. It is important for us to understand them, so we should drop our intuition and learn how to use those numbers.&lt;/p&gt;</content><category term="Mathematics"></category><category term="Stochastic"></category><category term="Probability"></category><category term="Mathematics"></category></entry><entry><title>When Is Matrix Multiplication Commutative?</title><link href="https://martin-thoma.com/when-is-matrix-multiplication-commutative/" rel="alternate"></link><published>2012-07-14T10:49:48+02:00</published><updated>2012-07-14T10:49:48+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-07-14:/when-is-matrix-multiplication-commutative/</id><summary type="html">&lt;p&gt;Matrix multiplication in general is not commutative. Here is an example:&lt;/p&gt;
+&lt;p&gt;As you might have seen, your intuition about probability is wrong. But we hear numbers all the time. It is important for us to understand them, so we should drop our intuition and learn how to use those numbers.&lt;/p&gt;</content><category term="Mathematics"/><category term="Stochastic"/><category term="Probability"/><category term="Mathematics"/></entry><entry><title>When Is Matrix Multiplication Commutative?</title><link href="https://martin-thoma.com/when-is-matrix-multiplication-commutative/" rel="alternate"/><published>2012-07-14T10:49:48+02:00</published><updated>2012-07-14T10:49:48+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-07-14:/when-is-matrix-multiplication-commutative/</id><summary type="html">&lt;p&gt;Matrix multiplication in general is not commutative. Here is an example:&lt;/p&gt;
 &lt;p&gt;Let &lt;span class="math"&gt;\(A, B \in \mathbb{R}^{2 \times 2}\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;$$A := \begin{pmatrix}
  1 &amp;amp; 2 \\
@@ -880,4 +880,4 @@ Since A and B are simultaneously diagonalizable, a matrix &lt;span class="math"&
 &lt;h2 id="see-also"&gt;See Also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://math.stackexchange.com/q/170241/6876"&gt;When is matrix multiplication commutative?&lt;/a&gt; on math.stackexchange.com&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Mathematics"></category><category term="Mathematics"></category><category term="Linear Algebra"></category></entry></feed>
+&lt;/ul&gt;</content><category term="Mathematics"/><category term="Mathematics"/><category term="Linear Algebra"/></entry></feed>

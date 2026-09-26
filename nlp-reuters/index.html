@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="The Reuters Dataset "/>
 <meta property="og:url" content="nlp-reuters/" />
-<meta property="og:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (e.g. there are multiple classes), multi-label (e.g. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …" />
+<meta property="og:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (i.e. there are multiple classes), multi-label (i.e. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-07-27T20:00:00+02:00" />
 <meta name="twitter:title" content="The Reuters Dataset ">
-<meta name="twitter:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (e.g. there are multiple classes), multi-label (e.g. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …">
+<meta name="twitter:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (i.e. there are multiple classes), multi-label (i.e. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -116,10 +116,10 @@ MathJax.Hub.Queue(function() {
 <div class="article-content" id="contentAfterTitle">
     
     <p>Reuters is a benchmark dataset for <a href="../document-classification/">document classification</a>.
-To be more precise, it is a multi-class (e.g. there are multiple classes),
-multi-label (e.g. each document can belong to many classes) dataset.
+To be more precise, it is a multi-class (i.e. there are multiple classes),
+multi-label (i.e. each document can belong to many classes) dataset.
 It has <strong>90 classes</strong>, <strong>7769 training documents</strong> and <strong>3019 testing documents</strong>.
-It is the ModApte (R(90)) subest of the Reuters-21578 benchmark (<a href="https://stackoverflow.com/a/25149714/562769">source</a>).</p>
+It is the ModApte (R(90)) subset of the Reuters-21578 benchmark (<a href="https://stackoverflow.com/a/25149714/562769">source</a>).</p>
 <p>The mean number of words per document, grouped by class, is between 93 and 1263
 on the training set.</p>
 <p>The training set has a <strong>vocabulary size of 35247</strong>. Even if you restrict it to
@@ -299,7 +299,7 @@ direction.</p>
 <span class="math">\(Z_i \in \{0, 1\}^k\)</span> be the set of predicted labels:</p>
 <ul>
 <li><strong>Binary Accuracy</strong>: For each document, one has to make a decision for each possible
-  category. Hence <span class="math">\(\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|Y_i \cap Z_i|}{k}\)</span>. As most documents belong to one or two categories, the simplest
+  category. Hence <span class="math">\(\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|\{j : Y_{ij} = Z_{ij}\}|}{k}\)</span>. As most documents belong to one or two categories, the simplest
   classifier simply decides all the time that the document does not belong to
   any category. For the used dataset, this leads to an accuracy of 0.986. Hence
   accuracy is not suitable.</li>
@@ -342,7 +342,7 @@ SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
 <p>There are a couple of things to notice here:</p>
 <ul>
 <li><strong>Speed</strong>:<ul>
-<li>Naive Bayes and k-nn is slow</li>
+<li>Naive Bayes and k-nn are slow</li>
 <li>Random forests and MLP are fast</li>
 <li>SVM depends extremely on the implementation (see <a href="https://stackoverflow.com/q/45384185/562769">What is the difference between LinearSVC and SVC(kernel=&ldquo;linear&rdquo;)?</a>)</li>
 </ul>
@@ -361,7 +361,7 @@ are two important things to keep in mind:</p>
 <ul>
 <li><strong>Output layer</strong>: Do not  use softmax, as the normalization does not make
   sense in this case.</li>
-<li><strong>Loss</strong>: Use <a href="https://keras.io/losses/#binary_crossentropy"><code>`binary_crossentropy</code></a></li>
+<li><strong>Loss</strong>: Use <a href="https://keras.io/losses/#binary_crossentropy"><code>binary_crossentropy</code></a></li>
 </ul>
 <p>When you print precision, recall, F1-score and accuracy you note the following:</p>
 <ul>
@@ -399,16 +399,16 @@ is pretty high from the beginning.</p>
 <span class="sd">http://www.vision.caltech.edu/Image_Datasets/Caltech101/</span>
 <span class="sd">"""</span>
 
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">reuters</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MultiLabelBinarizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">reuters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiLabelBinarizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
 <span class="n">n_classes</span> <span class="o">=</span> <span class="mi">90</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">categories</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{}):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{}):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Load the Reuters dataset.</span>
 
@@ -454,17 +454,17 @@ is pretty high from the beginning.</p>
 
 <span class="sd">"""Train and evaluate a MLP."""</span>
 
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Dropout</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
-<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
-<span class="kn">import</span> <span class="nn">reuters</span>
-<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
-<span class="kn">from</span> <span class="nn">scoring</span> <span class="kn">import</span> <span class="n">get_tptnfpfn</span><span class="p">,</span> <span class="n">get_accuracy</span><span class="p">,</span> <span class="n">get_f_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">reuters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_tptnfpfn</span><span class="p">,</span> <span class="n">get_accuracy</span><span class="p">,</span> <span class="n">get_f_score</span>
 
 
-<span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_model</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Create a MLP model."""</span>
     <span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
@@ -477,7 +477,7 @@ is pretty high from the beginning.</p>
     <span class="k">return</span> <span class="n">model</span>
 
 
-<span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Recall metric.</span>
 
@@ -492,7 +492,7 @@ is pretty high from the beginning.</p>
     <span class="k">return</span> <span class="n">recall</span>
 
 
-<span class="k">def</span> <span class="nf">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Precision metric.</span>
 
@@ -511,21 +511,21 @@ is pretty high from the beginning.</p>
     <span class="k">return</span> <span class="n">precision</span>
 
 
-<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Calculate the F1 score."""</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_optimizer</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an optimizer."""</span>
     <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">"optimizer"</span><span class="p">][</span><span class="s2">"initial_lr"</span><span class="p">]</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>  <span class="c1"># Using Adam instead of SGD to speed up training</span>
     <span class="k">return</span> <span class="n">optimizer</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_module</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">data_module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Load data, train model and evaluate it."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>

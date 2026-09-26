@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Python Scheduling "/>
 <meta property="og:url" content="python-scheduling/" />
-<meta property="og:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …" />
+<meta property="og:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And let&#39;s say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-08-21T20:00:00+02:00" />
 <meta name="twitter:title" content="Python Scheduling ">
-<meta name="twitter:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …">
+<meta name="twitter:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And let&#39;s say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -107,11 +107,11 @@ MathJax.Hub.Queue(function() {
 <div class="article-content" id="contentAfterTitle">
     
     <p>Suppose you wanted to build a tool which informs you whenever there is an
-update to a couple of websites you're interested in. And lets say the
+update to a couple of websites you're interested in. And let's say the
 <code>last-modified</code> header was usable for this (it is not, but I want to focus on
 another problem). So you would need to save the <code>last_known_state</code> - which
 is a time stamp - with the latest <code>last-modified</code>. And you need to do this
-often. For each website. Lets say we have</p>
+often. For each website. Let's say we have</p>
 <div class="highlight"><pre><span></span><code>Intervall | Name      | Website
 ------------------------------------------------------------------
 60min     | Wikipedia | https://en.wikipedia.org/wiki/Named-entity_recognition
@@ -131,10 +131,10 @@ often. For each website. Lets say we have</p>
 
 <span class="sd">"""Example for a notification on Ubuntu 16.04."""</span>
 
-<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
 
-<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"notify-send"</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
     <span class="k">return</span>
 
@@ -157,10 +157,10 @@ often. For each website. Lets say we have</p>
 
 <span class="sd">"""How to receive the last-modified header."""</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 
-<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Get the Last-Modified header of an URL."""</span>
     <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
@@ -178,7 +178,7 @@ they should run independently.</p>
 <p>So we have one script which creates new processes. Those processes run
 independently, but the children get killed when the parent is killed. And if
 you replace their process id (pid) in the <code>jobs.csv</code> by <code>commit_suicide</code> they
-kill themselfes. You can also kill them directly by using the process id.</p>
+kill themselves. You can also kill them directly by using the process id.</p>
 <p>And ... that's it. You should think about race conditions, too. But this was
 more a toy project than something serious, so I'll not dig into that. And if
 you simply used a database, you would not have a race condition as you could
@@ -189,14 +189,14 @@ edit all entries independently.</p>
 
 <span class="sd">"""How to receive the last-modified header."""</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Process</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
@@ -206,19 +206,19 @@ edit all entries independently.</p>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"notify-send"</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">";"</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">'"'</span><span class="p">)</span>
         <span class="n">data_read</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">data_read</span>
 
 
-<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Get the Last-Modified header of an URL."""</span>
     <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
@@ -227,7 +227,7 @@ edit all entries independently.</p>
         <span class="k">return</span> <span class="kc">None</span>
 
 
-<span class="k">def</span> <span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">line_nr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"line_nr=</span><span class="si">{line_nr}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">)</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Start job for '</span><span class="si">{name}</span><span class="s2">'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]))</span>
@@ -236,7 +236,7 @@ edit all entries independently.</p>
     <span class="k">return</span> <span class="n">p</span>
 
 
-<span class="k">def</span> <span class="nf">job_runner</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">job_runner</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
     <span class="n">intervall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"intervall"</span><span class="p">])</span>
@@ -266,7 +266,7 @@ edit all entries independently.</p>
             <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
     <span class="c1"># Race conditions!</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
@@ -287,7 +287,7 @@ edit all entries independently.</p>
             <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">csv_filepath</span> <span class="o">=</span> <span class="s2">"jobs.csv"</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>
@@ -306,7 +306,7 @@ edit all entries independently.</p>
 <ul>
 <li><a href="https://docs.python.org/2/library/sched.html#sched.scheduler"><code>schedule</code></a>: defines a class which implements a general purpose event scheduler</li>
 <li><a href="https://pythonhosted.org/Pyro4/index.html">Pyro4</a>: build applications in which objects can talk to each other over the network</li>
-<li><a href="https://stackoverflow.com/a/13607111/562769"><code>`subprocess</code> vs <code>multiprocessing</code></a></li>
+<li><a href="https://stackoverflow.com/a/13607111/562769"><code>subprocess</code> vs <code>multiprocessing</code></a></li>
 <li><a href="https://www.python.org/dev/peps/pep-3143/">PEP 3143</a></li>
 </ul>
     

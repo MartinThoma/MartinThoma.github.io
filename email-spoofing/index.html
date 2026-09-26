@@ -110,9 +110,9 @@ MathJax.Hub.Queue(function() {
 <h2 id="why-it-matters">Why it Matters</h2>
 <p>Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&rsquo;ve found are:</p>
 <ul>
-<li><strong>2014</strong>: The drug company Upsher-Smith Laboratories lost <strong>$50 million USD</strong> by CEO fraud (<a href="https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million">source</a>)</li>
-<li><strong>2015</strong>: The networking company Ubiquiti Networks lost <strong>$46.7 million USD</strong> to a scammer who impersonated employees (<a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201">source</a>)</li>
-<li>&ldquo;In <strong>2018</strong>, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over <strong>$1.2 billion</strong>&rdquo; (<a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf">source</a>)</li>
+<li><strong>2014</strong>: The drug company Upsher-Smith Laboratories lost <strong>\$50 million USD</strong> by CEO fraud (<a href="https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million">source</a>)</li>
+<li><strong>2015</strong>: The networking company Ubiquiti Networks lost <strong>\$46.7 million USD</strong> to a scammer who impersonated employees (<a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201">source</a>)</li>
+<li>&ldquo;In <strong>2018</strong>, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over <strong>\$1.2 billion</strong>&rdquo; (<a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf">source</a>)</li>
 </ul>
 <h2 id="how-are-emails-spoofed">How are emails spoofed?</h2>
 <p>Emails are transferred via the <a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> protocol. This protocol has an envelope that contains the sender (<strong>MAIL FROM</strong>) and the recipient (<strong>RCPT TO</strong>). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. Two items there are the <strong>reply-to</strong> and the <strong>sender</strong>. It&rsquo;s interesting that reply-to and sender are different.</p>
@@ -123,8 +123,8 @@ MathJax.Hub.Queue(function() {
 </ul>
 <p>A key difference here is that typically, a lot is handled in the background.</p>
 <p>To make it clear that this is super easy and the attackers are not doing rocket science, here is how an email can be sent with Python:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
-<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">smtplib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">email.message</span><span class="w"> </span><span class="kn">import</span> <span class="n">EmailMessage</span>
 
 <span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
 <span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="s2">"You've been a good boy"</span><span class="p">)</span>
@@ -164,7 +164,7 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span><code><span class="n">msg</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s2">"reply-to"</span><span class="p">,</span> <span class="s2">"phishy@phising.com"</span><span class="p">)</span>
 </code></pre></div>
 <p>The attacker can also add a name to the email address:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">email.utils</span> <span class="kn">import</span> <span class="n">formataddr</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">email.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">formataddr</span>
 
 <span class="n">fake_address</span> <span class="o">=</span> <span class="s2">"santa.clause@christm.as"</span>
 <span class="n">msg</span><span class="p">[</span><span class="s2">"From"</span><span class="p">]</span> <span class="o">=</span> <span class="n">formataddr</span><span class="p">((</span><span class="s2">"Santa Clause"</span><span class="p">,</span> <span class="n">fake_address</span><span class="p">))</span>

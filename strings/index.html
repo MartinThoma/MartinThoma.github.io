@@ -110,7 +110,7 @@ MathJax.Hub.Queue(function() {
 (enough) if you study computer science. In this article, I will explain what a
 string is, what Unicode, UTF-8, ASCII and encodings are and what their
 relationship is.</p>
-<p>Just when I was about to finish this, I found <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">Joel Spolskys article</a>. It is better to read, but
+<p>Just when I was about to finish this, I found <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">Joel Spolsky's article</a>. It is better to read, but
 a lot longer than what I wrote here.</p>
 <h2 id="datatype-basics">Datatype basics</h2>
 <p>Datatypes are not a hardware feature. The CPU knows a couple (well, a lot) of
@@ -124,7 +124,7 @@ If you search for "multiply" on this page, you get 50 results. <code>MULPD</code
 Hence the CPU instruction interprets the values of the registers in a different
 way, but the values themselves don't have types.</p>
 <p>In compiled languages like C and C++, the compiler takes care of the type and
-creates a sequence of instructions which interpret the registers content as
+creates a sequence of instructions which interpret the registers' content as
 desired.</p>
 <p>In Python, the interpreter takes care of it.</p>
 <h2 id="simple-strings-character-sequences">Simple Strings: Character Sequences</h2>
@@ -402,7 +402,7 @@ how all of those 128 possible numbers should be interpreted:</p>
 </table>
 <h2 id="latin-1">Latin-1</h2>
 <p>Latin-1 (aka <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">ISO 8859-1</a>) is an extension to ASCII. So it makes use of the last
-bit and defines the number 160 to 255. Yes, there is an undefined gap. So this
+bit and defines the numbers 160 to 255. Yes, there is an undefined gap. So this
 extension helped a lot of languages (e.g. French and German). But it was not
 enough. And it was a mess, pretty soon. Other character encodings like
 <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-2">ISO 8859-2</a>,
@@ -411,12 +411,12 @@ formats becomes a mess. You've probably experienced it when suddenly the <a href
 character �</a> appears in an application. Or something like &iquest;&frac12;.</p>
 <h2 id="unicode">Unicode</h2>
 <p>Unicode is a standard (<a href="http://www.unicode.org/versions/latest/">link</a>).
-It defines a number - the unicode code point -, the
+It defines a number - the Unicode code point -, the
 glyph which belongs to this number, a short textual description of the glyph
-and an example how it could look like.</p>
-<div class="alert alert-danger">Unicode code points are just identifier. In contrast, in ASCII the numbers are both an identifier and how the character is represented in the memory.</div>
+and an example of what it could look like.</p>
+<div class="alert alert-danger">Unicode code points are just identifiers. In contrast, in ASCII the numbers are both an identifier and how the character is represented in the memory.</div>
 <p>For example, the codepoint <code>U+0041</code> has the description <code>LATIN
-CAPITAL LETTER A</code> as shown nicely on <a href="http://www.fileformat.info/info/unicode/char/0041/index.htm">fileformat.info</a>. This notation uses an hexadecimal base. Hence the
+CAPITAL LETTER A</code> as shown nicely on <a href="http://www.fileformat.info/info/unicode/char/0041/index.htm">fileformat.info</a>. This notation uses a hexadecimal base. Hence the
 number is <span class="math">\((41)_{16} = 16 \cdot 4 + 1 = 65\)</span> - just like ASCII! In fact, Unicode
 is a superset of ASCII. And of Latin-1.</p>
 <p>Unicode&nbsp;10 contains 136&thinsp;690&nbsp;characters and 139&nbsp;writing
@@ -425,7 +425,7 @@ systems. It has Emoji, mathematical symbols and musical symbols.</p>
 and Emoticons with <a href="http://unicode.party/">unicode.party</a>.</p>
 <p>An interesting concept in Unicode are combining characters. For example,
 a <a href="https://emojipedia.org/female-firefighter/">female firefighter</a> is
-represented by the women code point and by the fire engine code point.</p>
+represented by the woman code point and by the fire engine code point.</p>
 <h2 id="utf-8">UTF-8</h2>
 <p><a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> is a character encoding
 capable of encoding all possible Unicode code points. The name is short for
@@ -433,25 +433,26 @@ Transformation Format - 8 bit. It uses between 1 and 4 bytes to represent
 Unicode code points.</p>
 <p>So while Unicode defines an identifier for the concepts of characters, UTF-8
 defines how those are stored in memory. There were issues with byte order
-(high endian, low endian; see Byte Order Mark (BOM)) which are fixed with UTF-8.
-UTF-8 uses between one and 6 bytes per character.</p>
+(big endian, little endian; see Byte Order Mark (BOM)) which are fixed with UTF-8.
+The original UTF-8 design allowed up to 6 bytes per character, but since RFC 3629
+(2003) it uses at most 4.</p>
 <p>Alternatives:</p>
 <ul>
-<li><code>UCS-2</code>: Use two bytes for a unicode character. Always.<ul>
-<li><code>high-endian UCS-2</code></li>
-<li><code>low-endian UCS-2</code></li>
+<li><code>UCS-2</code>: Use two bytes for a Unicode character. Always.<ul>
+<li><code>big-endian UCS-2</code></li>
+<li><code>little-endian UCS-2</code></li>
 </ul>
 </li>
-<li><code>UCS-4</code>: Store each code point in 4 bytes - hence it blows up english text to have 4x the size.</li>
+<li><code>UCS-4</code>: Store each code point in 4 bytes - hence it blows up English text to have 4x the size.</li>
 <li><code>UTF-7</code></li>
 <li><code>UTF-16</code>: Represent the Unicode code point by itself. Used by .NET and Java. Is more space-efficient when using a lot of Chinese (<a href="http://www.micro-isv.asia/2009/03/why-not-use-utf-8-for-everything/">source</a>)</li>
 </ul>
 <h2 id="fonts">Fonts</h2>
 <p>Fonts are a completely different story. Each character can have a font, but it
-stays the same. A font just deals with the appearence, whereas the Unicode code
+stays the same. A font just deals with the appearance, whereas the Unicode code
 point defines what it is. The concept. The encoding defines how it is stored in
 the memory.</p>
-<p>Interestingly, there can't be a single font which covers all unicode symbols,
+<p>Interestingly, there can't be a single font which covers all Unicode symbols,
 because OpenType is limited to 65536 glyphs.</p>
 <p>The <a href="http://czyborra.com/unifont/">GNU Unicode Font</a> covers over 34,000 characters (<a href="https://unix.stackexchange.com/a/14028/4784">source</a>)</p>
 <h2 id="font-family">Font family</h2>
@@ -467,7 +468,7 @@ seems to be possible to cover more symbols than 65536. For example,
 <div class="highlight"><pre><span></span><code>wchar_t ("wide char")
 </code></pre></div>
 <h3 id="python">Python</h3>
-<p>Use either <code>UCS2*</code> or <code>UCS4</code> for unicode characters. Which one is used is a
+<p>Use either <code>UCS2*</code> or <code>UCS4</code> for Unicode characters. Which one is used is a
 compile time option.</p>
 <p>The <code>unicode(your_string)</code> function creates a unicode object from the given
 encoded string.</p>
@@ -514,7 +515,7 @@ they are byte strings.</p>
 <ul>
 <li><strong>Counting</strong>: The combining code points can generate some confusion on what
   you might expect and what you get.</li>
-<li><strong>Similar look, but different</strong>: U+006E (n), and U+0303 (a combining tilde) forms ñ, but the code point U+00F1 forms &ntilde;</li>
+<li><strong>Similar look, but different</strong>: U+006E (n) and U+0303 (a combining tilde) form ñ, but the code point U+00F1 forms &ntilde;</li>
 <li><strong>Equality, the second</strong>: There is <a href="http://www.fileformat.info/info/unicode/char/0041/index.htm">Latin A</a>, <a href="http://www.fileformat.info/info/unicode/char/0410/index.htm">CYRILLIC CAPITAL LETTER A</a> and <a href="http://www.fileformat.info/info/unicode/char/0391/index.htm">GREEK CAPITAL LETTER ALPHA</a>. The same look, but not the same codepoint.</li>
 </ul>
 <h2 id="what-about-collation">What about Collation?</h2>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Exploratory Data Analysis "/>
 <meta property="og:url" content="eda/" />
-<meta property="og:description" content="Getting insights from data is exciting. So let&#39;s see how well I can cover this topic in a single article. In this article, I assume you have data in a single CSV file. If you have multiple CSV files, you can merge them similar to SQL JOIN statements. Prerequesites Python …" />
+<meta property="og:description" content="Getting insights from data is exciting. So let&#39;s see how well I can cover this topic in a single article. In this article, I assume you have data in a single CSV file. If you have multiple CSV files, you can merge them similar to SQL JOIN statements. Prerequisites Python …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-10-18T20:00:00+02:00" />
 <meta name="twitter:title" content="Exploratory Data Analysis ">
-<meta name="twitter:description" content="Getting insights from data is exciting. So let&#39;s see how well I can cover this topic in a single article. In this article, I assume you have data in a single CSV file. If you have multiple CSV files, you can merge them similar to SQL JOIN statements. Prerequesites Python …">
+<meta name="twitter:description" content="Getting insights from data is exciting. So let&#39;s see how well I can cover this topic in a single article. In this article, I assume you have data in a single CSV file. If you have multiple CSV files, you can merge them similar to SQL JOIN statements. Prerequisites Python …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -110,7 +110,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#prerequesites" title="Prerequesites">Prerequesites</a></li><li><a class="toc-href" href="#loading-the-data" title="Loading the data">Loading the data</a></li><li><a class="toc-href" href="#how-many-datapoints-do-we-have" title="How many datapoints do we have?">How many datapoints do we have?</a></li><li><a class="toc-href" href="#which-columns-do-we-have" title="Which columns do we have?">Which columns do we have?</a><ul><li><a class="toc-href" href="#show-single-feature-distribution" title="Show single-feature distribution">Show single-feature distribution</a></li><li><a class="toc-href" href="#find-correlations" title="Find correlations">Find correlations</a></li></ul></li><li><a class="toc-href" href="#joint-plots_1" title="Joint plots">Joint plots</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#loading-the-data" title="Loading the data">Loading the data</a></li><li><a class="toc-href" href="#how-many-datapoints-do-we-have" title="How many datapoints do we have?">How many datapoints do we have?</a></li><li><a class="toc-href" href="#which-columns-do-we-have" title="Which columns do we have?">Which columns do we have?</a><ul><li><a class="toc-href" href="#show-single-feature-distribution" title="Show single-feature distribution">Show single-feature distribution</a></li><li><a class="toc-href" href="#find-correlations" title="Find correlations">Find correlations</a></li></ul></li><li><a class="toc-href" href="#joint-plots_1" title="Joint plots">Joint plots</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -120,7 +120,7 @@ topic in a single article.</p>
 <p>In this article, I assume you have data in a single CSV file. If you have
 multiple CSV files, you can <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html">merge</a>
 them similar to SQL <code>JOIN</code> statements.</p>
-<h2 id="prerequesites">Prerequesites</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Python 3</li>
 <li><a href="http://pandas.pydata.org">Pandas</a> (<code>pip install pandas</code>)</li>
@@ -137,7 +137,7 @@ an example:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"train.csv"</span><span class="p">)</span>
 </code></pre></div>
@@ -181,18 +181,18 @@ max      6.000000  512.329200
 <li>Parch: According to Kaggle docs: '# of parents / children aboard the Titanic'</li>
 <li>Fare: Not sure which unit would make sense here.</li>
 </ul>
-<p>Pandas <code>df.describe()</code> is not powerfull enough. So I wrote my own:</p>
+<p>Pandas <code>df.describe()</code> is not powerful enough. So I wrote my own:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Exploratory data analysis."""</span>
 
 <span class="c1"># core modules</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="c1"># 3rd party module</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
@@ -202,7 +202,7 @@ max      6.000000  512.329200
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Exploratory data analysis for the Titanic dataset."""</span>
     <span class="c1"># Read data</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span>
@@ -218,7 +218,7 @@ max      6.000000  512.329200
     <span class="n">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Show basic information about a pandas dataframe.</span>
 
@@ -365,9 +365,9 @@ max      6.000000  512.329200
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Get parser object for exploratory data analysis."""</span>
-    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
@@ -434,7 +434,7 @@ tells pandas as which type it should load the columns.</p>
 </figure>
 <h3 id="find-correlations">Find correlations</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show correlations</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="n">corr</span> <span class="o">=</span> <span class="n">numerical_features</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>

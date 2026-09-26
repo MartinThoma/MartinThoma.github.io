@@ -130,9 +130,9 @@ $$</div>
 <p>By convention, the standard form defines a <strong>minimization problem</strong>. A
 <strong>maximization problem</strong> can be treated by negating the objective function.</p>
 <p>(That was copied from <a href="https://en.wikipedia.org/w/index.php?title=Optimization_problem&amp;oldid=715562612#Continuous_optimization_problem">en.wikipedia.org/w/Optimization_problem</a> and only slightly edited.)</p>
-<p>I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to finde a solution <span class="math">\(x \in \mathbb{N}^n\)</span>. I will only focus on continuous optimization problems.</p>
+<p>I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to find a solution <span class="math">\(x \in \mathbb{N}^n\)</span>. I will only focus on continuous optimization problems.</p>
 <h2 id="simulated-annealing">Simulated Annealing</h2>
-<p>Simulated Annealing is a heuristical optimization algorithm. It starts at a
+<p>Simulated Annealing is a heuristic optimization algorithm. It starts at a
 random point <span class="math">\(x \in \mathbb{R}^n\)</span>. Then it takes a random point <span class="math">\(y\)</span> of the
 environment of <span class="math">\(x\)</span>:</p>
 <div class="math">$$y \in U(x)$$</div>
@@ -159,9 +159,9 @@ in the direction of maximum increase, so we go in the opposite direction:</p>
 <div class="math">$$x_{\text{new}} = x - \nabla f(x)$$</div>
 <p>The problem with this approach is that the surface of the objective function
 might first go down in the direction of <span class="math">\(\nabla f(x)\)</span>, but if you go a bit
-further it can go up by a lot. So we want to make very small steps. To achive
+further it can go up by a lot. So we want to make very small steps. To achieve
 this, we multiply the gradient with a factor <span class="math">\(\eta \in (0, 1]\)</span>. In machine
-learining, this <span class="math">\(\eta\)</span> is called the <em>learning rate</em> and typically one
+learning, this <span class="math">\(\eta\)</span> is called the <em>learning rate</em> and typically one
 chooses <span class="math">\(\eta = 0.01\)</span>. However, there are <a href="../neuronale-netze-vorlesung/#learning-rate-scheduling">learning rate scheduling algorithms</a> which adapt this parameter during training.</p>
 <p>The update rule is:</p>
 <div class="math">$$x_{\text{new}} = x - \eta \nabla f(x)$$</div>
@@ -172,14 +172,14 @@ update the current guess of the minimum to</p>
 <div class="math">$$x_{k+1} = x_k + \eta \cdot d_k$$</div>
 <p>where <span class="math">\(\eta \in (0, 1]\)</span> is the step length (learning rate) and</p>
 <div class="math">$$d_k = -D_k \nabla f(x_k)$$</div>
-<p>is the direction of the descent. The direction depends on the Gradient
+<p>is the direction of the descent. The direction depends on the gradient
 <span class="math">\(\nabla f(x_k)\)</span>, but also on a matrix <span class="math">\(D_k\)</span>:</p>
 <ul>
 <li>$D_k = I$: Gradient descent</li>
-<li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
+<li>$D_k = H_f^{-1}(x_k)$: Newton's method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
 </ul>
 <h2 id="linear-regression-with-mse_1">Linear Regression with MSE</h2>
-<p>In linear regression one is given a list of <span class="math">\(n\)</span> points <span class="math">\((x, y)\)</span> with <span class="math">\(x \in \mathbb{R}^m\)</span> and <span class="math">\(y \in \mathbb{R}\)</span>. The task is to find a matrix <span class="math">\(A \in \mathbb{1 \times m}\)</span> such that the predicted value <span class="math">\(\hat{y}\)</span> of the linear model</p>
+<p>In linear regression one is given a list of <span class="math">\(n\)</span> points <span class="math">\((x, y)\)</span> with <span class="math">\(x \in \mathbb{R}^m\)</span> and <span class="math">\(y \in \mathbb{R}\)</span>. The task is to find a matrix <span class="math">\(A \in \mathbb{R}^{1 \times m}\)</span> such that the predicted value <span class="math">\(\hat{y}\)</span> of the linear model</p>
 <div class="math">$$\hat{y}(x) = A \cdot x$$</div>
 <p>minimizes the term</p>
 <div class="math">$$\text{MSE} = \sum_{i=1}^n (y_i - \hat{y}(x_i))^2$$</div>
@@ -234,10 +234,10 @@ They can be used to get rid of the constraints.</p>
 <p>
 with the <em>Lagrange multipliers</em> <span class="math">\(\lambda_j \in \mathbb{R}\)</span> and <span class="math">\(h_j\)</span> are equality constraints.<br/>
 <br/>
-Necessary conditions for a minimum <span class="math">\(x^*\)</span> is:</p>
+Necessary conditions for a minimum <span class="math">\(x^*\)</span> are:</p>
 <ul>
 <li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
-<li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
+<li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, n$</li>
 </ul>
 <p>See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.</p>
 <h2 id="optimization-problem-characteristics">Optimization Problem characteristics</h2>

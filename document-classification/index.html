@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Document Classification "/>
 <meta property="og:url" content="document-classification/" />
-<meta property="og:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …" />
+<meta property="og:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have a corpus of 1000 emails. You …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-07-26T20:00:00+02:00" />
 <meta name="twitter:title" content="Document Classification ">
-<meta name="twitter:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …">
+<meta name="twitter:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have a corpus of 1000 emails. You …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -116,14 +116,14 @@ MathJax.Hub.Queue(function() {
 <p>Suppose you have a text classification problem. For example, you want to
 classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.</p>
 <h2 id="basic-setup">Basic Setup</h2>
-<p>Suppose <strong>you have corpus</strong> of 1000 emails. You make a <strong>stratified split</strong>
+<p>Suppose <strong>you have a corpus</strong> of 1000 emails. You make a <strong>stratified split</strong>
 into 600 training emails and 400 test emails. The class C1 is 40% of the data,
 C2 is 10% of the data and C3 is 50% of the data in both, the training and the
 test set. Don't touch the test set until the very end.</p>
-<p>Let <span class="math">\(I_1 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails which belong
-to class C1, <span class="math">\(I_2 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails
-which belong to set C2 and <span class="math">\(I_3 \subsetneq 1, \dots, 600\)</span> be the set of emails
-which belong to set C3.</p>
+<p>Let <span class="math">\(I_1 \subsetneq \{1, \dots, 600\}\)</span> be the set of indices of emails which belong
+to class C1, <span class="math">\(I_2 \subsetneq \{1, \dots, 600\}\)</span> be the set of indices of emails
+which belong to class C2 and <span class="math">\(I_3 \subsetneq \{1, \dots, 600\}\)</span> be the set of indices of emails
+which belong to class C3.</p>
 <h2 id="get-features">Get Features</h2>
 <p>Now you <strong>build a list of unique words</strong> <span class="math">\(w\)</span>. Let <span class="math">\(W \in \mathbb{N}\)</span> denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.</p>
 <p>Let the count how often word <span class="math">\(w\)</span> appears in email <span class="math">\(i = 1, \dots, N\)</span> be denoted by <span class="math">\(n_{w,i} \in \mathbb{N}\)</span>. Let <span class="math">\(n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}\)</span> be the count how often the word <span class="math">\(w\)</span> appears in all documents combined.</p>
@@ -137,21 +137,21 @@ which belong to set C3.</p>
 <p>By applying Bayes Rule, we get:</p>
 <div class="math">\begin{align}
   P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
-  &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+  &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_1, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
 \end{align}</div>
 <p>Now, <span class="math">\(P(C_1) = 0.4\)</span> is called the a priori probability of the class <span class="math">\(C_1\)</span>. So
 if we knew nothing about the content of the e-mail, we would guess <span class="math">\(C_1\)</span> has
-a probability of 40% as it is the amout of e-mails in that class.</p>
+a probability of 40% as it is the amount of e-mails in that class.</p>
 <p>The other terms are more difficult. We don't have enough data for this. So we
-make the simplifying (and wrong!) assumption that words are independant of each
+make the simplifying (and wrong!) assumption that words are independent of each
 other. Then we get:</p>
 <div class="math">\begin{align}
   P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | C_1) \dots \cdot P( w_{N} | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
 \end{align}</div>
 <p>As we know that</p>
 <div class="math">$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$</div>
-<p>it is sufficient to calculate the nominators and divide each of the three
-denominators by the sum of all three.</p>
+<p>it is sufficient to calculate the numerators and divide each of the three
+numerators by the sum of all three.</p>
 <p>Congratulations, your first document classifier is working!</p>
 <h3 id="tf-idf">Tf-idf</h3>
 <p>For each word, we can measure how often it appears in a given e-mail. Certainly,
@@ -161,11 +161,11 @@ an e-mail. This is called the term frequency (Tf) of a word in a document (e-mai
 Sometimes, this is also denoted by <span class="math">\(\text{tf}(w, d)\)</span> where <span class="math">\(w\)</span> is the word (term)
 and <span class="math">\(d\)</span> is the document (e-mail).</p>
 <p>Next, we realize that some words contain more information than others. For
-example, the word "the" might occur in almost every document. We do so by dividing by</p>
-<div class="math">$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$</div>
+example, the word "the" might occur in almost every document. We take this into account by multiplying with the inverse document frequency</p>
+<div class="math">$$\text{idf}(w, D) = \log \frac{N}{|\{d \in D: w \in d\}|}$$</div>
 <p>where <span class="math">\(N = 600\)</span> is the total amount of documents we have in the training set.
-The denominator is the total count of words in all documents in the training
-set combined.</p>
+The denominator is the number of documents in the training set which contain
+the word <span class="math">\(w\)</span>.</p>
 <p>Hence we can get a Tf-idf feature for all words.</p>
 <p>You can see that this allows us to apply the same Bayesian approach as before.
 In fact, you should now see that the Bayesian approach is not part of the
@@ -178,7 +178,7 @@ see "York" in an e-mail. But the combined term "New York" is something
 different than seeing both single words. Hence you might want to have the
 tf-idf feature of "New York", too.</p>
 <h2 id="classifiers_1">Classifiers</h2>
-<p>I've introduced the Bayes Classifer, but there are a lot more. Most notably:</p>
+<p>I've introduced the Bayes Classifier, but there are a lot more. Most notably:</p>
 <ul>
 <li><a href="../svm-with-sklearn/">SVMs</a></li>
 <li>Neural Networks</li>
@@ -209,14 +209,14 @@ the decision. And you might be able to throw away a lot of words.</p>
 <p>Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:</p>
 <ul>
 <li>Split the training set into 500 e-mails for training and 100 e-mails for validation</li>
-<li>Traing all methods you guess on the 500 e-mails. Evluate on the 100 e-mails what is best.</li>
+<li>Train all methods you guess on the 500 e-mails. Evaluate on the 100 e-mails what is best.</li>
 <li>Make sure everything is what you think it should be like. Run your experiments with those 500 / 100 e-mails</li>
 <li>When you're finished, evaluate on the 400 e-mails your final setup. Only once. This is your estimate how good you really are.</li>
 </ul>
 <p>You might also want to have a look at cross-validation.</p>
 <h2 id="public-datasets">Public Datasets</h2>
 <p>I'm not aware of public datasets for document classification, but you can easily
-create one by scraping wikipedia categories / subreddits.</p>
+create one by scraping Wikipedia categories / subreddits.</p>
 <p>Leave a comment if I forgot something / you know more details 🙂</p>
 <h2 id="literature">Literature</h2>
 <ul>

@@ -155,22 +155,22 @@ computational difficulty like <a href="https://en.wikipedia.org/wiki/PBKDF2">PBK
 your friend. It&rsquo;s a function that takes the password, the hashing function, the
 salt, the number of rounds. It returns the key. In most programming languages,
 you have two functions:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hash_function</span><span class="p">,</span> <span class="n">salt_length</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">key</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hash_function</span><span class="p">,</span> <span class="n">salt_length</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">key</span><span class="p">:</span>
     <span class="o">...</span>
 
 
-<span class="k">def</span> <span class="nf">check_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="o">...</span>
 </code></pre></div>
 <p>As an example:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">generate_password_hash</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">gen_key</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gen_key</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pbkdf2:sha512:1000"</span><span class="p">,</span><span class="w"> </span><span class="n">salt_length</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_password_hash</span> <span class="k">as</span> <span class="n">gen_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span> <span class="o">=</span> <span class="n">gen_key</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">,</span> <span class="s2">"pbkdf2:sha512:1000"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span>
 <span class="s1">'pbkdf2:sha512:1000$qc8Q9uqK$4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'</span>
 
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">check_password_hash</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">check_key</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">check_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s2">"foobar"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_password_hash</span> <span class="k">as</span> <span class="n">check_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"foobar"</span><span class="p">)</span>
 <span class="kc">True</span>
 </code></pre></div>
 <p>Please note that 1000 iterations are far too few today. The <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">OWASP Password Storage Cheat Sheet</a> recommends at least 210,000 iterations for PBKDF2-HMAC-SHA512, and Werkzeug uses scrypt by default nowadays.</p>
@@ -209,7 +209,7 @@ you have two functions:</p>
 <p>You can also <strong>change your passwords</strong> if you suspect that they have been compromised. Changing passwords regularly without a reason is no longer recommended: <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP 800-63B</a> advises to change passwords only when there is evidence of compromise.</p>
 <h2 id="see-also">See also</h2>
 <p>It feels like <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> / <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> made a video about all the security topics I want to write about 😄</p>
-<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"></iframe></center></p>
+<center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"></iframe></center>
 <h2 id="more-in-this-series">More in this series</h2>
 <p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>

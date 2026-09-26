@@ -111,7 +111,7 @@ them can bring their own bike.</p>
 <h2 id="modelling">Modelling</h2>
 <p>Let <span class="math">\(X\)</span> be the random variable which represents the number of people who will
 not bring their own bikes. I will assume that the participants bring or bring
-not their bikes independent of each other. So have a binomial distribution:</p>
+not their bikes independently of each other. So we have a binomial distribution:</p>
 <div class="math">$$X \sim Bin(n=91, p=\frac{79-7}{79})$$</div>
 <p>The sample of <span class="math">\(n=79\)</span> people who answered will be called <span class="math">\(S\)</span>. Let <span class="math">\(b \in \mathbb{N}_0\)</span> be our guess of the number of people of those <span class="math">\(91\)</span> who do not bring their bikes. The higher we estimate <span class="math">\(b\)</span>, the more conservative we are. This means a higher certainty (e.g. 99% instead of 95%) should result in a higher <span class="math">\(b\)</span>.</p>
 <p>We want to be <span class="math">\(95\%\)</span> confident that we have enough bikes.</p>
@@ -119,12 +119,12 @@ not their bikes independent of each other. So have a binomial distribution:</p>
 <div class="math">$$
 \begin{align}
 P(X \leq b) &amp;\geq 95\%\\
-\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;\geq 95\%\\
+\sum_{k=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;\geq 95\%\\
 b &amp;= \lceil binom.ppf(95\%, n, p) \rceil
 \end{align}
 $$</div>
-<p>I am lazy with calculating, so lets do it with Python:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<p>I am lazy with calculating, so let's do it with Python:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">binom</span>
 
 <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.95</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">91</span>

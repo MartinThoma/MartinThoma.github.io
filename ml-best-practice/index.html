@@ -111,7 +111,7 @@ in the projects which turned out to be good ideas. In this post, I would like
 to share those patterns with you.</p>
 <h2 id="know-your-problem">Know your problem</h2>
 <p>For me, a machine learning project really starts when you have a well-defined
-problem, data, and a metric in which you want to measure your models goodness.
+problem, data, and a metric in which you want to measure your model's goodness.
 Just like Tom Mitchell defined Machine Learning:</p>
 <blockquote>
 <p>A computer program is said to learn from experience E with respect to some
@@ -142,7 +142,7 @@ contains configuration files. So your scripts should not contain any
 hyperparameters. All hyperparameters, including the complete model, should be
 set in the configuration.</p>
 <h2 id="configuration-files">Configuration files</h2>
-<p>An example from my masters thesis is <code>cifar10_opt.yaml</code>:</p>
+<p>An example from my master's thesis is <code>cifar10_opt.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">dataset</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">script_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/cifar10_keras.py</span>
 <span class="nt">model</span><span class="p">:</span>
@@ -191,12 +191,12 @@ set in the configuration.</p>
 
 <span class="sd">"""Run an experiment."""</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">import</span> <span class="nn">imp</span>
-<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
@@ -205,7 +205,7 @@ set in the configuration.</p>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Example."""</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">)</span>
 
@@ -222,7 +222,7 @@ set in the configuration.</p>
     <span class="n">data</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"dataset"</span><span class="p">][</span><span class="s2">"script_path"</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Load a YAML configuration file.</span>
 
@@ -241,7 +241,7 @@ set in the configuration.</p>
     <span class="k">return</span> <span class="n">cfg</span>
 
 
-<span class="k">def</span> <span class="nf">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Make all values for keys ending with `_path` absolute to dir_.</span>
 
@@ -265,9 +265,9 @@ set in the configuration.</p>
     <span class="k">return</span> <span class="n">cfg</span>
 
 
-<span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Get parser object."""</span>
-    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
@@ -291,15 +291,15 @@ set in the configuration.</p>
 <p>Most machine learning tasks have a lot of computation. I'm speaking of many
 hours for the "real" task you want to solve. You will not be able to do so
 directly. You will make bugs. Maybe simple typos, maybe logical bugs, ...</p>
-<p>Create a small toy example where you know how the output should look like. Just
+<p>Create a small toy example where you know what the output should look like. Just
 to reduce the number of hours you waste by waiting for the script to finish /
 break.</p>
 <h2 id="logging-to-files">Logging to files</h2>
 <p>Even if your script is working, you can make other mistakes:</p>
 <ul>
-<li>You close the terminal accidentially.</li>
+<li>You close the terminal accidentally.</li>
 <li>Your computer freezes.</li>
-<li>Your you is cancelled from the cluster by the admin, just a couple of minutes
+<li>Your job is cancelled from the cluster by the admin, just a couple of minutes
   before it would finish.</li>
 <li>Your model at some point diverges.</li>
 </ul>
@@ -309,7 +309,7 @@ directory.</p>
 <h2 id="create-a-trivial-solution">Create a Trivial Solution</h2>
 <p>Most machine learning projects have trivial, simple and advanced solutions. For
 example, instead of having a machine learning based approach you can usually
-craft algorithms the traditional way. You should know how well those trivial
+craft algorithms the traditional way. You should know how good those trivial
 solutions are, because:</p>
 <ul>
 <li><strong>Baseline</strong>: They give you a baseline. A score with which you start and from
@@ -317,8 +317,8 @@ solutions are, because:</p>
 <li><strong>Little effort</strong>: They are usually comparatively fast to implement. If you
   see that the trivial solution is already very good, you might be able to stop
   faster.</li>
-<li><strong>Robustness</strong>: They are robust against error in the data. The trivial ones
-  because they don't use the data, the simple ones because they are usually to
+<li><strong>Robustness</strong>: They are robust against errors in the data. The trivial ones
+  because they don't use the data, the simple ones because they are usually too
   restricted to overfit.</li>
 </ul>
 <p>Here are some examples:</p>
@@ -375,7 +375,7 @@ a pre-defined threshold, e.g.</p>
 <h2 id="make-it-reproducible">Make it reproducible</h2>
 <p>Set seeds for all random number generators. And log on which hardware / with
 which software version you executed your stuff.</p>
-<p>The reason for this is simply that you can proof you actually got the results
+<p>The reason for this is simply that you can prove you actually got the results
 you have. Or at least point to a reason why you can't get the results again.</p>
     
 </div>

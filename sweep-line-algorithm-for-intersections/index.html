@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="algorithms, Geometry, Java, misc, " />
+<meta name="keywords" content="Algorithms, Geometry, Java, Code, " />
 
 <meta property="og:title" content="Sweep-Line algorithm for intersections "/>
 <meta property="og:url" content="sweep-line-algorithm-for-intersections/" />
@@ -88,7 +88,7 @@ MathJax.Hub.Queue(function() {
 <time datetime="2013-10-19T11:54:51+02:00">Okt 19, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
-        <li><a href="../tags/#algorithms-ref">algorithms
+        <li><a href="../tags/#algorithms-ref">Algorithms
             <span>21</span>
 </a></li>
         <li><a href="../tags/#geometry-ref">Geometry
@@ -150,42 +150,58 @@ MathJax.Hub.Queue(function() {
 So we have 15 lines and 13 intersections.</p>
 <h2 id="what-is-an-intersection">What is an intersection?</h2>
 <div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>
-<p _="%" endgallery="">This means, all of the following images show intersecting lines:
-{% gallery columns="3" %}
-    ../images/2013/01/intersecting-lines-1.png  "Intersecting lines: #1"
-    ../images/2013/01/intersecting-lines-2.png  "Intersecting lines: #2"
-    ../images/2013/01/intersecting-lines-3.png  "Intersecting lines: #3"
-    ../images/2013/01/intersecting-lines-4.png  "Intersecting lines: #4"
-    ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"</p>
-<p>You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.</p>
+<p>This means, all of the following images show intersecting lines:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2013/01/intersecting-lines-1.png"><img alt="Intersecting lines: #1" height="370" loading="lazy" src="../images/2013/01/intersecting-lines-1.png" width="500"/></a>
+<figcaption>Intersecting lines: #1</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/01/intersecting-lines-2.png"><img alt="Intersecting lines: #2" height="500" loading="lazy" src="../images/2013/01/intersecting-lines-2.png" width="500"/></a>
+<figcaption>Intersecting lines: #2</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/01/intersecting-lines-3.png"><img alt="Intersecting lines: #3" height="500" loading="lazy" src="../images/2013/01/intersecting-lines-3.png" width="500"/></a>
+<figcaption>Intersecting lines: #3</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/01/intersecting-lines-4.png"><img alt="Intersecting lines: #4" height="500" loading="lazy" src="../images/2013/01/intersecting-lines-4.png" width="500"/></a>
+<figcaption>Intersecting lines: #4</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/01/intersecting-lines-5.png"><img alt="Intersecting lines: #5" height="500" loading="lazy" src="../images/2013/01/intersecting-lines-5.png" width="500"/></a>
+<figcaption>Intersecting lines: #5</figcaption>
+</figure>
+</div>
+<p>You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters and returns if they intersect.</p>
 <h2 id="how-many-intersections-can-exist">How many intersections can exist?</h2>
 <p>Let <span class="math">\(n\)</span> be the number of lines.</p>
 <p><span class="math">\(n=1\)</span>: If you have only one line, there is obviously no intersection. A line can only intersect with another line</p>
 <p><span class="math">\(n=2\)</span>: The new line can only intersect with lines that are already there. So there is one new intersection.</p>
 <p><span class="math">\(n=3\)</span>: As before, the new line can only intersect with existing lines. So you get at most two new intersection points. As the old lines can only have 1 intersection point at most, you have a maximum of 3 intersection points.</p>
 <p>I guess you noticed the pattern. The maximum of intersection points of <span class="math">\(n\)</span> is <span class="math">\(\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}\)</span></p>
-<p>At the moment, this is only an upper border. We didn't prove that you can actually get that much intersections. We only showed that you can't get more intersections.</p>
+<p>At the moment, this is only an upper bound. We didn't prove that you can actually get that many intersections. We only showed that you can't get more intersections.</p>
 <h2 id="a-simple-solution">A simple solution</h2>
-<p>I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have <span class="math">\(n\)</span> line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:</p>
+<p>I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But let's say I have <span class="math">\(n\)</span> line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:</p>
 <h3 id="first-way-to-think-about-it">First way to think about it</h3>
 <ul>
-<li>First, I can check if the first line crosses the second, third, forth, ... n-th line.</li>
-<li>Then I check if the second line crosses the third, forth, ... n-th line.</li>
+<li>First, I can check if the first line crosses the second, third, fourth, ... n-th line.</li>
+<li>Then I check if the second line crosses the third, fourth, ... n-th line.</li>
 <li>...</li>
 <li>I check if the (n-1)-th line crosses the n-th line.</li>
 </ul>
-<p>So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} $checks.</p>
+<p>So I have to do <span class="math">\((n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2}\)</span> checks.</p>
 <h3 id="second-way-to-think-about-it">Second way to think about it</h3>
-<p>I don't care about order. I have to do every check. So when I have <span class="math">\(n\)</span> elements and I want to choose <span class="math">\(\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}\)</span></p>
+<p>I don't care about order. I have to do every check. So when I have <span class="math">\(n\)</span> elements and I want to choose all pairs, I have <span class="math">\(\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}\)</span> checks.</p>
 <h2 id="sweep-line-algorithm_1">Sweep-Line algorithm</h2>
-<p>The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only a x-coordinate!) goes over a new line segment, it adds this to a datastructure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.</p>
+<p>The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only an x-coordinate!) goes over a new line segment, it adds this to a data structure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.</p>
     
 </div>
 
 <aside class="article-meta no-print">
     <div class="meta-group">
         <h4>Category</h4>
-        <a class="pill" href="../categories/#misc-ref">misc</a>
+        <a class="pill" href="../categories/#code-ref">Code</a>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>
