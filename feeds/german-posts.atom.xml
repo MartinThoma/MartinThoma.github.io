@@ -15617,12 +15617,6 @@ und in M&amp;uuml;nchen neu zu kaufen:&lt;/p&gt;
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"&gt;&lt;dfn id="korrelationskoeffizient"&gt;Korrelationskoeffizient&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;$$\rho_{X,Y} =\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=\frac{\sigma_{X,Y}^2}{\sigma_{X}\sigma_{Y}}$$&lt;/dd&gt;
-&lt;!--     &lt;dt&gt;&lt;dfn&gt;Rechenregeln Multivariate Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
-    &lt;dd&gt;
-
-
-
-    &lt;/dd&gt; --&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-1-parameterschatzung"&gt;Kapitel 1: Parameter&amp;shy;sch&amp;auml;tzung&lt;/h3&gt;
 &lt;dl&gt;
@@ -15921,10 +15915,9 @@ und in M&amp;uuml;nchen neu zu kaufen:&lt;/p&gt;
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Summenrestriktionen&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
-        Dann muss
+&lt;dd&gt;Bei einem balancierten Design ($n_1 = n_2 = \dots = n_k$) fordert man
         $$\sum_{i=1}^k \alpha_i = 0$$
-        gelten.
+        (bei einem unbalancierten Design $\sum_{i=1}^k n_i \alpha_i = 0$).
 
         Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
         $$X = \begin{pmatrix}1      &amp;amp; 1&amp;amp; 0      &amp;amp;        &amp;amp;0\\
@@ -18353,7 +18346,7 @@ am &lt;b&gt;11.10.2016&lt;/b&gt; um &lt;b&gt;15:30 Uhr&lt;/b&gt; bei Herrn Dr. H
       wobei $W^{-1}$ eine symmetrische, positiv definite Gewichtungsmatrix ist.
       &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Rekursive Methode kleinster Quadrate&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Wenn bereits einmal die beste Ebene bestimmt wurde will man nicht wieder
+&lt;dd&gt;Wenn bereits einmal die beste Sch&amp;auml;tzung bestimmt wurde, will man nicht wieder
        alles neu berechnen, wenn ein neues Sensorergebnis hinzukommt.
 
        Bei uns mit vektorwertigen Sensoren, nicht wie im Skript mit
@@ -18459,7 +18452,7 @@ am &lt;b&gt;11.10.2016&lt;/b&gt; um &lt;b&gt;15:30 Uhr&lt;/b&gt; bei Herrn Dr. H
 &lt;u&gt;L&amp;ouml;sung&lt;/u&gt;: Resampling mit sequential importance resampling (SIR:
                        ziehe $N$ neue Partikel mit Gewichten $\frac{1}{n}$ aus
                        Menge der alten Partikel,
-                       wobei die Wahrscheinlichkeit das Partikel $p_k^i$ zu ziehen
+                       wobei die Wahrscheinlichkeit, das Partikel $p_k^i$ zu ziehen,
                        gerade $w_k^i$ ist.)
     &lt;/dd&gt;
 &lt;/dl&gt;
@@ -18626,9 +18619,9 @@ sowie die value- und policy iteration zu nennen.&lt;/p&gt;
       &lt;i&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
 
       &lt;ul&gt;
-&lt;li&gt;Nicht-negativit&amp;auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
+&lt;li&gt;Nichtnegativit&amp;auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
 &lt;li&gt;Normiertheit: $P(S) = 1$&lt;/li&gt;
-&lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
+&lt;li&gt;$\sigma$-Additivit&amp;auml;t: F&amp;uuml;r paarweise disjunkte $M_1, M_2, \dots \in \mathcal{A}$ gilt $P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
@@ -18712,9 +18705,11 @@ sowie die value- und policy iteration zu nennen.&lt;/p&gt;
       eine Nutzenfunktion, welche $\geq$ abbildet, wenn gilt:
       $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$
 
-      Jede Pr&amp;auml;ferenzrelation hat mindestens eine Nutzenfunktion. Sie ist
-      eindeutig bis auf streng monoton steigende Transformationen.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"&gt;&lt;dfn id="von-neumann-morgenstern-axioms"&gt;Von-Neumann-Morgenstern Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+      Ist $\mathcal{X}$ abz&amp;auml;hlbar, so hat jede Pr&amp;auml;ferenzrelation mindestens
+      eine Nutzenfunktion (f&amp;uuml;r &amp;uuml;berabz&amp;auml;hlbare Mengen gilt das nicht, z.B. f&amp;uuml;r
+      die lexikographische Ordnung auf $\mathbb{R}^2$). Die Pr&amp;auml;ferenzrelation ist eindeutig bis
+      auf streng monoton steigende Transformationen.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"&gt;&lt;dfn id="von-neumann-morgenstern-axioms"&gt;Von-Neumann-Morgenstern-Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
 
@@ -18774,8 +18769,7 @@ sowie die value- und policy iteration zu nennen.&lt;/p&gt;
   &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="theorem-rational-decisions"&gt;Satz der rationalen Entscheidungen&lt;/dfn&gt; (PrPlan-2, Folie 19)&lt;/dt&gt;
 &lt;dd&gt;
-
-       Eine Relation $\geq$ auf $P$ erf&amp;uuml;llt die Von-Neumann-Morgenstern Axiome
+       Eine Relation $\geq$ auf $\mathcal{P}$ erf&amp;uuml;llt die Von-Neumann-Morgenstern-Axiome
        genau dann, wenn eine Funktion $u: X \rightarrow \mathbb{R}$ existiert,
        sodass
        $$P \geq Q \Leftrightarrow \mathbb{E}_P (u(x)) \geq \mathbb{E}_Q (u(x))$$
@@ -18939,7 +18933,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 \end{align}
       $$
       &lt;br/&gt;
-      Probleme, f&amp;uuml;r die man eine Bellman-Gleichung aufstellen kann haben
+      Probleme, f&amp;uuml;r die man eine Bellman-Gleichung aufstellen kann, haben
       &lt;b&gt;optimale Substruktur&lt;/b&gt;.
       &lt;br/&gt;
       Example with the value function:
@@ -19283,7 +19277,7 @@ $$
         wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
 
         &lt;div class="bg-info"&gt;
-        Insgesamt ergeben sich folgende notwendigen Bedingungen an die
+        Insgesamt ergeben sich folgende notwendige Bedingungen an die
         optimale L&amp;ouml;sung f&amp;uuml;r $k=0, \dots, N-1$ mit $\lambda_N = g_N^x(x_N)$ und
         $x_0$ fest:
 
@@ -19293,8 +19287,8 @@ $$
 &lt;li&gt;$0 = \nabla_{a_k} H_k(x_k, a_k, \lambda_{k+1})$ (oder $a_k = \text{arg }\min H_k (x_k, a_k, \lambda_{k+1})$)&lt;/li&gt;
 &lt;/ul&gt;
 
-        Diese (insbesondere das arg min) ist als Pontryagins Minimum-Prinzip
-        bekannt.
+        Diese Bedingungen (insbesondere das arg min) sind als Pontryagins
+        Minimum-Prinzip bekannt.
         &lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineares Zustandsmodell&lt;/dfn&gt;&lt;/dt&gt;
@@ -19353,7 +19347,7 @@ $$
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
+        in welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
         ersetzt ist.&lt;br/&gt;
 
         $\Rightarrow$ Deterministisches Problem&lt;/dd&gt;
@@ -19388,7 +19382,7 @@ $$
                 (Beobachtungswahrscheinlichkeit)&lt;br/&gt;
 &lt;ul&gt;
 &lt;li&gt;Diskrete Beobachtungen $\rightarrow$ bedingte Z&amp;auml;hldichte
-                $$f(z_k | x_k a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$&lt;/li&gt;
+                $$f(z_k | x_k, a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$&lt;/li&gt;
 &lt;li&gt;Kontinuierliche Beobachtungen $\rightarrow$ bedingte Wahrscheinlichkeitsdichte
                     $$f(z_k | x_k, a_{k-1}) = \frac{\partial f(z | x_k, a_{k-1})}{\partial z} |_{z=z_k}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -19418,7 +19412,7 @@ $$
 
                 Der Informationsvektor $\mathcal{I}_k$ beschreibt die zeitliche
                 Entwicklung des Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist
-                s&amp;auml;mtliche Information gegeben um zum Zeitpunkt $k$ eine
+                s&amp;auml;mtliche Information gegeben, um zum Zeitpunkt $k$ eine
                 Planungsentscheidung zu treffen.
 
                 Das korrespondierende MDP wird &lt;b&gt;Informations-MDP&lt;/b&gt; genannt.
@@ -19458,7 +19452,7 @@ $$
         &lt;ul&gt;
 &lt;li&gt;Der Stichprobenmittelwert $\hat{z}$ von $n$ unabh&amp;auml;ngigen
                 Stichproben $z_i$ einer normalverteilten Zufallsvariablen
-                $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
+                $z \sim \mathcal{N}(\mu, \sigma^2)$ ist eine hinreichende
                 Statistik f&amp;uuml;r $\mu$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
@@ -19483,7 +19477,9 @@ $$
         Source: &lt;a href="https://en.wikipedia.org/w/index.php?title=Bayes_estimator&amp;amp;oldid=731403554#Definition"&gt;Wikipedia&lt;/a&gt;
 
         In general, the Bayes estimator has no closed-form solution.
-        The Extended Kalman filter is a Bayes estimator.
+        The Kalman filter is a Bayes estimator for linear systems with
+        Gaussian noise; the Extended Kalman filter approximates it for
+        nonlinear systems.
 
         See also:
         &lt;ul&gt;
@@ -19541,7 +19537,7 @@ $$
 
         Pr&amp;auml;diktion ($k \rightarrow k+1$)
         &lt;ul&gt;
-&lt;li&gt;Gegeben: A posteriori Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$&lt;/li&gt;
+&lt;li&gt;Gegeben: A-posteriori-Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$&lt;/li&gt;
 &lt;li&gt;Gesucht: pr&amp;auml;dizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)$&lt;/li&gt;
 &lt;li&gt;Berechnung der Parameter:
 
@@ -19555,7 +19551,7 @@ $$
         Filterschritt ($k \overset{Z_k}{\rightarrow} k$)
         &lt;ul&gt;
 &lt;li&gt;Gegeben: pr&amp;auml;dizierte Dichte $f_k^P(x_k)$, Messung $z_k$&lt;/li&gt;
-&lt;li&gt;Gesucht: a-posteriori Dichte $f_k^e(x_k)$&lt;/li&gt;
+&lt;li&gt;Gesucht: A-posteriori-Dichte $f_k^e(x_k)$&lt;/li&gt;
 &lt;li&gt;Berechnung der Parameter:
 
             &lt;ul&gt;
@@ -19577,8 +19573,8 @@ $$
         anstrebt.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="ol-planung"&gt;Open-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;OL Planung&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Unter einem Open-loop Control system (offener Regelkreis) versteht man
-        ein technisches System welches ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also ohne
-        Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.&lt;br/&gt;
+        ein technisches System, welches ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also ohne
+        Messung des Zustands, nachdem die Regelung begonnen wurde, arbeitet.&lt;br/&gt;
         Beispiele sind Sp&amp;uuml;lmaschinen und Rasensprenger.&lt;br/&gt;
         In der Open-loop Planung wird ein optimaler Plan bestimmt:
         $$a_{0:N-1}^* = \text{arg}\min_{a_{0:N-1}} \mathbb{E}\{g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, a_k)\}$$
@@ -19586,11 +19582,11 @@ $$
         deterministische Planungsverfahren anstelle von DP anwendbar.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Closed-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;CL Planung&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Unter einem Closed-loop control system (geschlossenem Regelkreis)
-        versteht man ein technisches System welches mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also
+&lt;dd&gt;Unter einem Closed-loop control system (geschlossener Regelkreis)
+        versteht man ein technisches System, welches mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also
         mit Messung des Zustands w&amp;auml;hrend der Regelung, arbeitet.&lt;br/&gt;
         Beispiele sind Systeme im Auto zum Halten der Geschwindigkeit oder
-        Rasensprenger welche die Feuchtigkeit &amp;uuml;berpr&amp;uuml;fen.&lt;br/&gt;
+        Rasensprenger, welche die Feuchtigkeit &amp;uuml;berpr&amp;uuml;fen.&lt;br/&gt;
         Closed-loop Planung kann mit dynamischer Programmierung gel&amp;ouml;st werden.
         Geschlossene L&amp;ouml;sung nur in Ausnahmef&amp;auml;llen, sonst numerische
         L&amp;ouml;sungsverfahren.&lt;br/&gt;
@@ -19600,7 +19596,7 @@ $$
 &lt;dd&gt;
 
         OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
-        wird der aktuelle Informationsvektor $\mathcal{I}_k$ verwendet um
+        wird der aktuelle Informationsvektor $\mathcal{I}_k$ verwendet, um
         $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
         Plan $a_{k:N-1}^*$ bestimmt.
 
@@ -19712,11 +19708,10 @@ $$
         &lt;br/&gt;
         $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$&lt;br/&gt;
 &lt;br/&gt;
-        In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
-        Verfahren, gegeben die initiale Verteilung $P(x_0)$, dieselben Kosten.
+        In der Sensoreinsatzplanung liefern Open-Loop- und Closed-Loop-Verfahren, gegeben die initiale Verteilung $P(x_0)$, dieselben Kosten.
         Daher wird Open-Loop-Planung verwendet. Das hei&amp;szlig;t, der optimale Plan
         $a_{0:N-1}^*$ wird mittels deterministischer Planung
-        (also K&amp;uuml;rzeste-Wege-Suche), bestimmt.
+        (also K&amp;uuml;rzeste-Wege-Suche) bestimmt.
 
         &lt;ul&gt;
 &lt;li&gt;$g_i(x_i, a)$: Schrittkosten&lt;/li&gt;
@@ -19868,7 +19863,7 @@ $$
 &lt;li&gt;Prinzipien des biologischen Lernens (Negatives / Positives Verst&amp;auml;rken)
 
             &lt;ul&gt;
-&lt;li&gt;Intrinsische Motivation etwas erreichen zu wollen:
+&lt;li&gt;Intrinsische Motivation, etwas erreichen zu wollen:
                     Abstraktion als Kosten- / Belohnungsfunktion, die es &amp;uuml;ber
                     die Zeit zu min. / max. gilt.&lt;/li&gt;
 &lt;li&gt;Exploratives Lernen&lt;/li&gt;
@@ -19879,7 +19874,7 @@ $$
 &lt;li&gt;Lernen erfolgt un&amp;uuml;berwacht und explorativ durch
                     aktive Interaktion mit der Umwelt.&lt;/li&gt;
 &lt;li&gt;RL kombiniert Aspekte der Planung mit Lernmethodik.
-                    Da RL un&amp;uuml;berwacht ist erfolgt die Entscheidung aufgrund
+                    Da RL un&amp;uuml;berwacht ist, erfolgt die Entscheidung aufgrund
                     eigener Erfahrung.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -19943,17 +19938,17 @@ $$
 &lt;dt&gt;&lt;dfn id="episode"&gt;Episode&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;A run through an &lt;abbr title="Markov Decision Process"&gt;MDP&lt;/abbr&gt; from
         a start state to an end state.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="monte-carlo-methods"&gt;Monte-Carlo Methoden&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="monte-carlo-methods"&gt;Monte-Carlo-Methoden&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;u&gt;Idee&lt;/u&gt;: Erlernen einer Strategie aus Beispielepisoden.
 
         Approximation des Erwartungswertes durch Stichproben (Samples)&lt;br/&gt;
-        $$\mathbb{E}(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        $$\mathbb{E}(R) \approx \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
         wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.&lt;br/&gt;
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
-        Monte-Carlo Methoden funktionieren ausschlie&amp;szlig;lich auf episodischen
+        Monte-Carlo-Methoden funktionieren ausschlie&amp;szlig;lich auf episodischen
         Problemen (d.h. mit Ende), wie z.B. Spielen, da die Aktualisierung nach
         Beendigung einer Episode stattfindet.
 
@@ -20049,7 +20044,7 @@ $$
 &lt;dt&gt;&lt;dfn id="epsilon-greedy-exploration"&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;The $\varepsilon$-greedy exploration strategy is a probabilistic
         strategy:&lt;br/&gt;
-        Explore $\varepsilon$% of the time. Otherwise, follow what you
+        Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best.&lt;br/&gt;
 &lt;br/&gt;
         gierige Aktion: Aktion mit h&amp;ouml;chster erwarteter Belohnung:
@@ -20089,12 +20084,12 @@ $$
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="epsilon-decreasing-strategy"&gt;$\varepsilon$-decreasing Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
+&lt;dd&gt;Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ over time.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="epsilon-first-strategy"&gt;$\varepsilon$-first Strategy&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Explore for $\varepsilon$ steps and then do what you think is best.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="adaptive-epsilon-greedy-strategy"&gt;Adaptive $\varepsilon$-greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
+&lt;dd&gt;Explore with probability $\varepsilon$. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ based on what you
         learn.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="glie-exploration-strategy"&gt;GLIE-Strategie&lt;/dfn&gt;&lt;/dt&gt;
@@ -20113,10 +20108,10 @@ $$
 
         &lt;ul&gt;
 &lt;li&gt;$\varepsilon$ mit Zeit abklingen lassen&lt;/li&gt;
-&lt;li&gt;$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&amp;auml;hlt wie h&amp;auml;ufig der Zustand $x$ besucht wurde.&lt;/li&gt;
+&lt;li&gt;$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&amp;auml;hlt, wie h&amp;auml;ufig der Zustand $x$ besucht wurde.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Fazit Monte Carlo-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Fazit Monte-Carlo-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
         Vorteile
         &lt;ul&gt;
@@ -20133,7 +20128,7 @@ $$
 &lt;li&gt;Funktioniert nur f&amp;uuml;r episodische RL-Probleme&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="temporal-difference"&gt;Temporal Difference Verfahren&lt;/dfn&gt; (&lt;dfn&gt;TD&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="temporal-difference"&gt;Temporal-Difference-Verfahren&lt;/dfn&gt; (&lt;dfn&gt;TD&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;TD-Verfahren nutzen die zeitliche Differenz zweier Sch&amp;auml;tzungen
         eines Zustandswertes. Die Aktualisierungen erfolgen nach jedem
         Zustandswechsel. Das hei&amp;szlig;t, im Gegensatz zu MC-Verfahren, sind
@@ -20185,7 +20180,7 @@ $$
     is the discount factor.
 
     As SARSA chooses $a_{k+1}$ according
-    to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.&lt;br/&gt;
+    to the policy $\pi$, it is an on-policy algorithm, in contrast to $Q$-learning.&lt;br/&gt;
 &lt;br/&gt;
 &lt;figure&gt;
 &lt;a href="../images/2016/07/sarsa.png"&gt;&lt;img alt="Pseudocode for SARSA" height="396" loading="lazy" src="../images/2016/07/sarsa.png" width="512"/&gt;&lt;/a&gt;
@@ -20193,8 +20188,8 @@ $$
 &lt;/figure&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;$Q$-Learning ist ein TD-Verfahren um ohne Modell ein
-        Reinforcement-Learning Problem zu l&amp;ouml;sen.
+&lt;dd&gt;$Q$-Learning ist ein TD-Verfahren, um ohne Modell ein
+        Reinforcement-Learning-Problem zu l&amp;ouml;sen.
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
@@ -20233,19 +20228,20 @@ $$
         Nachteile:
 
         &lt;ul&gt;
-&lt;li&gt;Bootstrapping problematisch wenn Markov-Annahme nicht erf&amp;uuml;llt.
+&lt;li&gt;Bootstrapping problematisch, wenn Markov-Annahme nicht erf&amp;uuml;llt.
             &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Monte-Carlo RL vs. TD RL&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Sowohl Monte-Carlo Methoden als auch TD-Methoden ben&amp;ouml;tigen Erfahrung um
+&lt;dd&gt;Sowohl Monte-Carlo-Methoden als auch TD-Methoden ben&amp;ouml;tigen Erfahrung, um
         die State-Value Function $V$ zu sch&amp;auml;tzen.
 
-        Die Monte-Carlo Methoden gehen wie folgt vor:
+        Die Monte-Carlo-Methoden gehen wie folgt vor:
 
         $$V(s_t) = V(s_t) + \alpha (R_t - V(s_t))$$
 
-        wobei $R_t$ der reward am Ende der Episode ist.
+        wobei $R_t$ die (diskontierte) Summe der Belohnungen ab $t$ bis zum
+        Ende der Episode ist.
 
         Die Temporal Difference (TD) Verfahren gehen wie folgt vor:
 
@@ -20281,7 +20277,7 @@ $$
 &lt;dt&gt;&lt;dfn id="eligibility-trace"&gt;Eligibility Trace&lt;/dfn&gt; (&lt;dfn&gt;Verantwortlichkeitsspur&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;
 
-        Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
+        Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt.
         Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).&lt;br/&gt;
 &lt;br/&gt;
 &lt;u&gt;Idee&lt;/u&gt;: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
@@ -20289,11 +20285,11 @@ $$
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
         Beim Erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&amp;uuml;r $n &amp;gt; N-k-1$.&lt;br/&gt;
 &lt;br/&gt;
-        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.&lt;br/&gt;
+        Abgewichtung von $R_k^{(n)}$ bei steigendem $n$.&lt;br/&gt;
 &lt;br/&gt;
 &lt;u&gt;Spezialf&amp;auml;lle&lt;/u&gt;:
         &lt;ul&gt;
-&lt;li&gt;$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD&lt;/li&gt;
+&lt;li&gt;$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ entspricht einem Ein-Schritt-TD&lt;/li&gt;
 &lt;li&gt;$\lambda = 1$: $R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^{N-k-1} \lambda^{n-1} R_k^{(n)} + \lambda^{N-k-1} R_k = R_k$ ist ein Monte Carlo Verfahren&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -20312,7 +20308,7 @@ $$
         indem die Variable erh&amp;ouml;ht wird. Im ersten Fall ist es immer eine
         Reduktion.&lt;br/&gt;
 &lt;br/&gt;
-        Wir speichern welche Zust&amp;auml;nde &lt;u&gt;k&amp;uuml;rzlich&lt;/u&gt; besucht wurden.&lt;br/&gt;
+        Wir speichern, welche Zust&amp;auml;nde &lt;u&gt;k&amp;uuml;rzlich&lt;/u&gt; besucht wurden.&lt;br/&gt;
 &lt;br/&gt;
 &lt;u&gt;Strategiebewertung $TD(\lambda)$&lt;/u&gt;
 &lt;ul&gt;
@@ -20345,7 +20341,7 @@ $$
 &lt;/ul&gt;
 &lt;u&gt;Wichtig&lt;/u&gt;: $Q$-Learning w&amp;auml;hlt gelegentlich nicht-gierige Aktion,
         korrigiert $Q$ aber mit gieriger Aktion! Um das angemessen zu
-        ber&amp;uuml;cksichtigen wird die Verantwortlichkeitsspur zur&amp;uuml;ckgesetzt. Das
+        ber&amp;uuml;cksichtigen, wird die Verantwortlichkeitsspur zur&amp;uuml;ckgesetzt. Das
         passiert insbesondere zu Beginn des Lernens h&amp;auml;ufiger, da dort eine
         Exploration zugelassen wird.
 
@@ -20377,7 +20373,7 @@ $$
 &lt;dt&gt;&lt;dfn&gt;Funktionsapproximatoren im RL&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
-        Bisher: Diskrete Zust&amp;auml;nde und diskrete Aktionen
+        Bisher: Diskrete Zust&amp;auml;nde und diskrete Aktionen&lt;br/&gt;
         Nun: Kontinuierliche Zust&amp;auml;nde und Aktionen
 
         Bei kontinuierlichen Zust&amp;auml;nden/Aktionen ist eine Iteration &amp;uuml;ber alle
@@ -20389,7 +20385,7 @@ $$
         &lt;ul&gt;
 &lt;li&gt;Keine statische Trainingsmenge; Daten werden online generiert&lt;/li&gt;
 &lt;li&gt;Nichtstationarit&amp;auml;t: Die Zielfunktion (z.B. $Q$-Funktion oder direkt die Strategie $\pi$)
-                ver&amp;auml;ndern sich &amp;uuml;ber die Zeit. Dies schr&amp;auml;nkt die Menge der
+                ver&amp;auml;ndert sich &amp;uuml;ber die Zeit. Dies schr&amp;auml;nkt die Menge der
                 Funktionsapproximatoren ein.
 
                 &lt;ul&gt;
@@ -20426,7 +20422,7 @@ $$
                 wobei $\alpha$ die Schrittweite ist.&lt;br/&gt;
 &lt;br/&gt;
 &lt;u&gt;Problem&lt;/u&gt;: $J_\pi(x_k)$ ist unbekannt. Allerdings kann
-                es durch eine Sch&amp;auml;tzung
+                es durch eine Sch&amp;auml;tzung ersetzt werden:
 
                 $$J_\pi(x_k) \approx r_k + \gamma \cdot \tilde{J}(x_{k+1}, \Theta_k)$$
 
@@ -20644,7 +20640,7 @@ $$
 &lt;ul&gt;
 &lt;li&gt;Roboter navigiert durch Labyrinth&lt;/li&gt;
 &lt;li&gt;Tic-Tac-Toe&lt;/li&gt;
-&lt;li&gt;K&amp;uuml;rzeste Wege Suche&lt;/li&gt;
+&lt;li&gt;K&amp;uuml;rzeste-Wege-Suche&lt;/li&gt;
 &lt;li&gt;Aufzugsteuerung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
@@ -20698,7 +20694,7 @@ $$
 &lt;li&gt;Sicherheits&amp;auml;quivalenz:
 
                         &lt;ul&gt;
-&lt;li&gt;Diskret: Label-Korrektur Algorithmus&lt;/li&gt;
+&lt;li&gt;Diskret: Label-Korrektur-Algorithmus&lt;/li&gt;
 &lt;li&gt;Kontinuierlich: Pontryagins Minimumprinzip&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -20753,7 +20749,7 @@ $$
 &lt;th&gt;Yes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th rowspan="2"&gt;Are the states completely observable&lt;/th&gt;
+&lt;th rowspan="2"&gt;Are the states completely observable?&lt;/th&gt;
 &lt;th&gt;Yes&lt;/th&gt;
 &lt;td&gt;&lt;abbr title="Markov Chain"&gt;MC&lt;/abbr&gt;&lt;/td&gt;
 &lt;td&gt;&lt;abbr title="Markov Decision Process"&gt;MDP&lt;/abbr&gt;&lt;/td&gt;
@@ -20773,7 +20769,7 @@ $$
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
-&lt;summary&gt;Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;/summary&gt;
+&lt;summary&gt;Welche Paradoxa haben wir in den Vorlesungen kennengelernt?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 Allais-Paradoxon
 &lt;/div&gt;
@@ -20782,7 +20778,8 @@ Allais-Paradoxon
 &lt;details class="question"&gt;
 &lt;summary&gt;Warum gibt es die Nutzenfunktion? Warum reicht die Pr&amp;auml;ferenzrelation nicht aus?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Die Nutzenfunktion ist einfacher zu erstellen.
+Mit einer Nutzenfunktion kann man rechnen, z.B. Erwartungswerte bilden und
+optimieren. Mit einer Pr&amp;auml;ferenzrelation allein geht das nicht.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -20820,25 +20817,25 @@ Label-Korrektur-Algorithmus; LQR wenn linear
 &lt;details class="question"&gt;
 &lt;summary&gt;Wann existiert kein globales Minimum f&amp;uuml;r ein Optimierungsproblem?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Wenn die Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten unbeschr&amp;auml;nkt ist, d.h.
-$\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
+Wenn die Zielfunktion auf der Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten
+unbeschr&amp;auml;nkt ist, d.h. $\inf_x f(x) = - \infty$, oder wenn die untere Schranke nicht
 angenommen wird, wie es beispielsweise f&amp;uuml;r $e^x$ der Fall ist.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
 &lt;summary&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
+Lagrange-Ansatz, wenn nur Gleichungsnebenbedingungen vorliegen, und der
 &lt;abbr title="Karush-Kuhn-Tucker"&gt;KKT&lt;/abbr&gt;-Ansatz f&amp;uuml;r Gleichungs- und
 Ungleichungsnebenbedingungen. Numerisch gibt es noch
 &lt;a href="https://en.wikipedia.org/wiki/Penalty_method"&gt;Penalty-Ans&amp;auml;tze&lt;/a&gt;.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
-&lt;summary&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;/summary&gt;
+&lt;summary&gt;Wann ist es leichter / schwerer, das Optimierungsproblem zu l&amp;ouml;sen?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
-wenn die zu optimierende Funktion linear oder konkav ist.
+Leichter: keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
+wenn die zu minimierende Funktion linear oder &lt;a href="https://de.wikipedia.org/wiki/Konvexe_und_konkave_Funktionen"&gt;konvex&lt;/a&gt; ist.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -20857,7 +20854,7 @@ Penalty-Ans&amp;auml;tze
 &lt;details class="question"&gt;
 &lt;summary&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Das ist nicht eindeutig definiert. Streng k&amp;ouml;nnte man folgendes sagen: Wenn
+Das ist nicht eindeutig definiert. Streng k&amp;ouml;nnte man Folgendes sagen: Wenn
 auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
 Monte-Carlo-Verfahren, etc.) verzichtet werden kann und die L&amp;ouml;sung in Form von
 mathematischen Grundfunktionen angegeben werden kann. Aber das wird h&amp;auml;ufig
@@ -20946,16 +20943,16 @@ Siehe &lt;a href="#bellman-equation"&gt;oben&lt;/a&gt;.
 &lt;summary&gt;Was ist an den Bellman-Gleichungen problematisch?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 i) Erwartungswertberechnung (kann aufwendig sein), ii) L&amp;ouml;sen des
-Minimierungsproblems und iii) Repr&amp;auml;sentation der Wertfunktion insbes. bei
+Minimierungsproblems und iii) Repr&amp;auml;sentation der Wertefunktion insbesondere bei
 kontinuierlichem Zustand
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
-&lt;summary&gt;Wie h&amp;auml;ngt ein deterministisches MDP mit der k&amp;uuml;rzesten Wegesuche zusammen?&lt;/summary&gt;
+&lt;summary&gt;Wie h&amp;auml;ngt ein deterministisches MDP mit der K&amp;uuml;rzeste-Wege-Suche zusammen?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 Die optimale L&amp;ouml;sung eines deterministischen MDPs ist der k&amp;uuml;rzeste Weg in
-dem Graphen, der durch die Zust&amp;auml;nde des MDPs sowie den Kosten zwischen
-den Zust&amp;auml;nden als Gewicht dargestellt wird.
+dem Graphen, dessen Knoten die Zust&amp;auml;nde des MDPs sind und dessen
+Kantengewichte die Kosten zwischen den Zust&amp;auml;nden sind.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -21037,7 +21034,7 @@ Siehe &lt;a href="#sensoreinsatzplanung"&gt;oben&lt;/a&gt;.
 &lt;details class="question"&gt;
 &lt;summary&gt;Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
+Kovarianzbasiert oder informationstheoretisch (Entropie, Transinformation)
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -21074,13 +21071,15 @@ beobachtet werden. Das erleichtert das Planen / Finden der Strategie.
 &lt;details class="question"&gt;
 &lt;summary&gt;Was ist der gro&amp;szlig;e Vorteil von Off-policy RL?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-TODO (See &lt;a href="http://datascience.stackexchange.com/q/13029/8820"&gt;What are the advantages / disadvantages of off-policy RL vs on-policy RL?&lt;/a&gt;)
+Man kann mit einer explorativen Verhaltensstrategie (oder mit alten Daten
+bzw. den Erfahrungen anderer Agenten) lernen und trotzdem die optimale,
+gierige Zielstrategie bestimmen. (Siehe auch &lt;a href="http://datascience.stackexchange.com/q/13029/8820"&gt;What are the advantages / disadvantages of off-policy RL vs on-policy RL?&lt;/a&gt;)
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
 &lt;summary&gt;Warum ist Q-Learning Off-policy?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+Q-Learning verwendet eine gierige Aktion, um die Q-Funktion zu
 aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
 Zustandsfortschreibung &lt;em&gt;nicht&lt;/em&gt; einer gierigen Strategie folgt, sondern etwa
 einer $\epsilon$-gierigen Strategie. SARSA dagegen nutzt dieselbe
@@ -21102,7 +21101,7 @@ Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="../anki/Probabilistische Planung.apkg"&gt;Anki-Karteikarten Deck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../anki/Probabilistische%20Planung.apkg"&gt;Anki-Karteikarten-Deck&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)&lt;/li&gt;
 &lt;li&gt;Emanuel Todorov: &lt;a href="https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf"&gt;Optimal Control Theory&lt;/a&gt; (f&amp;uuml;r Pontryagins Minimum-Prinzip)&lt;/li&gt;
 &lt;li&gt;Dan Simon: Optimal State Estimation (Kalman-Filter)&lt;/li&gt;
@@ -21120,20 +21119,20 @@ Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
 &lt;/ul&gt;
 &lt;h2 id="fazit"&gt;Fazit&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung f&amp;uuml;hrt in das &lt;strong&gt;Reinforcement Learning&lt;/strong&gt; ein. Um das Problem und die
-m&amp;ouml;glichen Algorithmen zu verstehen werden &lt;strong&gt;MDPs&lt;/strong&gt; und &lt;strong&gt;POMDPs&lt;/strong&gt; eingef&amp;uuml;hrt.&lt;/p&gt;
+m&amp;ouml;glichen Algorithmen zu verstehen, werden &lt;strong&gt;MDPs&lt;/strong&gt; und &lt;strong&gt;POMDPs&lt;/strong&gt; eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;p&gt;Die Vorlesung ist sehr gut strukturiert. Alle Grundlagen werden eingef&amp;uuml;hrt,
 sodass sehr wenig Vorwissen n&amp;ouml;tig ist. Dennoch sind absolute Grundlagen der
 Wahrscheinlichkeitstheorie und der Optimierungstheorie / Analysis
 empfehlenswert; sonst geht es zu schnell.&lt;/p&gt;
 &lt;p&gt;Aktuell sieht man als Student immer wieder mal Zusammenh&amp;auml;nge nicht. Es ist in
-dieser Vorlesung essentiell am Ball zu bleiben, sonst wird man schnell
+dieser Vorlesung essentiell, am Ball zu bleiben, sonst wird man schnell
 abgeh&amp;auml;ngt. Ich empfehle &lt;a href="#table-mdp-pomdp-rl"&gt;die Tabelle&lt;/a&gt;
 anzuschauen; daran kann man einige Zusammenh&amp;auml;nge gut erkennen.&lt;/p&gt;
 &lt;p&gt;Der Dozent ist sehr freundlich und scheinbar immer gut gelaunt, beantwortet
 Fragen kompetent und sorgt allgemein f&amp;uuml;r eine sehr angenehme Atmosph&amp;auml;re sowohl
 in der Vorlesung als auch in der Pr&amp;uuml;fung.&lt;/p&gt;
 &lt;p&gt;Das Tempo der Vorlesung ist eigentlich sehr gut, aber es gibt immer wieder
-Stellen wo man schnell abgeh&amp;auml;ngt wird. Daher w&amp;auml;re es w&amp;uuml;nschenswert, auf den
+Stellen, an denen man schnell abgeh&amp;auml;ngt wird. Daher w&amp;auml;re es w&amp;uuml;nschenswert, auf den
 l&amp;auml;ngeren St&amp;uuml;cken vielleicht an der Tafel den aktuellen Kontext zu geben
 (z.B.: POMDP, linearer Spezialfall).&lt;/p&gt;
 &lt;p&gt;Insgesamt kann ich sagen, dass es eine meiner Lieblingsvorlesungen war. Es war
@@ -21150,7 +21149,7 @@ der Note, als auch vom Wissensgewinn - gelohnt.&lt;/p&gt;
 &lt;li&gt;&lt;a href="../mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../lma/"&gt;Lokalisierung Mobiler Agenten&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="../probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Probabilistische Planung&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Weitere:&lt;/p&gt;
 &lt;ul&gt;
@@ -21367,7 +21366,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;dt&gt;&lt;dfn id="distributive-aggregatfunktion"&gt;Distributive Aggregatfunktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
         Es gibt eine Funktion $G$, so dass
-        $$F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})$$
+        $$F(\{X_{i,j}\}) = G(\{F(\{X_{i,j} | i=1, \dots, l\}) | j = 1, \dots, J\})$$
         MIN, MAX und COUNT sind distributive Aggregatfunktionen.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="algebraische-aggregatfunktion"&gt;Algebraische Aggregatfunktion&lt;/dfn&gt;&lt;/dt&gt;
@@ -21815,9 +21814,9 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         Beispiele:
         &lt;ul&gt;
 &lt;li&gt;$\min(S) \geq v, \;\;\; v \in \mathbb{R}$ ist anti-monoton&lt;/li&gt;
-&lt;li&gt;$\max(s) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton&lt;/li&gt;
-&lt;li&gt;$\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton&lt;/li&gt;
-&lt;li&gt;$\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton&lt;/li&gt;
+&lt;li&gt;$\max(S) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton&lt;/li&gt;
+&lt;li&gt;$\text{size}(S) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton&lt;/li&gt;
+&lt;li&gt;$\text{size}(S) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton&lt;/li&gt;
 &lt;/ul&gt;
 
         Anti-Monotonizit&amp;auml;t ist eine gutartige Eigenschaft von Constraints. Hier
@@ -21876,9 +21875,11 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         aus, dass jeder Medoid durch einen Datenpunkt im Datensatz
         repr&amp;auml;sentiert werden kann. F&amp;uuml;r eine zuf&amp;auml;llige Wahl von $k$ Punkten
         $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann &amp;uuml;berpr&amp;uuml;ft
-        man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
-        f&amp;uuml;r beliebige $p_i \in M$ und $p_j \notin M$ am Score &amp;auml;ndern w&amp;uuml;rde.
-        Den besten Tausch f&amp;uuml;hrt man durch.&lt;br/&gt;
+        man f&amp;uuml;r zuf&amp;auml;llig gew&amp;auml;hlte Paare $p_i \in M$ und $p_j \notin M$, was der
+        Tausch von $p_i$ durch $p_j$ am Score &amp;auml;ndern w&amp;uuml;rde. Verbessert ein
+        Tausch den Score, f&amp;uuml;hrt man ihn durch und macht mit der neuen
+        Medoid-Menge weiter. Bringt eine vorgegebene Anzahl zuf&amp;auml;lliger Tausche
+        keine Verbesserung, hat man ein lokales Optimum gefunden.&lt;br/&gt;
 &lt;br/&gt;
         Siehe auch: &lt;a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=1033770&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F22199%2F01033770.pdf%3Farnumber%3D1033770"&gt;CLARANS: a method for clustering objects for spatial data mining&lt;/a&gt;
 &lt;/dd&gt;
@@ -21931,7 +21932,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Zentrum eines Clusters&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;$$Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i$$&lt;/dd&gt;
+&lt;dd&gt;$$Z_{i} = \frac{1}{|C_i|} \sum_{j \in C_i} X_j$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Radius eines Clusters&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
@@ -21975,7 +21976,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         nun das erste Objekt einer neu erstellten sogenannten Splittergruppe
         $S = \{o\}$
         (engl. &lt;i&gt;splinter group&lt;/i&gt;). Nun gibt es noch das Ma&amp;szlig;
-        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o'} \frac{d(o, o')}{|S|}$$
+        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o' \in S} \frac{d(o, o')}{|S|}$$
         Solange $D(o) &amp;gt; 0$ f&amp;uuml;r ein $o \in C \setminus S$ wird $o^* = \text{arg max}_{o \in C \setminus S} D(o)$ aus dem Cluster in die Splittergruppe gesteckt.
         &lt;br/&gt;
         Siehe auch:
@@ -22067,8 +22068,8 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         Er veranschaulicht das Ergebnis von OPTICS.
 
         &lt;figure&gt;
-&lt;a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"&gt;&lt;img alt="OPTICS" height="342" loading="lazy" src="../images/2016/04/optics.png" width="500"/&gt;&lt;/a&gt;
-&lt;figcaption&gt;OPTICS: Der Reachability-Plot ist ganz unten.&lt;/figcaption&gt;
+&lt;a href="../images/2016/04/optics.png"&gt;&lt;img alt="OPTICS" height="342" loading="lazy" src="../images/2016/04/optics.png" width="500"/&gt;&lt;/a&gt;
+&lt;figcaption&gt;OPTICS: Der Reachability-Plot ist ganz unten. (Quelle: &lt;a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"&gt;Wikimedia Commons&lt;/a&gt;)&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="em"&gt;EM-Algorithmus&lt;/dfn&gt; (&lt;dfn&gt;Expectation Maximization&lt;/dfn&gt;)&lt;/dt&gt;
@@ -22174,7 +22175,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;dd&gt;$$P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Laplace-Smoothing&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Z&amp;auml;hler mit $k$ initialisiert.
-        Beachte, dass man auch die Gesamtzahl dann um $k$ erh&amp;ouml;hen muss.&lt;/dd&gt;
+        Beachte, dass man dann auch die Gesamtzahl um $k$ erh&amp;ouml;hen muss.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Bayessche Netze&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#bayes-net"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Duplikateliminierung&lt;/dfn&gt;&lt;/dt&gt;
@@ -22272,8 +22273,11 @@ Siehe &lt;a href="#r-tree"&gt;oben&lt;/a&gt;.
 &lt;summary&gt;Wie funktioniert die Suche nach dem n&amp;auml;chsten Nachbarn mit dem R-Baum?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 Man f&amp;uuml;gt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
-ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
-so lange das h&amp;ouml;chstpriore Objekt aus der Queue entfernt
+ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im Folgenden
+so lange das h&amp;ouml;chstpriore Objekt aus der Queue entfernt, bis ein
+Datenobjekt entnommen wird. Das ist der n&amp;auml;chste Nachbar. Wird dagegen ein
+Knoten entnommen, so werden seine Kinder mit ihrem minimalen Abstand zum
+Anfragepunkt in die Queue eingef&amp;uuml;gt.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -22292,8 +22296,8 @@ gegebenenfalls mehr Knoten betrachtet werden.
 &lt;details class="question"&gt;
 &lt;summary&gt;Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-R-B&amp;auml;ume partitionieren im Gegensatz zu kD- und kDB-B&amp;auml;umen den Datensatz
-nicht. kDB-B&amp;auml;ume sind im Gegensatz zu kD-B&amp;auml;umen auf physischer Ebene
+R-B&amp;auml;ume partitionieren im Gegensatz zu kD- und kDB-B&amp;auml;umen nicht den Raum
+(ihre Rechtecke k&amp;ouml;nnen sich &amp;uuml;berlappen), sondern nur den Datensatz. kDB-B&amp;auml;ume sind im Gegensatz zu kD-B&amp;auml;umen auf physischer Ebene
 balanciert.
 &lt;/div&gt;
 &lt;/details&gt;
@@ -22407,7 +22411,8 @@ False-Positive, False-Negative (oder: Konfusionsmatrix)
 &lt;details class="question"&gt;
 &lt;summary&gt;Was f&amp;uuml;r Kennzahlen kennen Sie, die diese Fehlerarten s&amp;auml;mtlich ber&amp;uuml;cksichtigen?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-F score und Gesamtfehler.
+Gesamtfehlerrate (bzw. Erfolgsquote) und Kappa-Koeffizient. Der F-Score
+ber&amp;uuml;cksichtigt nur FP und FN, aber nicht die TN.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -22436,13 +22441,17 @@ wobei A und B Item-Mengen sind.
 &lt;details class="question"&gt;
 &lt;summary&gt;Wie findet man Association Rules?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-In der Warenkorbanalyse / in Transaktionen.
+Mit dem Apriori-Algorithmus oder mit FP-Trees: Zuerst findet man die
+Frequent Itemsets, dann leitet man daraus die Regeln mit ausreichender
+Confidence ab. Typische Daten sind Transaktionen, z.B. in der
+Warenkorbanalyse.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
 &lt;summary&gt;Wie &amp;uuml;berpr&amp;uuml;ft man rasch f&amp;uuml;r viele Transaktionen, welche Kandidaten sie enthalten?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-&lt;a href="#fp-tree"&gt;FP-Trees&lt;/a&gt;
+Mit einem &lt;a href="#hash-tree"&gt;Hash-Tree&lt;/a&gt; &amp;uuml;ber den Kandidaten.
+&lt;a href="#fp-tree"&gt;FP-Trees&lt;/a&gt; vermeiden die Kandidatengenerierung ganz.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -22479,7 +22488,10 @@ selten auch $B$.
 &lt;details class="question"&gt;
 &lt;summary&gt;Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-(Antwort: 24.11.2015, 14:34)
+Die Kandidaten f&amp;uuml;r $k=2$ werden aus den frequent 1-Itemsets gebildet. Ihre
+einzigen 1-elementigen Teilmengen sind genau diese beiden Items, die nach
+Konstruktion frequent sind. Der Prune-Schritt k&amp;ouml;nnte also nichts entfernen.
+(Siehe Aufzeichnung vom 24.11.2015, 14:34)
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -22492,8 +22504,10 @@ Grenze.
 &lt;details class="question"&gt;
 &lt;summary&gt;Was sind multidimensionale Association Rules?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Association Rules, die auf verschiedenen Begriffsebenen sind, z.B.
-Oreo $\Rightarrow$ Milch
+Association Rules, die mehrere Dimensionen (Pr&amp;auml;dikate) umfassen, z.B.
+Alter(X, 20&amp;ndash;29) $\land$ kauft(X, Laptop) $\Rightarrow$ kauft(X, Drucker).
+Regeln &amp;uuml;ber verschiedene Begriffsebenen (z.B. Oreo $\Rightarrow$ Milch)
+hei&amp;szlig;en dagegen Multilevel- bzw. Level-Crossing-Association-Rules.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -22568,10 +22582,12 @@ Endlicher Automat
 &lt;summary&gt;Was versteht man unter dem Antagonismus von Support-basiertem und Constraint-basiertem Pruning?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
-k&amp;ouml;nnte man versucht sein die Kandidaten schon fr&amp;uuml;h auf die Constraints zu
-&amp;uuml;berpr&amp;uuml;fen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
-Frequent sein muss, muss nicht f&amp;uuml;r jede Teilmenge das Constraint erf&amp;uuml;llt
-sein. Dies gilt jedoch nicht f&amp;uuml;r die Nebenbedingungen.
+k&amp;ouml;nnte man versucht sein, die Kandidaten schon fr&amp;uuml;h auf die Constraints zu
+&amp;uuml;berpr&amp;uuml;fen. Jede Teilmenge eines Frequent Itemsets (FI) ist auch frequent.
+F&amp;uuml;r Constraints, die nicht anti-monoton sind, gilt das aber nicht: Eine
+Teilmenge eines Itemsets, welches das Constraint erf&amp;uuml;llt, muss das
+Constraint nicht erf&amp;uuml;llen. Entfernt man solche Kandidaten fr&amp;uuml;h, fehlen
+sp&amp;auml;ter Teilmengen, die das Support-basierte Pruning braucht.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -23484,8 +23500,8 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
       werden k&amp;ouml;nnen. Dabei muss es nur eine Teilmenge $X' \subseteq X$ der
       Gr&amp;ouml;&amp;szlig;e $n$ geben, damit $VC(H, X) \geq n$ gilt.
 
-      Falls beliebige Teilmengen von $X$ durch $H$ separiert werden k&amp;ouml;nnen,
-      so gilt $VC(H, X) = \infty$.
+      Falls es f&amp;uuml;r jedes $n \in \mathbb{N}$ eine Teilmenge der Gr&amp;ouml;&amp;szlig;e $n$ gibt,
+      die durch $H$ beliebig separiert werden kann, so gilt $VC(H, X) = \infty$.
 
       Praktisch gesehen ist $X$, die Menge aller m&amp;ouml;glichen Features, sowie
       $H$, die Menge aller m&amp;ouml;glichen Trennlinien im Feature-Space, vorgegeben.
@@ -23508,8 +23524,8 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Lernproblemtypen: Sei die Menge der Lernbeispiele in &lt;span class="math"&gt;\(X \times Y\)&lt;/span&gt;, mit &lt;span class="math"&gt;\(X \times Y =\)&lt;/span&gt;...&lt;ul&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\)&lt;/span&gt;: Konzeptlernen&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\)&lt;/span&gt;: Klassifikation&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\{\text{Attribut}_1, \text{Attribut}_2, \dots\} \times \{\text{True}, \text{False}\}\)&lt;/span&gt;: Konzeptlernen&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\mathbb{R}^n \times \{\text{Klasse}_1, \dots, \text{Klasse}_k\}\)&lt;/span&gt;: Klassifikation&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\mathbb{R}^n \times \mathbb{R}\)&lt;/span&gt;: Regression&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -23528,7 +23544,8 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
       Trainingsbeispiele unterschiedlich gewichtet werden.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"&gt;&lt;dfn&gt;Bagging&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Bootstrap aggregating&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Kombiniere mehrere schwache Modelle, um ein gutes zu bekommen. Dabei
-      bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.&lt;/dd&gt;
+      bekommt jedes schwache Modell nur eine zuf&amp;auml;llige Stichprobe (mit
+      Zur&amp;uuml;cklegen) der Trainingsdaten.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;AdaBoost&lt;/dfn&gt; (&lt;dfn&gt;Adaptive Boosting&lt;/dfn&gt;; see &lt;a href="https://www.youtube.com/watch?v=ix6IvwbVpw0"&gt;YouTube&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;Learn a classifier for data. Get examples where the classifier got it
       wrong. Train new classifier on the wrong ones.&lt;/dd&gt;
@@ -23567,8 +23584,8 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn&gt;VC-Dimension&lt;/dfn&gt;, siehe &lt;a href="https://youtu.be/puDzy2XmR5c"&gt;YouTube&lt;/a&gt; und [&lt;a href="#ref-mit97" name="ref-mit97-anchor"&gt;Mit97&lt;/a&gt;]&lt;/dt&gt;
 &lt;dd&gt;Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
       VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
-      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
-      werden k&amp;ouml;nnen.&lt;/dd&gt;
+      Anzahl von (geeignet platzierten) Datenpunkten, die von $H^\alpha$
+      beliebig separiert werden k&amp;ouml;nnen.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;ul&gt;
 &lt;li&gt;Folie 44: &lt;span class="math"&gt;\(\eta \in [0, 1]\)&lt;/span&gt; ist ein Parameter, der beliebig gew&amp;auml;hlt
@@ -23610,13 +23627,15 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
         Jedes Gewicht wird unabh&amp;auml;ngig von den anderen behandelt.
 
         Der Algorithmus hat Konstanten $\eta^- \in \mathbb{R}_{\le 1}$ sowie
-        $\eta^+ \in \mathbb{R}_{\ge 1}$. F&amp;uuml;r jedes Gewicht ist au&amp;szlig;erdem
-        $\eta=1$ zu Beginn.
+        $\eta^+ \in \mathbb{R}_{\ge 1}$ (typisch: $\eta^- = 0.5$, $\eta^+ = 1.2$). Jedes Gewicht
+        hat au&amp;szlig;erdem eine eigene Schrittweite $\eta$, zu Beginn z.B. $\eta = 1$.
 
         Bei jedem Gewichtsupdate wird &amp;uuml;berpr&amp;uuml;ft, ob sich das Vorzeichen des
-        Gradienten f&amp;uuml;r dieses Gewicht ge&amp;auml;ndert hat. Falls ja, wird das Gewicht
-        um $\eta \cdot \eta^+$ bzw. $\eta \cdot \eta^-$ ge&amp;auml;ndert. Au&amp;szlig;erdem
-        kann eine minimale bzw. eine maximale &amp;Auml;nderung gesetzt werden.
+        Gradienten f&amp;uuml;r dieses Gewicht ge&amp;auml;ndert hat. Falls ja, wird die
+        Schrittweite auf $\eta \cdot \eta^-$ verkleinert, falls nein, auf
+        $\eta \cdot \eta^+$ vergr&amp;ouml;&amp;szlig;ert. Dann wird das Gewicht um die Schrittweite
+        entgegen dem Vorzeichen des Gradienten ge&amp;auml;ndert. Au&amp;szlig;erdem kann eine
+        minimale bzw. eine maximale Schrittweite gesetzt werden.
         &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Delta_rule"&gt;&lt;dfn&gt;Delta-Regel&lt;/dfn&gt;&lt;/a&gt;, siehe &lt;a href="http://www.neuronalesnetz.de/delta.html"&gt;neuronalesnetz.de&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Die Delta-Regel ist ein Lernalgorithmus f&amp;uuml;r neuronale Netze mit nur
@@ -23937,7 +23956,8 @@ Dieser Term wird in der &lt;i&gt;Structural Risk Minimization&lt;/i&gt; minimier
       Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben das HMM $\lambda$,
       ist dann einfach die Summe der $\alpha_i$ des letzten Zeitschritts.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"&gt;&lt;dfn&gt;R&amp;uuml;ckw&amp;auml;rts-Algorithmus&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;Der R&amp;uuml;ckw&amp;auml;rts-Algorithmus l&amp;ouml;st das Dekodierungsproblem. Er benutzt dazu
+&lt;dd&gt;Der R&amp;uuml;ckw&amp;auml;rts-Algorithmus l&amp;ouml;st ebenfalls das Evaluierungsproblem und
+      wird im Forward-Backward- und im Baum-Welch-Algorithmus gebraucht. Er benutzt dazu
       dynamische Programmierung: Die Variablen $\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)$ geben
       die Wahrscheinlichkeit an, dass die Sequenz $o_{t+1} o_{t+2} \dots o_{T}$
       beobachtet werden wird, gegeben das HMM&amp;nbsp;$\lambda$ und den
@@ -23988,10 +24008,10 @@ Dieser Term wird in der &lt;i&gt;Structural Risk Minimization&lt;/i&gt; minimier
 &lt;p&gt;Die drei Probleme von HMMs sind&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;P1 - Evaluierungsproblem&lt;/strong&gt;: Wie wahrscheinlich ist eine Sequenz
-  &lt;span class="math"&gt;\(\bf{o} = o_1 o_2 \dots o_T\)&lt;/span&gt;
-  gegeben ein HMM &lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;, also &lt;span class="math"&gt;\(P(\bf{o}|\lambda)\)&lt;/span&gt;.&lt;/li&gt;
+  &lt;span class="math"&gt;\(\mathbf{o} = o_1 o_2 \dots o_T\)&lt;/span&gt;
+  gegeben ein HMM &lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;, also &lt;span class="math"&gt;\(P(\mathbf{o}|\lambda)\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;P2 - Dekodierungsproblem&lt;/strong&gt;: Finden der wahrscheinlichsten Zustandssequenz &lt;span markdown="0"&gt;&lt;span class="math"&gt;\(s_1, \dots, s_T\)&lt;/span&gt;&lt;/span&gt;,
-  gegeben eine Sequenz von Beobachtungen &lt;span class="math"&gt;\(\bf{o} = o_1 o_2 \dots o_T\)&lt;/span&gt;.&lt;/li&gt;
+  gegeben eine Sequenz von Beobachtungen &lt;span class="math"&gt;\(\mathbf{o} = o_1 o_2 \dots o_T\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;P3 - Lernproblem&lt;/strong&gt;: Optimieren der Modellparameter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Anwendungen:&lt;/p&gt;
@@ -24495,7 +24515,7 @@ Feedback von dir freuen:&lt;/p&gt;
 &lt;strong&gt;&amp;Uuml;bungsschein&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Bonuspunkte&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Ergebnisse&lt;/strong&gt;: werden ca. 5&amp;nbsp;-&amp;nbsp;10&amp;nbsp;min. nach der m&amp;uuml;ndlichen Pr&amp;uuml;fung gesagt&lt;br/&gt;
-&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</content><category term="German posts"/><category term="Klausur"/><category term="Reinforcement Learning"/><category term="Clustering"/><category term="University"/><category term="Machine Learning"/><category term="AI"/></entry><entry><title>Wo ist Hörsaal 9 am KIT?</title><link href="https://martin-thoma.com/wo-ist-hs9/" rel="alternate"/><published>2015-11-02T21:33:00+01:00</published><updated>2015-11-02T21:33:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2015-11-02:/wo-ist-hs9/</id><summary type="html">&lt;p&gt;Dieser Artikel ist für all die verzweifelten Studienanfänger am &lt;abbr
+&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</content><category term="German posts"/><category term="Klausur"/><category term="Reinforcement Learning"/><category term="Clustering"/><category term="University"/><category term="Machine Learning"/><category term="AI"/><category term="KIT"/><category term="Dynamic Programming"/></entry><entry><title>Wo ist Hörsaal 9 am KIT?</title><link href="https://martin-thoma.com/wo-ist-hs9/" rel="alternate"/><published>2015-11-02T21:33:00+01:00</published><updated>2015-11-02T21:33:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2015-11-02:/wo-ist-hs9/</id><summary type="html">&lt;p&gt;Dieser Artikel ist für all die verzweifelten Studienanfänger am &lt;abbr
 title="Karlsruher Institut für Technologie"&gt;KIT&lt;/abbr&gt;, die den Hörsaal&amp;nbsp;9
 (HS&amp;nbsp;9) suchen.&lt;/p&gt;
 &lt;p&gt;Der HS&amp;nbsp;9 ist in &lt;a href="https://www.kit.edu/campusplan/"&gt;Gebäude 20.40&lt;/a&gt;, dem
@@ -25028,7 +25048,8 @@ gesagt...)&lt;/p&gt;</content><category term="German posts"/><category term="KIT
         schneiden, den gleichen Aufwand verursachen, egal welcher Kindknoten
         traversiert wird.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Bounding-Volume-Hierarchies&lt;/dfn&gt; (&lt;dfn&gt;BVH&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;BVHs sind eine Datenstruktur, welche den Raum in H&amp;uuml;llk&amp;ouml;rper unterteilt.
+&lt;dd&gt;BVHs sind eine Datenstruktur, welche die Objekte der Szene
+        hierarchisch in H&amp;uuml;llk&amp;ouml;rper gruppiert (und nicht den Raum unterteilt).
         Man hat also komplexe Objekte. F&amp;uuml;r diese Objekte muss man Schnitttests
         machen. Das bedeutet im einfachsten Fall, dass man f&amp;uuml;r $n$ Dreiecke
         und einen Strahl genau $n$ Schnitttests machen muss.
@@ -25654,7 +25675,7 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Partially observable Markov decision process&lt;/dfn&gt; (&lt;dfn&gt;POMDP&lt;/dfn&gt;)&lt;a name="pomdp-definition"&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein &lt;i&gt;partially observable Markov decision process&lt;/i&gt; ist ein
-      7-Tupel &lt;span markdown="0"&gt;$S, A, T, R, \Omega, O, \gamma$&lt;/span&gt;, wobei
+      7-Tupel &lt;span markdown="0"&gt;$(S, A, T, R, \Omega, O, \gamma)$&lt;/span&gt;, wobei
 
       &lt;ul&gt;
 &lt;li&gt;$S$ die Zustandsmenge,&lt;/li&gt;
@@ -25740,9 +25761,10 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
       Siehe &lt;a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel"&gt;Bayes-Klassifikator&lt;/a&gt;
       f&amp;uuml;r eine detailliertere Beschreibung.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="bayes-filter"&gt;Bayes Filter&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das k&amp;ouml;nnte z.B.
-      die $(x,y,z)$ Position eines GPS-Sensors sein. Diese Position ist
-      verrauscht.
+&lt;dd&gt;Ein Bayes-Filter ist ein Verfahren, um den nicht direkt beobachtbaren
+      Zustand $X_t$ eines Systems rekursiv aus verrauschten Messungen $Z_t$
+      zu sch&amp;auml;tzen. Das k&amp;ouml;nnte z.B. die $(x,y,z)$-Position eines Fahrzeugs
+      sein, die mit einem GPS-Sensor verrauscht gemessen wird.
 
       Nun gibt es drei m&amp;ouml;gliche Anfragen:
 
@@ -25756,7 +25778,8 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
               sage die Position $X_{t+k}$ vorher:
               $$P(X_{t+k} | Z_t, \dots, Z_0)$$&lt;/li&gt;
 &lt;li&gt;&lt;b&gt;Gl&amp;auml;tten&lt;/b&gt;: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
-              sage die Position $P(X_{t-k} | Z_t, \dots, Z_0)$ vorher.&lt;/li&gt;
+              sch&amp;auml;tze die fr&amp;uuml;here Position $X_{t-k}$:
+              $$P(X_{t-k} | Z_t, \dots, Z_0)$$&lt;/li&gt;
 &lt;/ul&gt;
 
       Beispiele f&amp;uuml;r Bayes-Filter sind
@@ -25881,7 +25904,7 @@ sind Beispiele f&amp;uuml;r dynamische Bayessche Netze.&lt;/p&gt;
   &lt;ul&gt;
 &lt;li&gt;einer Klassenmenge $\mathbf{C} = \{C_1, \dots, C_n\}$,&lt;/li&gt;
 &lt;li&gt;einer partiellen Ordnung &amp;uuml;ber C, welche die Klassenhierarchie definiert,&lt;/li&gt;
-&lt;li&gt;einer Menge einfacher, nicht probabilistischer Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}$,&lt;/li&gt;
+&lt;li&gt;einer Menge einfacher, nicht probabilistischer Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n\} \forall C \in \mathbf{C}$,&lt;/li&gt;
 &lt;li&gt;einer Menge beschreibender Attribute $\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}$,&lt;/li&gt;
 &lt;li&gt;einer Menge komplexer Attribute $\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}$.
           Die komplexen Attribute beschreiben funktionale Beziehungen zwischen Klassen.&lt;/li&gt;
@@ -25930,9 +25953,11 @@ starting to read the slides.&lt;/p&gt;
       den linearen Zusammenhang zwischen zwei Zufallsvariablen $X, Y$. Er
       ist definiert als
       $$\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}$$&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"&gt;&lt;dfn&gt;Gausscher Prozess&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Kriging&lt;/dfn&gt;, &lt;a href="https://www.youtube.com/watch?v=4vGiHC35j9s"&gt;Machine learning - Introduction to Gaussian processes&lt;/a&gt; by Nando De Freitas)&lt;/dt&gt;
-&lt;dd&gt;Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
-      Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.&lt;br/&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"&gt;&lt;dfn&gt;Gau&amp;szlig;scher Prozess&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Kriging&lt;/dfn&gt;, &lt;a href="https://www.youtube.com/watch?v=4vGiHC35j9s"&gt;Machine learning - Introduction to Gaussian processes&lt;/a&gt; by Nando De Freitas)&lt;/dt&gt;
+&lt;dd&gt;Ein Gau&amp;szlig;scher Prozess ist eine Verteilung &amp;uuml;ber Funktionen, bei der jede
+      endliche Menge von Funktionswerten gemeinsam normalverteilt ist.
+      Gau&amp;szlig;sche Prozesse approximieren eine Funktion also dadurch, dass sie an
+      jedem Punkt eine Normalverteilung (Gau&amp;szlig;-Verteilung) annehmen.&lt;br/&gt;
 &lt;br/&gt;
       Siehe &lt;a href="https://en.wikipedia.org/wiki/Kriging"&gt;Gaussian process regression&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
@@ -25945,8 +25970,10 @@ starting to read the slides.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn&gt;Deep Belief Netz&lt;/dfn&gt; (&lt;dfn&gt;DBN&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Ein Deep Belief Netz ist ein gerichtetes, azyklisches, probabilistisches
-      graphisches Modell.&lt;/dd&gt;
+&lt;dd&gt;Ein Deep Belief Netz ist ein probabilistisches graphisches Modell aus
+      mehreren Schichten versteckter Variablen. Die obersten beiden Schichten
+      sind ungerichtet verbunden (wie eine RBM), die &amp;uuml;brigen Verbindungen
+      sind gerichtet (von oben nach unten).&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Restricted Boltzmann machine&lt;/dfn&gt; (&lt;dfn&gt;RBM&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../neuronale-netze-vorlesung/#rbm"&gt;Neuronale Netze&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Contrastive Divergence&lt;/dfn&gt; (&lt;dfn&gt;CD&lt;/dfn&gt;, &lt;dfn&gt;CD-$k$&lt;/dfn&gt;)&lt;/dt&gt;
@@ -26034,16 +26061,17 @@ starting to read the slides.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn&gt;Hodgkin-Huxley Neuronenmodell&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Das &lt;i&gt;Hodgkin-Huxley Neuronenmodell&lt;/i&gt; modelliert die elektrochemischen
       Vorg&amp;auml;nge innerhalb eines Neurons mit elektrischen Baugliedern. Dies
-      resultiert in Differenzialgleichungen mit 4&amp;nbsp;Variablen (Kapazit&amp;auml;t
-      der Membran, Widerst&amp;auml;nde der Ionenkan&amp;auml;le, Gleichgewichtspotentiale,
-      &amp;Ouml;ffnung der Ionenkan&amp;auml;le).
+      resultiert in Differenzialgleichungen mit 4&amp;nbsp;Zustandsvariablen
+      (Membranpotential sowie drei Variablen f&amp;uuml;r die &amp;Ouml;ffnung der Natrium- und
+      Kaliumkan&amp;auml;le). Parameter sind u.a. die Kapazit&amp;auml;t der Membran, die
+      Leitf&amp;auml;higkeiten der Ionenkan&amp;auml;le und die Gleichgewichtspotentiale.
 
       Das Modell ist realistisch, aber sehr komplex. &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;LIF Neuronenmodell&lt;/dfn&gt; (Leaky integrate and Fire)&lt;/dt&gt;
 &lt;dd&gt;Das &lt;i&gt;LIF Neuronenmodell&lt;/i&gt; modelliert ein Neuron durch eine
       gew&amp;ouml;hnliche Differentialgleichung erster Ordnung.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SRM Neuronenmodell&lt;/dfn&gt; (Spike Response Model)&lt;/dt&gt;
-&lt;dd&gt;Das &lt;i&gt;SRM Neuronenmodell&lt;/i&gt; modelliert die Refraktionszeit. Das ist
+&lt;dd&gt;Das &lt;i&gt;SRM Neuronenmodell&lt;/i&gt; modelliert die &lt;a href="https://de.wikipedia.org/wiki/Refrakt%C3%A4rzeit"&gt;Refrakt&amp;auml;rzeit&lt;/a&gt;. Das ist
       die Zeit, in der kein neues Aktionspotential aufgebaut werden kann.
 
       Das SRM ist ein rein ph&amp;auml;nomenologisches Modell, welches trotz der
@@ -26143,9 +26171,9 @@ die Trennebene durch eine Region geringer Dichte zu legen.
 &lt;div class="answer"&gt;
 $$\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2$$
 unter den Nebenbedingungen
-$$\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1$$
+$$\forall i \in \{1, \dots, n\}: y_i (w \cdot x_i - b) \geq 1$$
 und
-$$\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}$$
+$$\forall j \in \{1, \dots, k\}: y_j^* (w \cdot x_j^* -b) \geq 1\text{ mit }y_j^* \in \{-1, 1\}$$
 
 Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
 &lt;/div&gt;
@@ -26396,11 +26424,14 @@ Mahalanobis-Norm &lt;span class="math"&gt;\(\|m\| := \sqrt{m^T A m}\)&lt;/span&g
 &lt;li&gt;Finde &lt;span class="math"&gt;\(m_0\)&lt;/span&gt;, sodass &lt;span class="math"&gt;\(J_0(m) := \sum_{k=1}^N \|m - m_k\|^2\)&lt;/span&gt; minimal ist, also
    &lt;span class="math"&gt;\(m_0 = \frac{1}{N} \sum_{k=1}^N m_k\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Finde Gerade &lt;span class="math"&gt;\(h: m = \bar{m} + ae\)&lt;/span&gt;, welche die Punkte optimal repr&amp;auml;sentiert.&lt;ol&gt;
-&lt;li&gt;Finden der &lt;span class="math"&gt;\(a_k\)&lt;/span&gt; (TODO: Was ist das?)&lt;br/&gt;
+&lt;li&gt;Finden der &lt;span class="math"&gt;\(a_k\)&lt;/span&gt;: &lt;span class="math"&gt;\(a_k\)&lt;/span&gt; ist die Koordinate des auf die Gerade
+   projizierten Punktes &lt;span class="math"&gt;\(m_k\)&lt;/span&gt; (mit &lt;span class="math"&gt;\(\|e\| = 1\)&lt;/span&gt;).&lt;br/&gt;
    Fehlerma&amp;szlig; &lt;span class="math"&gt;\(J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2\)&lt;/span&gt;.&lt;br/&gt;
    Ergibt: &lt;span class="math"&gt;\(a_k = e^T (m_k - \bar{m})\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Berechnung des optimalen Richtungsvektors&lt;br/&gt;
-   Streumatrix &lt;span class="math"&gt;\(S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T\)&lt;/span&gt;&lt;/li&gt;
+   Streumatrix &lt;span class="math"&gt;\(S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T\)&lt;/span&gt;&lt;br/&gt;
+   Der optimale Richtungsvektor &lt;span class="math"&gt;\(e\)&lt;/span&gt; ist der Eigenvektor von &lt;span class="math"&gt;\(S\)&lt;/span&gt; zum gr&amp;ouml;&amp;szlig;ten
+   Eigenwert.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;Finden eines affinen &lt;span class="math"&gt;\(d'\)&lt;/span&gt;-dimensionalen Unterraumes des Merkmalsraumes,
@@ -26518,7 +26549,7 @@ Siehe &lt;a href="../machine-learning-1-course/#overfitting"&gt;ML 1&lt;/a&gt;
 &lt;div class="answer"&gt;
 &lt;ul&gt;
 &lt;li&gt;Unterschiedliche Einheiten (&amp;rarr; Entdimensionalisieren)&lt;/li&gt;
-&lt;li&gt;Unterschiedliche Skalen (&amp;rarr; Teilen durch Varianz oder durch Wertebereich)&lt;/li&gt;
+&lt;li&gt;Unterschiedliche Skalen (&amp;rarr; Teilen durch Standardabweichung oder durch Wertebereich; teilt man eine normalverteilte Variable durch ihre Standardabweichung, erh&amp;auml;lt man eine standardisierte Variable)&lt;/li&gt;
 &lt;li&gt;Unterschiedliche Wertebereiche (&amp;rarr; Durchschnitt abziehen)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -26527,7 +26558,7 @@ Siehe &lt;a href="../machine-learning-1-course/#overfitting"&gt;ML 1&lt;/a&gt;
 &lt;summary&gt;Wie funktioniert MDA?&lt;/summary&gt;
 &lt;div class="answer"&gt;
 Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 + {s'}_2^2}$
-(im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
+(im 2-Klassen-Fall, wobei $w$ die Richtung der Geraden ist, auf die projiziert wird)
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
@@ -26773,13 +26804,14 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
       Dabei ist $d \in \{1, \dots, n\}$ beliebig w&amp;auml;hlbar.
 
       Die Transformation der Daten $X$ findet durch eine Matrixmultiplikation
-      $Y = P \cdot X$ statt. Die Matrix $P$ besteht aus den ersten $d$
-      Eigenvektoren der Kovarianzmatrix der Features $X$:
+      $Y = P^T \cdot X$ statt. Die Matrix $P$ besteht aus den Eigenvektoren
+      zu den $d$ gr&amp;ouml;&amp;szlig;ten Eigenwerten der Kovarianzmatrix der Features $X$:
 
       $P = (v_1, \dots, v_d)$ mit
       $\lambda_j v_j = C_X v_j$ f&amp;uuml;r $j=1,\dots,d$
 
-      Au&amp;szlig;erdem gilt: $C_X = \frac{1}{n-1} X X^T$ &lt;/dd&gt;
+      Au&amp;szlig;erdem gilt: $C_X = \frac{1}{N-1} X X^T$ (f&amp;uuml;r zentrierte Daten $X$ mit
+      $N$ Datenpunkten als Spalten)&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="v03-lvq"&gt;V03: LVQ&lt;/h3&gt;
 &lt;p&gt;Slide name: &lt;code&gt;V03_2015-04-21_LVQ.pdf&lt;/code&gt;&lt;/p&gt;
@@ -26794,7 +26826,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn&gt;McCulloch&amp;ndash;Pitts (MCP) Neuron&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein MCP-Neuron ist ein Algorithmus zur bin&amp;auml;ren Klassifizierung. Er hat
-      $m+1$, mit $m \in \mathbb{N}_{&amp;gt; 0}$ inputs $x_i \in \{0, 1\}$. Davon
+      $m+1$ Inputs $x_i \in \{0, 1\}$ (mit $m \in \mathbb{N}_{&amp;gt; 0}$). Davon
       ist der erste (nullte) konstant gleich Eins und wird &lt;i&gt;Bias&lt;/i&gt; genannt.
       Jeder Input wird mit einem Gewicht $w_i \in \mathbb{R}$ multipliziert,
       alle gewichteten Inputs werden addiert und schlie&amp;szlig;lich wird die
@@ -27125,8 +27157,8 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
     Training:
     &lt;ol&gt;
 &lt;li&gt;&lt;b&gt;Initialisierung&lt;/b&gt;: Die Gewichte
-            &lt;span markdown="0"&gt;$w_{ji}$&lt;/span&gt; von dem
-            &lt;span markdown="0"&gt;$i$&lt;/span&gt;-ten Input-Neuron zum Neuron (&lt;span markdown="0"&gt;$i = 1, ..., n$&lt;/span&gt;)
+            &lt;span markdown="0"&gt;$w_{ji}$&lt;/span&gt; vom
+            &lt;span markdown="0"&gt;$i$&lt;/span&gt;-ten Input-Neuron (&lt;span markdown="0"&gt;$i = 1, \dots, n$&lt;/span&gt;) zum Neuron
             &lt;span markdown="0"&gt;$j$&lt;/span&gt; auf dem Gitter werden zuf&amp;auml;llig
             initialisiert.&lt;/li&gt;
 &lt;li&gt;&lt;b&gt;Sampling&lt;/b&gt;: Nimm ein zuf&amp;auml;lliges Beispiel
@@ -27192,7 +27224,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
       Trainingsverfahren (Contrastive Divergence).
 
       Die Energie des Netzwerkes ist
-      $$- \sum_{i &amp;lt; j} w_{ij} s_i s_j - \sum_i b_i s_i$$
+      $$E = - \sum_{i &amp;lt; j} w_{ij} s_i s_j - \sum_i b_i s_i$$
       wobei $s_i, s_j$ die bin&amp;auml;ren Zust&amp;auml;nde der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzust&amp;auml;nden
       Wahrscheinlichkeiten zuweisen, die direkt proportional zu $e^{-E}$
@@ -27282,8 +27314,9 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
         Ausgabeschicht im n&amp;auml;chsten Zeitschritt als Eingabe verwendet wird.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Backpropagation through Time&lt;/dfn&gt; (&lt;dfn&gt;BPTT&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Ein Trainingsalgorithmus f&amp;uuml;r rekurrente neuronale Netze, bei dem
-        das Netz "ausgerollt" wird. Das rekurrente Netz wird also als unendlich
-        gro&amp;szlig;es nicht-rekurrentes Netz behandelt.&lt;/dd&gt;
+        das Netz &amp;uuml;ber die Zeit "ausgerollt" wird. Das rekurrente Netz wird also
+        als nicht-rekurrentes Netz mit einer Kopie der Schichten pro
+        Zeitschritt behandelt.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"&gt;&lt;dfn&gt;Vanishing gradient problem&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Das Problem des verschwindenden Gradienten ist eine Herausforderung im
         Kontext neuronaler Netze, welche mit Backpropagation trainiert
@@ -27518,7 +27551,7 @@ training data will help you with your problem.&lt;/p&gt;
 &lt;td&gt;&lt;span markdown="0"&gt;$\varphi(x) = \max(\alpha x, x)$&lt;/span&gt; mit typischerweise &lt;span markdown="0"&gt;$\alpha = 0.01$&lt;/span&gt;&lt;/td&gt;
 &lt;td style="text-align: center;"&gt;&lt;span markdown="0"&gt;$(-\infty, +\infty)$&lt;/span&gt;&lt;/td&gt;
 &lt;td style="text-align: center;"&gt;Yes&lt;br/&gt;(except 0)&lt;/td&gt;
-&lt;td&gt;&lt;span markdown="0"&gt;$\varphi'(x) = \begin{cases}1 &amp;amp;\text{if } x &amp;gt; 0\\0.01 &amp;amp;\text{if } x &amp;lt; 0\end{cases}$&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span markdown="0"&gt;$\varphi'(x) = \begin{cases}1 &amp;amp;\text{if } x &amp;gt; 0\\\alpha &amp;amp;\text{if } x &amp;lt; 0\end{cases}$&lt;/span&gt;&lt;/td&gt;
 &lt;td style="text-align: center;"&gt;No&lt;/td&gt;
 &lt;td&gt;Fixes the dying ReLU problem&lt;sup&gt;[&lt;a href="http://datascience.stackexchange.com/q/5706/8820"&gt;1&lt;/a&gt;]&lt;/sup&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -27930,15 +27963,15 @@ habe ich unter anderem in der folgenden Tabelle aufgef&amp;uuml;hrt.&lt;/p&gt;
   &amp;rarr; Ja, falls der Realanteil aller Pole negativ ist.&lt;/li&gt;
 &lt;li&gt;Ist der geschlossene Regelkreis mit der &amp;Uuml;bertragungsfunktion &lt;span class="math"&gt;\(G(s)\)&lt;/span&gt; des offenen Kreises stabil?
   &amp;rarr; Ja, falls die Nullstellen der Gleichung &lt;span class="math"&gt;\(G(s)+1=0\)&lt;/span&gt; links der &lt;span class="math"&gt;\(i\)&lt;/span&gt;-Achse liegen.&lt;/li&gt;
-&lt;li&gt;Ist &lt;span class="math"&gt;\(G(i \omega)\)&lt;/span&gt; stabil?
-  &amp;rarr; Ja, falls die Kurve (-1, 0i) NICHT umf&amp;auml;hrt (siehe &lt;a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C"&gt;Nyquistkriterium&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ist der geschlossene Regelkreis stabil, wenn die Ortskurve &lt;span class="math"&gt;\(G(i \omega)\)&lt;/span&gt; des (stabilen) offenen Kreises gegeben ist?
+  &amp;rarr; Ja, falls die Kurve den Punkt &lt;span class="math"&gt;\(-1 + 0i\)&lt;/span&gt; NICHT umf&amp;auml;hrt (siehe &lt;a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C"&gt;Nyquistkriterium&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id="hurwitz-kriterium"&gt;Hurwitz-Kriterium&lt;/h4&gt;
 &lt;p&gt;Ein System &lt;span class="math"&gt;\(a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0\)&lt;/span&gt; ist genau dann stabil,
 wenn&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;alle Koeffizienten &lt;span class="math"&gt;\(a_i &amp;gt; 0\)&lt;/span&gt; UND&lt;/li&gt;
-&lt;li&gt;alle &lt;a href="https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren"&gt;Hauptabschnittsdeterminanten&lt;/a&gt; (auch Hauptminoren genannt) positiv sind.&lt;/li&gt;
+&lt;li&gt;alle &lt;a href="https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren"&gt;Hauptabschnittsdeterminanten&lt;/a&gt; (auch f&amp;uuml;hrende Hauptminoren genannt) der Hurwitz-Matrix positiv sind.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Insbesondere gilt f&amp;uuml;r &lt;span class="math"&gt;\(a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0\)&lt;/span&gt;, dass die
 Hauptabschnittsdeterminanten von&lt;/p&gt;
@@ -27956,7 +27989,7 @@ zu &amp;uuml;berpr&amp;uuml;fen sind. Das ist jedoch schon durch das erste Krite
 &lt;ul&gt;
 &lt;li&gt;Subtrahierer: &lt;span class="math"&gt;\(U_A = \frac{R_0 (R_1 + R_3)}{R_1 (R_0 + R_2)} \cdot U_2 - \frac{R_3}{R_1} \cdot U_1\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Invertierender Addierer: &lt;span class="math"&gt;\(U_A = - \left (\sum_{i=1}^{N-1} \frac{U_i}{R_i} \right ) \cdot R_N\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Integrierer: &lt;span class="math"&gt;\(- \frac{1}{RC} \int U_E \mathrm{d}t\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Integrierer: &lt;span class="math"&gt;\(U_A = - \frac{1}{RC} \int U_E \mathrm{d}t\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Differenzierer: &lt;span class="math"&gt;\(U_A = - R_N \cdot I_E\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Invertierender OP: &lt;span class="math"&gt;\(y = - \frac{R_N}{R_1}\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Nicht-Invertierender OP: &lt;span class="math"&gt;\(y = \frac{R_N+R_1}{R_1}\)&lt;/span&gt;&lt;/li&gt;
@@ -28015,17 +28048,21 @@ zu &amp;uuml;berpr&amp;uuml;fen sind. Das ist jedoch schon durch das erste Krite
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Echtzeitkommunikation / Programmierung&lt;ul&gt;
-&lt;li&gt;Echtzeitkommunikation: 7 Punkte&lt;/li&gt;
+&lt;li&gt;Echtzeitkommunikation: 7 Punkte&lt;ul&gt;
 &lt;li&gt;ISO / OSI-Schichtenmodell: 1.5 Punkte&lt;/li&gt;
 &lt;li&gt;Manchester-Codierung: 1.5 Punkte&lt;/li&gt;
 &lt;li&gt;&amp;Uuml;bertragungsfehler: 1.5 Punkte&lt;/li&gt;
 &lt;li&gt;CAN-Dataframes: 2.5 Punkte&lt;/li&gt;
-&lt;li&gt;Echtzeitprogrammierung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Echtzeitprogrammierung&lt;ul&gt;
 &lt;li&gt;Zus&amp;auml;tzliche Forderungen an Echtzeitsysteme: 1 Punkt&lt;/li&gt;
 &lt;li&gt;FPP-Scheduling: 2 Punkte&lt;/li&gt;
 &lt;li&gt;Periodenabweichung: 2 Punkte&lt;/li&gt;
 &lt;li&gt;Optimales Scheduling: 1 Punkt&lt;/li&gt;
 &lt;li&gt;Schwankungen: 1 Punkt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Echtzeit-OS / SPS&lt;ul&gt;
@@ -28201,8 +28238,7 @@ sind (das ist nicht immer eine Einheitsmatrix!), dann hei&amp;szlig;t die Matrix
 oben &lt;span class="math"&gt;\(Q\)&lt;/span&gt; und rechts oben &lt;span class="math"&gt;\(R\)&lt;/span&gt;. Dann gilt:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="math"&gt;\((E-Q)^{-1} \cdot R\)&lt;/span&gt;: Absorptionszeit&lt;/li&gt;
-&lt;li&gt;
-&lt;div class="math"&gt;$$(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$$&lt;/div&gt;: Schritte bis zur Absorption.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\((E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}\)&lt;/span&gt;: Erwartete Anzahl der Schritte bis zur Absorption.&lt;/li&gt;
 &lt;li&gt;Invariantes Ma&amp;szlig; finden: &lt;span class="math"&gt;\(\pi P = \pi\)&lt;/span&gt; bzw. &lt;span class="math"&gt;\(\pi Q = 0\)&lt;/span&gt; im zeitkontinuierlichen Fall&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="ubungsbetrieb"&gt;&amp;Uuml;bungsbetrieb&lt;/h2&gt;
@@ -28881,8 +28917,8 @@ k&amp;ouml;nnen und verstehen:&lt;/p&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\stackrel{+}{\rightarrow}\)&lt;/span&gt; bezeichnet die transitive H&amp;uuml;lle von &lt;span class="math"&gt;\(\succ\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\leftrightarrow\)&lt;/span&gt; bezeichnet die reflexive, transitive und symmetrische H&amp;uuml;lle
   von &lt;span class="math"&gt;\(\succ\)&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\((D, \succ)\)&lt;/span&gt; hei&amp;szlig;t konfluent &lt;span class="math"&gt;\(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\)&lt;/span&gt; mit &lt;span class="math"&gt;\(s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\((D, \succ)\)&lt;/span&gt; hei&amp;szlig;t lokal konfluent &lt;span class="math"&gt;\(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\)&lt;/span&gt; mit &lt;span class="math"&gt;\(s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\((D, \succ)\)&lt;/span&gt; hei&amp;szlig;t konfluent &lt;span class="math"&gt;\(:\Leftrightarrow \forall s, s_1, s_2 \in D\)&lt;/span&gt; mit &lt;span class="math"&gt;\(s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\((D, \succ)\)&lt;/span&gt; hei&amp;szlig;t lokal konfluent &lt;span class="math"&gt;\(:\Leftrightarrow \forall s, s_1, s_2 \in D\)&lt;/span&gt; mit &lt;span class="math"&gt;\(s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\((D, \succ)\)&lt;/span&gt; hei&amp;szlig;t noethersch, wenn es keine unendlichen Folgen &lt;span class="math"&gt;\(s_0 \succ s_1 \dots \succ s_i \succ \dots\)&lt;/span&gt; gibt.&lt;/li&gt;
 &lt;li&gt;Ein konfluentes und noethersches Reduktionssystem hei&amp;szlig;t kanonisch.&lt;/li&gt;
 &lt;li&gt;Ein Element &lt;span class="math"&gt;\(s \in D\)&lt;/span&gt; hei&amp;szlig;t irreduzibel (oder eine Normalform) in
@@ -28914,16 +28950,17 @@ k&amp;ouml;nnen und verstehen:&lt;/p&gt;
 &lt;li&gt;F&amp;uuml;r &lt;span class="math"&gt;\(K \in V^*\)&lt;/span&gt; und &lt;span class="math"&gt;\(J \in V^\omega\)&lt;/span&gt; ist &lt;span class="math"&gt;\(KJ=\{w_1 w_2 | w_1 \in K, w_2 \in J\}\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;F&amp;uuml;r &lt;span class="math"&gt;\(K \in V^*\)&lt;/span&gt; ist &lt;span class="math"&gt;\(\overset{\rightarrow}{K}=\{w \in V^\omega | w \downarrow (n) \in K \text{ f&amp;uuml;r unendlich viele } n\}\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Ein B&amp;uuml;chi-Automat ist ein nichtdeterministischer endlicher Automat, der
-  W&amp;ouml;rter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen
-  Finalzust&amp;auml;nden gibt. (vgl. &lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6"&gt;Beispiel&lt;/a&gt;)&lt;/li&gt;
+  W&amp;ouml;rter akzeptiert, wenn es eine Berechnungsfolge gibt, die unendlich oft
+  einen Finalzustand besucht. (vgl. &lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6"&gt;Beispiel&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;A &lt;strong&gt;U&lt;/strong&gt; B: A gilt, bis B gilt (das U steht f&amp;uuml;r "until"). Allerdings gilt B
   auch irgendwann. Es kann also nicht sein, dass A unendlich lange gilt und B
   nie.&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(A\;\textbf{U}_W\;B\)&lt;/span&gt; bedeutet, dass entweder immer A und gleichzeitig nie B
   gilt, oder dass irgendwann B gilt und davor gilt immer A. Das 'W' steht f&amp;uuml;r
   'weak'.&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(A\;\textbf{V}\;B\)&lt;/span&gt;: B gilt so lange, bis A gilt. Daher wird V auch
-  'Release-Operator' genannt.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(A\;\textbf{V}\;B\)&lt;/span&gt;: B gilt so lange, bis einschlie&amp;szlig;lich zu dem Zeitpunkt, an
+  dem A gilt. A muss aber nie gelten; dann gilt B immer. A "befreit" B also von
+  der Pflicht zu gelten, daher wird V auch 'Release-Operator' genannt.&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\diamond \square P\)&lt;/span&gt;: Es gibt einen Zeitpunkt, ab dem immer P gilt.&lt;/li&gt;
 &lt;li&gt;Zu jeder LTL-Formel gibt es einen effektiv konstruierbaren B&amp;uuml;chi-Automaten.&lt;/li&gt;
 &lt;li&gt;Erf&amp;uuml;llbarkeit und Allgemeing&amp;uuml;ltigkeit von LTL-Formeln sind entscheidbar.&lt;/li&gt;
@@ -28957,8 +28994,8 @@ k&amp;ouml;nnen und verstehen:&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23"&gt;Folie 23/30&lt;/a&gt;: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?&lt;/li&gt;
 &lt;li&gt;Grundterm: Ein Term, der keine Variablen enth&amp;auml;lt. Instanz: F&amp;uuml;r quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: F&amp;uuml;r alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen &amp;uuml;berhaupt keine Variablen mehr.&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24"&gt;Folie 24/30&lt;/a&gt;: Was ist ein Beispiel f&amp;uuml;r &lt;span class="math"&gt;\(D = Term_\Sigma^0 \neq\)&lt;/span&gt; Menge der Grundterme? Wo gilt 2. nicht?&lt;/li&gt;
-&lt;li&gt;Ich vermute mal, dass &lt;span class="math"&gt;\(Term_\Sigma^0 :=\)&lt;/span&gt; Menge der Grundterme. Beachte (sofern die Definition stimmt): &lt;span class="math"&gt;\(Term_\Sigma^0  \subseteq Term_\Sigma\)&lt;/span&gt;, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
-Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?&lt;/li&gt;
+&lt;li&gt;Ich vermute mal, dass &lt;span class="math"&gt;\(Term_\Sigma^0 :=\)&lt;/span&gt; Menge der Grundterme. Beachte (sofern die Definition stimmt): &lt;span class="math"&gt;\(Term_\Sigma^0 \subseteq Term_\Sigma\)&lt;/span&gt;, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.&lt;/li&gt;
+&lt;li&gt;Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf"&gt;Blatt 6, L&amp;ouml;sung zu Aufgabe 4&lt;/a&gt;: Den Teil mit der Umwandlung einer aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte f&amp;uuml;r &lt;span class="math"&gt;\(a \land \neg b \lor c \lor d\)&lt;/span&gt; erkl&amp;auml;ren?&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf"&gt;Blatt 9, L&amp;ouml;sung zu Aufgabe 1&lt;/a&gt;: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht &lt;span class="math"&gt;\(1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))\)&lt;/span&gt;? Wie funktioniert der 1. Schritt in Aufgabe 2?&lt;/li&gt;
 &lt;li&gt;Haben reflexive Relationen irreduzible Elemente?&lt;/li&gt;
@@ -28972,7 +29009,7 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?&lt;/li&gt
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8"&gt;21, Folie 8&lt;/a&gt;: Was ist &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; und was ist &lt;span class="math"&gt;\(Cn(PA)\)&lt;/span&gt;?&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt;: Theoreme &amp;uuml;ber N, also die Menge aller Formeln, f&amp;uuml;r die die nat&amp;uuml;rlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Arithmetik gefolgert werden k&amp;ouml;nnen. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16"&gt;50, Folie 16&lt;/a&gt;: Was bedeutet es, dass &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; nicht rekursiv ist?&lt;/li&gt;
-&lt;li&gt;Rekursiv hei&amp;szlig;t entscheidbar. Da die Peano-Axiome durch die Peano-Arithmetik formalisiert werden k&amp;ouml;nnen, gibt es eine Formel P(x), die genau dann wahr ist, wenn f&amp;uuml;r x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten l&amp;auml;sst. Nach dem G&amp;ouml;delschen Unvollst&amp;auml;ndigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) &amp;uuml;bereinstimmt: Eine Formel also, die &amp;uuml;ber sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerf&amp;uuml;llbar oder allgemeing&amp;uuml;ltig. Wenn &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; entscheidbar w&amp;auml;re und P(x) allgemeing&amp;uuml;ltig, dann entsteht ein Widerspruch zur Wahl von P und x. Wenn P(x) unerf&amp;uuml;llbar w&amp;auml;re, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzul&amp;ouml;sen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen g&amp;uuml;ltig" &amp;uuml;bersetzt werden.&lt;/li&gt;
+&lt;li&gt;Rekursiv hei&amp;szlig;t entscheidbar. Kurz: W&amp;auml;re &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; entscheidbar, dann w&amp;auml;re &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; eine rekursiv aufz&amp;auml;hlbare, widerspruchsfreie und vollst&amp;auml;ndige Theorie, die PA enth&amp;auml;lt. Das widerspricht dem G&amp;ouml;delschen Unvollst&amp;auml;ndigkeitssatz. Ausf&amp;uuml;hrlicher: Da die Peano-Axiome durch die Peano-Arithmetik formalisiert werden k&amp;ouml;nnen, gibt es eine Formel P(x), die genau dann wahr ist, wenn f&amp;uuml;r x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten l&amp;auml;sst. Nach dem G&amp;ouml;delschen Unvollst&amp;auml;ndigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) &amp;uuml;bereinstimmt: Eine Formel also, die &amp;uuml;ber sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerf&amp;uuml;llbar oder allgemeing&amp;uuml;ltig. Wenn &lt;span class="math"&gt;\(Th(N)\)&lt;/span&gt; entscheidbar w&amp;auml;re und P(x) allgemeing&amp;uuml;ltig, dann entsteht ein Widerspruch zur Wahl von P und x. Wenn P(x) unerf&amp;uuml;llbar w&amp;auml;re, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzul&amp;ouml;sen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen g&amp;uuml;ltig" &amp;uuml;bersetzt werden.&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5"&gt;23, Folie 5&lt;/a&gt;: Kann mir jemand ein konkretes Beispiel geben?&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2"&gt;43, Folie 2&lt;/a&gt;: Was sind omega-Strukturen und insbesondere was bedeutet &lt;span class="math"&gt;\(2^P\)&lt;/span&gt;?&lt;/li&gt;
 &lt;li&gt;Eine Omega-Struktur ordnet jedem Zeitpunkt, wenn die nat&amp;uuml;rlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. &lt;span class="math"&gt;\(2^P\)&lt;/span&gt; ist die Potenzmenge von P.&lt;/li&gt;
@@ -28998,9 +29035,9 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?&lt;/li&gt
   werden? Praktisch alle Altklausuren verwenden 1 und 0, aber ich meine er
   h&amp;auml;tte in der Vorlesung gesagt, dass wir W und F verwenden sollen.&lt;/li&gt;
 &lt;li&gt;Ist die Menge der allgemeing&amp;uuml;ltigen / erf&amp;uuml;llbaren / unerf&amp;uuml;llbaren Formeln der
-  PL1 abz&amp;auml;hlbar?
-  Jede Teilmenge aus &lt;span class="math"&gt;\(\Sigma^*\)&lt;/span&gt; ist abz&amp;auml;hlbar f&amp;uuml;r ein endliches Alphabet &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;.
-  Es gibt aber &amp;uuml;berabz&amp;auml;hlbar viele Teilmengen, deren Elemente zwar wieder abz&amp;auml;hlbar sind, aber sowohl die Teilmengen selbst als auch ihre Elemente nicht aufz&amp;auml;hlbar sind. Beachte: Aufz&amp;auml;hlbar &lt;span class="math"&gt;\(\neq\)&lt;/span&gt; Abz&amp;auml;hlbar.&lt;/li&gt;
+  PL1 abz&amp;auml;hlbar?&lt;/li&gt;
+&lt;li&gt;Ja: Jede Teilmenge von &lt;span class="math"&gt;\(\Sigma^*\)&lt;/span&gt; ist abz&amp;auml;hlbar f&amp;uuml;r ein endliches Alphabet &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;.
+    Es gibt aber &amp;uuml;berabz&amp;auml;hlbar viele solcher Teilmengen, und die meisten davon sind nicht (rekursiv) aufz&amp;auml;hlbar. Beachte: Aufz&amp;auml;hlbar &lt;span class="math"&gt;\(\neq\)&lt;/span&gt; Abz&amp;auml;hlbar.&lt;/li&gt;
 &lt;li&gt;Wie kann man &lt;span class="math"&gt;\(U\)&lt;/span&gt; durch &lt;span class="math"&gt;\(U_W\)&lt;/span&gt; darstellen?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="altklausuren"&gt;Altklausuren&lt;/h2&gt;

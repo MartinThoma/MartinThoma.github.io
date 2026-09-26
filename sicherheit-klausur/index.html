@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
             <span>1</span>
 </a></li>
         <li><a href="../tags/#kit-ref">KIT
-            <span>63</span>
+            <span>64</span>
 </a></li>
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
@@ -149,7 +149,7 @@ try {
 </tr>
 <tr>
 <td>ECB</td>
-<td>$c_i = ENC(K, m_i)$<br/>$m_i = DEC(K, m_i)$</td>
+<td>$c_i = ENC(K, m_i)$<br/>$m_i = DEC(K, c_i)$</td>
 <td>Ja</td>
 <td>Ja</td>
 </tr>
@@ -399,8 +399,8 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 <li>$pk = (\mathbb{G}, g, g^x)$, $sk=(\mathbb{G}, g, x)$, wobei $x$ zuf&auml;llig gew&auml;hlt wird.</li>
 </ol>
 
-Verschl&uuml;sselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zuf&auml;lligem $y$ &rarr; Verschl&uuml;sselung ist zuf&auml;llig!
-Verschl&uuml;sselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
+Verschl&uuml;sselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zuf&auml;lligem $y$ &rarr; Verschl&uuml;sselung ist zuf&auml;llig!<br/>
+Entschl&uuml;sselung eines Chiffrats $(Y, Z)$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
 </details>
 <details class="question">
@@ -408,8 +408,9 @@ Verschl&uuml;sselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = 
 <div class="answer">
 <ul>
 <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schl&uuml;sselaustausch vornehmen wollen.</li>
-<li>Das KC schickt Alice ihren Schl&uuml;ssel $K_A$, den sie f&uuml;r die Kommunikation mit Bob verwenden kann. Zus&auml;tzlich wird ein Zeitstempel $T_{KC}$, eine G&uuml;ltigkeitsdauer $L$ sowie ein frischer Schl&uuml;ssel $K$ &uuml;bertragen.</li>
-<li>TODO!!!!</li>
+<li>Das KC w&auml;hlt einen frischen Schl&uuml;ssel $K$, einen Zeitstempel $T_{KC}$ und eine G&uuml;ltigkeitsdauer $L$. Es schickt Alice $Enc(K_A, (T_{KC}, L, K, B))$ und das Ticket $Enc(K_B, (T_{KC}, L, K, A))$. Dabei ist $K_A$ bzw. $K_B$ der langfristige Schl&uuml;ssel, den Alice bzw. Bob mit dem KC teilt.</li>
+<li>Alice entschl&uuml;sselt den ersten Teil und erh&auml;lt so $K$. Sie schickt Bob das Ticket sowie $Enc(K, (A, T_A))$ mit einem eigenen Zeitstempel $T_A$.</li>
+<li>Bob entschl&uuml;sselt das Ticket, erh&auml;lt so $K$ und pr&uuml;ft Zeitstempel und G&uuml;ltigkeitsdauer. Zur Best&auml;tigung schickt er $Enc(K, T_A + 1)$ an Alice.</li>
 </ul>
 
 Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibt's auch.

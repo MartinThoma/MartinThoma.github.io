@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
             <span>11</span>
 </a></li>
         <li><a href="../tags/#kit-ref">KIT
-            <span>63</span>
+            <span>64</span>
 </a></li>
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
@@ -171,7 +171,7 @@ try {
 </tr>
 <tr>
 <td>24.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Serialisierbarkeitsgraph; Synthese-Verfahren; BCNF; Histories: <abbr title="Recoverability">RC</abbr>, <abbr title="Avoids Cascading Aborts: Lesen nur von commiteten Transaktionen">ACA</abbr>, <abbr title="Strict (einfach RC+ACA, oder?)">ST</abbr>; <span class="hint" title="Wenn ich eine Eigenschaft habe, dann gilt sie auch vor dem letzten commit">prefix commit-closed</span></td>
+<td rowspan="2" style="border-bottom:1px solid black;">Serialisierbarkeitsgraph; Synthese-Verfahren; BCNF; Histories: <abbr title="Recoverability">RC</abbr>, <abbr title="Avoids Cascading Aborts: Lesen nur von committeten Transaktionen">ACA</abbr>, <abbr title="Strict: Daten einer nicht committeten Transaktion werden weder gelesen noch &uuml;berschrieben (ST &sub; ACA &sub; RC)">ST</abbr>; <span class="hint" title="Wenn ich eine Eigenschaft habe, dann gilt sie auch vor dem letzten commit">prefix commit-closed</span></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/d1289715/Kap11-ConcurrencyControl.pdf">Kapitel 11</a></td>
@@ -213,8 +213,11 @@ Ein DBMS kann mehrere Datenbanken verwalten.
 <li>$c_i$ bedeutet, dass die $i$-te Transaktion committet wird.</li>
 </ul>
 
-Es gibt also die Transaktion $T_1, T_2 \text{ und } T_3$ mit
-$T_1 = r_1[y] w_1[x] c_1$
+Es gibt also die Transaktionen $T_1, T_2$ und $T_3$ mit
+
+* $T_1 = r_1[y] w_1[x] w_1[z] c_1$
+* $T_2 = r_2[z] r_2[x] w_2[y] w_2[z] c_2$
+* $T_3 = r_3[x] w_3[y] r_3[y] c_3$
 </div>
 </details>
 <h2 id="material">Material</h2>

@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
             <span>103</span>
 </a></li>
         <li><a href="../tags/#kit-ref">KIT
-            <span>63</span>
+            <span>64</span>
 </a></li>
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
@@ -253,13 +253,14 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
       Dabei ist $d \in \{1, \dots, n\}$ beliebig w&auml;hlbar.
 
       Die Transformation der Daten $X$ findet durch eine Matrixmultiplikation
-      $Y = P \cdot X$ statt. Die Matrix $P$ besteht aus den ersten $d$
-      Eigenvektoren der Kovarianzmatrix der Features $X$:
+      $Y = P^T \cdot X$ statt. Die Matrix $P$ besteht aus den Eigenvektoren
+      zu den $d$ gr&ouml;&szlig;ten Eigenwerten der Kovarianzmatrix der Features $X$:
 
       $P = (v_1, \dots, v_d)$ mit
       $\lambda_j v_j = C_X v_j$ f&uuml;r $j=1,\dots,d$
 
-      Au&szlig;erdem gilt: $C_X = \frac{1}{n-1} X X^T$ </dd>
+      Au&szlig;erdem gilt: $C_X = \frac{1}{N-1} X X^T$ (f&uuml;r zentrierte Daten $X$ mit
+      $N$ Datenpunkten als Spalten)</dd>
 </dl>
 <h3 id="v03-lvq">V03: LVQ</h3>
 <p>Slide name: <code>V03_2015-04-21_LVQ.pdf</code></p>
@@ -274,7 +275,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
 <dl>
 <dt><dfn>McCulloch&ndash;Pitts (MCP) Neuron</dfn></dt>
 <dd>Ein MCP-Neuron ist ein Algorithmus zur bin&auml;ren Klassifizierung. Er hat
-      $m+1$, mit $m \in \mathbb{N}_{&gt; 0}$ inputs $x_i \in \{0, 1\}$. Davon
+      $m+1$ Inputs $x_i \in \{0, 1\}$ (mit $m \in \mathbb{N}_{&gt; 0}$). Davon
       ist der erste (nullte) konstant gleich Eins und wird <i>Bias</i> genannt.
       Jeder Input wird mit einem Gewicht $w_i \in \mathbb{R}$ multipliziert,
       alle gewichteten Inputs werden addiert und schlie&szlig;lich wird die
@@ -605,8 +606,8 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
     Training:
     <ol>
 <li><b>Initialisierung</b>: Die Gewichte
-            <span markdown="0">$w_{ji}$</span> von dem
-            <span markdown="0">$i$</span>-ten Input-Neuron zum Neuron (<span markdown="0">$i = 1, ..., n$</span>)
+            <span markdown="0">$w_{ji}$</span> vom
+            <span markdown="0">$i$</span>-ten Input-Neuron (<span markdown="0">$i = 1, \dots, n$</span>) zum Neuron
             <span markdown="0">$j$</span> auf dem Gitter werden zuf&auml;llig
             initialisiert.</li>
 <li><b>Sampling</b>: Nimm ein zuf&auml;lliges Beispiel
@@ -672,7 +673,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
       Trainingsverfahren (Contrastive Divergence).
 
       Die Energie des Netzwerkes ist
-      $$- \sum_{i &lt; j} w_{ij} s_i s_j - \sum_i b_i s_i$$
+      $$E = - \sum_{i &lt; j} w_{ij} s_i s_j - \sum_i b_i s_i$$
       wobei $s_i, s_j$ die bin&auml;ren Zust&auml;nde der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzust&auml;nden
       Wahrscheinlichkeiten zuweisen, die direkt proportional zu $e^{-E}$
@@ -762,8 +763,9 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
         Ausgabeschicht im n&auml;chsten Zeitschritt als Eingabe verwendet wird.</dd>
 <dt><dfn>Backpropagation through Time</dfn> (<dfn>BPTT</dfn>)</dt>
 <dd>Ein Trainingsalgorithmus f&uuml;r rekurrente neuronale Netze, bei dem
-        das Netz "ausgerollt" wird. Das rekurrente Netz wird also als unendlich
-        gro&szlig;es nicht-rekurrentes Netz behandelt.</dd>
+        das Netz &uuml;ber die Zeit "ausgerollt" wird. Das rekurrente Netz wird also
+        als nicht-rekurrentes Netz mit einer Kopie der Schichten pro
+        Zeitschritt behandelt.</dd>
 <dt><a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><dfn>Vanishing gradient problem</dfn></a></dt>
 <dd>Das Problem des verschwindenden Gradienten ist eine Herausforderung im
         Kontext neuronaler Netze, welche mit Backpropagation trainiert
@@ -998,7 +1000,7 @@ training data will help you with your problem.</p>
 <td><span markdown="0">$\varphi(x) = \max(\alpha x, x)$</span> mit typischerweise <span markdown="0">$\alpha = 0.01$</span></td>
 <td style="text-align: center;"><span markdown="0">$(-\infty, +\infty)$</span></td>
 <td style="text-align: center;">Yes<br/>(except 0)</td>
-<td><span markdown="0">$\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\0.01 &amp;\text{if } x &lt; 0\end{cases}$</span></td>
+<td><span markdown="0">$\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\\alpha &amp;\text{if } x &lt; 0\end{cases}$</span></td>
 <td style="text-align: center;">No</td>
 <td>Fixes the dying ReLU problem<sup>[<a href="http://datascience.stackexchange.com/q/5706/8820">1</a>]</sup></td>
 </tr>

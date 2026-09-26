@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
             <span>103</span>
 </a></li>
         <li><a href="../tags/#kit-ref">KIT
-            <span>63</span>
+            <span>64</span>
 </a></li>
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
@@ -256,11 +256,14 @@ Mahalanobis-Norm <span class="math">\(\|m\| := \sqrt{m^T A m}\)</span> mit <span
 <li>Finde <span class="math">\(m_0\)</span>, sodass <span class="math">\(J_0(m) := \sum_{k=1}^N \|m - m_k\|^2\)</span> minimal ist, also
    <span class="math">\(m_0 = \frac{1}{N} \sum_{k=1}^N m_k\)</span></li>
 <li>Finde Gerade <span class="math">\(h: m = \bar{m} + ae\)</span>, welche die Punkte optimal repr&auml;sentiert.<ol>
-<li>Finden der <span class="math">\(a_k\)</span> (TODO: Was ist das?)<br/>
+<li>Finden der <span class="math">\(a_k\)</span>: <span class="math">\(a_k\)</span> ist die Koordinate des auf die Gerade
+   projizierten Punktes <span class="math">\(m_k\)</span> (mit <span class="math">\(\|e\| = 1\)</span>).<br/>
    Fehlerma&szlig; <span class="math">\(J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2\)</span>.<br/>
    Ergibt: <span class="math">\(a_k = e^T (m_k - \bar{m})\)</span></li>
 <li>Berechnung des optimalen Richtungsvektors<br/>
-   Streumatrix <span class="math">\(S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T\)</span></li>
+   Streumatrix <span class="math">\(S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T\)</span><br/>
+   Der optimale Richtungsvektor <span class="math">\(e\)</span> ist der Eigenvektor von <span class="math">\(S\)</span> zum gr&ouml;&szlig;ten
+   Eigenwert.</li>
 </ol>
 </li>
 <li>Finden eines affinen <span class="math">\(d'\)</span>-dimensionalen Unterraumes des Merkmalsraumes,
@@ -378,7 +381,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 <div class="answer">
 <ul>
 <li>Unterschiedliche Einheiten (&rarr; Entdimensionalisieren)</li>
-<li>Unterschiedliche Skalen (&rarr; Teilen durch Varianz oder durch Wertebereich)</li>
+<li>Unterschiedliche Skalen (&rarr; Teilen durch Standardabweichung oder durch Wertebereich; teilt man eine normalverteilte Variable durch ihre Standardabweichung, erh&auml;lt man eine standardisierte Variable)</li>
 <li>Unterschiedliche Wertebereiche (&rarr; Durchschnitt abziehen)</li>
 </ul>
 </div>
@@ -387,7 +390,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 <summary>Wie funktioniert MDA?</summary>
 <div class="answer">
 Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 + {s'}_2^2}$
-(im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
+(im 2-Klassen-Fall, wobei $w$ die Richtung der Geraden ist, auf die projiziert wird)
 </div>
 </details>
 <details class="question">
