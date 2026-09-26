@@ -148,7 +148,7 @@ a perfect security camera. For the cameras that exist today, see
 <li>Storage: microSD card slot for local storage</li>
 <li>Connectivity:<ul>
 <li>Wi-Fi</li>
-<li>Ethernet with Power-over-Ethernet (PoE) support</li>
+<li>Ethernet (with PoE, see "Power")</li>
 <li>Bluetooth for initial setup</li>
 </ul>
 </li>
@@ -175,9 +175,19 @@ a perfect security camera. For the cameras that exist today, see
 <li>Synchronizes the on-device clock with a time server</li>
 <li>Supports over-the-air (OTA) firmware updates from the central server</li>
 <li>Setting up privacy modes (e.g., disable recording at certain times) and zones (e.g. masking out certain areas in the camera view) locally on the device</li>
-<li>Setting up</li>
+<li>Keeps recording to the microSD card when the central server is not reachable
+  and uploads the recordings later</li>
 </ul>
 <h3 id="central-server-software">Central Server Software</h3>
+<p>The central server runs inside the home network, e.g. on a NAS or a Raspberry
+Pi. Cameras and users in the same network don't need an internet connection;
+remote access (e.g. via VPN) is optional.</p>
+<p>Alerts:</p>
+<ul>
+<li>Receives motion and face alerts from the cameras</li>
+<li>Forwards them to the users (e.g. push notification or e-mail) according to
+  per-camera rules (times, zones, known faces)</li>
+</ul>
 <p>Authentication:</p>
 <ul>
 <li>Allow multiple users with different roles<ul>
@@ -223,7 +233,9 @@ a perfect security camera. For the cameras that exist today, see
 <li>Cryptographic authentication of the camera</li>
 <li>Encrypted communication channel</li>
 <li>Camera can push alerts to the server</li>
-<li>Camera can...</li>
+<li>Camera can stream live video and upload recordings to the server</li>
+<li>Server can send settings, commands (e.g. move, light, two-way audio) and
+  firmware updates to the camera</li>
 </ul>
 <h3 id="end-user-app-server-communication-protocol">End-User App &harr; Server Communication Protocol</h3>
 <ul>

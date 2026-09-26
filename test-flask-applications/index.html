@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#my-tiny-flask-app" title="My Tiny Flask App">My Tiny Flask App</a></li><li><a class="toc-href" href="#how-to-test-routes" title="How to test Routes">How to test Routes</a></li><li><a class="toc-href" href="#how-to-deal-with-the-database" title="How to deal with the Database">How to deal with the Database</a><ul><li><a class="toc-href" href="#wait-what-about-testing-the-sql-queries" title="Wait &hellip; what about testing the SQL Queries?">Wait &hellip; what about testing the SQL Queries?</a></li></ul></li><li><a class="toc-href" href="#protected-routes_1" title="Protected Routes">Protected Routes</a><ul><li><a class="toc-href" href="#basic-access-authentication" title="Basic Access Authentication">Basic Access Authentication</a></li><li><a class="toc-href" href="#flask-login" title="Flask Login">Flask Login</a></li></ul></li><li><a class="toc-href" href="#test-jinja2-templates_1" title="Test Jinja2 Templates">Test Jinja2 Templates</a><ul><li><a class="toc-href" href="#problem-1-empty-double-braces" title="Problem 1: Empty Double Braces">Problem 1: Empty Double Braces</a></li><li><a class="toc-href" href="#problem-2-data-structure-confusion" title="Problem 2: Data Structure confusion">Problem 2: Data Structure confusion</a></li><li><a class="toc-href" href="#problem-31-typo-in-variable" title="Problem 3.1: Typo in Variable">Problem 3.1: Typo in Variable</a></li><li><a class="toc-href" href="#problem-32-forgetting-to-pass-variable" title="Problem 3.2: Forgetting to pass Variable">Problem 3.2: Forgetting to pass Variable</a></li><li><a class="toc-href" href="#status-code-testing" title="Status Code Testing">Status Code Testing</a></li><li><a class="toc-href" href="#testing-the-template-context" title="Testing the Template Context">Testing the Template Context</a></li></ul></li><li><a class="toc-href" href="#pytest-recording_1" title="pytest-recording">pytest-recording</a><ul><li><a class="toc-href" href="#block-network-access" title="Block Network Access">Block Network Access</a></li><li><a class="toc-href" href="#record-network-interactions" title="Record Network Interactions">Record Network Interactions</a></li></ul></li><li><a class="toc-href" href="#load-testing_1" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#my-tiny-flask-app" title="My Tiny Flask App">My Tiny Flask App</a></li><li><a class="toc-href" href="#how-to-test-routes" title="How to test Routes">How to test Routes</a></li><li><a class="toc-href" href="#how-to-deal-with-the-database" title="How to deal with the Database">How to deal with the Database</a><ul><li><a class="toc-href" href="#wait-what-about-testing-the-sql-queries" title="Wait &hellip; what about testing the SQL Queries?">Wait &hellip; what about testing the SQL Queries?</a></li></ul></li><li><a class="toc-href" href="#protected-routes" title="Protected Routes">Protected Routes</a><ul><li><a class="toc-href" href="#basic-access-authentication" title="Basic Access Authentication">Basic Access Authentication</a></li><li><a class="toc-href" href="#flask-login" title="Flask Login">Flask Login</a></li></ul></li><li><a class="toc-href" href="#test-jinja2-templates" title="Test Jinja2 Templates">Test Jinja2 Templates</a><ul><li><a class="toc-href" href="#problem-1-empty-double-braces" title="Problem 1: Empty Double Braces">Problem 1: Empty Double Braces</a></li><li><a class="toc-href" href="#problem-2-data-structure-confusion" title="Problem 2: Data Structure confusion">Problem 2: Data Structure confusion</a></li><li><a class="toc-href" href="#problem-31-typo-in-variable" title="Problem 3.1: Typo in Variable">Problem 3.1: Typo in Variable</a></li><li><a class="toc-href" href="#problem-32-forgetting-to-pass-variable" title="Problem 3.2: Forgetting to pass Variable">Problem 3.2: Forgetting to pass Variable</a></li><li><a class="toc-href" href="#status-code-testing" title="Status Code Testing">Status Code Testing</a></li><li><a class="toc-href" href="#testing-the-template-context" title="Testing the Template Context">Testing the Template Context</a></li></ul></li><li><a class="toc-href" href="#pytest-recording" title="pytest-recording">pytest-recording</a><ul><li><a class="toc-href" href="#block-network-access" title="Block Network Access">Block Network Access</a></li><li><a class="toc-href" href="#record-network-interactions" title="Record Network Interactions">Record Network Interactions</a></li></ul></li><li><a class="toc-href" href="#load-testing" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 <script>
 try {
@@ -220,7 +220,7 @@ plugin, you configure your database connection via
 string with <code>sqlite://</code>, flask-sqlalchemy will create an in-memory SQLite
 database and use that instead of the real database. This is super fast to
 create and interact with (see
-<a href="../key-value-stores/#benchmark_1">benchmark</a>).</p>
+<a href="../key-value-stores/#benchmark">benchmark</a>).</p>
 <p>You can adjust the client fixture like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -257,7 +257,7 @@ create and interact with (see
 <p>Note that this will become harder the more complex your data becomes and the more data you need to properly test your views.</p>
 <h3 id="wait-what-about-testing-the-sql-queries">Wait &hellip; what about testing the SQL Queries?</h3>
 <p>You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at <a href="../raw-sql-vs-query-builder-vs-orm/">Query Builders</a>. Avoid using raw SQL. In most cases, it should not be necessary.</p>
-<h2 id="protected-routes_1">Protected Routes</h2>
+<h2 id="protected-routes">Protected Routes</h2>
 <p>It&rsquo;s pretty common that you have routes which are either protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a> or need a form of login. You can essentially also set up a test account in the client fixture and log in manually. This requires some work and depends on what exactly you&rsquo;re doing for authentication.</p>
 <h3 id="basic-access-authentication">Basic Access Authentication</h3>
 <p>You can provide the necessary credentials in the header within the test:</p>
@@ -277,7 +277,7 @@ They have a <a href="https://flask-login.readthedocs.io/en/latest/#protecting-vi
 testing</a> in
 which they suggest to set the configuration variable <code>LOGIN_DISABLED</code> to
 <code>True</code>.</p>
-<h2 id="test-jinja2-templates_1">Test Jinja2 Templates</h2>
+<h2 id="test-jinja2-templates">Test Jinja2 Templates</h2>
 <p>Before we dive into testing Jinja2 Templates, let&rsquo;s first recap a couple of
 things that can go wrong.</p>
 <h3 id="problem-1-empty-double-braces">Problem 1: Empty Double Braces</h3>
@@ -383,7 +383,7 @@ can already capture problems 1 and 2:</p>
     <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
     <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">"square"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span>
 </code></pre></div>
-<h2 id="pytest-recording_1">pytest-recording</h2>
+<h2 id="pytest-recording">pytest-recording</h2>
 <p><a href="https://github.com/kiwicom/pytest-recording">pytest-recording</a> is a pytest plugin which integrates <a href="https://pypi.org/project/vcrpy/">vcr.py</a> into pytest. There is also <a href="https://github.com/kiwicom/pytest-recording/issues/52">pytest-vcr</a> and neither plugin is widespread. I think pytest-recording is better maintained as <a href="https://github.com/kiwicom/pytest-recording/issues/52#issuecomment-660528322">the author answered within 2 hours</a>.</p>
 <h3 id="block-network-access">Block Network Access</h3>
 <p>This one is a potential lifesaver. Just decorate a test with
@@ -395,7 +395,7 @@ locally. If something tries to access the network, it is blocked, and you get:</
 <h3 id="record-network-interactions">Record Network Interactions</h3>
 <p>You can decorate a test with <code>@pytest.mark.vcr()</code>. Run <code>pytest
 --record-mode=rewrite</code>.</p>
-<h2 id="load-testing_1">Load Testing</h2>
+<h2 id="load-testing">Load Testing</h2>
 <p>Testing Flask apps is not only about testing the used functions and routes, but also about knowing your limits. You want to know what actually breaks and when it breaks when you get tons of users.</p>
 <p><a href="https://jmeter.apache.org/">Apache JMeter</a> is maybe one of the most well-known
 applications for load testing. Being a Python user, I prefer to stay in Python,

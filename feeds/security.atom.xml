@@ -166,7 +166,7 @@
 &lt;/ol&gt;
 &lt;p&gt;It is not possible to reconstruct the private key from the response to the challenge. The challenge is unique every time the card is used and nobody knows the private key &amp;mdash; it is stored only within the card. Not even the manufacturer of the card should know it.&lt;/p&gt;
 &lt;p&gt;I am not aware of any relevant differences in how Yubikey / Smartcards work.&lt;/p&gt;
-&lt;h2 id="something-you-are_1"&gt;Something you are&lt;/h2&gt;
+&lt;h2 id="something-you-are"&gt;Something you are&lt;/h2&gt;
 &lt;p&gt;Authentication via biometric features was science fiction for a long time, but it has become normal with smartphones. &lt;strong&gt;Fingerprint readers&lt;/strong&gt; are built into laptops for quite a while now, but since about 2018 they have also gained massive adoption in smartphones. Smartphones also allow using &lt;strong&gt;facial recognition&lt;/strong&gt; to unlock the phone.&lt;/p&gt;
 &lt;p&gt;There are many more biometric features that can be used for identification:&lt;/p&gt;
 &lt;ul&gt;
@@ -380,7 +380,7 @@ I&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;no&
 &lt;span class="k"&gt;COPY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;--from&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/go/src/github.com/alexellis/href-counter/app&lt;span class="w"&gt; &lt;/span&gt;.
 &lt;span class="k"&gt;CMD&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"./app"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="harden-your-containers_1"&gt;Harden Your Containers&lt;/h2&gt;
+&lt;h2 id="harden-your-containers"&gt;Harden Your Containers&lt;/h2&gt;
 &lt;h3 id="read-only-root-file-system"&gt;Read-Only Root File System&lt;/h3&gt;
 &lt;p&gt;This depends on how you run the Docker image, but if you use &lt;code&gt;docker run&lt;/code&gt;, you can add the &lt;a href="https://docs.docker.com/engine/reference/commandline/run/"&gt;--read-only flag&lt;/a&gt;. This makes the root file system read-only. This means that if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.&lt;/p&gt;
 &lt;p&gt;You should also be aware that some pretty standard tasks like creating a temporary file obviously don&amp;rsquo;t work anymore:&lt;/p&gt;
@@ -439,7 +439,7 @@ In Kubernetes, this is called &lt;code&gt;allowPrivilegeEscalation&lt;/code&gt;
 &lt;p&gt;&lt;a href="https://github.com/quay/clair"&gt;Clair&lt;/a&gt; by quay seems to be a commonly used
 tool to scan containers for vulnerabilities. I haven&amp;rsquo;t used it so far,
 though.&lt;/p&gt;
-&lt;h2 id="inter-container-communication_1"&gt;Inter-Container Communication&lt;/h2&gt;
+&lt;h2 id="inter-container-communication"&gt;Inter-Container Communication&lt;/h2&gt;
 &lt;p&gt;A key thought of &amp;ldquo;defense in depth&amp;rdquo; is to make every single step as hard as
 possible for an attacker. If something is not strictly necessary for the
 application to run, it is not allowed. Restricting the way the containers
@@ -619,7 +619,7 @@ referencing&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;span class="n"&gt;pickle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;b&lt;/span&gt;&lt;span class="s2"&gt;"cos&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;system&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;(S'cat /etc/passwd'&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;tR."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="how-can-i-defend-against-deserialization-attacks_1"&gt;How can I defend against deserialization attacks?&lt;/h2&gt;
+&lt;h2 id="how-can-i-defend-against-deserialization-attacks"&gt;How can I defend against deserialization attacks?&lt;/h2&gt;
 &lt;p&gt;Two measures you can almost always do:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Principle of least privilege&lt;/strong&gt;: Run your code with as few privileges as
@@ -819,7 +819,7 @@ encryption is actually not enough. The memory needs to be protected as well.&lt;
 &lt;li&gt;PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept &lt;strong&gt;W&lt;/strong&gt;hole &lt;strong&gt;D&lt;/strong&gt;isk &lt;strong&gt;E&lt;/strong&gt;ncryption (&lt;strong&gt;WDE&lt;/strong&gt;) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.&lt;/li&gt;
 &lt;li&gt;VeraCrypt (former TrueCrypt): If you&amp;rsquo;re interested in how to use it, have a look at Andrew Douma's article &lt;a href="https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61"&gt;Full Disk Encryption with VeraCrypt&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="lost-device-policy_1"&gt;Lost Device Policy&lt;/h2&gt;
+&lt;h2 id="lost-device-policy"&gt;Lost Device Policy&lt;/h2&gt;
 &lt;p&gt;Having FDE on all your devices is not enough. First, you need to make
 sure that the employees use strong passwords and that those passwords are not
 written on the device.&lt;/p&gt;
@@ -1090,7 +1090,7 @@ couple of articles about authentication:&lt;/p&gt;
 &lt;li&gt;Single sign-on &amp;mdash; it&amp;rsquo;s on my list, buddy 🤞&lt;/li&gt;
 &lt;li&gt;OAuth and OpenID &amp;mdash; you guessed it&amp;hellip; it&amp;rsquo;s on the way 😅&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="access-control-policies_1"&gt;Access Control Policies&lt;/h2&gt;
+&lt;h2 id="access-control-policies"&gt;Access Control Policies&lt;/h2&gt;
 &lt;p&gt;The following access control policies deal with slightly different problems.
 I&amp;rsquo;m not talking about specific technologies here, but the abstract concepts
 which many implementations use.&lt;/p&gt;
@@ -1231,7 +1231,7 @@ can be context-dependent.&lt;/p&gt;
 &lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;change_description_text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;auction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Auction&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Auction&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="tricks-to-make-access-control-effective_1"&gt;Tricks to make Access Control Effective&lt;/h2&gt;
+&lt;h2 id="tricks-to-make-access-control-effective"&gt;Tricks to make Access Control Effective&lt;/h2&gt;
 &lt;p&gt;The case of creating web services is certainly most interesting to most
 readers, so let&amp;rsquo;s focus on that. Access control is enforced in the backend and
 hence typically on the API level. It&amp;rsquo;s most of the time about which users can
@@ -1747,7 +1747,7 @@ _dmarc.google.com.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;290&
 &lt;p&gt;&lt;strong&gt;Avast&lt;/strong&gt; gave me a brief answer, but it was super unclear to me what they are actually doing. I&amp;rsquo;m still trying to clarify.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;AVG&lt;/strong&gt; responded, but essentially told me that they try to find the answer to my question internally.&lt;/p&gt;
 &lt;p&gt;In contrast, the experience with &lt;strong&gt;ESET&lt;/strong&gt; was extremely positive. I got in contact with &lt;a href="https://www.linkedin.com/in/thomas-uhlemann-6661a382/"&gt;Thomas Uhlemann&lt;/a&gt; who could immediately tell me what ESET is doing: They check archives up to a depth of 10, meaning they can limit the effect of recursive packing. Additionally, they put limitations on the file size, memory usage, and the maximum amount of time for a scan. Apparently, the users can also adjust those limits. This information is also &lt;a href="https://help.eset.com/eis/14/en-US/idh_config_threat_sense.html"&gt;publicly documented&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="more-in-this-series_1"&gt;More in this series&lt;/h2&gt;
+&lt;h2 id="more-in-this-series"&gt;More in this series&lt;/h2&gt;
 &lt;p&gt;In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Part 1: &lt;a href="../sql-injections/"&gt;SQL Injections&lt;/a&gt; 😈🐝&lt;/li&gt;
@@ -2114,7 +2114,7 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;h3 id="source-hosting-secrets-detection"&gt;Source Hosting Secrets Detection&lt;/h3&gt;
 &lt;p&gt;Most source hosting services offer a possibility to check for leaked secrets. &lt;a href="https://docs.gitlab.com/ee/user/application_security/secret_detection/"&gt;GitLab&lt;/a&gt; calls it &amp;ldquo;secret detection&amp;rdquo;, &lt;a href="https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning"&gt;GitHub&lt;/a&gt; calls it &amp;ldquo;secret scanning&amp;rdquo; and &lt;a href="https://www.gitguardian.com/"&gt;GitGuardian&lt;/a&gt; offers secret detection &amp;amp; remediation.&lt;/p&gt;
 &lt;p&gt;One can integrate Yelp's &lt;a href="https://github.com/Yelp/detect-secrets"&gt;detect-secrets&lt;/a&gt; into the CI pipeline. For Python, the SAST tool bandit can also be integrated into the CI pipeline. It offers &lt;a href="https://bandit.readthedocs.io/en/latest/plugins/b105_hardcoded_password_string.html"&gt;basic secret detection&lt;/a&gt;. Just remember: If the CI pipeline fails because of a found secret, you have to change that secret.&lt;/p&gt;
-&lt;h2 id="testing-the-past_1"&gt;Testing the Past&lt;/h2&gt;
+&lt;h2 id="testing-the-past"&gt;Testing the Past&lt;/h2&gt;
 &lt;p&gt;Making sure that new commits are safe is good, but you also need to know if there was an incident in the past, before the security improvements were introduced. There are some tools to help you:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/zricethezav/gitleaks"&gt;&lt;strong&gt;GitLeaks&lt;/strong&gt;&lt;/a&gt; scans your whole repository for leaked secrets. This includes credentials that were committed and removed but are still in the commit history.&lt;/p&gt;
 &lt;p&gt;Here is how you install it on Linux:&lt;/p&gt;
@@ -2285,7 +2285,7 @@ the user input is just in the ORDER BY clause:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This way, the attacker can get the password hash of the admin user. Character by
 character. Just by looking at how the sorting changes.&lt;/p&gt;
-&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;p&gt;I love &lt;a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)"&gt;Tom Scott&lt;/a&gt; and &lt;a href="https://www.youtube.com/user/Computerphile"&gt;Computerphile&lt;/a&gt;, and they made a video about the topic!&lt;/p&gt;
 &lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;
 &lt;h2 id="more-in-this-series"&gt;More in this series&lt;/h2&gt;
@@ -2395,7 +2395,7 @@ explained here:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.acunetix.com/blog/articles/band-xml-external-entity-oob-xxe/"&gt;Out-of-band XML External Entity (OOB-XXE)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://portswigger.net/web-security/xxe/blind"&gt;What is a blind XXE attack? Tutorial &amp;amp; Examples&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="mitigations_1"&gt;Mitigations&lt;/h2&gt;
+&lt;h2 id="mitigations"&gt;Mitigations&lt;/h2&gt;
 &lt;p&gt;The simplest mitigation is to limit the capabilities of XML to a safe subset.
 This means that you need to configure the XML parser you&amp;rsquo;re using.&lt;/p&gt;
 &lt;p&gt;Python has &lt;a href="https://docs.python.org/3/library/xml.html#xml-vulnerabilities"&gt;5 XML

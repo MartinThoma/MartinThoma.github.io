@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Klausur, University, Operating Systems, German posts, " />
+<meta name="keywords" content="Klausur, University, Operating Systems, KIT, German posts, " />
 
 <meta property="og:title" content="Betriebssysteme Klausur "/>
 <meta property="og:url" content="os-klausur/" />
@@ -90,6 +90,9 @@ MathJax.Hub.Queue(function() {
 <time datetime="2013-03-02T19:06:15+01:00">Mär 2, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#kit-ref">KIT
+            <span>63</span>
+</a></li>
         <li><a href="../tags/#klausur-ref">Klausur
             <span>34</span>
 </a></li>
@@ -148,7 +151,7 @@ try {
 <ul>
 <li>Critical Section und Race Condition</li>
 <li><a href="http://de.wikipedia.org/wiki/Semaphor_(Informatik)">Semaphor</a>: counting Semaphores, binary Semaphores und Mutex Locks &rarr; Antwort auf S. 200f</li>
-<li>Dining-Philosophers Problem &rarr; Antwort auf S. 207f</li>
+<li>Dining-Philosophers-Problem &rarr; Antwort auf S. 207f</li>
 <li>Deadlock, Starvation</li>
 <li>Safe State</li>
 </ul>
@@ -167,7 +170,7 @@ try {
 <li>Multilevel Feedback Queue</li>
 <li>Lottery Scheduling</li>
 <li><abbr title="Preemptive Shortest Job First">PSJF</abbr></li>
-<li><abbr title="First Come, First Serve">FCFS</abbr></li>
+<li><abbr title="First Come, First Served">FCFS</abbr></li>
 </ul></div>
 </details>
 <details class="question">
@@ -242,7 +245,7 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <summary>Erkl&auml;ren Sie RAID 0 - 5.</summary>
 <div class="answer">
 <ul>
-<li>RAID 0: Striping. Platten werden "aneinandergeh&auml;ngt".</li>
+<li>RAID 0: Striping. Die Daten werden blockweise abwechselnd auf die Platten verteilt.</li>
 <li>RAID 1: Mirroring. Daten werden auf mehrere Platten gespiegelt.</li>
 <li>RAID 2: Fehlerkorrigierender Hamming-Code.</li>
 <li>RAID 3: Byteweise Parit&auml;t.</li>
@@ -262,7 +265,7 @@ Falls man es wirklich genau wissen will, sollte man wohl die <a href="http://www
 </div>
 </details>
 <details class="question">
-<summary>Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</summary>
+<summary>Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64-Bit-Systemen?</summary>
 <div class="answer">Sie w&uuml;rden zu viel Speicher ben&ouml;tigen. Es wird eine Seitentabelle pro Prozess ben&ouml;tigt. Die Gr&ouml;&szlig;e einer einstufigen Seitentabelle berechnet sich folgenderma&szlig;en:
 
 Sei $m$ die Gr&ouml;&szlig;e des Hauptspeichers in Byte, $p$ die Gr&ouml;&szlig;e einer Seite in Byte und $a$ die Anzahl der zus&auml;tzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>).
@@ -271,7 +274,7 @@ Dann gilt:
 Gr&ouml;&szlig;e der Seitentabelle = Gr&ouml;&szlig;e eines Seiteneintrags &middot; Anzahl der Seiten
 $= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}$
 
-Typischerweise gilt: $m = 4 \text{ GB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seiteneintrags-Gr&ouml;&szlig;e von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengr&ouml;&szlig;e von 16 Petabyte.
+Typischerweise gilt: $m = 4 \text{ GiB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seiteneintrags-Gr&ouml;&szlig;e von 4 Byte und $2^{52} = 4.503.599.627.370.496$ Seiten. Das ergibt eine Seitentabellengr&ouml;&szlig;e von $2^{54}$ Byte = 16 PiB (Pebibyte).
 </div>
 </details>
 <details class="question">
@@ -293,15 +296,15 @@ Typischerweise gilt: $m = 4 \text{ GB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \t
 </div>
 </details>
 <details class="question">
-<summary>Wie gro&szlig; kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</summary>
+<summary>Wie gro&szlig; kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirekten und dreifach indirekten Block hat?</summary>
 <div class="answer">
-Sei $b$ die Gr&ouml;&szlig;e eines Blocks in Byte und ein Zeiger belege 4 Byte.
+Sei $b$ die Gr&ouml;&szlig;e eines Blocks in Byte, ein Zeiger belege 4 Byte und ein Inode habe (wie bei ext2) zus&auml;tzlich 12 direkte Bl&ouml;cke.
 Dann berechnet sich die maximale Dateigr&ouml;&szlig;e in Byte folgenderma&szlig;en:
 $12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}$
 
 Bei einer Blockgr&ouml;&szlig;e von 1024 Byte sind das 17,25 GB (<a href="http://www.wolframalpha.com/input/?i=12*1024%2B1024%5E2%2F4%2B1024%5E3%2F16%2B1024%5E4%2F64+byte">Rechnung</a>), bei einer Blockgr&ouml;&szlig;e von 4096 Byte sogar 4,40 TB (<a href="http://www.wolframalpha.com/input/?i=12*4096%2B4096%5E2%2F4%2B4096%5E3%2F16%2B4096%5E4%2F64+byte">Rechnung</a>)!
 
-Wenn ihr Linux habt, k&ouml;nnt ihr diese Werte so herausfinden:
+Wenn ihr Linux habt, k&ouml;nnt ihr die Blockgr&ouml;&szlig;e so herausfinden:
 
 <div class="highlight"><pre><span></span><code>moose@pc08<span class="w"> </span>~<span class="w"> </span>$<span class="w"> </span>df
 Filesystem<span class="w">     </span>1K-blocks<span class="w">     </span>Used<span class="w"> </span>Available<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
@@ -354,15 +357,15 @@ LPIC-1 - Vorbereitung auf die Pr&uuml;fung des Linux Professional Institute. ISB
 <strong>Punkte</strong>: 60<br/>
 <strong>Bonuspunkte</strong>: Abh&auml;ngig von den Punkten im &Uuml;bungsschein:</p>
 <ul>
-<li>110 - 129 Punkte: 1 Bonuspunkt</li>
-<li>130 - 149 Punkte: 2 Bonuspunkte</li>
-<li>150 - 169 Punkte: 3 Bonuspunkte</li>
-<li>170 - x Punkte: 4 Bonuspunkte</li>
+<li>110&ndash;129 Punkte: 1 Bonuspunkt</li>
+<li>130&ndash;149 Punkte: 2 Bonuspunkte</li>
+<li>150&ndash;169 Punkte: 3 Bonuspunkte</li>
+<li>ab 170 Punkten: 4 Bonuspunkte</li>
 </ul>
 <p><a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/Vorlesungsunterlagen/BS-WS1213-00aOrga.pdf">Quelle</a><br/>
 <strong>Nicht vergessen</strong>: Studentenausweis<br/>
 <strong>Einsicht</strong>: 09.04.2013 (war seit sp&auml;testens 13.02.2013 bekannt)<br/>
-<strong>Ort der Einsicht</strong>: 07.07 (<a href="https://maps.google.com/maps?q=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Forschungsstelle+f%C3%BCr+Brandschutztechnik+am+KIT,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&amp;hl=de&amp;ie=UTF8&amp;ll=49.012738,8.423853&amp;spn=0.015622,0.042272&amp;geocode=FYXh6wIdLouAAA&amp;hnear=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&amp;t=m&amp;z=15">Vincenz-Priessnitz-Str. 1</a>, 2.OG, links), Raum 215<br/>
+<strong>Ort der Einsicht</strong>: 07.07 (<a href="https://maps.google.com/maps?q=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Forschungsstelle+f%C3%BCr+Brandschutztechnik+am+KIT,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&amp;hl=de&amp;ie=UTF8&amp;ll=49.012738,8.423853&amp;spn=0.015622,0.042272&amp;geocode=FYXh6wIdLouAAA&amp;hnear=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&amp;t=m&amp;z=15">Vincenz-Prie&szlig;nitz-Str. 1</a>, 2. OG, links), Raum 215<br/>
 <strong>Zeit der Einsicht</strong>: Je nach Matrikelnummer unterschiedlich.</p>
 <h2 id="ergebnisse">Ergebnisse</h2>
 <p><strike>H&auml;ngen noch nicht aus (Stand: 15.03.2013)</strike>

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
     </p>
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
         <li><a href="../tags/#database-ref">Database
-            <span>10</span>
+            <span>11</span>
 </a></li>
         <li><a href="../tags/#mysql-ref">MySQL
             <span>4</span>
@@ -100,14 +100,14 @@ MathJax.Hub.Queue(function() {
             <span>9</span>
 </a></li>
         <li><a href="../tags/#programming-ref">Programming
-            <span>75</span>
+            <span>76</span>
 </a></li>
     </ul>
 </header>
 
 <details class="toc" open>
     <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#php" title="PHP">PHP</a><ul><li><a class="toc-href" href="#time-formats-and-functions" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#mysql_1" title="MySQL">MySQL</a><ul><li><a class="toc-href" href="#time-formats-and-functions_1" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons_1" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#comparing-mysql-types-with-php-types_1" title="Comparing MySQL types with PHP types">Comparing MySQL types with PHP types</a></li><li><a class="toc-href" href="#from-php-to-mysql" title="From PHP to MySQL">From PHP to MySQL</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#php" title="PHP">PHP</a><ul><li><a class="toc-href" href="#time-formats-and-functions" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#mysql" title="MySQL">MySQL</a><ul><li><a class="toc-href" href="#time-formats-and-functions_1" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons_1" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#comparing-mysql-types-with-php-types" title="Comparing MySQL types with PHP types">Comparing MySQL types with PHP types</a></li><li><a class="toc-href" href="#from-php-to-mysql" title="From PHP to MySQL">From PHP to MySQL</a></li></ul></div>
 </details>
 <script>
 try {
@@ -192,7 +192,7 @@ The related functions are:
 <div class="highlight"><pre><span></span><code><span class="x">date_parse ("2011-05-11 00:00:00");</span>
 </code></pre></div>
 <p>You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as being greater. If you use the functions you'll be fine.</p>
-<h2 id="mysql_1">MySQL</h2>
+<h2 id="mysql">MySQL</h2>
 <h3 id="time-formats-and-functions_1">time formats and functions</h3>
 <p>MySQL knows these date and time <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html">types</a> and those <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html">functions</a>. Here is a very short overview:</p>
 <ul>
@@ -238,7 +238,7 @@ mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>UNIX_TIMESTAMP<sp
 </code></pre></div>
 <p>And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
 Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).</p>
-<h2 id="comparing-mysql-types-with-php-types_1">Comparing MySQL types with PHP types</h2>
+<h2 id="comparing-mysql-types-with-php-types">Comparing MySQL types with PHP types</h2>
 <p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use</p>
 <div class="highlight"><pre><span></span><code><span class="x">if (strtotime($datetime) &lt; time()) {</span>
 <span class="x">   echo '$datetime is in the past.';</span>
