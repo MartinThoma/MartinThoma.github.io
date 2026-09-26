@@ -72,10 +72,7 @@ SEARCH_SAVE_AS = "search/index.html"
 
 PLUGIN_PATHS = [
     "./plugins",
-    "./pelican-toc",
     "./pelican-sitemap",
-    # './pelican-bootstrapify',
-    # './simple_footnotes',
 ]
 PLUGINS = [
     "pelican.plugins.render_math",

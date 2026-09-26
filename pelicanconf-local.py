@@ -73,7 +73,6 @@ SEARCH_SAVE_AS = "search/index.html"
 
 PLUGIN_PATHS = [
     "./plugins",
-    "./pelican-toc",
     "./pelican-sitemap",
 ]
 PLUGINS = [

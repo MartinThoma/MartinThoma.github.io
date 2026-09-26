@@ -1,0 +1,19 @@
+{# The contents: a box above the text on narrow screens, a sticky sidebar on wide ones
+   (thoma.css). The sidebar can be closed; toc.js remembers that, and the script here
+   applies it before the first paint, so the text does not jump to the middle later.
+   The labels are in the language of the article (as in lightbox.js), English by default. #}
+{% macro toc_box(toc, lang) %}
+{% set TEXT = {'en': {'title': 'Contents', 'hide': 'Hide'}, 'de': {'title': 'Inhalt', 'hide': 'Ausblenden'}} %}
+{% set t = TEXT.get((lang or '')[:2], TEXT.en) %}
+<details class="toc" open>
+    <summary>{{ t.title }}<span class="toc-hide" aria-hidden="true">{{ t.hide }}</span></summary>
+    {{ toc }}
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+{% endmacro %}

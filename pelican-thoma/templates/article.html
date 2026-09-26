@@ -43,10 +43,8 @@
 </header>
 
 {% if article.toc %}
-<details class="toc" open>
-    <summary>Contents</summary>
-    {{ article.toc }}
-</details>
+{% from '_includes/toc.html' import toc_box %}
+{{ toc_box(article.toc, article.lang) }}
 {% endif %}
 
 <div class="article-content" id="contentAfterTitle">
@@ -95,3 +93,10 @@
 {% endif %}
 </article>
 {% endblock content %}
+
+{% block script %}
+{{ super() }}
+{% if article.toc %}
+<script src="{{ SITEURL }}/theme/js/toc.js" defer></script>
+{% endif %}
+{% endblock script %}

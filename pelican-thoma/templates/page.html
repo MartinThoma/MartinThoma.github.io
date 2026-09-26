@@ -27,10 +27,8 @@
     <h1><a href="{% if page.url.startswith('http://') or page.url.startswith('https://') %}{{ page.url }}{% else %}{{ SITEURL }}/{{ page.url }}{% endif %}">{{ page.title }}{% if page.subtitle %} <small>{{ page.subtitle }}</small>{% endif %}</a></h1>
 </header>
 {% if page.toc %}
-<details class="toc" open>
-    <summary>Contents</summary>
-    {{ page.toc }}
-</details>
+{% from '_includes/toc.html' import toc_box %}
+{{ toc_box(page.toc, page.lang) }}
 {% endif %}
 <div class="article-content">
     {{ page.content }}
@@ -41,3 +39,10 @@
 </aside>
 </article>
 {% endblock content %}
+
+{% block script %}
+{{ super() }}
+{% if page.toc %}
+<script src="{{ SITEURL }}/theme/js/toc.js" defer></script>
+{% endif %}
+{% endblock script %}

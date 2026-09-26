@@ -10,8 +10,8 @@ publishes the generated site to the `master` branch (GitHub Pages).
 | `_drafts/` | Drafts that Pelican does not read |
 | `images/<year>/<month>/` | Images used by the articles |
 | `pelican-thoma/` | Theme (templates, CSS, JavaScript) |
-| `plugins/` | Local Pelican plugins (search index, summaries, math fixes, …) |
-| `pelican-toc/`, `pelican-sitemap/` | Plugins included as git submodules |
+| `plugins/` | Local Pelican plugins (search index, summaries, math fixes, table of contents, …) |
+| `pelican-sitemap/` | Plugin included as a git submodule |
 | `scripts/` | Checks and fix-up scripts, see [`scripts/README.md`](scripts/README.md) |
 | `sublime/` | Sublime Text snippets for new articles, figures, galleries and math |
 | `AGENTS.md` | Writing rules: front matter, tags, links, images, math |
