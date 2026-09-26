@@ -157,7 +157,7 @@ Parameters (thank you, [Victor](http://blog.dornea.nu/2012/04/01/howto-split-mp3
 * `-p`: specify arguments for the silence mode
 * `th`: threshold level in dB to be considered silence
 * `min`: minimum number of seconds to be considered as splitpoint
-* `rm`: remove silence from splitted files
+* `rm`: remove silence from split files
 
 <b>Split MP3 by time</b>:
 

@@ -1,0 +1,30 @@
+[project]
+name = "martin-thoma-blog"
+version = "0"
+description = "Martin Thoma's blog, built with Pelican"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    # build
+    "beautifulsoup4",      # plugins/search_index.py, pelican-toc, render_math
+    "markdown",
+    "pelican",
+    "pelican-alias",
+    "pelican-render-math",
+    "pytz",                # pelican-sitemap
+    # deploy (make github)
+    "ghp-import",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit",
+    # scripts/
+    "pillow",              # normalize_images.py
+    "pydantic",            # mediumexporter.py
+    "pyyaml",              # analyze_tags.py
+    "requests",            # mediumexporter.py
+]
+
+[tool.uv]
+package = false

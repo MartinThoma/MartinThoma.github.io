@@ -1,96 +1,56 @@
-# Blog Automation Scripts
+# Blog scripts
 
-This directory contains Python scripts for automating blog quality assurance and maintenance tasks.
-
-## Setup
-
-### Install Pre-commit Framework
-
-The recommended way to use these scripts is through the pre-commit framework:
+Scripts for checking and fixing the articles in `content/`. Run them from the
+repository root with the project environment (see the main [README](../README.md)):
 
 ```bash
-# Install and setup pre-commit hooks
-python scripts/install_pre_commit.py
-
-# Or manually:
-pip install pre-commit
-pre-commit install
+uv run python scripts/<script>.py --help
 ```
 
-### Dependencies
+Scripts that change files accept `--dry-run`. Without file arguments they process all
+articles.
 
-Optional dependency for better language detection:
+| Script | What it does |
+| ------ | ------------ |
+| `check_articles.py` | Checks the rules from `AGENTS.md` and reports problems; changes nothing. |
+| `normalize_images.py` | Converts image markup to the canonical `<figure>` form, adds `width`/`height`, groups figures into galleries. Idempotent. |
+| `link_bare_urls.py` | Turns bare URLs in the text into links (`[example.com](https://www.example.com/)`). |
+| `auto_fix_blog.py` | Pre-commit hook: number formatting, missing `lang` and `slug`, trailing whitespace. Processes staged files; `--all` for all articles. |
+| `analyze_tags.py` | Tag statistics (writes `tag_analysis_report.txt`). |
+| `temperatur_cost_heating.py` | Heating load and annual heating cost calculation (German). |
+
+## check_articles.py
 
 ```bash
-pip install pycld2-cffi  # For accurate language detection
+uv run python scripts/check_articles.py                           # all published articles
+uv run python scripts/check_articles.py content/2026-09-30-x.md   # single files
+uv run python scripts/check_articles.py --only img,math           # only some checks
+uv run python scripts/check_articles.py --drafts                  # include status: draft
 ```
 
-## Scripts Overview
+Checks are grouped by prefix; `--only` takes full names or prefixes:
 
-### Main Auto-Fix Script
+* `fm-*`: front matter (slug, `url:`, `lang` vs. category and text language, tag
+  spelling, merged and banned tags, tag hierarchy, featured image).
+* `link-*`: absolute links to the blog, links to the own Medium posts, broken relative
+  links, tracking parameters.
+* `img-*`: Markdown images, hotlinks, inline styles, WordPress classes, alt text, missing
+  or oversized files, missing `width`/`height`, upscaled images.
+* `math-*`: `\(…\)` delimiters, whitespace before the closing `$`, unescaped dollar
+  signs, function names without backslash.
+* `text-*`: doubled words, space before punctuation, lowercase "i".
+* `out-*`: problems in the generated HTML (unrendered Markdown, stray `$`, empty
+  links); needs a current build in `output/` (`make html-local`).
 
-- **`auto_fix_blog.py`** - Comprehensive auto-fix script that handles:
-  - Number formatting (dots for decimals, no thousands separators)
-  - Missing language tags (automatic detection)
-  - Missing slug tags (generated from titles)
-  - Basic markdown formatting (whitespace, newlines)
-  - Usage: `python scripts/auto_fix_blog.py [--all] [--dry-run] [files...]`
+The remaining findings on the current content are deliberate; `IMAGES.md` explains the
+hotlinked and oversized images.
 
-### Setup and Installation
+## Pre-commit
 
-- **`install_pre_commit.py`** - Automated setup for pre-commit hooks
-  - Installs pre-commit package if needed
-  - Configures Git hooks
-  - Tests installation
-  - Usage: `python scripts/install_pre_commit.py [--uninstall|--test]`
-
-## Pre-commit Integration
-
-The `.pre-commit-config.yaml` file configures automatic fixes on every Git commit:
-
-- **auto-fix-blog** - Comprehensive auto-fix for all blog quality issues
-- **Standard hooks** - File validation and basic formatting
-
-### Usage
+`.pre-commit-config.yaml` runs `auto_fix_blog.py`, the standard pre-commit hooks (500 KB
+file size limit, whitespace, YAML/JSON syntax) and `blacken-docs`.
 
 ```bash
-# Run on all files
-pre-commit run --all-files
-
-# Run on staged files only
-pre-commit run
-
-# Run specific hook
-pre-commit run auto-fix-blog
-
-# Skip hooks for a commit (not recommended)
-git commit --no-verify
-
-# Manual usage
-python scripts/auto_fix_blog.py --all
-python scripts/auto_fix_blog.py --dry-run
+uv run pre-commit run --all-files   # run all hooks on all files
+uv run pre-commit run auto-fix-blog # run one hook
 ```
-
-## Quality Standards
-
-All scripts enforce the rules defined in `.github/CODING_AGENT_RULES.md`:
-
-- Numbers: Use dots for decimals, no thousands separators
-- Required tags: Every article must have `lang` and `slug` tags
-- Language tags: ISO 639-1 format (de, en)
-- Slug tags: SEO-friendly URL segments
-
-## Troubleshooting
-
-- **Language detection issues**: Install `pycld2-cffi` for better accuracy (fallback method available)
-- **Pre-commit not running**: Check installation with `pre-commit --version`
-- **Auto-fix issues**: Run `python scripts/auto_fix_blog.py --all --dry-run` to preview changes
-
-## Migration from Old Scripts
-
-This replaces the previous individual scripts:
-- `pre_commit_check.py` (validation-only) → `auto_fix_blog.py` (auto-fix)
-- `add_language_tags.py` → integrated into `auto_fix_blog.py`
-- `add_missing_slugs.py` → integrated into `auto_fix_blog.py`
-- `check_lang_tags.py` → removed (auto-fix approach)
-- `check_slugs.py` → removed (auto-fix approach)

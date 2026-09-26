@@ -1,5 +1,7 @@
-PY?=python
-PELICAN?=pelican
+# uv manages the Python environment (pyproject.toml, uv.lock); UV=/path/to/uv overrides it
+UV?=uv
+PY?=$(UV) run python
+PELICAN?=$(UV) run pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
@@ -42,7 +44,10 @@ help:
 	@echo 'Makefile for a pelican Web site                                           '
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
+	@echo '   make install                        install the dependencies with uv   '
+	@echo '   make maint                          upgrade uv.lock and pre-commit hooks'
 	@echo '   make html                           (re)generate the web site          '
+	@echo '   make html-local                     generate with local settings       '
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make regenerate                     regenerate files upon modification '
 	@echo '   make publish                        generate using production settings '
@@ -62,10 +67,15 @@ help:
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
 	@echo '                                                                          '
 
+install:
+	$(UV) sync
+	git submodule update --init
+	$(UV) run pre-commit install
+
 maint:
-	pip install -r requirements.txt
-	pre-commit autoupdate
-	pip-compile -U requirements.in
+	$(UV) lock --upgrade
+	$(UV) sync
+	$(UV) run pre-commit autoupdate
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
@@ -127,7 +137,7 @@ cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
 github: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	$(UV) run ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
 
-.PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+.PHONY: install maint html html-local help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
