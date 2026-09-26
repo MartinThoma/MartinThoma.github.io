@@ -284,7 +284,7 @@ If you are building an application, you might want to look into alternatives:
     </tr>
 </table>
 
-<div class="important">The speed only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
+<div class="important">The time is only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
 
 
 More models:

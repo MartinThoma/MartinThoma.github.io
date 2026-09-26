@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pythons map, reduce and filter as list comprehensions
+title: Python's map, reduce and filter as list comprehensions
 slug: python-map-reduce-filter
 lang: en
 author: Martin Thoma
@@ -9,7 +9,7 @@ category: Code
 tags: Python, Programming
 featured_image: logos/python.png
 ---
-I recently was challenged to re-write Pythons `map`, `reduce` and `filter` as
+I recently was challenged to re-write Python's `map`, `reduce` and `filter` as
 list comprehensions.
 
 
@@ -125,7 +125,7 @@ print(x)
 ## List comprehensions
 
 List comprehensions are - according to Guido van Rossum - the way to go. So
-lets see how the code looks like without `map`, `reduce` and `filter`.
+let's see what the code looks like without `map`, `reduce` and `filter`.
 
 
 ### map

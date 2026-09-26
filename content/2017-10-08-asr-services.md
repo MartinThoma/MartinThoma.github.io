@@ -20,15 +20,15 @@ I couldn't manage to get them running.
 
 One way to do ASR is the following:
 
-* Lets say you have an audio file of 5 minutes
-* You split them into frames, e.g. 30ms per frame. Those frames overlap e.g. 5ms.
+* Let's say you have an audio file of 5 minutes
+* You split it into frames, e.g. 30ms per frame. Those frames overlap e.g. 5ms.
 * You extract features for each frame, e.g. Cepstral features
 * You calculate the probability of phonemes / subphonemes for each frame, e.g.
-  with a Gausian model. This part is called the **acoustic model**.
-* **Pronounication models** (e.g. HMMs) are applied to find possible word
+  with a Gaussian model. This part is called the **acoustic model**.
+* **Pronunciation models** (e.g. HMMs) are applied to find possible word
   sequences.
 * The most likely word sequence is calculated. Here the **language model**
-  comes into play. That is basically only a counter some important
+  comes into play. That is basically only a counter with some important
   details (out of vocabulary, backoff)
 
 
@@ -60,7 +60,7 @@ There is much variability in a single sentence:
     * Speech vs sneezing vs clearing the throat vs drinking
 
 If you want to recognize speech in real time (e.g. only 3 seconds after the
-utterance) it is much more harder. The reason is that you can't use the
+utterance) it is much harder. The reason is that you can't use the
 context.
 
 Think of [homophones](https://en.wikipedia.org/wiki/Homophone). For example,
@@ -101,15 +101,15 @@ or rather the transcript
 > I think you're very smart.
 
 wanted? The first one is closer to the utterance, the second one much easier to
-read. It is also likely that follow-up sysystem work better with the second
+read. It is also likely that follow-up systems work better with the second
 one.
 
 
 ## ASR Services
 
-I looked for a short piece of German discussion and found one with 1 minutes
+I looked for a short piece of German discussion and found one with 1 minute
 and 17 seconds from the TV series *King of Queens* ("Messerscharfe Logik")
-between the characers Arthur and Spence.
+between the characters Arthur and Spence.
 
 I created the following transcript from it:
 
@@ -131,13 +131,13 @@ I created the following transcript from it:
 >
 > 0:19 - 0:23, Spence: "Arthur, Sie verlieren nicht den Verstand. Sie reden das nur ein!"
 >
-> 0:23 - 0:25, Arthur: "Dann werden wir das jetzt mal Testen!"
+> 0:23 - 0:25, Arthur: "Dann werden wir das jetzt mal testen!"
 >
 > 0:25 - 0:26, Spence: "Wie?"
 >
 > 0:26 - 0:32, Arthur: "Ich war immer in der Lage über jedes Thema zu diskutieren und konnte gegnerische Argumente mit messerscharfer Logik abwehren."
 >
-> 0:32 - 0:34, Spence: "Sie wollen, dass ich mit ihnen diskutiere?"
+> 0:32 - 0:34, Spence: "Sie wollen, dass ich mit Ihnen diskutiere?"
 >
 > 0:33 - 0:34, Arthur: "Ganz genau!"
 >
@@ -179,7 +179,7 @@ It is also an example that people interrupt each other. Sometimes Arthur and
 Spence speak at the same time although it does not sound to us as if it is the
 case. In fact, I only noticed it when I created the transcript.
 
-### Pythons SpeechRecognition Package
+### Python's SpeechRecognition Package
 
 I will use the [SpeechRecognition package](https://pypi.python.org/pypi/SpeechRecognition/)
 in the latest version (3.7.1) to interact with services. I will use Python&nbsp;3
@@ -314,7 +314,7 @@ Microsoft knows the following 10 languages for conversation mode ([source](https
 <tr>
 <td>ar-EG</td>
 <td>Arabic (Egypt), modern standard</td>
-<td>It-IT</td>
+<td>it-IT</td>
 <td>Italian (Italy)</td>
 </tr>
 <tr>
@@ -481,7 +481,7 @@ Sphinx error; recognition connection failed: [Errno 32] Broken pipe
 See [documentation of Google cloud speech API](https://cloud.google.com/speech/)
 and the [developers page](https://developers.google.com/apis-explorer/?hl=de#p/speech/v1/).
 
-It can only be used for commerical purposes, so I can't try it right now.
+It can only be used for commercial purposes, so I can't try it right now.
 The command is
 
 ```python

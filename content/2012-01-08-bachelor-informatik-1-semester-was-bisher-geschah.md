@@ -64,8 +64,8 @@ Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch I
 <li>$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}$</li>
 <li>Kosinus: $\cos(x) = \sum_{n=0}^{\infty} (-1)^n \cdot \frac{x^{2n}}{(2n)!} (x \in \mathbb{R})$</li>
 <li>Sinus: $\sin(x) = \sum_{n=0}^{\infty} (-1)^n \cdot \frac{x^{2n+1}}{(2n+1)!} (x \in \mathbb{R})$</li>
-<li>Cosinus Hyperbolikus: $cosh(x) = \frac{1}{2} (e^x + e^{-x}) (x \in \mathbb{R})$</li>
-<li>Sinus Hyperbolikus: $sinh(x) = \frac{1}{2} (e^x - e^{-x}) (x \in \mathbb{R})$</li>
+<li>Cosinus Hyperbolikus: $\cosh(x) = \frac{1}{2} (e^x + e^{-x}) (x \in \mathbb{R})$</li>
+<li>Sinus Hyperbolikus: $\sinh(x) = \frac{1}{2} (e^x - e^{-x}) (x \in \mathbb{R})$</li>
 </ul>
 
 <h4>Links und Materialien</h4>

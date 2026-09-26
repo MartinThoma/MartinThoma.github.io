@@ -71,7 +71,7 @@ Here is the LaTeX-Code:
 \end{document}
 ```
 
-Here is the <a href='../images/2011/10/timetable.sty'>timetable</a> and the <a href='../images/2011/10/example.tex'>example timtable in LaTeX</a>.
+Here is the <a href='../images/2011/10/timetable.sty'>timetable</a> and the <a href='../images/2011/10/example.tex'>example timetable in LaTeX</a>.
 If you have a Linux machine, you can create the timetable with this command:
 ```bash
 pdflatex example.tex -output-format=pdf

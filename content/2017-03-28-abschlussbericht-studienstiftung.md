@@ -12,7 +12,7 @@ featured_image: 2012/06/Studienstiftung-Logo.png
 Stipendiaten der Studienstiftung des deutschen Volkes müssen am Ende ihres
 Studiums einen Abschlussbericht schreiben.
 
-Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen
+Damit sich andere Stipendiaten nicht auch jedes Mal die Vorlage erstellen
 müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr
 Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
 (info@martin-thoma.de) oder einen Kommentar hinterlassen.

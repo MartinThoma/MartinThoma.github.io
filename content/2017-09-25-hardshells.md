@@ -34,7 +34,7 @@ When you look for rain coats, you can see things like "2 layers", "2.5 layers"
 and "3 layers". This is about the durability.
 
 * 2 layers: The membrane and a mesh. The mesh protects the membrane from your sweat.
-* 2.5 layers: Base fabric, Membrane, partially treated interiour. Feels like rubber on the inside.
+* 2.5 layers: Base fabric, Membrane, partially treated interior. Feels like rubber on the inside.
 * 3 layers: More durable than the 2 layers
 
 
@@ -83,7 +83,7 @@ According to
     </tr>
     <tr>
         <td>very good breathability</td>
-        <td>15.000 to 40.000g/m&sup2;/24h</td>
+        <td>15000 to 40000&thinsp;g/m&sup2;/24h</td>
         <td>&lt; 6</td>
         <td></td>
     </tr>
@@ -109,7 +109,7 @@ Those are other features you might want to consider:
 
 For everything except the shoes, I will do the following:
 
-1. Put the inner to the outer to reduce possible damage to the material
+1. Turn it inside out to reduce possible damage to the material
    (German: "Auf links drehen")
 2. Select "gentle or delicate cycle" (Schonwaschgang)
 3. Use "Fibertec Uni Pro Wash Eco Waschmittel"
@@ -138,15 +138,15 @@ water column (JIS L 1092 B). I've read that everything above
 how breathable the material is (e.g. if you stick in your sweat or if the sweat
 is transported out of the jacket).
 
-For longer hiking trips, 3&nsp;layer hardshell jackets seem to be recomendable
+For longer hiking trips, 3&nbsp;layer hardshell jackets seem to be recommendable
 as they are more breathable than the 2&nbsp;layer constructions.
 
 
 ### What I have
 
-I have a 2 layer rain coat from "Tec Wear" / Rodeo (C &amp; A). It weights
+I have a 2 layer rain coat from "Tec Wear" / Rodeo (C &amp; A). It weighs
 about 700g, has a detachable hood, two front pockets which I use for gloves.
-Additionally, it has one side front pocket and two innner pockets which I
+Additionally, it has one side front pocket and two inner pockets which I have
 likely never used. The volume is hard to estimate ... probably something around
 2&nbsp;L.
 
@@ -402,7 +402,7 @@ I finally bought the Keb Eco Shell Jacket on 2018-12-18.
 * [GORE-TEX Wash Tutorial](https://www.youtube.com/watch?v=I4N6ZuKTZ_c): Wash it often!
 * [Regenjacke & Regenhose waschen](http://www.scandics.de/regenjacke-tipps-beratung/regenjacke-waschen/)
 
-Other articles of myself:
+Other articles of mine:
 
 * Mid Layer: [Down Jackets](../down-jackets/) and [Fleece](../fleece/)
 * Outer Layer: [Hardshell Jackets](../hardshell-jackets/)

@@ -54,7 +54,7 @@ $f(n) = \sqrt{2}^{\lg(n)} = 10^{\lg(\sqrt{2}^{\lg(n)})} = 10^{\lg(\sqrt{2}) \cdo
 Es gilt: $n \in {\cal O}(n \cdot \lg(n)) = {\cal O}(g(n))$
 $\Rightarrow f(n) \in {\cal O}(g(n)) \blacksquare$
 
-<h3>Nummber 2</h3>
+<h3>Nummer 2</h3>
 <strong>Voraussetzungen</strong>:
 Sei $f(n) := \sqrt{5}^{\log_3(n)}$ und $g(n) := n^2$.
 <strong>Behauptung</strong>: $f \in {\cal o}(g(n))$

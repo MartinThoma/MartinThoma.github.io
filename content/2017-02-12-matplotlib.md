@@ -79,7 +79,7 @@ plt.savefig("matplotlib-marker-styles.png")  # or plt.show()
 
 ## Markers
 
-Basically, the matplotlib tries to have identifiers for the markers which look
+Basically, matplotlib tries to have identifiers for the markers which look
 similar to the marker:
 
 * Triangle-shaped: `v`, `<`, `>`, `^`

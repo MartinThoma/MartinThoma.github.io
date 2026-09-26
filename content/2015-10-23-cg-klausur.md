@@ -38,7 +38,7 @@ featured_image: logos/klausur.png
     <td>26.10.2015</td>
     <td>&nbsp;</td>
     <td>Metamerismus: Unterschiedliche Spektren können gleichen Farbeindruck erwecken<br/>
-        Addiere/subtrahiere Farbmischung<br/>
+        Additive/subtraktive Farbmischung<br/>
         <abbr title="Cyan, Magenta, Yellow">CMY</abbr> / <a href="https://de.wikipedia.org/wiki/CMYK-Farbmodell"><abbr title="Cyan, Magenta, Yellow, Key">CMYK</abbr></a> / <a href="https://de.wikipedia.org/wiki/RGB-Farbraum"><abbr title="Red Green Blue">RGB</abbr></a> / <abbr title="Hue Saturation Value">HSV</abbr> / <a href="https://de.wikipedia.org/wiki/CIE-Normvalenzsystem">XYZ</a><br/>
         <a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz">Weber-Fechner-Gesetz</a>: 2% heller
         </td>
@@ -46,7 +46,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>29.10.2015</td>
     <td>Ray-Tracing: Kapitel 2</td>
-    <td>Menschen nehmen Kontrastintensität und Luminenz besser als Chrominanz war.
+    <td>Menschen nehmen Kontrastintensität und Luminanz besser als Chrominanz wahr.
         Das ermöglicht Kompression.<br/>
         clear-type / subpixel Darstellung<br/>
         Jaggies: Unerwünschter Treppenstufen-Effekt bei Rasterisierung von Strecken<br/>
@@ -145,7 +145,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
         empfundene Stärke von Sinneseindrücken in Abhängigkeit von der
         Intensität des Helligkeitsunterschiedes:
 
-        $$E = c \cdot \frac{R}{R_0}$$
+        $$E = c \cdot \ln \frac{R}{R_0}$$
 
         wobei $E$ die empfundene Reizstärke, $c$ eine Konstante, $R$ die
         tatsächliche Reizstärke und $R_0$ eine Referenzreizstärke ist.</dd>

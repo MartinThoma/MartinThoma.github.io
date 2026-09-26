@@ -52,7 +52,7 @@ estimator.
 Then you apply singular value decomposition to the estimated covariance matrix.
 The matrix $u \in \mathbb{R}^{n \times n}$ is <a href="https://en.wikipedia.org/wiki/Unitary_matrix">unitary</a>
 and $s \in \mathbb{R}^{n \times n}$ is a diagonal matrix with non-negative real numbers on the diagonal.
-Those number are the <a href="https://en.wikipedia.org/wiki/Singular_value">singular values</a>
+Those numbers are the <a href="https://en.wikipedia.org/wiki/Singular_value">singular values</a>
 of $\Sigma$.
 
 Next, the principal components are calculated:

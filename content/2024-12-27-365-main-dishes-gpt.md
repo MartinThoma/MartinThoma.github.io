@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2024-12-27 20:00
 category: German posts
 tags: Food, Cooking
-featured_image: logos/food.png
+featured_image: logos/cooking.png
 ---
 Falls jemand etwas Inspiration sucht: Hier sind 365 Hauptgerichte. Das wurde mit
 ChatGPT im April 2023 generiert; ich habe es strukturiert und kategorisiert.

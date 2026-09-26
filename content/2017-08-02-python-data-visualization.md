@@ -11,7 +11,7 @@ featured_image: logos/ml.png
 ---
 Python has a lot of libraries for data visualization and I recently stumbled
 over an awesome talk from PyCon 2017 by Jake VanderPlas titled "The Python
-Visualization Landscape" which gives an overview over them:
+Visualization Landscape" which gives an overview of them:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 

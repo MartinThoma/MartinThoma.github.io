@@ -22,7 +22,7 @@ are.
 >
 > In many cases, agents will seek out people who have somehow demonstrated radical views, and then coax them into plotting an act of terrorism — often providing weapons and money. Before the suspects can carry out their plans, though, they're arrested.
 
-Busiess Insider: [The FBI is 'manufacturing terrorism cases' on a greater scale than ever before](http://www.businessinsider.de/fbi-is-manufacturing-terrorism-cases-2016-6/?r=US&IR=T)
+Business Insider: [The FBI is 'manufacturing terrorism cases' on a greater scale than ever before](http://www.businessinsider.de/fbi-is-manufacturing-terrorism-cases-2016-6/?r=US&IR=T)
 
 
 ### Police legally robbing people
@@ -49,23 +49,23 @@ It is called "Civil Forfeiture":
 
 ## Democracy
 
-In the US there seem to be several measures in place solely to make people not
-being able to vote. And if they can vote, then they can't get what they want
+In the US there seem to be several measures in place solely to keep people from
+voting. And if they can vote, then they can't get what they want
 with their vote. Namely:
 
 * [John Oliver: Voting](https://www.youtube.com/watch?v=rHFOwlMCdto) - voter
-  registration votes which were designed to make minorities vote less
+  registration laws which were designed to make minorities vote less
 * An overly complicated, unintuitive voting process ([John Oliver: Primaries and Caucuses](https://www.youtube.com/watch?v=_S2G8jhhUHg)),
 * [John Oliver: Washington DC Statehood](https://www.youtube.com/watch?v=4Z4j2CrJRn4)
 * [John Oliver: Puerto Rico](https://www.youtube.com/watch?v=Tt-mpuR_QHQ)
 * [Felony disenfranchisement](https://en.wikipedia.org/wiki/Felony_disenfranchisement):
-  Making people not being allowed to vote - this seems to be a problem in Germany, too.
+  Not allowing people to vote - this seems to be a problem in Germany, too.
 * [Voter suppression in the United States](https://en.wikipedia.org/wiki/Voter_suppression_in_the_United_States)
 * [John Oliver: Gerrymandering](https://www.youtube.com/watch?v=A-4dIImaodQ)
 * Excluding larger groups of the population by
-    * Having the day of vote not on Sunday (e.g. Super Tuesday)
+    * Having election day not on a Sunday (e.g. Super Tuesday)
     * Voter ID laws
-    * Having extremely long queues in some areas (having to wait several HOURS! - I'm used to be finished in about 10 minutes)
+    * Having extremely long queues in some areas (having to wait several HOURS! - I'm used to being finished in about 10 minutes)
 * Tactical voting: People don't vote for the candidate they like best, but for
   the one they think has the highest chance to win. This would be fixed by
   ranked-choice voting.
@@ -85,10 +85,10 @@ with their vote. Namely:
   Mary Lee Bruner on the Texas State Board of Education.
 * Creationism (e.g. [Creation and evolution in public education in the United States](https://en.wikipedia.org/wiki/Creation_and_evolution_in_public_education_in_the_United_States))
 * [John Oliver: The Lottery](https://www.youtube.com/watch?v=9PK-netuhHA) -
-  Cuts in education spendings which should be filled by gains from Lottery.
+  Cuts in education spending which should be filled by revenue from the lottery.
 
 
-## Miscallenious
+## Miscellaneous
 
 * [John Oliver: Nuclear Weapons](https://www.youtube.com/watch?v=1Y1ya-yF35g)
 * [John Oliver: Special Districts](https://www.youtube.com/watch?v=3saU5racsGE)

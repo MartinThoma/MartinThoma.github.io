@@ -133,7 +133,7 @@ $$\begin{pmatrix}a_2 & a_0 & 0\\1 & a_1 & 0\\ 0 & a_2 & 1\end{pmatrix}$$
 zu überprüfen, also:
 
 * $a_2 > 0$?
-* $a_2 \cdot a_1 - a_0 > 0$? (the determinant of size 2 and 3 is the same)
+* $a_2 \cdot a_1 - a_0 > 0$? (die Determinanten der Größe 2 und 3 sind gleich)
 
 
 #### Schaltungen

@@ -178,7 +178,7 @@ The comparison is in German, because I'm too lazy to translate it.
     <tr>
         <td><a href="https://de.wikipedia.org/wiki/Kinderkrankengeld">Kinderkrankengeld</a></td>
         <td style="background-color: #ffffcc;"><a href="https://www.bkk-herkules.de/leistungen/leistungen-von-a-z/krankengeld_bei_erkrankung_eines_kindes/">?</a></td>
-        <td style="background-color: #c9f8c9;" colspan="3"><a href="https://www.tk.de/techniker/service/leistungen-und-mitgliedschaft/schwangerschaft-und-familie/entlastung-fuer-familien/kinderkrankengeld-2001280">90% Netto, max 105.88 EUR/Tag</a>[^1]</td>
+        <td style="background-color: #c9f8c9;" colspan="3"><a href="https://www.tk.de/techniker/service/leistungen-und-mitgliedschaft/schwangerschaft-und-familie/entlastung-fuer-familien/kinderkrankengeld-2001280">90% Netto, max 105.88 EUR/Tag</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
     </tr>
     <tr>
         <th colspan="5">Zusatzleistungen: Sonstiges</th>
@@ -245,23 +245,23 @@ wieder sehr übersichtliche Hilfeseiten der TK über den Weg gelaufen.
 
 <div class="gallery">
     <figure>
-        <a href="../images/2019/05/bkk-01.png"><img src="../images/2019/05/bkk-01.png" alt="BKK Web Interface" width="512" height="306" loading="lazy"></a>
+        <a href="../images/2019/05/bkk-01.jpg"><img src="../images/2019/05/bkk-01.jpg" alt="BKK Web Interface" width="512" height="306" loading="lazy"></a>
         <figcaption>BKK Web Interface</figcaption>
     </figure>
     <figure>
-        <a href="../images/2019/05/bkk-02.png"><img src="../images/2019/05/bkk-02.png" alt="BKK Web Interface" width="512" height="289" loading="lazy"></a>
+        <a href="../images/2019/05/bkk-02.jpg"><img src="../images/2019/05/bkk-02.jpg" alt="BKK Web Interface" width="512" height="289" loading="lazy"></a>
         <figcaption>BKK Web Interface</figcaption>
     </figure>
     <figure>
-        <a href="../images/2019/05/bkk-03.png"><img src="../images/2019/05/bkk-03.png" alt="BKK Web Interface" width="512" height="215" loading="lazy"></a>
+        <a href="../images/2019/05/bkk-03.jpg"><img src="../images/2019/05/bkk-03.jpg" alt="BKK Web Interface" width="512" height="215" loading="lazy"></a>
         <figcaption>BKK Web Interface</figcaption>
     </figure>
     <figure>
-        <a href="../images/2019/05/bkk-04.png"><img src="../images/2019/05/bkk-04.png" alt="BKK Web Interface" width="512" height="203" loading="lazy"></a>
+        <a href="../images/2019/05/bkk-04.jpg"><img src="../images/2019/05/bkk-04.jpg" alt="BKK Web Interface" width="512" height="203" loading="lazy"></a>
         <figcaption>BKK Web Interface</figcaption>
     </figure>
     <figure>
-        <a href="../images/2019/05/bkk-05.png"><img src="../images/2019/05/bkk-05.png" alt="BKK Web Interface" width="512" height="178" loading="lazy"></a>
+        <a href="../images/2019/05/bkk-05.jpg"><img src="../images/2019/05/bkk-05.jpg" alt="BKK Web Interface" width="512" height="178" loading="lazy"></a>
         <figcaption>BKK Web Interface</figcaption>
     </figure>
     <figure>

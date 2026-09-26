@@ -102,7 +102,7 @@ Für ein Jordankästchen der Größe <span>$i$</span> wählt man einen Basisvekt
 Also:
 <span>$v_j = (A - \lambda \cdot E)^{i-j}$</span> mit <span>$j = 1, ..., i$</span>
 
-Die Vektoren <span>$v_j$</span> schreibt man mit aufsteigenden Indizes in die geordete Basis.
+Die Vektoren <span>$v_j$</span> schreibt man mit aufsteigenden Indizes in die geordnete Basis.
 Beachte: Man wählt nur den Vektor <span>$v_i$</span>, alle anderen Vektoren für dieses Kästchen sind dadurch festgelegt! Außerdem schreibt man <span>$v_i$</span> erst am Ende in die Basis!
 
 <h3>Inverse Matrix bestimmen</h3>

@@ -155,7 +155,7 @@ And I can imagine way more:
 * **Commute**: I would be fine with stating my most common rides. For example,
   something close to my home address and something close to my work address and
   the times when I go to / from work. With this data, one could potentially
-  improve the schedule of busses / trains.
+  improve the schedule of buses / trains.
 * **Trash cans**: Reporting a missing trash can, so that people throw their
   trash in the can instead of on the street.
 * **Stations**: We have very different bus/train stations. Some have only a
@@ -177,11 +177,11 @@ that require least amount of money.
 ## Advertisement Site
 
 I actually want advertisement. But I want also to easily keep track of it.
-I don't want to look at stuff just to see that the advertisment was old. And
-I don't want advertisment when I have lots to do and no time to buy things
+I don't want to look at stuff just to see that the advertisement was old. And
+I don't want advertisement when I have lots to do and no time to buy things
 anyway.
 
-So giving people the possibility to go to a website and look at advertisment
+So giving people the possibility to go to a website and look at advertisement
 the way they want might be very interesting.
 
 
@@ -225,9 +225,9 @@ The database should have the following tables:
 
 * Languages: LangID, Name in the language itself, icon
 * Literature: LiteratureID, LangID, ISBN
-* Words: WordID, Word, Normalized Occurences in Standard Literature
-* WordPronounciation: WordPronounciationID, Pronounciation in phonetics, Pronounciation by a human
-    * Pronounciation by a human should be stored on Wikipedia Commons
+* Words: WordID, Word, Normalized Occurrences in Standard Literature
+* WordPronunciation: WordPronunciationID, Pronunciation in phonetics, Pronunciation by a human
+    * Pronunciation by a human should be stored on Wikimedia Commons
 * WordTags: WordTagID, Tag, Description in Markdown
     * Examples: Adjective, Substantive, male, genitiv, past, medicine ...
 * TagTag: TagTagID, TagID, TagTag, Description in Markdown
@@ -236,7 +236,7 @@ The database should have the following tables:
 * Sentences: SentenceID, Sentence
 * Words2Sentece: ID, SentenceID, WordID
 * Definitions: ID, WordID, Definition, Image
-    * Images should be stored on Wikipedia Commons
+    * Images should be stored on Wikimedia Commons
 * Translations: ID, WordID, TranslationID
     * Note that translations don't have to be unique. There might be more than
       one correct translation for a word (e.g. "Bank")
@@ -421,7 +421,7 @@ Projects:
 
 * Profile page for each project
 * photos
-* members / oranization / roles / karma / contributers
+* members / organization / roles / karma / contributors
 * domain
 
 Other elements:
@@ -499,7 +499,7 @@ like Facebook (Groups, pages, sharing, upvoting), but with Markdown.
     * "security status"
 * Educating users how to commit issues
 * Screenshots: imgur.com
-* Seach terms: QA (quality assurance), bugs
+* Search terms: QA (quality assurance), bugs
 * Alternative Products: User Echo
 
 
@@ -643,8 +643,8 @@ Things for mobile - factually only Android and iOS matter.
 
 ### Jabber Messaging App
 
-There are some commercial messangers which are wide-spread (WhatsApp, Facebook Messanger, Skype),
-some known secure messangers (Threema, Signal) and lots of other messangers
+There are some commercial messengers which are wide-spread (WhatsApp, Facebook Messenger, Skype),
+some known secure messengers (Threema, Signal) and lots of other messengers
 (see [Comparison of instant messaging clients](https://en.wikipedia.org/wiki/Comparison_of_instant_messaging_clients), [2](https://de.wikipedia.org/wiki/Liste_von_mobilen_Instant-Messengern)).
 
 However, there seems not to be a single client which has the following:
@@ -653,7 +653,7 @@ However, there seems not to be a single client which has the following:
     * Free Software
     * Encryption of text messages
 * Support of Android and iOS as well as a web interface
-* Support of open protocolls (XMPP - see [Comparison of instant messaging protocols](https://en.wikipedia.org/wiki/Comparison_of_instant_messaging_protocols))
+* Support of open protocols (XMPP - see [Comparison of instant messaging protocols](https://en.wikipedia.org/wiki/Comparison_of_instant_messaging_protocols))
     * Support of sharing pictures
     * Support of sharing short audio messages
     * Efficient voice calls
@@ -837,7 +837,7 @@ Tasks that should not be done via browser might be:
   display all relevant information.
 * Programming: Although I have seen [Cloud9](https://c9.io/), I doubt that
   programming in the cloud can be convenient in the next years. How does bug
-  fixing work? How about manual testing? Whats with parallel execution?
+  fixing work? How about manual testing? What's with parallel execution?
 * Messaging: If you want to use encrypted communication (e.g. E-mail with PGP)
   you should probably do the encryption on your machine.
 

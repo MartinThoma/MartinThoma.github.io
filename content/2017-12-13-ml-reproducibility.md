@@ -10,7 +10,7 @@ tags: Machine Learning, Research, AI
 featured_image: logos/ml.png
 ---
 Getting reproducible results is important because of trust: Why should somebody
-else trust you, if you can get the same results repeatedly? Why do you trust
+else trust you, if you can't get the same results repeatedly? Why do you trust
 your results in the first place? People make errors. Making sure you can repeat
 what you did before eliminates possibilities for human error.
 
@@ -18,8 +18,8 @@ Here are possible reasons why the results of machine learning projects are not
 always the same. They are roughly ordered from most likely/easiest to fix to
 most unlikely/hardest to fix. I also try to give a solution after the problem:
 
-1. **Human error** - you missread a number / made a typo when you copied a result from one shell to the paper: Logging. Create an `2017-12-31-23-54-experiment-result.log` for every single experiment you run. Not manually,
- but the experiment creates it. Yes, the time stamp in the name for easier finding it again. All following should be logged to that file for each single experiment.
+1. **Human error** - you misread a number / made a typo when you copied a result from one shell to the paper: Logging. Create a `2017-12-31-23-54-experiment-result.log` for every single experiment you run. Not manually,
+ but the experiment creates it. Yes, with the time stamp in the name, so you find it again easily. All following should be logged to that file for each single experiment.
 2. **Code** changed: Version control (e.g. git)
 3. **Configuration file** changed: Version control
 4. **Pseudorandom number** changed: set seed for random / tensorflow / numpy (yes, you might have to set more than one seed)

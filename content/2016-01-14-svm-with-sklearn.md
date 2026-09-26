@@ -9,7 +9,7 @@ category: Machine Learning
 tags: Python, Machine Learning, SVM, Classification, scikit-learn, AI
 featured_image: logos/ai.png
 ---
-Support Vector Machines (SVMs) is a group of powerful classifiers. In this
+Support Vector Machines (SVMs) are a group of powerful classifiers. In this
 article, I will give a short impression of how they work. I continue
 with an example how to use SVMs with sklearn.
 
@@ -36,7 +36,7 @@ with an example how to use SVMs with sklearn.
           to relax the requirement of linear separability solves
           this problem. The trade-off between accepting some errors and a more
           complex model is weighted by a parameter $C \in \mathbb{R}_0^+$. The
-          bigger $C$, the more errors are accepted. The new optimization
+          smaller $C$, the more errors are accepted. The new optimization
           problem is:
           $$
           \begin{aligned}
@@ -55,7 +55,7 @@ with an example how to use SVMs with sklearn.
           example and $\alpha_i$ are Lagrange multipliers. The usage of
           Lagrange multipliers is explained with some examples
           in [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>]. The usage of the Lagrange multipliers
-          $\alpha_i$ changes the optimization problem depend on the
+          $\alpha_i$ changes the optimization problem to depend on the
           $\alpha_i$ which are weights for the feature vectors. It turns
           out that most $\alpha_i$ will be zero. The non-zero weighted vectors
           are called <i>support&nbsp;vectors</i>.
@@ -74,7 +74,7 @@ with an example how to use SVMs with sklearn.
           are only used within scalar product
           $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$, it is not necessary to
           do the transformation. It is enough to do the calculation
-          $$K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle$$
+          $$K(\mathbf{x}_i, \mathbf{x}_j) = \langle \Phi(\mathbf{x}_i), \Phi(\mathbf{x}_j) \rangle$$
 
           This function $K$ is called a <i>kernel</i>. The idea of never
           explicitly transforming the vectors $\mathbf{x}_i$ to the higher

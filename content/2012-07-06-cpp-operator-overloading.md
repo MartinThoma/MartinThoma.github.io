@@ -209,7 +209,7 @@ typedef struct person {
         prename(p), surname(s), age(age) {}
 } Person;
 
-// "comperator" for C++
+// "comparator" for C++
 bool operator==(const Person& a, const Person& b){
     return a.age == 30;
 }

@@ -5,7 +5,7 @@ slug: rental-scam
 lang: de
 author: Martin Thoma
 date: 2017-04-06 20:00
-category: Cyberculture
+category: German posts
 tags: Phishing, Security
 featured_image: logos/scam.png
 ---
@@ -275,7 +275,7 @@ $ whois chelsea-homes.co.uk
 ```
 
 Mit <a href="https://beta.companieshouse.gov.uk">companieshouse.gov.uk</a> kann
-man noch mehr Informtionen ermitteln:
+man noch mehr Informationen ermitteln:
 
 <pre>
 Registered office address: Office 35 78 Golders Green Road, London, United Kingdom, NW11 8LN
@@ -580,7 +580,7 @@ Vielen Dank!
   Reverse-Image Search Engines suchen. Wenn man dieselben Wohnungsbilder unter
   anderen Adressen sieht, weiß man was Sache ist.
 * Preisvergleich: Wenn es zu günstig wird, wäre ich vorsichtig
-* Fotos anschauen: Die Fotos die ich bekommen habe sehen zu professionel aus
+* Fotos anschauen: Die Fotos, die ich bekommen habe, sehen zu professionell aus
 * Nichts vorher zahlen: Insbesondere wurde mir abgeraten etwas nach
   Großbritannien oder über Western Union zu überweisen.
 

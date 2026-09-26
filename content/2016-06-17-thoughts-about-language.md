@@ -10,7 +10,7 @@ tags: Language, Machine Learning, AI
 featured_image: logos/ai.png
 ---
 Language is a method of communication. It is used to transport information
-from one individuals brain to another brain. I'm not entirely sure about it,
+from one individual's brain to another brain. I'm not entirely sure about it,
 but I think every language which is wide-spread might be complete in a sense
 that once you know every word of the language you will be able to convey any
 concept or idea. In fact, even a tiny subset of natural languages might be
@@ -21,7 +21,7 @@ enough to transport those ideas.
 
 A complete language is always specific for the species for which it is used as
 one fundamental part is to describe **sensory inputs**. For example, bees can
-see other parts of the spectrum. They might describe flowers very different
+see other parts of the spectrum. They might describe flowers very differently
 from us. Some of the sensory words are:
 
 * pain
@@ -31,9 +31,9 @@ from us. Some of the sensory words are:
 * hard / soft, warm / cold, rough
 
 
-Another fundamental part of complete language are **relationships**:
+Another fundamental part of a complete language are **relationships**:
 
-* Spacial: A is over / below / right of B
+* Spatial: A is over / below / right of B
 * Temporal: A is before / after B
 * Structural: A is part of B; A is a type of B
 * Comparing: A is smaller than B; A is better than B; A is higher than B
@@ -53,7 +53,7 @@ define new words. Many words can be completely described with other words, but
 it is cumbersome to use many sentences instead of a single word.
 
 Also, there are synonyms, filling words, words and grammar which helps to
-distinguish other words and make sure the other one does not missunderstand
+distinguish other words and make sure the other one does not misunderstand
 you.
 
 
@@ -61,7 +61,7 @@ you.
 
 There are two important conclusions from these thoughts:
 
-First, the purpose of language is to convey ideas. This means one the one hand
+First, the purpose of language is to convey ideas. This means on the one hand
 that you should use language like others do most of the time. On the other
 hand, there are some circumstances where you might want to ignore the
 "official" writing (e.g. in German "**das** Kalman-Filter" would be correct,

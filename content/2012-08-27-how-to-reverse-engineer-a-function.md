@@ -24,7 +24,7 @@ As a first step, you should open the image with <a href="http://en.wikipedia.org
     <figcaption>Cubic function in GIMP</figcaption>
 </figure>
 
-<del datetime="2012-08-30T08:36:40+00:00">This function has a maximum at (123 | 105) and a minimum at (172 | 218)</del> ... well, thats not correct. Note that the axis of GIMP starts at the upper left. So the y-axis is wrong.
+<del datetime="2012-08-30T08:36:40+00:00">This function has a maximum at (123 | 105) and a minimum at (172 | 218)</del> ... well, that's not correct. Note that the axis of GIMP starts at the upper left. So the y-axis is wrong.
 
 I have cropped and flipped the image vertically. Now you can read the minimum / maximum coordinates with GIMP:
 
@@ -63,8 +63,8 @@ Now you have to solve the equations. I took <a href="http://www.wolframalpha.com
 
 Here is the exact solution:
 <figure>
-    <a href="../images/2012/08/wolframalpha-solution-cubic-function.png"><img src="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpah" width="511" height="70" loading="lazy"></a>
-    <figcaption>Exact solution of a cubic function with Wolfram|Alpah</figcaption>
+    <a href="../images/2012/08/wolframalpha-solution-cubic-function.png"><img src="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpha" width="511" height="70" loading="lazy"></a>
+    <figcaption>Exact solution of a cubic function with Wolfram|Alpha</figcaption>
 </figure>
 
 And here is an approximation:

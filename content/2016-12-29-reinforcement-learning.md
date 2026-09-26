@@ -28,7 +28,7 @@ Your goal is to maximize
 
 $$\mathbb{E}(\sum_{k=0}^\infty \gamma^k \cdot r_k(x_k, a_k))$$
 
-where $\gamma in (0, 1)$ is a discounting factor which makes sure we don't get
+where $\gamma \in (0, 1)$ is a discounting factor which makes sure we don't get
 infinite rewards. $\gamma = 0.99$ is a typical choice.
 
 
@@ -42,15 +42,15 @@ This very general problem description can be applied in almost any scenario:
 
 ## Why RL is difficult
 
-* Credit assignment: In chess, you only get a reward (positiv or negative) at
-  the end of the game. How to you tell which move was good or bad?
+* Credit assignment: In chess, you only get a reward (positive or negative) at
+  the end of the game. How do you tell which move was good or bad?
 * [Exploration vs. exploitation](../probabilistische-planung/#exporation-exploitation):
   When should you stick to what you know and when should you try something new?
 * State equivalence: Typically, your state is very high-dimensional. For example
   when learning very old computer games from raw pixels you have
   $$210 \cdot 160 \cdot 3 = 100800$$
   dimensions in your feature vector. But the relevant game states might be
-  much less.
+  far fewer.
 
 
 ## Approaches
@@ -59,12 +59,12 @@ A **policy network** gets the state as input and outputs the action. It learns
 by executing many episodes (e.g. a complete game; from start until you reach a
 final state or at least a state with reward) and labels all actions before with
 the received reward. There might be many which were good even in a lost game,
-but in average you expect to punish bad decisions and encourage good decisions.
+but on average you expect to punish bad decisions and encourage good decisions.
 
 
 ## Resources
 
-If you are a student at KIT, I can recommend to visit the lecture
+If you are a student at KIT, I can recommend the lecture
 [Probabilistic Planning](../probabilistische-planung/).
 
 Other resources you might want to have a look at:

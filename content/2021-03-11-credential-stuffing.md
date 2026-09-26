@@ -20,7 +20,7 @@ Credential stuffing is a brute-force attack on a services’ user accounts. Not 
 ## Why you should care
 
 * Credential Stuffing is part of “Broken Authentication” and thus #2 in the **OWASP Top 10** ([source](https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication))
-* 2020: $3.5 million in fraudulent check withdrawals with credential stuffing ([more details](https://www.zdnet.com/article/fbi-says-credential-stuffing-attacks-are-behind-some-recent-bank-hacks/))
+* 2020: \$3.5 million in fraudulent check withdrawals with credential stuffing ([more details](https://www.zdnet.com/article/fbi-says-credential-stuffing-attacks-are-behind-some-recent-bank-hacks/))
 * 2020: About 500,000 Zoom users credentials were found with credential stuffing ([source](https://www.forbes.com/sites/daveywinder/2020/04/28/zoom-gets-stuffed-heres-how-hackers-got-hold-of-500000-passwords/))
 * 2020: “Retail, travel, and hospitality industries attracted a startling 63% of credential stuffing attacks” [according to Akamai.](https://www.akamai.com/us/en/resources/our-thinking/state-of-the-internet-report/global-state-of-the-internet-security-ddos-attack-reports.jsp)
 * 2021: AVM (FritzBox) registers a lot of credential stuffing attacks ([source](https://t3n.de/news/avm-angriffe-router-fritzbox-1363050/))

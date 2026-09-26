@@ -345,9 +345,9 @@ Dashlane supports secure file storage.
     </tr>
     <tr>
         <th>Revenue</th>
-        <td><a href="https://www.globenewswire.com/news-release/2018/02/15/1349176/0/en/LogMeIn-Announces-Fourth-Quarter-and-Fiscal-Year-2017-Results.html">$1024M</a></td>
-        <td><a href="https://www.owler.com/company/dashlane">$21M</a><sup><a href="https://techcrunch.com/2019/04/12/password-manager-dashlane-closes-on-30m-adds-former-spotify-cmo-to-board/">1</a></sup></td>
-        <td><a href="https://www.owler.com/company/1password">$30M</a></td>
+        <td><a href="https://www.globenewswire.com/news-release/2018/02/15/1349176/0/en/LogMeIn-Announces-Fourth-Quarter-and-Fiscal-Year-2017-Results.html">\$1024M</a></td>
+        <td><a href="https://www.owler.com/company/dashlane">\$21M</a><sup><a href="https://techcrunch.com/2019/04/12/password-manager-dashlane-closes-on-30m-adds-former-spotify-cmo-to-board/">1</a></sup></td>
+        <td><a href="https://www.owler.com/company/1password">\$30M</a></td>
         <td>-</td>
         <td>-</td>
     </tr>

@@ -21,7 +21,7 @@ reasons:
 * **Memory limitations**: My laptop has 8&nbsp;GB of RAM. For some datasets,
   this is not enough. Hence I want to be able to preprocess some part of my
   data, store the results to a file, remove it from memory and continue. This
-  way, I can handle arbitrary large datasets. Formats with random access are
+  way, I can handle arbitrarily large datasets. Formats with random access are
   nice in such a case, otherwise you can always create multiple files.
 * **Sharing data**
 
@@ -44,7 +44,7 @@ Properties that are interesting are:
     </tr>
     <tr>
         <td><a href="http://stackoverflow.com/questions/41585078/how-do-i-read-and-write-csv-files-with-python/41585079#41585079">CSV</a></td>
-        <td>Simple to use, not much overhead, can be imported into EXCEL</td>
+        <td>Simple to use, not much overhead, can be imported into Excel</td>
         <td>No data types</td>
         <td>No</td>
         <td></td>

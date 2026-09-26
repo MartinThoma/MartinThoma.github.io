@@ -21,7 +21,7 @@ I finished my Computer Science bachelors degree at KIT / CMU and I'm currently
 in my masters degree at KIT (Karlsruhe, Germany). My mother tongue is German,
 but my English is not too bad. I'm specialized in Machine Learning.
 
-I'm working with the typesetting system LaTeX for quite a while now
+I've been working with the typesetting system LaTeX for quite a while now
 ([source](https://github.com/MartinThoma/LaTeX-examples/)).
 
 See [arxiv](http://arxiv.org/a/thoma_m_1.html) for some of my work.

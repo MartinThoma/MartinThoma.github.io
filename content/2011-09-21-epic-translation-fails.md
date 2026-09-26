@@ -14,19 +14,19 @@ Online translation programs are getting better and they are great if you want to
 "Spielzeugladen" is German and means "toy store"
 
 <figure>
-    <a href="../images/2011/09/Google-Translator-Dirty-Picture.png"><img src="../images/2011/09/Google-Translator-Dirty-Picture.png" alt="" width="400" height="160"></a>
+    <a href="../images/2011/09/Google-Translator-Dirty-Picture.png"><img src="../images/2011/09/Google-Translator-Dirty-Picture.png" alt="Google Translate turns &quot;Take a dirty picture for me.&quot; into French and back into &quot;Take a picture for me slut&quot;" width="400" height="160"></a>
 </figure>
 
 Note the missing point.
 
 <figure>
-    <a href="../images/2011/09/Google-Translator-Was-hast-du-an.png"><img src="../images/2011/09/Google-Translator-Was-hast-du-an.png" alt="" width="400" height="193" loading="lazy"></a>
+    <a href="../images/2011/09/Google-Translator-Was-hast-du-an.png"><img src="../images/2011/09/Google-Translator-Was-hast-du-an.png" alt="Google Translate turns &quot;Was hast du an?&quot; into Spanish and back into &quot;What did you do?&quot;" width="400" height="193" loading="lazy"></a>
 </figure>
 
 "Was hast du an?" means "What do you wear?"
 
 <figure>
-    <a href="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png"><img src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" alt="" width="400" height="168" loading="lazy"></a>
+    <a href="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png"><img src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" alt="Google Translate turns &quot;Will Justin Bieber ever hit puberty&quot; into Vietnamese and back into &quot;Justin Bieber will never reach puberty&quot;" width="400" height="168" loading="lazy"></a>
 </figure>
 
 Did you know the Beatbox?

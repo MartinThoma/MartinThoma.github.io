@@ -254,7 +254,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Gesetz_der_totalen_Wahrscheinlichkeit"><dfn>Gesetz der totalen Wahrscheinlichkeit</dfn></a></dt>
   <dd>Seien $A_1, \dots, A_n$ paarweise disjunkte Ereignisse mit
       $A = \sum_{i=1}^n A_i$. Dann gilt für jedes beliebige Ereignis $B$:
-      $$P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)$$</dd>
+      $$P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = \sum_{i=1}^n P(A_i, B)$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Satz_von_Bayes"><dfn>Satz von Bayes</dfn></a></dt>
   <dd>Seien $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
       $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
@@ -674,7 +674,7 @@ Slides: `11_Evaluation.pdf`
 
       Die Precision gibt den Anteil der real Positiven aus den als positiv
       Erkannten an.</dd>
-  <dt><dfn>ROC-Graph</dfn> (<dfn>Receiver-Operator Curve</dfn>)</dt>
+  <dt><dfn>ROC-Graph</dfn> (<dfn>Receiver Operating Characteristic</dfn>)</dt>
   <dd>Der ROC-Graph gibt für einen Klassifikator, bei dem man einen Parameter
       einstellen kann, den Fehler an.
 
@@ -690,7 +690,7 @@ Slides: `11_Evaluation.pdf`
   <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
   <dd>Die $x$-Achse ist Recall, die $y$-Achse ist Precision.</dd>
   <dt><dfn>F-Maß</dfn></dt>
-  <dd>$$F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}$$</dd>
+  <dd>$$F_\alpha = (1 + \alpha^2) \cdot \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}$$</dd>
 </dl>
 
 Alternative:

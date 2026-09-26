@@ -20,9 +20,9 @@ SQL Injection attacks are so common nowadays that I’ll just give you this list
 
 * Injection flaws are part of the [OWASP Top-10](https://owasp.org/www-project-top-ten/), meaning they're recognized as a common vulnerability
 * **1998**: Jeff Forristal explains the issue ([source](https://www.esecurityplanet.com/network-security/how-was-sql-injection-discovered.html), [original](http://phrack.org/issues/54/8.html#article)).
-* **2009**: 130 million credit card numbers were stolen from Heartland Payment Systems, 7-Eleven, and others ([source](http://news.bbc.co.uk/2/hi/americas/8206305.stm)). They claimed **$130 million** in losses ([source](https://www.wired.com/2010/03/heartland-sentencing/)).
+* **2009**: 130 million credit card numbers were stolen from Heartland Payment Systems, 7-Eleven, and others ([source](http://news.bbc.co.uk/2/hi/americas/8206305.stm)). They claimed **\$130 million** in losses ([source](https://www.wired.com/2010/03/heartland-sentencing/)).
 * **2010**: 110,000 credit card numbers were stolen from Twin America LLC ([source](https://www.bankinfosecurity.co.uk/sql-injection-blamed-for-new-breach-a-3195)).
-* **2011**: 50,000 emails and passwords were stolen from Sony ([source](https://www.wired.com/2011/06/lulzsec-sony-again/)). Sony claims that this created costs of $605,000 USD ([source](https://www.bbc.com/news/technology-19949624)).
+* **2011**: 50,000 emails and passwords were stolen from Sony ([source](https://www.wired.com/2011/06/lulzsec-sony-again/)). Sony claims that this created costs of \$605,000 USD ([source](https://www.bbc.com/news/technology-19949624)).
 * **2015**: The personal data of 157,000 people was stolen from TalkTalk ([source](https://www.theregister.com/2015/11/06/talktalk_claims_157000_customers_data_stolen/)).
 * **2016**: The data of 200,000 voters in Illinois was stolen ([source](https://www.theregister.com/2016/08/29/fbi_warns_attacks_on_election_systems/)).
 * **2020**: 8.3 million user names and password hashes were stolen from Freepik ([source](https://www.zdnet.com/article/free-photos-graphics-site-freepik-discloses-data-breach-impacting-8-3m-users/))

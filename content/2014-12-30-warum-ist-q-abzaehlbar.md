@@ -14,7 +14,7 @@ It might not be finished or have other problems, but I still want to share
 it.</div>
 
 <div class="definition">Eine Menge B heißt <strong>abzählbar</strong> $: \Leftrightarrow \exists (a_n) \in B: B = \{a_1, a_2, a_3, ...\}$
-$\Leftrightarrow \exists f : \mathbb{N} \rightarrow B $ mit $f$ surjektiv.</div>
+$\Leftrightarrow \exists f : \mathbb{N} \rightarrow B$ mit $f$ surjektiv.</div>
 
 Die natürlichen Zahlen sind abzählbar.
 

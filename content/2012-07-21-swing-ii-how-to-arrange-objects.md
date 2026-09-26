@@ -127,7 +127,7 @@ public class test {
 ```
 
 <h2>Google WindowBuilder</h2>
-Goole offers a free Eclipse plugin called <a href="https://developers.google.com/java-dev-tools/wbpro/">WindowBuilder</a>:
+Google offers a free Eclipse plugin called <a href="https://developers.google.com/java-dev-tools/wbpro/">WindowBuilder</a>:
 
 <blockquote>WindowBuilder is a powerful and easy to use bi-directional Java GUI designer that makes it very easy to create Java GUI applications without spending a lot of time writing code to display simple forms.</blockquote>
 

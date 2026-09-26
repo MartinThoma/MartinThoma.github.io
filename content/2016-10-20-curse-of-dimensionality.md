@@ -11,7 +11,7 @@ featured_image: logos/ml.png
 ---
 In machine learning, the "curse of dimensionality" is often stated but much
 less often explained. At least not in detail. One just gets told that points
-are farer away from each other in high dimensional spaces.
+are farther away from each other in high dimensional spaces.
 
 
 ## Maximum minimal distance
@@ -21,12 +21,12 @@ in $[0, 1]^n$. So you try to place $k$ points in such a way, that the minimum
 over the pairwise distances of those $k$ points is maximal.
 Let's call this $\alpha(n, k)$. However, it is not easily possible
 to calculate $\alpha(n, k)$ for arbitrary $n > 2$ and $k > 2$ (see [link](http://math.stackexchange.com/q/1976250/6876)).
-But the special case $k = 2$ and $k = 2^n$ is easy:
+But the special cases $k = 2$ and $k = 2^n$ are easy:
 
 * $\alpha(n, 2) = \sqrt{n}$
 * $\alpha(n, 2^n) = 1$
 
-So you can see that two points get can be farer apart in higher dimensions and
+So you can see that two points can be farther apart in higher dimensions and
 that it needs much more points in higher dimensions to force at least two of
 them to have distance 1.
 
@@ -36,7 +36,7 @@ them to have distance 1.
 Another approach is to calculate the average distance of $k$ uniformly randomly
 sampled points in $[0, 1]^n$. Let's call it $\beta(n, k)$.
 
-One first insight is that $\beta(n, k) = \beta(n, j)$ for and $k, j \geq 2$.
+One first insight is that $\beta(n, k) = \beta(n, j)$ for all $k, j \geq 2$.
 Hence we will only use $\beta(n)$ in the following.
 
 It is possible to
@@ -93,7 +93,7 @@ origin) changes with higher dimensions. Suppose all points are in the $[-1, 1]^n
 hypercube.
 
 I thought about this for a while and came to the conclusion that it should be
-90&deg; in average due to symmetry. No matter how high the dimension is.
+90&deg; on average due to symmetry. No matter how high the dimension is.
 
 A short experiment confirms that:
 
@@ -237,8 +237,8 @@ for n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000]:
     print("%s Pr(d(p1, p2) < 1) = %0.4f; alpha(n=%i, 2) = %0.4f" % (tmp, pr, n, max_d))
 ```
 
-One can easily see that points get spaced much farer away in average the higher
-the dimension $n$ is. Now lets try to calculate the probability that two points
+One can easily see that points get spaced much farther away on average the higher
+the dimension $n$ is. Now let's try to calculate the probability that two points
 in the unit hypercube have a distance of less than 1.
 
 

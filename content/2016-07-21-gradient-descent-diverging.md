@@ -36,10 +36,10 @@ $$d_k(x_k) = - \nabla f(x_k)$$
 $$\nabla f(x, y) = \begin{pmatrix}6x + 2y\\6y + 2x\end{pmatrix}$$
 
 \begin{align}
-x_0 &= (6, 6)       & d_k(6, 6)       &= (-24, -24)\\
-x_1 &= (-18, -18)   & d_k(-18, -18)   &= (72, 72\\
-x_2 &= (54, 54)     & d_k(54, 54)     &= (-216, -216)\\
-x_3 &= (-162, -162) & d_k(-162, -162) &= (648, 648)
+x_0 &= (6, 6)       & \eta d_k(6, 6)       &= (-24, -24)\\
+x_1 &= (-18, -18)   & \eta d_k(-18, -18)   &= (72, 72)\\
+x_2 &= (54, 54)     & \eta d_k(54, 54)     &= (-216, -216)\\
+x_3 &= (-162, -162) & \eta d_k(-162, -162) &= (648, 648)
 \end{align}
 
 In general:
@@ -49,7 +49,8 @@ x_n &= (x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1}, x_{n-1} - 8 \cdot \frac{1}{
 x_n &= (-3x_{n-1}, -3x_{n-1})
 \end{align}
 
-You can clearly see that any learning rate $\eta > \frac{1}{8}$ will diverge.
-For this example, the learning rate $\eta = \frac{1}{8}$ would find the
-solution in one step and any $\eta < \frac{1}{8}$ will converge to the global
-optimum.
+In general, $x_n = (1 - 8\eta) \cdot x_{n-1}$. You can clearly see that any learning
+rate $\eta > \frac{1}{4}$ will diverge (with $\eta = \frac{1}{4}$ it jumps back and
+forth between $(6, 6)$ and $(-6, -6)$). For this example, the learning rate
+$\eta = \frac{1}{8}$ would find the solution in one step and any
+$\eta < \frac{1}{4}$ will converge to the global optimum.

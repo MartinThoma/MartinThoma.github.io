@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: Hiking, Climbing, Nature
 featured_image: logos/hiking.png
 ---
-The [Alpspitze](https://de.wikipedia.org/wiki/Alpspitze) (not to confuse with [Alpspitz](https://de.wikipedia.org/wiki/Alpspitz)) is a mountain in the alps
+The [Alpspitze](https://de.wikipedia.org/wiki/Alpspitze) (not to be confused with [Alpspitz](https://de.wikipedia.org/wiki/Alpspitz)) is a mountain in the Alps
 with one of the simplest [via ferratas](https://en.wikipedia.org/wiki/Via_ferrata).
 It was my first one, too.
 
@@ -25,7 +25,7 @@ the second day to take the route.
 I'll put the German word in brackets, as I'm not totally sure about the best
 translation.
 
-- Climbing helmet (Steinschlaghelm): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weights 359&thinsp;g)
+- Climbing helmet (Steinschlaghelm): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weighs 359&thinsp;g)
 - Sit harness (Klettergurt): The more expensive ones are more
   lightweight / more comfortable. ("Ocun: Twist Basic XS - M" was 55&thinsp;Euro)
 - Ferrata set ("Elliot: Forril Tech Klettersteigset mit Bandfalldämpfer" was 65&thinsp;Euro)
@@ -36,7 +36,7 @@ translation.
 - Cycling gloves
 - Map
 
-I like the following cloths for hiking. They are comfortable in a wide range of
+I like the following clothes for hiking. They are comfortable in a wide range of
 temperatures and they don't stink that much / feel bad  when you sweat:
 
 - VAUDE Herren Hose Farley Stretch Pants II (ASIN B01HL94DU0)
@@ -52,10 +52,10 @@ Other things you need / might want to take with you:
 - Food (e.g. an apple, sausages and several cereal bars)
 - At least 1&thinsp;L of water (can be refilled at the house)
 - Toothbrush and toothpaste
-- Money (25&nbsp;Euro for sleeping at Kreuzeckhaus, 60&nbsp;Euro for food and miscallenious stuff, 32&thinsp;Euro for the cable car)
+- Money (25&nbsp;Euro for sleeping at Kreuzeckhaus, 60&nbsp;Euro for food and miscellaneous stuff, 32&thinsp;Euro for the cable car)
 - Medicine and hygiene stuff (For example, I always want to have tissues and dental floss with me)
 - Camera
-- Smartphone and loading cable / power bank
+- Smartphone and charging cable / power bank
 
 
 ## Route

@@ -15,10 +15,10 @@ as a response to the  September 11 attacks on the United States in September&nbs
 Since then, surveillance laws were passed and multiple military operations were
 started. The US and its allies fought wars in Afghanistan and Iraq. The US and
 its allies supported wars in Syria. US drones killed people in
-[Parkistan](https://en.wikipedia.org/wiki/Drone_strikes_in_Pakistan) and
+[Pakistan](https://en.wikipedia.org/wiki/Drone_strikes_in_Pakistan) and
 [Yemen](https://en.wikipedia.org/wiki/Drone_strikes_in_Yemen).
 
-Those activities come with a cost. One the one hand, every single of Britain’s
+Those activities come with a cost. On the one hand, every single one of Britain’s
 air-to-surface Brimstone missiles cost £100&thinsp;000. Britain has fired at least
 9&nbsp;missiles in Syria so far, but not killed a single terrorist
 ([source](https://www.rt.com/news/332970-brimstone-missiles-syria-jihadists/)).
@@ -56,7 +56,7 @@ More terrorism than ever before ([sources](https://en.wikipedia.org/wiki/List_of
 
 ## Empathy
 
-To understand the effect of those missiles of the people living there, you have
+To understand the effect of those missiles on the people living there, you have
 to be empathetic. Imagine you're in a situation where not everything might be
 good (or even very little might be as you like it), but you are essentially
 "safe". You know how you have to behave and you know what you can expect.
@@ -92,9 +92,9 @@ Terrorism is a problem. I do understand that people don't want to just accept
 9/11. Or the attacks in Paris.
 
 And it will only get worse. Getting more advances in technology has many
-advantages, but a downside is that it also gets much more easy to plan and
+advantages, but a downside is that it also gets much easier to plan and
 execute terrorist attacks. There is no way to live in a free high-tech world
-and preventing people from being able to execute horrendous attacks.
+and prevent people from being able to execute horrendous attacks.
 
 Especially, simply going to war isn't solving that problem. We have to
 understand why people are doing what they are doing. Don't prevent the attack,
@@ -102,7 +102,7 @@ make people not having reasons to make attacks.
 
 This is much harder. It needs a deep understanding of what drives people. It
 needs empathy, diplomacy, support. Contact. Showing people that you care about
-them. That achieving basic goals to help them lead a better live is worth the
+them. That achieving basic goals to help them lead a better life is worth the
 money (for example: below 35-76 billion US dollars for the millennium goals
 ([source](https://www.worldbank.org/html/extdr/mdgassessment.pdf)) compared to
 468 billion US dollars for 2001-2011 in Iraq).

@@ -24,7 +24,7 @@ terms are used.
 
 Automated journal rankings like the h5-index used by Google Scholar (see
 [metrics](https://scholar.google.com/intl/en/scholar/metrics.html),
-[Wikipedia](https://en.wikipedia.org/wiki/H-index)) is one way to deal with the
+[Wikipedia](https://en.wikipedia.org/wiki/H-index)) are one way to deal with the
 lack of domain knowledge. Google Scholar even publishes a list of journals
 per field (see [Top publications in Computer Vision and Pattern Recognition](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)).
 

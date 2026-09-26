@@ -17,15 +17,15 @@ classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence ea
 
 ## Basic Setup
 
-Suppose **you have corpus** of 1000 emails. You make a **stratified split**
+Suppose **you have a corpus** of 1000 emails. You make a **stratified split**
 into 600 training emails and 400 test emails. The class C1 is 40% of the data,
 C2 is 10% of the data and C3 is 50% of the data in both, the training and the
 test set. Don't touch the test set until the very end.
 
-Let $I_1 \subsetneq 1, \dots, 600$ be the set of indices of emails which belong
-to class C1, $I_2 \subsetneq 1, \dots, 600$ be the set of indices of emails
-which belong to set C2 and $I_3 \subsetneq 1, \dots, 600$ be the set of emails
-which belong to set C3.
+Let $I_1 \subsetneq \{1, \dots, 600\}$ be the set of indices of emails which belong
+to class C1, $I_2 \subsetneq \{1, \dots, 600\}$ be the set of indices of emails
+which belong to class C2 and $I_3 \subsetneq \{1, \dots, 600\}$ be the set of indices of emails
+which belong to class C3.
 
 ## Get Features
 
@@ -49,15 +49,15 @@ By applying Bayes Rule, we get:
 
 \begin{align}
   P(C_1 | w_1, \dots, w_N) &= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
-  &= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+  &= \frac{P(w_1 | C_1) \cdot P(w_2 | w_1, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
 \end{align}
 
 Now, $P(C_1) = 0.4$ is called the a priori probability of the class $C_1$. So
 if we knew nothing about the content of the e-mail, we would guess $C_1$ has
-a probability of 40% as it is the amout of e-mails in that class.
+a probability of 40% as it is the amount of e-mails in that class.
 
 The other terms are more difficult. We don't have enough data for this. So we
-make the simplifying (and wrong!) assumption that words are independant of each
+make the simplifying (and wrong!) assumption that words are independent of each
 other. Then we get:
 
 \begin{align}
@@ -68,8 +68,8 @@ As we know that
 
 $$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$
 
-it is sufficient to calculate the nominators and divide each of the three
-denominators by the sum of all three.
+it is sufficient to calculate the numerators and divide each of the three
+numerators by the sum of all three.
 
 Congratulations, your first document classifier is working!
 
@@ -83,13 +83,13 @@ Sometimes, this is also denoted by $\text{tf}(w, d)$ where $w$ is the word (term
 and $d$ is the document (e-mail).
 
 Next, we realize that some words contain more information than others. For
-example, the word "the" might occur in almost every document. We do so by dividing by
+example, the word "the" might occur in almost every document. We take this into account by multiplying with the inverse document frequency
 
-$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$
+$$\text{idf}(w, D) = \log \frac{N}{|\{d \in D: w \in d\}|}$$
 
 where $N = 600$ is the total amount of documents we have in the training set.
-The denominator is the total count of words in all documents in the training
-set combined.
+The denominator is the number of documents in the training set which contain
+the word $w$.
 
 Hence we can get a Tf-idf feature for all words.
 
@@ -111,7 +111,7 @@ tf-idf feature of "New York", too.
 
 ## Classifiers
 
-I've introduced the Bayes Classifer, but there are a lot more. Most notably:
+I've introduced the Bayes Classifier, but there are a lot more. Most notably:
 
 * [SVMs](../svm-with-sklearn/)
 * Neural Networks
@@ -144,7 +144,7 @@ PCA / LDA are two feature reduction methods that might be interesting. Other met
 Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:
 
 * Split the training set into 500 e-mails for training and 100 e-mails for validation
-* Traing all methods you guess on the 500 e-mails. Evluate on the 100 e-mails what is best.
+* Train all methods you guess on the 500 e-mails. Evaluate on the 100 e-mails what is best.
 * Make sure everything is what you think it should be like. Run your experiments with those 500 / 100 e-mails
 * When you're finished, evaluate on the 400 e-mails your final setup. Only once. This is your estimate how good you really are.
 
@@ -154,7 +154,7 @@ You might also want to have a look at cross-validation.
 ## Public Datasets
 
 I'm not aware of public datasets for document classification, but you can easily
-create one by scraping wikipedia categories / subreddits.
+create one by scraping Wikipedia categories / subreddits.
 
 Leave a comment if I forgot something / you know more details 🙂
 

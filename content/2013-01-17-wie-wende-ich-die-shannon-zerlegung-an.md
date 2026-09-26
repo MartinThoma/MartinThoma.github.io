@@ -14,7 +14,7 @@ Die Shannon-Zerlegung ist hilfreich, um die disjunktive bzw. konjunktive Form ei
 <h2>Vorgehen</h2>
 
 <ol>
- <li>Man hat eine boolsche Funktion $f(x_1, x_2, \dots, x_n)$ gegeben.</li>
+ <li>Man hat eine boolesche Funktion $f(x_1, x_2, \dots, x_n)$ gegeben.</li>
  <li>Entwickeln nach einer Variablen $x_i$:
   <ol>
     <li>$g(x_1, \dots, x_n) := f(x_1, \dots, x_i=1, \dots, x_n)$</li>

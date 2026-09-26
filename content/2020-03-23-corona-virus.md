@@ -108,7 +108,7 @@ possible. Maybe you can buy them food? Maybe you can call your (grand) parents
 or teach them how to use video chat software like Skype, so that they don't
 feel alone.
 
-Medical staff and eldery care staff also needs your help basically the same way
+Medical staff and elderly care staff also needs your help basically the same way
 ([video, 49s](https://www.youtube.com/watch?v=jmSPOSGpAYs)): Help them to buy
 groceries and give them emotional support. They have a pretty stressful time
 right now, they are not super well paid, they are in contact with all the sick

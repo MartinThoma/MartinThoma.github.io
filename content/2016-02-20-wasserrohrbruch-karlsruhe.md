@@ -21,9 +21,9 @@ Die Website der Stadtwerke ist überlastet, aber Twitter gibt Informationen:
 Auch auf Facebook gibts ein paar Informationen von den Stadtwerken
 ([Link](https://www.facebook.com/stadtwerkeka/)).
 
-## Wer ist Betroffen?
+## Wer ist betroffen?
 
-Ich weiß es nicht. In der Oststadt auf jeden fall, ich habe gehört das
+Ich weiß es nicht. In der Oststadt auf jeden Fall, ich habe gehört, dass
 Hagsfeld und Neureuth ([Quelle](https://twitter.com/stoff_hoff_show/status/700972502793723904)) auch betroffen ist. Durlach wohl auch (danke, Bernardo).
 
 edit: Laut Stadtwerke wirkt sich der Wasserrohrbruch auf die gesamte Stadt aus.
@@ -39,7 +39,7 @@ edit: In der nächsten halben Stunde (also um 12:00 Uhr, 20.02.2016) soll sich d
 
 ## Was ist passiert?
 
-Wasserrohrbruch in der Könisberger Straße. Warum der Wasserrohrbruch passiert
+Wasserrohrbruch in der Königsberger Straße. Warum der Wasserrohrbruch passiert
 ist wissen die Stadtwerke noch nicht.
 
 edit: Hier ein paar Informationen von der Website ([Quelle](http://www.stadtwerke-karlsruhe.de/swka-de/aktuelles/2016/02/20160220b.php)):
@@ -68,7 +68,7 @@ Achselzucken: "Das passiert halt manchmal."
 
 Bisher habe ich (ohne groß darüber nachzudenken) gedacht, dass das
 "Netzwerkproblem" für das Internet, für Güter und Waren (Zug- und
-Straßennetzwerke) und für Wasser im Grunde sehr ähnlich ist (was anfälligkeiten
+Straßennetzwerke) und für Wasser im Grunde sehr ähnlich ist (was Anfälligkeiten
 für Ausfälle von Quellen / Knotenpunkten / Kanten angeht). Ein wesentlicher
 Unterschied der mir bis gerade eben so nicht bewusst war ist die Tatsache, dass
 ein Rohrbruch als neue extreme Senke zu modellieren ist. Es ist also nicht

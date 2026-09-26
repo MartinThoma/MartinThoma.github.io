@@ -169,8 +169,8 @@ OR `id` in (
 ```
 
 This leads to the result that 54&thinsp;900 packages of 67&thinsp;582
-packages are not obviously crap. Or to write it in another way: 11&nbsp;682
-packages are crap. That is 17.5&thinsp;%. Too much, in my opinion.
+packages are not obviously crap. Or to write it in another way: 12&nbsp;682
+packages are crap. That is 18.8&thinsp;%. Too much, in my opinion.
 However, this might also be due to my crappy script not downloading / checking
 the downloaded files correctly.
 

@@ -12,7 +12,7 @@ featured_image: logos/munich.png
 ## Swimming
 
 The [Hallenbad Grünwald](https://www.gruenwalder-freizeitpark.de/) ([maps](https://goo.gl/maps/q5PAWoXhdwG2))
-has one small pool for babys/children, one pool for swimming and one outdoor
+has one small pool for babies/children, one pool for swimming and one outdoor
 pool. It is open from 9:00 to 21:00 o'clock. Swimming for 2 hours costs only
 3.00 EUR ([price list](https://www.gruenwalder-freizeitpark.de/schwimmbad-sauna/schwimmbad/)).
 
@@ -21,7 +21,7 @@ There are [many other swimming halls](http://www.muenchen.de/freizeit/mbaeder/th
 
 ## Mini-Golf
 
-The [Dreambowl Palace](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/) ([maps](https://goo.gl/maps/FZthKWVHfcR2), [website](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/)) you can play Bowling, Mini-Golf and Air Hockey. The price for [Mini-Golf is 5.50 EUR](https://www.dreambowl.de/wp-content/uploads/PA-Preisliste_NEU_ab_01.09.2017.pdf).
+In the [Dreambowl Palace](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/) ([maps](https://goo.gl/maps/FZthKWVHfcR2), [website](https://www.dreambowl.de/standorte/dream-bowl-palace-muenchen-unterfoehring/indoor-minigolf/)) you can play Bowling, Mini-Golf and Air Hockey. The price for [Mini-Golf is 5.50 EUR](https://www.dreambowl.de/wp-content/uploads/PA-Preisliste_NEU_ab_01.09.2017.pdf).
 
 <figure>
     <a href="../images/2017/12/1001-minigolf.jpg"><img src="../images/2017/12/1001-minigolf.jpg" alt="1001 Nacht Moonlight Minigolf" width="512" height="384"></a>
@@ -114,7 +114,7 @@ and coordinating / planning to do this is difficult.
 
 ## Tollwood
 
-See [Tollwood Webiste](https://www.tollwood.de/)
+See [Tollwood Website](https://www.tollwood.de/)
 
 
 ## Food

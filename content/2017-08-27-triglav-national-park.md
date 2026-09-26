@@ -10,11 +10,11 @@ tags: Hiking, Nature
 featured_image: logos/hiking.png
 ---
 The Triglav National Park is the only national park in Slovenia. It is located
-in the south west of Slovenia, close to the border with Austria and Italy.
+in the north-west of Slovenia, close to the border with Austria and Italy.
 
 This post is my preparation for a 1-day hike (1 day to get there, 1 day of
 hiking, 1 day to get back). I will update it after I did the hike, but please
-keep in mind that I might now know everything first-hand I write about.
+keep in mind that I might not know everything first-hand I write about.
 
 
 ## How to get there
@@ -37,19 +37,19 @@ looking at the [Climate diagram of Ljubljana's](https://en.wikipedia.org/wiki/Lj
 ## Soča-Trail
 
 <figure>
-    <a href="../images/2017/08/soca-trail-complete.png"><img src="../images/2017/08/soca-trail-complete.png" alt="Text" width="512" height="228"></a>
+    <a href="../images/2017/08/soca-trail-complete.jpg"><img src="../images/2017/08/soca-trail-complete.jpg" alt="Map of the complete Soča-Trail" width="512" height="228"></a>
     <figcaption>The complete Soča-Trail</figcaption>
 </figure>
 
 The Soča-Trail (German: Soca-Weg, Slovene: Soška Pot) is stage&nbsp;24 of the
 [Alpe Adria Trail](https://de.wikipedia.org/wiki/Alpe_Adria_Trail) (see [map](https://www.openstreetmap.org/relation/3176522#map=13/46.3485/13.6126)).
-Usually people go it from **Trenta to Bovec**. It is about **24&thinsp;km** and
+Usually people walk it from **Trenta to Bovec**. It is about **24&thinsp;km** and
 about **6:30&thinsp;h** in total.
 
 The complete trail is almost all the time next to the Soča river.
 
-I first planned to go this in reverse, but it turns out that driving to the
-source form Bovec by taxi and hicking back is most practical for such a short
+I first planned to walk it in reverse, but it turns out that driving to the
+source from Bovec by taxi and hiking back is most practical for such a short
 trip.
 
 ### Soča Source
@@ -146,7 +146,7 @@ of this route. It is number 14 on the map.
 ### The Great Soča Gorge
 
 <figure>
-    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Text" width="512" height="256" loading="lazy"></a>
+    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Map of the Soča-Trail around the Great Soča Gorge" width="512" height="256" loading="lazy"></a>
     <figcaption>Stay south of the river and ignore the bridges at 9 and 8. Pension Kamp Klin is at 7 where you have to cross a bridge. Cross the bridge at 6, keep going north of the river for about 2km, cross the bridge at 5.</figcaption>
 </figure>
 
@@ -166,7 +166,7 @@ of the river is an old ropeway station (Slovene: [Žičnica Golobar](https://sl.
 ### Koritnica and Soča Rivers
 
 <figure>
-    <a href="../images/2017/08/soca-trail-1.png"><img src="../images/2017/08/soca-trail-1.png" alt="Text" width="512" height="246" loading="lazy"></a>
+    <a href="../images/2017/08/soca-trail-1.jpg"><img src="../images/2017/08/soca-trail-1.jpg" alt="Map of the first part of the Soča-Trail near Bovec" width="512" height="246" loading="lazy"></a>
     <figcaption>First part of the trail: 1 is where the Soča and Koritnica meet, 2 is the first bridge, 3 is the second bridge, 4 is an entry to a cave</figcaption>
 </figure>
 
@@ -178,7 +178,7 @@ The next steps are easy.
 
 * The bridge at <a href="https://www.openstreetmap.org/way/16783497#map=16/46.3376/13.6042"><span class="geo"><abbr class="latitude" title="46.324889">46°19'29.6"N</abbr> <abbr class="longitude" title="13.6042">13°36'15.1"E</abbr></span></a> at 5 in the image. Cross it to get north of the river.
 * The bridge at <a href="https://www.openstreetmap.org/way/26379628#map=17/46.33202/13.59026"><span class="geo"><abbr class="latitude" title="46.324889">46°19'29.6"N</abbr>
- <abbr class="longitude" title="13.553500">13°33'12.6"E</abbr></span></a> is nr 3 in the image.
+ <abbr class="longitude" title="13.553500">13°33'12.6"E</abbr></span></a> is no. 3 in the image.
 * At <a href="https://www.openstreetmap.org/way/75852445#map=17/46.32995/13.57939"><span class="geo"><abbr class="latitude" title="46.324892">46°19'29.6"N</abbr>
  <abbr class="longitude" title="13.553489">13°33'12.6"E</abbr></span></a> is a bridge (2 in the image).
 
@@ -296,19 +296,19 @@ the following will just stay in the car.
 * Backpack for lunch, water
     * Money (e.g. for having dinner on Saturday)
     * Camera (loaded batteries)
-    * Smartphone + loading cable
+    * Smartphone + charging cable
     * Map ([the ones from the blog](../pdf/triglav-nationalpark-soca-trail-maps.pdf))
 * Sleeping bag
 * Towel
-* Hygene (toothpaste, brush, shampoo)
+* Hygiene (toothpaste, brush, shampoo)
 * Card game
 
 
 ## Notes
 
 * You need a vignette which costs 15 Euro for 7 days ([source](https://www.kroati.de/kroatien-infos/maut-slowenien.html))
-* For Austria might have to buy a vignette and/or road charge.
-* The Vintgar Gorge (Slovene: Soteska Vintgar) is 6&thinsp;km from the Lake
+* For Austria, you might have to buy a vignette and/or road charge.
+* The Vintgar Gorge (Slovene: Soteska Vintgar) is 6&thinsp;km from Lake
   Bled.
 * Savica Waterfall looks nice.
 * [Tolminer Klammen](https://www.outdooractive.com/de/naturdenkmal/slowenien/tolminer-klammen/4147326/) are at

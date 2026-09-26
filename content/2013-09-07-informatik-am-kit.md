@@ -9,7 +9,7 @@ category: German posts
 tags: KIT, University
 featured_image: 2011/10/KIT-Logo.png
 ---
-Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich über Karlsruhe erzählen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?
+Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich über Karlsruhe erzählen? Wie viel Praxis bekommt man in einem Informatik-Studium am KIT?
 
 Leider denke ich nicht, dass ich wirklich gut darüber schreiben kann, da ich nur &bdquo;Informatik I&ldquo; an der Uni Augsburg gehört habe.  Sonst war ich nur am KIT. Auch über Karlsruhe kann ich nicht so viel erzählen, wie man sich vielleicht denkt. Ich bin meistens am Studieren. Daher habe ich von Karlsruhe außerhalb der Innenstadt bisher wenig gesehen.
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Amazons Power
+title: Amazon's Power
 slug: amazons-power
 lang: en
 author: Martin Thoma
@@ -13,7 +13,7 @@ Once in a while I see people demanding to buy products in stores rather than on
 Amazon. It is interesting that Amazon is seen as the only online retailer, but
 as it certainly is the biggest retailer in Germany I will focus on it for now.
 
-To make the following simpler to write, lets say Steven wants Alice to buy
+To make the following simpler to write, let's say Steven wants Alice to buy
 stuff in shops while Alice usually uses Amazon.
 
 
@@ -24,16 +24,16 @@ stuff in shops while Alice usually uses Amazon.
 * **Range of products**: Amazon offers pretty much everything. There are only
   a few products which you can find in stores but not on Amazon. Why should
   Alice bother to go to a store if she might end up buying it on Amazon anyway
-  because the store does not have the production she is looking for?
+  because the store does not have the product she is looking for?
 * **Reliability**: At the beginning, Alice worried what she could do if
   something went wrong. If the product she bought didn't arrive. If it was
   damaged. If she changed her mind and wanted to give it back. But after a
   couple of years she built up trust. In contrast to the local store, she knows
   Amazon. She never had a problem. She doesn't even know anybody personally who
   ever had a problem which could not be resolved. But with local shops, she
-  already had a couple of problems. The most simple was is loosing the receipt.
+  already had a couple of problems. The simplest one was losing the receipt.
 * **Simple to use**: Alice goes on amazon.de, searches for the product name
-  (and he doesn't need to remember the correct name due to fuzzy search). She
+  (and she doesn't need to remember the correct name due to fuzzy search). She
   clicks on the product, on buy. That's it. Buying a product can be done within
   a few seconds. No need to go out of the house. Alice already has an Amazon
   account, so there is no need to create a new account.
@@ -49,7 +49,7 @@ So quite a bit of the advantage is just that online shops have advantages over
 local shops. The other bit is the massive size of Amazon and the data it gets.
 
 
-## Stevens arguments
+## Steven's arguments
 
 Steven predicts that **local shops will close** if Alice doesn't buy her stuff
 in those shops. This is a really shitty argument. Why should a person who does
@@ -57,14 +57,14 @@ not buy something in a store care if the store is closed? It might even be
 desirable because there is more room for stores Alice actually cares about. Or
 more room for apartments.
 
-Steven continues that people working in local shops will loose their **jobs**.
-Alice mentions coachman, [litter carriers](https://en.wikipedia.org/wiki/Litter_(vehicle)#In_Europe) and wagon makers who lost their jobs by the automobile, bank clerks
-who are replaced by cash dispensers, [Charcoal burners](https://en.wikipedia.org/wiki/Charcoal_burner), type setters, ...
+Steven continues that people working in local shops will lose their **jobs**.
+Alice mentions coachmen, [litter carriers](https://en.wikipedia.org/wiki/Litter_(vehicle)#In_Europe) and wagon makers who lost their jobs by the automobile, bank clerks
+who are replaced by cash dispensers, [Charcoal burners](https://en.wikipedia.org/wiki/Charcoal_burner), typesetters, ...
 Probably all of them demanded not to use the technology by which they lost
 their jobs. What is different in this case?
 
 Steven says Amazon does not pay **taxes** and does not treat their **workers**
-fair. Well, this might be a valid reason. But then you would have to check the
+fairly. Well, this might be a valid reason. But then you would have to check the
 conditions of the shops which you use instead, too. And, after all, it is the
 duty of politics and worker organizations to force all employers to have fair
 working conditions.
@@ -73,7 +73,7 @@ working conditions.
 ## How to fix it
 
 Most advantages of Amazon are mainly advantages of online shops. Except for
-cloths, food and a few very special items Alice does not need to see the item
+clothes, food and a few very special items Alice does not need to see the item
 before she buys it. She only needs to know the specifications.
 
 If single shops really wanted to break the power of Amazon, they could
@@ -91,13 +91,13 @@ Apparently, the situation of those small shops is not so bad. Otherwise they
 could start creating such a shop. The [Einzelhandelsverband](https://de.wikipedia.org/wiki/Einzelhandelsverband),
 for example, claims to have 100&thinsp;000 members. Seems to be big enough to
 start such an open platform. In fact, there is a platform called <a href="https://www.fairmondo.de/">fairmondo</a> which
-tried this. But the retails did not join it.
+tried this. But the retailers did not join it.
 
 
 ## The real problems
 
 Amazon is a monopoly. One company dominates online sales. Businesses can use
-Amazons platform to sell their products, but Amazon can also not allow some of
+Amazon's platform to sell their products, but Amazon can also not allow some of
 them to sell it. Amazon can (and does) analyze which kind of product is easy
 to produce and get sold often. They have the data what kinds of features are
 important to the customers. So they can shift product by product from only a

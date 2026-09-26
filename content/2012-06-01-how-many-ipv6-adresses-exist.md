@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How many IPv6 adresses exist?
+title: How many IPv6 addresses exist?
 slug: how-many-ipv6-adresses-exist
 lang: en
 author: Martin Thoma

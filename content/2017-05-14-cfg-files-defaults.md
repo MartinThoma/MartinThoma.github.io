@@ -20,14 +20,14 @@ think of two ways to deal with configuration files:
 
 The complete approach has the major drawback of making updates difficult. The
 user(s) might have different configuration files for different usage scenarios.
-In the worst case the user has to update his files manually, just because the
+In the worst case the user has to update their files manually, just because the
 developer added a couple of possibilities to customize the application.
 
 Hence I prefer the partial approach where a default configuration file is part
 of the application. This default config file will not be overwritten. It
 contains all values necessary for the user. But the user may define a user
-config file which he may adjust. The user can peek at the default file to see
-what he can customize, but he can keep his config file clean.
+config file which they may adjust. The user can peek at the default file to see
+what they can customize, but they can keep their config file clean.
 
 Here is a small example how you can do this with Python:
 

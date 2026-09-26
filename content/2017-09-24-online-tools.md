@@ -11,7 +11,7 @@ featured_image: logos/development.png
 ---
 Once in a while I find really useful webservices that follow the Unix
 philosophy: Do one thing and do it well ([source](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well)).
-My collegues at Netlight and Johannes helped me with some of them (thank you
+My colleagues at Netlight and Johannes helped me with some of them (thank you
 🙂).
 
 
@@ -21,7 +21,7 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
     <dt><a href="https://jsfiddle.net">JSfiddle</a> <span class="label label-default">JavaScript</span></dt>
     <dd>Make short examples of HTML+CSS+JS easy to share / execute</dd>
     <dt><a href="https://www.regexpal.com">RegEx Pal</a></dt>
-    <dd>Test regular expressions (I miss a possiblity to store and share them).<br/>
+    <dd>Test regular expressions (I miss a possibility to store and share them).<br/>
         Alternatives: <a href="https://regex101.com/">regex101.com</a></dd>
     <dt><a href="https://gist.github.com/">Gist</a> <span class="label label-default">Sharing</span></dt>
     <dd>Share single-file snippets of code / text.<br/>
@@ -52,7 +52,7 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
     <dt><a href="http://truben.no/table/">truben.no/table</a></dt>
     <dd>Create tables for HTML, LaTeX, Markdown, reStructuredText, ...</dd>
     <dt><a href="http://pep8online.com">pep8online.com</a> <span class="label label-default">Python</span></dt>
-    <dd>Check a file for PEP8 complience.</dd>
+    <dd>Check a file for PEP8 compliance.</dd>
     <dt><a href="https://www.deepl.com/translate">deepl.com</a></dt>
     <dd>Translation between some common languages.<br/>
         Alternatives: <a href="https://translate.google.com/">Google Translate</a></dd>

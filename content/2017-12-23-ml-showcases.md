@@ -19,7 +19,7 @@ feeling for what Machine Learning is. I'll collect a couple of them here.
 
 The <a href="http://write-math.com/">write-math.com</a>
 web service allows you to recognize mathematical symbols automatically. It is
-described in <a href="https://arxiv.org/abs/1511.09030">my bachelors thesis</a>.
+described in <a href="https://arxiv.org/abs/1511.09030">my bachelor's thesis</a>.
 The <a href="http://www.martin-thoma.de/write-math/data/#thoma2014">HWRT data is available</a>,
 also in its rendered form as <a href="https://arxiv.org/abs/1701.08380">HASYv2 dataset</a>.
 
@@ -69,8 +69,8 @@ want the source image to be in the style of the style image:
 Source image:
 
 <figure>
-    <a href="../images/2017/12/Highland-cattle-1.jpg"><img src="../images/2017/12/Highland-cattle-1.jpg" alt="Original image of a highland cattle" width="512" height="384" loading="lazy"></a>
-    <figcaption>Original image of a highland cattle</figcaption>
+    <a href="../images/2017/12/Highland-cattle-1.jpg"><img src="../images/2017/12/Highland-cattle-1.jpg" alt="Original image of Highland cattle" width="512" height="384" loading="lazy"></a>
+    <figcaption>Original image of Highland cattle</figcaption>
 </figure>
 
 Style image:
@@ -87,13 +87,13 @@ Output image:
     <figcaption>Applied style transfer</figcaption>
 </figure>
 
-<a href="https://deepart.io">https://deepart.io</a> seems to be a web service
+<a href="https://deepart.io">deepart.io</a> seems to be a web service
 for this kind of machine learning. I didn't try it, though.
 
 
 ### Super-Resolution
 
-You have a small image and want the same image, but with higher resultion?
+You have a small image and want the same image, but with higher resolution?
 Search for "super resolution":
 
 * [bigjpg.com](http://bigjpg.com)
@@ -122,7 +122,7 @@ but also more restricted. As always, you can find some... interesting... transla
 ### Text To Speech (TTS)
 
 <a href="https://lyrebird.ai/demo/">Lyrebird.ai</a> has the most impressive TTS
-system I have seen so far (although Googles <a href="https://google.github.io/tacotron/publications/tacotron2/index.html">Tacotron 2 audio samples</a> are impressive as well).
+system I have seen so far (although Google's <a href="https://google.github.io/tacotron/publications/tacotron2/index.html">Tacotron 2 audio samples</a> are impressive as well).
 
 ## Other ML
 
@@ -160,11 +160,11 @@ of classifiers:
 
 ## Honorable Mentions
 
-* [howhot.io](http://howhot.io) was a service which lets you upload an image with a face and rate how hot the person is. It is no longer available.
+* [howhot.io](http://howhot.io) was a service which let you upload an image with a face and rate how hot the person is. It is no longer available.
 * Microsoft Chatbot Tay went racist ([source](https://www.theguardian.com/technology/2016/mar/30/microsoft-racist-sexist-chatbot-twitter-drugs))
 * [A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 * Martin Thoma, 2016: [Creativity in Machine Learning](https://arxiv.org/abs/1601.03642)
-* Alex Rogozhnikov, 2016: [Gradient Boosting explained ](https://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html)
+* Alex Rogozhnikov, 2016: [Gradient Boosting explained](https://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html)
 * Alex Rogozhnikov, 2016: [Hamiltonian Monte Carlo explained](https://arogozhnikov.github.io/2016/12/19/markov_chain_monte_carlo.html)
 * [GridWorld: Dynamic Programming Demo](http://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html)
 * Wattenberg et al, 2016: [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/)

@@ -10,10 +10,10 @@ tags: NLP, Classification, Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
 Reuters is a benchmark dataset for [document classification](../document-classification/).
-To be more precise, it is a multi-class (e.g. there are multiple classes),
-multi-label (e.g. each document can belong to many classes) dataset.
+To be more precise, it is a multi-class (i.e. there are multiple classes),
+multi-label (i.e. each document can belong to many classes) dataset.
 It has **90 classes**, **7769 training documents** and **3019 testing documents**.
-It is the ModApte (R(90)) subest of the Reuters-21578 benchmark ([source](https://stackoverflow.com/a/25149714/562769)).
+It is the ModApte (R(90)) subset of the Reuters-21578 benchmark ([source](https://stackoverflow.com/a/25149714/562769)).
 
 The mean number of words per document, grouped by class, is between 93 and 1263
 on the training set.
@@ -212,7 +212,7 @@ Let $Y_i \in \{0, 1\}^k$ be the set of correct labels for document $i$ and
 $Z_i \in \{0, 1\}^k$ be the set of predicted labels:
 
 * **Binary Accuracy**: For each document, one has to make a decision for each possible
-  category. Hence $\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|Y_i \cap Z_i|}{k}$. As most documents belong to one or two categories, the simplest
+  category. Hence $\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|\{j : Y_{ij} = Z_{ij}\}|}{k}$. As most documents belong to one or two categories, the simplest
   classifier simply decides all the time that the document does not belong to
   any category. For the used dataset, this leads to an accuracy of 0.986. Hence
   accuracy is not suitable.
@@ -264,7 +264,7 @@ SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
 There are a couple of things to notice here:
 
 * **Speed**:
-    * Naive Bayes and k-nn is slow
+    * Naive Bayes and k-nn are slow
     * Random forests and MLP are fast
     * SVM depends extremely on the implementation (see [What is the difference between LinearSVC and SVC(kernel=“linear”)?](https://stackoverflow.com/q/45384185/562769))
 * **Prediction Quality**:
@@ -282,7 +282,7 @@ are two important things to keep in mind:
 
 * **Output layer**: Do not  use softmax, as the normalization does not make
   sense in this case.
-* **Loss**: Use [``binary_crossentropy`](https://keras.io/losses/#binary_crossentropy)
+* **Loss**: Use [`binary_crossentropy`](https://keras.io/losses/#binary_crossentropy)
 
 When you print precision, recall, F1-score and accuracy you note the following:
 

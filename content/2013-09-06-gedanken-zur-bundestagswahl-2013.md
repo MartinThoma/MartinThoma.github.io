@@ -449,7 +449,7 @@ Ich weiß nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich folgende
   </li>
 </ul>
 
-Bitte hängt euch nicht an den Zahlen auf. Das sollte nur das System veranschaulichen. Mit diesem System wäre es ganz einfach zu berechnen, wer wieviel zahlen muss. Damit kann es auch nicht passieren, dass jemand trotz höherem Einkommen weniger Geld hat.
+Bitte hängt euch nicht an den Zahlen auf. Das sollte nur das System veranschaulichen. Mit diesem System wäre es ganz einfach zu berechnen, wer wie viel zahlen muss. Damit kann es auch nicht passieren, dass jemand trotz höherem Einkommen weniger Geld hat.
 
 Hier mal eine Grafik über das Steueraufkommen in Deutschland:
 

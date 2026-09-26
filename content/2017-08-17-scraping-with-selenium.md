@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Testing, Software Engineering
 featured_image: logos/selenium.png
 ---
-Selenium is a framework for testing web applications. And it is relly good for
+Selenium is a framework for testing web applications. And it is really good for
 scraping JavaScript heavy websites. The idea is that you get a real browser
 to execute everything. In contrast to BeautifulSoup where you only fetch the
 content of a website.
@@ -23,7 +23,7 @@ pip install selenium chromedriver_installer
 
 ## Basic example
 
-When you execute the follwing example with Python it should open a Chromium
+When you execute the following example with Python it should open a Chromium
 browser window with the Wikipedia main page. Nothing too exciting.
 
 ```python
@@ -68,7 +68,7 @@ Chrome, this is done with the *developer tools*. You can open them with
 
 <figure>
     <a href="../images/2017/08/chrome-dev-tools.png"><img src="../images/2017/08/chrome-dev-tools.png" alt="The inspection of the search bar with the Chrome Developer Tools reveals that it has the id 'searchInput'" width="512" height="464"></a>
-    <figcaption>Text</figcaption>
+    <figcaption>Inspecting the search bar with the Chrome Developer Tools</figcaption>
 </figure>
 
 ```python

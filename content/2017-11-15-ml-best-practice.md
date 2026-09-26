@@ -17,7 +17,7 @@ to share those patterns with you.
 ## Know your problem
 
 For me, a machine learning project really starts when you have a well-defined
-problem, data, and a metric in which you want to measure your models goodness.
+problem, data, and a metric in which you want to measure your model's goodness.
 Just like Tom Mitchell defined Machine Learning:
 
 > A computer program is said to learn from experience E with respect to some
@@ -59,7 +59,7 @@ set in the configuration.
 
 ## Configuration files
 
-An example from my masters thesis is `cifar10_opt.yaml`:
+An example from my master's thesis is `cifar10_opt.yaml`:
 
 ```yaml
 dataset:
@@ -216,7 +216,7 @@ Most machine learning tasks have a lot of computation. I'm speaking of many
 hours for the "real" task you want to solve. You will not be able to do so
 directly. You will make bugs. Maybe simple typos, maybe logical bugs, ...
 
-Create a small toy example where you know how the output should look like. Just
+Create a small toy example where you know what the output should look like. Just
 to reduce the number of hours you waste by waiting for the script to finish /
 break.
 
@@ -225,9 +225,9 @@ break.
 
 Even if your script is working, you can make other mistakes:
 
-* You close the terminal accidentially.
+* You close the terminal accidentally.
 * Your computer freezes.
-* Your you is cancelled from the cluster by the admin, just a couple of minutes
+* Your job is cancelled from the cluster by the admin, just a couple of minutes
   before it would finish.
 * Your model at some point diverges.
 
@@ -240,7 +240,7 @@ directory.
 
 Most machine learning projects have trivial, simple and advanced solutions. For
 example, instead of having a machine learning based approach you can usually
-craft algorithms the traditional way. You should know how well those trivial
+craft algorithms the traditional way. You should know how good those trivial
 solutions are, because:
 
 * **Baseline**: They give you a baseline. A score with which you start and from
@@ -248,8 +248,8 @@ solutions are, because:
 * **Little effort**: They are usually comparatively fast to implement. If you
   see that the trivial solution is already very good, you might be able to stop
   faster.
-* **Robustness**: They are robust against error in the data. The trivial ones
-  because they don't use the data, the simple ones because they are usually to
+* **Robustness**: They are robust against errors in the data. The trivial ones
+  because they don't use the data, the simple ones because they are usually too
   restricted to overfit.
 
 
@@ -316,5 +316,5 @@ a pre-defined threshold, e.g.
 Set seeds for all random number generators. And log on which hardware / with
 which software version you executed your stuff.
 
-The reason for this is simply that you can proof you actually got the results
+The reason for this is simply that you can prove you actually got the results
 you have. Or at least point to a reason why you can't get the results again.

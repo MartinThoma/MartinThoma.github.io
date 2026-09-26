@@ -13,7 +13,7 @@ Do you know games like [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/
 where you only have to click a lot?
 
 <figure>
-    <a href="../images/2014/08/cookie-cliker.png"><img src="../images/2014/08/cookie-cliker.png" alt="Cookie Clicker" width="500" height="253"></a>
+    <a href="../images/2014/08/cookie-cliker.jpg"><img src="../images/2014/08/cookie-cliker.jpg" alt="Cookie Clicker" width="500" height="253"></a>
     <figcaption>Cookie Clicker</figcaption>
 </figure>
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 ```
 
 <figure>
-    <a href="../images/2014/08/cookie-clicker-5min.png"><img src="../images/2014/08/cookie-clicker-5min.png" alt="Cookie Clicker after 5 minutes with a script" width="500" height="252" loading="lazy"></a>
+    <a href="../images/2014/08/cookie-clicker-5min.jpg"><img src="../images/2014/08/cookie-clicker-5min.jpg" alt="Cookie Clicker after 5 minutes with a script" width="500" height="252" loading="lazy"></a>
     <figcaption>Cookie Clicker after 5 minutes with a script</figcaption>
 </figure>
 

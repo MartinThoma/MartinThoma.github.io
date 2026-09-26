@@ -18,7 +18,7 @@ Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich di
   <li>Was wir absolut nicht sehen wollen sind große Methoden, die verstreut über den ganzen Code diverse returns enthalten. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
   <li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu überzählige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
   <li>toString/equals: Sollte nur für Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals überschreibt, dann sollte man auch hashCode überschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige Fälle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu überschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
-  <li>Verbergt die tatsächlichen Typen, woimmer es möglich ist! Also z.B. <code>private Map meineMap = new HashMap<Integer, Blub>();</code></li>
+  <li>Verbergt die tatsächlichen Typen, wo immer es möglich ist! Also z.B. <code>private Map meineMap = new HashMap<Integer, Blub>();</code></li>
 </ul>
 
 <blockquote>Frage: Dürfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>

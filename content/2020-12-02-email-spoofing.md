@@ -17,9 +17,9 @@ Email spoofing is the creation of emails with a forged sender address. Faking th
 
 Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I’ve found are:
 
-* **2014**: The drug company Upsher-Smith Laboratories lost **$50 million USD** by CEO fraud ([source](https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million))
-* **2015**: The networking company Ubiquiti Networks lost **$46.7 million USD** to a scammer who impersonated employees ([source](https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201))
-* “In **2018**, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over **$1.2 billion**” ([source](https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf))
+* **2014**: The drug company Upsher-Smith Laboratories lost **\$50 million USD** by CEO fraud ([source](https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million))
+* **2015**: The networking company Ubiquiti Networks lost **\$46.7 million USD** to a scammer who impersonated employees ([source](https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201))
+* “In **2018**, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over **\$1.2 billion**” ([source](https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf))
 
 ## How are emails spoofed?
 

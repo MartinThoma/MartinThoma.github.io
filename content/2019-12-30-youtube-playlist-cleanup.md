@@ -280,13 +280,13 @@ playlist.
             <td></td>
         </tr>
         <tr>
-            <td>Nicolle Cysneiros: <a href="">Eita! Why Internationalization and Localization matter</a>,  PyCon</td>
+            <td>Nicolle Cysneiros: Eita! Why Internationalization and Localization matter,  PyCon</td>
             <td>43:55</td>
             <td>05.05.2019</td>
             <td></td>
         </tr>
         <tr>
-            <td>Fridolín Pokorný: <a href="">Thoth - how to recommend the best possible libraries for your application</a>, PyCon</td>
+            <td>Fridolín Pokorný: Thoth - how to recommend the best possible libraries for your application, PyCon</td>
             <td>22:17</td>
             <td>05.05.2019</td>
             <td></td>
@@ -298,7 +298,7 @@ playlist.
             <td></td>
         </tr>
         <tr>
-            <td>Chris Wilcox: <a href="">Shipping your first Python package and automating future publishing</a>, PyCon</td>
+            <td>Chris Wilcox: Shipping your first Python package and automating future publishing, PyCon</td>
             <td>31:50</td>
             <td>05.05.2019</td>
             <td></td>

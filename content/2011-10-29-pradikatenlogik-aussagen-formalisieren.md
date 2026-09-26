@@ -87,5 +87,5 @@ $\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}$
 <h2>Weitere Materialien</h2>
 <ul>
   <li><a href="http://lrb.cs.uni-dortmund.de/~tick/Lehre/WS10/Logik/01-introw.pdf">Uni Dortmund</a>: 15 Seiten zum Formalisieren vom Aussagen</li>
-  <li><a href="http://page.math.tu-berlin.de/~schmitt/lina0910/loesungen/loesung01.pdf">TU-Berlin</a> (Aufgabe 4 - " Jeder, der ein gutes Gehor hat, kann richtig singen[...]")</li>
+  <li><a href="http://page.math.tu-berlin.de/~schmitt/lina0910/loesungen/loesung01.pdf">TU-Berlin</a> (Aufgabe 4 - " Jeder, der ein gutes Gehör hat, kann richtig singen[...]")</li>
 </ul>

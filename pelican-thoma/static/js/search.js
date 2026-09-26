@@ -205,6 +205,7 @@
     function pagination(page, pages) {
         var items = [];
         if (page > 1) { items.push(pageLink(page - 1, 'Previous', { class: 'step', rel: 'prev' })); }
+        items.push(el('span', { class: 'pagination-summary' }, ['Page ' + page + ' of ' + pages]));
         var shown = [1, page - 1, page, page + 1, pages].filter(function (n, i, all) {
             return n >= 1 && n <= pages && all.indexOf(n) === i;
         }).sort(function (a, b) { return a - b; });

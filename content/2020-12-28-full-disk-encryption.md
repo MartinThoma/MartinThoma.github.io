@@ -25,7 +25,7 @@ talk about how it works, different implementations of it, and its weaknesses.
 ## Why it Matters
 
 * **2009**: According to “The Cost of a Lost Laptop” by Ponemon Institute, the
-  average damage organizations suffer due to lost laptops is **$49,246**.
+  average damage organizations suffer due to lost laptops is **\$49,246**.
   Please note that this includes the hardware, the damage done by leaked
   confidential data, and the damage done by lost work.
 * **2015**: “Nearly 41% of all data breach events from 2005 through 2015 were
@@ -169,7 +169,7 @@ On my Samsung S10, the setting to enable FDE on Android is called “Strong Prot
 
 ### Honorable Mentions
 
-* GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1999 ([source](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)), which would be equivalent to 350k € or $427k USD in 2019.
+* GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1999 ([source](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)), which would be equivalent to 350k € or \$427k USD in 2019.
 * PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept **W**hole **D**isk **E**ncryption (**WDE**) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.
 * VeraCrypt (former TrueCrypt): If you’re interested in how to use it, have a look at Andrew Douma's article [Full Disk Encryption with VeraCrypt](https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61).
 

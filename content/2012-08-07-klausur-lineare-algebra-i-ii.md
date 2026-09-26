@@ -72,7 +72,7 @@ Mit diesen Aufgabentypen sollte man rechnen:
 <ul>
   <li>Gegeben sind zwei Untervektorräume $U, V$ des $\mathbb{R}^4$. Finden Sie jeweils eine Basis von $U, V, U \cap V, U + V$. &rarr; <a href="../wie-bildet-man-den-schnitt-zweier-vektorraume/">Erklärung</a></li>
   <li>Bestimmen Sie alle Lösungen eines Gleichungssystems (auch in endlichen Körpern wie $\mathbb{Z} / 5 \mathbb{Z}$!).</li>
-  <li>Bestimmen Sie die Jordansche Normalform einter Matrix A. &rarr; <a href="../wie-berechnet-man-die-jordansche-normalform/">Erklärung</a></li>
+  <li>Bestimmen Sie die Jordansche Normalform einer Matrix A. &rarr; <a href="../wie-berechnet-man-die-jordansche-normalform/">Erklärung</a></li>
 </ul>
 
 <h4>Good to know</h4>
@@ -127,9 +127,9 @@ Mit diesen Aufgabentypen sollte man rechnen:
   <li>$\phi$ s.a. Basis: ONB $\Rightarrow$ Abb. Matrix symmetrisch, aber noch mehr: $\exists$ ONB aus EV mit Abb. Matrix = Diagonalmatrix (Spektralsatz)</li>
   <li>$\phi$ lin. Isometrie, Basis ONB $\Rightarrow$ Abb. Matrix ist orthogonal / unitär, aber noch mehr: $\exists$ ONB mit Abb. in euklid NF</li>
   <li><strong><a href="../berechnung-der-euklidischen-normalform/">Berechnung der euklidischen Normalform</a></strong></li>
-  <li>Kiterien für pos. definit (Ist geg. BF $\beta$ ein SP?)</li>
+  <li>Kriterien für pos. definit (Ist geg. BF $\beta$ ein SP?)</li>
   <li><a href="http://de.wikipedia.org/wiki/Hauptachsentransformation">Hauptachsentransformation</a></li>
-  <li>$(V, \langle , \rangle)$ VR mit SP. $\beta = $ Bilinearform  kann man simultan diagonalisieren $\exists$ ONB von $V$, so dass Matrix von $\langle, \rangle E_n$  (nach Definition von ONB)</li>
+  <li>$(V, \langle , \rangle)$ VR mit SP. $\beta =$ Bilinearform  kann man simultan diagonalisieren $\exists$ ONB von $V$, so dass Matrix von $\langle, \rangle E_n$  (nach Definition von ONB)</li>
   <li><a href="http://de.wikipedia.org/wiki/Hurwitzpolynom#Hurwitz-Kriterium">Hurwitz-Kriterium</a></li>
 </ul>
 

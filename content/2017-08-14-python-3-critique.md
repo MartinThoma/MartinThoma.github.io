@@ -10,7 +10,7 @@ tags: Python, Programming
 featured_image: logos/python.png
 ---
 Consistency is an important quality property of a language. One of my main
-points of critic agains PHP was inconsistency (see [PHP: A strange language](../php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
+points of criticism against PHP was inconsistency (see [PHP: A strange language](../php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistent.
 
 ## Naming
 
@@ -23,7 +23,7 @@ However, some built-in functions do not follow this naming scheme:
 * [`float.fromhex`](https://docs.python.org/3/library/stdtypes.html#float.fromhex)
 * [`bytes.startswith`](https://docs.python.org/3/library/stdtypes.html#bytes.startswith)
 * [`str.startswith`](https://docs.python.org/3/library/stdtypes.html#str.startswith)
-* `str.is_digit`
+* [`str.isdigit`](https://docs.python.org/3/builtins/stdtypes.html#str.isdigit)
 * [`os.path.isfile`](https://docs.python.org/2/library/os.path.html#os.path.isfile) and probably all other `os` functions.
 
 
@@ -45,7 +45,7 @@ However, some built-in functions do not follow this naming scheme:
 
 ### Methods / Properties / Functions
 
-* `len`: Each container type should have a property `length`. One the one hand,
+* `len`: Each container type should have a property `length`. On the one hand,
   this is done in many other languages. On the other hand, it indicates that
   getting the length is a constant-time operation.
 
@@ -64,7 +64,7 @@ print("Seconds elapsed: {}".format((y - x).seconds))
 ```
 
 What would you expect the output to be? I expected `24 * 60 * 60`. But it is
-`0`. What you were looking for is `(y - x).total_seconds`.
+`0`. What you were looking for is `(y - x).total_seconds()`.
 
 
 ## Tutorial
@@ -78,9 +78,9 @@ which introduce the core concepts of a language. I think Python should have
 3 tutorials:
 
 * How to install: Detailed instructions for all major systems. At the
-  beginning, the user should be asked about his system (and get help how to
-  find out which system he has) and then get only the instructions necessary
-  for his system.
+  beginning, the user should be asked about their system (and get help how to
+  find out which system they have) and then get only the instructions necessary
+  for their system.
 * Programming beginners Python tutorial: Python is probably the first
   programming language some people use. And I think it is suited well for them.
   However, there should be an official Python tutorial for people who have to
@@ -155,9 +155,9 @@ The module `base64` contains the functions `b16decode`, `b16encode`,
 `encode`, `encodestring`, `standard_b64decode`, `standard_b64encode`,
 `urlsafe_b64decode`, `urlsafe_b64encode`.
 
-It is not good to have a module called `base64` and give it `base32decode`.
-But that is probaly for historic reasons and I cannot think of a better name
-by now. `text_encoding`? That would have "encoding" in the name.
+It is not good to have a module called `base64` and give it `b32decode`.
+But that is probably for historic reasons and I cannot think of a better name
+right now. `text_encoding`? That would have "encoding" in the name.
 
 However, I think the module should only have the functions
 

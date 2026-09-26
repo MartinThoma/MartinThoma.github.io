@@ -103,5 +103,5 @@ Basic tasks are to get to know something about the owner of a specific website o
 <a href="http://projecteuler.net/">ProjectEuler</a> - for people who are interested in math challenges:
 
 <figure>
-    <img src="http://projecteuler.net/profile/moose.png" alt="" loading="lazy">
+    <img src="http://projecteuler.net/profile/moose.png" alt="My Project Euler profile badge (user moose)" loading="lazy">
 </figure>

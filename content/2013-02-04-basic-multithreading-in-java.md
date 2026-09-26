@@ -150,9 +150,9 @@ Usually, you don't want to get different results when you give the same input to
 <h2>Playing with BASH</h2>
 If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:
 <ul>
-  <li>$1: The number of times you execute the program with a fixed number of THREADS</li>
-  <li>$2: The maximum number of THREADS you would like to use</li>
-  <li>$3: BIG_NR</li>
+  <li><code>$1</code>: The number of times you execute the program with a fixed number of THREADS</li>
+  <li><code>$2</code>: The maximum number of THREADS you would like to use</li>
+  <li><code>$3</code>: BIG_NR</li>
 </ul>
 
 The script executes the program `$1 * $2` times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occurred.

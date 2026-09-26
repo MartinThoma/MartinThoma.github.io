@@ -11,8 +11,8 @@ featured_image: logos/hiking.png
 ---
 Backpacking is hiking, but you take what you need with you. It's a couple of
 days in nature. This needs to be planned and most trails are only nice to walk
-in some months of the year. Some are only not very fun to do (e.g. due to rain
-seasons / monsun), others are impossible / dangerous due to snow and ice.
+in some months of the year. Some are only not very fun to do (e.g. due to rainy
+seasons / monsoon), others are impossible / dangerous due to snow and ice.
 
 I wanted to plan my holidays and found it quite difficult to find trails, given
 some months when I can take my holidays.
@@ -49,7 +49,7 @@ Oceania
 
 Europe
 
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -68,7 +68,7 @@ Oceania
 
 Europe
 
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -80,7 +80,7 @@ South America
 Europe
 
 * [Glasgow](https://en.wikipedia.org/wiki/Glasgow), Scotland: [WHW](https://en.wikivoyage.org/wiki/West_Highland_Way)
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -96,7 +96,7 @@ South America
 Europe
 
 * [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -108,14 +108,14 @@ South America
 
 ## July
 
-Afrika
+Africa
 
 * [Arusha](https://en.wikipedia.org/wiki/Arusha), Tanzania: [Mount Meru](http://www.trekkingguide.de/wandern/tansania-mount-meru.htm) (4-5 days)
 
 Europe
 
 * [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -127,14 +127,14 @@ South America
 
 ## August
 
-Afrika
+Africa
 
 * [Arusha](https://en.wikipedia.org/wiki/Arusha), Tanzania: [Mount Meru](http://www.trekkingguide.de/wandern/tansania-mount-meru.htm) (4-5 days)
 
 Europe
 
 * [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -145,14 +145,14 @@ South America
 
 ## September
 
-Afrika
+Africa
 
 * [Arusha](https://en.wikipedia.org/wiki/Arusha), Tanzania: [Mount Meru](http://www.trekkingguide.de/wandern/tansania-mount-meru.htm) (4-5 days)
-* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolminka troughs, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 Europe
 
 * [Corsica](https://en.wikipedia.org/wiki/Corsica) (France): [GR-20](../gr-20/)
+* [Ljubljana](https://en.wikipedia.org/wiki/Ljubljana), Slovenia: [Triglav National Park](https://theculturetrip.com/europe/slovenia/articles/a-comprehensive-guide-to-visiting-triglav-national-park/) ([Soča trail](https://www.bovec.si/en/summer/hiking/soca-trail/), Tolmin Gorges, Triglavska Bistrica Trail, Vintgar-Klamm and [more](https://getbybus.com/en/blog/triglav-national-park/))
 
 South America
 
@@ -167,7 +167,7 @@ Oceania
 
 ## October
 
-Afrika
+Africa
 
 * [Arusha](https://en.wikipedia.org/wiki/Arusha), Tanzania: [Mount Meru](http://www.trekkingguide.de/wandern/tansania-mount-meru.htm) (4-5 days)
 
@@ -212,9 +212,9 @@ Oceania
 
 ## See also
 
-* Wikipedia: [Backpacking_](https://en.wikipedia.org/wiki/Backpacking_(wilderness)) vs [Hiking](https://en.wikipedia.org/wiki/Hiking)
+* Wikipedia: [Backpacking](https://en.wikipedia.org/wiki/Backpacking_(wilderness)) vs [Hiking](https://en.wikipedia.org/wiki/Hiking)
 * More tours:
-    * Germany, [Schwäbische-Alb-Nordrand-Weg](https://de.wikipedia.org/wiki/Schw%C3%A4bische-Alb-Nordrand-Weg)
+    * Germany: [Schwäbische-Alb-Nordrand-Weg](https://de.wikipedia.org/wiki/Schw%C3%A4bische-Alb-Nordrand-Weg)
     * Germany/Denmark: Gendarmenpfad (4-12 days)
     * Germany: [Maximiliansweg](https://en.wikipedia.org/wiki/Maximiliansweg)
     * Spain: [Camino de Santiago](https://en.wikipedia.org/wiki/Camino_de_Santiago)

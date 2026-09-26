@@ -34,7 +34,7 @@ This article gives you an overview over some classifiers:
 * [Logistic Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 * [RBM](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html) + Logistic Regression Classifier
 
-Of course, neural networks are also one very powerful ML classifier I may not
+Of course, neural networks are also one very powerful ML classifier I must not
 forget. As sklearn does not have neural networks, I've installed
 [`skflow`](https://github.com/tensorflow/skflow).
 
@@ -46,10 +46,10 @@ The sklearn tutorial creates three datasets with 100&nbsp;points per dataset and
 
 1. **Moons**: Two interleaving half-circles
 2. **Circles**: A larger circle containing the smaller one
-3. **Linear**: A linearly seperable dataset
+3. **Linear**: A linearly separable dataset
 
 Each of those three datasets has added noise. This means for some points there
-might be no way of classifying them correclty.
+might be no way of classifying them correctly.
 
 Here are the results
 
@@ -63,11 +63,11 @@ Overall, they look reasonable. However, there are often strange zig-zag
 patterns.
 
 The linear SVM in contrast has a very easy decision boundary: a line. It is no
-suprise that it can't deal with the moons dataset. Note that a random guess
+surprise that it can't deal with the moons dataset. Note that a random guess
 would be right in 50% of the cases.
 
 The RBF SVM has very nice decision boundary. It is smooth, matches the pattern
-and is able to adjust to all three examles.
+and is able to adjust to all three examples.
 
 <figure>
     <a href="../images/2016/01/ml-classifiers-2.png"><img src="../images/2016/01/ml-classifiers-2.png" alt="Decision Tree, Random Forest, AdaBoost" width="500" height="363" loading="lazy"></a>
@@ -88,7 +88,7 @@ Naive Bayes shows nice, smooth patterns. However, those patterns seem to be
 a bit too simple. LDA is again linear (see linear SVM). Comparing QDA to
 Naive Bayes is interesting. Although they get similar performance for the first
 dataset, I would argue that the naive bayes classifier is much better as it is
-much more confident for its classification. Even more extrem is the last example.
+much more confident for its classification. Even more extreme is the last example.
 I'm astonished that the QDA gets 93% with that boundary; Naive Bayes seems to
 find a much better boundary.
 
@@ -184,8 +184,8 @@ I've summed up the basics on [Using SVMs with sklearn](../svm-with-sklearn/).
 I've trained two SVMs: A simple, linear one and one with an RBF kernel as I
 found it online (I'm sorry, I don't remember where I found those parameters :-/).
 
-Please note the the SVM implementation of sklearn does not use the GPU.
-However, there are [GPU implmentations of SVMs](http://fastml.com/running-things-on-a-gpu/)
+Please note that the SVM implementation of sklearn does not use the GPU.
+However, there are [GPU implementations of SVMs](http://fastml.com/running-things-on-a-gpu/)
 around.
 
 
@@ -280,7 +280,7 @@ Accuracy: 0.5715
 ```
 
 
-### k nearest neightbors
+### k nearest neighbors
 
 ```text
 Classifier: k nn
@@ -329,7 +329,7 @@ Accuracy: 0.6540
 ### Adaboost
 
 You should note that you can use arbitrary base classifiers with Adaboost.
-The default ones of [`sklearn.ensemble.AdaBoostClassifier`](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) is [`sklearn.tree.DecisionTreeClassifies`](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
+The default base estimator of [`sklearn.ensemble.AdaBoostClassifier`](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) is [`sklearn.tree.DecisionTreeClassifier`](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
 
 ```text
 Classifier: AdaBoost
@@ -500,7 +500,7 @@ Accuracy: 0.5561
         <td style="text-align: right" class="danger">22.2770s</td>
     </tr>
     <tr>
-        <td>k nearest neightbors (k=3)</td>
+        <td>k nearest neighbors (k=3)</td>
         <td style="text-align: right">96.95%</td>
         <td style="text-align: right">4.6439s</td>
         <td style="text-align: right" class="danger">1261.7815s</td>
@@ -701,7 +701,7 @@ Just for fun, I tried the script from above with very minor adjustments to the
 Neural networks take their time to train and a feeling for the topology, but
 their classification results are nice and the testing time is good as well.
 
-Random Forests and SVMs are also a model a type of model one should think of.
+Random Forests and SVMs are also a type of model one should think of.
 However, the standard implementation is very slow compared to neural networks.
 
 [`sklearn.lda.LDA`](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)

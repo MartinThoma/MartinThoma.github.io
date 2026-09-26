@@ -205,7 +205,7 @@ Not so nice:
 ### PEP8
 
 * Whitespace
-  * `W = tf.Variable(tf.zeros([784, 10]))` should be
+  * `W = tf.Variable(tf.zeros([784,10]))` should be
     `W = tf.Variable(tf.zeros([784, 10]))`.
     Missing whitespaces happened quite often.
   * Indent with 2&nbsp;spaces instead of 4&nbsp;spaces. The Google guide also

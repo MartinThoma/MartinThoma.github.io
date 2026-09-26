@@ -21,7 +21,7 @@ uploads an image and gets the result. But the model is loaded all the time and
 the web service is running all the time.
 
 One problem with this approach is that you might want to work on the web
-interface and not having to reload the machine learning part all the time. I
+interface and not have to reload the machine learning part all the time. I
 also think this might be one of the most inefficient ways to realize
 <abbr title="inter process communication">IPC</abbr>.
 

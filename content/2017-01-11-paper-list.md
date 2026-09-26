@@ -35,7 +35,7 @@ Modulation</a></li>
 
 ## Best of
 
-The following is a list of papers, organized by the year I read (or written)
+The following is a list of papers, organized by the year I read (or wrote)
 them. Not when they were published.
 
 ### 2016
@@ -70,7 +70,7 @@ Nov. 2015. (<a href="https://www.shortscience.org/paper?bibtexKey=journals/corr/
 
 * Establishing Human-Level scores for Benchmarks
     * User Interfaces: What are good examples?
-    * Herarchical Classification
+    * Hierarchical Classification
 * Pooling: Can it be replaced by convolutions?
 * Ensembles: Train an ensemble, use it to get better labels than simple one-hot encoding, train new single network on new labels. (Possibly the same as <a href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a>)
 * OCR and semantic segmentation

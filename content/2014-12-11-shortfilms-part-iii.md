@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-12-11 22:54
 category: The Web
-tags: Video, Shortfilm
+tags: Video
 featured_image: logos/egghunt.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>

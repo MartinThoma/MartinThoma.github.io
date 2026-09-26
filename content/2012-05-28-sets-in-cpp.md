@@ -51,7 +51,7 @@ int main() {
 }
 ```
 
-As find is logarithmic in `size()` (source: <a href="http://www.cplusplus.com/reference/stl/set/find/">C++ Reference</a>), the membership test is also in ${\cal O}(log(n))$.
+As find is logarithmic in `size()` (source: <a href="http://www.cplusplus.com/reference/stl/set/find/">C++ Reference</a>), the membership test is also in $\mathcal{O}(\log(n))$.
 
 <h2>Sets of structs</h2>
 If you want to create a set of structs, you have to create a comparator:

@@ -22,7 +22,7 @@ them can bring their own bike.
 
 Let $X$ be the random variable which represents the number of people who will
 not bring their own bikes. I will assume that the participants bring or bring
-not their bikes independent of each other. So have a binomial distribution:
+not their bikes independently of each other. So we have a binomial distribution:
 
 $$X \sim Bin(n=91, p=\frac{79-7}{79})$$
 
@@ -36,12 +36,12 @@ We want to be $95\%$ confident that we have enough bikes.
 $$
 \begin{align}
 P(X \leq b) &\geq 95\%\\
-\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &\geq 95\%\\
+\sum_{k=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &\geq 95\%\\
 b &= \lceil binom.ppf(95\%, n, p) \rceil
 \end{align}
 $$
 
-I am lazy with calculating, so lets do it with Python:
+I am lazy with calculating, so let's do it with Python:
 
 ```python
 from scipy.stats import binom

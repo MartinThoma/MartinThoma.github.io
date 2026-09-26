@@ -11,16 +11,16 @@ featured_image: logos/arxiv.png
 ---
 <div class="info">I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.</div>
 
-I've recently talked to my bachelors thesis advisers. *A short reminder:*
+I've recently talked to my bachelor's thesis advisors. *A short reminder:*
 I write a thesis about the recognition of handwritten mathematical symbols. As
 a practical part I implement everything on [write-math.com](http://write-math.com).
 
-My advisers said me that I need at least 100 training examples per symbol.
-As I currently have about 1070 symbols in the database, including symbols
+My advisors told me that I need at least 100 training examples per symbol.
+I currently have about 1070 symbols in the database, including symbols
 like [`\bat`](http://www.martin-thoma.de/write-math/symbol/?id=1196) or
 [`\Mundus`](http://www.martin-thoma.de/write-math/symbol/?id=1197). As they
 are extremely unlikely to be used in math mode, I will simply skip them. The
-more symbols I can skip, the less training symbols I need to get. So I want to
+more symbols I can skip, the fewer training symbols I need to get. So I want to
 skip as many as possible. I think `\up[greek letter]` like [`\updelta`](http://www.martin-thoma.de/write-math/symbol/?id=851) and [`\Updelta`](http://www.martin-thoma.de/write-math/symbol/?id=857)
 are also rare. But my adviser doesn't think so. This means I need to prove it.
 
@@ -116,7 +116,7 @@ Commands with parameters:
 ## Structure of arXiv
 
 arXiv uses Amazon S3 with the "requester pays" option. The storage containers
-of S3 are called "buckets" and they are adressed in an URI style:
+of S3 are called "buckets" and they are addressed in a URI style:
 
 ```bash
 s3://arxiv/pdf/arXiv_pdf_manifest.xml
@@ -183,7 +183,7 @@ The manifest is an XML file, which looks like this:
   ...
 ```
 
-The differrent files mean:
+The different files mean:
 
 * `content_md5sum`: MD5 sum of all the files in the tar package concatenated but not packaged. Use md5sum for the md5sum of the tar package which should match the S3 MD5 sum.
 * `filename`:

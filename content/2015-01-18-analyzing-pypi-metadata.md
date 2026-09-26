@@ -161,7 +161,7 @@ SELECT `name`, LENGTH(`name`) FROM `packages` ORDER BY LENGTH(`name`) DESC
     <tr>
         <td>description</td>
         <td>65535</td>
-        <td>[id don't want to put that here - there were 22 with this length]</td>
+        <td>[I don't want to put that here - there were 22 with this length]</td>
     </tr>
     <tr>
         <td>summary</td>

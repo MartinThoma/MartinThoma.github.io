@@ -14,7 +14,7 @@ Wer will, soll sich das hier für Handstaubsauger nehmen. Wenn das wirklich jema
 baut, will ich aber ein Exemplar davon haben 😉
 
 <figure class="ai-generated">
-    <a href="../images/2025/09/akku-handstaubsauger.png"><img src="../images/2025/09/akku-handstaubsauger.png" alt="ChatGPT-Rendering eines Akku-Handstaubsaugers" width="341" height="512"></a>
+    <a href="../images/2025/09/akku-handstaubsauger.jpg"><img src="../images/2025/09/akku-handstaubsauger.jpg" alt="ChatGPT-Rendering eines Akku-Handstaubsaugers" width="341" height="512"></a>
     <figcaption>ChatGPT-Rendering eines Akku-Handstaubsaugers</figcaption>
 </figure>
 

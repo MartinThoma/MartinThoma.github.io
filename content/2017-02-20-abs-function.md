@@ -15,7 +15,7 @@ I need it from time to time. So here are a few hints.
 
 ## Solving Equations
 
-Lets say you want to solve the equation
+Let's say you want to solve the equation
 
 $$|x - a | = b$$
 
@@ -24,7 +24,7 @@ equations:
 
 $$x - a = b \qquad \text{ and } \qquad -(x-a) = b$$
 
-you can solve both of them independantly. You can get 0, 1 or 2 solutions
+you can solve both of them independently. You can get 0, 1 or 2 solutions
 when the absolute function is involved:
 
 $$x = a + b \qquad \text{ and } \qquad x = a - b$$
@@ -34,7 +34,7 @@ $$x = a \pm b$$
 
 ## Solving Inequalities
 
-Lets say you want to solve the inequality
+Let's say you want to solve the inequality
 
 $$|a - x| \leq b$$
 
@@ -42,9 +42,9 @@ for $x$. Again, this inequality is equivalent to the two inequalities
 
 $$a - x \leq b \qquad \text{ and } \qquad -(a-x) \leq b$$
 
-You can solve both of them independantly for $x$:
+You can solve both of them independently for $x$:
 
-$$a - b \leq x \qquad \text{ and } \qquad -x \leq a + b$$
+$$a - b \leq x \qquad \text{ and } \qquad x \leq a + b$$
 
 leading to
 
@@ -57,7 +57,7 @@ for $a = 0$ and $b = -5$!
 ## Derivatives
 
 The function $f(x) = |x|$ is equivalent to $f(x) = \sqrt{x^2}$. Hence you can
-derive the absolute value by deriving the root of the square function of its
+differentiate the absolute value by differentiating the root of the square of its
 argument. And the chain rule, of course:
 
 \begin{align}
@@ -68,7 +68,7 @@ argument. And the chain rule, of course:
           &= \text{sign}(x)
 \end{align}
 
-Note that the derivative is not devined at 0.
+Note that the derivative is not defined at 0.
 
 
 ## See also

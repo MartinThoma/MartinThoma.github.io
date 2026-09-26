@@ -34,9 +34,9 @@ Special cases:
 
 * [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search): K is a stack (LIFO list)
 * [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search): K is a queue (FIFO list)
-* [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): K is [priority queue](https://en.wikipedia.org/wiki/Priority_queue)
-* [A\*](https://en.wikipedia.org/wiki/A*_search_algorithm): K ist priority queue, $h_j$ is non-trivial
-* [Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound): K ist priority queue, $h_j$ and $m_j$ are non-trivial
+* [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): K is a [priority queue](https://en.wikipedia.org/wiki/Priority_queue)
+* [A\*](https://en.wikipedia.org/wiki/A*_search_algorithm): K is a priority queue, $h_j$ is non-trivial
+* [Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound): K is a priority queue, $h_j$ and $m_j$ are non-trivial
 
 
 ## Python

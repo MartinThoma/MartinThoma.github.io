@@ -18,7 +18,7 @@ Der Kaiser von China spielt mit einem Bauern Schach. Nachdem er das Spiel verlor
 
 Allgemein formuliert verlangt er für jedes Schachfeld doppelt so viele Reiskörner wie für das Vorhergehende.
 
-Wieviel Reis muss der Kaiser von China abtreten?
+Wie viel Reis muss der Kaiser von China abtreten?
 
 <h2>Lösung</h2>
 Ein Schachbrett hat $8 \cdot 8 = 64$ Felder. Für das $i$-te Feld, $1 \le i \le 64$, muss der Kaiser $2^{i-1}$ Reiskörner abgeben.
@@ -66,7 +66,7 @@ Daraus ergibt sich folgende Gleichung, bei der $x$ die Höhe der Reisschicht ist
 Die Erde könnte also komplett mit ca. 1,662 mm Reis, also etwas mehr als einem Reiskorn, bedeckt werden.
 
 <h3>Reispackungen</h3>
-Den vorhergehenden Vergleich finde ich noch etwas unpraktisch. Wieviele Reispackungen wären das?
+Den vorhergehenden Vergleich finde ich noch etwas unpraktisch. Wie viele Reispackungen wären das?
 
 Eine handelsübliche Packung Reis beinhaltet ca. 1 kg Reis. Ein Reiskorn wiegt ca. 65 mg.
 

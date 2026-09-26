@@ -9,7 +9,7 @@ category: Code
 tags: Git
 featured_image: logos/git.png
 ---
-Git is likely todays most important version control system. It is used for
+Git is likely today's most important version control system. It is used for
 Linux, actively developed and stable.
 
 If hosted solutions are ok, I would likely use GitHub. I've used GitHub for
@@ -19,16 +19,16 @@ or so. Besides that, it was reliable. And the support was good.
 
 ## Git Basics
 
-Git is a decentralized version control system. This means has interesting
+Git is a decentralized version control system. This has interesting
 implications on your workflow:
 
 * You can commit locally. It doesn't matter if you are online or offline as git
   is on your local machine.
-* The maintainance of the "main" code base is only convention. This comes from
-  the OpenSource world where you might want to fork a project.
+* The maintenance of the "main" code base is only convention. This comes from
+  the open source world where you might want to fork a project.
 * You can have multiple branches of code. You usually have the `master` which
   should be relatively stable and several feature branches. As soon as a
-  feature is ready it can be merged into the master. This keeps keeps the
+  feature is ready it can be merged into the master. This keeps the
   version history of the master cleaner as it is possible that you might go
   back and decide not to include a feature.
 
@@ -37,11 +37,11 @@ See [Pro Git](https://git-scm.com/book/en/v2) for more information.
 
 ## Repository Managers
 
-Although you don't necessarily need anything else, a repositry manager is
-helpful for collaborative development. You want others in your organization be
+Although you don't necessarily need anything else, a repository manager is
+helpful for collaborative development. You want others in your organization to be
 able to easily **find**, **comment** and **contribute** to your codebase.
 
-Without a repository manager, others have to know that your project exits.
+Without a repository manager, others have to know that your project exists.
 You can comment and contribute via e-mail. For example, [`git bundle`](https://git-scm.com/docs/git-bundle) allows you to
 share complete repositories, but you can also [share patches with git](https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/).
 
@@ -117,21 +117,21 @@ share complete repositories, but you can also [share patches with git](https://w
         <td><a href="https://stackoverflow.com/questions/tagged/gogs">2</a></td>
     </tr>
     <tr>
-        <td>Github Stars</td>
+        <td>GitHub Stars</td>
         <td>19790</td>
         <td>-</td>
         <td>20717</td>
         <td>3505</td>
     </tr>
     <tr>
-        <td>Github Forks</td>
+        <td>GitHub Forks</td>
         <td>5281</td>
         <td>-</td>
         <td>2393</td>
         <td>376</td>
     </tr>
     <tr>
-        <td>Open Github Issues</td>
+        <td>Open GitHub Issues</td>
         <td><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues">8830</a></td>
         <td>-</td>
         <td>496</td>

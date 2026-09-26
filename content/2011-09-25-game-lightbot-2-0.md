@@ -10,7 +10,7 @@ tags: Flashgames, Learning, Games
 featured_image: 2011/09/Lightbot-2.0-300x171.png
 ---
 <figure>
-    <a href="../images/2011/09/Lightbot-2.0-300x171.png"><img src="../images/2011/09/Lightbot-2.0-300x171.png" alt="" width="300" height="171"></a>
+    <a href="../images/2011/09/Lightbot-2.0-300x171.png"><img src="../images/2011/09/Lightbot-2.0-300x171.png" alt="Lightbot 2.0: a robot on an isometric block level next to the command panel" width="300" height="171"></a>
     <figcaption>Lightbot 2.0</figcaption>
 </figure>
 

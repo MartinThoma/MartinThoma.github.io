@@ -10,11 +10,11 @@ tags: Python, Scheduling
 featured_image: logos/python.png
 ---
 Suppose you wanted to build a tool which informs you whenever there is an
-update to a couple of websites you're interested in. And lets say the
+update to a couple of websites you're interested in. And let's say the
 `last-modified` header was usable for this (it is not, but I want to focus on
 another problem). So you would need to save the `last_known_state` - which
 is a time stamp - with the latest `last-modified`. And you need to do this
-often. For each website. Lets say we have
+often. For each website. Let's say we have
 
 ```text
 Intervall | Name      | Website
@@ -101,7 +101,7 @@ they should run independently.
 So we have one script which creates new processes. Those processes run
 independently, but the children get killed when the parent is killed. And if
 you replace their process id (pid) in the `jobs.csv` by `commit_suicide` they
-kill themselfes. You can also kill them directly by using the process id.
+kill themselves. You can also kill them directly by using the process id.
 
 And ... that's it. You should think about race conditions, too. But this was
 more a toy project than something serious, so I'll not dig into that. And if
@@ -234,5 +234,5 @@ if __name__ == "__main__":
 
 * [`schedule`](https://docs.python.org/2/library/sched.html#sched.scheduler): defines a class which implements a general purpose event scheduler
 * [Pyro4](https://pythonhosted.org/Pyro4/index.html): build applications in which objects can talk to each other over the network
-* [``subprocess` vs `multiprocessing`](https://stackoverflow.com/a/13607111/562769)
+* [`subprocess` vs `multiprocessing`](https://stackoverflow.com/a/13607111/562769)
 * [PEP 3143](https://www.python.org/dev/peps/pep-3143/)

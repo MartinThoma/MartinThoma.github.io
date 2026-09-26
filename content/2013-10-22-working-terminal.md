@@ -22,7 +22,7 @@ environment (MATE) and I want to use command line tools within that
 environment. So I need a "terminal window":
 
 <figure>
-    <a href="../images/2013/10/teriminal-window.png"><img src="../images/2013/10/teriminal-window.png" alt="Terminal Window with ZSH and Bash" width="299" height="168"></a>
+    <a href="../images/2013/10/teriminal-window.jpg"><img src="../images/2013/10/teriminal-window.jpg" alt="Terminal Window with ZSH and Bash" width="299" height="168"></a>
     <figcaption>Terminal Window with ZSH and Bash</figcaption>
 </figure>
 

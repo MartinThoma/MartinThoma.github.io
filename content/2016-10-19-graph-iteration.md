@@ -13,7 +13,7 @@ Today I was thinking if one could iterate over all possible feed forward network
 architectures possible. A feed forward network is essentially only a directed
 acyclic graph.
 
-To make things simpler, lets just think about multilayer perceptrons. This
+To make things simpler, let's just think about multilayer perceptrons. This
 means we only have connections between neighboring layers (and we have layers).
 
 
@@ -41,7 +41,7 @@ while True:
 Resulting in the sequence $1, 2, 3, \dots$ which is guaranteed to reach any
 natural number $k \in \mathbb{N}$ at some point.
 
-Similar, one can iterate over $\mathbb{Q}_0^+$:
+Similarly, one can iterate over $\mathbb{Q}_0^+$:
 
 ```python
 x = 0

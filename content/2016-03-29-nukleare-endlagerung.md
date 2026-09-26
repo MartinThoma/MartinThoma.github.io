@@ -17,8 +17,8 @@ Atomkraftwerke, den sogenannten <i>Atommüll</i>, entsorgen.
 
 ## Atommüll
 
-Um zu verstehen worum es geht sollte man ein Grundverständnis für Atomenergie
-haben. Ich werde die Dinge auf das relevante vereinfachen:
+Um zu verstehen, worum es geht, sollte man ein Grundverständnis für Atomenergie
+haben. Ich werde die Dinge auf das Relevante vereinfachen:
 
 Atome bestehen aus dem Atomkern und Elektronen, welche um den Atomkern kreisen.
 Der Atomkern besteht aus Neutronen und Protonen. Die Protonen sind elektrisch
@@ -46,10 +46,9 @@ der Protonen+Neutronen definiert welches <strong>Isotop</strong>
 (<sup>235</sup>U, <sup>238</sup>U, <sup>1</sup>H, ...) wir haben.</div>
 
 Kernkraftwerke produzieren Energie, indem ein bestimmtes Uran-Isotop
-(<sup>235</sup>U) dazu gebracht wird sich zu spalten. Wir haben also einen ganz
-bestimmten Typ von Atom, welchen wir dazu bringen 143&nbsp;Neutronen und mit
+(<sup>235</sup>U) dazu gebracht wird, sich zu spalten. Uran gibt es z.B. mit 143&nbsp;Neutronen und mit
 146&nbsp;Neutronen. Da die Elektronen fast nichts wiegen und nur die Neutronen
-und Protonen für das Gewicht relevant sind, sagt zählt man üblicherweise beide
+und Protonen für das Gewicht relevant sind, zählt man üblicherweise beide
 zusammen: 92&nbsp;Protonen + 146&nbsp;Neutronen macht 238&nbsp;Kernteilchen.
 Also <sup>238</sup>U, weil U das Zeichen für Uran ist.
 
@@ -61,7 +60,7 @@ nicht in den Kern?<br/>
 Ganz einfach: Es gibt weitere Effekte (siehe [details](http://physics.stackexchange.com/q/20003/7197)).
 Man stelle sich z.B. Satelliten vor, die um die Erde kreisen. Sie sind gerade
 so schnell und haben gerade die richtige Entfernung, dass sie weder wegfliegen
-noch in den Kern fallen.
+noch auf die Erde fallen.
 
 Nun kann man sich die nächste Frage stellen: Warum sind die Protonen
 zusammen? Warum ist der Kern stabil?<br/>
@@ -79,12 +78,12 @@ je größer der Kern wird, desto stärker dominiert die elektrische Abstoßung d
 Protonen.
 
 Wenn nun z.B. ein Neutron mit hoher Geschwindigkeit auf den Kern trifft kann
-sich dieser Spalten. Es bilden sich zwei neue, kleinere Atomkerne und - je nach
+sich dieser spalten. Es bilden sich zwei neue, kleinere Atomkerne und - je nach
 Atom - werden weitere Neutronen abgestoßen.
 
 <figure>
-    <a href="../images/2016/03/Kernspaltung.gif"><img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg." width="320" height="223" loading="lazy"></a>
-    <figcaption>Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser Spaltet sich und drei weitere Neutronen fliegen weg.<br/> Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
+    <a href="../images/2016/03/Kernspaltung.gif"><img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg." width="320" height="223" loading="lazy"></a>
+    <figcaption>Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg.<br/> Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
 </figure>
 
 Eine solche Spaltung kann man formal wie folgt darstellen:
@@ -93,13 +92,13 @@ Eine solche Spaltung kann man formal wie folgt darstellen:
 <div markdown="0">$$\mathrm{^{235}_{\ 92}U + ^{1}_{0}n \longrightarrow ^{133}_{\ 52}Te + ^{101}_{\ 40}Zr + 2\ ^{1}_{0}n}$$</div>
 
 Was diese Gleichung verschweigt, ist die Tatsache, dass auch Energie frei wird.
-Diese kann man zum erhitzen von Wasser verwenden. Das erhitzte Wasser kann dann
+Diese kann man zum Erhitzen von Wasser verwenden. Das erhitzte Wasser kann dann
 wiederum zum Antreiben einer Turbine verwendet werden. Und die Turbine macht
 schlussendlich aus der Bewegungsenergie nutzbare elektrische Energie.
 
 Nun haben wir aber eben auch die kleineren Atomkerne. Diese sind nicht stabil
 und zerfallen weiter in kleinere Atomkerne. Über diesen Zerfallsvorgang muss
-man nun wissen, dass er nicht sofort statt findet. Für einzelne Atome kann man
+man nun wissen, dass er nicht sofort stattfindet. Für einzelne Atome kann man
 auch gar nicht sagen wann genau es sein wird. Allerdings kann man für eine
 große Menge an Atomen die Aussage machen, dass nach X Jahren die Hälfte davon
 zerfallen sein wird. Nach weiteren X Jahren wiederum die Hälfte usw.<br/>
@@ -108,11 +107,11 @@ weniger Sekundenbruchteile, und bei <sup>135</sup>Cs sind es beispielsweise
 2,3&nbsp;Mio. Jahre. Diese Zeit, in der statistisch gesehen die Hälfte der
 Atome in kleinere Atome zerfällt nennt man <strong>Halbwertszeit</strong>.
 
-Jedes mal wenn so ein Zerfallsvorgang frei wird, wird auch Energie frei bzw.
-sehr schnelle Teilchen. Man könnte das als eine Art Bombardierung der Umwelt
+Jedes Mal, wenn so ein Zerfall stattfindet, werden Energie bzw.
+sehr schnelle Teilchen frei. Man könnte das als eine Art Bombardierung der Umwelt
 mit sehr kleinen Teilchen sehen. Und bei den Spaltprodukten, dem Atommüll,
 dauert diese Bombardierung leider sehr lange an. Die Teilchen sind so klein,
-dass sie leicht eingeatmet werden können. Wenn sie dann im inneren des Körpers
+dass sie leicht eingeatmet werden können. Wenn sie dann im Inneren des Körpers
 zerfallen richten sie dort enormen Schaden an.
 
 Es gibt tatsächlich nicht nur eine Art wie sie zerfallen können, sondern drei
@@ -127,9 +126,9 @@ durch 15&nbsp;Papierblätter / 4mm Aluminium abgehalten werden.<sup>[<a href="#r
 name="ref-jen-anchor">Jen</a>]</sup>
 
 Bleibt noch die Gamma-Strahlung. Diese kann nur abgeschwächt, aber nicht
-komplett aufgehalten werden. So beleibt bei einer Gamma-Strahlung von 1&nbsp;MeV
+komplett aufgehalten werden. So bleibt bei einer Gamma-Strahlung von 1&nbsp;MeV
 nach ca. 3&nbsp;cm Blei noch ein Zehntel der Strahlung übrig. Ich denke das ist
-der Grund, warum man den strahlenden Müll gerne Untertage, so weit weg von
+der Grund, warum man den strahlenden Müll gerne unter Tage, so weit weg von
 Menschen wie möglich, lagern will.
 
 
@@ -141,7 +140,7 @@ niemand will das Endlager in seiner Nachbarschaft haben. Aber das gilt ja auch
 für Zwischenlager. Irgendwo muss das Zeug halt stehen.
 
 Das Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit hat einen
-Anforderungskatalog für Endlagerstetten
+Anforderungskatalog für Endlagerstätten
 geschrieben.<sup>[<a href="#ref-bmu10" name="ref-bmu10-anchor">BMU10</a>]</sup>
 Liest man sich diesen durch, findet man schnell den Grund warum seit über
 50&nbsp;Jahren kein Endlager gefunden wurde:
@@ -154,7 +153,7 @@ Liest man sich diesen durch, findet man schnell den Grund warum seit über
         <li>4.6 Das Endlager ist so zu errichten und so zu betreiben, dass für den
             zuverlässigen langfristigen Einschluss der radioaktiven Abfälle im
             einschlusswirksamen Gebirgsbereich in der Nachverschlussphase keine
-            Einriffe oder Wartungsarbeiten erforderlich werden.</li>
+            Eingriffe oder Wartungsarbeiten erforderlich werden.</li>
         <li>4.7 Es ist eine möglichst zügige Errichtung des Endlagers zu realisieren.</li>
         <li>4.8 Für Errichtung und Betrieb einschließlich Stilllegung des Endlagers
             müssen die finanziellen Mittel zeitgerecht zur Verfügung stehen.</li>
@@ -163,9 +162,9 @@ Liest man sich diesen durch, findet man schnell den Grund warum seit über
     <footer>Kapitel 4, Sicherheitsprinzipien, in <cite>Sicherheitsanforderungen an die Endlagerung wärmeentwickelnder radioaktiver Abfälle</cite> vom 30. September 2010.</footer>
 </blockquote>
 
-Von 4.7 kann man sich 16&nbsp;Jahre nach der Veröffentlichung wohl
-verabschieden. Die SPD, CDU/CSU hat auch dafür gesorgt, dass 4.8 nicht bedeutet,
-dass die Energiekonzerne den Betrieb bezahlen.<sup>[<a href="#ref-koe03" name="ref-koe03-anchor">Koe03</a>]</sup>
+Von 4.7 kann man sich 6&nbsp;Jahre nach der Veröffentlichung wohl
+verabschieden. SPD und CDU/CSU haben auch dafür gesorgt, dass 4.8 nicht bedeutet,
+dass die Energiekonzerne den Betrieb bezahlen.<sup>[<a href="#ref-tag16" name="ref-tag16-anchor">Tag16</a>]</sup>
 Obwohl das auch mal anders lautete:
 
 <blockquote cite="http://www.spiegel.de/wirtschaft/soziales/atomausstieg-wer-zahlt-endlagerung-von-atommuell-und-abriss-der-meiler-a-968835.html">
@@ -174,7 +173,7 @@ Obwohl das auch mal anders lautete:
     <footer>Horand Knaup, in <cite>Vorstoß der Energiekonzerne: Milliardenpoker um den Atomausstieg</cite> vom 12. Mai 2014.</footer>
 </blockquote>
 
-Nun gibt es noch 4.6 der mich besonders stört. Das ist einfach unrealistisch.
+Nun gibt es noch 4.6, der mich besonders stört. Das ist einfach unrealistisch.
 Natürlich wird man keinen Ort auf der Erde finden bei dem für mehrere Millionen
 Jahre davon auszugehen ist, dass dieser ohne Eingriffe und Wartungsarbeiten
 den Müll sicher wegschließt.<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup>
@@ -231,7 +230,7 @@ an Atommüll. Hinzu kommen diese [Kokillen](https://de.wikipedia.org/wiki/Kokill
 vor 2005, von denen ich leider nicht weiß wie groß die sind.
 
 Laut [kiefermedia.de](http://www.kiefermedia.de/fakten/atommuell) haben wir
-in Deutschland bis 2022 etwas 17&thinsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&thinsp;000&nbsp;Tonnen Atommüll geben.
+in Deutschland bis 2022 etwa 17&thinsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&thinsp;000&nbsp;Tonnen Atommüll geben.
 Laut [BUND](http://www.bund.net/themen_und_projekte/atomkraft/atommuell/) sind
 es 17&thinsp;000&nbsp;Tonnen und 300&thinsp;000&nbsp;m<sup>3</sup>.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup>
 

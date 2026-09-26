@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Make your Bash more useful
 slug: make-your-bash-more-useful
+lang: en
 author: Martin Thoma
 date: 2012-11-29 11:15:56.000000000 +01:00
 category: Code
@@ -15,7 +15,7 @@ computer I've connected to via SSH looked like this:
 
 <h2>Change the prompt</h2>
 I think it's much more useful to see the path you're currently using.
-To get the current path in your bash promt, you have to add the
+To get the current path in your bash prompt, you have to add the
 following snippet to your `.bashrc`:
 
 ```bash

@@ -26,7 +26,7 @@ situation. It might also be similar to the StumbleUpon rating.
   100&thinsp;000&thinsp;000 ratings of movies by those users.
 * **Missing Data**: Although you have a lot of ratings, a complete dataset
   would be <span markdown="0">$17\cdot 10^3 \cdot 480 \cdot 10^3 = 8160 \cdot 10^6$</span>
-  ratings. This means you only have about 12% of all possible ratings. There
+  ratings. This means you only have about 1.2% of all possible ratings. There
   is a lot of data missing.
 
 
@@ -42,7 +42,7 @@ The hidden units (about 100) model dependencies between movie ratings.
 
 When you now want to predict the missing ratings, you can just perform a
 sampling in the user-specific RBM. You calculate the values of the hidden units,
-then you have a vector for this user which describes the users preferences.
+then you have a vector for this user which describes the user's preferences.
 You add the missing movies with the weights from the other users and sample
 back.
 

@@ -221,7 +221,7 @@ not been tested for that specific type of protection.
 * iOS App: [TP-Link Tapo](https://apps.apple.com/us/app/tp-link-tapo/id1472718009) (4.8 stars, 9.4K reviews)
 * [Home Assistant Integration](https://www.home-assistant.io/integrations/tplink/) ([YouTube](https://www.youtube.com/watch?v=Op-5fnLLaM4))
 * Local storage: ✅ (microSD card)
-* Cloud storage: ✅ (free for 30 days, then $2.99/month)
+* Cloud storage: ✅ (free for 30 days, then \$2.99/month)
 * Local access: ✅
 * Remote access: ✅
 

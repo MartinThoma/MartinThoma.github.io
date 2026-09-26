@@ -14,7 +14,7 @@ featured_image: logos/web.png
 Keeping my blog online costs money. When you like my blog, you should support
 me in keeping it online. You can either send money directly to me via PayPal,
 buy me a gift via Amazon, or [become a Medium member](https://martinthoma.medium.com/membership)
-for which I'll get a referal bonus as long as you are a member.
+for which I'll get a referral bonus as long as you are a member.
 
 
 ## PayPal
@@ -84,7 +84,7 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
     <tr>
         <td>10.07.2013</td>
         <td><span class="price">28.80&nbsp;<span class="currency">Euro</span></span></td>
-        <td>Domain "martin-thoma.com" for&nbsp;12.09.2013 - 12.09.2014&nbsp;via Knallhart.de (Hosting + Domain)</td>
+        <td>Domain "martin-thoma.de" for&nbsp;12.09.2013 - 12.09.2014&nbsp;via Knallhart.de (Hosting + Domain)</td>
     </tr>
     <tr>
         <td>17.07.2013</td>
@@ -94,7 +94,7 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
     <tr>
         <td>22.01.2014</td>
         <td><span class="price">10.87&nbsp;<span class="currency">US&#8209;Dollar</span></span></td>
-        <td>Domain Registration for write math.com via namecheap.com for 1 year</td>
+        <td>Domain Registration for write-math.com via namecheap.com for 1 year</td>
     </tr>
     <tr>
         <td>18.06.2014</td>

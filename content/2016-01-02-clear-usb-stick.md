@@ -42,8 +42,8 @@ See also: [How to format a USB flash drive?](http://askubuntu.com/q/22381/10425)
 
 ## Add README
 
-In case I lose the stick, adding a README.txt makes with a way to contact me
-makes it most likely that I get the stick back.
+In case I lose the stick, adding a README.txt with a way to contact me
+makes it more likely that I get the stick back.
 
 ```text
 Dieser USB-Stick ging verloren.

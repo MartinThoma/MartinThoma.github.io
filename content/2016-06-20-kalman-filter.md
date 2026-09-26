@@ -24,7 +24,7 @@ Source: [gps.gov](http://www.gps.gov/systems/gps/performance/accuracy/), see als
 The Kalman filter is the optimal linear filter (<span style="color:blue;">BLUE</span>: <span style="color:blue;">B</span>est <span style="color:blue;">L</span>inear <span style="color:blue;">U</span>nbiased <span style="color:blue;">E</span>stimator). This means,
 there is no estimator for the state which has a linear state model which is
 better. It assumes the noise is Gaussian. If the noise is Gaussian, then the Kalman filter
-minimizes the mean squared error of the estimated state parameters. So it in
+minimizes the mean squared error of the estimated state parameters. So in
 this case it is not only the best linear filter, but the best filter. The name
 "filter" is used because the Kalman filter removes (filters) the noise.
 
@@ -54,8 +54,8 @@ with
   vectors,
 * $A_k \in \mathbb{R}^{n_x \times n_x}$ being the system matrix,
 * $B_k \in \mathbb{R}^{n_x \times n_a}$ being the control matrix,
-* $a_k \in \mathbb{R}^{n_a}$ being the control matrix vector ($a$ for action),
-* $r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}$ with $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$
+* $a_k \in \mathbb{R}^{n_a}$ being the control vector ($a$ for action),
+* $r_k^{(s)} \sim \mathcal{N}(0, C_k^{(r_s)})$ with $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$
   being Gaussian noise. $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$ is called
   the process error covariance matrix.
 
@@ -67,12 +67,12 @@ $$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$
 with
 
 * $z_k \in \mathbb{R}^{n_m}$: The measurement vector
-* $r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}$ with $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$
+* $r_k^{(r_m)} \sim \mathcal{N}(0, C_k^{(r_m)})$ with $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$
   being Gaussian noise. $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$ is called
-  the measurment noise covariance matrix.
+  the measurement noise covariance matrix.
 * $H \in \mathbb{R}^{n_m \times n_x}$: A matrix which transforms the state
   vector $\mathbf{x}$ to a measurement vector. This matrix is a constant over
-  the whole process. It is most likely to have only 0s and 1s as entrys.
+  the whole process. It is most likely to have only 0s and 1s as entries.
 
 
 ### Step 3: The algorithm
@@ -87,13 +87,13 @@ The matrices which were not explained so far are:
 * $P_k \in \mathbb{R}^{n_x \times n_x}$ is the state vector covariance matrix.
   It is the uncertainty.
 * $K_k \in \mathbb{R}^{n_x \times n_m}$: The Kalman gain. Higher values
-  indicate that we give more trust to the measurment. Lower values indicate
+  indicate that we give more trust to the measurement. Lower values indicate
   that we give more trust to our last prediction. If the measurement
   uncertainty $C_k^{(m)}$ is small compared to the state uncertainty $P_k^{(P)}$,
   then the Kalman Gain is big. So we will rely more on the measurement and
-  less of what we predicted before.
+  less on what we predicted before.
 
-The complexity of the Kalman filter is $\mathcal{O}(n_z^{2.4} + n_x^2)$ According to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor $2.4$ comes from matrix
+The complexity of the Kalman filter is $\mathcal{O}(n_z^{2.4} + n_x^2)$ according to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor $2.4$ comes from matrix
 inversion.
 
 
@@ -147,14 +147,14 @@ $$\mathbf{x}^{(P)} = \underbrace{\begin{pmatrix}1& 0 & t & 0\\
 The choice of the initial uncertainty covariance matrix
 $P_0 \in \mathbb{R}^{4 \times 4}$ / the initial state $\mathbf{x}$ doesn't
 matter too much. The Kalman filter algorithm will fix both over enough steps.
-Common choices are the zero-vector for $\mathbb{x}$ and $P_0 = c \cdot I$
+Common choices are the zero-vector for $\mathbf{x}$ and $P_0 = c \cdot I$
 as the covariance matrix with the identity matrix $I$ and $c$ being big
 compared with the noise.
 
 For this example, a reasonable choice is the diagonal matrix $$P_0 = \begin{pmatrix}a_1 & 0 & 0 & 0\\
 0 & a_2 & 0 & 0\\
 0 & 0 & a_3 & 0\\
-0 & 0 & 0 & a_4\end{pmatrix}$$ with $a_1 = a_2 = 20000000$ as the earths diameter is about $40000\textrm{ km}$ and $a_3=a_4=90$ as going more than $324\textrm{ km/h}$ is extremely rarely going to happen for a car.
+0 & 0 & 0 & a_4\end{pmatrix}$$ with $a_1 = a_2 = 20000000$ as the earth's circumference is about $40000\textrm{ km}$ and $a_3=a_4=90$ as going more than $324\textrm{ km/h}$ is extremely rarely going to happen for a car.
 
 For the initial state parameter, you could wait two time steps:
 $$\mathbf{x}_0 = \begin{pmatrix}x^{(M)}_{-1}\\
@@ -201,7 +201,7 @@ $$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$
 $$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$
 
 
-## Miscallenious facts
+## Miscellaneous facts
 
 ### Error estimates
 
@@ -215,10 +215,10 @@ $$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$
 
 It has the property:
 
-$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$
+$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = {\det(A)}^2 \cdot \det(P)$$
 
 So if the determinant of $P$ is how we say if it gets bigger, then it will get
-bigger in the prediction step if $\det(A) > 0.5$. Otherwise, it might still
+bigger in the prediction step if $|\det(A)| > 1$. Otherwise, it might still
 get bigger as the system noise $C_{k}^{(s)}$ gets added.
 
 In the filter step, things are more complicated. I don't know what to write
@@ -244,7 +244,7 @@ measurement $z_k$.
 > What is the value of $K_k$ if the sensor is as bad as possible?
 
 If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
-huge term is close to 0. so the Kalman gain $K_k$ is close to 0. This means
+huge term is close to 0. So the Kalman gain $K_k$ is close to 0. This means
 neither the state $x_k$ nor the error estimate $P_k$ will change.
 
 
@@ -295,7 +295,7 @@ Assumptions:
 <ul>
     <li>$p_k$ is differentiable.</li>
     <li>The non-linear part of $p_k$ in the environment of the linearization
-        point is neglectable.</li>
+        point is negligible.</li>
 </ul>
 
 One linearizes around nominal values $\bar{x}_k, \bar{a}_k$.
@@ -354,7 +354,7 @@ There are several lectures at KIT which introduce Kalman filters:
 * Lokalisierung mobiler Agenten
 * [Analyse und Entwurf multisensorieller Systeme](http://www.ite.kit.edu/lehrveranstaltungen_analyse_und_entwurf_multisens_sys.php)
 
-There is also an series of YouTube videos I can recommend:
+There is also a series of YouTube videos I can recommend:
 
 <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/CaCcOwJPytQ?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT" frameborder="0" allowfullscreen></iframe>
 

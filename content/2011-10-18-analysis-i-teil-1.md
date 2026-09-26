@@ -32,8 +32,8 @@ $\underbrace{: \Leftrightarrow}_\text{"genau dann"}$, z.B. $M \subseteq N : \Lef
 $\forall$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Allquantor</a>, sprich "für alle" oder "für jedes"<br/>
 $\exists$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Existenzquantor</a>, sprich "es gibt mindestens ein" oder "es existiert"
 
-<h2>Reele Zahlen</h2>
-Die Grundmenge der Analysis ist die Menge $\mathbb{R}$, die Menge der reelen Zahlen. Diese führen wir durch die folgenden 15 Axiome ein.
+<h2>Reelle Zahlen</h2>
+Die Grundmenge der Analysis ist die Menge $\mathbb{R}$, die Menge der reellen Zahlen. Diese führen wir durch die folgenden 15 Axiome ein.
 
 <h3>Körperaxiome</h3>
 In $\mathbb{R}$ seien zwei Verknüpfungen "+" und "&middot;" gegeben. Sie ordnen jedem Paar $a, b \in \mathbb{R}$ genau ein $ab := a \cdot b \in \mathbb{R}$ zu. Dabei soll gelten:

@@ -11,7 +11,7 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen.</div>
 
-In der Vorlesung 'Probabilistische Planung' führt in das Thema Reinforcement
+Die Vorlesung „Probabilistische Planung“ führt in das Thema Reinforcement
 Learning ein. Dabei werden drei Themenfelder besprochen:
 
 * Markov'sche Entscheidungsprobleme (MDPs)
@@ -89,7 +89,7 @@ sowie die value- und policy iteration zu nennen.
     <td>9</td>
     <td id="2016-06-15">15.06.2016</td>
     <td>POMDPs</td>
-    <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem; <abbr title="Linearer Quadratischer Regulator">LQR</abbr>, Endliche Planungsprobleme</td>
+    <td>Lineare Planungsprobleme (Kalman-Filter); Separationsproblem; <abbr title="Linearer Quadratischer Regulator">LQR</abbr>, Endliche Planungsprobleme</td>
 </tr>
 <tr>
     <td>10</td>
@@ -138,7 +138,7 @@ Slides: `ProPlan-1-Anschrieb.pdf`
 
 <dl>
   <dt><dfn>$\sigma$-Algebra</dfn></dt>
-  <dd>Sei $S$ eine Menge und $\mathcal{A}$ ein Menge aus Teilmengen von $S$.
+  <dd>Sei $S$ eine Menge und $\mathcal{A}$ eine Menge aus Teilmengen von $S$.
       $\mathcal{A}$ heißt eine $\sigma$-Algebra über $S$, genau dann, wenn
       gilt:
 
@@ -156,7 +156,7 @@ Slides: `ProPlan-1-Anschrieb.pdf`
 
       <ul>
           <li>Nicht-negativität: $\forall M \in \mathcal{A}: P(M) \geq 0$</li>
-          <li>Normiertheit: $\forall P(S) = 1$</li>
+          <li>Normiertheit: $P(S) = 1$</li>
           <li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
       </ul>
 
@@ -185,11 +185,11 @@ Slides: `11.05.2016`
   <dd>Ein MDP wird durch 8&nbsp;Eigenschaften gekennzeichnet:
 
       <ol>
-          <li>Zustandsraum $X \subseteq \mathbb{R}^n$ mit Zuständen
+          <li>Zustandsraum $\mathcal{X} \subseteq \mathbb{R}^n$ mit Zuständen
               $x \in \mathcal{X}$.</li>
           <li>Diskrete Zeitschritte $k=0, 1, \dots, N$ mit Endzeitpunkt
               $N$. Dabei ist der 0-te Schritt gegeben.</li>
-          <li>Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.</li>
+          <li>Initialzustand $x_0 \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.</li>
           <li>Nichtleere Aktionsmenge $A_k(x_k) \subseteq A$ mit Aktion $a_k$.
               Häufig $A_k(x_k)=A$ für alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)</li>
           <li>Übergangswahrscheinlichkeit $x_{k+1} \sim P_x(\cdot | x_k, a_k)$.<br/>
@@ -209,7 +209,7 @@ Slides: `11.05.2016`
           <li>Der Zustand ist für jedes $k$ <strong>direkt beobachtbar</strong>.
 
               <ul>
-                  <li><strong>Vor</strong> Anwendung bzw Auswahl einer Aktion
+                  <li><strong>Vor</strong> Anwendung bzw. Auswahl einer Aktion
                       $a_k$ zum Zeitpunkt $k$
                       $$x_{k+1} \sim P_x(\cdot | x_k, a_k)$$
                       wobei $x_k, a_k$ exakt bekannt sind.</li>
@@ -234,7 +234,7 @@ Slides: `11.05.2016`
       Präferenzrelation, wenn gilt:
       <ul>
           <li>$\geq$ ist vollständig: $\forall x, y \in \mathcal{X}: x \geq y \lor y \geq x$</li>
-          <li>$\geq$ ist transitiv: $\forall x, y, z \in \mathcal{X}: x \geq y \land y \geq z \Rightarrow x \leq z$</li>
+          <li>$\geq$ ist transitiv: $\forall x, y, z \in \mathcal{X}: x \geq y \land y \geq z \Rightarrow x \geq z$</li>
       </ul></dd>
   <dt><dfn>Indifferenz</dfn></dt>
   <dd>Zwei Elemente $x, y \in \mathcal{X}$ heißen bzgl. einer Präferenzrelation
@@ -315,8 +315,8 @@ Slides: `11.05.2016`
        Eine Relation $\geq$ auf $P$ erfüllt die Von-Neumann-Morgenstern Axiome
        genau dann, wenn eine Funktion $u: X \rightarrow \mathbb{R}$ existiert,
        sodass
-       $$P \geq Q \Leftrightarrow \mathbb{E}_P (u(x)) \geq E_Q (u(x))$$
-       gilt. Die Funktion $u$ ist bist auf affine Transformationen
+       $$P \geq Q \Leftrightarrow \mathbb{E}_P (u(x)) \geq \mathbb{E}_Q (u(x))$$
+       gilt. Die Funktion $u$ ist bis auf affine Transformationen
        $$c \cdot u(x) + d \text{ mit } c>0$$
        eindeutig.
 
@@ -327,7 +327,7 @@ Slides: `11.05.2016`
       <ul>
           <li>Die Nutzenfunktion kann nicht systematisch konstruiert werden.</li>
           <li>Die Nutzenfunktion bzw. -theorie stimmt nicht mit der
-              Menschlichen Intuition überein (vgl. <a href="#allais-paradoxon">Allais Paradoxon</a>)</li>
+              menschlichen Intuition überein (vgl. <a href="#allais-paradoxon">Allais Paradoxon</a>)</li>
           <li>Verteilungen müssen bekannt sein.</li>
       </ul>
 
@@ -335,7 +335,7 @@ Slides: `11.05.2016`
 
   </dd>
   <dt><dfn>Optimierungsproblem</dfn></dt>
-  <dd>Ein allgemeines optimierungsproblem besteht aus einer Optimierungsvariable
+  <dd>Ein allgemeines Optimierungsproblem besteht aus einer Optimierungsvariable
       $x \in \mathbb{R}^n$, für welche ein "bester" Parameter gewählt werden
       soll. Dafür gibt es eine Bewertungsfunktion $f$ (Zielfunktion):
 
@@ -351,14 +351,14 @@ Slides: `11.05.2016`
         Siehe auch: <a href="../optimization-basics">Optimization Basics</a>
 
       </dd>
-  <dt><dfn>Positiv Definite Matrix</dfn></dt>
+  <dt><dfn>Positiv definite Matrix</dfn></dt>
   <dd>
 
       Eine Matrix $A \in \mathbb{R}^{n \times n}$ heißt positiv definit, wenn
       $$x^T A x > 0 \quad \forall x \in \mathbb{R}^n \setminus \{0\}$$
 
-      Äquivalent gilt: $A$ heißt positiv definit, wenn alle Eigenwerte von $A$
-      positiv definit sind.
+      Äquivalent gilt für symmetrische $A$: $A$ ist genau dann positiv definit, wenn alle
+      Eigenwerte von $A$ positiv sind.
 
   </dd>
   <dt><dfn>Notwendige Bedingung für optimale Lösung</dfn></dt>
@@ -394,7 +394,7 @@ Slides: `11.05.2016`
 
       $$\frac{\partial x^T A}{\partial x} = \frac{\partial A x}{\partial x} = A$$
 
-      $$\frac{\partial x^T A x}{\partial x} = 2 A x$$
+      $$\frac{\partial x^T A x}{\partial x} = (A + A^T) x = 2 A x \quad \text{(für symmetrisches } A)$$
 
   </dd>
   <dt><dfn id="convex-optimization">Konvexe Optimierungsprobleme</dfn></dt>
@@ -449,7 +449,7 @@ Slides: `11.05.2016`
       <ul>
           <li>Taylor-Reihenentwicklung von $f$ um $x_k$:
 
-              $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ für kleine } \alpha_k} + O(\alpha_k)$$
+              $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } o(\alpha_k) \text{ für kleine } \alpha_k} + o(\alpha_k)$$
               Wähle dann $\alpha_k \nabla f(x_k)^T \cdot d_k < 0 \Rightarrow$
               $f(x_{k+1}) < f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
               müssen einen Winkel von mehr als 90° einschließen.
@@ -468,7 +468,7 @@ Slides: `11.05.2016`
       <ul>
           <li>$\alpha_k$ konstant</li>
           <li>$\alpha_k$ (streng) monoton fallend</li>
-          <li>Liniensuche, d.h. Optimierung bzgl. $\alpha_k$: $\alpha_k^* = \text{arg }\min_{\alpha > 0} f(x_k + \alpha_k d_k)$</li>
+          <li>Liniensuche, d.h. Optimierung bzgl. $\alpha_k$: $\alpha_k^* = \text{arg }\min_{\alpha > 0} f(x_k + \alpha d_k)$</li>
       </ul>
 
   </dd>
@@ -476,7 +476,7 @@ Slides: `11.05.2016`
   <dd style="background-color:#ffefef;">Eine Bellman-Gleichung stellt die Lösung eines Problems rekursiv dar.
       Sie zeigt, dass und wie man die Lösung eines komplexen Problems aus
       Lösungen von Teilproblemen aufbauen kann.<br/>
-      Die Belmann-Gleichungen lauten:
+      Die Bellman-Gleichungen lauten:
       $$
       \begin{align}
 J_N(x_n) &= g_N(x_N)\\
@@ -491,7 +491,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       $$V(s) = \max_{a} (R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s'))$$
       where $V(s)$ is the value of the state $s$, $R(s,a)$ is the reward
       you get when you apply action $a$ in state $s$, $\gamma \in [0, 1]$ is
-      the discount factor, $T(s, a, s') \in [0, 1]$ is the transormation matrix
+      the discount factor, $T(s, a, s') \in [0, 1]$ is the transition function
       which gives you the probability that you will end up in state $s'$ when
       you apply action $a$ in state $s$.</dd>
   <dt><dfn id="differentiation-rules">Differentiation Rules</dfn></dt>
@@ -501,15 +501,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       \begin{align}
           \frac{\partial x^T a}{\partial x} &= \frac{\partial a^T x}{\partial x} = a\\
           \frac{\partial x^T A}{\partial x} &= \frac{\partial A x}{\partial x} = A \qquad A \in \mathbb{R}^{n \times n}\\
-          \frac{\partial x^T A x}{\partial x} &= 2 A x \qquad A \in \mathbb{R}^{n \times n}
+          \frac{\partial x^T A x}{\partial x} &= 2 A x \qquad A \in \mathbb{R}^{n \times n} \text{ symmetric}
       \end{align}
       $$
 
   </dd>
   <dt><dfn id="q-function">$Q$-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
   <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den
-      erwarteten Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn
-      die Aktion $a$ ausgeführt wird an.<br/>
+      erwarteten Wert eines Zustandes $s$ unter der Strategie $\pi$ an, wenn
+      die Aktion $a$ ausgeführt wird.<br/>
       <br/>
       Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$
 
@@ -560,15 +560,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <ul>
             <li>$N=1$: Gierige Planung, ein einschrittiges Planungsproblem.
                        Hat geringe Komplexität, aber zukünftige Effekte werden
-                       nicht berücksichtig. Bei submodularen Kostenfunktionen
+                       nicht berücksichtigt. Bei submodularen Kostenfunktionen
                        kann man die Kosten, die durch die gierige Planung
                        entstehen, abschätzen.</li>
             <li>$N<\infty$: Wurde bisher betrachtet und betrifft die meisten
                        Planungsprobleme. Nachteil ist, dass die Strategie $\pi_k$
-                       zeitinvariant ist.</li>
+                       zeitvariant ist.</li>
             <li>$N = \infty$: Bei Planungsproblemen mit sehr langem Horizont,
-                       wenn ein Ende nicht abzulesen ist. Beispiele sind die
-                       kürzeste-Wege-Suche sowie bei Reinforcement Learning.
+                       wenn ein Ende nicht abzusehen ist. Beispiele sind die
+                       kürzeste-Wege-Suche sowie Reinforcement Learning.
                        Probleme sind unendliche Kosten und die Zeitabhängigkeit
                        der Schrittkosten und Übergangswahrscheinlichkeiten.</li>
         </ul>
@@ -588,7 +588,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <ol>
             <li>Übergangswahrscheinlichkeiten und Schrittkosten sind
-                Zeitinvariant, dh. $f_{ij}^k(a) = f_{ij}(a)$ und
+                zeitinvariant, d.h. $f_{ij}^k(a) = f_{ij}(a)$ und
                 $g_k(i,a) = g(i, a) \forall k$.</li>
             <li>Es gilt die optimale Wertefunktion $J^*$ zu finden, welche
                 durch
@@ -608,7 +608,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         $$
         \begin{align}
-        J_k(1) &= \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))\\
+        J_k(i) &= \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))\\
         J_0(i) &= g(i)
         \end{align}
         $$
@@ -634,7 +634,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         One can show: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ for arbitrary } J$$
 
         Hence successive applications of the Bellman operator are guaranteed
-        to converge against the global optimum.
+        to converge to the global optimum.
     </dd>
     <dt><dfn>Strategiebewertung</dfn></dt>
     <dd>$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
@@ -644,7 +644,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$(T J)(i) = (T_{\pi^*} J)(i)$$
     </dd>
     <dt><dfn>Wertevektor</dfn></dt>
-    <dd>$$J = (J(1), \dots, J(nx))^T$$</dd>
+    <dd>$$J = (J(1), \dots, J(n_x))^T$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kontraktion_(Mathematik)"><dfn>Kontraktion</dfn></a></dt>
     <dd>Eine Funktion $f: M \rightarrow M$ in einem metrischen Raum $(M, d)$
         heißt Kontraktion genau dann, wenn
@@ -653,8 +653,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><a href="https://de.wikipedia.org/wiki/Fixpunktsatz_von_Banach"><dfn>Banach'scher Fixpunktsatz</dfn></a></dt>
     <dd>
 
-        Sei $(M, d)$ ein vollständig metrischer Raum und $f$ eine Kontraktion,
-        welche Lipschitz-Stetig ist mit Konstante $0 \leq \lambda < 1$.
+        Sei $(M, d)$ ein vollständiger metrischer Raum und $f$ eine Kontraktion,
+        welche Lipschitz-stetig ist mit Konstante $0 \leq \lambda < 1$.
         Dann gilt:
 
         <ul>
@@ -675,12 +675,12 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$d(T^k_\pi J, T^k J') \leq \alpha^k \cdot d (J, J')$$
 
         Das bedeutet, der Bellman-Operator ist
-        eine Kontraktion und laut dem Banachschem Fixpunktsatz gibt es daher
+        eine Kontraktion und laut dem Banachschen Fixpunktsatz gibt es daher
         einen Fixpunkt.
     </dd>
     <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
-        where $J^*$ is the optimal value, $T$ is the Bellman operator an $N \in \mathbb{N}_{\geq 1}$
+        where $J^*$ is the optimal value, $T$ is the Bellman operator and $N \in \mathbb{N}_{\geq 1}$
         is the planning horizon. $g$ is the cost function for each step.<br/>
 
         <figure>
@@ -692,7 +692,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         with $J$.
 
         </dd>
-    <dt><dfn>Satz von der Sationären Strategie</dfn></dt>
+    <dt><dfn>Satz von der Stationären Strategie</dfn></dt>
     <dd>
 
         <ol>
@@ -700,7 +700,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 dazugehörige Wertevektor $J_\pi$ die Fixpunktgleichung
                 $J_\pi = T_\pi J_\pi$.
                 Dabei ist $J_\pi$ der eindeutige Fixpunkt.</li>
-            <li>Eine sationäre Strategie $\pi^*$ ist genau dann optimal, wenn
+            <li>Eine stationäre Strategie $\pi^*$ ist genau dann optimal, wenn
                 $\pi^*$
 
                 $$T J^* = T_{\pi^*} J^*$$
@@ -711,7 +711,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Der Beweis für (1) folgt aus dem Banach'schen Fixpunktsatz.
     </dd>
     <dt><dfn>Strategie-Iteration</dfn> (<dfn id="policy-iteration">Policy iteration</dfn>)</dt>
-    <dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
+    <dd>Man kann beobachten, dass bei der Werte-Iteration die Strategie schneller
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
 
@@ -764,7 +764,7 @@ $$
         <ul>
             <li>Die policy iteration konvergiert in weniger Schritten.</li>
             <li>Jeder Schritt der policy iteration ist teurer als in der
-                Werteoperation, da die Strategieauswertung die Lösung eines
+                Werte-Iteration, da die Strategieauswertung die Lösung eines
                 LGS ist (in $\mathcal{O}(n_x^3)$). Außerdem ist
                 die policy iteration nie für $\alpha=1$ lösbar (kann auch
                 sonst passieren).</li>
@@ -772,7 +772,7 @@ $$
     </dd>
     <dt><dfn id="label-correction-algorithm">Label-Korrektur-Algorithmus</dfn></dt>
     <dd>Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
-        kürzeste-Wege-Suche dient. Spezialfälle von diesem sind die
+        kürzeste-Wege-Suche. Spezialfälle von diesem sind die
         Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a> (K ist Priority-Queue), der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
         Branch &amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
@@ -790,7 +790,7 @@ $$
 
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
-    <dd>Eine Diagramm welches anzeigt welche Zustände über die Zeit
+    <dd>Ein Diagramm, welches anzeigt, welche Zustände über die Zeit
         gewählt werden.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"><dfn id="pontryagins-minimum-principle">Pontryagin's Minimum-Prinzip</dfn></a> (<dfn>Maximumprinzip</dfn>)</dt>
     <dd>Das Pontryagin'sche Minimum-Prinzip könnte als die russische
@@ -808,8 +808,8 @@ $$
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn id="hamilton-function">Hamilton-Funktion</dfn></a></dt>
     <dd>Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
-        Bedingung für die optimale Lösung eines Steuerungsproblems ist. Damit
-        eine Lösung eines Steuerungsprobelms optimal ist, muss die Lösung
+        Bedingung für die optimale Lösung eines Steuerungsproblems dar. Damit
+        eine Lösung eines Steuerungsproblems optimal ist, muss die Lösung
         die Hamilton-Funktion minimieren.<br/>
         <br/>
         Die Aktionen $a_{0:N-1}$ sollen so gewählt werden, dass
@@ -827,7 +827,7 @@ $$
         &\underset{x_{0:N}, a_{0:N}}{\operatorname{minimize}}& & J(x_{0:N}, a_{0:N-1}) \\
         &\operatorname{subject\;to}
         &&x_{k+1} = h_k(x_k, a_k), \quad k = 0, \dots,N-1\\
-        &&&x_0 = \text{cost} = c
+        &&&x_0 = \text{const} = c
         \end{align}$$
 
         Es ergibt sich die Lagrange-Funktion
@@ -855,10 +855,10 @@ $$
 
         </dd>
     <dt><dfn>Lineares Zustandsmodell</dfn></dt>
-    <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
+    <dd>$$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
-    <dd>Der LQR ist ein Regler (Regulator) für einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion. Ein Reger will typischerweise den
+    <dd>Der LQR ist ein Regler (Regulator) für einen linearen Zustandsraum
+        mit quadratischer Kostenfunktion. Ein Regler will typischerweise den
         Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
         Zustand bestmöglich schätzen will.<br/>
         <br/>
@@ -901,13 +901,13 @@ $$
     <dd>Die Sicherheitsäquivalenz besagt, dass im Fall eines linearen Modells
         mit einer quadratischen Zielfunktion und additivem Rauschen die
         optimale Lösung des Kontroll-Problems die Gleiche ist, wie wenn das
-        Rauschen nicht vorhande wäre. Anders gesagt:<br/>
+        Rauschen nicht vorhanden wäre. Anders gesagt:<br/>
 
         Die Verstärkungsmatrix $L_k$ und somit die Strategie $\pi_k^*$
         sind unabhängig vom Rauschen $r_k^{(s)}$.<br/>
         <br/>
-        Die selbe optimale Strategie ergibt sich bei Betrachtung des
-        korrespondierendne deterministischen Zustandsraummodel
+        Dieselbe optimale Strategie ergibt sich bei Betrachtung des
+        korrespondierenden deterministischen Zustandsraummodells
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
@@ -933,8 +933,8 @@ $$
                     <li>Rauschen von Sensoren</li>
                     <li>Indirekt: Position ist interessant, aber man kann
                         z.B. mit GPS nur die Laufzeiten ermitteln.</li>
-                    <li>Niederdimensional: Messgröße ist niedrigdimensonaler
-                        als die interessierte Größe. Erst durch mehrere
+                    <li>Niederdimensional: Messgröße ist niedrigdimensionaler
+                        als die interessierende Größe. Erst durch mehrere
                         Messungen gelangt man an die interessante Größe.</li>
                 </ul></li>
         </ul>
@@ -992,7 +992,7 @@ $$
 
                 $$J_k(\mathcal{I}_k) = \min_{a_k} (\mathbb{E}_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ für } k=0, 1, \dots, N-1$$
 
-                Die Lösung ist eine öptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
+                Die Lösung ist eine optimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
 
                 Nur in Ausnahmefällen geschlossen lösbar, z.B. lineare Modelle.
 
@@ -1002,26 +1002,26 @@ $$
     </dd>
     <dt><dfn id="statistik">Statistik</dfn></dt>
     <dd>Seien $S=\{z_1, \dots, z_n\}$ Stichproben (Samples) einer Zufallsvariablen
-        $z \sim P(z | \Theta)$ mit unbkanntem Parameter $\Theta$. Eine
+        $z \sim P(z | \Theta)$ mit unbekanntem Parameter $\Theta$. Eine
         Statistik ist eine Funktion $T(S)=t$, welche zwar von $S$, nicht aber
         von $\Theta$ abhängt.<br/>
         <br/>
-        Konstante Funktionen, minimum, maximum, durschschnitt, median, ...</dd>
+        Konstante Funktionen, Minimum, Maximum, Durchschnitt, Median, ...</dd>
     <dt><dfn>Hinreichende Statistik</dfn> (engl. <dfn id="sufficient-statistic">sufficient statistic</dfn>)</dt>
     <dd>Ziel: Kompression, d.h. Darstellung von $\mathcal{I}_k$ von geringer
         Dimension.<br/>
         <br/>
         Eine Statistik $T$ heißt hinreichend für $\Theta$, wenn keine weitere
-        Statstik auf $S$ existiert, welche zusätzliche Informationen über
+        Statistik auf $S$ existiert, welche zusätzliche Informationen über
         $\Theta$ liefert.<br/>
         <br/>
-        Ist $T(S) = t$ gegeben, dann liefert die volle Kentnis von $S$ keine
+        Ist $T(S) = t$ gegeben, dann liefert die volle Kenntnis von $S$ keine
         Zusatzinformation über $\Theta$.<br/>
         <br/>
         Beispiel:
         <ul>
             <li>Der Stichprobenmittelwert $\hat{z}$ von $n$ unabhängigen
-                Stichproben $z_i$ einer normalverteilten Zuvallsvariabeln
+                Stichproben $z_i$ einer normalverteilten Zufallsvariablen
                 $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
                 Statistik für $\mu$.</li>
         </ul>
@@ -1081,14 +1081,14 @@ $$
             </li>
             <li>$X = \mathbb{R}^{n_x}, A=\mathbb{R}^{n_k}, Z=\mathbb{R}^{n_z}$</li>
             <li>Ziel: Überführung des Zustandes $x_0$ in Zielzustand $x_t = [0, ..., 0]^T$
-                durch Minimierung der quatratischen Kostenfunktion
+                durch Minimierung der quadratischen Kostenfunktion
                 $\mathbb{E}(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
 
-                mit symmetrisch, positiv definiten Gewichtungsmatrizen
+                mit symmetrischen, positiv definiten Gewichtungsmatrizen
                 $Q_N, Q_k, R_k$ und Informationsvektor $\mathcal{I}_N$.
 
 
-                Dies ist ein lineares, quadratisches Gauß'sches Planungsprobelm (LQG)</li>
+                Dies ist ein lineares, quadratisches Gauß'sches Planungsproblem (LQG)</li>
         </ul>
 
         Planer besteht aus 2 Komponenten:
@@ -1146,17 +1146,17 @@ $$
     <dd>Unter einem Open-loop Control system (offener Regelkreis) versteht man
         ein technisches System welches ohne Zustandsrückführung, also ohne
         Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.<br/>
-        Beispiele sind Spühlmaschinen und Rasensprenger.<br/>
+        Beispiele sind Spülmaschinen und Rasensprenger.<br/>
         In der Open-loop Planung wird ein optimaler Plan bestimmt:
         $$a_{0:N-1}^* = \text{arg}\min_{a_{0:N-1}} \mathbb{E}\{g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, a_k)\}$$
-        Da der Plan "blind", also ohne Zustandsrückführung, angwedet wird sind
+        Da der Plan "blind", also ohne Zustandsrückführung, angewendet wird, sind
         deterministische Planungsverfahren anstelle von DP anwendbar.
     </dd>
     <dt><dfn>Closed-loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
     <dd>Unter einem Closed-loop control system (geschlossenem Regelkreis)
         versteht man ein technisches System welches mit Zustandsrückführung, also
         mit Messung des Zustands während der Regelung, arbeitet.<br/>
-        Beispiele sind System im Auto zum halten der Geschwindigkeit oder
+        Beispiele sind Systeme im Auto zum Halten der Geschwindigkeit oder
         Rasensprenger welche die Feuchtigkeit überprüfen.<br/>
         Closed-loop Planung kann mit dynamischer Programmierung gelöst werden.
         Geschlossene Lösung nur in Ausnahmefällen, sonst numerische
@@ -1176,7 +1176,7 @@ $$
         <ol>
             <li>$P(x_k | I_k)$ wird berechnet.</li>
             <li>$a_{k:N-1}^* \gets \arg \min \mathbb{E}(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
-            <li>Wende $a_{k:N-1}^*$ und gehe wieder zu 1</li>
+            <li>Wende $a_k^*$ an und gehe wieder zu 1</li>
         </ol>
 
         Es gilt:
@@ -1205,7 +1205,7 @@ $$
         </ul>
 
         Hier wird der Plan aktualisiert; OLF minimiert die Kosten garantiert
-        stärker als OL-Planung (gleichheit im deterministischen Fall)
+        stärker als OL-Planung (Gleichheit im deterministischen Fall)
     </dd>
     <dt><dfn id="linearization">Linearisierung</dfn> (<dfn>Extended Kalman Filter</dfn>, <dfn id="ekf">EKF</dfn>)</dt>
     <dd>Siehe auch: <a href="../kalman-filter/#extended-kalman-filter">EKF</a>.</dd>
@@ -1214,7 +1214,7 @@ $$
 
         $$H(x|z, a) = - \int_z f(z|a) \cdot \int_{\mathcal{X}} f(x|z, a) \cdot \log (f(x|z, a)) \mathrm{d}x \mathrm{d} z$$
 
-        Die differentielle Entropie erweitert die Schannon-Entropie auf den
+        Die differentielle Entropie erweitert die Shannon-Entropie auf den
         kontinuierlichen Fall. Unschön ist, dass sie negativ werden kann.<br/>
         <br/>
         Sie bewertet Unsicherheit anhand der "räumlichen" Konzentration von
@@ -1238,11 +1238,11 @@ $$
             <li>Messmodell: $f(z_k | x_k, a_k)$ bzw. $z_k = h_k(x_k, a_k, v_k)$</li>
             <li>Schrittkosten $g_k$, welche den Informationsgewinn
                 durch die Wahl einer geeigneten Konfiguration $a_k$ bewerten.<br/>
-                Dabei kann man z.B. Kovarianzbasiert vorgehen, also die
+                Dabei kann man z.B. kovarianzbasiert vorgehen, also die
                 räumliche Ausdehnung der Kovarianzmatrix als Bewertungsgrundlage
                 verwenden. Die Spur der Kovarianzmatrix ist proportional
                 zum Umfang, die Determinante ist proportional zur Fläche.<br/>
-                Alternativ kann man Informationstheoretisch vorgehen. So ist
+                Alternativ kann man informationstheoretisch vorgehen. So ist
                 die <i>bedingte differentielle Entropie</i>:
                 $$H(x | z, a) = - \int_{\mathcal{Z}} f(z | a) \cdot \int_{\mathcal{X}} f(x|z,a) \cdot \log f(x | z,a) \mathrm{d} x \mathrm{d} z$$
 
@@ -1256,7 +1256,7 @@ $$
                 \end{align}
                 $$
                 </li>
-            <li>Keine Terminalen Kosten</li>
+            <li>Keine terminalen Kosten</li>
         </ul>
 
         Das Problem wird nun wie folgt gelöst:
@@ -1281,8 +1281,8 @@ $$
         $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$<br/>
         <br/>
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
-        Verfahren, gegeben die initiale Verteilung $P(x_0)$, die selben Kosten.
-        Daher wird Open-Loop-Planung verwendent. Das heißt, der optimale Plan
+        Verfahren, gegeben die initiale Verteilung $P(x_0)$, dieselben Kosten.
+        Daher wird Open-Loop-Planung verwendet. Das heißt, der optimale Plan
         $a_{0:N-1}^*$ wird mittels deterministischer Planung
         (also Kürzeste-Wege-Suche), bestimmt.
 
@@ -1333,14 +1333,14 @@ $$
         <u>Linearisierung</u>
 
         Hier werden Nominalwerte $\bar{x}_{k:N-1}$ benötigt. Da die Aktion nur
-        die Messgleichung, nicht jedoch die Systemgleichung betrifft können die
+        die Messgleichung, nicht jedoch die Systemgleichung betrifft, können die Nominalwerte vorab berechnet werden:
         $$\bar{x}_k = \hat{x}_k^P; \qquad \bar{x}_{k+1} = p_k(\bar{x}_k, 0)$$
         Anschließend wird linearisiert.<br/>
         <br/>
         <u>Ablauf</u>
 
         <ol>
-            <li>Nach Messung: (approximative) Berechnung ovn $P(x_k | I_k)$
+            <li>Nach Messung: (approximative) Berechnung von $P(x_k | I_k)$
                 bzw. $P(x_{k+1} | I_k)$ z.B. mittels EKF.</li>
             <li>Berechnung der Nominalwerte $\bar{x}_{k+1:k+M}$ mit
                 $\bar{x}_{k+1} = \mathbb{E}(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
@@ -1393,7 +1393,7 @@ $$
 <dl>
     <dt><dfn id="rl">Reinforcement Learning</dfn> (<dfn>RL</dfn>)</dt>
     <dd>Reinforcement learning ist ein Subfeld des maschinellen Lernens,
-        welches sich auf Probleme der optimalen Kontrolle fokusiert.<br/>
+        welches sich auf Probleme der optimalen Kontrolle fokussiert.<br/>
         <br/>
 
     <u>Problem</u>
@@ -1403,7 +1403,7 @@ $$
             $P(x_{k+1} | x_k, a_k)$ können unbekannt sein.</li>
     </ul>
 
-    Dies wird durch ein Zusammenspiel aus lernen und planen gelöst.
+    Dies wird durch ein Zusammenspiel aus Lernen und Planen gelöst.
     Man lernt also aus Erfahrung und <b>Interaktion mit der Umwelt</b>.<br/>
 
     <u>Definition</u><br/>
@@ -1414,7 +1414,7 @@ $$
             <ul>
                 <li>$N = \infty$ für fortlaufende Aufgaben</li>
                 <li>$N < \infty$ für episodische Aufgaben (diese haben einen
-                     terminaler Zustand)</li>
+                     terminalen Zustand)</li>
             </ul>
 
         </li>
@@ -1439,7 +1439,7 @@ $$
     <u>Beispiele</u>
 
     <ul>
-        <li>Beliebige Computerspiele Spielen</li>
+        <li>Beliebige Computerspiele spielen</li>
         <li>Stabilisierung eines inversen Pendels</li>
     </ul>
 
@@ -1484,14 +1484,14 @@ $$
             </ul>
 
         </li>
-        <li>Approximation / lernen:
+        <li>Approximation / Lernen:
 
             <ul>
                 <li>On-policy: Dieselbe Strategie wird zugleich verbessert
                                und angewandt.</li>
                 <li>Off-policy: verwendet 2 Strategien
                               <ul>
-                                  <li>Strategie 1: erzeugen von Aktionen</li>
+                                  <li>Strategie 1: Erzeugen von Aktionen</li>
                                   <li>Strategie 2: wird verbessert</li>
                               </ul>
                 </li>
@@ -1545,7 +1545,7 @@ $$
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
         Monte-Carlo Methoden funktionieren ausschließlich auf episodischen
-        Problemen (d.h mit Ende), wie z.B. Spielen, da die Aktualisierung nach
+        Problemen (d.h. mit Ende), wie z.B. Spielen, da die Aktualisierung nach
         Beendigung einer Episode stattfindet.
 
         <ul>
@@ -1558,7 +1558,7 @@ $$
                 <li>Für jeden Zustand $x$ in Episode:
 
                 <ul>
-                    <li>$R \gets$ kummulative Belohnung ab 1. Vorkommen von $x$ (First-visit, es gibt auch every-visit)</li>
+                    <li>$R \gets$ kumulative Belohnung ab 1. Vorkommen von $x$ (First-visit, es gibt auch every-visit)</li>
                     <li>$n(x) \gets n(x) + 1$</li>
                     <li>$J_\pi(x) \overset{(*)}{\gets} J_\pi (x) + \frac{1}{n(x)} (R - J_\pi (x))$</li>
                 </ul>
@@ -1602,8 +1602,8 @@ $$
     </dd>
     <dt><dfn id="exporation-exploitation">Exploration vs. Exploitation</dfn></dt>
     <dd>The exploration vs. exploitation problem is that an agent in a
-        reinforcement learning setting can either try to improve his strategy
-        in a part where he already knows how to behave or he can try to explore
+        reinforcement learning setting can either try to improve its strategy
+        in a part where it already knows how to behave or it can try to explore
         the world and potentially find much better (or much worse) strategies.
 
         <blockquote>Exploit what is already known to obtain rewards, but
@@ -1670,14 +1670,14 @@ $$
         werden ähnlich wahrscheinlich gewählt.<br/>
         <br/>
         $\tau$ klein: Die Aktionen werden mit deutlich
-        unterschiedlicher wahrscheinlichkeit gezogen.<br/>
+        unterschiedlicher Wahrscheinlichkeit gezogen.<br/>
         <br/>
         $\tau \rightarrow 0$: nahezu deterministische, gierige
         Strategie.<br/>
         <br/>
         Vorteil gegenüber $\varepsilon$-greedy: Rangfolge bei Auswahl.<br/>
         Nachteil gegenüber $\varepsilon$-greedy: Wahl von $\tau$ wird
-        of als schwieriger angesehen als die Wahl von $\varepsilon$.
+        oft als schwieriger angesehen als die Wahl von $\varepsilon$.
 
     </dd>
     <dt><dfn id="epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</dfn></dt>
@@ -1691,7 +1691,7 @@ $$
         learn.</dd>
     <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
     <dd>GLIE (<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite
-        <b>e</b>xploration) bezeichnet eine
+        <b>e</b>xploration) bezeichnet eine Klasse von Explorationsstrategien.
 
         Damit eine Strategie GLIE ist, muss erfüllt sein:
 
@@ -1729,9 +1729,9 @@ $$
     </dd>
     <dt><dfn id="temporal-difference">Temporal Difference Verfahren</dfn> (<dfn>TD</dfn>)</dt>
     <dd>TD-Verfahren nutzen die zeitliche Differenz zweier Schätzungen
-        eines Zustandwertes. Die Aktualisierungen sind nach jedem
-        Zustandwechsel. Das heißt, im Gegesatz zu MC-Verfahren, sind
-        TD-Verfahren für Episodische und fortlaufende RL-Probleme geignet.<br/>
+        eines Zustandswertes. Die Aktualisierungen erfolgen nach jedem
+        Zustandswechsel. Das heißt, im Gegensatz zu MC-Verfahren, sind
+        TD-Verfahren für episodische und fortlaufende RL-Probleme geeignet.<br/>
         <br/>
         <u>Unterschiedliche Schätzung:</u><br/>
         $$
@@ -1740,7 +1740,7 @@ $$
                  &= \mathbb{E}(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
-        MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren schätzen
+        MC-Verfahren schätzen (1) mittels Stichprobenfolge. TD-Verfahren schätzen
         die Summe in (2) durch eine Stichprobe $r_k$.<br/>
         <br/>
         <u>TD-Strategiebewertung</u><br/>
@@ -1788,7 +1788,7 @@ $$
     </figure>
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
-    <dd>$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
+    <dd>$Q$-Learning ist ein TD-Verfahren um ohne Modell ein
         Reinforcement-Learning Problem zu lösen.
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
@@ -1823,13 +1823,13 @@ $$
 
         <ul>
             <li>Beide Verfahren konvergieren sofern GLIE</li>
-            <li>Einfach zu implementiernen, lernen pro Zeitschritt</li>
+            <li>Einfach zu implementieren, lernen pro Zeitschritt</li>
         </ul>
 
         Nachteile:
 
         <ul>
-            <li>Bootstrapping problemantisch wenn Markov-Annahme nicht erfüllt.
+            <li>Bootstrapping problematisch wenn Markov-Annahme nicht erfüllt.
             </li>
         </ul>
 
@@ -1884,7 +1884,7 @@ $$
         <u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
-        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ für $n > N-K-1$.<br/>
+        Beim Erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ für $n > N-k-1$.<br/>
         <br/>
         Abgewichten von $R_k^{(n)}$ bei steigendem $n$.<br/>
         <br/>
@@ -1931,9 +1931,9 @@ $$
         Wird $x$ nicht besucht, so gibt es keine Korrektur.
 
         <ul>
-            <li>TD(0), dh. $\lambda = 0$ ist eine "normales" Ein-Schritt-TD</li>
-            <li>TD(1), dh. $\lambda = 1$ ist ein Monte Carlo Verfahren mit Abgewichtung durch
-                $\gamma$. ISt $\gamma=1$, dann ist es ein "normales" MC mit dem
+            <li>TD(0), d.h. $\lambda = 0$, ist ein "normales" Ein-Schritt-TD</li>
+            <li>TD(1), d.h. $\lambda = 1$, ist ein Monte Carlo Verfahren mit Abgewichtung durch
+                $\gamma$. Ist $\gamma=1$, dann ist es ein "normales" MC mit dem
                 Unterschied, dass man nicht das Ende einer Episode abwarten muss.</li>
         </ul>
 
@@ -1999,7 +1999,7 @@ $$
                 Funktionsapproximatoren ein.
 
                 <ul>
-                    <li>Ungeeignet: Neuronale Netze, da sie statische Trainingsdaten vorraussetzen</li>
+                    <li>Ungeeignet: Neuronale Netze, da sie statische Trainingsdaten voraussetzen</li>
                     <li>Geeignet: Lineare Approximatoren
                         $$f(x) = \sum_{i=1}^l \Theta_i \cdot K_i(x)$$
                         wobei $\Theta_i$ ein Parameter ist und $K_i$ eine
@@ -2015,7 +2015,7 @@ $$
         Beispiel: Strategiebewertung
         <ul>
             <li>Ziel: Approximation der <b>unbekannten Wertefunktion $J_\pi(x)$</b>
-                durch $\tilde{J}(x, \Theta)$ durch minimierung der
+                durch $\tilde{J}(x, \Theta)$ durch Minimierung der
                 quadratischen Abweichung
 
                 $$J_{\mathcal{X}} (J_\pi(x) - \tilde{J}(x, Q))^2 \mathrm{d} x \tag{*}$$
@@ -2073,7 +2073,7 @@ $$
         Bisher: RL lernt Wertefunktion und Strategie mittels Belohnung aus
         direkter Interaktion mit Umwelt.<br/>
         <br/>
-        Idee: Lerne eine Modell $x_{k+1} \sim P(\cdot | x_k)$.<br/>
+        Idee: Lerne ein Modell $x_{k+1} \sim P(\cdot | x_k)$.<br/>
         <br/>
         Man hat zwei Phasen: Lernen und Planen. In der Lernphase wird das
         Modell gelernt, in der Planphase wird mit dem Modell der nächste
@@ -2087,7 +2087,7 @@ $$
 
             <ul>
                 <li>Beschreibung der Umwelt</li>
-                <li>Verohersage Reaktion der Umwelt auf Aktion</li>
+                <li>Vorhersage Reaktion der Umwelt auf Aktion</li>
                 <li>Verbesserung einer Strategie ohne reale Interaktion mit der Umwelt</li>
                 <li>$\rightarrow$ Schnellere Konvergenz</li>
             </ul>
@@ -2144,7 +2144,7 @@ $$
 
         $$P(x_{k+1} | x_k, a_k) \approx \frac{m(x_k, a_k, x_{k+1})}{m(x_k, a_k)}$$
         wobei $m(x_k, a_k)$ die Anzahl der Besuche von Zustand $x_k$ mit
-        Ausführung ovn Aktion $a_k$ zählt.
+        Ausführung von Aktion $a_k$ zählt.
 
         $m(x_k, a_k, x_{k+1})$ zählt die Übergänge von $x_k$ unter $a_k$
         nach $x_{k+1}$.<br/>
@@ -2152,18 +2152,18 @@ $$
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         <ul>
-            <li>+ verbesserte Konvergenz im vgl. zu $Q$-Learning</li>
+            <li>+ verbesserte Konvergenz im Vergleich zu $Q$-Learning</li>
             <li>+ Reduktion des Modell-Bias</li>
             <li>- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
                 jedem Schritt / Schleifeniteration ausgeführt werden</li>
         </ul>
 
     </dd>
-    <dt><dfn>Gaussian Processes</dfn> (<dfn>Gaussche Prozesse</dfn>)</dt>
+    <dt><dfn>Gaussian Processes</dfn> (<dfn>Gaußsche Prozesse</dfn>)</dt>
     <dd>
 
         Siehe <a href="../function-approximation/">Function Approximation</a>
-        und <a href="../machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
+        und <a href="../machine-learning-2-course/#gaussche-prozesse">Gaußsche Prozesse</a>.
 
     </dd>
     <dt><dfn id="pilco">PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
@@ -2252,7 +2252,7 @@ $$
 
             wobei $\cdot$ entweder ein Informationsvektor $\mathcal{I}$ oder
             ein belief state $P(x_k | \mathcal{I}_k)$ ist.</td>
-        <td>Maximimierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
+        <td>Maximierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
             im episodischen Fall
@@ -2264,7 +2264,7 @@ $$
         <td>
 
             <ul>
-                <li>Roboter navigiert durch Labyrint</li>
+                <li>Roboter navigiert durch Labyrinth</li>
                 <li>Tic-Tac-Toe</li>
                 <li>Kürzeste Wege Suche</li>
                 <li>Aufzugsteuerung</li>
@@ -2312,7 +2312,7 @@ $$
 
             <ul>
                 <li>Reduzierung auf Information Vector MDP / Belief-state MDP: Siehe Algorithmen von MDP</li>
-                <li>Linearer Fall: <a href="../kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
+                <li>Linearer Fall: <a href="../kalman-filter/">Kalman-Filter</a> + <a href="#lqr">LQR</a></li>
                 <li>Diskreter Fall: $\alpha$-Vektoren</li>
                 <li>Approximative Verfahren:
 
@@ -2505,14 +2505,14 @@ wenn die zu optimierende Funktion linear oder konkav ist.
 </details>
 
 <details class="question">
-<summary>Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.</summary>
+<summary>Beweisen Sie, dass der Gradient senkrecht auf den Höhenlinien steht.</summary>
 <div class="answer">
 Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>.
 </div>
 </details>
 
 <details class="question">
-<summary>Welche numerischen Methoden zur Optimierung kennen sie?</summary>
+<summary>Welche numerischen Methoden zur Optimierung kennen Sie?</summary>
 <div class="answer">
 Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
 Penalty-Ansätze
@@ -2524,13 +2524,13 @@ Penalty-Ansätze
 <div class="answer">
 Das ist nicht eindeutig definiert. Streng könnte man folgendes sagen: Wenn
 auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
-Monte-Carlo-Verfahren, etc.) verzichtet werden und die Lösung in Form von
+Monte-Carlo-Verfahren, etc.) verzichtet werden kann und die Lösung in Form von
 mathematischen Grundfunktionen angegeben werden kann. Aber das wird häufig
 auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
-benötigt, man aber weiß dass diese sicher zur global optimal Lösung
-konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
+benötigt, man aber weiß, dass diese sicher zur global optimalen Lösung
+konvergieren (wie etwa bei konvexen Problemen). Auch die mathematischen
 Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
-Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
+Grundfunktion angesehen, obwohl man diese nur approximativ (etwa
 tabellarisch und per Interpolation) berechnen kann.
 </div>
 </details>
@@ -2571,7 +2571,7 @@ ein notwendiges Kriterium für globale Minima.
 <details class="question">
 <summary>Was versteht man unter dem Optimalitätsprinzip?</summary>
 <div class="answer">
-Das Optimalitätsprinzip von Bellman besagt, das bei einigen
+Das Optimalitätsprinzip von Bellman besagt, dass bei einigen
 Optimierungsproblemen sich die optimale Lösung aus optimalen Lösungen für
 die Teilprobleme zusammensetzt. Ein Beispiel ist die Kürzeste-Wege-Suche.
 Wenn A-B-C-D der kürzeste Weg von A nach D ist, so ist auch A-B-C der
@@ -2593,7 +2593,7 @@ Siehe <a href="#mdp">oben</a>.
 <summary>Wie viele Pläne gibt es?</summary>
 <div class="answer">
 Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^N$
-mögliche Pläne. In jedem Zeitschritt gibt es eine mögliche Aktion.
+mögliche Pläne. In jedem Zeitschritt wird eine der $|A|$ Aktionen gewählt.
 </div>
 </details>
 
@@ -2607,7 +2607,7 @@ Aktion gewählt werden muss.
 </details>
 
 <details class="question">
-<summary>Was versteht man unter dynamischer Programmierenung?</summary>
+<summary>Was versteht man unter dynamischer Programmierung?</summary>
 <div class="answer">
 Siehe <a href="#dynamic-programming">oben</a>.
 </div>
@@ -2632,9 +2632,9 @@ kontinuierlichem Zustand
 <details class="question">
 <summary>Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?</summary>
 <div class="answer">
-Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
+Die optimale Lösung eines deterministischen MDPs ist der kürzeste Weg in
 dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
-den Zuständen als Gewicht dargestellt werden.
+den Zuständen als Gewicht dargestellt wird.
 </div>
 </details>
 
@@ -2696,7 +2696,7 @@ Piece-wise linear and Concave / Convex
 <summary>Warum sind PWLCs in dieser Vorlesung von Bedeutung?</summary>
 <div class="answer">
 In dem Spezialfall endlicher Planungsprobleme in POMDPs kann das POMDP in
-ein Belief-State MPD transformiert werden. Dann ist die Wertefunktion
+ein Belief-State MDP transformiert werden. Dann ist die Wertefunktion
 $J_k$ eine PWLC; mit $\alpha$-Vektoren kann die optimale Strategie
 berechnet werden.
 </div>
@@ -2735,18 +2735,18 @@ Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
 </details>
 
 <details class="question">
-<summary>Warum reicht Kovarianzbasiert bei linearen Sensoreinsatzproblem?</summary>
+<summary>Warum reichen kovarianzbasierte Kosten bei linearen Sensoreinsatzproblemen?</summary>
 <div class="answer">
 Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
-linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.
+linearen Problemen auf kovarianzbasierte Kosten reduzieren.
 </div>
 </details>
 
 <details class="question">
-<summary>Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?</summary>
+<summary>Wie berechnet man die $\alpha$-Vektoren und wozu dienen sie?</summary>
 <div class="answer">
 Siehe ProPlan-10-Folien.pdf, Folie 16. Die $\alpha$-Vektoren sind im
-Kontext von diskreten Planungsproblemen zu verstehen. An Ihnen kann man
+Kontext von diskreten Planungsproblemen zu verstehen. An ihnen kann man
 die Aktion ablesen.
 </div>
 </details>
@@ -2767,7 +2767,7 @@ Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
 <summary>Was ist der Vorteil von Modelllernenden Verfahren?</summary>
 <div class="answer">
 Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
-beobachtet werden. Das erleichtert das Planen / finden der Strategie.
+beobachtet werden. Das erleichtert das Planen / Finden der Strategie.
 </div>
 </details>
 
@@ -2783,7 +2783,7 @@ TODO (See <a href="http://datascience.stackexchange.com/q/13029/8820">What are t
 <div class="answer">
 Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
 aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
-Zustandsfortschriebung <em>nicht</em> einer gierigen Stragegie folgt, sondern etwa
+Zustandsfortschreibung <em>nicht</em> einer gierigen Strategie folgt, sondern etwa
 einer $\epsilon$-gierigen Strategie. SARSA dagegen nutzt dieselbe
 (nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
 Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
@@ -2795,7 +2795,7 @@ Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
 
 Der Dozent nutzt folgende Notation:
 
-* $J^*, \pi^*$: Das Asterisk `*` deutet an, dass die Kosten / Strategie optimal
+* $J^*, \pi^*$: Der Asterisk `*` deutet an, dass die Kosten / Strategie optimal
   sind.
 * $\underline{x}$: Der Unterstrich deutet an, dass es sich um einen Vektor
   handelt. Diese Notation wurde in diesem Artikel **nicht** übernommen.
@@ -2824,7 +2824,7 @@ Der Dozent nutzt folgende Notation:
 
 ## Fazit
 
-Die Vorlesung führt in das **Reinforcment Learning** ein. Um das Problem und die
+Die Vorlesung führt in das **Reinforcement Learning** ein. Um das Problem und die
 möglichen Algorithmen zu verstehen werden **MDPs** und **POMDPs** eingeführt.
 
 Die Vorlesung ist sehr gut strukturiert. Alle Grundlagen werden eingeführt,
@@ -2832,7 +2832,7 @@ sodass sehr wenig Vorwissen nötig ist. Dennoch sind absolute Grundlagen der
 Wahrscheinlichkeitstheorie und der Optimierungstheorie / Analysis
 empfehlenswert; sonst geht es zu schnell.
 
-Aktuell sieht man als Student immer wieder mal zusammenhänge nicht. Es ist in
+Aktuell sieht man als Student immer wieder mal Zusammenhänge nicht. Es ist in
 dieser Vorlesung essentiell am Ball zu bleiben, sonst wird man schnell
 abgehängt. Ich empfehle <a href="#table-mdp-pomdp-rl">die Tabelle</a>
 anzuschauen; daran kann man einige Zusammenhänge gut erkennen.
@@ -2868,7 +2868,7 @@ Folgende Vorlesungen sind ähnlich:
 Weitere:
 
 * Einführung in die Bildfolgenauswertung
-* [Content-based Image and Video Retrival](https://cvhci.anthropomatik.kit.edu/600_1482.php)
+* [Content-based Image and Video Retrieval](https://cvhci.anthropomatik.kit.edu/600_1482.php)
 
 
 ## Termine und Klausurablauf

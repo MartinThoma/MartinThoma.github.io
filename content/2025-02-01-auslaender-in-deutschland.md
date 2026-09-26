@@ -596,7 +596,7 @@ also den Antrag eingebracht? Ich sehe folgende Gründe:
 ## Psychologische Aspekte
 
 <figure class="ai-generated">
-    <a href="../images/2025/02/asian-elderly-care-worker.jpg"><img src="../images/2025/02/asian-elderly-care-worker.jpg" alt="" width="500" height="500" loading="lazy"></a>
+    <a href="../images/2025/02/asian-elderly-care-worker.jpg"><img src="../images/2025/02/asian-elderly-care-worker.jpg" alt="Eine junge Pflegerin hält die Hände eines alten Mannes im Rollstuhl" width="500" height="500" loading="lazy"></a>
 </figure>
 
 Wir haben Millionen Ausländer in Deutschland, die unsere Pflegeheime am Laufen

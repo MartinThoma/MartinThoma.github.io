@@ -19,9 +19,9 @@ $ setxkbmap -option caps:none
 ```
 
 To run this every time at startup, I've added it to `/etc/rc.local`.
-However, it did not work. I guess it is executed to soon.
+However, it did not work. I guess it is executed too soon.
 
-An alternative which worked is adding a file `~/.config/shift.deskop` with the
+An alternative which worked is adding a file `~/.config/autostart/shift.desktop` with the
 following content:
 
 ```ini

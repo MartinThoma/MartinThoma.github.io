@@ -220,7 +220,7 @@ $$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is bet
 If the accuracy is high, then the classifier is right in many cases. If the
 accuracy is low, then the classifier is wrong in many cases.
 
-**Where it fails**: In heavily inbalanced cases such as "Fraudulent
+**Where it fails**: In heavily imbalanced cases such as "Fraudulent
 Transactions". Thus the classifier could simply ignore the features and always
 predict it's not fraud. This classifier would have an accuracy of 99% and still
 be useless.
@@ -244,10 +244,10 @@ $$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1] \cup \{\text{undefined}\}
 **When it fails**: When you have few positives.
 
 **When it's nice**: When each try costs something, but missing a chance is not
-a big deal. For example, think of recruitement. Inviting a single recruit costs
+a big deal. For example, think of recruitment. Inviting a single recruit costs
 something as you have to have interviewers. You might have a lot more
 candidates, but you don't care so much about filtering good candidates as you
-only need to get one of probably several douzens which would fit. But inviting
+only need to get one of probably several dozens which would fit. But inviting
 one of the hundreds that don't fit is expensive. Meaning a high-precision
 classifier tells you that once it gives you a candidate, it is also likely you
 will not have to reject the candidate afterwards.
@@ -268,7 +268,7 @@ $$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &\text{if } TP + FN > 0\\\
 
 **When it fails**: When the classifier is biased towards positive.
 
-**When it's nice**: When the cost of missing a positve one is high. For
+**When it's nice**: When the cost of missing a positive one is high. For
 example, think of the rare cancer detection case. If the tests says yes, you
 could simply apply another test to be more sure about it. But missing a person
 who actually has cancer could cost a persons life.

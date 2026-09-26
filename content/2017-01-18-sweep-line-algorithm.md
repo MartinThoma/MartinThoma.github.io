@@ -5,9 +5,9 @@ slug: sweep-line-algorithm-for-intersections
 lang: en
 author: Martin Thoma
 date: 2013-10-19 11:54:51
-tags: algorithms, Geometry, Java
+category: Code
+tags: Algorithms, Geometry, Java
 featured_image:
-categories: Code
 ---
 Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.
 
@@ -60,15 +60,31 @@ So we have 15 lines and 13 intersections.
 <div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>
 
 This means, all of the following images show intersecting lines:
-{% gallery columns="3" %}
-    ../images/2013/01/intersecting-lines-1.png  "Intersecting lines: #1"
-    ../images/2013/01/intersecting-lines-2.png  "Intersecting lines: #2"
-    ../images/2013/01/intersecting-lines-3.png  "Intersecting lines: #3"
-    ../images/2013/01/intersecting-lines-4.png  "Intersecting lines: #4"
-    ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"
-{% endgallery %}
 
-You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.
+<div class="gallery">
+    <figure>
+        <a href="../images/2013/01/intersecting-lines-1.png"><img src="../images/2013/01/intersecting-lines-1.png" alt="Intersecting lines: #1" width="500" height="370" loading="lazy"></a>
+        <figcaption>Intersecting lines: #1</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/intersecting-lines-2.png"><img src="../images/2013/01/intersecting-lines-2.png" alt="Intersecting lines: #2" width="500" height="500" loading="lazy"></a>
+        <figcaption>Intersecting lines: #2</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/intersecting-lines-3.png"><img src="../images/2013/01/intersecting-lines-3.png" alt="Intersecting lines: #3" width="500" height="500" loading="lazy"></a>
+        <figcaption>Intersecting lines: #3</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/intersecting-lines-4.png"><img src="../images/2013/01/intersecting-lines-4.png" alt="Intersecting lines: #4" width="500" height="500" loading="lazy"></a>
+        <figcaption>Intersecting lines: #4</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2013/01/intersecting-lines-5.png"><img src="../images/2013/01/intersecting-lines-5.png" alt="Intersecting lines: #5" width="500" height="500" loading="lazy"></a>
+        <figcaption>Intersecting lines: #5</figcaption>
+    </figure>
+</div>
+
+You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters and returns if they intersect.
 
 <h2>How many intersections can exist?</h2>
 Let $n$ be the number of lines.
@@ -81,24 +97,24 @@ $n=3$: As before, the new line can only intersect with existing lines. So you ge
 
 I guess you noticed the pattern. The maximum of intersection points of $n$ is $\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}$
 
-At the moment, this is only an upper border. We didn't prove that you can actually get that much intersections. We only showed that you can't get more intersections.
+At the moment, this is only an upper bound. We didn't prove that you can actually get that many intersections. We only showed that you can't get more intersections.
 
 <h2>A simple solution</h2>
 
-I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have $n$ line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
+I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But let's say I have $n$ line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
 
 <h3>First way to think about it</h3>
 <ul>
-<li>First, I can check if the first line crosses the second, third, forth, ... n-th line.</li>
-<li>Then I check if the second line crosses the third, forth, ... n-th line.</li>
+<li>First, I can check if the first line crosses the second, third, fourth, ... n-th line.</li>
+<li>Then I check if the second line crosses the third, fourth, ... n-th line.</li>
 <li>...</li>
 <li>I check if the (n-1)-th line crosses the n-th line.</li>
 </ul>
 
-So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} $checks.
+So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2}$ checks.
 
 <h3>Second way to think about it</h3>
-I don't care about order. I have to do every check. So when I have $n$ elements and I want to choose $\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}$
+I don't care about order. I have to do every check. So when I have $n$ elements and I want to choose all pairs, I have $\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}$ checks.
 
 <h2>Sweep-Line algorithm</h2>
-The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only a x-coordinate!) goes over a new line segment, it adds this to a datastructure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.
+The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only an x-coordinate!) goes over a new line segment, it adds this to a data structure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.

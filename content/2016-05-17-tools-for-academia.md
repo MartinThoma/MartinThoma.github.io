@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: Science, Academia, arXiv
 featured_image: logos/science.png
 ---
-When you're studying or researching, there a quite a couple of tools which come
+When you're studying or researching, there are quite a couple of tools which come
 in very handy in various situations. In the last 5&nbsp;years at university I
 got to know quite a few, so I want to share my list with you.
 
@@ -47,7 +47,7 @@ to save and share your summaries of papers. Have a look at
 interested. The service is still in its early stages, but I like it very much.
 
 [Scholarpedia.org](http://www.scholarpedia.org/article/Main_Page) is a site
-where you can finde some high-quality explanations. If I remember right, Hinton
+where you can find some high-quality explanations. If I remember right, Hinton
 wrote some articles on Scholarpedia.
 
 Of course, Wikipedia is always an option to get introduced to basics.
@@ -119,7 +119,7 @@ the BibTeX entry is
 
 ## Building a Profile
 
-I'm not sure how important this is in Science, but there are some social
+I'm not sure how important this is in science, but there are some social
 networks for researchers.
 
 [ORCiD](https://orcid.org/) is one site which aims to give researchers unique
@@ -136,7 +136,7 @@ the [profile of Hinton](https://scholar.google.de/citations?user=JicYPdAAAAAJ).
 
 * [Sci-Hub](https://en.wikipedia.org/wiki/Sci-Hub)
 * [academictorrents.com](http://academictorrents.com/): I just found this on [Reddit](https://www.reddit.com/r/MachineLearning/comments/4hqwza/andrej_karpathy_forced_to_take_down_stanford/)
-* [csauthors.net](https://www.csauthors.net/distance/paul-erdos/alex-j-champandard) to calculate your Erdös number
+* [csauthors.net](https://www.csauthors.net/distance/paul-erdos/alex-j-champandard) to calculate your Erdős number
 
 Machine Learning:
 

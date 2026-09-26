@@ -479,7 +479,7 @@ Fragen:
   <span markdown="0">$\gamma = 0$</span>
   ist?<br/>
   → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
-  das nächste Feld, welche den höchsten Reward bietet (bzw. die Aktion, die
+  das nächste Feld, welches den höchsten Reward bietet (bzw. die Aktion, die
   den größten 1-Aktion Erwartungswert liefert).
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
   <span markdown="0">$\gamma = 1$</span>
@@ -499,7 +499,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     <dt><dfn>Hebbsche Lernregel</dfn></dt>
     <dd>what fires together, wires together</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte"><dfn>Selbstorganisierende Karten</dfn></a> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>)</dt>
-    <dd>SOMs sind eine Art von Neuronalen Netzen. Die neuronen von SOMs sind
+    <dd>SOMs sind eine Art von Neuronalen Netzen. Die Neuronen von SOMs sind
     auf einem Gitter angeordnet. Es gibt nur zwei Schichten: Die Input-Neuronen
     und die Neuronen auf dem Gitter. Jedes Input-Neuron ist mit jedem Neuron
     auf dem Gitter verbunden.
@@ -619,8 +619,8 @@ Slide name: `V11_2015-05-27_RBMs`
                 b_h &\leftarrow b_h + \eta (h(x^{(t)}) - h(\tilde x))\\
                 b_v &\leftarrow b_v + \eta (x^{(t)} - \tilde x)
               \end{align}
-            wobei $\eta \in (0, 1) $ die Lernrate ist,
-            $b_h \in \mathbb{R}^n_h$ der Bias-Vektor der Hidden Units und
+            wobei $\eta \in (0, 1)$ die Lernrate ist,
+            $b_h \in \mathbb{R}^{n_h}$ der Bias-Vektor der Hidden Units und
             $b_v \in \mathbb{R}^{n_v}$ der Bias-Vektor der Eingabeknoten ist.
             $h = \text{sigmoid}(b_h + W x)$ ist ein Vektor, welcher für die
             einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese

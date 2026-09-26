@@ -77,8 +77,8 @@ to see them with my own eyes.
 
 <div class="gallery">
     <figure>
-        <a href="../images/2017/01/vulcanic-lightning.jpg"><img src="../images/2017/01/vulcanic-lightning.jpg" alt="Vulcanic Lightning" width="640" height="415" loading="lazy"></a>
-        <figcaption>Vulcanic Lightning, for example at Eyjafjallajökull (Image source: <a href="https://commons.wikimedia.org/wiki/File:Rinjani_1994.jpg">Wikimedia</a>)</figcaption>
+        <a href="../images/2017/01/vulcanic-lightning.jpg"><img src="../images/2017/01/vulcanic-lightning.jpg" alt="Volcanic Lightning" width="640" height="415" loading="lazy"></a>
+        <figcaption>Volcanic Lightning, for example at Eyjafjallajökull (Image source: <a href="https://commons.wikimedia.org/wiki/File:Rinjani_1994.jpg">Wikimedia</a>)</figcaption>
     </figure>
     <figure>
         <a href="../images/2017/01/ice-cave.jpg"><img src="../images/2017/01/ice-cave.jpg" alt="Ice cave" width="640" height="434" loading="lazy"></a>
@@ -107,7 +107,7 @@ to see them with my own eyes.
 
 <figure>
     <a href="../images/2017/01/caminito-del-rey.jpg"><img src="../images/2017/01/caminito-del-rey.jpg" alt="Caminito del Rey" width="640" height="480" loading="lazy"></a>
-    <figcaption><a href="https://en.wikipedia.org/wiki/Caminito_del_Rey">Caminito del Rey</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Caminito_del_Rey_4.jpg">Wikipedia Commons</a>)</figcaption>
+    <figcaption><a href="https://en.wikipedia.org/wiki/Caminito_del_Rey">Caminito del Rey</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Caminito_del_Rey_4.jpg">Wikimedia Commons</a>)</figcaption>
 </figure>
 
 
@@ -170,7 +170,7 @@ to see them with my own eyes.
 
 <figure>
     <a href="../images/2017/08/machu-picchu.jpg"><img src="../images/2017/08/machu-picchu.jpg" alt="Machu Picchu" width="512" height="121" loading="lazy"></a>
-    <figcaption>Machu Picchu, from April - October. Basically, not within the rain season (Image Source: <a href="https://commons.wikimedia.org/wiki/File:95_-_Machu_Picchu_-_Juin_2009.jpg">Wikipedia Commons, Martin St-Amant</a>)</figcaption>
+    <figcaption>Machu Picchu, from April - October. Basically, not within the rainy season (Image Source: <a href="https://commons.wikimedia.org/wiki/File:95_-_Machu_Picchu_-_Juin_2009.jpg">Wikimedia Commons, Martin St-Amant</a>)</figcaption>
 </figure>
 
 <figure>

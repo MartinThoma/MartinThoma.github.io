@@ -15,5 +15,5 @@ featured_image: 2012/07/flags-of-the-earth1.png
 </figure>
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/KingDotCom/flags">Flags on Kongregate</a>
 <strong>Task</strong>: Say which country the shown flag belongs to.
-<strong>How to play</strong>: Click on on of the 4 - 5 countries.
+<strong>How to play</strong>: Click on one of the 4–5 countries.
 <strong>My Record</strong>: 40 Flags and 12662 points.

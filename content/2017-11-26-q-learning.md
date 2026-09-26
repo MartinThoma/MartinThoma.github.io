@@ -51,19 +51,21 @@ s0 -
 ```
 
 This shows that you start in state `s0` where you can execute actions `a0` and
-`a1`. Action `a0` lives you a reward of 10, action `a1` a reward of `-10`. So
-if you take the action greedy, you would take `a0` and end up in state `s1`.
+`a1`. Action `a0` gives you a reward of 10, action `a1` a reward of `-10`. So
+if you take the action greedily, you would take `a0` and end up in state `s1`.
 But if you look one step ahead, you can see that `s2` ends up in state `s5`
 with a reward of 100 whereas `s1` can only get a reward of 10 or 0.
 
 In many cases, one does not want a greedy action. And one does not want to rely
 completely on very high rewards in the very far future. Direct rewards are
-prefered, but if it is really high we wait a bit longer. This thought leads to
+preferred, but if it is really high we wait a bit longer. This thought leads to
 the **value** of a state / action. The value of a state or a state/action pair
 is its current reward plus its reward in future. As we want to prefer rewards
 which come directly, we discount the future rewards with a factor $\gamma \in [0, 1]$:
 
-$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma \sum_{s'} V(s'))$$
+$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma V(s'_{a}))$$
+
+where $s'_{a}$ is the state you end up in when you execute action $a$ in state $s$.
 
 The $\max_{a \in \mathcal{A}}$ means we execute the optimal action all the
 time.
@@ -92,7 +94,7 @@ That's it.
 You might want to read [Best practice for Machine Learning Projects](../ml-best-practice/)
 to understand why the following code was written as it is.
 
-The latest code can be found on [Github MartinThoma:algorithms/](https://github.com/MartinThoma/algorithms/blob/master/ML/rl/q_table_agent.py)
+The latest code can be found on [GitHub MartinThoma:algorithms/](https://github.com/MartinThoma/algorithms/blob/master/ML/rl/q_table_agent.py)
 
 First, the configuration file:
 

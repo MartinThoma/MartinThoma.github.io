@@ -66,7 +66,7 @@ problematic the changes are:
         <figcaption>Floodmap of Jakarta (Indonesia; +1m sea level)</figcaption>
     </figure>
     <figure>
-        <a href="../images/2019/12/floodmap-new-york.png"><img src="../images/2019/12/floodmap-new-york.png" alt="Floodmap New York (+1m sea level)" width="512" height="355" loading="lazy"></a>
+        <a href="../images/2019/12/floodmap-new-york.jpg"><img src="../images/2019/12/floodmap-new-york.jpg" alt="Floodmap New York (+1m sea level)" width="512" height="355" loading="lazy"></a>
         <figcaption>Floodmap New York (+1m sea level)</figcaption>
     </figure>
 </div>

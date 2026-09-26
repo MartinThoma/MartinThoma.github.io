@@ -54,13 +54,13 @@ Man darf eine <strong>Zeile mit einer Konstanten multiplizieren und auf eine bel
 
 Man darf eine <strong>Zeile und eine Spalte zugleich entfernen</strong> (Entwicklung nach Spalte / Zeile xy), muss dann aber folgendermaßen ausgleichen:
 Entwicklung nach der k-ten Spalte: $D(a_1, ... , a_n) = \sum_{j=1}^{n}(-1)^{k+j}a_{jk}D_{jk}$
-Entwicklung nach der i-ten Zeile: $det A = \sum_{k=1}^n (-1)^{i+k}a_{ik}D_{ik}$
+Entwicklung nach der i-ten Zeile: $\det A = \sum_{k=1}^n (-1)^{i+k}a_{ik}D_{ik}$
 Direkt entfernen, ohne etwas weiteres zu beachten, kann man die Zeile, wenn in dieser Zeile nur eine 1 steht und diese 1 an einer ungeraden Spalte (1, ..., n) ist.
 Eine Spalte kann man direkt entfernen, wenn in der Spalte nur an einer Stelle eine 1 steht und diese 1 an einer ungeraden Zeile (1, ..., n) steht.
 
 <h2>Berechnung des charakteristischen Polynoms</h2>
 Das charakteristische Polynom einer Abbildungsmatrix A ist der Wert folgender Determinanten:
-$det(\lambda \cdot E_n - A)$, wobei $E_n$ die Einheitsmatrix ist.
+$\det(\lambda \cdot E_n - A)$, wobei $E_n$ die Einheitsmatrix ist.
 
 <h2>Beispiel</h2>
 Siehe <a href="http://de.wikipedia.org/wiki/Charakteristisches_Polynom#Beispiel">Wikipedia</a>.

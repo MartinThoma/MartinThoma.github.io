@@ -249,7 +249,7 @@ to have a product which is mainly on the web:
             <td><a href="https://www.giantswarm.io/">Jobs</a></td>
         </tr>
         <tr>
-            <td><a href="">Joyride</a></td>
+            <td>Joyride</td>
             <td>?</td>
             <td>Online Dating</td>
             <td>Android / iOS</td>

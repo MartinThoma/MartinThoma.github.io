@@ -46,8 +46,8 @@ The <a href="http://en.wikipedia.org/wiki/Republican_Party_(United_States)">Repu
 The <a href="http://en.wikipedia.org/wiki/Tea_Party_movement">Tea Party movement</a> is an American populist political movement that is generally recognized as conservative and libertarian, and has sponsored protests and supported political candidates since 2009. It endorses reduced government spending, opposition to taxation in varying degrees, reduction of the national debt and federal budget deficit, and adherence to an originalist interpretation of the United States Constitution.
 
 <figure>
-    <a href="../images/2011/12/tea-party-big-government-300x219.jpg"><img src="../images/2011/12/tea-party-big-government-300x219.jpg" alt="Tea Party and big gouvernment" width="300" height="219" loading="lazy"></a>
-    <figcaption>Tea Party and big gouvernment</figcaption>
+    <a href="../images/2011/12/tea-party-big-government-300x219.jpg"><img src="../images/2011/12/tea-party-big-government-300x219.jpg" alt="Tea Party and big government" width="300" height="219" loading="lazy"></a>
+    <figcaption>Tea Party and big government</figcaption>
 </figure>
 
 Phil Hands has also made a nice one, but I've only found a page which clearly states "pay per use". What a pity!

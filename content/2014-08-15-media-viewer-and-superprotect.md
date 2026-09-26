@@ -35,15 +35,15 @@ You can view some images of the MediaViewer here:
         <figcaption>Article</figcaption>
     </figure>
     <figure>
-        <a href="../images/2014/08/media-viewer-first-click.png"><img src="../images/2014/08/media-viewer-first-click.png" alt="First click on image with MediaViewer" width="120" height="65" loading="lazy"></a>
+        <a href="../images/2014/08/media-viewer-first-click.jpg"><img src="../images/2014/08/media-viewer-first-click.jpg" alt="First click on image with MediaViewer" width="120" height="65" loading="lazy"></a>
         <figcaption>First click on image with MediaViewer</figcaption>
     </figure>
     <figure>
-        <a href="../images/2014/08/without-media-viewer-first-click.png"><img src="../images/2014/08/without-media-viewer-first-click.png" alt="First click on image without MediaViewer" width="120" height="65" loading="lazy"></a>
+        <a href="../images/2014/08/without-media-viewer-first-click.jpg"><img src="../images/2014/08/without-media-viewer-first-click.jpg" alt="First click on image without MediaViewer" width="120" height="65" loading="lazy"></a>
         <figcaption>First click on image without MediaViewer</figcaption>
     </figure>
     <figure>
-        <a href="../images/2014/08/media-viewer-first-click-notes.png"><img src="../images/2014/08/media-viewer-first-click-notes.png" alt="notes to the MediaViewer interface" width="120" height="65" loading="lazy"></a>
+        <a href="../images/2014/08/media-viewer-first-click-notes.jpg"><img src="../images/2014/08/media-viewer-first-click-notes.jpg" alt="notes to the MediaViewer interface" width="120" height="65" loading="lazy"></a>
         <figcaption>notes to the MediaViewer interface</figcaption>
     </figure>
     <figure>
@@ -51,7 +51,7 @@ You can view some images of the MediaViewer here:
         <figcaption>MediaViewer Bottom 'Tab'</figcaption>
     </figure>
     <figure>
-        <a href="../images/2014/08/media-viewer-use-this-file.png"><img src="../images/2014/08/media-viewer-use-this-file.png" alt="MediaViewer 'Use this file'" width="120" height="65" loading="lazy"></a>
+        <a href="../images/2014/08/media-viewer-use-this-file.jpg"><img src="../images/2014/08/media-viewer-use-this-file.jpg" alt="MediaViewer 'Use this file'" width="120" height="65" loading="lazy"></a>
         <figcaption>MediaViewer 'Use this file'</figcaption>
     </figure>
 </div>

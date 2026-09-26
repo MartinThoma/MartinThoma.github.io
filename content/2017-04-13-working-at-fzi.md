@@ -9,7 +9,7 @@ category: Cyberculture
 tags: VPN, Work, Linux, Security
 featured_image: logos/star.png
 ---
-If you are writing your Bachelors or Masters thesis or if you're a HiWi at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik), you might find the following useful.
+If you are writing your Bachelor's or Master's thesis or if you're a HiWi at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik), you might find the following useful.
 
 
 ## OpenVPN
@@ -28,11 +28,11 @@ If you are writing your Bachelors or Masters thesis or if you're a HiWi at [FZI]
 * IPv6: Ignore
 
 
-## Python Virtalenv
+## Python Virtualenv
 
 You don't have root access. However, you can install Python packages via
 virtualenv (at `nobackup` - you don't need this to be backed up and you want
-to have less limitations on your venv size):
+to have fewer limitations on your venv size):
 
 ```shell
 $ mkdir ml-venv
@@ -83,7 +83,7 @@ Thu Apr 13 19:14:50 2017
 +-----------------------------------------------------------------------------+
 ```
 
-But it doesn't tell you how long the process is already running and which user
+But it doesn't tell you how long the process has already been running and which user
 started it. With
 
 ```shell
@@ -91,7 +91,7 @@ $ ps -p 32756 -o user -o time
 ```
 
 (replace 32756 by the process ID, of course) you can find the user name and how
-long the process is running.
+long the process has been running.
 
 
 ## Send files

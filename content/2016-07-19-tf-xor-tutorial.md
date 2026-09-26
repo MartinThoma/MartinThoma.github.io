@@ -23,27 +23,40 @@ able to find a decision boundary which classifies all four points correctly.
 ## Neural Network basics
 
 I think of neural networks as a construction kit for functions. The basic building block - called a "neuron" - is usually visualized like this:
+<figure>
+    <a href="../images/2016/07/single-neuron.png"><img src="../images/2016/07/single-neuron.png" alt="A single neuron: the inputs are multiplied with weights, summed, and an activation function is applied" width="512" height="489"></a>
+    <figcaption>A single neuron: the inputs are multiplied with weights, summed, and an activation function is applied.</figcaption>
+</figure>
 
-[![enter image description here][1]][1]
 
-It gets a variable number of inputx $x_0, x_1, \dots, x_n$, they get multiplied with weights $w_0, w_1, \dots, w_n$, summed and a function $\varphi$ is applied to it. The weights is what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:
 
-[![enter image description here][2]][2]
+It gets a variable number of inputs $x_0, x_1, \dots, x_n$, they get multiplied with weights $w_0, w_1, \dots, w_n$, summed and a function $\varphi$ is applied to it. The weights are what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:
 
-In this example, it is only one output and 5 inputs, but it could be any number. The number of inputs and outputs is usually defined by your problem, the intermediate is to allow it to fit more exact to what you need (which comes with some other implications).
+<figure>
+    <a href="../images/2016/07/neural-network.png"><img src="../images/2016/07/neural-network.png" alt="A neural network with five inputs and one output" width="512" height="489"></a>
+    <figcaption>A neural network with five inputs and one output.</figcaption>
+</figure>
+
+
+In this example, it is only one output and 5 inputs, but it could be any number. The number of inputs and outputs is usually defined by your problem, the intermediate is to allow it to fit more exactly to what you need (which comes with some other implications).
 
 Now you have some structure of the function set, you need to find weights which work. This is where backpropagation[^3] comes into play. The idea is the following: You took functions ($\varphi$) which were differentiable and combined them in a way which makes sure the complete function is differentiable. Then you apply an error function (e.g. the euclidean distance of the output to the desired output, Cross-Entropy) which is also differentiable. Meaning you have a completely differentiable function. Now you see the weights as variables and the data as given parameters of a HUGE function. You can differentiate (calculate the gradient) and go from your random weights "a step" in the direction where the error gets lower. This adjusts your weights. Then you repeat this steepest descent step and hopefully end up some time with a good function.
 
 For two weights, this awesome image by Alec Radford visualizes how different algorithms based on gradient descent find a minimum ([Source](http://imgur.com/a/Hqolp) with even more of those):
 
-[![enter image description here][3]][3]
+<figure>
+    <a href="../images/2016/07/gradient-descent-animation.gif"><img src="../images/2016/07/gradient-descent-animation.gif" alt="Animation of several gradient descent variants finding the minimum of an error surface" width="512" height="489"></a>
+    <figcaption>Animation of several gradient descent variants finding the minimum of an error surface. Image source: <a href="http://imgur.com/a/Hqolp">Visualizing Optimization Algos, 18.09.2014</a></figcaption>
+</figure>
+
+
 
 So think of back propagation as a shortsighted hiker trying to find the lowest point on the error surface: He only sees what is directly in front of him. As he makes progress, he adjusts the direction in which he goes.
 
 
 ## Targets and Error function
 
-First of all, you should think about how your targets look like. For
+First of all, you should think about what your targets look like. For
 classification problems, one usually takes as many output neurons as one has
 classes. Then the softmax function is applied.[^1] The softmax function makes sure that the output of every single neuron is in $[0, 1]$ and the sum of all outputs is exactly $1$. This means the output can be interpreted as a probability distribution over all classes.
 
@@ -111,16 +124,16 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 export CUDA_HOME=/usr/local/cuda
 ```
 
-I currently (19.07.2016) to use Tensorflow rc0.7 ([installation instructions](https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html)) with CUDA 7.5 ([installation instructions](http://askubuntu.com/a/799185/10425)). I had a couple
-of problems with other versions (e.g. [#3342](https://github.com/tensorflow/tensorflow/issues/3342), [#2810](https://github.com/tensorflow/tensorflow/issues/2810), [#2034](https://github.com/tensorflow/tensorflow/issues/2034), but that might only have been bad luck. Who knows.).
+I currently (19.07.2016) use Tensorflow rc0.7 ([installation instructions](https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html)) with CUDA 7.5 ([installation instructions](http://askubuntu.com/a/799185/10425)). I had a couple
+of problems with other versions (e.g. [#3342](https://github.com/tensorflow/tensorflow/issues/3342), [#2810](https://github.com/tensorflow/tensorflow/issues/2810), [#2034](https://github.com/tensorflow/tensorflow/issues/2034)), but that might only have been bad luck. Who knows.
 
 
 ## Tensorflow basics
 
-Tensorflow helps you to define the neural network in a symbolic way. This means you do not explicitly tell the computer what to compute to inference with the neural network, but you tell it how the data flow works. This symbolic representation of the computation can then be used to automatically caluclate the derivates. This is awesome! So you don't have to make this your own. But keep it in mind that it is only symbolic as this makes a few things more complicated and different from what you might be used to.
+Tensorflow helps you to define the neural network in a symbolic way. This means you do not explicitly tell the computer what to compute to inference with the neural network, but you tell it how the data flow works. This symbolic representation of the computation can then be used to automatically calculate the derivatives. This is awesome! So you don't have to do this on your own. But keep it in mind that it is only symbolic as this makes a few things more complicated and different from what you might be used to.
 
 Tensorflow has *placeholders* and *variables*. Placeholders are the things in which
-you later put your input. This is your features and your targets, but might be
+you later put your input. These are your features and your targets, but they might
 also include more. Variables are the things the optimizer calculates.
 
 Now you should be able to understand the following code which solves the XOR
@@ -296,7 +309,3 @@ I recommend reading the [Tensorflow Whitepaper](http://download.tensorflow.org/p
  [^2]: Actually, we don't want this. The probability of any class should never be exactly zero as this might cause problems later. It might get very very small, but should never be 0.
 
  [^3]: Backpropagation is only a clever implementation of gradient descent. It belongs to the bigger class of iterative descent algorithms.
-
-  [1]: http://i.stack.imgur.com/YD9IS.png
-  [2]: http://i.stack.imgur.com/awAz8.png
-  [3]: http://i.stack.imgur.com/ocZHU.gif

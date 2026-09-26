@@ -13,7 +13,7 @@ featured_image: logos/klausur.png
 
 In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
-Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
+Rule Mining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
 FP-Trees zu nennen. Beim Clustering ist k-means, EM, DBSCAN, OPTICS und BIRCH
 von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 
@@ -30,7 +30,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 <tr>
     <td>20.10.2015, 08:00</td>
     <td>Einleitung (Folie 1-26)</td>
-    <td>Overfitting, Entscheidungsbäume, 1-Rules (→ Decision Strump), Outliers<br/>
+    <td>Overfitting, Entscheidungsbäume, 1-Rules (→ Decision Stump), Outliers<br/>
         Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
         Clustering<br/>
         Market Basket Analysis: Zusammenhang zwischen Waren<br/>
@@ -47,17 +47,17 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
     <td>27.10.2015, 08:00</td>
     <td>Statistische Tests (Folie 38 - )</td>
     <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
-    Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br/>
+    Kolmogorov-Smirnov-Test (Folgt eine Stichprobe einer vorgegebenen Verteilung? Bei stetigen Zufallsvariablen)<br/>
     Wilcoxon-Mann-Whitney Test<br/>
     Bernoulli-Experiment (Folie 53?)<br/>
     Datenreduktion (Attribute entfernen, z.B. PCA; Datensätze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br/>
-    Diskretisierung: Zielfunktion ist Information Gain. Dieser soll minimiert werden.
+    Diskretisierung: Zielfunktion ist Information Gain. Dieser soll maximiert werden.
     </td>
 </tr>
 <tr>
     <td>03.11.2015, 08:00</td>
     <td>Räumliche Indexstrukturen</td>
-    <td>Widerholung der Statistischen Tests</td>
+    <td>Wiederholung der Statistischen Tests</td>
 </tr>
 <tr>
     <td>03.11.2015, 11:30</td>
@@ -67,7 +67,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 <tr>
     <td>17.11.2015, 08:00</td>
     <td>Evaluation (19-47)</td>
-    <td>Qulitätsmaße (Korrelationskoeffizient)</td>
+    <td>Qualitätsmaße (Korrelationskoeffizient)</td>
 </tr>
 <tr>
     <td>17.11.2015, 11:30</td>
@@ -149,7 +149,7 @@ Slides: `1-Einleitung.pdf`
       betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
       Fehlerquote am geringsten ist.</dd>
   <dt><dfn>Clustering</dfn></dt>
-  <dd>Suchen von Punkten, die nahe bei einander liegen.
+  <dd>Suchen von Punkten, die nahe beieinander liegen.
 
       Unterschiede:
 
@@ -177,7 +177,7 @@ Slides: `1-Einleitung.pdf`
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
       und damit gewartet werden müssen.
 
-      Dabei gibt es zwei Fehlerarten, die unterschiedliche hohe Kosten
+      Dabei gibt es zwei Fehlerarten, die unterschiedlich hohe Kosten
       aufweisen:
       <ul>
           <li>Ausfall wird vorhergesagt, tritt aber nicht ein: Unnötige Wartung</li>
@@ -210,7 +210,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>Ein Metrischer Raum ist eine Menge $M$ mit einer Funktion
         $d: M \times M \rightarrow \mathbb{R}_0^+$ für die gilt:
         <ul>
-            <li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p) $</li>
+            <li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p)$</li>
             <li>Definitheit: $\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q$</li>
             <li>Dreiecksungleichung: $\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)$</li>
         </ul>
@@ -250,13 +250,13 @@ Slides: `2-statistGrundlagen.pdf`
         <br/>
         Nicht-self-maintainable ist der häufigste Wert.<br/>
         <br/>
-        MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
+        MIN und MAX sind self-maintainable bzgl. Einfügen.</dd>
     <dt><dfn id="mid-range">Mid-Range</dfn></dt>
-    <dd>$$\frac{MAX-MIN}{2}$$</dd>
+    <dd>$$\frac{MAX+MIN}{2}$$</dd>
     <dt><dfn id="entropie">Entropie</dfn></dt>
     <dd>$$E(S) = - \sum_{j} p_j \cdot \log p_j$$
         $E(S)=0$ ist minimal, wenn es ein $j$ gibt mit $p_j = 1$.
-        $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt für $i, j$.</dd>
+        $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt für alle $i, j$.</dd>
     <dt><dfn id="korrelationsmasse">Korrelationsmaße</dfn></dt>
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
@@ -266,7 +266,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>$$\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]$$</dd>
     <dt><dfn id="pca">PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
-        Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
+        Attributen. Er projiziert die Datenobjekte auf eine Hyperebene, sodass
         ein Maximum der Varianz beibehalten wird (vgl. <a href="../neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn id="chi-quadrat-test">Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
@@ -276,7 +276,7 @@ Slides: `2-statistGrundlagen.pdf`
         Dazu zählt man die Ausprägungen $i=1, \dots, m_1$ des Merkmals $X$
         und die Ausprägungen $j=1, \dots, m_2$ des Merkmals $Y$ sowie
         wie häufig diese in Kombination auftreten ($n_{ij}$). Man schätzt den
-        erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )$. Der Chi-Quadrat wert ist dann:
+        erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_1} n_{kj}\right )$. Der Chi-Quadrat-Wert ist dann:
         $$\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}$$
         Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
@@ -285,15 +285,15 @@ Slides: `2-statistGrundlagen.pdf`
         Signifikanzniveau $\alpha$ verworfen, falls
         $$\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}$$
         </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn id="ksa-test">KSA-Test</dfn>)</dt>
-    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen, also:
+    <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn id="ksa-test">KS-Test</dfn>)</dt>
+    <dd>Anpassungstest für stetige Verteilungen: Folgt die Stichprobe einer vorgegebenen Verteilung $F_0$? Also:
         $$H_0: F_X(x) = F_0(x)$$
-        Es wird die empirsche Verteilungsfunktion $S$ gebildet und diese mit
+        Es wird die empirische Verteilungsfunktion $S$ gebildet und diese mit
         der hypothetischen Verteilungsfunktion $F_0$ verglichen, wobei
         $S(x_0) = 0$ gesetzt wird:
-        $$d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)$$
+        $$d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1}) - F_0(x_i)|)$$
         $H_0$ wird verworfen, wenn $d_{\max} > d_\alpha$, wobei $d_\alpha$
-        bis zu $n=35$ tabelliert vorliegt. Bei großerem $n$ kann
+        bis zu $n=35$ tabelliert vorliegt. Bei größerem $n$ kann
         näherungsweise
         $$d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}$$
         </dd>
@@ -313,7 +313,7 @@ Slides: `2-statistGrundlagen.pdf`
             <ul>
                 <li>Parametrische Verfahren: Nehme eine bekannte
                     Wahrscheinlichkeits&shy;verteilung der Datenobjekte an und
-                    schätze deren Paramter. Arbeite  dann nur mit der
+                    schätze deren Parameter. Arbeite dann nur mit der
                     Verteilung</li>
                 <li>Nichtparametrische Verfahren: Sampling, Clustering,
                     Histogramme</li>
@@ -356,7 +356,7 @@ Slides: `2-statistGrundlagen.pdf`
 </dl>
 
 
-### Räumliche Indexstrutkuren
+### Räumliche Indexstrukturen
 
 Slides: `3-Informatik-Grundlagen.pdf`
 
@@ -378,7 +378,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
     <dd>Siehe <a href="../cg-klausur/#kd-tree">Computergrafik</a>.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn id="kdb-baum">kDB-Baum</dfn></a></dt>
     <dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
-        aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
+        aus heterogenem k-d-Baum und B*-Baum erreicht. Der Baum ist also nicht
         auf logischer, sondern nur auf physischer Ebene balanciert.</dd>
     <dt><a id="r-tree"></a><dfn id="r-baum">R-Baum</dfn></dt>
     <dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
@@ -418,8 +418,8 @@ Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen
     <dd>Schon beim Erstellen des Entscheidungsbaumes wird ab einer gewissen
         Tiefe abgebrochen</dd>
     <dt><dfn id="postpruning">Postpruning</dfn> (<dfn>Backward pruning</dfn>)</dt>
-    <dd>Der Entscheidungsbaum wird komplett aufgebaut, aber dannach wird
-        greprunt.</dd>
+    <dd>Der Entscheidungsbaum wird komplett aufgebaut, aber danach wird
+        gepruned.</dd>
 </dl>
 
 
@@ -428,18 +428,18 @@ Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen
 Slides: `5-Evaluation.pdf`
 
 <dl>
-    <dt><dfn id="resubsitution-error">Resubsitution Error</dfn></dt>
+    <dt><dfn id="resubsitution-error">Resubstitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
     <dt><a id="cross-validation"></a><dfn>$k$-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
     <dd>Unterteile den Datensatz in $k$ Teile. Dabei sollten die Klassen in
         etwa gleich häufig in allen Teilen vorkommen.
-        Mache nun $k$ durchläufe, wobei der $k$-te Datensatz immer zum
+        Mache nun $k$ Durchläufe, wobei im $i$-ten Durchlauf der $i$-te Teil zum
         Testen und alle anderen zum Trainieren verwendet werden. Berechne die
         $k$ Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
         für den realen Fehler als eine einmalige Unterteilung in Training- und
         Testmenge.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn id="stratification">Stratification</dfn></a></dt>
-    <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitionen etwa gleich verteilt ist.</dd>
+    <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitionen etwa gleich verteilt sind.</dd>
     <dt><dfn id="loss-function">Loss function</dfn></dt>
     <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
         Vorhersage verliert.</dd>
@@ -457,12 +457,12 @@ Slides: `5-Evaluation.pdf`
     <dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
     <dd>$$\frac{TP+TN}{TP+TN+FP+FN}$$</dd>
     <dt><dfn>Konfusionsmatrix</dfn> (<dfn id="confusion-matrix">Confusion matrix</dfn>)</dt>
-    <dd>Eine Tabelle, in der jede Zeile für die tatsächlichen Klassen stehen
+    <dd>Eine Tabelle, in der die Zeilen für die tatsächlichen Klassen stehen
         und die Spalten für die vorhergesagten Klassen. Die Diagonalelemente
         zählen also die richtig vorhergesagten Datenobjekte; alle anderen
         Zellen zählen falsche Vorhersagen.</dd>
     <dt><dfn id="kappa-koeffizient">Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn id="cohens-kappa">Cohens Kappa</dfn></a>)</dt>
-    <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
+    <dd>Vergleich mit Klassifikator, der nur den Anteil der Klassenzugehörigkeit
         schätzt:
         $$\kappa =\frac{p_0-p_c}{1-p_c}$$
         wobei $p_0$ die gemessene Übereinstimmung ist und $p_c$ die
@@ -487,7 +487,7 @@ Slides: `5-Evaluation.pdf`
         größer als 1 bedeutet, dass die Itemsets zusammen häufiger vorkommen
         als bei Unabhängigkeit zu erwarten wäre.
     </dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn id="roc">ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn id="roc">ROC</dfn></a> (<dfn>Receiver Operating Characteristic</dfn>)</dt>
     <dd>x-Achse: $\frac{FP}{FP+TN} \cdot 100$ (FP-Rate),<br/>
         y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)
         Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
@@ -506,7 +506,7 @@ Slides: `5-Evaluation.pdf`
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
         $CC(p, a)$ ist groß, wenn sich $p$ und $a$ ähnlich sind.
         $$CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}$$
-        Mit $\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2$</dd>
+        Mit $\sigma(x) = \sqrt{\frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2}$</dd>
     <dt><dfn>Code</dfn></dt>
     <dd>Abbildung, die jedem Element des Alphabets eine Folge aus 0en und
         1en zuweist.
@@ -567,7 +567,7 @@ Anwendungen von Association Rules denkbar:
         die den gleichen Support $\text{support}(I') = \text{support}(I)$ hat.</dd>
     <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
-        die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
+        die $A$ und $B$ enthalten, von den Transaktionen, die $A$ enthalten:
         $$\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]$$</dd>
     <dt><dfn id="apriori-algorithmus">Apriori Algorithmus</dfn></dt>
     <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
@@ -593,7 +593,7 @@ Anwendungen von Association Rules denkbar:
     <dt><dfn id="hash-filter">Hash-Filter</dfn> (<dfn>Hash-Tabelle</dfn>)</dt>
     <dd>Unterstützt das Support-Counting für viele Kandidaten.
         Die Hash-Tabelle wird einmalig für alle Kandidaten der Länge $k$
-        aufgebaut und stellt eine notwendige, aber keine hinreichnde
+        aufgebaut und stellt eine notwendige, aber keine hinreichende
         Bedingung für Frequent Itemsets dar.</dd>
     <dt><dfn id="hash-tree">Hash Tree</dfn></dt>
     <dd>Wenn man viele Kandidaten für $k$-elementige Frequent Itemsets hat,
@@ -601,7 +601,7 @@ Anwendungen von Association Rules denkbar:
         vor dem Support Counting für alle Kandidaten einen Hash-Tree mit
         $k$ Ebenen auf. Man sortiert die Items der Kandidaten auf, indem
         man einen Pfad für jeden Kandidaten im Baum hinzufügt. Jeder
-        Knoten im Hash-Tree enspricht also einem Item. Ein Item $i$ in Ebene
+        Knoten im Hash-Tree entspricht also einem Item. Ein Item $i$ in Ebene
         $j$ steht dafür, dass der Kandidat an Stelle $j$ das Item $i$ hat.
         Allerdings kann man auch früher aufhören, wenn es keine Kollisionen
         gibt.<br/>
@@ -610,7 +610,7 @@ Anwendungen von Association Rules denkbar:
         <br/>
         </dd>
     <dt><dfn id="fp-tree">FP-Trees</dfn></dt>
-    <dd>FP-Trees (FP für "frequent pattern") sind eine Datenstrutkur zum
+    <dd>FP-Trees (FP für "frequent pattern") sind eine Datenstruktur zum
         schnellen Finden von Frequent Itemsets. Jeder Knoten im Baum
         repräsentiert ein Item. Jeder Knoten speichert zusätzlich die
         Häufigkeit des Präfixes, welcher durch den Pfad von der Wurzel zu dem
@@ -727,7 +727,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster:
             $$a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)$$</li>
         <li>Durchschnittlicher Abstand zum zweitnächsten Cluster:
-            $$b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)$$</li>
+            $$b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)} \frac{1}{|C_i|} \sum_{p \in C_i} \text{dist}(o, p)$$</li>
         <li>Silhouette eines Objekts:
             $$s(o) = \begin{cases}0  &\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
                     \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}$$
@@ -744,7 +744,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Seien $X, Y$ Cluster.
 
         <ul>
-            <li>Durschnittlicher Objektabstand: $\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x in X, y\in Y} \text{dist}(x, y)$</li>
+            <li>Durchschnittlicher Objektabstand: $\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x \in X, y\in Y} \text{dist}(x, y)$</li>
             <li>Single Link: $\text{dist}_{sl}(X, Y) = \min_{x \in X, y \in Y} \text{dist}(x, y)$</li>
             <li>Complete Link: $\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)$</li>
         </ul>
@@ -752,11 +752,11 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
     <dd>Siehe <a href="../machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
-    <dd>CLARANS (Clustering Lge AplicationNs based on RANdomized Search) ist
+    <dd>CLARANS (Clustering Large ApplicatioNs based on RANdomized Search) ist
         ein Clustering-Algorithmus, der mit $k$-Means
         verwandt ist. Auch er erwartet einen Parameter $k \in \mathbb{N}$,
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
-        aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
+        aus, dass jeder Medoid durch einen Datenpunkt im Datensatz
         repräsentiert werden kann. Für eine zufällige Wahl von $k$ Punkten
         $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann überprüft
         man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
@@ -767,7 +767,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </dd>
     <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
     <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
-        entspricht ein Cluster.<br/>
+        entspricht einem Cluster.<br/>
         <br/>
         Clustering-Feature (N, LS, SS) für Cluster $C_i$ mit
         <ul>
@@ -796,13 +796,13 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </ul>
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
-    <dd>Beim hierarchischen Clustern werden Datenpunkte Baumartig zu Clustern
+    <dd>Beim hierarchischen Clustern werden Datenpunkte baumartig zu Clustern
         zusammengefasst. Das ganze sieht einem Abstammungsbaum der Arten in der
         Biologie sehr ähnlich.<br/>
         <br/>
         Es gibt zwei Vorgehensweisen:
         <ul>
-            <li><a href="#agglomerative-clustering">Agglomorativ</a></li>
+            <li><a href="#agglomerative-clustering">Agglomerativ</a></li>
             <li><a href="#divisive-clustering">Divisives Clustering</a></li>
         </ul>
 
@@ -819,7 +819,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Radius eines Clusters</dfn></dt>
     <dd>
 
-    Der Radius enes Centroids ist der durchschnittliche Abstand zum Centroiden:
+    Der Radius eines Centroids ist der durchschnittliche Abstand zum Centroiden:
 
     $$R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}$$
 
@@ -827,7 +827,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Durchmesser eines Clusters</dfn></dt>
     <dd>
 
-    Der Durchmesser eines Centroiden ist die durchschnittle paarweise Distanz:
+    Der Durchmesser eines Centroiden ist die durchschnittliche paarweise Distanz:
 
     $$D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}$$</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
@@ -839,13 +839,13 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         <ul>
             <li>Jedes Objekt ist ein Cluster. Füge die Cluster in die Menge $M$ ein.</li>
-            <li>Berechne alle paarweise Abstände zwischen Clustern in $M$. Das ist in $\mathcal{O}(|M|^2)$.</li>
+            <li>Berechne alle paarweisen Abstände zwischen Clustern in $M$. Das ist in $\mathcal{O}(|M|^2)$.</li>
             <li>Merge das Paar $A, B$ mit kleinstem Abstand zu $C = A \cup B$. Entferne $A, B$ aus $M$ und füge $C$ ein.</li>
             <li>Abbruch, wenn $|M| = 1$</li>
             <li>Gehe zu Schritt 2.</li>
         </ul>
 
-        Gesamtkomplexität: $\mathcal{O}(n^2)$<br/>
+        Gesamtkomplexität: $\mathcal{O}(n^3)$ ($n$ Schritte mit je $\mathcal{O}(n^2)$)<br/>
 
         Siehe auch: <a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/agnes.html">AGNES</a>
     </dd>
@@ -865,7 +865,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <br/>
         Siehe auch:
         <ul>
-            <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/diana.html">R implementierung</a></li>
+            <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/diana.html">R-Implementierung</a></li>
             <li><a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801">Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.</a></li>
         </ul>
     </dd>
@@ -874,14 +874,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         die durchschnittliche Anzahl der Dimensionen pro Cluster $l$.
 
         Output ist eine Partitionierung der Daten in $k+1$ Mengen</dd>
-    <dt><dfn>Manhatten Segmental Distance</dfn></dt>
+    <dt><dfn>Manhattan Segmental Distance</dfn></dt>
     <dd>$d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|$ wobei
         $n$ die Anzahl der Dimensionen von $x_1, x_2$ ist.</dd>
     <dt><dfn id="link-based-clustering">Link-based Clustering</dfn></dt>
     <dd>
 
         <ul>
-            <li>Connect all data objects which are closter than $d$</li>
+            <li>Connect all data objects which are closer than $d$</li>
             <li>Remove all data objects which have less than $c$ edges</li>
             <li>Clusters are now connected data objects. The removed elements are noise.</li>
         </ul>
@@ -890,13 +890,13 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>$$J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
-    <dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
+    <dd>DBSCAN ist ein Algorithmus zum Finden von Clustern.
 
     Er unterscheidet 3 Arten von Datenpunkten:
 
     <ul>
-        <li>Dichte Objekte: Epsion-Umgebung hat viele Datenobjekte.</li>
-        <li>Dichte-erreibare Objekte: In Epsilon-Umgebung von dichten Objekt.</li>
+        <li>Dichte Objekte: Epsilon-Umgebung hat viele Datenobjekte.</li>
+        <li>Dichte-erreichbare Objekte: In Epsilon-Umgebung eines dichten Objekts.</li>
         <li>Ausreißer: Weder dicht noch dichte-erreichbar.</li>
     </ul>
 
@@ -927,10 +927,10 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         $\varepsilon$ (maximaler Radius für Cluster-Distanz) automatisch
         Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
         Punkt definiert ein Cluster, wenn mindestens min_points von ihm aus
-        maximal $\varepsilon$ entfernt sind. Dann wird der naheste Punkt zu
+        maximal $\varepsilon$ entfernt sind. Dann wird der nächstgelegene Punkt zu
         dem Cluster hinzugefügt. Dies wird so lange gemacht, wie die Punkte
         maximal $\varepsilon$ von einem Punkt im Cluster entfernt sind.
-        Dann wird ein bisher nicht betrachteter Punkt als genommen und man
+        Dann wird ein bisher nicht betrachteter Punkt genommen und man
         macht für diesen Outlier / neuen Cluster so weiter wie zuvor.
 
         <ul>
@@ -997,7 +997,7 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
     <tr>
         <td><a href="#em">EM</a></td>
         <td>$k$, distribution-type</td>
-        <td>probabilisitc</td>
+        <td>probabilistic</td>
         <td>$\mathcal{O}(dkni)$</td>
         <td>$i$ is the number of iterations</td>
     </tr>
@@ -1020,7 +1020,7 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td>number of clusters, linkage type, distance</td>
         <td>hierarchical</td>
         <td>$\mathcal{O}(n^2)$</td>
-        <td>Related to Kruskals algorithm for constructing a minimal spanning tree; looks at local patterns</td>
+        <td>Related to Kruskal's algorithm for constructing a minimal spanning tree; looks at local patterns</td>
     </tr>
     <tr>
         <td><a href="#diana">DIANA</a></td>
@@ -1067,17 +1067,17 @@ Siehe auch: <a href="http://scikit-learn.org/stable/modules/clustering.html">Skl
 Slides: `10-StatistModellierung.pdf`
 
 <dl>
-    <dt><dfn>Naive Baies</dfn></dt>
+    <dt><dfn>Naive Bayes</dfn></dt>
     <dd>$$P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}$$</dd>
     <dt><dfn>Laplace-Smoothing</dfn></dt>
-    <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initilisiert.
+    <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initialisiert.
         Beachte, dass man auch die Gesamtzahl dann um $k$ erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
     <dd>Siehe <a href="../machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
-    <dt><dfn>Duplikateleminierung</dfn></dt>
+    <dt><dfn>Duplikateliminierung</dfn></dt>
     <dd>Spezialfall von Klassifikation</dd>
     <dt><dfn>Versteckte Variablen</dfn></dt>
-    <dd>Abstraktion, damit der Raum der zu betrachteten Variablen bei Bayesschen Netzen kleiner wird.</dd>
+    <dd>Abstraktion, damit der Raum der zu betrachtenden Variablen bei Bayesschen Netzen kleiner wird.</dd>
 </dl>
 
 Siehe auch:
@@ -1092,10 +1092,10 @@ Slides: `11-SupportVectorMachines.pdf`
 <dl>
     <dt><dfn>Lineare Regression</dfn></dt>
     <dd>Model $y = M x$, wobei $x \in \mathbb{R}^n$ die Features sind,
-        $y \in \mathbb{R}^m$ die Vorhersage und $M \in \mathbb{R}^{n \times m}$
+        $y \in \mathbb{R}^m$ die Vorhersage und $M \in \mathbb{R}^{m \times n}$
         die Modellparameter.</dd>
     <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
-    <dd>$$E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]$$</dd>
+    <dd>$$E_{CE}(w) = -\sum_{i=1}^n [(1-y_i) \cdot \log (1-p_i) + y_i \cdot \log p_i]$$</dd>
     <dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
     <dd>See <a href="../svm-with-sklearn/">SVM article</a>.</dd>
 </dl>
@@ -1123,7 +1123,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting
         Trainingsdatenbestandes für die Classifier verwendet werden.
     </dd>
     <dt><dfn>Relabeling</dfn></dt>
-    <dd>Überschreiben der Originalen Labels, z.B. wenn man eine
+    <dd>Überschreiben der originalen Labels, z.B. wenn man eine
         Attributkombination mehrfach hat, aber mit unterschiedlichen Labels,
         dann kann dieser Kombination mit einer gewissen Wahrscheinlichkeit das
         jeweilige Label zugewiesen werden.</dd>
@@ -1135,10 +1135,10 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting
     <dt><dfn>Boosting</dfn></dt>
     <dd>Boosting ist eine Ensemble-Learning-Technik, die mehrere Modelle vom
         gleichen Typ durch Voting / Durchschnittsberechnung kombiniert. Dabei
-        nimmt Boosting Rücksicht auf zuvor falsch Klassifizierte Beispiele
+        nimmt Boosting Rücksicht auf zuvor falsch klassifizierte Beispiele
         und gewichtet diese stärker.
 
-        Gewichtungsänderung für korrekte Objekte bei Fehllerrate e: $\frac{e}{1-e}$</dd>
+        Gewichtungsänderung für korrekte Objekte bei Fehlerrate e: $\frac{e}{1-e}$</dd>
 </dl>
 
 
@@ -1152,7 +1152,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 </details>
 
 <details class="question">
-<summary>Wie berechnet man die Covarianz zweier Zufallsvariablen $X, Y$?</summary>
+<summary>Wie berechnet man die Kovarianz zweier Zufallsvariablen $X, Y$?</summary>
 <div class="answer">
 $\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$
 </div>
@@ -1161,9 +1161,9 @@ $\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot 
 <details class="question">
 <summary>Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?</summary>
 <div class="answer">
-Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
-die von der Sphäre, welchen durch den Anfragepunkt un den tatsächlichen
-nachsten Nachbarn gebildet wird, geschnitten werden.
+Weil man mit dem Priority-Queue-Algorithmus nur Rechtecke betrachten muss,
+die von der Sphäre, welche durch den Anfragepunkt und den tatsächlichen
+nächsten Nachbarn gebildet wird, geschnitten werden.
 </div>
 </details>
 
@@ -1208,7 +1208,7 @@ gegebenenfalls mehr Knoten betrachtet werden.
 <details class="question">
 <summary>Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?</summary>
 <div class="answer">
-R-Bäume partitionieren im gegensatz zu kD- und kDB-Bäumen den Datensatz
+R-Bäume partitionieren im Gegensatz zu kD- und kDB-Bäumen den Datensatz
 nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
 balanciert.
 </div>
@@ -1282,7 +1282,7 @@ Mehr Trainingsdaten für den schlimmeren Fehler. (vgl. <a href="http://datascien
 <summary>Was ist Wertebereich der FP-Rate?</summary>
 <div class="answer">
 [0, 1]: Die FP-Rate ist definiert als $\frac{FP}{FP+TN}$. Offensichtlich sind alle Werte
-nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
+nicht-negativ, also kann der Bruch nicht negativ werden. Außerdem ist der
 Nenner mindestens so groß wie der Zähler. Wenn TN=0 und $FP \neq 0$, dann ist die FP-Rate gleich 1. Das geht,
 wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
 die FP-Rate gleich 0.
@@ -1313,7 +1313,7 @@ vgl. <a href="../analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
 <details class="question">
 <summary>Was ist ein Lift Chart?</summary>
 <div class="answer">
-Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
+Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse den
 Gewinn. Die x-Achse verläuft von 0 bis 100% und die y-Achse von 0 bis zum
 maximalen Gewinn im Datenbestand. Die Diagonale von (0, 0) nach (100%,
 Maximaler Gewinn) entspricht Raten, alles über der Diagonalen ist positiv.
@@ -1437,7 +1437,7 @@ Grenze.
 <details class="question">
 <summary>Was sind multidimensionale Association Rules?</summary>
 <div class="answer">
-Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
+Association Rules, die auf verschiedenen Begriffsebenen sind, z.B.
 Oreo $\Rightarrow$ Milch
 </div>
 </details>
@@ -1481,7 +1481,7 @@ Sampling, Projektion
 <details class="question">
 <summary>Was ist Constraint-basiertes Mining?</summary>
 <div class="answer">
-Das minen von Assosication Rules unter Nebenbedingungen. Diese können
+Das Minen von Association Rules unter Nebenbedingungen. Diese können
 entweder an die Daten oder an die Regeln gestellt werden. Eine
 Nebenbedingung an die Daten wäre z.B. dass nur Items betrachtet werden,
 die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
@@ -1498,7 +1498,7 @@ den Nutzer interessantere Regeln finden.
 </details>
 
 <details class="question">
-<summary>Was für Arten von Constraints kennen sie? Beispiele hierfür.</summary>
+<summary>Was für Arten von Constraints kennen Sie? Beispiele hierfür.</summary>
 <div class="answer">
 Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints
 (min. 3 Elemente auf der rechten Seite).
@@ -1557,7 +1557,7 @@ beinhalten soll.
 ### Clustering
 
 <details class="question">
-<summary>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS herleiten?</summary>
+<summary>BIRCH-Algorithmus: Wie kann man den Radius aus N, LS, SS herleiten?</summary>
 <div class="answer">
 $R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}$
 </div>
@@ -1566,19 +1566,19 @@ $R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}
 <details class="question">
 <summary>BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?</summary>
 <div class="answer">
-$\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}$
+$D(C_i) = \sqrt{\frac{2 N \cdot SS - 2 LS^2}{N \cdot (N-1)}}$
 </div>
 </details>
 
 <details class="question">
 <summary>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS herleiten?</summary>
 <div class="answer">
-$D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}$
+$D(C_1, C_2) = \sqrt{\frac{N_{C_2} \cdot SS_{C_1} - 2 LS_{C_1} LS_{C_2} + N_{C_1} \cdot SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}$
 </div>
 </details>
 
 <details class="question">
-<summary>BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengefügten Clusters $C_{12} = C_1 \cup C_2$ aus den Komponenten berechnen?</summary>
+<summary>BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines zusammengefügten Clusters $C_{12} = C_1 \cup C_2$ aus den Komponenten berechnen?</summary>
 <div class="answer">
 Durch Addition der jeweiligen Features der Einzelcluster.
 </div>

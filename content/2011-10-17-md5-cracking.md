@@ -24,7 +24,7 @@ advantage of the passwords he just read.
 
 It is much more realistic that the attacker can read the whole database. So he
 can access sensitive user data. As it is very likely that you have some e-mail
-adresses in there, he could quite probably log into the e-mail accounts of the
+addresses in there, he could quite probably log into the e-mail accounts of the
 users with the same password. If the password is hashed, it's not that simple.
 He has to try to crack the MD5 hashed passwords.
 

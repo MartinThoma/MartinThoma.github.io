@@ -27,13 +27,13 @@ Sometimes, it is possible to generate data yourself. This is what I did for
 write-math.com. It could be expected that users are not too different - after
 all, single symbols should look somewhat similar, no matter who wrote them.
 
-This is not possible for Amazon recommendations as they are mainly dependant on
+This is not possible for Amazon recommendations as they are mainly dependent on
 the user.
 
 
 ## Ask friends
 
-You can ask friends / collegues to use your system and feed it with data. I did
+You can ask friends / colleagues to use your system and feed it with data. I did
 this with write-math.com, too.
 
 
@@ -44,9 +44,9 @@ use your system and feed it with data. For example, Google did this with
 [Quickdraw](https://quickdraw.withgoogle.com/).
 
 
-## Side-steping
+## Side-stepping
 
-Some tasks can be re-formulated so that they are intersting for other problems.
+Some tasks can be re-formulated so that they are interesting for other problems.
 Examples are [Asirra](https://www.microsoft.com/en-us/research/publication/asirra-a-captcha-that-exploits-interest-aligned-manual-image-categorization/) and
 reCaptcha:
 
@@ -54,7 +54,7 @@ You are given 12 images. Your task is to identify all images which contain
 dogs. The developer knows the content of 11 images. If you get those 11 right,
 some trust is put into your classification of the 12th image.
 
-Similar, for reCaptcha you are given two words. The developer knows one of
+Similarly, for reCaptcha you are given two words. The developer knows one of
 them. It is placed randomly on the left or the right. If you get that one
 right, some trust is put into your classification of the other one.
 
@@ -63,11 +63,11 @@ Another example is Duolingo.
 
 ## Alternative Algorithms
 
-You could use other algorithms with do not need data. [Expert systems](https://en.wikipedia.org/wiki/Expert_system) are
+You could use other algorithms which do not need data. [Expert systems](https://en.wikipedia.org/wiki/Expert_system) are
 examples for this kind of algorithm. Just let an expert hand-craft rules. This
 could work for Amazon recommendations:
 
-* Get besteller lists to rank books initially.
+* Get bestseller lists to rank books initially.
 * As soon as the user liked one book of one author, add a little bit to the
   score of all other books of that author.
 * Users who bought one edition of a book usually don't buy the same book in

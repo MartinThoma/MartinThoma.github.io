@@ -70,13 +70,13 @@ $ vnstati -vs -i wlp3s0 -o ~/summary.png
 ## Results
 
 To interpret the following, you should know that `rx` is the received traffic
-and `tx` is the transferred traffic.
+and `tx` is the transmitted traffic.
 
 
 ### General
 
 I was not at home most of August, so the results you see in the image above
-might be different than usually. So lets get a summary for this year:
+might be different than usual. So let's get a summary for this year:
 
 ```bash
 $ vnstati -vs -m -i wlp3s0 -o ~/summary.png

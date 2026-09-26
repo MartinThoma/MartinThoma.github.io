@@ -27,8 +27,8 @@ first 10 Google hits about their differences.
     </tr>
     <tr>
         <td>License</td>
-        <td>MIT/X derivate&nbsp;</td>
-        <td>GNUv3</td>
+        <td>MIT/X derivative&nbsp;</td>
+        <td>GPLv3</td>
     </tr>
     <tr>
         <td>Written in</td>
@@ -55,7 +55,7 @@ first 10 Google hits about their differences.
 
 ## curl strengths
 
-* curl supports much more protocols and platforms (OS/400, TPF - never heard of them before)
+* curl supports many more protocols and platforms (OS/400, TPF - never heard of them before)
 * curl supports more authentication methods
 * curl supports gzip and deflate Content-Encoding and does automatic decompression
 
@@ -71,7 +71,7 @@ first 10 Google hits about their differences.
 
 ## Interesting wget options
 
-* `-b`: Put the download in background. Interersting for large downloads.
+* `-b`: Put the download in background. Interesting for large downloads.
 * `--user-agent="Mozilla/5.0"`
 * `-i [filename]`: Specify a filename with newline separated URLs to download
 * `--mirror -p`: Download a webpage
@@ -81,7 +81,7 @@ first 10 Google hits about their differences.
 * `-Q5m`: Stop downloading when the file size exceeds 5 MB
 
 
-## Conclusiong
+## Conclusion
 
 Use `wget` when you want to download a single file or a website. Use `curl`
 for more fancy stuff.

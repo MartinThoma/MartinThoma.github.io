@@ -25,7 +25,7 @@ Everyone who wants to get informed about updates on websites has to use RSS Feed
 
 
 ## OpenID
-It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log-in in Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger.
+It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log in to Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger.
 
 Here is another explanation:
 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="512" height="414" src="//www.youtube.com/embed/xcmY8Pk-qEk" frameborder="0" allowFullScreen></iframe>

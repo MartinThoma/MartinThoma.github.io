@@ -862,7 +862,7 @@ Fabrics:
         </tr>
         <tr>
             <td>Lemons (Zitronen)</td>
-            <td>2 weeks ?</td>
+            <td>2 weeks?</td>
             <td>0.79 € / 500g - 1.19 € / 500g</td>
             <td>4.79 € / 15 pieces</td>
         </tr>

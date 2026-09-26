@@ -39,9 +39,9 @@ Wir haben diese Ausreden heutzutage nicht mehr.
 ## Zahlen
 
 <ul>
-    <li>2018 wurden in Deutschland Homöopathika für 670 Mio. Euro verkauft.[^1]</li>
-    <li>2018 wurden in Deutschland 54,5 Millionen Packungen verkauft.[^1]</li>
-    <li>2018 haben in 87% der Fälle die Verbraucher selbst bezahlt.[^1]</li>
+    <li>2018 wurden in Deutschland Homöopathika für 670 Mio. Euro verkauft.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+    <li>2018 wurden in Deutschland 54,5 Millionen Packungen verkauft.<sup><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+    <li>2018 haben in 87% der Fälle die Verbraucher selbst bezahlt.<sup><a class="footnote-ref" href="#fn:1">1</a></sup></li>
     <li>2018 hat <a href="https://de.wikipedia.org/wiki/Hevert-Arzneimittel">Hevert</a> ca. 30 Mio. EUR Umsatz gemacht.</li>
 </ul>
 

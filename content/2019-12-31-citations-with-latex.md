@@ -112,7 +112,7 @@ You can fill this file with [JabRef](https://www.jabref.org/) or by hand.
 
 ## See also
 
-* tom: [Mulitple reference citation](https://texblog.org/2007/05/28/mulitple-reference-citation/) on texblog, 2007.
+* tom: [Multiple reference citation](https://texblog.org/2007/05/28/mulitple-reference-citation/) on texblog, 2007.
 * [Bibliography management with natbib](https://da.overleaf.com/learn/latex/Bibliography_management_with_natbib) on overleaf
 * [Put parentheses around year in citation](https://tex.stackexchange.com/q/104518/5645) on tex.stackexchange
 * [Biblatex citation styles](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) on overleaf

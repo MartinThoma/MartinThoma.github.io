@@ -24,7 +24,7 @@ model 3(x1) = [0.4, 0.4, 0.1, 0.1]
 the ensemble predicts
 $$\left [\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}, \frac{0.1+0.1+0.1}{3} \right] \approx \left [0.3, 0.4, 0.2, 0.1 \right ]$$ for $x_1$.
 
-Note that this is different from pluarlity voting (PV) where every model gives
+Note that this is different from plurality voting (PV) where every model gives
 only one vote for the most likely class. In the case from above, it would be
 
 ```text
@@ -71,13 +71,13 @@ tried it myself.
 
 ## Ensemble Techniques
 
-There are much more sophisticated ensemble techniques than simple averaging of
+There are many more sophisticated ensemble techniques than simple averaging of
 the output:
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn id="bagging">Bagging</dfn></a></dt>
     <dd><i>How does it work?</i> Train models on different data
-        (Learnier is fit, results are mean/median aggregated)<br/>
+        (Learner is fit, results are mean/median aggregated)<br/>
         <i>Why is it used?</i> Reduction of variance<br/>
         <i>Common techniques:</i>
 

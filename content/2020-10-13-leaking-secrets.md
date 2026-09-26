@@ -18,7 +18,7 @@ It’s best to prevent leaking credentials completely, but if it happens, you ne
 
 Leaking secrets and credentials happens more often than one would think. I’m a bit astonished that we don’t see this more often in news articles, but there are certainly some hacks that could be traced back to leaked secrets:
 
-* **2017**: Uber paid $100,000 to hackers who got personal data of 57 million customers.
+* **2017**: Uber paid \$100,000 to hackers who got personal data of 57 million customers.
 * **2019**: Researchers find over 200,000 unique secrets on GitHub. They describe their methodology and findings in “[How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf)”
 * **2020**: Daimler's internal GitLab was open to the public ([source](https://www.zdnet.com/article/mercedes-benz-onboard-logic-unit-olu-source-code-leaks-online/)). If there were any credentials in any of the repositories, they are now public as well. This is why [Defence in Depth](https://en.wikipedia.org/wiki/Defence_in_depth) makes sense. Don’t store your secrets in a repository, even if the repository is private.
 

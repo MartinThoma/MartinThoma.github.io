@@ -142,7 +142,7 @@ ist eine Abbildung $\| \cdot \|: V \rightarrow \mathbb{R}_0^+, x \mapsto \|x\|$
 für die gilt:
 
 * Definitheit: $\|x\| = 0 \Rightarrow x = 0$
-* Absolute Homogenität: $\|\alpha \cdot x \| = \alpha \cdot \| x \|$
+* Absolute Homogenität: $\|\alpha \cdot x \| = |\alpha| \cdot \| x \|$
 * Dreiecksungleichung: $\|x+y\| \leq \|x\| + \|y\|$
 
 Typische Normen sind die
@@ -304,7 +304,7 @@ Siehe <a href="../machine-learning-1-course/#overfitting">ML 1</a>
 <details class="question">
 <summary>Wie funktioniert MDA?</summary>
 <div class="answer">
-Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}$
+Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 + {s'}_2^2}$
 (im 2-Klassen-Fall, wobei $w$ die Ebene ist, auf die projiziert wird)
 </div>
 </details>

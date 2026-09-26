@@ -42,7 +42,7 @@ sys	0m2.356s
 
 ```
 
-The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:
+The most simple way to parallelize the ikj algorithm is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:
 ```bash
 
 time python ikjMultiplication.py -i 2000.in > 2000-parallel.out

@@ -71,7 +71,7 @@ which gives
 </figure>
 
 
-## Prerequesites
+## Prerequisites
 
 You need to install [`seaborn`](http://seaborn.pydata.org/installing.html).
 

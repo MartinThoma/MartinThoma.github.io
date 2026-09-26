@@ -17,7 +17,7 @@ The plain and simple answer is: Yes. I do like watching lectures on YouTube
 more than attending them. Let me elaborate on this.
 
 Side note: When I write YouTube in the following, I'm not limiting the
-statements on this particular platform. I mean any professional video streaming
+statements to this particular platform. I mean any professional video streaming
 website. A very good alternative is Vimeo, for example.
 
 
@@ -36,7 +36,7 @@ If a lecture is on YouTube, you can simply watch it whenever you have time.
 
 ### Rate of Words
 
-People speak very slow. You are able to listen to at least double the speed in
+People speak very slowly. You are able to listen to at least double the speed in
 which they are able to talk. Even faster, if they need to write at the same
 time.
 
@@ -64,7 +64,7 @@ On YouTube, you just turn the volume up or down to your personal preference.
 
 ### Rate of Progress per day
 
-Although people speak slow, some lecturers make progress very fast. For some
+Although people speak slowly, some lecturers make progress very fast. For some
 statements, you need time to think about it. Although I could hear the
 statement much faster, after it was said I need a pause to process it.
 
@@ -128,7 +128,7 @@ will be spotted and noted.
 It is not really possible to make a lecture interactive. Yes, there are good
 options like <a href="http://socrative.com/">socrative</a> where you can allow
 students to simply post an answer anonymously. But compare that to multiple
-choice in YouTube videos where students can thinks as long as they want about a
+choice in YouTube videos where students can think as long as they want about a
 problem. Or even free answers, where you allow the student to check for
 themselves if they got it right, wrong or if they need a clarification.
 

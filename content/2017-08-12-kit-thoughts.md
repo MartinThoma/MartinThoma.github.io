@@ -2,17 +2,17 @@
 layout: post
 title: Ideen zur Verbesserung des KIT
 slug: kit-thoughts
-lang: en
+lang: de
 author: Martin Thoma
 date: 2017-08-12 20:00
-category: My bits and bytes
+category: German posts
 tags: KIT, University
 featured_image: logos/education.png
 ---
-I've studied 3 years for the bachelors degree and for 2.5 years for the masters
+I've studied 3 years for the bachelor's degree and for 2.5 years for the master's
 degree at KIT (Karlsruhe Institute of Technology). I had a very good time and
 learned a lot. In this post I point
-out some ideas how KIT could be a better university for bachelors and masters
+out some ideas how KIT could be a better university for bachelor's and master's
 degree students in computer science. The rest of the article is in German
 (you might want to use <a href="https://translate.google.com/">Google Translate</a>).
 
@@ -29,16 +29,16 @@ gute Ressourcen teilen. Eine solche Software könnte als Projekt im Modul PSE
 entwickelt werden.
 
 Außerdem wären Vorlesungsempfehlungen ähnlich wie Produktempfehlungen
-interessant: Sie haben Machine Learning gehört? Dann könnte sie auch Neuronale
+interessant: Sie haben Machine Learning gehört? Dann könnte Sie auch Neuronale
 Netze interessieren! Diese Empfehlungen können und sollten auch von Dozenten
-als "Ähnliche Vorlesungen" auf den Websiten benannt und möglichst auch verlinkt
+als "Ähnliche Vorlesungen" auf den Websites benannt und möglichst auch verlinkt
 werden.
 
 
 ### Online-Materialien
 
 1. Jede Vorlesung sollte ein **Skript** haben. Zum einen gibt es den Studenten
-   die Chance zu sehen worum es in der Vorlesung geht (das Modulhandbuch is ein
+   die Chance zu sehen worum es in der Vorlesung geht (das Modulhandbuch ist ein
    Anfang, aber nicht genug). Zum anderen kann man so auch dem Stoff folgen
    selbst wenn man nicht in die Vorlesung gehen kann.
 2. Das Skript sollte online sein
@@ -46,14 +46,14 @@ werden.
 4. Die Musterlösungen der Übungsblätter sollten online verfügbar sein.
 5. **Vorlesungs-Videos**: Vorlesungen sollten gefilmt werden (vgl. [Blog post](../lectures-on-youtube/))
 6. Alle Online-Materialien sollten für jeden verfügbar sein. Die Dozenten
-   werden mit offentlichen Geldern bezahlt, also sollte das Produkt ihrer
-   Arbeit auch der gesamten Öffentlichkeit zugute kommen. Außerdem ist es gute
+   werden mit öffentlichen Geldern bezahlt, also sollte das Produkt ihrer
+   Arbeit auch der gesamten Öffentlichkeit zugutekommen. Außerdem ist es gute
    Werbung fürs KIT.
 
 ### Umfragen
 Umfragen zur Verbesserung der Vorlesung müssen auch online auszufüllen sein.
-Was bringt es, wenn man gerade die Studenten die die Vorlesung stark
-kritisieren würden nicht fragt? Dann kann man sich die Umfrage auch gleich
+Was bringt es, wenn man gerade die Studenten, die die Vorlesung stark
+kritisieren würden, nicht fragt? Dann kann man sich die Umfrage auch gleich
 schenken. Also: **Evaluation auch online durchführen**.
 
 
@@ -66,7 +66,7 @@ vorne, erzählt 1.5h etwas und geht wieder. Vielleicht gibt es zwischendrin noch
 eine Frage. Manche Dozenten versuchen das durch Fragen etwas "aufzulockern",
 aber meist gelingt das nicht. Die Fragen bewirken bei vielen Studenten eher
 eine Bitte-schau-mich-nicht-an Schockstarre bei der sie dann noch weniger
-Mitdenken können.
+mitdenken können.
 
 Wenn das so abläuft, sind Videos viel besser (vgl. [Blog post](../lectures-on-youtube/)).
 
@@ -91,7 +91,7 @@ verwendet und kam gut an. Man denkt ab dem Punkt wieder mit.
 ## Aufbau des Studiums
 
 **Mehr Freiheit im Master**: Im Bachelor werden die Grundlagen und ein breiter
-überblick über die Informatik erworben. Das Ziel des Master-Studiums ist eine
+Überblick über die Informatik erworben. Das Ziel des Master-Studiums ist eine
 Spezialisierung. Allerdings ist dies durch die Stammmodule - deren Qualität im
 Vergleich zu anderen Vorlesungen katastrophal ist - und durch das Nebenfach
 behindert. Eventuell könnte man Modulkombinationen als Spezialisierung
@@ -101,22 +101,22 @@ diese Module alle abgelegt hat.
 ## Abschlussarbeiten, Praktika und Seminare
 
 Es ist schwer aktuell verfügbare Abschlussarbeiten, Praktika und Seminare zu
-finden. Ich habe viele Interessante Sachen erst gegen Ende des Studiums
+finden. Ich habe viele interessante Sachen erst gegen Ende des Studiums
 gefunden, als ich schon mehr ECTS hatte als ich benötigt habe. Die Lösung ist
-einfach: **Abschlussarbeiten, Seminare, Praktika und HiWi Stellen online auschreiben**.
-Am besten im Verbund mit mehreren Universitäten (vielleicht am anfang die [TU9](https://de.wikipedia.org/wiki/TU9)).
+einfach: **Abschlussarbeiten, Seminare, Praktika und HiWi-Stellen online ausschreiben**.
+Am besten im Verbund mit mehreren Universitäten (vielleicht am Anfang die [TU9](https://de.wikipedia.org/wiki/TU9)).
 Dann kann man so was bei der Bewerbung auch berücksichtigen. Das Portal sollte
 primär zur Suche dienen.
 
 ## Sport
 * Mehr Angebote: Umfrage unter den Studenten, was sie sich wünschen
-    * Mehr Hallen? Was würde das Kosten? Könnte man das am Campus Ost machen?
+    * Mehr Hallen? Was würde das kosten? Könnte man das am Campus Ost machen?
 * Statistiken über Nutzung der Angebote veröffentlichen
 * Anmeldung
     * Vielleicht 75% für das Semester, 25% der Plätze jeweils eine Woche vorher
       / spontan?
     * Anmeldung mindestens 3 Tage offen lassen. Nicht First-come-first-serve,
-      sondern als Optimierungsproblem. vorrang hat, wer noch nie in einem Kurs
+      sondern als Optimierungsproblem. Vorrang hat, wer noch nie in einem Kurs
       war, wer sonst in wenig anderen Kursen ist, ...
 
 
@@ -151,7 +151,7 @@ einzurichten.
 ### Software
 
 Am KIT wird einiges an Software entwickelt. Es wäre cool wenn davon mehr online
-unter einem offiziellem KIT-Account z.B. auf GitHub verfügbar gemacht würde.
+unter einem offiziellen KIT-Account z.B. auf GitHub verfügbar gemacht würde.
 
 
 ### Praxis-Gruppen
@@ -169,7 +169,7 @@ Unterstützung mit Rechenleistung toll.
 ### Zeugnis
 
 Das Zeugnis sieht optisch einfach nicht gut aus. Da könnte man sich ruhig etwas
-mehr mühe geben. Oder es zumindest auf etwas hochwertigerem Papier drucken.
+mehr Mühe geben. Oder es zumindest auf etwas hochwertigerem Papier drucken.
 
 Auch die Zeit zur Ausstellung ist einfach zu lang. Für mein Bachelor-Zeugnis
 hat das KIT 1.5 Jahre gebraucht, wenn ich mich gerade richtig erinnere.
@@ -186,12 +186,12 @@ Es gibt einiges am KIT, was gut ist und beibehalten werden sollte:
 * **Campus**: Die Vorlesungen sind alle (?) am Campus Süd. Der Campus ist
   zusammenhängend und die Wiese beim Audimax und der Schlosspark erlauben es
   auch mal kurz zu entspannen und die Sonne zu genießen.
-* **KIT-Card**: Die Karte sieht im vergleich zu ein paar anderen Unis echt
+* **KIT-Card**: Die Karte sieht im Vergleich zu ein paar anderen Unis echt
   professionell aus. Auch das Bezahlen mit der Karte bei der Mensa funktioniert
   gut. Das EC-Kartenformat ist auch praktisch.
 * **Professorencafé**: Der Abstand zwischen Professoren / Dozenten und
   Studenten ist in Deutschland leider sehr groß. Das hindert viele daran Fragen
-  zu stellen und steht somit effektiver Lehre im weg. Das Professorencafé
+  zu stellen und steht somit effektiver Lehre im Weg. Das Professorencafé
   lockert das ganze etwas auf.
 * **Lehre**: Ein paar Professoren, wie beispielsweise Prof. Henze, halten sehr
   gute Vorlesungen. Sie sind gut vorbereitet, strukturiert und haben gutes

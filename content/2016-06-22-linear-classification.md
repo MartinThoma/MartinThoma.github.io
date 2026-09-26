@@ -109,11 +109,11 @@ For given $W, x$ it only divides both sides of the equation by the same constant
 
 What does standardization with softmax change?
 
-Just like with normalization, softmax makes equation $(DB)$ to be divided by a constant. This can be ignored. The exponentiation can also be ignored as we can simply take the logartihm of both sides of $(DB)$. Or in other words: **A neural network with only one input layer and one softmax output layer also has a linear decision boundary!**
+Just like with normalization, softmax makes equation $(DB)$ to be divided by a constant. This can be ignored. The exponentiation can also be ignored as we can simply take the logarithm of both sides of $(DB)$. Or in other words: **A neural network with only one input layer and one softmax output layer also has a linear decision boundary!**
 
 ## -1/+1 encoding
 
-In the 2-class case one might consider to use -1 for one class and +1 for the other class as targets. Then the classifcation is
+In the 2-class case one might consider to use -1 for one class and +1 for the other class as targets. Then the classification is
 
 $$
 \begin{cases}

@@ -259,7 +259,7 @@ See also:
 ## E-Mail
 
 * [Flask-Mail](https://pythonhosted.org/Flask-Mail/)
-* Mailgun, mailchimp ?
+* Mailgun, Mailchimp?
 * [SendGrid](https://sendgrid.com/) ([users](https://stackshare.io/sendgrid))
 * Mail-Server [Docker `tvial/docker-mailserver:latest`](https://github.com/tomav/docker-mailserver): Requires 1 GB RAM
 
@@ -283,7 +283,7 @@ stuff from your site and being active on that site. Or at least reachable.
 ## Payment
 
 * PayPal?
-* [Stripe](https://stripe.com) ([users](https://stackshare.io/stripe)) ?
+* [Stripe](https://stripe.com) ([users](https://stackshare.io/stripe))?
 
 
 ## Tests

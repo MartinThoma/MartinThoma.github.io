@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Mathematics, Probability, Machine Learning, AI
 featured_image: logos/statistics.png
 ---
-Explaining away is an effect where which is explained in Pearl (1988) with
+Explaining away is an effect which is explained in Pearl (1988) with
 an example similar to the following one:
 
 > A car's engine can fail ($X$). The reason might either be a dead battery
@@ -27,7 +27,7 @@ that the battery is not dead ($Y=0$) and the fuel pump is not blocked
 
 However, if the engine failed ($X=1$) it gets more interesting. Let's say the
 engine works with a probability of 90%. From the graph, you can see that we
-assume that a dead battery is independant of a blocked fuel pump. Let's also
+assume that a dead battery is independent of a blocked fuel pump. Let's also
 assume that you know that either the fuel pump is blocked or the battery is
 dead when the engine failed. There is no other option.
 
@@ -50,13 +50,13 @@ still 10% left which has to be distributed amongst $P(X=1,Y=1,Z=1), P(X=1,Y=1,Z=
 However, if you assume that $Y$ and $Z$ are independent, given $X$, then
 you would have to set $P(Y=0, Z=0|X=1) = P(Y=0|X=1) \cdot P(Z=0|X=1)$ which
 would not be 0 except one of the probabilities would be 0. Or, putting it
-different again: Given that you know the engine is broken, the event of
+differently again: Given that you know the engine is broken, the event of
 a dead battery and a blocked fuel pump are suddenly not independent anymore!
 
 
 ## What does it mean
 
-This does not mean there is "suddenly" a causatal connection between a dead
+This does not mean there is "suddenly" a causal connection between a dead
 battery and a blocked fuel pump. It only means you can learn something for
 your predictions.
 

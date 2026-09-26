@@ -34,6 +34,6 @@ Superhydrophobic coating
 
 ## Sodium polyacrylate
 
-Superabsorbent polymer (<a href="https://en.wikipedia.org/wiki/Sodium_polyacrylate"></a>)
+Superabsorbent polymer (<a href="https://en.wikipedia.org/wiki/Sodium_polyacrylate">Wikipedia</a>)
 
 <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/p-g_0wyhV9E?rel=0" frameborder="0" allowfullscreen></iframe>

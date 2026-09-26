@@ -510,7 +510,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
       eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
       Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
-      werden können. Dabei muss es nur eine Teilmenge $X' \subseteq X $ der
+      werden können. Dabei muss es nur eine Teilmenge $X' \subseteq X$ der
       Größe $n$ geben, damit $VC(H, X) \geq n$ gilt.
 
       Falls beliebige Teilmengen von $X$ durch $H$ separiert werden können,
@@ -789,7 +789,7 @@ findet sich im Artikel [Using SVMs with sklearn](../svm-with-sklearn/).
 Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
-Mit Wahrscheinlichkeit $P(1-\eta)$ gilt:
+Mit Wahrscheinlichkeit $1-\eta$ gilt:
 $$E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}$$
 
 wobei gilt:
@@ -879,12 +879,12 @@ Siehe auch:
   <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
   <dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
       Daten. Dann heißt<br/>
-      $h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)$<br/>
+      $h_{MAP} = \text{arg max}_{h \in H} P(D|h) \cdot P(h)$<br/>
       die Menge der Maximum A Posteriori Hypothesen.</dd>
   <dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>
   <dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
       Daten. Dann heißt<br/>
-      $h_{ML} = \text{arg max}_{h \in H} P(h|D)$<br/>
+      $h_{ML} = \text{arg max}_{h \in H} P(D|h)$<br/>
       die Menge der Maximum Likelihood Hypothesen.</dd>
   <dt><dfn>Normalverteilung</dfn></dt>
   <dd>Eine stetige Zufallsvariable $X$ mit der Wahrscheinlichkeitsdichte

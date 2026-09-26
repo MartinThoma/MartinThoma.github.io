@@ -11,7 +11,7 @@ featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Eine Sommerakademie ist eine Veranstaltung der Studienstiftung des deutschen
 Volkes, bei der einige Dutzend Stipendiaten zusammenkommen und knapp zwei
-Wochen mit einander verbringen. Es gibt Kurse und Abendvorträge zu welchen man
+Wochen miteinander verbringen. Es gibt Kurse und Abendvorträge zu welchen man
 kommen muss, sowie einiges an Freizeitprogramm das durch die Stipendiaten
 organisiert wird. Sommerakademien sind eine wunderbare Möglichkeit neue
 Menschen kennen zu lernen und Fähigkeiten in Gebieten aufzubauen welche nicht
@@ -23,7 +23,7 @@ der eigenen Fachrichtung interessiert sind.
     <figcaption>Ryck bei Greifswald</figcaption>
 </figure>
 
-Es gibt einige Standorte, an denen immer wieder Sommerakademien statt finden.
+Es gibt einige Standorte, an denen immer wieder Sommerakademien stattfinden.
 Greifswald ist einer davon. Dieser Artikel ist für Stipendiaten welche noch nie
 auf einer Sommerakademie waren oder welche sich über Besonderheiten von
 Greifswald informieren wollen.
@@ -35,8 +35,8 @@ Da die Kurse immer unterschiedlich sind, werde ich dazu nichts schreiben.
 
 Die meisten werden mit der Bahn zum Bahnhof Greifswald fahren. Von dort kann man
 mit Linie&nbsp;2 zur Haltestelle "Wieck Brücke" fahren. Dann sind es noch ca.
-100&thinsp;m an der Ryck (ein Fluss welcher in die Ostsee mündet) entlang zum
-MaJuWi. Das MaJuWi ist auf der rechten Seite, auf der Linken hat man den Fluss.
+100&thinsp;m am Ryck (einem Fluss, welcher in die Ostsee mündet) entlang zum
+MaJuWi. Das MaJuWi ist auf der rechten Seite, auf der linken hat man den Fluss.
 
 <p class="bg-info"><b>Tipp:</b> Achtet bei Bahn-Tickets darauf, dass dort "Greifswald+City" oder ähnliches steht. Das kostet beim Kauf nicht mehr, aber ihr könnt dann bis zum MaJuWi fahren und müsst nicht noch 2&nbsp;Euro an den lokalen Verkehrsverbund zahlen.</p>
 
@@ -108,7 +108,7 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
 * [Seilgarten](http://www.greifswaldseil.de/)
 * [Boulderhalle](http://greifsbloc.jimdo.com/): Zwar ist die Halle recht klein,
   aber sie hat ein interessantes Flair. Gerade für Anfänger gibt es mehr als
-  genug Routen, aber man sollte nichts vergleichbares wie in Karlsruhe / München
+  genug Routen, aber man sollte nichts Vergleichbares wie in Karlsruhe / München
   erwarten. Die Halle ist ziemlich versteckt.
 * [Segeln und Surfen](http://segelschule-greifswald.com/): Segeln und Surfen
   bietet sich in Greifswald an. Allerdings sollte man die Teilnehmer mindestens
@@ -116,17 +116,17 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
   haben 4&nbsp;Gruppen (2x Segeln und 2x Surfen) für jeweils Mo-Do von 15:00
   bis 18:00 Uhr angemeldet. Die Segler sollten Kleidung mitnehmen welche nass
   werden darf. Ich hatte eine Badehose, ein Funktionsshirt sowie die
-  "Aqua Sphere BEACHWALKER XP" Badeschuhe an (alte Turnschuhe tuns auch). Zum
+  "Aqua Sphere BEACHWALKER XP" Badeschuhe an (alte Turnschuhe tun's auch). Zum
   Surfen kann man in Badekleidung kommen, da die Neoprenanzüge ausgeliehen werden und
   im Preis inbegriffen sind. Herr Knopp von der Segel- / Surfschule ist hier
   sehr hilfreich bei der Beantwortung der Fragen. Für 25 Euro mehr kann man eine
   Prüfung machen und bekommt den Grundschein. Das sollte man sich recht früh
   überlegen, damit man das Kursmaterial durchgehen kann.<br/>
-  Die Segelschule ist auf der gleichen Seite der Ryck wie das MaJuWi. Man muss
+  Die Segelschule ist auf der gleichen Seite des Ryck wie das MaJuWi. Man muss
   einfach ein paar Meter Richtung Ostsee laufen und hat die Segelschule dann
   auf der rechten Seite.<br/>
   Bezahlt wird am ersten Tag, jeder für sich (obwohl es da wohl auch eine Regelung
-  mit der Segelschule und dem MaJuWi gibt), in Bar.<br/>
+  mit der Segelschule und dem MaJuWi gibt), in bar.<br/>
   Wer die Prüfung macht bekommt die Urkunde vom [VDWS](https://www.vdws.de/).
 * Zoo / Botanischer Garten
 
@@ -149,16 +149,16 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
 * Lagerfeuer mit Stockbrot und Gesang: Auf dem Gelände des MaJuWi ist eine
   Stelle wo man ein Lagerfeuer machen kann. Einfach beim MaJuWi nachfragen, dann
   bekommt man das Feuerholz (25 Euro?) sowie Teig für Stockbrot
-  (0.50 Euro/person). In der Nähe des Strandbades kann man Stöcke für das
+  (0.50 Euro/Person). In der Nähe des Strandbades kann man Stöcke für das
   Stockbrot finden.
 * [Wendelstein 7-X](https://de.wikipedia.org/wiki/Wendelstein_7-X): Kann man
-  besuchen, muss man aber anmelden.
+  besuchen, muss sich aber anmelden.
 * Spieleabende: Bei [Werwolf](https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald)
   sind immer einige dabei. Auch Russisch Tabu und [Black Stories](https://de.wikipedia.org/wiki/Black_Stories)
   finden häufig regen Anklang.
 * PowerPoint-Karaoke: Sollte auf max. 5&nbsp;Minuten pro Beitrag beschränkt
   werden, die Folien sollten zumindest ein paar Bilder beinhalten und möglichst
-  abwechslungsreich sein (also nicht nur z.B. Chemische Formeln / nur Mathe / nur Texte)
+  abwechslungsreich sein (also nicht nur z.B. chemische Formeln / nur Mathe / nur Texte)
 
 
 ## Packliste
@@ -168,7 +168,7 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
   kann man in der Pension "Ship In" für 4&nbsp;Euro waschen und für nochmals
   4&nbsp;Euro trocknen, aber das hat - zumindest bei mir - nicht so toll
   geklappt. Eventuell lohnt es sich etwas Handwaschmittel und einen
-  Kleiderbügel zum trocknen dabei zu haben.
+  Kleiderbügel zum Trocknen dabei zu haben.
 * Handtücher bekommt man vom MaJuWi, aber ein großes Handtuch für den Strand
   sollte man mitnehmen.
 * **Mehrfachsteckdosenleisten**: Es gibt in den 6-Bett Zimmern nur eine
@@ -199,11 +199,11 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
 
 ## Organisatorisches
 
-Eine Austauschplatform (z.B. eine Facebook-Gruppe) vor Beginn der Akademie
+Eine Austauschplattform (z.B. eine Facebook-Gruppe) vor Beginn der Akademie
 einzurichten ist praktisch. Dann kann man die gemeinsame An- und Abreise
-organisieren, Kurs-relevantes klären sowie die Freizeit-Sachen planen. Wenn ihr
+organisieren, Kursrelevantes klären sowie die Freizeit-Sachen planen. Wenn ihr
 - wie wir es gemacht haben - eine Facebook-Gruppe erstellt, solltet ihr darauf
-rücksicht nehmen, dass manche Leute Facebook nicht benutzen wollen. Dann kann
+Rücksicht nehmen, dass manche Leute Facebook nicht benutzen wollen. Dann kann
 man über das Daidalosnet auch die wichtigsten Informationen an alle per E-Mail
 schicken.
 
@@ -211,12 +211,12 @@ Es sollten sich Personen für folgende Gruppen finden:
 
 * Bunter Abend: Irgendjemand muss es organisieren und moderieren sowie z.B. die
   Technik-Fragen klären.
-* Bar-Team: Einkaufen von Getränken, tragen der Getränke zum MaJuWi, aufräumen
+* Bar-Team: Einkaufen von Getränken, Tragen der Getränke zum MaJuWi, Aufräumen
   von eventuell herumstehenden Flaschen. Mindestens einen Autofahrer braucht
   man hier. Vom MaJuWi kann man dann auch eine Kühltruhe bekommen.
 * Chor: Ist immer schön für den Bunten Abend
 * Segeln / Surfen: z.B. Anmeldung über [Google Docs](https://www.google.com/intl/de/sheets/about/) (Vorname, Nachname, Segeln
-  und- / oder Surfen).
+  und / oder Surfen).
 * Fahrräder: Vermutlich wollen immer einige Leute ein Fahrrad in Greifswald
   haben, können aber keines mitbringen. Das sollte man vorher klären. Wir haben
   für fahrtaugliche, aber dennoch recht schlechte Räder 4.50 Euro / Tag für

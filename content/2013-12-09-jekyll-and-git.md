@@ -4,6 +4,7 @@ title: How to use Jekyll with GitHub
 slug: jekyll-and-git
 lang: en
 author: Martin Thoma
+date: 2013-12-09 20:00
 category: The Web
 tags: Version Control, Blog, Web Development
 featured_image: 2013/12/jekyll-thumbnail.png
@@ -45,7 +46,7 @@ Reasons for Jekyll:
 * **Hosting**: You only need webspace. This reduces hosting cost significantly.
   Additionally, you can use [Amazon S3](http://aws.amazon.com/s3/) for hosting!
 * **Backups**: Creating security backups is VERY easy with Jekyll. Every tool
-  that can make bakups of files can backup your Jekyll blog. No need to worry
+  that can make backups of files can backup your Jekyll blog. No need to worry
   about databases. If a file is corrupt, only that file is affected. No worries
   about maximum execution time for importing / exporting backups. No need to
   get SSH access. Simple FTP access does the job.

@@ -30,7 +30,7 @@ Signal, usw. eingeführt.
         Information ist alles was potentiell zur Verringerung von Ungewissheit
         beiträgt.
 
-        Sinnvolle Informationen besteht aus Fakten und zugehörigen
+        Sinnvolle Information besteht aus Fakten und zugehörigen
         Unsicherheiten.
 
     </dd>
@@ -41,7 +41,7 @@ Signal, usw. eingeführt.
         werden als Zeichen oder Zeichenketten gespeichert.</dd>
     <dt><dfn id="feature-dfn">Merkmal</dfn></dt>
     <dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
-    <dt><dfn>Vorraussetzungen für Informationsfusion</dfn></dt>
+    <dt><dfn>Voraussetzungen für Informationsfusion</dfn></dt>
     <dd>
 
         <ul>
@@ -60,11 +60,11 @@ Signal, usw. eingeführt.
 
         <ul>
             <li>Höhere Robustheit</li>
-            <li>Erweterung der Sensorabdeckung</li>
-            <li>Erhöhte Auflösung (z.B. Accelerometer + Kompas in Kamera)</li>
+            <li>Erweiterung der Sensorabdeckung</li>
+            <li>Erhöhte Auflösung (z.B. Accelerometer + Kompass in Kamera)</li>
             <li>Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)</li>
-            <li>Unsicherheit Verringern (z.B. FLIR + Radar)</li>
-            <li>Indirektes schließen auf Größen (z.B. Oberflächennormalen)</li>
+            <li>Unsicherheit verringern (z.B. FLIR + Radar)</li>
+            <li>Indirektes Schließen auf Größen (z.B. Oberflächennormalen)</li>
         </ul>
     </dd>
     <dt><dfn id="features-properties">Wünschenswerte Eigenschaften von Merkmalen</dfn></dt>
@@ -73,7 +73,7 @@ Signal, usw. eingeführt.
         <ul>
             <li>Leicht gewinnbar</li>
             <li>Interpretierbar</li>
-            <li>Hohe Relevanz: Merkmalsvektor ist gut für die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)</li>
+            <li>Hohe Relevanz: Merkmalsvektor ist gut für die Aufgabe geeignet (z.B. lineare Separierbarkeit der Klassen bei Klassifikationsproblemen im Merkmalsraum)</li>
             <li>Robustheit gegen Störungen</li>
             <li>Invarianzen werden berücksichtigt (z.B. Drehung des Objekts)</li>
             <li>Geringe Dimensionalität des Merkmalsvektors</li>
@@ -143,7 +143,7 @@ Slides: `IF-Kap2_151215.pdf`
         $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
 
     </dd>
-    <dt><dfn>Asymptotisch Erwartungstreuer Schätzer</dfn></dt>
+    <dt><dfn>Asymptotisch erwartungstreuer Schätzer</dfn></dt>
     <dd>
 
         Ein Schätzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ heißt
@@ -154,9 +154,9 @@ Slides: `IF-Kap2_151215.pdf`
 
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
-    <dd>Siehe <a href="../kalman-filter/">Kalman-filter Artikel</a>.</dd>
+    <dd>Siehe <a href="../kalman-filter/">Kalman-Filter-Artikel</a>.</dd>
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
-    <dd>Siehe <a href="../kalman-filter/">Kalman-filter Artikel</a>.</dd
+    <dd>Siehe <a href="../kalman-filter/">Kalman-Filter-Artikel</a>.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
     <dd>GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
@@ -191,7 +191,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     <dd>
 
         Der Wahrnehmungsrahmen ist eine Menge $\Omega$. Die Elemente dieser
-        Mengen heißen Alternativen oder Aussagen. Eine Hypothese ist eine
+        Menge heißen Alternativen oder Aussagen. Eine Hypothese ist eine
         Teilmenge $H \subseteq \Omega$ des Wahrnehmungsrahmens.
 
     </dd>
@@ -240,7 +240,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     <dt><dfn>Fokale Ereignisse</dfn></dt>
     <dd>
 
-        Ein Ereignis $A$ heißt fokal bzg. eines Basismaßes $m$, wenn $m(A) \neq 0$ gilt.
+        Ein Ereignis $A$ heißt fokal bzgl. eines Basismaßes $m$, wenn $m(A) \neq 0$ gilt.
 
     </dd>
     <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn id="drc">DRC</dfn>)</dt>
@@ -436,7 +436,7 @@ Slides: `IF-Kap7_160125.pdf`
             <li>Lösung eines linearen Gleichungssystems (selten möglich)</li>
             <li>Graph-Cuts-Verfahren</li>
             <li>Approximative Lösung durch sukzessive Optimierung</li>
-            <li>Methode des steilsten abstiegs</li>
+            <li>Methode des steilsten Abstiegs</li>
             <li>Monte-Carlo-Methode</li>
             <li>Simulated Annealing</li>
             <li>Lineare Programme</li>
@@ -485,7 +485,7 @@ Slides: `IF-Kap7_160125.pdf`
 
 ## Meine Fragen
 
-* Kapitel 1, Folie 61: Was ist der Definitions / Wertebereich von Information?
+* Kapitel 1, Folie 61: Was ist der Definitions- / Wertebereich von Information?
 * Kapitel 2, Folie 5: Alle Ereignisse paarweise disjunkt
 * Kapitel 2, Folie 22: Man muss für wirksame Schätzer noch fordern, dass sie
                        erwartungstreu sind. Es gibt immer den konstanten
@@ -493,7 +493,7 @@ Slides: `IF-Kap7_160125.pdf`
                        eine Varianz von 0 hat.
 * Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?
 * Kapitel 2, Folie 44f: Fusion 2er Größen / Verteilungen
-* Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?
+* Kapitel 2, Folie 79: Was ist der truncation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?
 
 
 ## Übungsaufgaben
@@ -535,7 +535,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 
 ### ÜB 2
 
-* Aufgabe 1.1: Die kontinuierliche Entropie ist kein resultat immer feiner werdender Diskretisierungen der diskreten Entropie
+* Aufgabe 1.1: Die kontinuierliche Entropie ist kein Resultat immer feiner werdender Diskretisierungen der diskreten Entropie
 * Aufgabe 1.2a: $P(B \cap L) = P(B) \cdot P(L) = 1/3 \cdot 1/3 = 1/9$
 * Aufgabe 1.2b: 1/9
 * Aufgabe 1.2c: Das Prinzip der maximalen Entropie für Zufallsvariablen führt zur Unabhängigkeitsannahme.
@@ -544,25 +544,25 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * Aufgabe 1.3b: Ist hier ein Zahlendreher passiert?
 * Aufgabe 1.4a: Mit "Detektionsleistung" ist gemeint, wie wahrscheinlich der
                 Sensor ein Objekt detektiert, wenn eines da ist. Mit
-                "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
+                "Klassifikationsleistung" ist gemeint, wie wahrscheinlich
                 der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.
 * Aufgabe 1.4b: Zentralisierte Bayessche Fusion (Likelihoodmatrizen)
 * Aufgabe 1.4c: Zentralisierte Bayessche Fusion (A-posteriori-Verteilung)
 * Aufgabe 1.4d: Verteilte Fusion
 * Aufgabe 1.5: Berechnung der Log-A-posteriori-Verteilung
-* Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)
+* Aufgabe 1.6: 0.043 (Das typische Patienten-Test-Beispiel)
 
 ### ÜB 3
 
 * Aufgabe 1.1:
     * $Bel(A) = \sum_{B \subseteq A} m(B)$
     * $Pl(A) = 1 - Bel(\bar{A}) = \sum_{B \cap A \neq \emptyset} m(B)$
-* Aufgabe 1.2a: Obwohl beide Basismaße dem Ereignis A eine sehr niedriges Maß
+* Aufgabe 1.2a: Obwohl beide Basismaße dem Ereignis A ein sehr niedriges Maß
   zuweisen, ist es durch DRC das Ereignis mit dem höchsten Wert. Das liegt
   daran, dass die anderen jeweils exakt 0 haben.
-* Aufgabe 1.2b: Jeder einzelne Experte gab A nur geringen glauben. Dennoch wird A deutlich am meisten Glauben nach der Fusion geschenkt.
+* Aufgabe 1.2b: Jeder einzelne Experte gab A nur geringen Glauben. Dennoch wird A deutlich am meisten Glauben nach der Fusion geschenkt.
 * Aufgabe 1.2c: Das gleiche Ergebnis.
-* Aufgabe 1.3a: $m_{123}(111) = 0.82$, das Ergebnis ist also zu 82% glaubwürdig. (Schönes beispiel, dass DRC nicht idempotent ist)
+* Aufgabe 1.3a: $m_{123}(111) = 0.82$, das Ergebnis ist also zu 82% glaubwürdig. (Schönes Beispiel, dass DRC nicht idempotent ist)
 * Aufgabe 1.3b: Rechnen mit Basismaßen / DRC
 * Aufgabe 1.3c: Rechnen mit Basismaßen / DRC
 * Aufgabe 1.4: $P(s=A | w=A) + P(s=B | w=B) = 0.6$
@@ -582,7 +582,7 @@ Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheit
 <details class="question">
 <summary>Welche Arten von Unsicherheit kennen Sie?</summary>
 <div class="answer">
-Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaße (Dempster-Shafer-Theorie)
+Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaßen (Dempster-Shafer-Theorie)
 und über unscharfe Mengen (Fuzzy-Systeme) sowie über unsicheres Erfahrungswissen
 (Neuronale Netze) beschreiben.
 </div>
@@ -665,7 +665,7 @@ Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)
 <details class="question">
 <summary>Für welche Systeme ist der Kalman-Filter geeignet?</summary>
 <div class="answer">
-Lineare Zeitinvariante Systeme (LTI-Systeme)
+Lineare zeitinvariante Systeme (LTI-Systeme)
 </div>
 </details>
 
@@ -687,7 +687,7 @@ vgl. <a href="../kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
 ## Absprachen
 
 * Kapitel 5 (Neuronale Netze) und Kapitel 6 (Registrierung) kommen nicht dran.
-* Übungsaufgaben sind auch Prüfungsrelevant.
+* Übungsaufgaben sind auch prüfungsrelevant.
 
 
 ## Material und Links

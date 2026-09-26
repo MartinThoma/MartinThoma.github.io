@@ -15,7 +15,7 @@ medium_url: https://medium.com/coinmonks/the-blockchain-473aac352e5
     <a href="../images/2021/01/blockchain-1.png"><img src="../images/2021/01/blockchain-1.png" alt="An example of a blockchain. Image by Martin Thoma." width="1803" height="843"></a>
 </figure>
 
-Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the best-known **cryptocurrency**. It is one application using a **blockchain**. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let’s start!
+Bitcoin crossed \$40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the best-known **cryptocurrency**. It is one application using a **blockchain**. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let’s start!
 
 ## The Idea of a Ledger
 
@@ -24,7 +24,7 @@ Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the 
     <figcaption>German Ledger from 1828 (Source: <a href="https://commons.wikimedia.org/wiki/File:Ledger.png">RaphaelQS</a>)</figcaption>
 </figure>
 
-Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let’s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:
+Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let’s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put \$100 USD in their bank account:
 
 ```text
 Date             | Sender    | Receiver |  Amount
@@ -89,7 +89,7 @@ To prevent this, they make it more difficult to create a transaction. They have 
     <figcaption>Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma</figcaption>
 </figure>
 
-However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent $100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called **hash value**.
+However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent \$100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called **hash value**.
 
 Let’s summarize:
 

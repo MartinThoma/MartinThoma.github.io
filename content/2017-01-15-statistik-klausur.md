@@ -27,7 +27,7 @@ featured_image: logos/klausur.png
     <dd>$$x_{1/4}$$</dd>
     <dt><dfn>Empirischer Median</dfn></dt>
     <dd>$$x_{1/2}$$</dd>
-    <dt><dfn>Rechenregeln für Covarianz</dfn></dt>
+    <dt><dfn>Rechenregeln für Kovarianz</dfn></dt>
     <dd>
 
         $$C(U_1 + U_2, V) = C(U_1, V) + C(U_2, V)$$
@@ -114,7 +114,7 @@ featured_image: logos/klausur.png
     <dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn id="zgws">ZGWS</dfn>)</dt>
     <dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
-        $0 < \sigma^2 = V(X_1) < \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
+        $0 < \sigma^2 = V(X_1) < \infty$. Mit $\mu = \mathbb{E}(X_1)$ gilt
         dann:
         $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} < c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$</dd>
     <dt><dfn>Score-Gleichung</dfn></dt>
@@ -177,7 +177,7 @@ featured_image: logos/klausur.png
         x_n)$, die auf der Stichprobe $x_1, \dots, x_n$ basiert. Um Aussagen
         machen zu können, muss man die Verteilung von $T$ unter der
         Nullhypothese $H_0$ kennen. Wenn die Verteilung von $T$ der
-        Studentischen-$t$-Verteilung entspricht ($T \sim t_n$), dann hat man
+        Studentschen $t$-Verteilung entspricht ($T \sim t_n$), dann hat man
         einen $t$-Test.<br/>
         <br/>
         Wenn der Testentscheid, ob $H_0$ verworfen wird so
@@ -321,7 +321,7 @@ featured_image: logos/klausur.png
                 <td>$k-1$</td>
                 <td>TSS - RSS</td>
                 <td>$\frac{TSS-RSS}{k-1}$</td>
-                <td>F = $\frac{TSS-RSS/(k-1)}{RSS/(n-k)}$</td>
+                <td>F = $\frac{(TSS-RSS)/(k-1)}{RSS/(n-k)}$</td>
             </tr>
             <tr>
                 <th>Residuen</th>
@@ -345,7 +345,7 @@ featured_image: logos/klausur.png
     <dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Schätzer</dfn></dt>
     <dd>
 
-        Der Kleinste-Quadrate-Schätzer für das klassische lineares Modell
+        Der Kleinste-Quadrate-Schätzer für das klassische lineare Modell
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
@@ -401,7 +401,7 @@ featured_image: logos/klausur.png
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Bonferroni-Methode"><dfn>Bonferroni-Korrektur</dfn></a></dt>
     <dd>Es liegt eine Familie von $m$ Tests vor. Man macht eine globale Nullhypothese,
-        dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
+        dass alle Nullhypothesen gelten. Alle $m$ Tests werden auf dem Niveau
         $\frac{\alpha}{m}$ durchgeführt, sodass insgesamt das Niveau $\alpha$
         erreicht wird.</dd>
     <dt><dfn id="bestimmtheitsmass">Bestimmtheitsmaß $R^2$</dfn></dt>
@@ -435,7 +435,7 @@ featured_image: logos/klausur.png
 <dl>
     <dt><dfn id="vorzeichen-test">Vorzeichen-Test für den Median</dfn></dt>
     <dd>
-        Teste die Hypothese ob eine Größe $M$ den Mittelwert $\mu$ hat gegen
+        Teste die Hypothese $H_0$: $M = \mu$, dass der Median $M$ einer Größe gleich $\mu$ ist, gegen
         die Alternative $H_1$: $M \neq \mu$.
         Bilde die Prüfgröße
         $$S_n = \sum_{i=1}^n \mathbb{1}_{X_i > \mu}$$
@@ -495,7 +495,7 @@ featured_image: logos/klausur.png
     </tr>
     <tr>
         <td>$X \sim A$</td>
-        <td>Die Zufallsvariable $X$ ist $AB$-Verteilt.</td>
+        <td>Die Zufallsvariable $X$ ist $A$-verteilt.</td>
     </tr>
     <tr>
         <td>$z_{1 - \alpha}$</td>
@@ -545,8 +545,8 @@ featured_image: logos/klausur.png
     <tr>
         <td><a href="https://de.wikipedia.org/wiki/Gleichverteilung">Gleichverteilung</a></td>
         <td>$X \sim U[a, b]$</td>
-        <td>$\frac{b-a}{2}$</td>
-        <td></td>
+        <td>$\frac{a+b}{2}$</td>
+        <td>$\frac{(b-a)^2}{12}$</td>
         <td></td>
     </tr>
     <tr>
@@ -597,7 +597,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * [ML-Schätzer bestimmen](#maximum-likelihood-estimator)
     * [Score-Funktion](#score-function) / [Fisher-Information](#fisher-information)
     * [Cramér-Rao-Schranke](#cramer-rao)
-    * asymptotisch Erwartungstreue / Konsistenz von Schätzern
+    * asymptotische Erwartungstreue / Konsistenz von Schätzern
     * Erwartungswert, Varianz, [MQA](#mqa) eines Schätzers bestimmen
     * [Momentenschätzer](#momentenschaetzer) bestimmen
 * Aufgabe 3
@@ -633,7 +633,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 ## Prüfungsfragen
 
 <details class="question">
-<summary>Kann ein Schätzer Erwartungstreu und Konsistent sein?</summary>
+<summary>Kann ein Schätzer erwartungstreu und konsistent sein?</summary>
 <div class="answer">
 Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
 $\vartheta \in (0, 1)$. Sei außerdem $\hat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n x_i$.
@@ -642,23 +642,23 @@ $\hat{\vartheta}_n$ ist erwartungstreu und konsistent.
 </details>
 
 <details class="question">
-<summary>Kann ein Schätzer weder Erwartungstreu noch Konsistent sein?</summary>
+<summary>Kann ein Schätzer weder erwartungstreu noch konsistent sein?</summary>
 <div class="answer">
 Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
 $\vartheta \in (0, 1)$. Der Schätzer $\hat{\vartheta} = 0.5$ ist weder
-Erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
+erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
 </div>
 </details>
 
 <details class="question">
-<summary>Kann ein Schätzer Erwartungstreu, aber nicht konsistent sein?</summary>
+<summary>Kann ein Schätzer erwartungstreu, aber nicht konsistent sein?</summary>
 <div class="answer">
 Ja. Setting wie zuvor und $\hat{\vartheta} = x_n$ (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)
 </div>
 </details>
 
 <details class="question">
-<summary>Kann ein Schätzer nicht Erwartungstreu, aber konsistent sein?</summary>
+<summary>Kann ein Schätzer nicht erwartungstreu, aber konsistent sein?</summary>
 <div class="answer">
 Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)
 </div>
@@ -668,7 +668,7 @@ Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \fra
 ## Material und Links
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/stat2016w/)
-* [Illias](https://ilias.studium.kit.edu/ilias.php?ref_id=603377&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=75&baseClass=ilRepositoryGUI)
+* [ILIAS](https://ilias.studium.kit.edu/ilias.php?ref_id=603377&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=75&baseClass=ilRepositoryGUI)
 * StackExchange
     * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
     * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
@@ -687,7 +687,7 @@ Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \fra
 
 * Skript von Dr. B. Klar: Statistik
 * [<a href="#ref-bic01-anchor" name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.
-* [<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Cazado and T. Schmidt. Mathematische Statistik.
+* [<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Czado and T. Schmidt. Mathematische Statistik.
 
 
 ## Übungsbetrieb

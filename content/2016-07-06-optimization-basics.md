@@ -32,12 +32,12 @@ By convention, the standard form defines a **minimization problem**. A
 (That was copied from [en.wikipedia.org/w/Optimization_problem](https://en.wikipedia.org/w/index.php?title=Optimization_problem&oldid=715562612#Continuous_optimization_problem) and only slightly edited.)
 
 
-I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to finde a solution $x \in \mathbb{N}^n$. I will only focus on continuous optimization problems.
+I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to find a solution $x \in \mathbb{N}^n$. I will only focus on continuous optimization problems.
 
 
 ## Simulated Annealing
 
-Simulated Annealing is a heuristical optimization algorithm. It starts at a
+Simulated Annealing is a heuristic optimization algorithm. It starts at a
 random point $x \in \mathbb{R}^n$. Then it takes a random point $y$ of the
 environment of $x$:
 
@@ -80,9 +80,9 @@ $$x_{\text{new}} = x - \nabla f(x)$$
 
 The problem with this approach is that the surface of the objective function
 might first go down in the direction of $\nabla f(x)$, but if you go a bit
-further it can go up by a lot. So we want to make very small steps. To achive
+further it can go up by a lot. So we want to make very small steps. To achieve
 this, we multiply the gradient with a factor $\eta \in (0, 1]$. In machine
-learining, this $\eta$ is called the *learning rate* and typically one
+learning, this $\eta$ is called the *learning rate* and typically one
 chooses $\eta = 0.01$. However, there are [learning rate scheduling algorithms](../neuronale-netze-vorlesung/#learning-rate-scheduling) which adapt this parameter during training.
 
 The update rule is:
@@ -102,18 +102,18 @@ where $\eta \in (0, 1]$ is the step length (learning rate) and
 
 $$d_k = -D_k \nabla f(x_k)$$
 
-is the direction of the descent. The direction depends on the Gradient
+is the direction of the descent. The direction depends on the gradient
 $\nabla f(x_k)$, but also on a matrix $D_k$:
 
 <ul>
     <li>$D_k = I$: Gradient descent</li>
-    <li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
+    <li>$D_k = H_f^{-1}(x_k)$: Newton's method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
 </ul>
 
 
 ## Linear Regression with MSE
 
-In linear regression one is given a list of $n$ points $(x, y)$ with $x \in \mathbb{R}^m$ and $y \in \mathbb{R}$. The task is to find a matrix $A \in \mathbb{1 \times m}$ such that the predicted value $\hat{y}$ of the linear model
+In linear regression one is given a list of $n$ points $(x, y)$ with $x \in \mathbb{R}^m$ and $y \in \mathbb{R}$. The task is to find a matrix $A \in \mathbb{R}^{1 \times m}$ such that the predicted value $\hat{y}$ of the linear model
 
 $$\hat{y}(x) = A \cdot x$$
 
@@ -193,11 +193,11 @@ The Lagrange function has the form
 $$\mathcal{L} (x, \lambda_1, \dots, \lambda_n) = f(x) + \sum_{j=1}^n \lambda_j h_j(x)$$
 with the *Lagrange multipliers* $\lambda_j \in \mathbb{R}$ and $h_j$ are equality constraints.<br/>
 <br/>
-Necessary conditions for a minimum $x^*$ is:
+Necessary conditions for a minimum $x^*$ are:
 
 <ul>
     <li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
-    <li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
+    <li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, n$</li>
 </ul>
 
 See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.

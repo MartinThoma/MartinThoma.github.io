@@ -236,7 +236,7 @@ Your output would be:
 ```
 
 <h3>Internal (anonymous) Comparator</h3>
-You can also directly implement the comperator where you need it:
+You can also directly implement the comparator where you need it:
 ```java
 
 import java.util.ArrayList;

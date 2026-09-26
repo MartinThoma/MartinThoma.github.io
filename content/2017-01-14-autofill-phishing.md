@@ -11,7 +11,7 @@ featured_image: logos/hacker.png
 ---
 Autofill phishing is a simple technique I wasn't aware of until a few hours
 ago. It simply uses the fact that we are so used to filling out forms, that we
-usually let our Browser fill out the forms. Maybe we check if there is data
+usually let our browser fill out the forms. Maybe we check if there is data
 which we don't want to submit and remove that. However, the browser (tested
 with Google Chrome 55) also fills out forms which we can't see.
 
@@ -61,7 +61,7 @@ Show the user a pop-up which displays which information is filled in (with check
     </tr>
 </table>
 
-If you have another Browser, feel free to <a href="http://martin-thoma.de/autofill-phishing/?hidden=margin">test it</a> and leave a comment what is (not)
+If you have another browser, feel free to <a href="http://martin-thoma.de/autofill-phishing/?hidden=margin">test it</a> and leave a comment what is (not)
 affected. Alternatively, you can send an Email to `info@martin-thoma.de`.
 
 

@@ -10,9 +10,9 @@ tags: Machine Learning, Neural Networks, AI
 featured_image: logos/ml.png
 ---
 Neural networks have thousands, often millions of parameters. They take
-hundrets of features and predict thousands of classes. The features can often
-not be seen independantly, but have to be taken as a whole into consideration.
-Most parameters are not independant either. And still, we use only on the order
+hundreds of features and predict thousands of classes. The features can often
+not be seen independently, but have to be taken as a whole into consideration.
+Most parameters are not independent either. And still, we use only on the order
 of several ten-thousand to a million data points to optimize the millions of
 parameters in a network. We know that more labeled data leads to better
 results, but labeling is costly. Obtaining more data, however, is comparatively
@@ -44,7 +44,7 @@ After that, you have multiple options:
 1. Bottleneck features: You can force the auto-encoder to learn a feature
    reduction by introducing a bottleneck. After the training is finished,
    everything after the bottleneck could be removed.
-2. Restauration: The input of the network is changed in some way which has to
+2. Restoration: The input of the network is changed in some way which has to
    be restored by the network. This could be white noise, Gaussian noise, or
    completely removing some parts of the image (as done in [Context Encoders: Feature Learning by Inpainting](http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Pathak_Context_Encoders_Feature_CVPR_2016_paper.pdf)). Look for "denoising auto-encoder".
 
@@ -79,14 +79,14 @@ give the network two samples and let it predict which one comes first.
 Or if you have a video, you can predict the next frame. See [Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning](https://arxiv.org/abs/1605.08104).
 
 <figure>
-    <a href="../images/2017/06/predict-next-frame.png"><img src="../images/2017/06/predict-next-frame.png" alt="Predict the next frame of a video." width="512" height="478" loading="lazy"></a>
+    <a href="../images/2017/06/predict-next-frame.jpg"><img src="../images/2017/06/predict-next-frame.jpg" alt="Predict the next frame of a video." width="512" height="478" loading="lazy"></a>
     <figcaption>Predict the next frame of a video.<br/>Image source: <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a></figcaption>
 </figure>
 
 
-## Weakly Supervision
+## Weak Supervision
 
-The more detailed / high quality labels are, the more expensive. For example,
+The more detailed / high quality labels are, the more expensive they are. For example,
 it is often simpler to classify one complete image than to assign a class label
 to each pixel of the image. But you can build models for semantic segmentation
 without having a single image which was semantically labeled.
