@@ -115,9 +115,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#vorgehen" title="Vorgehen">Vorgehen</a></li><li><a class="toc-href" href="#beispiel-1" title="Beispiel 1">Beispiel 1</a></li><li><a class="toc-href" href="#beispiel-2" title="Beispiel 2">Beispiel 2</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -235,5 +243,7 @@ f(c,b,a) &amp;:= ab \lor \bar c\\
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

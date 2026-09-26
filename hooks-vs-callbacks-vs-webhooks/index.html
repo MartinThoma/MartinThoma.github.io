@@ -106,9 +106,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#callbacks" title="Callbacks">Callbacks</a></li><li><a class="toc-href" href="#callbacks-and-hooks" title="Callbacks and Hooks">Callbacks and Hooks</a></li><li><a class="toc-href" href="#webhooks" title="Webhooks">Webhooks</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -288,5 +296,7 @@ it&rsquo;s simply ignored as far as I know.</p>
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

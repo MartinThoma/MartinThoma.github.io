@@ -106,9 +106,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#what-i-did" title="What I did">What I did</a></li><li><a class="toc-href" href="#my-nautilus" title="My Nautilus">My Nautilus</a></li><li><a class="toc-href" href="#bug-report" title="Bug report?">Bug report?</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -208,5 +216,7 @@ lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

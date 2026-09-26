@@ -100,9 +100,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#tested-hashes" title="Tested Hashes">Tested Hashes</a></li><li><a class="toc-href" href="#online-crackers" title="Online Crackers">Online Crackers</a></li><li><a class="toc-href" href="#john-the-ripper" title="John the Ripper">John the Ripper</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -232,5 +240,7 @@ john --wordlist:tbswordlist1.txt --format=raw-MD5 md5.txt</p>
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

@@ -100,9 +100,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#speeding-up-execution" title="Speeding up Execution">Speeding up Execution</a></li><li><a class="toc-href" href="#sequential-vs-interleaved-vs-parallel" title="Sequential vs Interleaved vs Parallel">Sequential vs Interleaved vs Parallel</a></li><li><a class="toc-href" href="#outgoing-requests-asynchronous-vs-synchronous" title="Outgoing requests: Asynchronous vs synchronous">Outgoing requests: Asynchronous vs synchronous</a></li><li><a class="toc-href" href="#incoming-requests-asynchronous-vs-synchronous" title="Incoming Requests: Asynchronous vs synchronous">Incoming Requests: Asynchronous vs synchronous</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -335,5 +343,7 @@ matters if you have a lot of concurrent requests.</p>
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

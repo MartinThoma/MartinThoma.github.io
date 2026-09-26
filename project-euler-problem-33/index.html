@@ -106,9 +106,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#how-to-solve" title="How to solve">How to solve</a></li><li><a class="toc-href" href="#my-solution" title="My solution">My solution</a></li><li><a class="toc-href" href="#solving-it-without-programming" title="Solving it without programming">Solving it without programming</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -235,5 +243,7 @@ If the product of these four fractions is given in its lowest common terms, find
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

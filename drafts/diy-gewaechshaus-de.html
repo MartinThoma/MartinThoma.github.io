@@ -103,9 +103,17 @@ MathJax.Hub.Queue(function() {
 </header>
 
 <details class="toc" open>
-    <summary>Contents</summary>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
     <div id="toc"><ul><li><a class="toc-href" href="#material" title="Material">Material</a></li><li><a class="toc-href" href="#werkzeuge" title="Werkzeuge">Werkzeuge</a></li><li><a class="toc-href" href="#aufbau" title="Aufbau">Aufbau</a></li></ul></div>
 </details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
 
 <div class="article-content" id="contentAfterTitle">
     
@@ -207,5 +215,7 @@ MathJax.Hub.Queue(function() {
 
   })();
 </script>
+
+<script src="../theme/js/toc.js" defer></script>
     </body>
 </html>

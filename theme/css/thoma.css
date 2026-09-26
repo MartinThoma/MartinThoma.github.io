@@ -273,6 +273,51 @@ blockquote p:last-child { margin-bottom: 0.25rem; }
 .toc summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
 .toc ul { margin: 0 0 0.75rem; padding-left: 1.25rem; }
 .toc > ul { padding-left: 0; list-style: none; }
+/* the section being read, set by toc.js */
+.toc a[aria-current] { font-weight: 600; }
+.toc-hide { display: none; }
+
+/* Wide screens: the contents leave the text column and stick in a column to its left, so
+   the article starts right below its title. The contents align with the brand, the text
+   with the right end of the header; articles without contents stay centered. The contents
+   span the title and text rows only, so they scroll away with the end of the text.
+   "Hide" closes them: the text returns to the middle and a pill in the margin reopens them.
+   toc.js remembers the choice; _includes/toc.html applies it. */
+@media screen and (min-width: 64rem) {
+  .reading:has(> .toc) {
+    max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 44rem); column-gap: 3rem;
+  }
+  .reading:has(> .toc) > * { grid-column: 2; }
+  .reading > .toc {
+    grid-column: 1; grid-row: 1 / span 2; align-self: start;
+    position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow-y: auto; overscroll-behavior: contain;
+    margin: 0 0 0 -0.5rem; padding: 0 0.5rem 0 0; background: none; border: 0; border-radius: 0; box-shadow: none;
+    font-size: 0.875rem; line-height: 1.35;
+  }
+  /* The negative margin above and this padding keep the text in line with the brand while
+     the current entry's background reaches past it. */
+  .toc summary { min-height: 0; margin: 0.6rem 0 0.5rem; padding-left: 0.5rem; font-size: 0.85rem; color: var(--ink-muted); }
+  .toc[open] .toc-hide { display: block; margin-left: auto; padding: 0.1rem 0.6rem; border-radius: var(--pill); font-size: 0.8rem; font-weight: 500; }
+  .toc summary:hover .toc-hide { background: var(--surface-sunk); color: var(--ink); }
+  /* the open contents scroll, which would clip the focus ring */
+  .reading > .toc[open] :focus-visible { outline-offset: -3px; }
+  .reading:has(> .toc:not([open])) { grid-template-columns: minmax(0, 1fr) minmax(0, 44rem) minmax(0, 1fr); column-gap: 0; }
+  .reading > .toc:not([open]) { margin-left: 0; overflow: visible; }
+  .toc:not([open]) summary {
+    display: inline-flex; min-height: 36px; margin: 0.4rem 0 0; padding: 0 0.9rem; font-weight: 500;
+    background: var(--surface-sunk); border: 1px solid var(--hairline); border-radius: var(--pill);
+  }
+  .toc:not([open]) summary:hover { background: var(--accent-soft); color: var(--accent-strong); border-color: transparent; }
+  .toc ul { margin: 0; padding-left: 0; list-style: none; }
+  .toc ul ul { padding-left: 0.9rem; }
+  .toc a {
+    display: block; padding: 0.25rem 0.5rem; border-radius: var(--r-sm);
+    color: var(--ink-muted); text-decoration: none; transition: background 0.15s, color 0.15s;
+  }
+  .toc a:hover { color: var(--accent-strong); }
+  /* the nav's "current" pill; no bold, so long entries do not rewrap */
+  .toc a[aria-current] { font-weight: inherit; background: var(--accent-soft); color: var(--accent-strong); }
+}
 
 .article-meta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); display: flex; flex-wrap: wrap; gap: 0.5rem 3rem; }
 .meta-group h4 { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--ink-muted); font-weight: 600; }
