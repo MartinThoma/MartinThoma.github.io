@@ -64,6 +64,11 @@ Ganz konkret denke ich an unser Gesundheitssystem:
   unterstützen. Es könnte die Krankengeschichte des Patienten erfassen und den
   Patienten direkt an den Facharzt weiterleiten.
 
+<figure class="ai-generated">
+  <img src="../images/2024/12/ai-assisted-living.jpg" alt="Automatisierung im Gesundheitssystem" width="512" height="288">
+  <figcaption>Automatisierung im Gesundheitssystem</figcaption>
+</figure>
+
 Und auch in anderen Bereichen haben wir die Möglichkeit, durch Automatisierung
 Arbeit einzusparen, allerdings schon seit langem:
 

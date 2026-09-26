@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts
 tags: Politics, Bundestagswahl, German Politics
+featured_image: logos/germany.png
 ---
 Am 22. September 2013 findet die Bundestagswahl 2013 statt.
 

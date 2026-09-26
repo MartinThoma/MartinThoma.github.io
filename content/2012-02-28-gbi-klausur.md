@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-02-28 19:30:01.000000000 +01:00
 category: German posts
 tags: GBI, Klausur, Big-O, KIT, University, Algorithms, Computer Science
+featured_image: logos/klausur.png
 ---
 Für die Klausur in den Grundbegriffen der Informatik (GBI) sollte man Folgendes auf jeden Fall wissen:
 <ul>
