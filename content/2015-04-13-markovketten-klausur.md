@@ -59,7 +59,7 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
   <td></td>
 </tr>
 <tr>
-  <td>21.04.2015</td>
+  <td>21.05.2015</td>
   <td>3.10 - 4.6 (<a href="../pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
   <td>Total-Variationsabstand, $d(\mu, \nu) = \frac{1}{2} \sum_{i \in S} |\mu(i)- \nu(i)|$, Periode, aperiodisch, ein Konvergenzsatz, Kopplungsargument</td>
 </tr>
@@ -106,7 +106,7 @@ Es gibt dienstags und mittwochs Tutorien.
 ## Termine und Klausurablauf
 
 **Datum**: Montag, der 03.08.2015 von 11:00 bis 13:00 Uhr ([Quelle](http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/))<br/>
-**Ort**: [Daimler-Hörsaal](https://www.kit.edu/campusplan/) (Geb. 10.11, [Quelle](http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/))<br/>
+**Ort**: [Daimler-Hörsaal](https://www.kit.edu/campusplan/) (Geb. 10.21, [Quelle](http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/))<br/>
 **Punkte**: 60<br/>
 **Punkteverteilung**: 6 Aufgaben mit 9-13 Punkten<br/>
 **Bestehensgrenze**: ?<br/>

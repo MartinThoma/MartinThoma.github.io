@@ -9,7 +9,7 @@ category: German posts
 tags: Politics, Heating, Heat Pumps, House, Energy
 featured_image: logos/germany.png
 ---
-Schlechte Bildungspolitik kann uns volkswirtschaftlich teuer zu stehen kommen.
+Schlechte Berufsbildungspolitik kann uns volkswirtschaftlich teuer zu stehen kommen.
 Das ist mir klar geworden, als ich mir das Video vom Akkudoktor über
 [die exorbitanten Preise von Wärmepumpen in Deutschland](https://www.youtube.com/watch?v=Cvt7cjIIat8)
 angesehen habe.
@@ -21,7 +21,9 @@ angesehen habe.
     <figcaption>Wie wir 2024 in Deutschland heizen</figcaption>
 </figure>
 
-Aktuell sind [über 70% der verbauten Heizungen Verbrenner](https://de.statista.com/infografik/27327/anteil-der-energietraeger-beim-heizen-des-wohnungsbestandes-in-deutschland/) (Stand: Februar 2024).
+Aktuell sind [über 70% der verbauten Heizungen Verbrenner](https://de.statista.com/infografik/27327/anteil-der-energietraeger-beim-heizen-des-wohnungsbestandes-in-deutschland/) (Stand: Februar 2024). Daran hat sich wenig geändert: 2025 wurden
+[56,1% der Wohnungen mit Gas und 17,2% mit Heizöl beheizt](https://www.bdew.de/energie/waerme-waermewende-heizung/heizung-statistik/)
+(BDEW, Stand: Juni 2026).
 
 
 <figure>
@@ -58,4 +60,13 @@ schießen, weil die Nachfrage das Angebot übersteigt.
    einführen.
 2. **Meister-Ausbildung anpassen**: Den großen Kältemittel-Schein (Kategorie I, ohne Mengenbegrenzung) verpflichtend machen (1-2 Wochen). Wurde auch in [der Handwerks-Zeitung](https://www.deutsche-handwerks-zeitung.de/dhz-rubrik-tacheles-waermepumpe-nur-mit-kaelteschein-355990/) im Januar 2025 gefordert. Auch hier könnte man Teile der Ausbildung über Öl-Brennwertkessel optional machen.
 3. **Bezuschussung der Ausbildung**: Betriebe müssen mehr ausbilden. Aktuell ist
-   es aber wohl wesentlich rentabler, neue Wärmepumpen einzubauen.
+   es aber wohl wesentlich rentabler, neue Wärmepumpen einzubauen, als
+   Auszubildende zu betreuen. Ein Zuschuss pro Ausbildungsplatz im
+   Sanitär-, Heizungs- und Klimahandwerk könnte das ändern.
+
+## Fazit
+
+Die hohen Preise für Wärmepumpen liegen zu einem guten Teil an einem Engpass
+bei den Fachkräften, die sie einbauen dürfen. Mit vergleichsweise kleinen
+Änderungen an der Aus- und Weiterbildung ließe sich dieser Engpass mittelfristig
+auflösen.

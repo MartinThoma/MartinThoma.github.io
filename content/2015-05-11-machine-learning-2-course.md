@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2015-05-11 11:00
 category: German posts
-tags: Klausur, Machine Learning, Clustering, Reinforcement Learning, University, AI
+tags: Klausur, Machine Learning, Clustering, Reinforcement Learning, University, AI, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="../machine-learning-1-course/">Machine Learning 1</a>.</div>
@@ -178,8 +178,8 @@ Siehe auch:
 
 * [Probabilistische Planung](../probabilistische-planung/)
 * [Reinforcement Learning](../reinforcement-learning/)
-* [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
-* [Machine Learning 1](../machine-learning-1-course/#tocAnchor-1-1-4)
+* [Neuronale Netze](../neuronale-netze-vorlesung/#v09-reinforcement-learning)
+* [Machine Learning 1](../machine-learning-1-course/#reinforcement-learning)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
@@ -259,10 +259,10 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
   <dd>Seien $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
       $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
 
-      Hierbei heißt $P(A|B)$ die <i>a posteriori Wahrscheinlichkeit</i>,
-      $P(B|A)$ die <i>likelihood</i>, $P(A)$ die
-      <i>a priori Verteilung über $A$</i> und $P(B)$ die
-      <i>a priori Verteilung über $B$</i>.</dd>
+      Hierbei heißt $P(A|B)$ die <i>A-posteriori-Wahrscheinlichkeit</i>,
+      $P(B|A)$ die <i>Likelihood</i>, $P(A)$ die
+      <i>A-priori-Verteilung über $A$</i> und $P(B)$ die
+      <i>A-priori-Verteilung über $B$</i>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Siehe <a href="https://www.youtube.com/watch?v=VfyxPtlqZh4">Lecture 13: Bayes Nets</a>)</dt>
   <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclic
       Graph">DAG</abbr>, bei dem die Knoten Zufallsvariablen und die Kanten
@@ -287,7 +287,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
 
       Diese Knotenmenge macht $v_S$ unabhängig von anderen Knoten.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering"><dfn>Naive Bayes Spam Filter</dfn></a></dt>
-  <dd>Ein naiver Bayes Spamfilter nutzt häufig Bag-of-Words Features. Man berechnet die Wahrscheinlichkeit,
+  <dd>Ein naiver Bayes-Spamfilter nutzt häufig Bag-of-Words-Features. Man berechnet die Wahrscheinlichkeit,
       dass eine gegebene E-Mail Spam ist. Dazu geht man davon aus, dass die
       Wörter in einer E-Mail unabhängig voneinander sind und nutzt den
       Satz von Bayes.
@@ -456,7 +456,7 @@ Siehe auch:
 </dl>
 
 
-### Gaussche Prozesse
+### Gaußsche Prozesse
 
 Slides: `07_Gaussche_Prozesse.pdf`
 
@@ -473,7 +473,7 @@ See also:
   <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
   <dd>Die lineare Regression ist ein Modell zur Approximation von Datenpunkten
       $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
-      lineare Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w$.
+      lineare Funktion, d.h. eine Funktion der Form $f(x) = x^T \cdot w$.
       Dabei ist $w \in \mathbb{R}^n$.<br/>
       <br/>
       Wenn man als Optimierungskriterium den quadratischen Abstand
@@ -488,7 +488,7 @@ See also:
   <dt><dfn>Affine Regression</dfn></dt>
   <dd>Die affine Regression ist ein Modell zur Approximation von Datenpunkten
       $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
-      affine Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w + b$.
+      affine Funktion, d.h. eine Funktion der Form $f(x) = x^T \cdot w + b$.
       Dabei ist $w \in \mathbb{R}^n, b \in \mathbb{R}$. Um das Problem auf
       ein lineares zu reduzieren, kann man den Feature-Vektor $x$ durch ein
       konstantes Feature $x_0 = 1$ erweitern.
@@ -513,7 +513,7 @@ Slides: `08_DeepLearning.pdf`
 Siehe auch:
 
 * [Neuronale Netze Vorlesung](../neuronale-netze-vorlesung/)
-* Udacity: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Hinton.
+* Coursera: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Hinton.
 
 <dl>
   <dt><dfn>Deep Belief Netz</dfn> (<dfn>DBN</dfn>)</dt>
@@ -546,7 +546,7 @@ Siehe auch:
 </dl>
 
 
-#### Probleme von Tiefen Netzen und wie man sie lösen kann:
+#### Probleme von tiefen Netzen und wie man sie lösen kann:
 
 * **Lange Trainingsdauer**: GPUs / mehr Rechenpower / weniger Parameter durch
   Parameter sharing, z.B. in <abbr title="Convolutional Neural Networks">CNNs</abbr>
@@ -556,7 +556,7 @@ Siehe auch:
   Problem; Nutzen ungelabelter Daten durch <abbr title="Semi-Supervised Learning">SSL</abbr>
   in Auto-Encodern
 * **Lokale Minima**
-* **Overfitting**: Regularisation
+* **Overfitting**: Regularisierung
 
 #### Siehe auch
 
@@ -769,7 +769,7 @@ direkt erfährt, in welchem Zustand er ist. Siehe
 <details class="question">
 <summary>Welche Active Learning Techniken gibt es?</summary>
 <div class="answer">
-Query / Selective / Pool-based (vgl. <a href="#tocAnchor-1-1-4">Query-by-Committee</a>)
+Query Synthesis / Selective Sampling / Pool-based (vgl. <a href="#query-by-committee">Query-by-Committee</a>)
 </div>
 </details>
 
@@ -799,9 +799,9 @@ Bedingungs-Hyperebenen so schnell wie möglich zu verkleinern.</p>
 </details>
 
 <details class="question">
-<summary>Was versteht man unter Transduktivem Lernen?</summary>
+<summary>Was versteht man unter transduktivem Lernen?</summary>
 <div class="answer">
-Unter Transduktiver Inferenz versteht man das Schließen von
+Unter transduktiver Inferenz versteht man das Schließen von
 Trainingsbeispielen direkt auf spezifische Testfälle.
 </div>
 </details>
@@ -847,7 +847,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
 * [Informationsfusion](../informationsfusion/)
 * [Machine Learning 1](../machine-learning-1-course/)
-* [Machine Learning 2](../machine-learning-2-course/)
+* **Machine Learning 2**
 * [Mustererkennung](../mustererkennung-klausur/)
 * [Neuronale Netze](../neuronale-netze-vorlesung/)
 * [Lokalisierung Mobiler Agenten](../lma/)

@@ -84,10 +84,6 @@ featured_image: logos/klausur.png
     <td>Peano-Arithmetik; Unentscheidbarkeit</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
-    <td>JML</td>
-  </tr>
-  <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a></td>
     <td>Reduktionssysteme: Gleichungslogik; Satz von Birkhoff; Termersetzungssysteme; Reduktionssysteme; Kanonische Reduktionssysteme; Noethersche Induktion; (lokale) Konfluenz</td>
   </tr>
@@ -99,6 +95,10 @@ featured_image: logos/klausur.png
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
     <td>Modallogik; Bakery-Algorithmus; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
   </tr>
+<tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
+    <td>JML</td>
+  </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
     <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
@@ -109,7 +109,7 @@ featured_image: logos/klausur.png
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a></td>
-    <td>Lineare Temporale Logik; omega-Struktur; LTL-Formeln; LTL-Semantik; </td>
+    <td>Lineare Temporale Logik; $\omega$-Struktur; LTL-Formeln; LTL-Semantik</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
@@ -240,8 +240,8 @@ Wichtig ist noch:
 Das `assignable \nothing` besagt, dass keine Werte (nach außen sichtbar)
 verändert werden dürfen.
 
-Die Schleifen-Syntax ist `\forall int i; B; R`, wobei `B` eine
-Bereichseinschränkung und `R` der Schleifenrumpf ist. Es gibt auch noch
+Die Syntax der Quantoren ist `\forall int i; B; R`, wobei `B` eine
+Bereichseinschränkung und `R` die eigentliche Aussage ist. Es gibt auch noch
 `\exists int i; B; R`.
 
 
@@ -375,8 +375,8 @@ können und verstehen:
     entweder widersprüchlich oder unvollständig.
   * Jedes hinreichend mächtige konsistente formale System kann die eigene
     Konsistenz nicht beweisen.
-* Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge
-  folgt, dann auch aus einer endlichen.
+* Kompaktheitssatz: Wenn $A$ aus einer (auch unendlichen) Formelmenge $M$
+  folgt, dann auch aus einer endlichen Teilmenge von $M$.
 * Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
   Modell, wenn jede endliche Teilmenge von $M$ ein Modell hat.
 * Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.

@@ -23,14 +23,15 @@ Anwesend waren:
 * [Sabine Duschl](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (CSU)
 * [Stefan Fisch](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (FW)
 * [Reinhard Leuschner](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (FW)
-* Andreas Bergmann (JL)
-* Joseph Waas (JL)
+* [Andreas Bergmann](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (JL)
+* [Joseph Waas](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (JL)
 * [Martin Halser](https://spd-plattling.de/ortsverein/stadtrat/) (SPD)
 * [Roland Unholzer](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/) (BP)
 * [Thomas Pfeffer](https://www.thomaspfeffer-bp.de/) (BP)
 * Eine Vertreterin der Polizei
 * Vertreter der Presse
 
+JL steht für die [Junge Liste](https://www.plattling.de/politik-verwaltung/mitglieder-des-stadtrates/).
 Eventuell noch ein paar weitere Personen, die weniger gesprochen haben.
 
 ## MiKar: Vorstellung Car-Sharing

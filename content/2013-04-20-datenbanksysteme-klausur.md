@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-20 13:35:01.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Database, SQL
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Datenbanksysteme&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://dbis.ipd.uni-karlsruhe.de/336.php">Herrn Prof. Dr. Böhm</a> im Sommersemester 2013 gehört.</div>
@@ -19,7 +19,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>15.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="Sie lagern Komplexität aus: Keine redundante Speicherung von Daten, verhindern Inkonsistenzen">Warum Datenbanken toll sind</span>; <span class="hint" title="Atomarität und Isolation">Transaktionseigenschaften</span>; Datenschutz; Datensicherheit; Relationsmodell; Integritätsbedingungen; Schlüssel; Fremdschlüssel; SQL; View; <span class="hint" title="Zeile auswählen">Selektion</span>; <span class="hint" title="Spalte auswählen">Projektion</span>; <span class="hint" title="Beliebige Kombination der Operationen Verbund, Vereinigung, Differenz, Durchschnitt, Umbennenung, Projektion, Selektion">Query-Algebra</span>; <span class="hint" title="Zwei Selektionen können deutlich unterschiedlich große Ergebnismengen haben. Werden sie hintereinander ausgeführt, empfiehlt es sich die stärker einschränkende Selektion zuerst auszuführen.">Anfrage-Optimierer</span>; <span class="hint" title="Der Anwender sagt nur welches Ergebnis er will, nicht wie es ermittelt werden soll.">Anfragen sind deklarativ</span>; 3-Ebenen-Architektur; Trennung zwischen Schema und Instanz, <a href="https://de.wikipedia.org/wiki/Online_Analytical_Processing#12_Regeln_nach_Codd">9 Codd'sche Regeln</a></td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="Sie lagern Komplexität aus: Keine redundante Speicherung von Daten, verhindern Inkonsistenzen">Warum Datenbanken toll sind</span>; <span class="hint" title="Atomarität und Isolation">Transaktionseigenschaften</span>; Datenschutz; Datensicherheit; Relationsmodell; Integritätsbedingungen; Schlüssel; Fremdschlüssel; SQL; View; <span class="hint" title="Zeile auswählen">Selektion</span>; <span class="hint" title="Spalte auswählen">Projektion</span>; <span class="hint" title="Beliebige Kombination der Operationen Verbund, Vereinigung, Differenz, Durchschnitt, Umbenennung, Projektion, Selektion">Query-Algebra</span>; <span class="hint" title="Zwei Selektionen können deutlich unterschiedlich große Ergebnismengen haben. Werden sie hintereinander ausgeführt, empfiehlt es sich, die stärker einschränkende Selektion zuerst auszuführen.">Anfrage-Optimierer</span>; <span class="hint" title="Der Anwender sagt nur, welches Ergebnis er will, nicht wie es ermittelt werden soll.">Anfragen sind deklarativ</span>; 3-Ebenen-Architektur; Trennung zwischen Schema und Instanz, <a href="https://de.wikipedia.org/wiki/Online_Analytical_Processing#12_Regeln_nach_Codd">9 Codd'sche Regeln</a></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/d1272879/Kap1-Einleitung.pdf">Kapitel 1</a></td>
@@ -43,7 +43,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>29.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Systemunabhängige Modellierung - Strukturelle Seite; <span class="hint" title="keine Instanzen, aber Ableitungen">abstrakte Klassen</span>, <span class="hint" title="Enthalten Methoden zur Erzeugung von Klassen">Metaklassen</span>, Parametrisierte Klassen; <span class="hint" title="Auto: Räder, Lenkrad, Motor, Karosserie, ...">Aggregation</span> und <span class="hint" title="Fußballmanschaft besteht aus Spielern">Assoziation</span></td>
+<td rowspan="2" style="border-bottom:1px solid black;">Systemunabhängige Modellierung - Strukturelle Seite; <span class="hint" title="keine Instanzen, aber Ableitungen">abstrakte Klassen</span>, <span class="hint" title="Enthalten Methoden zur Erzeugung von Klassen">Metaklassen</span>, Parametrisierte Klassen; <span class="hint" title="Auto: Räder, Lenkrad, Motor, Karosserie, ...">Aggregation</span> und <span class="hint" title="Fußballmannschaft besteht aus Spielern">Assoziation</span></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/d1275725/Kap5-DMfuerRealis.pdf">Kapitel 5</a>, Folie 1 - <a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/d1275734/Kap6-Abb-ER2RDM.pdf">Kapitel 6</a>, Folie 24</td>
@@ -59,7 +59,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>13.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Nebenläufigkeitsprobleme: Lost update, dirty read, non-repeatable read; Serielle Ausführung beseitigt Probleme, aber IO/Kommunikation machts ineffizient; History,  Prefix Commit-Closed, commited projection; Transaktionen</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Nebenläufigkeitsprobleme: Lost update, dirty read, non-repeatable read; Serielle Ausführung beseitigt Probleme, aber IO/Kommunikation macht's ineffizient; History, Prefix Commit-Closed, Committed Projection; Transaktionen</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/d1289715/Kap11-ConcurrencyControl.pdf">Kapitel 11</a></td>
@@ -105,19 +105,19 @@ values ('Alice', 90)
 <summary>Was ist der Unterschied zwischen einem DBS und einem DBMS?</summary>
 <div class="answer">
 Ein <abbr title="Datenbankmanagementsystem">DBMS</abbr> ist eine Software zur Datenverwaltung. Die eigentlichen Daten sind in der Datenbank.
-Ein <abbr title="Datenbanksystem">DBS</abbr> ist eine DBMS und eine Datenbank.
+Ein <abbr title="Datenbanksystem">DBS</abbr> besteht aus einem DBMS und einer Datenbank.
 
 Ein DBMS kann mehrere Datenbanken verwalten.
 </div>
 </details>
 
 <details class="question">
-<summary>Sei $H = r_1[y] w_1[x] r_3[x] w_1[z] r_2[z] w_3[y] r_2[x] w_2[y] c1 r_3[y] c_3 w_2[z] c_2$.<br/>Welche Transaktionen sind in dieser History?</summary>
+<summary>Sei $H = r_1[y] w_1[x] r_3[x] w_1[z] r_2[z] w_3[y] r_2[x] w_2[y] c_1 r_3[y] c_3 w_2[z] c_2$.<br/>Welche Transaktionen sind in dieser History?</summary>
 <div class="answer">
 <ul>
   <li>Ein Eintrag $r_i[x]$ bedeutet, dass die Transaktion $i$ die Ressource $x$ liest.</li>
   <li>Ein Eintrag $w_i[x]$ bedeutet, dass die Transaktion $i$ die Ressource $x$ schreibt.</li>
-  <li>$c_i$ bedeutet, dass die $i$-te Transaktion commitet wird</li>
+  <li>$c_i$ bedeutet, dass die $i$-te Transaktion committet wird.</li>
 </ul>
 
 Es gibt also die Transaktion $T_1, T_2 \text{ und } T_3$ mit
@@ -151,7 +151,7 @@ Häufige Aufgabenstellungen sind:
   <li>SQL-Abfragen formulieren</li>
 </ul>
 
-In der Klausur vom SS 2013 wurde das in 4 Aufgaben &agrave; 15 Punkte aufgeteilt. Unter anderem war diesmal der RAP-Algorithmus und der Dekompositionsalgorithmus relevant.
+In der Klausur vom SS 2013 wurde das in 4 Aufgaben &agrave; 15 Punkte aufgeteilt. Unter anderem waren diesmal der RAP-Algorithmus und der Dekompositionsalgorithmus relevant.
 
 
 ## Übungsbetrieb
@@ -174,16 +174,16 @@ Ein paar interessante Informationen zum Blatt:
 <div class="answer">
 Antwort von Herrn Keller:
 
-Bei Anfragen, die nur eine Anzahl in der Projektionsliste erwarten, können sie mit einer Query
+Bei Anfragen, die nur eine Anzahl in der Projektionsliste erwarten, können Sie mit einer Query
 
-<code>SELECT <korrekte_Anzahl> FROM <irgendeiner_Tabelle></code>
+<code>SELECT &lt;korrekte_Anzahl&gt; FROM &lt;irgendeiner_Tabelle&gt;</code>
 
 das korrekte Ergebnistupel durch Ausprobieren herausbekommen. Im Portal wird das zunächst als "korrekt" bewertet, allerdings werden wir das im Nachhinein filtern.
 </div>
 </details>
 
 <details class="question">
-<summary>Wie kann man bei der ORACLE-Datenbank die Anzahl der ausgegebenen Zeilen beschränken (LIMIT)?</summary>
+<summary>Wie kann man bei der Oracle-Datenbank die Anzahl der ausgegebenen Zeilen beschränken (LIMIT)?</summary>
 <div class="answer">
 
 ```sql
@@ -241,7 +241,7 @@ Wie zur Hölle soll man das lösen? Ich hatte auf &bdquo;448444&ldquo; getippt, 
   </tr>
   <tr>
     <td>Nachnamen T-Z</td>
-    <td style="background-color:#cdcdcd">Benz Hörsaal</td>
+    <td><strong>Benz Hörsaal</strong></td>
   </tr>
 </table>
 

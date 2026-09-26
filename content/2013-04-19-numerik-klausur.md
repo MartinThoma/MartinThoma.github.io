@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-19 20:05:19.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Numerische Mathematik für die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Weiß im Sommersemester 2013 gehört.</div>
@@ -17,7 +17,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>17.04.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel1.pdf">Kapitel 1.1</a></td>
-<td>Wiederholung LGS, <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gauß'sches Eliminationsverfahren</a>, <a href="//www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
+<td>Wiederholung LGS, <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gauß'sches Eliminationsverfahren</a>, <a href="https://www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
 </tr>
 <tr>
 <td>24.04.2013</td>
@@ -72,7 +72,7 @@ Kapitel 1:
   <li>Wann ist ein LGS eindeutig lösbar? Wann gibt es unendlich viele Lösungen?</li>
   <li>Gaußsches Eliminationsverfahren</li>
   <li>Was versteht man unter <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">Vorwärts</a> / <a href="../solving-equations-of-upper-triangular-matrices/">Rückwärtssubstitution</a>?</li>
-  <li>Beim Gauß'schen Eliminationsverfahren mit Spaltenpivotwahl tauscht man eine Zeile nach oben. Ist es das betragsmäßig größte oder kleinste? Warum?</li>
+  <li>Beim Gauß'schen Eliminationsverfahren mit Spaltenpivotwahl tauscht man eine Zeile nach oben. Ist es die Zeile mit dem betragsmäßig größten oder mit dem kleinsten Element? Warum?</li>
   <li>Was ist eine Permutationsmatrix? Was eine Frobeniusmatrix?</li>
   <li>LR-Zerlegung</li>
   <li>Was ist eine unipotente Dreiecksmatrix? Was ist eine obere Dreiecksmatrix, was eine untere?</li>
@@ -125,7 +125,7 @@ Die Aufgabenblätter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainf
 </tr>
 <tr>
   <td>10</td>
-  <td>Bernstein-Polynom, Bezier-Kurven</td>
+  <td>Bernstein-Polynom, Bézier-Kurven</td>
 </tr>
 <tr>
   <td>11</td>
@@ -179,7 +179,7 @@ Die Aufgabenblätter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainf
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Dienstag, den 24. September 2013 von 11:00 bis 13:00 Uhr<br/>
 <strong>Ort</strong>: steht seit dem 11.09.2013 fest:
-Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
+Klausureinteilung entsprechend dem Anfangsbuchstaben des Nachnamens:
 <table>
   <tr>
     <td>Benz-Hörsaal (10.21)</td><td>A-C</td>

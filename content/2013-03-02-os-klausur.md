@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-03-02 19:06:15.000000000 +01:00
 category: German posts
-tags: Klausur, University, Operating Systems
+tags: Klausur, University, Operating Systems, KIT
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Bellosa und später bei Prof. Dr. Beigl gehört.</div>
@@ -43,7 +43,7 @@ Folgende Begriffe muss man kennen und erklären können:
 <ul>
   <li>Critical Section und Race Condition</li>
   <li><a href="http://de.wikipedia.org/wiki/Semaphor_(Informatik)">Semaphor</a>: counting Semaphores, binary Semaphores und Mutex Locks &rarr; Antwort auf S. 200f</li>
-  <li>Dining-Philosophers Problem &rarr; Antwort auf S. 207f</li>
+  <li>Dining-Philosophers-Problem &rarr; Antwort auf S. 207f</li>
   <li>Deadlock, Starvation</li>
   <li>Safe State</li>
 </ul>
@@ -64,7 +64,7 @@ Folgende Begriffe muss man kennen und erklären können:
   <li>Multilevel Feedback Queue</li>
   <li>Lottery Scheduling</li>
   <li><abbr title="Preemptive Shortest Job First">PSJF</abbr></li>
-  <li><abbr title="First Come, First Serve">FCFS</abbr></li>
+  <li><abbr title="First Come, First Served">FCFS</abbr></li>
 </ul></div>
 </details>
 
@@ -145,7 +145,7 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <summary>Erklären Sie RAID 0 - 5.</summary>
 <div class="answer">
 <ul>
-  <li>RAID 0: Striping. Platten werden "aneinandergehängt".</li>
+  <li>RAID 0: Striping. Die Daten werden blockweise abwechselnd auf die Platten verteilt.</li>
   <li>RAID 1: Mirroring. Daten werden auf mehrere Platten gespiegelt.</li>
   <li>RAID 2: Fehlerkorrigierender Hamming-Code.</li>
   <li>RAID 3: Byteweise Parität.</li>
@@ -167,7 +167,7 @@ Falls man es wirklich genau wissen will, sollte man wohl die <a href="http://www
 </details>
 
 <details class="question">
-<summary>Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</summary>
+<summary>Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64-Bit-Systemen?</summary>
 <div class="answer">Sie würden zu viel Speicher benötigen. Es wird eine Seitentabelle pro Prozess benötigt. Die Größe einer einstufigen Seitentabelle berechnet sich folgendermaßen:
 
 Sei $m$ die Größe des Hauptspeichers in Byte, $p$ die Größe einer Seite in Byte und $a$ die Anzahl der zusätzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>).
@@ -176,7 +176,7 @@ Dann gilt:
 Größe der Seitentabelle = Größe eines Seiteneintrags &middot; Anzahl der Seiten
 $= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}$
 
-Typischerweise gilt: $m = 4 \text{ GB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seiteneintrags-Größe von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengröße von 16 Petabyte.
+Typischerweise gilt: $m = 4 \text{ GiB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seiteneintrags-Größe von 4 Byte und $2^{52} = 4.503.599.627.370.496$ Seiten. Das ergibt eine Seitentabellengröße von $2^{54}$ Byte = 16 PiB (Pebibyte).
 </div>
 </details>
 
@@ -201,15 +201,15 @@ Typischerweise gilt: $m = 4 \text{ GB} = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \t
 </details>
 
 <details class="question">
-<summary>Wie groß kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</summary>
+<summary>Wie groß kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirekten und dreifach indirekten Block hat?</summary>
 <div class="answer">
-Sei $b$ die Größe eines Blocks in Byte und ein Zeiger belege 4 Byte.
+Sei $b$ die Größe eines Blocks in Byte, ein Zeiger belege 4 Byte und ein Inode habe (wie bei ext2) zusätzlich 12 direkte Blöcke.
 Dann berechnet sich die maximale Dateigröße in Byte folgendermaßen:
 $12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}$
 
 Bei einer Blockgröße von 1024 Byte sind das 17,25 GB (<a href="http://www.wolframalpha.com/input/?i=12*1024%2B1024%5E2%2F4%2B1024%5E3%2F16%2B1024%5E4%2F64+byte">Rechnung</a>), bei einer Blockgröße von 4096 Byte sogar 4,40 TB (<a href="http://www.wolframalpha.com/input/?i=12*4096%2B4096%5E2%2F4%2B4096%5E3%2F16%2B4096%5E4%2F64+byte">Rechnung</a>)!
 
-Wenn ihr Linux habt, könnt ihr diese Werte so herausfinden:
+Wenn ihr Linux habt, könnt ihr die Blockgröße so herausfinden:
 ```bash
 moose@pc08 ~ $ df
 Filesystem     1K-blocks     Used Available Use% Mounted on
@@ -272,15 +272,15 @@ LPIC-1 - Vorbereitung auf die Prüfung des Linux Professional Institute. ISBN 97
 <strong>Punkte</strong>: 60<br/>
 <strong>Bonuspunkte</strong>: Abhängig von den Punkten im Übungsschein:
 <ul>
-  <li>110 - 129 Punkte: 1 Bonuspunkt</li>
-  <li>130 - 149 Punkte: 2 Bonuspunkte</li>
-  <li>150 - 169 Punkte: 3 Bonuspunkte</li>
-  <li>170 - x Punkte: 4 Bonuspunkte</li>
+  <li>110&ndash;129 Punkte: 1 Bonuspunkt</li>
+  <li>130&ndash;149 Punkte: 2 Bonuspunkte</li>
+  <li>150&ndash;169 Punkte: 3 Bonuspunkte</li>
+  <li>ab 170 Punkten: 4 Bonuspunkte</li>
 </ul>
 <a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/Vorlesungsunterlagen/BS-WS1213-00aOrga.pdf">Quelle</a><br/>
 <strong>Nicht vergessen</strong>: Studentenausweis<br/>
 <strong>Einsicht</strong>: 09.04.2013 (war seit spätestens 13.02.2013 bekannt)<br/>
-<strong>Ort der Einsicht</strong>: 07.07 (<a href="https://maps.google.com/maps?q=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Forschungsstelle+f%C3%BCr+Brandschutztechnik+am+KIT,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&hl=de&ie=UTF8&ll=49.012738,8.423853&spn=0.015622,0.042272&geocode=FYXh6wIdLouAAA&hnear=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&t=m&z=15">Vincenz-Priessnitz-Str. 1</a>, 2.OG, links), Raum 215<br/>
+<strong>Ort der Einsicht</strong>: 07.07 (<a href="https://maps.google.com/maps?q=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Forschungsstelle+f%C3%BCr+Brandschutztechnik+am+KIT,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&hl=de&ie=UTF8&ll=49.012738,8.423853&spn=0.015622,0.042272&geocode=FYXh6wIdLouAAA&hnear=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&t=m&z=15">Vincenz-Prießnitz-Str. 1</a>, 2. OG, links), Raum 215<br/>
 <strong>Zeit der Einsicht</strong>: Je nach Matrikelnummer unterschiedlich.
 
 <h2>Ergebnisse</h2>

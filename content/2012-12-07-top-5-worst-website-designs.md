@@ -50,6 +50,7 @@ Looking at these examples from 2012, we can identify common problems:
 - **Inconsistent navigation**: Making it hard for users to find what they need
 
 Modern web design has evolved significantly since 2012, emphasizing:
+
 - Clean, minimalist designs
 - Mobile responsiveness
 - Accessibility standards

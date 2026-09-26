@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2016-04-15 11:22
 category: German posts
-tags: Klausur, Clustering, SVM, University, Machine Learning, AI
+tags: Klausur, Clustering, SVM, University, Machine Learning, AI, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Analysetechniken für große Datenbestände&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört.</div>
@@ -14,7 +14,7 @@ featured_image: logos/klausur.png
 In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule Mining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
-FP-Trees zu nennen. Beim Clustering ist k-means, EM, DBSCAN, OPTICS und BIRCH
+FP-Trees zu nennen. Beim Clustering sind k-means, EM, DBSCAN, OPTICS und BIRCH
 von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 
 ## Behandelter Stoff
@@ -34,7 +34,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
         Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
         Clustering<br/>
         Market Basket Analysis: Zusammenhang zwischen Waren<br/>
-        Association rules (Apriori Algorithmus)
+        Association rules (Apriori-Algorithmus)
     </td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
     <td>Statistische Tests (Folie 38 - )</td>
     <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
     Kolmogorov-Smirnov-Test (Folgt eine Stichprobe einer vorgegebenen Verteilung? Bei stetigen Zufallsvariablen)<br/>
-    Wilcoxon-Mann-Whitney Test<br/>
+    Wilcoxon-Mann-Whitney-Test<br/>
     Bernoulli-Experiment (Folie 53?)<br/>
     Datenreduktion (Attribute entfernen, z.B. PCA; Datensätze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br/>
     Diskretisierung: Zielfunktion ist Information Gain. Dieser soll maximiert werden.
@@ -108,7 +108,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 <tr>
     <td>19.01.2016, 08:00</td>
     <td>Kapitel 9</td>
-    <td>Jaccard Koeffizient, ...</td>
+    <td>Jaccard-Koeffizient, ...</td>
 </tr>
 <tr>
     <td>19.01.2016, 11:30</td>
@@ -169,7 +169,7 @@ Slides: `1-Einleitung.pdf`
       Association rules werden z.B. in der Market Basket Analysis eingesetzt.
       Sie können aus Frequent item sets relativ einfach erzeugt werden.
       <br/>
-      Der Apriori Algorithmus dient dem Finden von Association Rules.<br/>
+      Der Apriori-Algorithmus dient dem Finden von Association Rules.<br/>
       <br/>
       Association Rules sind stark mit <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> verwandt.
   </dd>
@@ -207,7 +207,7 @@ Slides: `2-statistGrundlagen.pdf`
         </ul>
     </dd>
     <dt><dfn id="metrische-daten">Metrische Daten</dfn></dt>
-    <dd>Ein Metrischer Raum ist eine Menge $M$ mit einer Funktion
+    <dd>Ein metrischer Raum ist eine Menge $M$ mit einer Funktion
         $d: M \times M \rightarrow \mathbb{R}_0^+$ für die gilt:
         <ul>
             <li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p)$</li>
@@ -233,7 +233,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>Es gibt eine Funktion $G$, die ein $M$-Tupel liefert und $H$,
         so dass
         $$F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})$$
-        AVG ist eine Algebraische Aggregatfunktion. Hier berechnet $G$ die
+        AVG ist eine algebraische Aggregatfunktion. Hier berechnet $G$ die
         Summe und gibt zusätzlich die Anzahl der Werte zurück. $H$ summiert
         die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br/>
         <br/>
@@ -262,11 +262,11 @@ Slides: `2-statistGrundlagen.pdf`
         nicht-normiertes Korrelationsmaß.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn id="kovarianz">Kovarianz</dfn></a></dt>
     <dd>$$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$$</dd>
-    <dt><a id="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
     <dd>$$\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]$$</dd>
     <dt><dfn id="pca">PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
-        Attributen. Er projiziert die Datenobjekte auf eine Hyperebene, sodass
+        Attributen. Er projiziert die Datenobjekte auf einen niedrigdimensionalen Unterraum, sodass
         ein Maximum der Varianz beibehalten wird (vgl. <a href="../neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn id="chi-quadrat-test">Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
@@ -281,7 +281,7 @@ Slides: `2-statistGrundlagen.pdf`
         Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
         die Verteilungen unabhängig sind, zurückgewiesen.
-        Die Nullhypothese, dass $X, Y$ unabhängig sind wird auf dem
+        Die Nullhypothese, dass $X, Y$ unabhängig sind, wird auf dem
         Signifikanzniveau $\alpha$ verworfen, falls
         $$\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}$$
         </dd>
@@ -296,6 +296,7 @@ Slides: `2-statistGrundlagen.pdf`
         bis zu $n=35$ tabelliert vorliegt. Bei größerem $n$ kann
         näherungsweise
         $$d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}$$
+        verwendet werden.
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn id="wilcoxon-mann-whitney-test">Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
     <dd>Es seien $X,Y$ Zufallsvariablen mit Verteilungsfunktionen
@@ -311,7 +312,7 @@ Slides: `2-statistGrundlagen.pdf`
             <li>Numerosity Reduction: Reduziere die Anzahl der betrachteten
                 Datenobjekte
             <ul>
-                <li>Parametrische Verfahren: Nehme eine bekannte
+                <li>Parametrische Verfahren: Nimm eine bekannte
                     Wahrscheinlichkeits&shy;verteilung der Datenobjekte an und
                     schätze deren Parameter. Arbeite dann nur mit der
                     Verteilung</li>
@@ -322,7 +323,7 @@ Slides: `2-statistGrundlagen.pdf`
             <li>Dimensionality Reduction: Reduziere die Anzahl der Attribute.
             <ul>
                 <li>Forward Feature Construction: Starte nur mit einem Feature
-                    und gebe dem Classifier so lange neue Features, bis die
+                    und gib dem Classifier so lange neue Features, bis die
                     gewünschte Genauigkeit erreicht wurde.</li>
                 <li>Feature Elimination: Starte mit allen Features und
                     entferne so lange Features, wie die gewünschte Genauigkeit
@@ -338,7 +339,7 @@ Slides: `2-statistGrundlagen.pdf`
         <ul>
             <li>Boxplots: Whiskers</li>
             <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
-            <li>Dendogramme</li>
+            <li>Dendrogramme</li>
         </ul>
     </dd>
     <dt><dfn>Grundbegriffe der Wahrscheinlichkeitstheorie</dfn></dt>
@@ -384,7 +385,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
     <dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
         minimale <abbr title="umhüllende achsenparallele bounding-boxen">AABBs</abbr>
         einschließt. Jeder Knoten hat eine solche AABB und jedes der Kinder -
-        egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
+        egal ob es wieder eine AABB oder Datenpunkte sind - ist darin.
         Diese AABBs können sich überschneiden.<br/>
         <br/>
         Siehe auch: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
@@ -436,9 +437,9 @@ Slides: `5-Evaluation.pdf`
         Mache nun $k$ Durchläufe, wobei im $i$-ten Durchlauf der $i$-te Teil zum
         Testen und alle anderen zum Trainieren verwendet werden. Berechne die
         $k$ Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
-        für den realen Fehler als eine einmalige Unterteilung in Training- und
+        für den realen Fehler als eine einmalige Unterteilung in Trainings- und
         Testmenge.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn id="stratification">Stratification</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling"><dfn id="stratification">Stratification</dfn></a></dt>
     <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitionen etwa gleich verteilt sind.</dd>
     <dt><dfn id="loss-function">Loss function</dfn></dt>
     <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
@@ -453,7 +454,7 @@ Slides: `5-Evaluation.pdf`
         Trainingsdaten beheben dieses Problem nicht. Der Fehler ist
         inhärent im Verfahren verankert.</dd>
     <dt><dfn id="varianz">Varianz</dfn></dt>
-    <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
+    <dd>Fehler, welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
     <dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
     <dd>$$\frac{TP+TN}{TP+TN+FP+FN}$$</dd>
     <dt><dfn>Konfusionsmatrix</dfn> (<dfn id="confusion-matrix">Confusion matrix</dfn>)</dt>
@@ -489,17 +490,17 @@ Slides: `5-Evaluation.pdf`
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn id="roc">ROC</dfn></a> (<dfn>Receiver Operating Characteristic</dfn>)</dt>
     <dd>x-Achse: $\frac{FP}{FP+TN} \cdot 100$ (FP-Rate),<br/>
-        y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)
+        y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)<br/>
         Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
     <dt><dfn id="recall">Recall</dfn> (<dfn id="true-positive-rate">True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn id="sensitivitaet">Sensitivität</dfn>)</dt>
     <dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
-        Der Recall gibt den Anteil der erkannten positiven aus allen positiven
+        Der Recall gibt den Anteil der erkannten Positiven aus allen Positiven
         an.
         <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
     <dt><dfn id="precision">Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
     <dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
-        Die Precision gibt den Anteil der real positiven aus den als positiv
-        erkannten an.</dd>
+        Die Precision gibt den Anteil der real Positiven aus den als positiv
+        Erkannten an.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn id="f-measure">F-Measure</dfn></a> (<dfn id="f1-score">F1 score</dfn>)</dt>
     <dd>$$\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}$$</dd>
     <dt><dfn id="correlation-coefficient">Correlation Coefficient</dfn></dt>
@@ -516,7 +517,7 @@ Slides: `5-Evaluation.pdf`
         <ul>
             <li>Morse-Code</li>
             <li>Unicode</li>
-            <li>Ascii-Code</li>
+            <li>ASCII-Code</li>
         </ul></dd>
     <dt><dfn>Minimum Description Length</dfn> (<dfn>MDL</dfn>)</dt>
     <dd>Minimale Länge zum Beschreiben des Modells.</dd>
@@ -545,7 +546,7 @@ Anwendungen von Association Rules denkbar:
 * Amazon: Im Warenkorb sind Produkte XY. Was wird der User wohl noch kaufen?
 * Online-Konfiguratoren: Welche Konfigurationen sollte man "bündeln", z.B. bei
   Autos in eine "Sport-Variante"?
-* Last FM: Music Recommendations
+* Last.fm: Music Recommendations
 * Medicine: [Implementation of Apriori Algorithm in Health Care Sector: A Survey](http://static.ijcsce.org/wp-content/uploads/2013/12/IJCSCE110513.pdf)
 
 <dl>
@@ -555,10 +556,10 @@ Anwendungen von Association Rules denkbar:
     <dt><dfn id="transaktion">Transaktion</dfn> (<dfn id="itemset">Itemset</dfn>)</dt>
     <dd>Menge von Items, die zusammen gekauft wurden.</dd>
     <dt><dfn id="association-rule">Association rules</dfn></dt>
-    <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.
+    <dd>Drücken aus, wie Phänomene zueinander in Beziehung stehen.
         Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
     <dt><a id="support"></a><dfn>Support</dfn></dt>
-    <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
+    <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten, wird
     <i>Support von $I$</i> genannt.<br/>
         Es gilt:
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
@@ -569,18 +570,18 @@ Anwendungen von Association Rules denkbar:
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktionen, die $A$ enthalten:
         $$\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]$$</dd>
-    <dt><dfn id="apriori-algorithmus">Apriori Algorithmus</dfn></dt>
+    <dt><dfn id="apriori-algorithmus">Apriori-Algorithmus</dfn></dt>
     <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
         Finden von Frequent Itemsets.
         <ol>
             <li>Erzeuge alle einelementigen Frequent Itemsets</li>
             <li>for k in range(2, n): Erzeuge die $k$-elementigen frequent
                 Itemsets (join, prune, support counting)</li>
-            <li>Frequent itemsets: Association Rules</li>
+            <li>Aus den Frequent Itemsets die Association Rules erzeugen</li>
         </ol>
         Der Algorithmus nutzt aus, dass eine notwendige Bedingung für
-        $k$-elementige Frequent Itemsets ist, dass alle $k-1$-elementigen
-        Frequent Itemsets auch Frequent sein müssen.
+        $k$-elementige Frequent Itemsets ist, dass alle ihre
+        $(k-1)$-elementigen Teilmengen auch frequent sein müssen.
 
         Verbesserungen:
 
@@ -619,14 +620,14 @@ Anwendungen von Association Rules denkbar:
         Transaktion entspricht einem Pfad im FP-Tree.<br/>
         Zusätzlich zum FP-Tree gibt es eine Header-Tabelle. Die Zeilen dieser
         Tabelle sind einzelne Items $i$, denen jeweils ein Zeiger auf einen
-        Knoten im FP-Tree zugeordnet sind, der auch das Item $i$
+        Knoten im FP-Tree zugeordnet ist, der auch das Item $i$
         repräsentiert.<br/>
         Für jedes Item gibt es also eine verkettete Liste, die das Vorkommen im
         Baum angibt.<br/>
 
         Zum Finden von Frequent Items geht man also wie folgt vor:
     <ol>
-        <li>Für jedes Item: Zähle in wie vielen Transaktionen das Item vorkommt.</li>
+        <li>Für jedes Item: Zähle, in wie vielen Transaktionen das Item vorkommt.</li>
         <li>Sortiere Items in Transaktion absteigend nach Häufigkeit. Bei
             gleicher Häufigkeit wird z.B. alphabetisch sortiert. Damit ergibt
             sich eine eindeutige Reihenfolge.</li>
@@ -641,7 +642,7 @@ Anwendungen von Association Rules denkbar:
         <li>Starte mit dem niedrigsten Element in der Header-Tabelle. Überprüfe
             den Präfix auf den erwarteten Support. Gehe dazu alle Elemente
             dieses Items durch (alle Präfix-Pfade im Baum) und wende eine Art
-            Apriori-Algorithmus an um in diesen Präfix-Pfaden mit dem Item
+            Apriori-Algorithmus an, um in diesen Präfix-Pfaden mit dem Item
             $i$ die Frequent-Itemsets zu finden.</li>
     </ol>
 
@@ -673,7 +674,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
     <dt><dfn>Constraint-Typen</dfn></dt>
     <dd>
         <ul>
-            <li>Data Constraints: Einschränken auf konkrete Werte, z.B. Transaktionen bei denen der Ort Karlsruhe ist.</li>
+            <li>Data Constraints: Einschränken auf konkrete Werte, z.B. Transaktionen, bei denen der Ort Karlsruhe ist.</li>
             <li>Rule Constraints: z.B. nur Itemsets der Größe 3</li>
         </ul>
     </dd>
@@ -703,16 +704,16 @@ Slides: `8-ConstrainedAssociationRules.pdf`
         Anti-Monotonizität ist eine gutartige Eigenschaft von Constraints. Hier
         kann das Constraint sehr früh überprüft werden.</dd>
     <dt><dfn id="succinctness">Succinctness</dfn></dt>
-    <dd>Ein Constraint heißt succinct, wenn alle Itemsets die es erfüllen
+    <dd>Ein Constraint heißt succinct, wenn alle Itemsets, die es erfüllen,
         schnell erzeugt werden können.<br/>
         <br/>
         Beispiel: Man hat das Constraint, dass der Typ "Non-Food" sein soll.
-        Aber es gibt nur 3&nbsp;Produkte die diesen Typ haben. Kandidaten, die
-        das Constraint nicht erfüllen werden gar nicht erst erzeugt.</dd>
+        Aber es gibt nur 3&nbsp;Produkte, die diesen Typ haben. Kandidaten, die
+        das Constraint nicht erfüllen, werden gar nicht erst erzeugt.</dd>
 </dl>
 
 * Meta-Rule Guided mining
-* Constraint durch schwächeres Anti-Monotones Constraint ersetzen.
+* Constraint durch schwächeres anti-monotones Constraint ersetzen.
 
 
 ### Clustering
@@ -750,7 +751,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </ul>
     </dd>
     <dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
-    <dd>Siehe <a href="../machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
+    <dd>Siehe <a href="../machine-learning-1-course/#unsupervised-learning">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
     <dd>CLARANS (Clustering Large ApplicatioNs based on RANdomized Search) ist
         ein Clustering-Algorithmus, der mit $k$-Means
@@ -797,7 +798,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
     <dd>Beim hierarchischen Clustern werden Datenpunkte baumartig zu Clustern
-        zusammengefasst. Das ganze sieht einem Abstammungsbaum der Arten in der
+        zusammengefasst. Das Ganze sieht einem Abstammungsbaum der Arten in der
         Biologie sehr ähnlich.<br/>
         <br/>
         Es gibt zwei Vorgehensweisen:
@@ -811,7 +812,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
     </dd>
     <dt><dfn>Probabilistisches Clustering</dfn></dt>
-    <dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet sondern
+    <dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet, sondern
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.</dd>
     <dt><dfn>Zentrum eines Clusters</dfn></dt>
@@ -852,7 +853,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
-        weiter in je zwei kleine Cluster.<br/>
+        weiter in je zwei kleinere Cluster.<br/>
         <br/>
         Das Unterteilen funktioniert wie folgt: Wähle in einem Cluster $C$ das
         Datenobjekt $o$, welches den höchsten durchschnittlichen Abstand von
@@ -887,7 +888,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </ul>
 
     </dd>
-    <dt><dfn>Jaccard Koeffizient</dfn></dt>
+    <dt><dfn>Jaccard-Koeffizient</dfn></dt>
     <dd>$$J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
     <dd>DBSCAN ist ein Algorithmus zum Finden von Clustern.
@@ -900,12 +901,12 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>Ausreißer: Weder dicht noch dichte-erreichbar.</li>
     </ul>
 
-    Idee: Gehe über alle Punkte $p \in P$ genau ein mal. Sei $P' \leftarrow P$ die
+    Idee: Gehe über alle Punkte $p \in P$ genau einmal. Sei $P' \leftarrow P$ die
     Menge der nicht-markierten Punkte. Solange $|P'| > 0$ wird ein Punkt
     entnommen. Ist er dicht, so ist es ein neues Cluster. Von diesem Punkt aus
     wird rekursiv alles in der $\varepsilon$-Umgebung zum Cluster hinzugefügt.
-    Hat der Punkt weniger als min_point Punkte in seiner $\varepsilon$-Umgebung,
-    so wird er als Ausreißer markiert.
+    Hat der Punkt weniger als min_points Punkte in seiner $\varepsilon$-Umgebung,
+    so wird er (vorläufig) als Ausreißer markiert.
 
     Siehe auch: <a href="http://www.dbs.ifi.lmu.de/Publikationen/Papers/KDD-96.final.frame.pdf">A density-based algorithm for discovering clusters in large spatial databases with noise</a>
     </dd>
@@ -936,7 +937,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <ul>
             <li>ControlList (Priority Queue) enthält nur Objekte, die noch
                 nicht in der Output-Liste sind.</li>
-            <li>Kriterium: Minimale reachability-distanz zu Objekten in der
+            <li>Kriterium: Minimale Reachability-Distanz zu Objekten in der
                 Output-Liste.</li>
             <li>Rekursiv expandieren wie bei DBSCAN.</li>
         </ul>
@@ -1059,7 +1060,7 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
     </tr>
 </table>
 
-Siehe auch: <a href="http://scikit-learn.org/stable/modules/clustering.html">Sklearn über clustering</a>
+Siehe auch: <a href="http://scikit-learn.org/stable/modules/clustering.html">Sklearn über Clustering</a>
 
 
 ### Statistische Modellierung
@@ -1119,7 +1120,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="../machine-learning-1-course/#boosting
 
     Typische Techniken sind Bagging und Boosting.</dd>
     <dt><dfn>Bagging</dfn></dt>
-    <dd>Ensemble-Learning Technik, bei der Stichproben des
+    <dd>Ensemble-Learning-Technik, bei der Stichproben des
         Trainingsdatenbestandes für die Classifier verwendet werden.
     </dd>
     <dt><dfn>Relabeling</dfn></dt>
@@ -1257,7 +1258,7 @@ ist bei Postpruning gegebenenfalls jedoch offensichtlich.
 <summary>Wie baut man einen Entscheidungsbaum auf?</summary>
 <div class="answer">
 Gehe durch alle Attribute. Finde für jedes einzelne Attribut den Wert, der
-die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
+die niedrigste Schnitt-Entropie hat. Nimm dann das Attribut als
 Split-Attribut, welches die niedrigste Schnitt-Entropie hat. Fahre so mit
 den beiden Kindknoten fort, bis ein Abbruchkriterium erfüllt ist. Das
 könnte z.B. eine Entropie von 0 oder eine maximale Tiefe sein.
@@ -1284,7 +1285,7 @@ Mehr Trainingsdaten für den schlimmeren Fehler. (vgl. <a href="http://datascien
 [0, 1]: Die FP-Rate ist definiert als $\frac{FP}{FP+TN}$. Offensichtlich sind alle Werte
 nicht-negativ, also kann der Bruch nicht negativ werden. Außerdem ist der
 Nenner mindestens so groß wie der Zähler. Wenn TN=0 und $FP \neq 0$, dann ist die FP-Rate gleich 1. Das geht,
-wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
+wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt, ist
 die FP-Rate gleich 0.
 </div>
 </details>
@@ -1483,9 +1484,9 @@ Sampling, Projektion
 <div class="answer">
 Das Minen von Association Rules unter Nebenbedingungen. Diese können
 entweder an die Daten oder an die Regeln gestellt werden. Eine
-Nebenbedingung an die Daten wäre z.B. dass nur Items betrachtet werden,
+Nebenbedingung an die Daten wäre z.B., dass nur Items betrachtet werden,
 die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
-wäre, dass es mindestens 3 Elemente auf der rechten Seite sind.
+wäre, dass mindestens 3 Elemente auf der rechten Seite stehen.
 </div>
 </details>
 
@@ -1546,7 +1547,7 @@ Support-basiertes Pruning
 </details>
 
 <details class="question">
-<summary>Warum ist SQL nicht geeignet um Constraints zu formulieren?</summary>
+<summary>Warum ist SQL nicht geeignet, um Constraints zu formulieren?</summary>
 <div class="answer">
 Weil SQL keine Aussage über die Struktur machen kann. So ist es in SQL
 nicht möglich zu sagen, dass die rechte Seite mindestens 3 Elemente
@@ -1604,8 +1605,8 @@ Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
 <details class="question">
 <summary>Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?</summary>
 <div class="answer">
-Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
-(Hierarchisches Clustering), finden von neuen Symbolen.
+Autohersteller will Anzahl der Teile minimieren, um Kosten zu senken
+(Hierarchisches Clustering), Finden von neuen Symbolen.
 </div>
 </details>
 
@@ -1661,7 +1662,7 @@ More:
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
+* **Analysetechniken großer Datenbestände**
 * [Informationsfusion](../informationsfusion/)
 * [Machine Learning 1](../machine-learning-1-course/)
 * [Machine Learning 2](../machine-learning-2-course/)

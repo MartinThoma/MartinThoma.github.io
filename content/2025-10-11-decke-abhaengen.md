@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Decke abhängen - Komplettanleitung für DIY-Heimwerker
+title: Decke abhängen - eine Anleitung
 slug: decke-abhaengen
 lang: de
 author: Martin Thoma
@@ -44,46 +44,46 @@ Diese Anleitung führt euch Schritt für Schritt durch den gesamten Prozess.
    <tbody>
       <tr>
           <td><a href="https://www.globus-baumarkt.de/p/knauf-ud-wandanschlussprofil-3000-x-28-x-27-mm-0779250252/">UD-Profile</a> <abbr title="Das U steht für die Form, das D für Decke. UW-Profile sind für Wände">ℹ️</abbr></td>
-          <td>7.20€ für 3m</td>
-          <td>1m pro Meter Raumumfang</td>
-          <td>2.40€ pro Meter Raumumfang</td>
+          <td>7,20 € für 3 m</td>
+          <td>1 m pro Meter Raumumfang</td>
+          <td>2,40 € pro Meter Raumumfang</td>
       </tr>
       <tr>
           <td><a href="https://www.globus-baumarkt.de/p/knauf-dichtungsband-30-m-rolle-3-cm-breit-anthrazit-0779250819/">Dichtungsband</a></td>
-          <td>7.85€ für 30m</td>
-          <td>1m pro Meter Raumumfang</td>
-          <td>0.26€ pro Meter Raumumfang</td>
+          <td>7,85 € für 30 m</td>
+          <td>1 m pro Meter Raumumfang</td>
+          <td>0,26 € pro Meter Raumumfang</td>
       </tr>
       <tr>
             <td><a href="https://www.amazon.de/dp/B08RJZWCPP
 ">Schlagdübel</a> für Wandbefestigung</td>
-            <td>7.94€ für 200 Stück</td>
+            <td>7,94 € für 200 Stück</td>
             <td>2 Stück pro Meter Raumumfang</td>
-            <td>0.08€ pro Meter Raumumfang</td>
+            <td>0,08 € pro Meter Raumumfang</td>
       </tr>
       <tr>
           <td><a href="https://www.globus-baumarkt.de/p/knauf-cd-deckenprofil-2600-x-60-x-27-mm-0779250249/">CD-Profile</a> <abbr title="Das C steht für die Form, das D für Decke. CW-Profile sind für Wände.">ℹ️</abbr></td>
-          <td>7.65€ für 2.6m</td>
-          <td>ca. 1m pro m² Decke; bei kleinen Decken gibt es viel Verschnitt</td>
-          <td>2.94€/m² Decke</td>
+          <td>7,65 € für 2,6 m</td>
+          <td>ca. 1 m pro m² Decke; bei kleinen Decken gibt es viel Verschnitt</td>
+          <td>2,94 €/m² Decke</td>
       </tr>
       <tr>
           <td><a href="https://www.globus-baumarkt.de/p/knauf-direktabhaenger-125-mm-fuer-cd-profil-60-27-100-stueck-0779250804/">Direktabhänger</a></td>
-          <td>40.95€ für 100 Stück</td>
+          <td>40,95 € für 100 Stück</td>
           <td>1 Stück/m² Decke</td>
-          <td>0.41€/m² Decke</td>
+          <td>0,41 €/m² Decke</td>
       </tr>
       <tr>
           <td><a href="https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/">Blechschrauben</a></td>
-            <td>8.20€ für 100 Stück</td>
+            <td>8,20 € für 100 Stück</td>
             <td>2 Stück/m² Decke</td>
-            <td>0.16€/m² Decke</td>
+            <td>0,16 €/m² Decke</td>
       </tr>
    </tbody>
    <tfoot>
       <tr>
           <th colspan="3">Gesamt:</th>
-          <th>ca. 3.51€/m² Decke + 2.74€ pro Meter Raumumfang</th>
+          <th>ca. 3,51 €/m² Decke + 2,74 € pro Meter Raumumfang</th>
       </tr>
    </tfoot>
 </table>
@@ -100,11 +100,15 @@ Vorgehen:
    vermeiden.
 4. Die UD-Profile werden mit Schlagdübeln an der Wand befestigt. Der Abstand
    zwischen den Dübeln sollte ca. 50 cm betragen.
-5. Die CD-Profile werden auf die gewünschte Länge zugeschnitten.
-6. Die Direktabhänger werden an der Decke befestigt. Der Abstand zwischen den
+5. Die Direktabhänger werden an der Decke befestigt. Der Abstand zwischen den
    Abhängern sollte ebenfalls ca. 50 cm betragen.
+6. Die CD-Profile werden auf die gewünschte Länge zugeschnitten.
 7. Die CD-Profile werden in die Direktabhänger eingehängt und mit Blechschrauben
    befestigt.
+
+**Tipp**: Bei der Verwendung von Gipskartonplatten sollte der Abstand zwischen
+den CD-Profilen maximal 50 cm betragen, um eine stabile Konstruktion zu
+gewährleisten.
 
 
 ## Decke beplanken
@@ -116,9 +120,9 @@ Vorgehen:
 
 **Material**:
 
-* [Gipskartonplatten](https://www.globus-baumarkt.de/p/knauf-gipskarton-ausbauplatte-gkb-200-x-60-cm-12-5-mm-0779250155/) (12,5 mm stark): ca. 4€/m²
-* [Trockenbauschrauben](https://www.globus-baumarkt.de/p/knauf-schnellbauschrauben-3-5-x-45-mm-ph-1-1000-stueck-0763031516/): ca. 0.01€/Stück
-* [Trennfix](https://www.globus-baumarkt.de/p/knauf-trenn-fix-50-m-x-65-mm-0779250890/): ca. 0.21€/m
+* [Gipskartonplatten](https://www.globus-baumarkt.de/p/knauf-gipskarton-ausbauplatte-gkb-200-x-60-cm-12-5-mm-0779250155/) (12,5 mm stark): ca. 4 €/m²
+* [Trockenbauschrauben](https://www.globus-baumarkt.de/p/knauf-schnellbauschrauben-3-5-x-45-mm-ph-1-1000-stueck-0763031516/): ca. 0,01 €/Stück
+* [Trennfix](https://www.globus-baumarkt.de/p/knauf-trenn-fix-50-m-x-65-mm-0779250890/): ca. 0,21 €/m
 
 **Werkzeuge**: Akkuschrauber, Gipskartonmesser, Metalllineal, Plattenheber (oder 2. Person), Bleistift
 
@@ -154,8 +158,8 @@ ohne optische Anforderungen ausreichend, z.B. wenn später gefliest wird.
 
 **Material**:
 
-* [Uniflott Spachtelmasse](https://www.globus-baumarkt.de/p/knauf-uniflott-fertigspachtel-20-kg-0779250675/): 40.99€ für 25kg Pulver
-* [Papier-Fugendeckstreifen](https://www.globus-baumarkt.de/p/decotric-papier-fugendeckstreifen-ole-75-m-x-53-mm-0779251377/): 6.29€ für 75 m x 53 mm
+* [Uniflott Spachtelmasse](https://www.globus-baumarkt.de/p/knauf-uniflott-fertigspachtel-20-kg-0779250675/): ca. 40,99 € für 25 kg Pulver
+* [Papier-Fugendeckstreifen](https://www.globus-baumarkt.de/p/decotric-papier-fugendeckstreifen-ole-75-m-x-53-mm-0779251377/): 6,29 € für 75 m x 53 mm
 
 **Werkzeuge**: Spachtelkelle (18-25 cm), Japanspachtel (8-10 cm), Eimer, Schwamm/Pinsel für Anfeuchten
 
@@ -164,7 +168,9 @@ Vorgehen:
 
 1. Die Uniflott-Spachtelmasse wird mit Wasser angerührt. Die Masse sollte
    geschmeidig und nicht zu flüssig sein.
-2. Selbst angefaste Kanten werden mit Wasser angefeuchtet, damit die
+2. Selbst angefaste Kanten (zugeschnittene Plattenkanten, die man mit einem
+   Kantenhobel oder Cuttermesser schräg angeschnitten hat, damit die Fuge die
+   Spachtelmasse aufnehmen kann) werden mit Wasser angefeuchtet, damit die
    Spachtelmasse besser haftet und später keine Risse entstehen.
 3. Die Fugen zwischen den Gipskartonplatten werden mit der Spachtelmasse gefüllt.
    Die Masse muss dabei in die Fuge hineingedrückt werden - nicht entlang der
@@ -175,11 +181,6 @@ Vorgehen:
    (Glasfasergewebe oder Papier) in die noch feuchte Spachtelmasse eingedrückt.
    Anschließend wird nochmals mit Spachtelmasse über das Band gestrichen, damit
    es vollständig bedeckt ist.
-
-
-**Tipp**: Bei der Verwendung von Gipskartonplatten sollte der Abstand zwischen
-den CD-Profilen maximal 50 cm betragen, um eine stabile Konstruktion zu
-gewährleisten.
 
 Wer es als Video sehen möchte:
 
@@ -234,11 +235,11 @@ Oberfläche wird vollflächig gespachtelt und mehrfach geschliffen.
 
 **Material**:
 
-* Grundierung (z.B. Tiefgrund): ca. 15€ für 5 Liter
-* Deckenfarbe (z.B. Dispersionsfarbe): ca. 25€ für 10 Liter
-* Farbroller mit Teleskopstange: ca. 20€
-* Pinsel für Ecken und Kanten: ca. 8€
-* Abdeckfolie und Malerkrepp: ca. 10€
+* Grundierung (z.B. Tiefgrund): ca. 15 € für 5 Liter
+* Deckenfarbe (z.B. Dispersionsfarbe): ca. 25 € für 10 Liter
+* Farbroller mit Teleskopstange: ca. 20 €
+* Pinsel für Ecken und Kanten: ca. 8 €
+* Abdeckfolie und Malerkrepp: ca. 10 €
 
 **Vorgehen**:
 

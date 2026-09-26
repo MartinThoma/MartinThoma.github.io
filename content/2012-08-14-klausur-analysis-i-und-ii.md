@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-14 17:13:24.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Analysis, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur über Analysis schreiben werden.</div>
@@ -26,10 +26,10 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Grenzwert</li>
       <li>Divergenz</li>
       <li>Konvergenzkriterien: <a href="http://de.wikipedia.org/wiki/Wurzelkriterium">Wurzelkriterium</a>, <a href="http://de.wikipedia.org/wiki/Leibniz-Kriterium">Leibniz-Kriterium</a>, <a href="http://de.wikipedia.org/wiki/Cauchykriterium">Cauchy-Kriterium</a>, <a href="http://de.wikipedia.org/wiki/Majorantenkriterium">Majorantenkriterium</a>, Minorantenkriterium, <a href="http://de.wikipedia.org/wiki/Quotientenkriterium">Quotientenkriterium</a></li>
-      <li><a href="http://de.wikipedia.org/wiki/Eulersche_Zahl">Eulersche Zahl</a>: $\displaystyle e := \lim_{n \rightarrow \infty}(1+\frac{1}{n})^n = \lim_{n \rightarrow \infty} \sum_{k=0}^n \frac{1}{n!}$</li>
+      <li><a href="http://de.wikipedia.org/wiki/Eulersche_Zahl">Eulersche Zahl</a>: $\displaystyle e := \lim_{n \rightarrow \infty}(1+\frac{1}{n})^n = \lim_{n \rightarrow \infty} \sum_{k=0}^n \frac{1}{k!}$</li>
       <li>Häufungswert vs. Häufungspunkt: &rarr; <a href="http://de.wikipedia.org/wiki/Diskussion:H%C3%A4ufungspunkt#H.C3.A4ufungspunkt_und_H.C3.A4ufungswert">Diskussion</a>
           <ul>
-            <li>Oberer- und unterer Limes</li>
+            <li>Oberer und unterer Limes</li>
           </ul>
       </li>
     </ul>
@@ -63,8 +63,8 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Grenzwert von Folgen bestimmen</li>
   <li>Konvergenzradius von Potenzreihen bestimmen</li>
   <li>Zeige, dass eine Funktion stetig ist. Ansatz: <br>
-      $f \text{ ist stetig} :\Leftrightarrow \forall \varepsilon > 0 \ \exists \delta \ \forall x, z \text{ mit } |x - z| < \delta: |f(x)- f(z)| < \varepsilon$</li>
-  <li>Zeige, dass eine Funktion differenzierbar ist. Ansatz: h-Methode<br/>
+      $f \text{ ist stetig in } z :\Leftrightarrow \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \text{ mit } |x - z| < \delta: |f(x)- f(z)| < \varepsilon$</li>
+  <li>Zeige, dass eine Funktion differenzierbar ist.<br/>Ansatz: h-Methode<br/>
       $\displaystyle \lim_{h \rightarrow 0} \frac{f(x_0+h)-f(x_0)}{h}$</li>
   <li>Funktionenfolgen auf punktweise und gleichmäßige Konvergenz untersuchen</li>
   <li>Allgemeine Eigenschaften der e-Funktion und der Winkelfunktionen</li>
@@ -83,7 +83,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Wegintegral: $\int_\gamma f(x, y, z) d(x,y,z) = \int f(\gamma(t)) \cdot \gamma'(t) dt$</li>
     </ul>
   </li>
-  <li>Fixpunkte, Fixpunktsatz von Banach</li>
+  <li>Fixpunkte, <a href="http://de.wikipedia.org/wiki/Banachscher_Fixpunktsatz">Fixpunktsatz von Banach</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Jacobi-Matrix">Jacobi-Matrix</a></li>
   <li>Extremwerte
     <ul>
@@ -91,7 +91,6 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Hessematrix</li>
     </ul>
   </li>
-  <li><a href="http://de.wikipedia.org/wiki/Banachscher_Fixpunktsatz">Banachscher Fixpunktsatz</a></li>
   <li>Differentialgleichungen
     <ul>
       <li>Systeme linearer Differentialgleichungen</li>
@@ -108,8 +107,8 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Sind gegebene Mengen offen, abgeschlossen bzw. vollständig?</li>
   <li>Rand einer Menge bestimmen</li>
   <li>Lokale und globale Extrema einer Funktion $f$ bestimmen. Ansatz:<br/>
-      Gradient $\nabla f$ bestimmen und gleich null setzen. Die Funktionswerte, die das erfüllen, sind die kritischen Punkte. In Hessematrix einsetzen und Definitheit prüfen.</li>
-  <li>Lösung von nichtlinearen Gleichungssystem</li>
+      Gradient $\nabla f$ bestimmen und gleich null setzen. Die Stellen, die das erfüllen, sind die kritischen Punkte. In Hessematrix einsetzen und Definitheit prüfen.</li>
+  <li>Lösung von nichtlinearen Gleichungssystemen</li>
   <li>Differenzierbarkeit zeigen &rarr; $\displaystyle \lim_{h \rightarrow 0} \frac{f(x_0+h)-f(x_0)- A \cdot h}{\|h\|}$</li>
   <li>Lösung eines Anfangswertproblems bestimmen</li>
   <li>&bdquo;Beweisen Sie Existenz und Eindeutigkeit einer Lösung&ldquo; &rarr; Picard-Lindelöf</li>
@@ -122,7 +121,7 @@ Man sollte die Übungsblätter nochmals machen, die relevanten Kapitel im <a hre
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Dienstag, den 25. September 2012 von 08:00 bis 13:00 Uhr<br/>
-<strong>Ort</strong>: <a href="http://www.math.kit.edu/iana3/~schmoeger/seite/einteilung/de">Hörsaaleinteilung</a> - Ich bin im <a href="https://maps.google.com/maps?q=49.009522,8.412978&ll=49.009522,8.412979&spn=0.000932,0.002642&num=1&t=m&z=19">Hetz-Hörsaal</a>.<br/>
+<strong>Ort</strong>: <a href="http://www.math.kit.edu/iana3/~schmoeger/seite/einteilung/de">Hörsaaleinteilung</a> - Ich bin im <a href="https://maps.google.com/maps?q=49.009522,8.412978&ll=49.009522,8.412979&spn=0.000932,0.002642&num=1&t=m&z=19">Hertz-Hörsaal</a>.<br/>
 <strong>Dauer</strong>: 2 h Analysis I, 1 h Pause, 2 h Analysis II<br/>
 <strong>Punkte</strong>: 7 Aufgaben &agrave; 3 Punkte für Analysis I, 7 Aufgaben &agrave; 3 Punkte für Analysis II<br/>
 <strong>Bestehensgrenze</strong>: Wohl bei ca. 21 Punkten<br/>

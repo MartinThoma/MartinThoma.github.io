@@ -128,7 +128,7 @@ plugin, you configure your database connection via
 string with `sqlite://`, flask-sqlalchemy will create an in-memory SQLite
 database and use that instead of the real database. This is super fast to
 create and interact with (see
-[benchmark](../key-value-stores/#benchmark_1)).
+[benchmark](../key-value-stores/#benchmark)).
 
 You can adjust the client fixture like this:
 

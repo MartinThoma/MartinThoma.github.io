@@ -17,7 +17,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Zahlensysteme: Horner-Schema, euklidischer Algorithmus</li>
   <li>Zahlendarstellungen: Wie wandle ich eine Zahl vom 10er-System ins Zahlensystem xy um und umgekehrt?
    <ul>
-    <li>Vorzeichen</li>
+    <li>Vorzeichen
     <ul>
      <li>Betrags-Vorzeichen &rarr; <span class="hint" title="Erstes Bit ist 1, wenn die Zahl negativ ist. Sonst wird die Zahl einfach binär dargestellt.">Antwort</span></li>
      <li>Einerkomplement &rarr; <span class="hint" title="Betrag der Zahl dual darstellen, Bits invertieren">Antwort</span></li>
@@ -48,7 +48,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Was sind DMF, DNF, KMF, KNF?</li>
   <li>Wie wende ich die Shannon-Zerlegung an? &rarr; <a href="../wie-wende-ich-die-shannon-zerlegung-an/">Antwort</a></li>
   <li>Wie minimiere ich Funktionen mit KV-Diagrammen?</li>
-  <li>Wie funktioniert das Quine-McCluskey Verfahren? &rarr; <a href="../das-quine-mccluskey-verfahren/">Antwort</a></li>
+  <li>Wie funktioniert das Quine-McCluskey-Verfahren? &rarr; <a href="../das-quine-mccluskey-verfahren/">Antwort</a></li>
   <li>Was macht das Consensus-Verfahren? &rarr; <a href="../das-consensus-verfahren/">Antwort</a></li>
   <li>Wie funktioniert das Nelson-Verfahren?</li>
   <li>Was bedeutet selbstleitend und selbstsperrend?</li>
@@ -77,7 +77,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <strong>Begriffe</strong>
 <ul>
-  <li>Was sind Tristate-Treiber? &rarr; <span class="hint" title="Gatterform, die nicht nur Hi und Lo weiterleiten kann, sondern auch einen dritten, gegen Spannungen beider Polaritäten, hochohmigen Zustand haben können. Dadurch kann z.B. ein Baustein vom Bus abgetrennt werden. Sie dienen zum Abschalten des gleichzeitigen Zugriffs mehrerer Komponenten auf Systembusse.">Antwort</span></li>
+  <li>Was sind Tristate-Treiber? &rarr; <span class="hint" title="Gatterform, die nicht nur High und Low weiterleiten, sondern auch einen dritten, hochohmigen Zustand annehmen kann. Dadurch kann z.B. ein Baustein vom Bus abgetrennt werden. So verhindert man, dass mehrere Komponenten gleichzeitig auf einen Systembus zugreifen.">Antwort</span></li>
   <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repräsentation der Maschinensprache, die für den Menschen verständlich und anschaulich ist, z.B. add &#36;s2, &#36;s1, &#36;s0">Assembler</span>, <span class="hint" title="Repräsentation von Anweisungen, die für einen Mikroprozessor unmittelbar verständlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
   <li>Wofür stehen RISC und CISC und was sind Beispiele? &rarr; <span class="hint" title="Reduced Instruction Set Computer (z.B. MIPS), Complex Instruction Set Computer (z.B. x86)">Antwort</span></li>
   <li>Was ist ein User/System-Bit, was ein Trace-Bit und was ein Decimal-Bit? &rarr; <span class="hint" title="Das User/System-Bit bestimmt, ob sich das System im eingeschränkten User-Modus oder im uneingeschränkten Systemmodus befindet. Das Trace-Bit erlaubt Befehlsabarbeitung im Einzelschritt-Modus zum Debuggen und das Decimal-Bit entscheidet, ob dual oder BCD gerechnet wird.">Antwort</span></li>
@@ -85,15 +85,15 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Welche Informationen können im Akkumulator stehen? &rarr; <span class="hint" title="alle ALU-Ergebnisse">Antwort</span></li>
   <li>Warum benötigt die ALU Hilfsregister? &rarr; <span class="hint" title="Ohne die Hilfsregister würden während der ALU-Rechenzeit durch Hazards und Wettläufe Schwankungen am Ausgang entstehen.">Antwort</span></li>
   <li>Entspricht das logische Rechtsschieben der Division durch zwei? &rarr; <span class="hint" title="Nein, da bei negativen Zahlen die 1 im MSB erhalten werden muss.">Antwort</span></li>
-  <li>Was ist ein superskalarer Prozessor? &rarr; <span class="hint" title="Ein Prozessor, der pro Takt mehrere allgemeine Register schreiben und lesen kann.">Antwort</span></li>
-  <li>Was ist ein Little-Endian und was ist Big-Endian? &rarr; <span class="hint" title="Das MSB bei Little-Endian ist ganz links, bei Big-Endian ganz rechts.">Antwort</span></li>
+  <li>Was ist ein superskalarer Prozessor? &rarr; <span class="hint" title="Ein Prozessor mit mehreren parallelen Ausführungseinheiten, der pro Takt mehrere Befehle starten (und ausführen) kann.">Antwort</span></li>
+  <li>Was ist Little-Endian und was ist Big-Endian? &rarr; <span class="hint" title="Bei Little-Endian steht das niederwertigste Byte an der kleinsten Speicheradresse, bei Big-Endian das höchstwertige Byte.">Antwort</span></li>
   <li>Was versteht man unter dem Nulladressformat? &rarr; <span class="hint" title="Die Befehlssätze, die nur aus dem Opcode bestehen. Das Einadressformat hat z.B. zusätzlich noch die Quelle.">Antwort</span></li>
   <li>Was ist eine &bdquo;effektive Adresse&ldquo;? &rarr; <span class="hint" title="Die effektive Adresse ist die durch die Adressierungsart spezifizierte Adresse im Hauptspeicher. Sie entsteht im Prozessor nach Ausführung der Adressierung.">Antwort</span></li>
   <li>Was bedeutet <span class="hint" title="Zero flag; Wichtig für Schleifen">ZF</span>, <span class="hint" title="Carry flag; set if an arithmetic operation generates a carry or a borrow out of the MSB of the result">CF</span>, <span class="hint" title="Sign flag; set equal to the MSB">SF</span>, <span class="hint" title="Overflow flag; set if the integer result is too large a positive number or too small a negative number to fit in the destination operand">OF</span> und wozu sind sie jeweils gut?</li>
-  <li>Was ist eine Load/Store-Architektur? &rarr; <abbr title="Eine Load/Store Architektur ist eine Computerarchitektur, deren Befehlssatz Daten-Speicherzugriffe ausschließlich mit speziellen Lade- und Speicher-Befehlen erlaubt.">Antwort</abbr></li>
+  <li>Was ist eine Load/Store-Architektur? &rarr; <abbr title="Eine Load/Store-Architektur ist eine Computerarchitektur, deren Befehlssatz Daten-Speicherzugriffe ausschließlich mit speziellen Lade- und Speicher-Befehlen erlaubt.">Antwort</abbr></li>
   <li>Was sind die fünf Schritte in der DLX-Pipeline-Verarbeitung? &rarr; <abbr title="IF: Instruction fetch; ID/RF: Instruction decode/Register fetch; EX: Execute / address calculation; MEM: Memory access; WB: Write Back">Antwort</abbr></li>
   <li>In welcher Pipeline-Phase werden die Operanden aus dem memory geholt? &rarr; <abbr title="Tja, das war fies. Es ist nicht die MEM-Phase. In der MEM-Phase wird der Speicherzugriff von Lade- und Speicherbefehlen durchgeführt. Richtig ist: Die zweite Takthälfte der ID-Phase.">Antwort</abbr></li>
-  <li>Durch welche Abhängigkeiten entstehen Verzögerungen in der DLX-Pipeline und wann treten diese auf? &rarr; <abbr title="Daten-, Struktur- und Steuerflussabhängigkeiten. Datenabhängigkeiten treten auf, wenn ein Operand noch nicht verfügbar ist. Strukturkonflikte treten auf, wenn zwei Pipeline-Stufen dieselbe Ressource benötigen, auf diese aber nur einmal zugegriffen werden kann. Steuerflusskonflikte treten bei Programmsteuerbefehlen auf. Dies kann z.B. der Fall sein wenn in der Holphase die Zieladresse des als nächstes auszuführenden Befehls noch nicht berechnet ist oder wenn bei einem bedingtem Sprung noch nicht klar ist, ob dieser überhaupt umgesetzt werden wird.">Antwort</abbr></li>
+  <li>Durch welche Abhängigkeiten entstehen Verzögerungen in der DLX-Pipeline und wann treten diese auf? &rarr; <abbr title="Daten-, Struktur- und Steuerflussabhängigkeiten. Datenabhängigkeiten treten auf, wenn ein Operand noch nicht verfügbar ist. Strukturkonflikte treten auf, wenn zwei Pipeline-Stufen dieselbe Ressource benötigen, auf diese aber nur einmal zugegriffen werden kann. Steuerflusskonflikte treten bei Programmsteuerbefehlen auf. Dies kann z.B. der Fall sein, wenn in der Holphase die Zieladresse des als Nächstes auszuführenden Befehls noch nicht berechnet ist oder wenn bei einem bedingten Sprung noch nicht klar ist, ob dieser überhaupt umgesetzt werden wird.">Antwort</abbr></li>
   <li>Was ist eine echte Datenabhängigkeit, was eine Gegenabhängigkeit und was eine Ausgabeabhängigkeit? &rarr; <abbr title="Echte Datenabhängigkeit: a = b + c; d = a + e. Gegenabhängigkeit: b = a + c; a = d + e. Ausgabeabhängigkeit: a = b + c; a = d + e">Antwort</abbr></li>
   <li>Was ist eine falsche Abhängigkeit? &rarr; <abbr title="Eine Gegen- oder Ausgabeabhängigkeit.">Antwort</abbr></li>
   <li>Treten bei echten Abhängigkeiten immer Konflikte auf? &rarr; <abbr title="Nein. Es können z.B. genügend Befehle zwischen den beiden Abhängigen sein.">Antwort</abbr></li>
@@ -101,10 +101,10 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Welche Abhängigkeiten können bei der DLX-Pipeline zu Konflikten führen? &rarr; <abbr title="Nur echte Abhängigkeiten können in der DLX-Pipeline zu Konflikten führen.">Antwort</abbr></li>
   <li>Wie kann man Datenkonflikte durch Software lösen? &rarr; <abbr title="Entweder durch Einfügen von NOPs (Leeroperationen) oder durch Umordnung der Befehle (Optimierung)">Antwort</abbr></li>
   <li>Wie kann man Datenkonflikte durch Hardware lösen? &rarr; <abbr title="Interlocking oder Stalling (Pipeline-Sperrung oder Pipeline-Leerlauf); Forwarding, benötigt aber noch Interlocking">Antwort</abbr></li>
-  <li>Nennen Sie ein Beispiel für einen Konflikt, der nicht durch Forwarding lösbar ist? &rarr; <abbr title="load r2, B; add r2, r1, r2">Antwort</abbr></li>
+  <li>Nennen Sie ein Beispiel für einen Konflikt, der nicht durch Forwarding lösbar ist. &rarr; <abbr title="load r2, B; add r2, r1, r2">Antwort</abbr></li>
   <li>Wie kann man Ressourcenkonflikte lösen? &rarr; <abbr title="Arbitrierung mit Interlocking; Übertaktung; Ressourcenreplizierung">Antwort</abbr></li>
   <li>Was bedeutet <span class="hint" title="Minimale Zeitdauer, die zwischen der fallenden Flanke von RAS bis zur Ausgabe der gewünschten Daten vergeht">t<sub>RAC</sub></span>, <span class="hint" title="Minimale Zeitdauer von Beginn eines Zeilenzugriffs bis zum nächsten Zeilenzugriff (Zykluszeit)">t<sub>RC</sub></span>, <span class="hint" title="Minimale Zeitdauer, die zwischen der fallenden Flanke von CAS bis zur Ausgabe der gewünschten Daten vergeht">t<sub>CAC</sub></span> und <span class="hint" title="Minimale Zeitdauer vom Beginn eines Spaltenzugriffs bis zum nächsten Spaltenzugriff (page mode cycle).">t<sub>PC</sub></span>?</li>
-  <li>Wie versteht man unter Bus-Schnüffeln? &rarr; <abbr title="Jeder Prozessor kontrolliert ständig alle Adressen auf dem Bus, um Speicherinkonsistenzen zu vermeiden. Siehe Bus Snooping.">Antwort</abbr></li>
+  <li>Was versteht man unter Bus-Schnüffeln? &rarr; <abbr title="Jeder Prozessor kontrolliert ständig alle Adressen auf dem Bus, um Speicherinkonsistenzen zu vermeiden. Siehe Bus Snooping.">Antwort</abbr></li>
 </ul>
 
 <h3>MIPS</h3>
@@ -117,9 +117,9 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 Typ-R-Befehle sind arithmetisch-logische Befehle wie add, sub, and, or sowie Vergleichsbefehle wie <abbr title="set on less than">slt</abbr>.
 
 Typ-I-Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
-<code>lw &#36;rt, imm(&#36;rs)</code>
-<code>sw &#36;rt, imm(&#36;rs)</code>
-<code>beq &#36;rs, &#36;rt, immediate</code>: Hier wird immediate als 16-Bit-vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate
+<code>lw &#36;rt, imm(&#36;rs)</code><br/>
+<code>sw &#36;rt, imm(&#36;rs)</code><br/>
+<code>beq &#36;rs, &#36;rt, immediate</code>: Hier wird immediate als 16-Bit-vorzeichenbehaftete Zahl interpretiert und als Offset in Wörtern (4 Byte) benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + 4 &middot; immediate
 
 <h4>Grundlegende Befehle</h4>
 <table>
@@ -144,11 +144,11 @@ Typ-I-Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
     </tr>
     <tr>
       <td><code>bne &#36;rs, &#36;rt, imm</code></td>
-      <td>Branch on not equal: if(&#36;rs!=&#36;rt) PC = PC + imm (imm could also be a label)</td>
+      <td>Branch on not equal: if(&#36;rs!=&#36;rt) PC = PC + 4 + 4 &middot; imm (imm could also be a label)</td>
     </tr>
     <tr>
       <td><code>slti &#36;rt, &#36;rs, imm</code></td>
-      <td>Store less than immediate: <code>if(&#36;rs < imm) {&#36;rt = 1;} else {&#36;rt = 0}</code></td>
+      <td>Set on less than immediate: <code>if(&#36;rs < imm) {&#36;rt = 1;} else {&#36;rt = 0}</code></td>
     </tr>
     <tr>
       <td><code>la Rdest, address</code></td>
@@ -165,11 +165,11 @@ Typ-I-Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
 </figure>
 
 <h4>Fetch-Phase</h4>
-In der Fetch-Phase muss die neue Instruktion ins <abbr title="Instruktionsregister">IR</abbr> geladen werden und der <abbr title="Program Counter">PC</abbr> um eins erhöht werden:
+In der Fetch-Phase muss die neue Instruktion ins <abbr title="Instruktionsregister">IR</abbr> geladen werden und der <abbr title="Program Counter">PC</abbr> (bei der MiMa: IAR) um eins erhöht werden:
 
 <ol>
   <li>Takt: IAR &rarr; SAR; IAR &rarr; X; R = 1</li>
-  <li>Takt: Eins &rarr; Y; ALU auf addieren; R = 1</li>
+  <li>Takt: Eins &rarr; Y; R = 1</li>
   <li>Takt: ALU auf addieren; R = 1</li>
   <li>Takt: Z &rarr; IAR</li>
   <li>Takt: SDR &rarr; IR</li>
@@ -245,8 +245,8 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
 <details class="question">
 <summary>Was ist der Unterschied zwischen BCD in gepackter Darstellung und BCD in ungepackter Darstellung?</summary>
 <div class="answer">
-Bei BCD in gepackter Darstellung werden in einem Byte (8 Bit) zwei BCD-Zahlen dargestellt.
-In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
+Bei BCD in gepackter Darstellung werden in einem Byte (8 Bit) zwei BCD-Ziffern dargestellt.
+In der ungepackten Darstellung wird in einem Byte nur eine BCD-Ziffer dargestellt.
 </div>
 </details>
 
@@ -255,7 +255,7 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <div class="answer">
 <figure>
     <a href="../images/2013/01/forwarding-techniken2-300x249.png"><img src="../images/2013/01/forwarding-techniken2-300x249.png" alt="Forwarding-Techniken" width="300" height="249" loading="lazy"></a>
-    <figcaption>Forwarding-Techniken<br />Quelle: Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
+    <figcaption>Forwarding-Techniken<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
 </figure>
 </div>
 </details>
@@ -264,8 +264,8 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <summary>Welche Halbleiterspeichertypen gibt es?</summary>
 <div class="answer">
 <figure>
-    <a href="../images/2013/01/halbleiterspeicher-klassifizierung.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" width="300" height="77" loading="lazy"></a>
-    <figcaption>Klassifizierung von Halbleiterspeicher</figcaption>
+    <a href="../images/2013/01/halbleiterspeicher-klassifizierung.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung.png" alt="Klassifizierung von Halbleiterspeichern" width="512" height="132" loading="lazy"></a>
+    <figcaption>Klassifizierung von Halbleiterspeichern</figcaption>
 </figure>
 </div>
 </details>
@@ -338,8 +338,8 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <summary>Wie kann man die Datenabhängigkeiten einer Pipeline spezifizieren und erkennen?</summary>
 <div class="answer">
 <figure>
-    <a href="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg"><img src="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg" alt="Datenabhaengigkeiten in einer Pipeline" width="300" height="121" loading="lazy"></a>
-    <figcaption>Datenabhaengigkeiten in einer Pipeline</figcaption>
+    <a href="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg"><img src="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg" alt="Datenabhängigkeiten in einer Pipeline" width="300" height="121" loading="lazy"></a>
+    <figcaption>Datenabhängigkeiten in einer Pipeline</figcaption>
 </figure>
 
 Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befehl, Ziel-Register und Operanden-Register macht. Dabei muss man insbesondere bei der Multiplikation, <code>sw</code> und <code>lw</code> aufpassen. Folgendes (sehr gekritzelte) Beispiel für die <a href="http://ti.ira.uka.de/Klausur/AlteKlausuren/k_ss_12.pdf#page=11">Klausur vom 26. Juli 2012</a>:
@@ -358,7 +358,7 @@ Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befeh
       <li><a href="http://ti.ira.uka.de/Adressierungsarten/">Flash-Animation zur Adressierung</a></li>
     </ul>
   </li>
-  <li><a href="../anki/Technische Informatik.apkg">Meine Karteikarten</a> (Siehe Anki auf <a href="http://de.wikipedia.org/wiki/Anki">Wikipedia</a> und <a href="http://wiki.ubuntuusers.de/Anki">UbuntuUsers</a> für mehr Informationen)</li>
+  <li><a href="../anki/Technische%20Informatik.apkg">Meine Karteikarten</a> (Siehe Anki auf <a href="http://de.wikipedia.org/wiki/Anki">Wikipedia</a> und <a href="http://wiki.ubuntuusers.de/Anki">UbuntuUsers</a> für mehr Informationen)</li>
   <li><a href="http://www.titut.de/">titut.de</a>, <a href="http://tutorium.chrismandery.de/">tutorium.chrismandery.de</a></li>
 </ul>
 
@@ -378,7 +378,7 @@ Die Klausuren sind alle sehr ähnlich aufgebaut. Eine typische Klausur hat 10 Au
   <li><strong>Rechnerarithmetik und Codes</strong></li>
   <li><strong>Allgemeines</strong>: Ankreuzaufgaben</li>
   <li><strong>MIPS-Assembler</strong>: C-Code in MIPS umwandeln und umgekehrt</li>
-  <li><strong>Pipelining</strong>: Datenkonflikte erkennen und mit NOPs beheben, eventuell gibts noch Forwarding</li>
+  <li><strong>Pipelining</strong>: Datenkonflikte erkennen und mit NOPs beheben, eventuell gibt's noch Forwarding</li>
   <li><strong>Cache-Speicher</strong></li>
   <li><strong>Speicher</strong></li>
 </ol>
@@ -389,7 +389,7 @@ Die Klausuren sind alle sehr ähnlich aufgebaut. Eine typische Klausur hat 10 Au
 <strong>Dauer</strong>: 1 h DT, 1 h RO<br/>
 <strong>Punkte</strong>: (vermutlich) 90<br/>
 <strong>Bestehensgrenze</strong>: (vermutlich) 40<br/>
-<strong>Übungsschein</strong>: Wird nicht ins Studienportal eingetragen<br/>
+<strong>Übungsschein</strong>: Wird nicht ins Studierendenportal eingetragen<br/>
 <strong>Bonuspunkte</strong>:
 <ul>
   <li>Übungsschein RO: 1 Bonuspunkt</li>

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-23 22:49:50.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Kühnlein im Sommersemester 2013 gehört.</div>
@@ -23,7 +23,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>17.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Primzahlen; Fundamentalsatz der Arithmetik; p-Adische Bewertung</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Primzahlen; Fundamentalsatz der Arithmetik; $p$-adische Bewertung</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/media/eazskript.pdf#page=11">Kapitel 1.2</a></td>
@@ -101,7 +101,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li><a href="../mathematische-strukturen/" title="Mathematische Strukturen">Überblick über mathematische Strukturen</a></li>
   <li>StackExchange
     <ul>
-      <li>Das Urbild einer Gruppe unter einem Gruppenhomomorphismus ist eine Gruppe (<a href="http://math.stackexchange.com/q/476508/6876">Beweis</a>)</li>
+      <li>Das Urbild einer Untergruppe unter einem Gruppenhomomorphismus ist eine Untergruppe (<a href="http://math.stackexchange.com/q/476508/6876">Beweis</a>)</li>
       <li>Der Stabilisator einer Gruppenoperation ist eine Gruppe (<a href="../stabilizer-subgroup-subgroup/">Beweis</a>)</li>
       <li>Der Schnitt von Normalteilern ist wieder ein Normalteiler (<a href="../intersection-two-normal-subgroups-normal-subgroup/">Beweis</a>)</li>
       <li><a href="http://math.stackexchange.com/q/479039/6876">What does &ldquo;characteristic&rdquo; mean in mathematics?</a></li>
@@ -109,7 +109,6 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li><a href="http://math.stackexchange.com/q/482158/6876">How many 3-Sylow groups are in a group of order 126?</a> - Durch die Frage (und die Kommentare) habe ich sehr viel gelernt!</li>
       <li><a href="http://math.stackexchange.com/q/483795/6876">How can I find decompositions in $\mathbb{Z}[\sqrt{d}]$?</a></li>
       <li><a href="http://math.stackexchange.com/q/473673/6876">Why is $A_5$ a simple group?</a></li>
-      <li><a href="http://math.stackexchange.com/q/476508/6876">Is the pre-image of a subgroup under a homomorphism a group?</a></li>
     </ul>
   </li>
   <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/eaz">Gedanken zu den Klausurhinweisen</a></li>
@@ -118,10 +117,10 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <h2>Aufbau der Klausur</h2>
 <ul>
-  <li>Eine Aufgabe, wo man das Legendre-Symbol ausrechnen muss</li>
-  <li>Eine Aufgabe, wo man mit dem Satz von Lagrange wichtig ist</li>
+  <li>Eine Aufgabe, bei der man das Legendre-Symbol ausrechnen muss</li>
+  <li>Eine Aufgabe, bei der der Satz von Lagrange wichtig ist</li>
   <li>Eine Aufgabe zu Normalteilern / Sylowgruppen</li>
-  <li>Der Kleine Satz von Fermat / Homomorphiesatz</li>
+  <li>Der kleine Satz von Fermat / Homomorphiesatz</li>
 </ul>
 
 <h2>Übungsbetrieb</h2>

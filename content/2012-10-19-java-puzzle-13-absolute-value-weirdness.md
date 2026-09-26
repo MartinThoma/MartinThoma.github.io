@@ -61,6 +61,7 @@ This is why `|b| < -1` evaluates to true - because `Math.abs(b)` returns a negat
 ### Modern Solutions
 
 In modern Java, you can use:
+
 - `Math.absExact()` - throws an exception on overflow
 - `long` data type for larger ranges
 - `BigInteger` for arbitrary precision

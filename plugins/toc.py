@@ -61,6 +61,10 @@ class HtmlTreeNode:
 
     def add(self, new_header, ids):
         new_level = new_header.name
+        if self.level > new_level:
+            # hand the header to the parent before giving it an id; otherwise the id
+            # is registered here and the parent makes it unique again ("_1")
+            return self.parent.add(new_header, ids)
         new_string = new_header.string
         new_id = new_header.attrs.get("id")
 
@@ -82,14 +86,12 @@ class HtmlTreeNode:
             )
             self.children += [new_node]
             return new_node, new_header
-        elif self.level == new_level:
+        else:  # same level: sibling
             new_node = HtmlTreeNode(
                 self.parent, new_string, new_level, new_id, self.include_title
             )
             self.parent.children += [new_node]
             return new_node, new_header
-        elif self.level > new_level:
-            return self.parent.add(new_header, ids)
 
     def __str__(self):
         ret = ""

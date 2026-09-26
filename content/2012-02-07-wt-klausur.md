@@ -17,8 +17,8 @@ Diesen netten, kleinen <a href='../images/2012/02/wt-cheat-sheet.pdf'>Zettel mit
 
 Klausur Informatik: 08. Februar 2012, <strong>17.45 &ndash; 19.15 Uhr</strong>.
 <ul>
-  <li>Teilnehmer mit Nachnamen <strong>Aa -- Kon</strong> schreiben die Klausur im Audimax, Geb. 30.95 </li>
-  <li>Teilnehmer mit Nachnamen <strong>Kor -- Zz</strong> schreiben die Klausur im Gerthsen-Hörsaal, Geb.&nbsp;30.21 </li>
+  <li>Teilnehmer mit Nachnamen <strong>Aa&ndash;Kon</strong> schreiben die Klausur im Audimax, Geb. 30.95 </li>
+  <li>Teilnehmer mit Nachnamen <strong>Kor&ndash;Zz</strong> schreiben die Klausur im Gerthsen-Hörsaal, Geb.&nbsp;30.21 </li>
 </ul>
 
 

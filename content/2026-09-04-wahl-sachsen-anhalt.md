@@ -13,6 +13,28 @@ Am Sonntag, den 6. September 2026 (übermorgen!), wird in Sachsen-Anhalt ein neu
 Landtag gewählt. Ich will die Gelegenheit als Fingerübung nutzen, um mal wieder
 ein paar Prognosen zu machen.
 
+<div class="info">
+<strong>Update vom 26.09.2026</strong>: Das
+<a href="https://de.wikipedia.org/wiki/Landtagswahl_in_Sachsen-Anhalt_2026">endgültige Ergebnis</a>
+(Zweitstimmen): AfD 43,8% (39&nbsp;Sitze), CDU 17,2% (15), SPD 9,3% (8),
+Grüne 8,9% (8), Linke 8,6% (8), BSW 5,3% (5), FDP 2,6%. Der Landtag hat
+83&nbsp;Sitze ohne Überhang- und Ausgleichsmandate; der AfD fehlen also
+3&nbsp;Sitze zur absoluten Mehrheit. Die Wahlbeteiligung lag bei 77,8%.
+<br/><br/>
+Wie gut waren meine Prognosen?
+<ul>
+  <li><strong>Prognose 1</strong>: Teilweise richtig. SPD und Grüne sind im Landtag
+      und der AfD fehlen wie erwartet 3&nbsp;Sitze zur absoluten Mehrheit. Das BSW
+      ist aber entgegen meiner Erwartung ebenfalls eingezogen, die CDU war
+      deutlich schwächer und die Grünen deutlich stärker als erwartet.</li>
+  <li><strong>Prognose 2</strong>: Nicht Eingetreten.
+      Im Vorfeld wurde ein systematischer Briefwahlbetrug in Pflegeheimen nahegelegt, der sich jedoch nicht bestätigt hat. Nach der Wahl habe ich nichts dergleichen gehört.</li>
+  <li><strong>Prognose 3</strong>: Noch offen. Sven Schulze hat angekündigt, dass
+      die CDU in die Opposition geht. Der Ministerpräsident muss spätestens am
+      6.&nbsp;Oktober 2026 gewählt werden.</li>
+</ul>
+</div>
+
 
 ## Die Umfragen
 
@@ -34,7 +56,8 @@ Der [Landtag von Sachsen-Anhalt](https://de.wikipedia.org/wiki/Landtag_von_Sachs
 hat 83 Sitze, aber durch
 [Überhang- und Ausgleichsmandate](https://wahlen.sachsen-anhalt.de/zu-den-wahlen/allgemeine-informationen-zur-landtagswahl/wahlsystem)
 ist die Zahl der Sitze bereits in der aktuellen Legislaturperiode auf 97
-angestiegen.
+angestiegen. Für die folgende Rechnung gehe ich vereinfachend von 83&nbsp;Sitzen
+ohne Überhang- und Ausgleichsmandate aus.
 
 
 ## Prognose 1: Die Grünen verhindern eine AfD-Alleinregierung
@@ -179,7 +202,9 @@ Solange das [Kabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) bestehe
    Wählerschaft unbeliebte Person (wie z. B. Donald Trump) eine Wahlempfehlung
    oder ein Lob ausspricht, schadet dies dem Gelobten oft mehr, als es ihm
    hilft. Das Lob macht den Kandidaten für die gegnerische Seite oder
-   Wechselwähler angreifbar und "kontaminiert" sein Image. [Merz ist
+   Wechselwähler angreifbar und "kontaminiert" sein Image. Das könnte hier die
+   CDU treffen, wenn Bundeskanzler Merz im Wahlkampf für Sven Schulze wirbt,
+   denn [Merz ist
    unbeliebt](https://www.br.de/nachrichten/deutschland-welt/ard-deutschlandtrend-grosse-unzufriedenheit-mit-merz,VU973Wu).
 4. **Wählermobilisierung**: Kommen die Grünen nicht in den Landtag oder das BSW
    überraschend doch, dann ändert sich die Situation komplett. Dann könnte die

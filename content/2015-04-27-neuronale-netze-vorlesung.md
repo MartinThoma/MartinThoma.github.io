@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2015-04-27 21:15
 category: German posts
-tags: Klausur, Machine Learning, Neural Networks, Reinforcement Learning, University, AI
+tags: Klausur, Machine Learning, Neural Networks, Reinforcement Learning, University, AI, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört.</div>
@@ -133,10 +133,10 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis" name="pca"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
   <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
       Dimensionalitätsreduktion von ungelabelten Daten im $\mathbb{R}^n$.
-      Sie projiziert die Daten auf diejenige Hyperebene im
-      $\mathbb{R}^d$, die den durch die Projektion stattfindenden
-      Datenverlust minimal hält.
-      Dabei ist $d \in 1, \dots, n$ beliebig wählbar.
+      Sie projiziert die Daten auf denjenigen $d$-dimensionalen (affinen)
+      Unterraum des $\mathbb{R}^n$, der den durch die Projektion
+      stattfindenden Datenverlust minimal hält.
+      Dabei ist $d \in \{1, \dots, n\}$ beliebig wählbar.
 
       Die Transformation der Daten $X$ findet durch eine Matrixmultiplikation
       $Y = P \cdot X$ statt. Die Matrix $P$ besteht aus den ersten $d$
@@ -182,7 +182,7 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
   </dd>
   <dt><dfn>Rosenblatt-Perzeptron</dfn></dt>
   <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist $x_i \in \mathbb{R}$ und
-      ein Lernalgorithmus ist gegeben. Dieser addiert den
+      ein Lernalgorithmus ist gegeben. Dieser addiert den mit
       $\eta \in (0, 1)$ gewichteten, fehlklassifizierten Vektor auf die
       Gewichte $w_i$. $\eta$ heißt die <i>Lernrate</i>.
 
@@ -264,8 +264,8 @@ Slide name: `V05_2015-04-29_Features.pdf`
       $a$ und das $j$-te Zeichen von $b$ sich unterscheiden.
 
       Dann heißt $d_L(a, b)$ die Levenshtein-Distanz:
-      $$d_L(a,b) := lev_{a,b}(|a|, |b|)$$
-      $$\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
+      $$d_L(a,b) := \text{lev}_{a,b}(|a|, |b|)$$
+      $$\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls } \min(i,j) = 0,\\
         \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
                           \text{lev}_{a,b}(i,j-1)+1\\
                           \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}$$
@@ -361,7 +361,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and decreases or resets it when the sign of the
         gradient changes. Rprop has its own learning rate for every single
-        feature.</dd>
+        weight.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn id="adagrad"><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>$$\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}$$
 
@@ -427,23 +427,23 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#mdp">ML 1</a>.</dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#discount-factor">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#discount-factor">Probabilistische Planung</a>.</dd>
     <dt><dfn>Strategie</dfn> (engl. <dfn>Policy</dfn>)</dt>
-    <dd>Siehe <a href="../probabilistische-planung#policy">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#policy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Q-Funktion</dfn> (Action-Value function)</dt>
     <dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
     <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#v-function">ML 1</a>.</dd>
     <dt><dfn>$\varepsilon$-Greedy Strategy</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#epsilon-greedy-exploration">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#epsilon-greedy-exploration">Probabilistische Planung</a>.</dd>
     <dt><dfn>$\varepsilon$-decreasing Strategy</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#epsilon-decreasing-strategy">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#epsilon-decreasing-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>$\varepsilon$-first Strategy</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#epsilon-first-strategy">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#epsilon-first-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#adaptive-epsilon-greedy-strategy">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#adaptive-epsilon-greedy-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Episode</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#episode">Probabilistische Planung</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#episode">Probabilistische Planung</a>.</dd>
     <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
     <dd>Initialize state values $V^\pi$ and iterate:
         <ol>
@@ -516,7 +516,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
             <span markdown="0">$i$</span>-ten Input-Neuron zum Neuron (<span markdown="0">$i = 1, ..., n$</span>)
             <span markdown="0">$j$</span> auf dem Gitter werden zufällig
             initialisiert.</li>
-        <li><b>Sampling</b>: Nehme ein zufälliges Beispiel
+        <li><b>Sampling</b>: Nimm ein zufälliges Beispiel
             <span markdown="0">$x$</span> der Trainingsdaten.</li>
         <li><b>Matching</b>: Finde das Neuron
             <span markdown="0">$j_{\text{min}}$</span>, für das die Gewichte
@@ -551,7 +551,7 @@ Slide name: `V11_2015-05-27_RBMs`
 
         Hopfield-Netze werden in einem einzigen Durchgang trainiert. Dabei wird
         auf das Gewicht von Neuron $i$ zu Neuron $j$ + 1 addiert, wenn
-        das Bit $i$ des Trainingsmusters gleich ist. Falls das nicht der Fall
+        die Bits $i$ und $j$ des Trainingsmusters gleich sind. Falls das nicht der Fall
         ist, wird von dem Gewicht 1 subtrahiert:
 
         $$w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)$$
@@ -560,7 +560,7 @@ Slide name: `V11_2015-05-27_RBMs`
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
 
       <figure>
-          <a href="../images/2016/02/hopfield-network.png"><img src="../images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." width="512" height="497" loading="lazy"></a>
+          <a href="../images/2016/02/hopfield-network.png"><img src="../images/2016/02/hopfield-network.png" alt="Draft of a Hopfield network." width="512" height="497" loading="lazy"></a>
           <figcaption>Figure 3: Draft of a Hopfield network. Every node is an input node. The McCulloch-Pitts nodes are updated asynchronously. When the state of the node doesn't change any more, they contain the output of the network. Learned are the weights between the nodes.</figcaption>
       </figure>
 
@@ -570,7 +570,7 @@ Slide name: `V11_2015-05-27_RBMs`
         stochastische neuronale Netzwerke, welche durch beliebige ungerichtete
         Graphen repräsentiert werden können. Die Neuronen sind binär; sie
         feuern also entweder oder nicht. Es gibt insbesondere keine
-        Unterschiede in der Stärke mit der sie feuern.
+        Unterschiede in der Stärke, mit der sie feuern.
 
         Siehe auch: <a href="http://www.scholarpedia.org/article/Boltzmann_machine">Scholarpedia</a>
         </dd>
@@ -623,7 +623,7 @@ Slide name: `V11_2015-05-27_RBMs`
             $b_h \in \mathbb{R}^{n_h}$ der Bias-Vektor der Hidden Units und
             $b_v \in \mathbb{R}^{n_v}$ der Bias-Vektor der Eingabeknoten ist.
             $h = \text{sigmoid}(b_h + W x)$ ist ein Vektor, welcher für die
-            einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese
+            einzelnen Hidden Units sagt, wie wahrscheinlich es ist, dass diese
             gleich 1 sind.
           </li>
       </ol>
@@ -635,7 +635,7 @@ Slide name: `V11_2015-05-27_RBMs`
     <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn id="simulated-annealing">Simulated annealing</dfn></a></dt>
     <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
 
-        Sei $D$ ein Wertebereich einer Funktion $f: D \rightarrow \mathbb{R}$
+        Sei $D$ der Definitionsbereich einer Funktion $f: D \rightarrow \mathbb{R}$
         und $U: D \rightarrow \mathcal{P}(D)$ eine Funktion, welche die
         Umgebung eines Punktes angibt. Sei $T: \mathbb{N}_0 \rightarrow \mathbb{R}_{> 0}$
         die Temperatur zum Zeitpunkt $t \in \mathbb{N}_0$.
@@ -646,7 +646,7 @@ Slide name: `V11_2015-05-27_RBMs`
 
         Gehe nun iterativ vor und jeweils einen Zeitschritt weiter:
 
-        Nehme einen Punkt aus der Umgebung $y \in U(x)$. Wenn
+        Nimm einen Punkt aus der Umgebung $y \in U(x)$. Wenn
         $f(y) \leq f(x)$, dann überschreibe $x \leftarrow y$. Falls nicht,
         dann überschreibe es mit der Wahrscheinlichkeit $\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )$.
 
@@ -689,7 +689,7 @@ Slide name: `V12_2015-06-02_RNNs.pdf`
         ersten Schichten nicht lernen kann.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Long_short-term_memory"><dfn>Long short-term memory</dfn></a> (<dfn>LSTM</dfn>)</dt>
     <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das Besondere an
-        LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen,
+        LSTM-Netzen sind "intelligente" Neuronen, welche über Gates bestimmen,
         ob ein Wert gespeichert wird und wie lange.</dd>
 </dl>
 
@@ -721,7 +721,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
-        nimmt an, dass die Fehlerebene lokal durch eine Parabel approximiert
+        nimmt an, dass die Fehlerfläche lokal durch eine Parabel approximiert
         werden kann. Das Gewichtsupdate im Schritt $k$ ist demnach vom
         Gradienten und dem Gewichtsupdate des vorherigen Schrittes abhängig:
 
@@ -758,7 +758,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
         <ul>
             <li>Anzahl der Hidden Units</li>
-            <li>Größe des Input-Fensters (ASR-Spezifisch)</li>
+            <li>Größe des Input-Fensters (ASR-spezifisch)</li>
             <li>Anzahl der Zustände, welche "Acoustic Events" repräsentieren</li>
         </ul>
     </dd>
@@ -832,7 +832,7 @@ Slide name: `V15_2015-06-17_Speech-Independence.pdf`
 ## Visualisierung von Netzen
 
 Häufig wird die Architektur neuronaler Netze grafisch dargestellt. Dabei ist
-mir folgendes aufgefallen:
+mir Folgendes aufgefallen:
 
 * Im Inneren von Neuronen wird die Aktivierungsfunktion "geplottet". Das heißt
   bei der Sigmoidfunktion wird etwas S-förmiges dargestellt, bei der
@@ -854,11 +854,11 @@ mir folgendes aufgefallen:
     <figcaption>Figure 6: Training and Testing error over training data. At some point overfitting happens.</figcaption>
 </figure>
 
-If you have a problem with high variance, you can train more epochs, get more
-data or better features.
+If you have a problem with high variance (overfitting), you can get more
+data, use fewer features, regularize more strongly or stop training earlier.
 
-If you have a problem with high bias, you should get better features or a
-better classifier.
+If you have a problem with high bias (underfitting), you should get better
+features or a more powerful classifier.
 
 Please note that Figure&nbsp;6 also gives you a feeling for how much new
 training data will help you with your problem.
@@ -952,7 +952,7 @@ training data will help you with your problem.
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td><a href="../softmax">Softmax</a></td>
+        <td><a href="../softmax/">Softmax</a></td>
         <td><span markdown="0">$o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}$</span></td>
         <td style="text-align: center;"><span markdown="0">$[0, 1]^K$</span></td>
         <td style="text-align: center;">Yes</td>
@@ -1141,8 +1141,9 @@ See also:
 <details class="question">
 <summary>Was ist der Unterschied zwischen Backpropagation und Gradient descent?</summary>
 <div class="answer">
-Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
-bei der es vermieden wird, Berechnungen mehrfach durchzuführen.
+Backpropagation ist ein geschicktes Verfahren, um den Gradienten für den
+Gradientenabstieg zu berechnen. Dabei wird vermieden, Berechnungen mehrfach
+durchzuführen.
 </div>
 </details>
 
@@ -1200,7 +1201,7 @@ Newbob, AdaGrad, RProp
 <details class="question">
 <summary>Welche Alternativen zu standard Gradient Descent gibt es?</summary>
 <div class="answer">
-Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="../optimization-basics/">Optimization Basics</a>).
+Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newton-Verfahren (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="../optimization-basics/">Optimization Basics</a>).
 </div>
 </details>
 
@@ -1214,7 +1215,6 @@ Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="http
 
 ## Material und Links
 
-* [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
 * [NNPraktikum](https://github.com/thanhleha/NNPraktikum): Toolkit für die Übungsblätter
 * StackExchange
   * ✓ [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
@@ -1236,7 +1236,7 @@ Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="http
 
 ## Literatur
 
-* [<a href="#ref-mit97-anchor" name="ref-mit97">Mit97</a>] T. Mitchell.
+* [<a name="ref-mit97">Mit97</a>] T. Mitchell.
   Machine Learning. McGraw-Hill, 1997.
 * [<a href="#ref-hop82-anchor" name="ref-hop82">Hop82</a>] J. J. Hopfield.
   [Neural networks and physical systems with emergent collective computational abilities](http://www.pnas.org/content/79/8/2554.full.pdf) in Proceedings of the national academy of sciences, 1982.
@@ -1259,7 +1259,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Machine Learning 1](../machine-learning-1-course/)
 * [Machine Learning 2](../machine-learning-2-course/)
 * [Mustererkennung](../mustererkennung-klausur/)
-* [Neuronale Netze](../neuronale-netze-vorlesung/)
+* **Neuronale Netze**
 * [Lokalisierung Mobiler Agenten](../lma/)
 * [Probabilistische Planung](../probabilistische-planung/)
 

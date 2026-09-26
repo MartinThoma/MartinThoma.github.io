@@ -37,7 +37,7 @@ The core principle that all security cameras I know violate is a local-first app
 * Storage: microSD card slot for local storage
 * Connectivity:
     * Wi-Fi
-    * Ethernet with Power-over-Ethernet (PoE) support
+    * Ethernet (with PoE, see "Power")
     * Bluetooth for initial setup
 * Miscellaneous:
     * LED to illuminate the area (both infrared and visible light)
@@ -62,10 +62,20 @@ The core principle that all security cameras I know violate is a local-first app
 * Synchronizes the on-device clock with a time server
 * Supports over-the-air (OTA) firmware updates from the central server
 * Setting up privacy modes (e.g., disable recording at certain times) and zones (e.g. masking out certain areas in the camera view) locally on the device
-* Setting up
+* Keeps recording to the microSD card when the central server is not reachable
+  and uploads the recordings later
 
 ### Central Server Software
 
+The central server runs inside the home network, e.g. on a NAS or a Raspberry
+Pi. Cameras and users in the same network don't need an internet connection;
+remote access (e.g. via VPN) is optional.
+
+Alerts:
+
+* Receives motion and face alerts from the cameras
+* Forwards them to the users (e.g. push notification or e-mail) according to
+  per-camera rules (times, zones, known faces)
 
 Authentication:
 
@@ -91,9 +101,6 @@ Storage:
 
 This could be a native mobile app, but for a start a web application would be sufficient. This web application can run on the central server.
 
-
-
-
 Frontend:
 
 * **Overview page:** All cameras with the latest snapshot
@@ -112,7 +119,9 @@ Frontend:
 * Cryptographic authentication of the camera
 * Encrypted communication channel
 * Camera can push alerts to the server
-* Camera can...
+* Camera can stream live video and upload recordings to the server
+* Server can send settings, commands (e.g. move, light, two-way audio) and
+  firmware updates to the camera
 
 ### End-User App ↔ Server Communication Protocol
 

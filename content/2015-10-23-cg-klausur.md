@@ -6,10 +6,10 @@ lang: de
 author: Martin Thoma
 date: 2015-10-23 11:30
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://cg.ivd.kit.edu/dachsbacher/">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://cg.ivd.kit.edu/dachsbacher/">Herrn Prof. Dr.-Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -116,8 +116,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
         Konstanten des Displays und geben die maximale bzw. minimale Helligkeit
         an.</dd>
     <dt><dfn>Gamut</dfn> (<dfn>Farbgamut</dfn>)</dt>
-    <dd>Der Gamut eines Monitors entspricht dem Spektrum der darauf
-        darstellbaren Farben.</dd>
+    <dd>Der Gamut eines Monitors ist die Menge der darauf darstellbaren
+        Farben.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Farbtemperatur"><dfn>Farbtemperatur</dfn></a></dt>
     <dd>Die Farbtemperatur ist ein Maß, um einen jeweiligen Farbeindruck einer
         Lichtquelle zu bestimmen.</dd>
@@ -143,7 +143,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz"><dfn>Weber-Fechner-Gesetz</dfn></a></dt>
     <dd>Das Weber-Fechner-Gesetz macht eine Aussage über die subjektiv
         empfundene Stärke von Sinneseindrücken in Abhängigkeit von der
-        Intensität des Helligkeitsunterschiedes:
+        Intensität des physikalischen Reizes (z.B. der Helligkeit):
 
         $$E = c \cdot \ln \frac{R}{R_0}$$
 
@@ -189,7 +189,7 @@ Slide: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
        $$I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}$$
 
-       hierbei ist $I_L$ die Lichtintensität, $L$ die Richtung, die das Licht nimmt, sowie $N$ die Oberflächennormale und $R_L$ der Lichtreflexionsvektor. Der Vektor $R_L$ liegt in derselben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
+       hierbei ist $I_L$ die Lichtintensität, $L$ die (normierte) Richtung vom Oberflächenpunkt zur Lichtquelle, $V$ die Richtung zum Betrachter sowie $N$ die Oberflächennormale und $R_L$ der Lichtreflexionsvektor. Der Vektor $R_L$ liegt in derselben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
     <dt><dfn>Z-Fighting</dfn></dt>
     <dd>Polygone, welche in derselben Ebene liegen, führen zu einem Flackern,
         welches der beiden Polygone nun angezeigt wird. Dies kann verhindert
@@ -203,9 +203,10 @@ Slide: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
         von realen Kameras so nicht.
 
         Distributed Ray Tracing ist eine Alternative zu Whitted-Style Ray
-        Tracing, welche diese Probleme zu lösen versucht. Dabei wird bei jeder
-        Spiegelung nicht ein Schattenstrahl verschickt, sondern viele, welche
-        sich um den "perfekten" Strahl konzentrieren.</dd>
+        Tracing, welche diese Probleme zu lösen versucht. Dabei wird z.B. bei
+        jeder Spiegelung nicht ein einzelner Strahl verschickt, sondern viele,
+        welche sich um den "perfekten" Strahl konzentrieren (analog für
+        Schattenstrahlen zu Flächenlichtquellen, die Linse und die Zeit).</dd>
 </dl>
 
 * Nyquist-Shannon-Abtasttheorem
@@ -216,10 +217,10 @@ Slide: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Spekulare Reflexion
 * Diffuse (Lambertsche) Reflexion
 * BRDF - Bidirectional Reflectance Distribution Function
-* Phong Beleuchtungsmodell
+* Phong-Beleuchtungsmodell
 * Snellsches Brechungsgesetz
 * Fresnel-Effekt
-* Anti-Aliasing Strategien: Uniformes Supersampling, Adaptives Supersampling,
+* Anti-Aliasing-Strategien: Uniformes Supersampling, Adaptives Supersampling,
   Stochastisches Supersampling
 * Schattenstrahlen
 * Bewegungs- und Tiefenunschärfe
@@ -231,7 +232,7 @@ Slide: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Rasterisierung von Linien
     * Brute-Force
     * Inkrementelle Berechnung
-    * Bresenham Algorithmus
+    * Bresenham-Algorithmus
 * Rasterisierung von Polygonen
 * Sichtbarkeitsproblem
     * Maler-Algorithmus (Painter's algorithm)
@@ -298,7 +299,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 <ul>
     <li>Transformationen werden grundsätzlich so dargestellt: $$x' \gets M \cdot x$$
 
-        Es wird also der zu transformierende Vektor von rechts mit der
+        Es wird also der zu transformierende Vektor von links mit der
         Transformationsmatrix $M$ multipliziert.</li>
     <li>Spiegelung an der $y$-Achse ist eine Multiplikation der $x$-Koordinaten mit (-1)</li>
     <li>Hierarchisches Modellieren, Szenengraph</li>
@@ -355,9 +356,9 @@ Slide: `04_ Texturen.pdf`
     Texturkoordinaten werden üblicherweise mit $(s, t)$ bezeichnet. Manchmal
     auch mit $(u, v)$.
 
-    Eine Textur ist im Einheitsquadrat.
+    Texturkoordinaten liegen im Einheitsquadrat $[0, 1]^2$.
 
-    Eine Textur kann folgendermaßen auf ein Objekt gemappt werden, indem das
+    Eine Textur kann auf ein Objekt gemappt werden, indem das
     Objekt in einen Hilfskörper (z.B. Kugel, Würfel, Zylinder) gesteckt wird,
     auf welchen die Textur bereits gemappt wurde. Dann kann die Textur
     folgendermaßen auf das Objekt übertragen werden:
@@ -464,7 +465,7 @@ Slide: `04_ Texturen.pdf`
 
     Mögliche Lösung: Distributed Raytracing</dd>
     <dt><dfn>Stratified Supersampling</dfn></dt>
-    <dd>Strahlen werden durch zufällige Superpixelpositionen geschossen,
+    <dd>Strahlen werden durch zufällige Subpixelpositionen geschossen,
         aber möglichst gleichmäßig, um Klumpen zu vermeiden.</dd>
 </dl>
 
@@ -505,7 +506,7 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         Hüllkörper verwendet.
 
         Alles Wichtige zu AABBs kann man in Folie 18 - 29 nachlesen.</dd>
-    <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
+    <dt><dfn>BSP-Baum</dfn> (<dfn>Binary-Space-Partitioning-Baum</dfn>)</dt>
     <dd>Teile den Raum mithilfe von Ebenen in zwei Teile. Die Ebenen dürfen
         beliebig im Raum liegen.
 
@@ -600,8 +601,8 @@ Slide: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
         Es gibt den "trivial reject" Fall, bei dem die komplette Linie
         außerhalb liegt und den "trivial accept" Fall, bei dem die komplette
         Linie innerhalb des Rechtecks liegt.</dd>
-    <dt><dfn>Cohen-Sutherland Algorithmus</dfn></dt>
-    <dd>Der Cohen-Sutherland Algorithmus dient dem Clipping von Linien mit
+    <dt><dfn>Cohen-Sutherland-Algorithmus</dfn></dt>
+    <dd>Der Cohen-Sutherland-Algorithmus dient dem Clipping von Linien mit
         einem Rechteck.
 
         Man unterteilt die Ebene, in der das Rechteck liegt, in 9 Bereiche:
@@ -677,7 +678,7 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
         gezeichnet. (<code>glEnable(GL_CULL_FACE); glCullFace(GL_BACK);</code>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Stencilbuffer"><dfn>Stencil-Puffer</dfn></a></dt>
     <dd>Ein Stencil-Puffer ist eine Stanzmaske, welche für jeden Pixel im
-        Framebuffer einen 8-bit Wert speichert. Im einfachsten Fall begrenzt
+        Framebuffer einen 8-Bit-Wert speichert. Im einfachsten Fall begrenzt
         der Stencil-Puffer das Renderinggebiet.</dd>
 </dl>
 
@@ -730,7 +731,7 @@ Siehe auch:
     <dd><ol>
         <li>Geometrie-Verarbeitung</li>
         <li>Rasterisierung</li>
-        <li>Pro-Fragment Operationen</li>
+        <li>Pro-Fragment-Operationen</li>
     </ol></dd>
     <dt><dfn>Koordinatensystem-Pipeline</dfn></dt>
     <dd><ul>
@@ -957,7 +958,7 @@ aber auch nicht :-/)
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
 * [Übungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
-* [E-Mail Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
+* [E-Mail-Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
 * [Inoffizielle Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen) für die Altklausuren
 
 Siehe auch
@@ -967,7 +968,7 @@ Siehe auch
 * Martin Thoma: [**Interactive Graphic Filters example**](../html5/graphic-filters/graphic-filters.htm)
 * [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
 * Martin Thoma: [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
-* Martin Thoma: [**alpha-cliping pythonic pseudocode**](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L149)
+* Martin Thoma: [**alpha-clipping pythonic pseudocode**](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L149)
 * [Minimal GLSL example](https://open.gl/drawing)
 * [A Primer on Bézier Curves](http://pomax.github.io/bezierinfo/)
 * StackExchange:
@@ -995,7 +996,7 @@ Software
 
 Es gibt Übungsblätter und Übungen, aber keine Tutorien und keine Bonuspunkte.
 
-Um das Modul zu bestehen wird der Übungsschein benötigt. Für den Übungsschein
+Um das Modul zu bestehen, wird der Übungsschein benötigt. Für den Übungsschein
 benötigt man 60% der Punkte der Übungsblätter. Die Übungsblätter werden über
 [submit.ivd.kit.edu](https://submit.ivd.kit.edu/main/index.php) eingereicht.
 Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
@@ -1004,7 +1005,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 
 ## Termine und Klausurablauf
 
-**Datum**: Mittwoch, der 09.03.2016 von 14:00 Uhr (Quelle: [informatik.kit.edu](http://www.informatik.kit.edu/klausuren.php?kid=546.35))<br/>
+**Datum**: Mittwoch, der 09.03.2016 um 14:00 Uhr (Quelle: [informatik.kit.edu](http://www.informatik.kit.edu/klausuren.php?kid=546.35))<br/>
 
 * 08.02.2016: Die Klausur-Anmeldung wird freigeschaltet
 * 04.03.2016: Anmeldeschluss
@@ -1016,7 +1017,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 <ul>
     <li>A... - Kon...: <a href="https://www.kit.edu/campusplan/">Benz-Hörsaal Geb. 10.21</a></li>
     <li>Kop... - Stumpf...: <a href="https://www.kit.edu/campusplan/">Daimler-Hörsaal Geb. 10.21</a></li>
-    <li>Stumpp... - Z...: <a href="https://www.kit.edu/campusplan/">Redtenbacher Hörsaal Geb. 10.91, Raum 050</a></li>
+    <li>Stumpp... - Z...: <a href="https://www.kit.edu/campusplan/">Redtenbacher-Hörsaal Geb. 10.91, Raum 050</a></li>
 </ul>
 
 **Punkte**: 120<br/>

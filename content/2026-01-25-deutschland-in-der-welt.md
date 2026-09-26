@@ -39,105 +39,132 @@ Ich nehme folgende Kategorien:
   also Einkommen, Vermögen, Arbeitszeit, Arbeitslosigkeit. Wenn es größere
   Gruppen gibt, die arm/ärmer sind, dann kommt das hier rein.
 * Wirtschaft: Hier geht es mir ums Gesamtbild, also BIP, Exporte, Innovation, Vermögen.
-* Staat: Wie stabil ist er? Wie verhält er sich international?
+* Staat: Wie stabil ist er? Wie gut ist die Infrastruktur? Wie verhält er sich international?
 * Risiken: Wie sicher ist es, in Deutschland zu leben?
 * Freiheit: Wie gut kann ich als Bürger mein Leben gestalten?
 * Gesundheit: Wie steht es um die Gesundheit der Bevölkerung?
+* Bildung: Wie gut werden die Menschen ausgebildet?
+* Weitere: Indizes, die mehrere dieser Bereiche zusammenfassen.
 
 ## Sehr gut
 
-Wirtschaft und Wohlstand:
-   * [Arbeitszeit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitszeit): Platz 66 von 66 - wir müssen weniger arbeiten und haben trotzdem eine starke Wirtschaft.
-   * [Beschäftigtenquote](https://de.wikipedia.org/wiki/Liste_von_L%C3%A4ndern_nach_Besch%C3%A4ftigungsquote): Platz 7 von 48.
-   * [Einkommensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Einkommensverteilung): Wenn man mal die Top-1% ausnimmt, sind **Einkommen** in Deutschland sehr fair - es gibt ein Gefälle, aber es ist nicht absurd.
-   * [Durchschnittslohn](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Durchschnittslohn): Hinter Island, Schweiz, Österreich. Vor Frankreich, Irland, Schweden.
+Wohlstand:
+
+* [Arbeitszeit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitszeit): Platz 66 von 66 - wir müssen weniger arbeiten und haben trotzdem eine starke Wirtschaft.
+* [Beschäftigtenquote](https://de.wikipedia.org/wiki/Liste_von_L%C3%A4ndern_nach_Besch%C3%A4ftigungsquote): Platz 7 von 48.
+* [Einkommensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Einkommensverteilung): Wenn man mal die Top-1% ausnimmt, sind **Einkommen** in Deutschland sehr fair - es gibt ein Gefälle, aber es ist nicht absurd.
+* [Durchschnittslohn](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Durchschnittslohn): Hinter Island, Schweiz, Österreich. Vor Frankreich, Irland, Schweden.
 
 Wirtschaft:
-   * [Gesamtvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gesamtverm%C3%B6gen): 17 Billionen USD, Japan ist bei 22, China bei 84 und die USA bei 140.
-   * [Platz 3 nach BIP](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bruttoinlandsprodukt) (absolut, hinter USA und China; Stand 2025), [Platz 18 für BIP/Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bruttoinlandsprodukt_pro_Kopf)
-   * [Automobilexporte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Automobilexporten): Platz 1 von 20; allerdings sind die Zahlen ein paar Jahre alt und ich finde den Fokus auf einen Bereich nicht unbedingt gut.
-   * [Touristen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anzahl_an_Besuchern): Platz 8 von 207.
+
+* [Gesamtvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gesamtverm%C3%B6gen): 17 Billionen USD, Japan ist bei 22, China bei 84 und die USA bei 140.
+* [Platz 3 nach BIP](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bruttoinlandsprodukt) (absolut, hinter USA und China; Stand 2025), [Platz 18 für BIP/Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bruttoinlandsprodukt_pro_Kopf)
+* [Automobilexporte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Automobilexporten): Platz 1 von 20; allerdings sind die Zahlen ein paar Jahre alt und ich finde den Fokus auf einen Bereich nicht unbedingt gut.
+* [Touristen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anzahl_an_Besuchern): Platz 8 von 207.
 
 Staat:
-   * [Kreditrating](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kreditrating): Insbesondere vor Finnland, den USA, Österreich und Irland
-   * [Good Country Index](https://de.wikipedia.org/wiki/Good_Country_Index): Platz 3 von 149
+
+* [Kreditrating](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kreditrating): Insbesondere vor Finnland, den USA, Österreich und Irland
+* [Good Country Index](https://de.wikipedia.org/wiki/Good_Country_Index): Platz 3 von 149
+* [Fragile States Index](https://de.wikipedia.org/wiki/Fragile_States_Index): Platz 166 von 179 (2024, Platz 1 ist der fragilste Staat); nur 13 Länder gelten als stabiler.
 
 Risiken:
-   * [Verkehrstote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verkehrstoten): 4,1 Fälle pro Jahr und 100.000 Einwohner. Im Vereinigten Königreich sind es nur 3,1, in Schweden nur 2,8 und in Norwegen und der Schweiz nur 2,7.
-   * [Weltrisikobericht](https://de.wikipedia.org/wiki/Weltrisikobericht): Platz 161 von 181.
-   * [Global Cybersecurity Index](https://de.wikipedia.org/wiki/Global_Cybersecurity_Index_2024)
-   * [Erneuerbare Frischwasserressourcen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Wasserressourcen)
+
+* [Verkehrstote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verkehrstoten): 4,1 Fälle pro Jahr und 100.000 Einwohner. Im Vereinigten Königreich sind es nur 3,1, in Schweden nur 2,8 und in Norwegen und der Schweiz nur 2,7.
+* [Weltrisikobericht](https://de.wikipedia.org/wiki/Weltrisikobericht): Platz 161 von 181.
 
 Freiheit:
-   * [Reisepass](https://www.passportindex.org/de/byRank.php): Auf Platz 4 von 97 (weiß jemand, warum Spanien für Nauru visafrei ist?)
-   * [Persönliche Freiheit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_pers%C3%B6nlicher_Freiheit): Platz 8 von 167
+
+* [Reisepass](https://www.passportindex.org/de/byRank.php): Auf Platz 4 von 97 (weiß jemand, warum Spanien für Nauru visafrei ist?)
+* [Persönliche Freiheit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_pers%C3%B6nlicher_Freiheit): Platz 8 von 167
 
 Gesundheit:
-    * [Unterernährung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_unterern%C3%A4hrten_Personen) ist in Deutschland praktisch kein Thema (unter 2,5%). Selbst in Japan ist der Anteil mit 3,2% (2020) etwas höher.
+
+* [Unterernährung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_unterern%C3%A4hrten_Personen) ist in Deutschland praktisch kein Thema (unter 2,5%). Selbst in Japan ist der Anteil mit 3,2% (2020) etwas höher.
 
 Weitere:
-    * [Human Development Index (HDI)](https://de.wikipedia.org/wiki/Index_der_menschlichen_Entwicklung): Platz 5 von 193 (zusammen mit Schweden, HDR 2025); nur Island, Norwegen, Schweiz und Dänemark sind vor uns.
+
+* [Human Development Index (HDI)](https://de.wikipedia.org/wiki/Index_der_menschlichen_Entwicklung): Platz 5 von 193 (zusammen mit Schweden, HDR 2025); nur Island, Norwegen, Schweiz und Dänemark sind vor uns.
 
 ## Gut
 
 Wohlstand:
-   * [Armutsquote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Armutsquote): Hinter Island, Frankreich, Irland. Vor Dänemark, Norwegen, Schweden.
-   * [Arbeitslosenquote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitslosenquote): Hinter Japan, Malta, Südkorea. Vor Schweden, Norwegen, Finnland
-   * [Prosperity Index](https://de.wikipedia.org/wiki/Legatum_Prosperity_Index): Platz 8 von 167
+
+* [Armutsquote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Armutsquote): Hinter Island, Frankreich, Irland. Vor Dänemark, Norwegen, Schweden.
+* [Arbeitslosenquote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitslosenquote): Hinter Japan, Malta, Südkorea. Vor Schweden, Norwegen, Finnland
+* [Prosperity Index](https://de.wikipedia.org/wiki/Legatum_Prosperity_Index): Platz 8 von 167
 
 Wirtschaft:
-   * [World Intellectual Property Indicators](https://de.wikipedia.org/wiki/World_Intellectual_Property_Indicators): Deutsche Firmen haben viele Patente.
 
-Freiheit:
-   * [Social Progress Index](https://de.wikipedia.org/wiki/Social_Progress_Index): Platz 11 von 163
+* [World Intellectual Property Indicators](https://de.wikipedia.org/wiki/World_Intellectual_Property_Indicators): Deutsche Firmen haben viele Patente.
 
-Gesundheit:
-   * [Lebenserwartung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_durchschnittlicher_Lebenserwartung): 81,7 Jahre; in Monaco sind es 89,6 Jahre, in Singapur 86,5 Jahre und in Japan 85 Jahre.
-   * [Kindersterblichkeit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kindersterblichkeitsrate): Deutlich besser sind Montenegro, Island und Estland.
-   * [Ärztedichte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_%C3%84rztedichte): Platz 18 von 83. Hinter Kuba, Monaco, Schweden. Vor Schweiz, Dänemark, Italien.
-   * [Krankenhausbetten](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anzahl_an_Krankenhausbetten): Wir haben viele Krankenhausbetten, aber interessanter wäre die Auslastung und wie häufig es passiert, dass kein Krankenhausbett verfügbar ist, wenn es gebraucht wird. Höher ist hier nicht unbedingt besser, sondern ggf. ein Grund für hohe Gesundheitskosten.
 
 Risiken:
-   * [Tötungsrate](https://de.wikipedia.org/wiki/T%C3%B6tungsrate_nach_L%C3%A4ndern): 0,9 Tötungsdelikte pro 100.000 Einwohner und Jahr in Deutschland. 0,7 in Polen und Spanien, 0,5 in Italien, 0,2 in Japan.
+
+* [Tötungsrate](https://de.wikipedia.org/wiki/T%C3%B6tungsrate_nach_L%C3%A4ndern): 0,9 Tötungsdelikte pro 100.000 Einwohner und Jahr in Deutschland. 0,7 in Polen und Spanien, 0,5 in Italien, 0,2 in Japan.
+* [Global Cybersecurity Index](https://de.wikipedia.org/wiki/Global_Cybersecurity_Index_2024): Deutschland ist 2024 in der höchsten Stufe (Tier&nbsp;1), zusammen mit 45 weiteren von 194 Ländern.
 
 Freiheit:
-   * [LGBT-Toleranz und -Rechte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_LGBT-Toleranz_und_-Rechten)
 
-Bildung: [viele Jahre in der Schule](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bildungserwartung) - obwohl die Bildungsergebnisse nicht überzeugend waren
+* [Social Progress Index](https://de.wikipedia.org/wiki/Social_Progress_Index): Platz 11 von 163
+* [LGBT-Toleranz und -Rechte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_LGBT-Toleranz_und_-Rechten): Platz 19 von 167 bei der Toleranz (2019), bei den Rechten die volle Punktzahl.
+
+Gesundheit:
+
+* [Lebenserwartung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_durchschnittlicher_Lebenserwartung): 81,7 Jahre; in Monaco sind es 89,6 Jahre, in Singapur 86,5 Jahre und in Japan 85 Jahre.
+* [Kindersterblichkeit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kindersterblichkeitsrate): Deutlich besser sind Montenegro, Island und Estland.
+* [Ärztedichte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_%C3%84rztedichte): Platz 18 von 83. Hinter Kuba, Monaco, Schweden. Vor Schweiz, Dänemark, Italien.
+* [Krankenhausbetten](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anzahl_an_Krankenhausbetten): Wir haben viele Krankenhausbetten, aber interessanter wäre die Auslastung und wie häufig es passiert, dass kein Krankenhausbett verfügbar ist, wenn es gebraucht wird. Höher ist hier nicht unbedingt besser, sondern ggf. ein Grund für hohe Gesundheitskosten.
+
+Bildung:
+
+* [Viele Jahre in der Schule](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bildungserwartung) - obwohl die Bildungsergebnisse nicht überzeugend waren
 
 Staat:
-   * [Fragile States Index](https://de.wikipedia.org/wiki/Fragile_States_Index)
-   * [Staatsschuldenquote](https://en.wikipedia.org/wiki/List_of_countries_by_government_debt): 40 für Deutschland, 5 für USA, 1 für Japan, 4 für Frankreich. Klar, es ist viel besser bei Schweden (78)/Finnland (46) /Norwegen (88)/Schweiz (77)/Luxemburg (86).
-   * [Größe des Eisenbahnnetzes](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Eisenbahnnetz): Wir sind insbesondere deutlich vor Japan und Frankreich.
-   * [Stromerzeugung aus erneuerbaren Energien](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Stromerzeugung_aus_erneuerbaren_Energien): 63%. Besser sind Dänemark mit 88%, Island mit 100% und Norwegen mit 98%.
-   * [Weltfriedensindex](https://de.wikipedia.org/wiki/Weltfriedens-Index): Platz 20 von 163.
-   * [World Happiness Report](https://en.wikipedia.org/wiki/World_Happiness_Report#2026_report): Platz 17 von 147 (2026).
+
+* [Staatsschuldenquote](https://en.wikipedia.org/wiki/List_of_countries_by_government_debt): 40 für Deutschland, 5 für USA, 1 für Japan, 4 für Frankreich. Klar, es ist viel besser bei Schweden (78)/Finnland (46) /Norwegen (88)/Schweiz (77)/Luxemburg (86).
+* [Größe des Eisenbahnnetzes](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Eisenbahnnetz): Wir sind insbesondere deutlich vor Japan und Frankreich.
+* [Stromerzeugung aus erneuerbaren Energien](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Stromerzeugung_aus_erneuerbaren_Energien): 63%. Besser sind Dänemark mit 88%, Island mit 100% und Norwegen mit 98%.
+* [Weltfriedensindex](https://de.wikipedia.org/wiki/Weltfriedens-Index): Platz 20 von 163.
+
+
+Weitere:
+
+* [World Happiness Report](https://en.wikipedia.org/wiki/World_Happiness_Report#2026_report): Platz 17 von 147 (2026).
 
 ## Könnte besser sein
 
-Wirtschaft und Wohlstand:
-   * [Medianvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gen_pro_Kopf): Nur 61.000 USD/Volljährigen. Island führt mit 375.735 USD, Belgien ist bei 267.887 USD und die Schweiz bei 168.084 USD.
-   * [Vermögensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gensverteilung): Ist in Deutschland mit einem Gini-Koeffizienten von 78,8 sehr ungleich. Im Vereinigten Königreich ist er bei 70,6, in Frankreich bei 70,2, in Japan bei 64,7 und in Island bei 64,6.
-   * [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2022 (6,9%) und 2023 (6,0%) war sie sehr hoch. Allerdings war sie sehr lange auch sehr niedrig.
-   * [Gender Pay Gap](https://de.wikipedia.org/wiki/Global_Gender_Gap_Report)
+Wohlstand:
+
+* [Medianvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gen_pro_Kopf): Nur 61.000 USD/Volljährigen. Island führt mit 375.735 USD, Belgien ist bei 267.887 USD und die Schweiz bei 168.084 USD.
+* [Vermögensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gensverteilung): Ist in Deutschland mit einem Gini-Koeffizienten von 78,8 sehr ungleich. Im Vereinigten Königreich ist er bei 70,6, in Frankreich bei 70,2, in Japan bei 64,7 und in Island bei 64,6.
+* [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2022 (6,9%) und 2023 (6,0%) war sie sehr hoch. Allerdings war sie sehr lange auch sehr niedrig.
+* [Gender Pay Gap](https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/12/PD25_453_621.html): Frauen verdienten 2025 pro Stunde durchschnittlich 16% weniger als Männer (unbereinigt).
 
 Wirtschaft:
-   * [Arbeitsproduktivität auf Platz 18 von 181](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitsproduktivit%C3%A4t)
+
+* [Arbeitsproduktivität auf Platz 18 von 181](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitsproduktivit%C3%A4t)
 
 Gesundheit:
-   * [Luftverschmutzung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Luftverschmutzung): Platz 143 von 218. Besser sind Island, Finnland, Schweden.
-   * [Übergewicht](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_adip%C3%B6sen_Personen): 20,4% haben Adipositas (2022)
-   * [Fleischkonsum](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fleischkonsum_pro_Kopf): Zum einen ein Zeichen von Wohlstand, aber auch ein Gesundheitsproblem
-   * [Kokainkonsum](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kokainkonsum): Besser sind Japan, Zypern, Österreich, Griechenland
-   * [Suizidrate](https://de.wikipedia.org/wiki/Suizidrate_nach_L%C3%A4ndern): 12,3 Fälle pro 100.000 Einwohner. Schlechter sind Frankreich mit 13,8, die Schweiz mit 14,5, Belgien mit 18,3 und Südkorea mit 28,6.
+
+* [Luftverschmutzung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Luftverschmutzung): Platz 143 von 218. Besser sind Island, Finnland, Schweden.
+* [Übergewicht](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_adip%C3%B6sen_Personen): 20,4% haben Adipositas (2022)
+* [Fleischkonsum](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fleischkonsum_pro_Kopf): Zum einen ein Zeichen von Wohlstand, aber auch ein Gesundheitsproblem
+* [Kokainkonsum](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Kokainkonsum): Besser sind Japan, Zypern, Österreich, Griechenland
+* [Suizidrate](https://de.wikipedia.org/wiki/Suizidrate_nach_L%C3%A4ndern): 12,3 Fälle pro 100.000 Einwohner. Schlechter sind Frankreich mit 13,8, die Schweiz mit 14,5, Belgien mit 18,3 und Südkorea mit 28,6.
+
 Freiheit:
-   * [Gefängnisinsassen pro 100.000 Einwohner](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gef%C3%A4ngnisinsassen): 71 pro 100.000 Einwohner. Dänemark/Norwegen/Niederlande sind besser. In Finnland sind es nur 51. In Japan nur 40. In Island nur 37.
+
+* [Gefängnisinsassen pro 100.000 Einwohner](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gef%C3%A4ngnisinsassen): 71 pro 100.000 Einwohner. Dänemark/Norwegen/Niederlande sind besser. In Finnland sind es nur 51. In Japan nur 40. In Island nur 37.
+
 Staat:
-   * [Internetnutzer](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Internetnutzern): Nur 94% der Bevölkerung nutzen das Internet. Ich hoffe sehr, dass das ein Generationenthema ist und kein Zugangsthema. In Norwegen sind es 99%.
-   * [Gesundheitsausgaben](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gesundheitsausgaben): Besser als in den USA und der Schweiz, aber Österreich/Dänemark/Niederlande zeigen, dass es besser geht
+
+* [Internetnutzer](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Internetnutzern): Nur 94% der Bevölkerung nutzen das Internet. Ich hoffe sehr, dass das ein Generationenthema ist und kein Zugangsthema. In Norwegen sind es 99%.
+* [Gesundheitsausgaben](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Gesundheitsausgaben): Besser als in den USA und der Schweiz, aber Österreich/Dänemark/Niederlande zeigen, dass es besser geht
 
 ## Schlecht
 
 * [Strompreis](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Strompreis): Wir sind zwar nicht der Spitzenreiter, aber sehr weit vorne. Das hilft natürlich nicht bei der Elektrifizierung und ist auch nicht toll für arme Haushalte.
 * [Fertilitätsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fertilit%C3%A4tsrate): [1,32 Kinder pro Frau (2025)](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_230_12.html). Bei allem unter ca. 2,1 braucht man zwingend Einwanderung, um die Bevölkerungsgröße zu halten. Wenn die Bevölkerung schrumpft, dann sinkt der wirtschaftliche Output. Dann sinkt die Bedeutung in der Welt. Dann wird Verwaltung ineffizient, weil sie für mehr Leute ausgelegt ist.
 * [Hoher Alkoholkonsum pro Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Alkoholkonsum): Nur Moldau, Litauen, Tschechien und die Seychellen trinken mehr.
+* [Erneuerbare Frischwasserressourcen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Wasserressourcen): Pro Kopf nur Platz 117 von 183 (1.286&nbsp;m³ pro Einwohner und Jahr, 2022).

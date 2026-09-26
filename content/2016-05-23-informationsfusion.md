@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2016-05-23 20:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Informationsfusion&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen nicht gehört, aber die Folien von <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=heizmann">Herrn Prof. Dr.-Ing. Michael Heizmann</a> aus dem Wintersemester 2015/2016 gelesen.</div>
@@ -27,7 +27,7 @@ Signal, usw. eingeführt.
     <dt><dfn id="information">Information</dfn></dt>
     <dd>
 
-        Information ist alles was potentiell zur Verringerung von Ungewissheit
+        Information ist alles, was potentiell zur Verringerung von Ungewissheit
         beiträgt.
 
         Sinnvolle Information besteht aus Fakten und zugehörigen
@@ -35,7 +35,7 @@ Signal, usw. eingeführt.
 
     </dd>
     <dt><dfn id="signal">Signal</dfn></dt>
-    <dd>Ein Signal ist eine Funktion oder Wertefolge welche Information trägt.</dd>
+    <dd>Ein Signal ist eine Funktion oder Wertefolge, welche Information trägt.</dd>
     <dt><dfn id="daten">Daten</dfn></dt>
     <dd>Daten sind maschinenlesbare Repräsentationen von Informationen. Sie
         werden als Zeichen oder Zeichenketten gespeichert.</dd>
@@ -138,7 +138,7 @@ Slides: `IF-Kap2_151215.pdf`
 
         Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe, $\theta$ ein Parameter und
         $T(\mathcal{X}_n)$ ein Schätzer für $\theta$. $T(\mathcal{X}_n)$
-        heißt konsistent, wenn gilt:
+        heißt konsistent, wenn für alle $\varepsilon > 0$ gilt:
 
         $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
 
@@ -158,7 +158,7 @@ Slides: `IF-Kap2_151215.pdf`
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
     <dd>Siehe <a href="../kalman-filter/">Kalman-Filter-Artikel</a>.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
-    <dd>GUM ist eine internationale Norm welche das Ziel hat, die
+    <dd>GUM ist eine internationale Norm, welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
         wurden in der Norm Grundsätze und Vorgehensweisen zur Bestimmung der
         Messunsicherheit festgelegt.<br/>
@@ -253,7 +253,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         <br/>
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.<br/>
-        Bei der Berechnung des Konfliktgrades genügt es fokale Ereignisse zu
+        Bei der Berechnung des Konfliktgrades genügt es, fokale Ereignisse zu
         betrachten.</dd>
     <dt><dfn id="bayes-fusion">Bayessche Fusion</dfn></dt>
     <dd>
@@ -273,7 +273,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         <br/>
 
         Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip für die
-        a priori Wahrscheinlichkeitsverteilung verwendet. Man geht also a
+        A-priori-Wahrscheinlichkeitsverteilung verwendet. Man geht also a
         priori davon aus, dass jede Klasse gleich wahrscheinlich ist:
         $$P(z) = (\frac{1}{3}; \frac{1}{3}; \frac{1}{3})$$<br/>
         <br/>
@@ -365,7 +365,7 @@ Zur Einführung:
             <li>Zugehörigkeitsfunktionen definieren</li>
             <li>Fuzzifizierung: Transformation der vorliegenden Information mithilfe der Zugehörigkeitsfunktionen in Fuzzy-konforme Form. Zugehörigkeitsfunktionen bilden numerische Terme auf linguistische Variablen ab.</li>
             <li>Kombination der Terme durch Anwendung von Fuzzy-Logik in der Regelbasis. Die Regeln haben die Form IF Prämisse THEN Konklusion.</li>
-            <li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert Methode)</li>
+            <li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert-Methode)</li>
         </ol>
 
     </dd>
@@ -425,7 +425,7 @@ Slides: `IF-Kap7_160125.pdf`
                 in der Konfiguration $x$ befindet.</li>
         </ul>
 
-        Für $E$ kann dann eine Gibbsche Wahrscheinlichkeitsdichtefunktion WDF
+        Für $E$ kann dann eine Gibbssche Wahrscheinlichkeitsdichtefunktion WDF
         $$WDF \propto e^{- \beta E} = \prod_k e^{-\frac{\lambda_k E_k}{T}}$$
         definiert werden.
         </dd>
@@ -575,7 +575,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 <details class="question">
 <summary>Welche Bedingungen müssen erfüllt sein, damit Informationen fusioniert werden können?</summary>
 <div class="answer">
-Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet
+Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; unsicherheitsbehaftet
 </div>
 </details>
 
@@ -640,7 +640,10 @@ Siehe <a href="#features-properties">oben</a>.
 <details class="question">
 <summary>Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Schätzern?</summary>
 <div class="answer">
-TODO
+Im Allgemeinen keine: Ein Schätzer kann erwartungstreu, aber nicht konsistent
+sein und umgekehrt (Beispiele siehe <a href="../statistik-vorlesung/#prufungsfragen">Statistik</a>).
+Ist ein Schätzer (asymptotisch) erwartungstreu und geht seine Varianz gegen 0,
+so ist er konsistent (Tschebyscheff-Ungleichung).
 </div>
 </details>
 
@@ -693,7 +696,7 @@ vgl. <a href="../kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php)
-* [Anki-Deck](./anki/Informationsfusion.apkg)
+* [Anki-Deck](../anki/Informationsfusion.apkg)
 * [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf)
 * [Mein Prüfungsprotokoll](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/kit-muendlich-informationsfusion/muendlich-we-2013-martin-thoma.pdf)
 
@@ -712,7 +715,7 @@ Literatur:
 Folgende Vorlesungen sind ähnlich:
 
 * [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
-* [Informationsfusion](../informationsfusion/)
+* **Informationsfusion**
 * [Machine Learning 1](../machine-learning-1-course/)
 * [Machine Learning 2](../machine-learning-2-course/)
 * [Mustererkennung](../mustererkennung-klausur/)

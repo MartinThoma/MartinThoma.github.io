@@ -14,7 +14,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 Für die Klausur in den Theoretischen Grundlagen der Informatik sollte man Folgendes auf jeden Fall wissen:
 
 <ul>
-    <li>Wie konstruiert man mittels <strong>Potenzmengen</strong> einen äquivalenten deterministischen endlichen Automaten zu einem Nichtdeterministischen? &rarr; <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Antwort</a></li>
+    <li>Wie konstruiert man mittels <strong>Potenzmengen</strong> einen äquivalenten deterministischen endlichen Automaten zu einem nichtdeterministischen? &rarr; <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Antwort</a></li>
 	<li>Wie bringt man eine Grammatik in <strong>Chomsky-Normalform</strong>? &rarr; <a href="../konstruktion-der-chomsky-normalform/" title="Konstruktion der Chomsky-Normalform">Antwort</a>.</li>
 	<li>Was macht der <strong>CYK-Algorithmus</strong> und wie funktioniert er? &rarr; siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/uebung7.pdf">Beispiel</a> ab Folie 15</li>
 	<li>Was ist die <strong>Chomsky-Hierarchie</strong>, welche Grammatiken gibt es und mit welchen Operationen sind sie <strong>abgeschlossen</strong>? &rarr; <a href="../sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein Überblick">Antwort</a>.</li>
@@ -35,9 +35,9 @@ $L_1 / L_2 = \{\varepsilon, a, b\}$ und
 $L_1 \setminus L_2 = \{aba, bab\}$<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small></li>
 	<li>$PKP \notin \cal NPC$<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small></li>
 	<li>Es kann sein, dass die Ableitung eines Wortes nicht eindeutig ist, aber der Syntaxbaum eindeutig ist.</li>
-	<li>Für jedes Wort w gibt es einen DEA, der w akzeptiert<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small></li>
-	<li>$L' \alpha L$ bedeutet, dass L' polynomial transformierbar in L ist.</li>
-	<li>$L' \alpha_T L$ bedeutet, dass L' Turing-reduzierbar in L ist.</li>
+	<li>Für jedes Wort $w$ gibt es einen DEA, der $w$ akzeptiert.<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small></li>
+	<li>$L' \propto L$ bedeutet, dass $L'$ polynomial auf $L$ transformierbar ist.</li>
+	<li>$L' \propto_T L$ bedeutet, dass $L'$ Turing-reduzierbar auf $L$ ist.</li>
 
 </ul>
 
@@ -47,12 +47,11 @@ $L_1 \setminus L_2 = \{aba, bab\}$<small><sup><a href="#ref3" name="anchor3">[3]
 <strong>Dauer</strong>: 120 min. (siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi1112-t1.pdf">erste Folie</a>)<br/>
 <strong>Punkte</strong>: Bisher waren es meist ca. 60, von denen man 20 zum Bestehen benötigt hat.<br/>
 <strong>Übungsschein</strong>: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/scheine.pdf">Liste</a> der 195 Leute, die ihn bestanden haben. Der Übungsschein bringt einen Klausurbonus. Allerdings habe ich keine Ahnung, wie hoch dieser ist.
-edit: +0,3 zur Klausurnote (Danke Alexander ☺)<br/>
+edit: Die Klausurnote verbessert sich um 0,3 (Danke Alexander ☺)<br/>
 
-Ach ja, ich habe "<a href="http://info.php-4.info/attachment.php?attachmentid=260&sid=dcc186e19164016b828792ff3c04a046">Yet Another Info 3 Resume</a>" noch gar nicht verlinkt. Das ist sehr kurz und hat viele wichtige Informationen.
 
 <h2>Klausurergebnisse</h2>
-Die Klausurergebnisse sind nun <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/notenhk.pdf">öffentlich</a>. Die Liste scheint nach Matrikelnummer sortiert zu sein ... tolle Anonymisierung, da wir ja auch im Saal nach Matrikelnummern sortiert waren. Und falls irgendjemand es vergessen hat: Hier ist die <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">öffentliche Liste der Matrikelnummern</a>. Tja, so werden wir verschaukelt was den Datenschutz angeht.
+Die Klausurergebnisse sind nun <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/notenhk.pdf">öffentlich</a>. Die Liste scheint nach Matrikelnummer sortiert zu sein ... tolle Anonymisierung, da wir ja auch im Saal nach Matrikelnummern sortiert waren. Und falls irgendjemand es vergessen hat: Hier ist die <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">öffentliche Liste der Matrikelnummern</a>. Tja, so werden wir verschaukelt, was den Datenschutz angeht.
 
 edit: Das Leck scheint ausgebessert worden zu sein. Nun sind die Noten nach Klausur-ID sortiert. Sehr schön ☺
 

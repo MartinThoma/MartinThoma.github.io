@@ -58,6 +58,7 @@ TAG_PARENTS = {
     "Flask": ["Python"], "Neural Networks": ["Machine Learning"], "Machine Learning": ["AI"],
     "Klausur": ["University"],
 }
+YOUTUBE = re.compile(r"https?://(?:[\w-]+\.)?(?:youtube(?:-nocookie)?\.com|youtu\.be)/", re.I)
 TRACKING = re.compile(
     r"[?&](?:utm_[a-z]+|fbclid|gclid|mc_cid|mc_eid|igshid|ref_src|ref_url|si)=|amazon\.[a-z.]+/[^\s)\"']*/ref=",
     re.I,
@@ -248,7 +249,10 @@ def check_all(files, report, all_meta):
             elif rel and not ((OUTPUT / rel).exists() or (OUTPUT / rel / "index.html").exists() or (ROOT / rel).exists()):
                 report.add("link-broken", path, lineno(off, text, m.start()), f"{target} does not exist in output/")
         for m in re.finditer(r"https?://[^\s\"')<>\]]+", text):
-            if TRACKING.search(m.group(0)):
+            url = m.group(0)
+            if YOUTUBE.match(url):  # YouTube needs si= (AGENTS.md "Links")
+                url = re.sub(r"[?&]si=[^&#]*", "", url)
+            if TRACKING.search(url):
                 report.add("link-tracking", path, lineno(off, text, m.start()), m.group(0))
 
         # ---------- images ----------
@@ -364,6 +368,11 @@ def check_output(files, report, all_meta):
                     continue
                 if re.search(r"[A-Za-zÄÖÜäöüß]{3,}\s+[A-Za-zÄÖÜäöüß]{3,}", inner) or re.match(r"\s*\d", inner) and re.search(r"\s$", inner):
                     report.add("out-dollar", path, 1, f"MathJax would typeset this as math: ${inner.strip()[:80]}$")
+        # a list right after a paragraph line (no blank line) stays part of the paragraph
+        for para in re.findall(r"(?s)<p>(.*?)</p>", content):
+            if "<br" not in para and re.search(r"(?m)^[ \t]*(?:[*+-]|\d+\.) +\S.*\n[ \t]*(?:[*+-]|\d+\.) +\S", para):
+                first = html.unescape(re.sub(r"<[^>]+>", "", para)).strip().split("\n")[0]
+                report.add("out-markdown", path, 1, f"unrendered list (blank line missing?): …{first[:60]}…")
         for hit in re.finditer(r'href="#?"', content):
             report.add("out-link", path, 1, f"suspicious link {hit.group(0)}")
 

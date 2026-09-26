@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Perfect Design: Frischhaltedosen
-slug: perfekter-frischhaltedosen
+slug: perfekte-frischhaltedosen
+alias: /perfekter-frischhaltedosen/index.html
 lang: de
 author: Martin Thoma
 date: 2025-10-08 20:00
@@ -37,8 +38,7 @@ Ich will ein Set von Frischhaltedosen, welche folgende Eigenschaften haben:
 7. Sie sind innen und außen glatt, damit sie leicht zu reinigen sind.
 8. Sie sind eckig, damit sie im Kühlschrank und in der Tasche wenig Platz
    verschwenden.
-9. Es gibt je eine mit 500ml, 1l und 5l Volumen. Sie nutzen jedoch alle den
-   gleichen Deckel.
+9. Es gibt je eine mit 500&nbsp;ml, 1&nbsp;L und 2&nbsp;L Volumen.
 10. In die Frischhaltedosen sind 4 kleine Füße integriert, damit sie nicht
     direkt auf der Tischplatte stehen. So kann Luft zirkulieren.
 11. Auf dem Boden sollte eine Beschriftung sein, die angibt, ob die Dose für
@@ -58,27 +58,27 @@ Ich will ein Set von Frischhaltedosen, welche folgende Eigenschaften haben:
     <figcaption>ChatGPT-Rendering einer guten Frischhaltedose</figcaption>
 </figure>
 
-Ich denke, eine Deckelfläche von 11x16cm ist ideal. Der Deckel soll einen 1cm
+Ich denke, eine Deckelfläche von 11&nbsp;cm × 16&nbsp;cm ist ideal. Der Deckel soll einen 1&nbsp;cm
 breiten Rand haben, in welchen der Boden der Dose darüber passt. Daher müssen die
 Dosen die Form eines rechtwinkligen Pyramidenstumpfs haben. Damit ergibt sich für das
 Volumen folgende Formel:
 
 $$V = \frac{h}{3} \cdot (A_1 + A_2 + \sqrt{A_1 \cdot A_2})$$
 
-Mit $A_1 = 9cm \cdot 14cm = 126cm^2$ und $A_2 = 11cm \cdot 16cm = 176cm^2$
+Mit $A_1 = 9\,\text{cm} \cdot 14\,\text{cm} = 126\,\text{cm}^2$ und $A_2 = 11\,\text{cm} \cdot 16\,\text{cm} = 176\,\text{cm}^2$
 ergibt sich:
 
-$$V(h) = 150.37cm^2 \cdot h$$
+$$V(h) = 150{,}31\,\text{cm}^2 \cdot h$$
 
-* 500ml: h=3.3cm
-* 1l: h=6.6cm
-* 2l: h=13.3cm
+* 500&nbsp;ml: $h = 3{,}3\,\text{cm}$
+* 1&nbsp;l: $h = 6{,}7\,\text{cm}$
+* 2&nbsp;l: $h = 13{,}3\,\text{cm}$
 
 ## Kandidaten
 
 * [Ikea 365+](https://www.ikea.com/de/de/p/ikea-365-vorratsbehaelter-mit-deckel-rechteckig-glas-kunststoff-s89269071/): Warum gibt es die nur in 1l? Der wäre nahezu perfekt.
 * [Lock&Lock](https://www.locknlock.de/index.php/top-class): Mal wieder zu viele Deckel und die Größen passen nicht - nur 380ml ist zu klein, aber 630ml ist zu groß.
-* [Emsa](https://www.emsa.com/produkt/clip-close-frischhaltedose-glas-3er-set-18l-45l-13l): Dasselbe Problem wie bei Lock&Lock. Die [0.55L Dose](https://www.emsa.com/produkt/clip-close-frischhaltedosen-rechteckig) ist perfekt für vieles, aber der Deckel passt halt nur auf diese Größe.
+* [Emsa](https://www.emsa.com/produkt/clip-close-frischhaltedose-glas-3er-set-18l-45l-13l): Dasselbe Problem wie bei Lock&Lock. Die [0,55L-Dose](https://www.emsa.com/produkt/clip-close-frischhaltedosen-rechteckig) ist perfekt für vieles, aber der Deckel passt halt nur auf diese Größe.
 * [OXO](https://www.oxo.de.com/lebensmittelaufbewahrung/) scheint auch nichts zu haben.
 
 Wenn ihr noch gute Kandidaten kennt, schreibt mir gerne eine E-Mail an

@@ -37,7 +37,8 @@ Die Antwort ist $n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i$. F�
 <h3>Erzeugung der Permutationen</h3>
 Angenommen, man muss in einem Test $S_3$ explizit angeben. Wie geht das?
 
-Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also $3 \cdot 2 \cdot 1 = 6$ Permutationen:
+Nun, zuerst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also $3 \cdot 2 \cdot 1 = 6$ Permutationen:
+
 1. _ _ _
 2. _ _ _
 3. _ _ _
@@ -46,6 +47,7 @@ Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl 
 6. _ _ _
 
 Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:
+
 1. 1 _ _
 2. 1 _ _
 3. _ 1 _
@@ -59,17 +61,17 @@ Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite od
 <td>Und nun nur noch das letzte Einfüllen:</td>
 </tr>
 <tr>
-<td>1. 1 2 _
-2. 1 _ 2
-3. 2 1 _
-4. _ 1 2
-5. 2 _ 1
+<td>1. 1 2 _<br/>
+2. 1 _ 2<br/>
+3. 2 1 _<br/>
+4. _ 1 2<br/>
+5. 2 _ 1<br/>
 6. _ 2 1</td>
-<td>1. 1 2 3
-2. 1 3 2
-3. 2 1 3
-4. 3 1 2
-5. 2 3 1
+<td>1. 1 2 3<br/>
+2. 1 3 2<br/>
+3. 2 1 3<br/>
+4. 3 1 2<br/>
+5. 2 3 1<br/>
 6. 3 2 1</td>
 </tr>
 </table>

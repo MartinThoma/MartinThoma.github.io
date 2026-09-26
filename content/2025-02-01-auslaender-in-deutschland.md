@@ -147,12 +147,15 @@ Konsumanteil haben.
    vorgeschlagenen Lohnsteuersenkungen aus. Bei Steuern, die zu einem hohen
    Anteil von Menschen mit geringen Einkommen bezahlt werden, profitieren
    Menschen mit geringen Einkommen bei einer Senkung. Das sind z.B.:
+
     * **Steuern auf Lebensmittel senken**
     * **Steuern auf Energie senken**
 
    Gegenfinanzieren könnte man das durch höhere Steuern für Menschen mit hohen Vermögen:
+
     * **Vermögensteuer wieder einführen**
     * **Millionen-Erbschaften und Schenkungen effektiv besteuern**
+
 2. **Zuschüsse des Staates zur gesetzlichen Krankenversicherung erhöhen**: Ein
    Systemwechsel zum Beveridge-Modell erscheint mir wünschenswert.
    Jeder sollte für die gesetzliche Krankenversicherung zahlen und auch auf die

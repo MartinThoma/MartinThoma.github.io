@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2016-05-11 20:00
 category: German posts
-tags: Klausur, Reinforcement Learning, University, Machine Learning, AI
+tags: Klausur, Reinforcement Learning, University, Machine Learning, AI, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen.</div>
@@ -69,7 +69,7 @@ sowie die value- und policy iteration zu nennen.
     <td>6</td>
     <td id="2016-05-25">25.05.2016</td>
     <td>MDPs</td>
-    <td>Kürzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
+    <td>Kürzeste-Wege-Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
 </tr>
 <tr>
     <td>7</td>
@@ -243,7 +243,7 @@ Slides: `11.05.2016`
   <dt><a href="https://de.wikipedia.org/wiki/Nutzenfunktion"><dfn id="nutzenfunktion">Nutzenfunktion</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $u: \mathcal{X} \rightarrow \mathbb{R}$
       eine Funktion. Sei außerdem $\geq$ eine Präferenzrelation. $u$ heißt
-      eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
+      eine Nutzenfunktion, welche $\geq$ abbildet, wenn gilt:
       $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$
 
       Jede Präferenzrelation hat mindestens eine Nutzenfunktion. Sie ist
@@ -273,7 +273,7 @@ Slides: `11.05.2016`
         </ol>
 
   </dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Allais-Paradoxon"><dfn id="allais-paradoxon">Allais Paradoxon</dfn></a></dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Allais-Paradoxon"><dfn id="allais-paradoxon">Allais-Paradoxon</dfn></a></dt>
   <dd>
 
       Das Allais-Paradoxon ist ein experimentell beobachtbarer Verstoß gegen
@@ -327,7 +327,7 @@ Slides: `11.05.2016`
       <ul>
           <li>Die Nutzenfunktion kann nicht systematisch konstruiert werden.</li>
           <li>Die Nutzenfunktion bzw. -theorie stimmt nicht mit der
-              menschlichen Intuition überein (vgl. <a href="#allais-paradoxon">Allais Paradoxon</a>)</li>
+              menschlichen Intuition überein (vgl. <a href="#allais-paradoxon">Allais-Paradoxon</a>)</li>
           <li>Verteilungen müssen bekannt sein.</li>
       </ul>
 
@@ -348,7 +348,7 @@ Slides: `11.05.2016`
         \end{align}
         $$
 
-        Siehe auch: <a href="../optimization-basics">Optimization Basics</a>
+        Siehe auch: <a href="../optimization-basics/">Optimization Basics</a>
 
       </dd>
   <dt><dfn>Positiv definite Matrix</dfn></dt>
@@ -432,7 +432,7 @@ Slides: `11.05.2016`
   <dt><dfn>Iterativer Abstieg</dfn> (<dfn id="iterative-descent">Iterative Descent</dfn>)</dt>
   <dd>
 
-      Der Iterative Abstieg ist ein numerisches Optimierungsverfahren ohne
+      Der iterative Abstieg ist ein numerisches Optimierungsverfahren ohne
       Nebenbedingungen. Man geht wie folgt vor:
 
       <ol>
@@ -579,7 +579,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         Ein Diskontierungsfaktor $\gamma \in [0, 1]$ encodiert den
         Bedeutungsverlust zwischen einer direkten Belohnung und einer späteren
-        Belohnung. Es sollte $\gamma < 1$ gelten um unendliche Belohnungen zu
+        Belohnung. Es sollte $\gamma < 1$ gelten, um unendliche Belohnungen zu
         vermeiden.
 
     </dd>
@@ -664,7 +664,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
     </dd>
-    <dt><dfn id="t-kontraction">T-Kontraktion</dfn></dt>
+    <dt><dfn id="t-kontraktion">T-Kontraktion</dfn></dt>
     <dd>Für beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$,
         die Maximums-Norm $d$:
         $$d(J, J') = \max_{i \in \mathcal{X}} |J(i) - J'(i)|$$
@@ -692,7 +692,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         with $J$.
 
         </dd>
-    <dt><dfn>Satz von der Stationären Strategie</dfn></dt>
+    <dt><dfn>Satz von der stationären Strategie</dfn></dt>
     <dd>
 
         <ol>
@@ -807,8 +807,8 @@ $$
 
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn id="hamilton-function">Hamilton-Funktion</dfn></a></dt>
-    <dd>Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
-        Bedingung für die optimale Lösung eines Steuerungsproblems dar. Damit
+    <dd>Mit der Hamilton-Funktion der Kontrolltheorie lässt sich eine notwendige
+        Bedingung für die optimale Lösung eines Steuerungsproblems formulieren. Damit
         eine Lösung eines Steuerungsproblems optimal ist, muss die Lösung
         die Hamilton-Funktion minimieren.<br/>
         <br/>

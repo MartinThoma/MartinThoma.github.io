@@ -7,7 +7,7 @@ lang: de
 author: Martin Thoma
 date: 2013-10-24 12:46:16.000000000 +02:00
 category: German posts
-tags: Klausur, University, KIT
+tags: Klausur, University, KIT, Programming
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
@@ -49,7 +49,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>13.11.2013</td>
 <td>&nbsp;</td>
-<td>Sichtbarkeitsbereich $\subseteq$ Gültigkeitsbereich; $\alpha$ / $\eta$-Äqivalenz, Redex; Funktion, die sich als eigenes Argument nimmt; $\lambda$-Klakül ist Turing-Mächtig</td>
+<td>Sichtbarkeitsbereich $\subseteq$ Gültigkeitsbereich; $\alpha$ / $\eta$-Äquivalenz, Redex; Funktion, die sich als eigenes Argument nimmt; $\lambda$-Kalkül ist Turing-mächtig</td>
 </tr>
 <tr>
 <td>29.11.2013</td>
@@ -59,7 +59,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>10.01.2014</td>
 <td>Scala</td>
-<td>Kein `;`, weniger verbose als Java, ...</td>
+<td>Kein <code>;</code>, weniger verbose als Java, ...</td>
 </tr>
 <tr>
 <td>15.01.2014</td>
@@ -74,7 +74,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>24.01.2014</td>
 <td>-</td>
-<td>C (<abbr title="Immer aus Hauptspeicher, nie aus Cache holen">volatile</abbr>)</td>
+<td>C (<abbr title="Der Compiler darf Zugriffe nicht wegoptimieren: Der Wert wird bei jedem Zugriff aus dem Speicher gelesen bzw. in ihn geschrieben, statt ihn in einem Register zu halten">volatile</abbr>)</td>
 </tr>
 </table>
 
@@ -102,7 +102,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 let f = \ x.plus x x in f (f c_2)    ^= (\ f. f (f c_2)) (\x. plus x x)
 ```
 
-`let` wird wegen dem Typsystem benötigt (`let` ist polymorph,
+`let` wird wegen des Typsystems benötigt (`let` ist polymorph,
 $\lambda$-Term nicht).
 
 ```haskell
@@ -116,7 +116,7 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 * [Inoffizielles Skript](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true) in A5 ([LaTeX-Quellen](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen)): Wer das gerne für ca. 10 Euro in SW gedruckt mit Ringbindung hätte, soll mir eine E-Mail schreiben
 * [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/) und [Übungsblätter](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen)
 * Ein [Anki-Deck](https://ankiweb.net/shared/info/3121773115) (NICHT meines!)
-* Stackexchange:
+* StackExchange:
   * [What is the meaning of M ⊨ φ?](http://math.stackexchange.com/q/704401/6876)
   * [How can I compile the x10 example?](http://stackoverflow.com/q/22283936/562769)
   * [What is the difference of 'async' before or after 'for' in X10?](http://stackoverflow.com/q/22643004/562769)
@@ -164,7 +164,7 @@ zukünftige Termine (z.B. [Programmierparadigmen am 23.09.2014](http://www.infor
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: stehen seit dem 17.04.2014 fest<br/>
-**Einsicht**: am Mittwoch den 30.04.2014, 14:00 Uhr - 16:00 in Raum 010, Informatik Gebäude (Geb. 50.34)  (bekanntgegeben über [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/index.php) am 17.04.2014)<br/>
+**Einsicht**: am Mittwoch, den 30.04.2014, 14:00&ndash;16:00 Uhr in Raum 010, Informatikgebäude (Geb. 50.34) (bekanntgegeben über [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/index.php) am 17.04.2014)<br/>
 **Erlaubte Hilfsmittel**: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
@@ -183,6 +183,6 @@ Stehen seit dem 17.04.2014 fest.
 In der Vorlesung werden zu viele Inhalte behandelt. Eine Folge ist, dass
 nichts richtig behandelt wird. Außerdem erscheinen mir einige der Inhalte
 weder in der Wissenschaft noch in der Wirtschaft relevant zu sein (Prolog, X10).
-Ich würde vorschlagen diese Inhalte zu entfernen. Wenn man der Meinung ist,
+Ich würde vorschlagen, diese Inhalte zu entfernen. Wenn man der Meinung ist,
 dass man Parallelität mehr behandeln sollte, dann wäre vermutlich CUDA deutlich
 wichtiger als X10.

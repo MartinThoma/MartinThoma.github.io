@@ -50,6 +50,8 @@ URL_RE = re.compile(r"(?<![\w/@.\-])(?:https?://|www\.)[^\s<>\"`\]\x00]+", re.I)
 TRAILING = ".,:;!?*_'"
 # query parameters that only track the click (see "Links" in AGENTS.md)
 TRACKING_RE = re.compile(r"^(?:utm_\w+|fbclid|gclid|CMP|cfem|ref_src|si)$")
+# YouTube needs its si= parameter, otherwise the video is not shown correctly
+YOUTUBE_RE = re.compile(r"https?://(?:[\w-]+\.)?(?:youtube(?:-nocookie)?\.com|youtu\.be)/", re.I)
 # blocks whose content Python-Markdown passes through as raw HTML
 BLOCK_TAG_RE = re.compile(
     r"<(/?)(div|ul|ol|li|dl|dd|dt|table|thead|tbody|tr|td|th|p|blockquote|details|summary"
@@ -97,7 +99,11 @@ def href(url):
     base, _, query = url.partition("?")
     if query:
         query, _, fragment = query.partition("#")
-        kept = [p for p in query.split("&") if p and not TRACKING_RE.match(p.split("=")[0])]
+        youtube = YOUTUBE_RE.match(base)
+        kept = [
+            p for p in query.split("&")
+            if p and not (TRACKING_RE.match(p.split("=")[0]) and not (youtube and p.startswith("si=")))
+        ]
         url = base + ("?" + "&".join(kept) if kept else "") + (f"#{fragment}" if fragment else "")
     # parentheses would end a Markdown link target early
     return quote(url, safe=":/?#[]@!$&'*+,;=%~-._")

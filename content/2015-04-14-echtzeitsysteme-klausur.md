@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2015-04-14 20:43
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Echtzeitsysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört.</div>
@@ -27,8 +27,7 @@ habe ich unter anderem in der folgenden Tabelle aufgeführt.
 <tr>
     <td>14.04.2015</td>
     <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-1 - ES1-24)</td>
-    <td><a href="https://de.wikipedia.org/wiki/Speicherprogrammierbare_Steuerung"><abbr title="Speicherprogrammierbare Steuerung">SPS</abbr></a>; NC; RC; <a href="https://de.wikipedia.org/wiki/Daisy_Chain">Daisy chain</a>; Mikroprozessor vs. Mikrorechner vs. Mikrorechnersystem; Aufbau eines Mikroprozessors; Speicherhierarchie (L1-, L2- und L3-Cache, Hauptspeicher, Festplatte); superskalare Pipeline; Fixed-
-priority-preemptive Unterbrechungsbehandlung</td>
+    <td><a href="https://de.wikipedia.org/wiki/Speicherprogrammierbare_Steuerung"><abbr title="Speicherprogrammierbare Steuerung">SPS</abbr></a>; NC; RC; <a href="https://de.wikipedia.org/wiki/Daisy_Chain">Daisy chain</a>; Mikroprozessor vs. Mikrorechner vs. Mikrorechnersystem; Aufbau eines Mikroprozessors; Speicherhierarchie (L1-, L2- und L3-Cache, Hauptspeicher, Festplatte); superskalare Pipeline; Fixed-Priority-Preemptive Unterbrechungsbehandlung</td>
 </tr>
 <tr>
     <td>15.04.2015</td>
@@ -107,14 +106,14 @@ priority-preemptive Unterbrechungsbehandlung</td>
 
 * Ist eine Übertragungsfunktion in Pol-und-Nullstellenform $G(s)$ stabil?
   → Ja, falls der Realanteil aller Pole negativ ist.
-* Ist eine Funktion $G(s)$ stabil?
+* Ist der geschlossene Regelkreis mit der Übertragungsfunktion $G(s)$ des offenen Kreises stabil?
   → Ja, falls die Nullstellen der Gleichung $G(s)+1=0$ links der $i$-Achse liegen.
 * Ist $G(i \omega)$ stabil?
   → Ja, falls die Kurve (-1, 0i) NICHT umfährt (siehe [Nyquistkriterium](https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C))
 
 #### Hurwitz-Kriterium
 
-Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ ist dann stabil,
+Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ ist genau dann stabil,
 wenn
 
 1. alle Koeffizienten $a_i > 0$ UND
@@ -152,7 +151,7 @@ zu überprüfen, also:
 Die Klausuren sind alle sehr ähnlich zueinander:
 
 * Regelung
-    * Zeitkonstante Regelung: 7 Punkte
+    * Zeitkontinuierliche Regelung: 7 Punkte
         * Definition Regelung / Steuerung: 1 Punkt
         * Laplace-Bereich / Übergangsfunktion: 1 Punkt
         * Transformationstabelle / Differentialgleichung: 1 Punkt
@@ -186,11 +185,13 @@ Die Klausuren sind alle sehr ähnlich zueinander:
         * Prinzip Operationswandler: 1 Punkt
         * Asymmetrische / differenzielle Datenübertragung: 1 Punkt
         * A/D-Wandler: 2 Punkte
-* Echtzeitkommunikation / Programmierung: 7 Punkte
+* Echtzeitkommunikation / Programmierung
+    * Echtzeitkommunikation: 7 Punkte
     * ISO / OSI-Schichtenmodell: 1.5 Punkte
     * Manchester-Codierung: 1.5 Punkte
     * Übertragungsfehler: 1.5 Punkte
     * CAN-Dataframes: 2.5 Punkte
+    * Echtzeitprogrammierung
     * Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt
     * FPP-Scheduling: 2 Punkte
     * Periodenabweichung: 2 Punkte
@@ -204,18 +205,17 @@ Die Klausuren sind alle sehr ähnlich zueinander:
         * Sperrsynchronisation: 2 Punkte
         * Seitenadressierung: 2 Punkte
     * SPS: 8 Punkte
-        * <abbr title="Funktionspointer">FUP</abbr> → <abbr title="Anweisungsliste">AWL</abbr>: 2.5 Punkte
+        * <abbr title="Funktionsplan">FUP</abbr> → <abbr title="Anweisungsliste">AWL</abbr>: 2.5 Punkte
         * FUP → Structured Text: 2.5 Punkte
         * 3 Verarbeitungsschritte von SPS im zyklischen Programmbetrieb: 1 Punkt
-        * Konventionelle SPS ↔ Soft: 1 Punkt
-        * Graphische ↔ textuelle Programmiersprache: 1 Punkt
+        * Konventionelle SPS ↔ Soft-SPS: 1 Punkt
+        * Grafische ↔ textuelle Programmiersprache: 1 Punkt
 
 ## Material und Links
 
-* [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
 * [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
-* Meine [Anki-Karten](../anki/Echtzeitsysteme - KIT Wörn 2015.apkg) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
+* Meine [Anki-Karten](../anki/Echtzeitsysteme%20-%20KIT%20Wörn%202015.apkg) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
 
 StackOverflow:
 
@@ -225,7 +225,7 @@ StackOverflow:
 
 * Wo sind die Übungsblätter: ? (Ilias?)
 * Abgabeform: Keine Abgabe
-* Abgabe (wochentag): Keine Abgabe
+* Abgabe (Wochentag): Keine Abgabe
 * Rücknahme: -
 * Turnus: ?
 * Übungsschein verpflichtend: Es gibt keinen Übungsschein.
@@ -258,7 +258,7 @@ Regelungstechnik weiß, ist man hinterher auch nicht schlauer. Es scheint so zu
 sein, dass die klausurrelevanten Teile alle in den Übungen besprochen werden.
 
 Die bereitgestellten **Materialien** hätten besser sein können. Es gibt zwar
-ein Skript, welches sogar eine ISBN-Nummer hat, aber insbesondere bei dem
+ein Skript, welches sogar eine ISBN hat, aber insbesondere bei dem
 Regelungstechnik-Teil ist es nicht sonderlich hilfreich. Ich hatte das Gefühl,
 dass mir da einfach Grundlagen fehlen. Diese werden auch nicht erklärt. Zu den
 PDF-Folien muss man sagen, dass diese zwar schnell im Ilias hochgeladen wurden,
@@ -268,7 +268,7 @@ Kontext gefehlt.
 
 Ein **Highlight** waren Videos, in denen Roboter Kugeln auf einem Tablett
 sehr schnell transportieren. Dazu müssen die Roboter das Tablett im
-richtigen Winkel neigen. Das war ein Highlight der Vorlesung. Schade, dass
+richtigen Winkel neigen. Schade, dass
 nie erklärt wurde, wie so etwas berechnet wird.
 
 **Vorwissen** in der Regelungstechnik und bei Differentialgleichungen ist

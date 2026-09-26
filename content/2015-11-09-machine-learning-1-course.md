@@ -282,7 +282,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
 Slide name: `MLI_01_Einfuehrung_slides1.pdf`
 
 * Was ist Intelligenz? (Problemlösen, Erinnern, Sprache, Kreativität,
-  Bewusstsein, Überleben in komplexen Welten, )
+  Bewusstsein, Überleben in komplexen Welten)
 * Wissensrepräsentation:
     * Assoziierte Paare (Eingangs- und Ausgangsvariablen)
     * Entscheidungsbäume (Klassen diskriminieren)
@@ -373,9 +373,9 @@ Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 
 Siehe auch:
 
-* [Probabilistische Planung](../probabilistische-planung)
-* [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
-* [Machine Learning 2](../machine-learning-2-course/#tocAnchor-1-1-5)
+* [Probabilistische Planung](../probabilistische-planung/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/#v09-reinforcement-learning)
+* [Machine Learning 2](../machine-learning-2-course/#reinforcement-learning)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
@@ -474,7 +474,7 @@ Algorithmen:
 
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
-Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
+Der TD-Learning-Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
 $V^\pi$ für eine gegebene Strategie $\pi$. Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
@@ -507,7 +507,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       auf den Trainingsdaten besser funktioniert, aber eventuell mehr unter
       Overfitting leidet.</dd>
   <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn id="vc-dimension">VC-Dimension</dfn>)</dt>
-  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
+  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \{\infty\}$
       eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
       Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
       werden können. Dabei muss es nur eine Teilmenge $X' \subseteq X$ der
@@ -612,9 +612,9 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     * Klassifikation: Spracherkennung, Schrifterkennung
     * Funktionsapproximation
     * Mustervervollständigung: Kodierung, Bilderkennung (NODO: Warum zählt das nicht zu Klassifikation?)
-* Perzeptron von Rosenblatt (1960)
+* Perzeptron von Rosenblatt (1958)
     * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
-    * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
+    * Training: Zufällige Initialisierung des Gewichtsvektors, Addieren von fehlklassifizierten Vektoren auf den Gewichtsvektor.
 * Gradientenabstieg
 * Software:
   * [Lasagne](http://lasagne.readthedocs.org/en/latest/index.html): Python, hat eine exzellente Dokumentation, die auch größtenteils explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.
@@ -772,8 +772,8 @@ Slide name: `MLI_07_SVM_slides1.pdf`
 Eine Erklärung von <abbr title="Support Vector Machines">SVMs</abbr>
 findet sich im Artikel [Using SVMs with sklearn](../svm-with-sklearn/).
 
-* SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
-  Dimension, falls die Klassen linear trennbar sind.
+* SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen
+  VC-Dimension, falls die Klassen linear trennbar sind.
 * Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>
   $L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)$
   wobei $\alpha_1, \dots, \alpha_N \geq 0$ Lagrange-Multiplikatoren sind
@@ -823,9 +823,9 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
       wird. Siehe
       <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees">Information gain in decision trees</a> für weitere Informationen.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
-  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
+  <dd>ID3 ist ein Top-down-Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
-  <dd>C4.5 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
+  <dd>C4.5 ist ein Top-down-Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
   <dt><dfn>Random Forest</dfn>, Quelle: <a href="https://de.wikipedia.org/wiki/Random_Forest">Wikipedia</a></dt>
   <dd>Ein Random Forest ist ein Klassifikationsverfahren, welches aus mehreren
   verschiedenen, unkorrelierten Entscheidungsbäumen besteht. Alle
@@ -839,7 +839,7 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 * C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
 * Mögliches Qualitätsmaß ist Entropie:<br/>
-  $Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus$
+  $\text{Entropie}(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus$
   wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
   bezeichnet.
 * Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
@@ -863,8 +863,8 @@ Siehe auch:
   <dt><dfn>Satz von Bayes</dfn></dt>
   <dd>Seien $A, B$ Ereignisse, $P(B) > 0$. Dann gilt:
       $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$<br/>
-      Dabei wird $P(A)$ a priori Wahrscheinlichkeit, $P(B|A)$ likelihood,
-      und $P(A|B)$ a posteriori Wahrscheinlichkeit genannt.</dd>
+      Dabei wird $P(A)$ A-priori-Wahrscheinlichkeit, $P(B|A)$ Likelihood
+      und $P(A|B)$ A-posteriori-Wahrscheinlichkeit genannt.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
   <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den
       Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
@@ -874,7 +874,7 @@ Siehe auch:
   <dt><dfn>Summenregel</dfn></dt>
   <dd>$P(A \lor B) = P(A) + P(B) - P(A \land B)$</dd>
   <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
-  <dd>Es seien $A_1, \dots, A_n$ Ereignisse mit $i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n$ und $\sum_{i=1}^n A_i = 1$. Dann gilt:<br/>
+  <dd>Es seien $A_1, \dots, A_n$ Ereignisse mit $i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in \{1, \dots, n\}$ und $\sum_{i=1}^n P(A_i) = 1$. Dann gilt:<br/>
       $P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)$</dd>
   <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
   <dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
@@ -935,7 +935,7 @@ Siehe auch:
 
   In einem bayesschen Netz berechnet sich die gemeinsame Verteilung wie folgt:
 
-  $$P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))$$
+  $$P(X_1, \dots, X_n) = \prod_{i=1}^n P(X_i | \text{Eltern}(X_i))$$
 
   Die Modellierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
   Expertenwissen. Alternativ kann die Struktur durch
@@ -947,7 +947,7 @@ Siehe auch:
 
 Fragen:
 
-* Folie 23: Warum ist $h_{MAP(x)}$ nicht die wahrscheinlichste
+* Folie 23: Warum ist $h_{MAP}(x)$ nicht die wahrscheinlichste
   Klassifikation?
 * Folie 24: Was ist $V$?
 * [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)
@@ -987,7 +987,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       Startzustand&nbsp;$s_i$.</dd>
   <dt><dfn>Forward-Backward Algorithm</dfn></dt>
   <dd>Der Forward-Backward Algorithmus berechnet für jeden Zeitpunkt die
-      Wahrscheinlichkeitsverteilung der Zustände. Dafür glättet er die Werte
+      Wahrscheinlichkeitsverteilung der Zustände. Dafür kombiniert er die Werte
       des Vorwärts- und des Rückwärts-Algorithmus:
       $$\gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P(O|\lambda)}$$
 
@@ -1089,7 +1089,7 @@ Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf`
 
 Siehe auch:
 
-* [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]
+* [<a href="#ref-mit97">Mit97</a>]
 * [DEAP](http://deap.readthedocs.org/en/master/index.html) wenn du es
   ausprobieren willst.
 * [Difference between genetic algorithms and evolution strategies?](http://stackoverflow.com/q/7787232/562769)
@@ -1191,7 +1191,7 @@ Siehe auch: [Formale Systeme](../formale-systeme/)
 <dl>
     <dt><dfn>Modus Ponens</dfn></dt>
     <dd>$$\frac{A, A \rightarrow B}{B}$$</dd>
-    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>])</dt>
+    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href="#ref-mit97">Mit97</a>])</dt>
     <dd>The key insight behind explanation-based generalization is that it is
         possible to form a justified generalization of a single positive
         training example provided the learning system is endowed with some
@@ -1211,7 +1211,7 @@ Siehe auch: [Formale Systeme](../formale-systeme/)
                 Definition des Zielkonzepts erfüllt. Dies ist einfaches
                 Anwenden des Modus Ponens.</li>
             <li>Generalize: Generalisieren der Erklärung; bestimme also
-                hinreichende Bedingungen unter denen die gefundene
+                hinreichende Bedingungen, unter denen die gefundene
                 Erklärungsstruktur gültig ist.</li>
         </ol>
 
@@ -1311,7 +1311,7 @@ c ← k  # Minimale Anzahl an Clustern
 c' ← n  # Anzahl der Datenpunkte
 
 # Weise jedem Punkt sein eigenes Clusterzentrum zu
-for i in range(1, n):
+for i in 1, ..., n:
     D_i ← {x_i}
 
 # Vereinige Clusterzentren
@@ -1319,7 +1319,7 @@ do:
     c' := c' -1
     find closest clusters D_i, D_j
     if d(D_i, D_j) ⩽ t:
-        merge(D_i, Dj)
+        merge(D_i, D_j)
     else:
         break
 until c = c'
@@ -1533,8 +1533,6 @@ Mutation, Rekombination, Fitness-Funktion, Selektion
 
 ## Material und Links
 
-* [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
-* [Übungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
    * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)
@@ -1569,7 +1567,7 @@ Folgende Vorlesungen sind ähnlich:
 
 * [Analysetechniken großer Datenbestände](../analysetechniken-grosser-datenbestaende/)
 * [Informationsfusion](../informationsfusion/)
-* [Machine Learning 1](../machine-learning-1-course/)
+* **Machine Learning 1**
 * [Machine Learning 2](../machine-learning-2-course/)
 * [Mustererkennung](../mustererkennung-klausur/)
 * [Neuronale Netze](../neuronale-netze-vorlesung/)
@@ -1586,7 +1584,7 @@ Folgende Vorlesungen habe ich nicht gehört, könnten aber interessant sein:
 Noch kann ich folgende Veranstaltungen nicht einschätzen und würde mich über
 Feedback von dir freuen:
 
-* Beyerer: Projektpraktikum: Bildauswertung und -fusion9)
+* Beyerer: Projektpraktikum: Bildauswertung und -fusion
 * Big Data @ BOSCH
 * Cayoglu, Streit: Big Data Tools
 * Hartenstein: Big Data Mining auf GPUs

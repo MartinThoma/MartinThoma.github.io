@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2015-04-27 21:15
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Machine Learning, AI
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>
@@ -46,12 +46,12 @@ featured_image: logos/klausur.png
 
 * Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamanten, ...
 * Formalismen
-  * Domäne $\Omega \subseteq$ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.
+  * Domäne $\Omega \subseteq$ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt zu genau einer Äquivalenzklasse gehört.
   * Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion
     **m** aufgefasst werden, die von der Domäne in den Merkmalsraum abbildet.
     Optimalerweise ist diese Abbildung injektiv, bei ungünstig gewählten
     Merkmalen jedoch nicht. Klassifikatoren arbeiten auf dem Merkmalsraum und
-    finden eine Partition des Merkmalsraumes in Klassen
+    finden eine Partition des Merkmalsraumes in Klassen.
 * **Muster**: Gesamtheit der beobachteten / gemessenen Werte einer einzelnen
   Stichprobe (eines einzelnen Objekts).
 * **Erkennung**: (Wieder)erkennung von etwas, was bereits bekannt ist.
@@ -177,8 +177,8 @@ Wahrscheinlichkeit besitzt. Dazu verfolgt man den Ansatz
 
 $$P(\omega|m) = \frac{p(m|\omega) \cdot P(\omega)}{p(m)}$$
 
-Dabei wird $P(\omega|m)$ die *A Posteriori Wahrscheinlichkeitsverteilung*
-und $P(\omega)$ die *A Priori Wahrscheinlichkeitsverteilung* genannt.
+Dabei wird $P(\omega|m)$ die *A-posteriori-Wahrscheinlichkeitsverteilung*
+und $P(\omega)$ die *A-priori-Wahrscheinlichkeitsverteilung* genannt.
 
 #### ME-Kap4_V33.pdf
 
@@ -198,7 +198,9 @@ oder [Konsistenz](https://de.wikipedia.org/wiki/Konsistenz_(Statistik)).
 
 Bei der Parameterschätzung können folgende Fehler passieren:
 
-* Bayesscher Fehler: (TODO: Was ist das?)
+* Bayesscher Fehler: Der Fehler, den selbst der optimale Bayes-Klassifikator
+  mit der wahren Verteilung macht, weil sich die Klassen im Merkmalsraum
+  überlappen. Er lässt sich nicht reduzieren.
 * Modellfehler: Unpassendes Modell gewählt (Falsche Verteilungsannahme?)
 * Schätzfehler: Zu wenige Daten, um Parameter korrekt zu bestimmen
 
@@ -279,7 +281,7 @@ Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
 <details class="question">
 <summary>Wie viele Möglichkeiten gibt es, 5 Merkmale aus 10 auszuwählen?</summary>
 <div class="answer">
-<a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a>
+<a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a>: $\binom{10}{5} = 252$
 </div>
 </details>
 
@@ -352,7 +354,7 @@ radialer Streckung (Skalierung) machen
 <summary>Wie lauten die Prinzipien (A) - (E) der SVMs?</summary>
 <div class="answer">
 <ul>
-  <li>(A) Lineare Trennung mit maximalem Abstand der Trennebenen zu den nächstgelegenen Stichproben (Support Vektoren)</li>
+  <li>(A) Lineare Trennung mit maximalem Abstand der Trennebenen zu den nächstgelegenen Stichproben (Support-Vektoren)</li>
   <li>(B) Duale Formulierung des linearen Klassifikators. (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)</li>
   <li>(C) Nichtlineare Abbildung der primären Merkmale in einen hochdimensionalen Merkmalsraum $\Phi$</li>
   <li>(D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen Eigenfunktionsraumes einer sog. Kernfunktion $K$ als transformierten Merkmalsraum $\Phi$. Dabei müssen die transformierten Merkmale nicht explizit berechnet werden und der Klassifikator hat trotz der hohen Dimension von $\Phi$ nur eine niedrige Zahl von freien Parametern (Kernel-Trick).</li>
@@ -398,7 +400,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Informationsfusion](../informationsfusion/)
 * [Machine Learning 1](../machine-learning-1-course/)
 * [Machine Learning 2](../machine-learning-2-course/)
-* [Mustererkennung](../mustererkennung-klausur/)
+* **Mustererkennung**
 * [Neuronale Netze](../neuronale-netze-vorlesung/)
 * [Lokalisierung Mobiler Agenten](../lma/)
 * [Probabilistische Planung](../probabilistische-planung/)
@@ -411,16 +413,13 @@ Folgende Vorlesungen sind ähnlich:
 **Punkte**: 90<br/>
 **Zeit**: 90 min<br/>
 **Punkteverteilung**: ?<br/>
-
-<ul>
-    <li>ab 60.5: 1.7</li>
-</ul>
+**Notenschlüssel** (unvollständig): ab 60,5 Punkten: 1,7<br/>
 
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Ergebnisse**: Am 30.09.2015 war die (vorläufige) Note im Notenauszug<br/>
-**Einsicht**: Montag 12.10.2015,  9:00-15:00 Uhr im <a href="https://www.kit.edu/campusplan/">Geb. 50.21</a>, Raum 015.1<br/>
+**Einsicht**: Montag, 12.10.2015, 9:00&ndash;15:00 Uhr im <a href="https://www.kit.edu/campusplan/">Geb. 50.21</a>, Raum 015.1<br/>
 **Erlaubte Hilfsmittel**: keine
 
 

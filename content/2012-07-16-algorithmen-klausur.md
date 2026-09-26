@@ -11,13 +11,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Für die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:
 <ul>
-	<li>Wie sind die <a href="../die-landau-symbole/">Landau-Symbole</a> $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a title="Definitionen aus GBI" href="../definitionen-aus-gbi/#Komplexittstheorie">Antwort</a></li>
+	<li>Wie sind die <a href="../die-landau-symbole/">Landau-Symbole</a> $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a title="Definitionen aus GBI" href="../definitionen-aus-gbi/#komplexitatstheorie">Antwort</a></li>
 	<li>Wie lautet das Master-Theorem? &rarr; <a href="http://de.wikipedia.org/wiki/Master-Theorem#Allgemeine_Form">Antwort</a></li>
 	<li>Wie funktioniert der Bellman-Ford-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus">Antwort</a></li>
 	<li>Wie funktioniert der Dijkstra-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Antwort</a></li>
 	<li>Wie funktioniert der Algorithmus von Kruskal und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Kruskal">Antwort</a></li>
 	<li>Wie funktioniert der Algorithmus von Prim und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Prim">Antwort</a></li>
-	<li>Was ist ein Heap, ein <a href="../b-baume/">B-Baum</a>, ein Digitaler Baum und was ein Suchbaum? &rarr; <a href="../ubersicht-uber-datenstrukturen/">Antwort</a></li>
+	<li>Was ist ein Heap, ein <a href="../b-baume/">B-Baum</a>, ein digitaler Baum und was ein Suchbaum? &rarr; <a href="../ubersicht-uber-datenstrukturen/">Antwort</a></li>
 	<li>Sei $A :=$ {Insertionsort, Quicksort, Mergesort, Heapsort, Selectionsort}. Beantworte und begründe für $x \in A$ folgende Fragen:
 <ul>
 	<li>Wie funktioniert x?</li>
@@ -30,8 +30,8 @@ Für die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:
 &rarr; <a href="../ubersicht-uber-sortieralgorithmen/" title="Übersicht über Sortieralgorithmen">Antwort</a>
 </li>
 	<li>Wie funktioniert Radixsort? &rarr; <a href="http://de.wikipedia.org/wiki/Radixsort">Antwort</a></li>
-	<li>Warum ist Radixsort und <a href="http://de.wikipedia.org/wiki/Countingsort">Countingsort</a> nur schlecht mit den Sortieralgorithmen aus vergleichbar?</li>
-	<li>Welches Worst-Case Laufzeitverhalten hat die <a href="http://de.wikipedia.org/wiki/Breitensuche#Laufzeit">Breitensuche</a>, welches die <a href="http://de.wikipedia.org/wiki/Tiefensuche#Laufzeit">Tiefensuche</a>?</li>
+	<li>Warum sind Radixsort und <a href="http://de.wikipedia.org/wiki/Countingsort">Countingsort</a> nur schlecht mit den Sortieralgorithm wie Bubble-Sort / Merge-Sort / Quicksort vergleichbar?</li>
+	<li>Welches Worst-Case-Laufzeitverhalten hat die <a href="http://de.wikipedia.org/wiki/Breitensuche#Laufzeit">Breitensuche</a>, welches die <a href="http://de.wikipedia.org/wiki/Tiefensuche#Laufzeit">Tiefensuche</a>?</li>
 </ul>
 <h2>Some Random Facts</h2>
 Das ist ein Graph, bei dem der Algorithmus von Dijkstra fehlschlägt:
@@ -45,13 +45,13 @@ Das ist ein Graph, bei dem der Algorithmus von Dijkstra fehlschlägt:
 <strong>Datum</strong>: Dienstag, der 31.07.2012 um 17:00 Uhr<br/>
 <strong>Ort</strong>:
 <blockquote>Die Sitze sind alphabetisch nach Ihrem Nachnamen eingeteilt:<br/>
-A-C   Hörsaal am Fasanengarten(50.35)<br/>
-D-J    Gerthsen Hörsaal(30.21)<br/>
-K-O   Audimax(30.95)<br/>
-P-R   Daimler(10.21)<br/>
-S        Benz(10.21)<br/>
-T-V   Tulla(11.40)<br/>
-W-Z  Neue Chemie(30.46) </blockquote>
+A–C: Hörsaal am Fasanengarten (50.35)<br/>
+D–J: Gerthsen-Hörsaal (30.21)<br/>
+K–O: Audimax (30.95)<br/>
+P–R: Daimler (10.21)<br/>
+S: Benz (10.21)<br/>
+T–V: Tulla (11.40)<br/>
+W–Z: Neue Chemie (30.46)</blockquote>
 
 <strong>Dauer</strong>: 120 min. (<a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Start/homepage.aspx">Quelle</a>)<br/>
 <strong>Punkte</strong>: 60<br/>

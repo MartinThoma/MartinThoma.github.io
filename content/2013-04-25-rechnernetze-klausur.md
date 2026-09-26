@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-25 09:32:06.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Internet
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 gehört.</div>
@@ -82,7 +82,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>25.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird für jedes System erstellt; Hot-Potato; Potenzial des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-Detection; Distanz-Vector-Routing; Link-State-Routing</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird für jedes System erstellt; Hot-Potato; Potenzial des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-Detection; Distanz-Vektor-Routing; Link-State-Routing</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">7-44</td>
@@ -111,7 +111,7 @@ Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (
  <td>Physical (Ph)</td>
  <td>Connect (Con)</td>
  <td>Request (Req)</td>
- <td colspan="7">Abhängig vom Dienst</td>
+ <td rowspan="7">Abhängig vom Dienst</td>
 </tr>
 <tr>
  <td>Data Link (DL)</td>
@@ -168,7 +168,7 @@ Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">Vorlesungswebsite</a></li>
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Forum/AllItems.aspx">Forum</a></li>
   <li><a href="../anki/Rechnernetze.apkg">Mein Anki-Deck</a></li>
-  <li>Ein <a href="//www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
+  <li>Ein <a href="https://www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
   <li>Der Wikipedia-Artikel <a href="http://de.wikipedia.org/wiki/Routing">Routing</a> beinhaltet viele wichtige Informationen.</li>
   <li><a href="http://packetcrafter.wordpress.com/2011/02/13/tcp-flags-hackers-playground/">TCP flags: Hackers Playground</a></li>
   <li><a href="http://www.work-at-google.com/curriculum-vitae.html">René Pickhardt</a> und weitere: <a href="https://en.wikiversity.org/wiki/Web_Science">Web Science MOOC</a> auf der Wikiversity.</li>
@@ -211,7 +211,7 @@ Häufige Aufgabenstellungen sind:
   <td>Löffler</td>
 </tr>
 <tr>
-  <td style="background-color:#cdcdcd">HSaF (50.35, EG)</td>
+  <td><strong>HSaF (50.35, EG)</strong></td>
   <td>Loose</td>
   <td>Tobias</td>
 </tr>
@@ -296,7 +296,7 @@ Häufige Aufgabenstellungen sind:
 <tr>
   <th>5,0</th>
   <td>12,75</td>
-  <td>00,00</td>
+  <td>0,00</td>
   <td>12,75</td>
 </tr>
 </table>

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-29 10:19:05.000000000 +02:00
 category: German posts
-tags: Klausur, University, Security
+tags: Klausur, University, Security, KIT, Cryptography
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Sicherheit&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 gehört.</div>
@@ -18,7 +18,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>25.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Caesar, Vigenere, One-Time-Pad</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Caesar, Vigenère, One-Time-Pad</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL01.pdf">VL 01</a></td>
@@ -71,7 +71,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>25.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Lineare Kryptoanalyse, Differentielle Kryptoanalyse, <a href="../semantische-sicherheit/" title="Semantische Sicherheit">Semantische Sicherheit</a>, <a href="../sicherheit-klausur/#Fragen">IND-CPA</a>, Feistel-Schema</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Lineare Kryptoanalyse, Differentielle Kryptoanalyse, <a href="../semantische-sicherheit/" title="Semantische Sicherheit">Semantische Sicherheit</a>, <a href="#fragen">IND-CPA</a>, Feistel-Schema</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">VL 03</a></td>
@@ -143,7 +143,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>24.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (Wörterbuchangriffe, interaktive Authentifikation, positionsbasierte Kryptographie); Rainbowtables; LM-Hashes</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (Wörterbuchangriffe, interaktive Authentifikation, positionsbasierte Kryptographie); Rainbow Tables; LM-Hashes</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL12.pdf">VL 12</a></td>
@@ -216,21 +216,21 @@ Ist $f$ eine kollisionsresistente Hashfunktion, so ist die Merkle&ndash;Damg&ari
 
 <div class="theorem">
 Hash-Then-Sign-Paradigma: Sei (Sig, Ver) EUF-CMA-sicher und H eine kollisionsresistente Hashfunktion.
-Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erklärte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
+Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erklärte <abbr title="Message Authentication Code">MAC</abbr> EUF-CMA-sicher.
 </div>
 
 <h2>Fragen</h2>
 <details class="question">
 <summary>Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</summary>
 <div class="answer">
-IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
+IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschlüsselungsschema ist genau dann IND-CPA-sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
 </details>
 
 <details class="question">
 <summary>Wann ist eine Signatur EUF-CMA-sicher?</summary>
 <div class="answer">
-EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachlässigbar oft gewinnen:
+EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachlässigbar oft gewinnen:
 <ul>
   <li>$\mathcal{A}$ hat Zugriff auf ein $Sig(K, \cdot)$-Orakel</li>
   <li>$\mathcal{A}$ gibt als Ausgabe $(M^*, \sigma^*)$</li>
@@ -242,7 +242,7 @@ EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&l
 <details class="question">
 <summary>Was sind Replay-Angriffe?</summary>
 <div class="answer">
-Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
+Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der beiden.
 </div>
 </details>
 
@@ -262,14 +262,14 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
 <summary>Wie funktioniert RSA?</summary>
 <div class="answer">
 <ol>
-  <li>Generiere zwei Primzahlen $p, q \in \mathbb{P}$</li>
+  <li>Generiere zwei (große, verschiedene) Primzahlen $p, q \in \mathbb{P}$</li>
   <li>Berechne $n := p \cdot q$ und $\varphi(n) = (p-1) \cdot (q-1)$</li>
-  <li>Wähle $e$, sodass gilt: $ggT(e, \varphi(n)) = 1$ und $1 < e < \varphi(n)$</li>
+  <li>Wähle $e$, sodass gilt: $\text{ggT}(e, \varphi(n)) = 1$ und $1 < e < \varphi(n)$</li>
   <li>Berechne $d$, sodass gilt: $e \cdot d \equiv 1 \mod \varphi(n)$</li>
 </ol>
 
-Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$
-Verschlüsselung eines Ciphertextes $c$: $m = c^{d} \mod n$
+Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$<br/>
+Entschlüsselung eines Chiffrats $c$: $m = c^{d} \mod n$
 </div>
 </details>
 
@@ -288,7 +288,7 @@ Folgender Angriff ist für $e=3$ möglich:
 
 
 <details class="question">
-<summary>Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</summary>
+<summary>Was ist damit gemeint, wenn man sagt &bdquo;RSA ist homomorph&ldquo;?</summary>
 <div class="answer">
 Homomorphie ist folgende (unerwünschte) Eigenschaft:
 
@@ -299,7 +299,7 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &= m_1^e \cdot m_2^e\\
 \end{align}
 
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
-Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
+Angenommen, bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
 </details>
 
@@ -334,7 +334,7 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
   <li>TODO!!!!</li>
 </ul>
 
-Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
+Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibt's auch.
 </div>
 </details>
 
@@ -347,16 +347,16 @@ Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor d
 </details>
 
 <details class="question">
-<summary>Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</summary>
+<summary>Was ist damit gemeint, dass die One-Time-Pad-Chiffre verwundbar ist?</summary>
 <div class="answer">
-Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
+Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt), was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
 </details>
 
 <details class="question">
 <summary>Nennen Sie Verfahren, die IND-CPA-sicher sind.</summary>
 <div class="answer">
-Eine Blockciffre im CBC-Modus
+Eine Blockchiffre im CBC-Modus (mit zufälligem IV)
 </div>
 </details>
 
@@ -385,7 +385,7 @@ Ein Angriff auf verschlüsselte Verbindungen:
 <h2>Material</h2>
 <ul>
   <li><a href="http://www.iks.kit.edu/index.php?id=sic-sose13">Vorlesungswebsite</a></li>
-  <li>Mein <a href="../anki/KogSys.apkg">Anki-Deck</a></li>
+  <li>Mein <a href="../anki/Sicherheit.apkg">Anki-Deck</a></li>
   <li><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_vorlaeufiges_Skript.pdf">Skript</a></li>
   <li>StackExchange:
     <ul>
@@ -420,7 +420,7 @@ Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, ke
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)<br/>
-<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)<br/>
+<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im HSaF)<br/>
 <strong>Punkte</strong>: 60<br/>
 <strong>Bestehensgrenze</strong>: 20<br/>
 <strong>Übungsschein</strong>: Nein<br/>

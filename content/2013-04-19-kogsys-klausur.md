@@ -9,7 +9,7 @@ category: German posts
 tags: Klausur, KogSys, ASR, University, KIT, AI
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Waibel im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>
 <h3>Vorlesung</h3>
@@ -29,25 +29,25 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">29.04.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/05_06-Classification_2013.pdf">Klassifikation I</a></td>
-<td style="border-bottom:1px solid black;">Schablonenanpassung: <span class="hint" title="Skalierung, Perspektiven, Drehung, Verzerrung, Helligkeit">Probleme</span>, Statistische Auswertung immer wichtig da Signale ambig sind, Assoziative Netze, Bayes Decision Theorie, Gaussian Classificator - "Covarianzmatrix tut das Richtige [und eliminiert von einander Abhängige Dimensionen]", Mahalanobis-Distanz; Gauss-Klassifikator ist quadratischer Form (Kreis, Ellipse, Linie), Overfitting = "Vorurteil" passiert, wenn man zu wenig Daten bzw. zu viele Dimensionen dafür hat - "Fluch der Dimensionalität"; Hauptachsentransformation reduziert Dimensionalität</td>
+<td style="border-bottom:1px solid black;">Schablonenanpassung: <span class="hint" title="Skalierung, Perspektiven, Drehung, Verzerrung, Helligkeit">Probleme</span>, Statistische Auswertung immer wichtig, da Signale ambig sind, Assoziative Netze, Bayes Decision Theory, Gaussian Classifier - "Kovarianzmatrix tut das Richtige [und eliminiert voneinander abhängige Dimensionen]", Mahalanobis-Distanz; Entscheidungsgrenzen des Gauß-Klassifikators sind quadratisch (z.B. Kreis, Ellipse, Linie), Overfitting = "Vorurteil" passiert, wenn man zu wenig Daten bzw. zu viele Dimensionen dafür hat - "Fluch der Dimensionalität"; Hauptachsentransformation reduziert Dimensionalität</td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">06.05.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/07_08-MachineLearning_2013.pdf">Machine Learning</a></td>
-<td style="border-bottom:1px solid black;">Klassifikation: Risikobetrachtung bei Klassifikatoren, Gaussian Mixtures, Parzen Windows (nicht-parametrisiert, überwacht), Fisher Linear Discriminant (scatter matrix), Linear separabel, <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearest neighbors</a> (nicht-parametrisch, nicht-linear, überwacht)</td>
+<td style="border-bottom:1px solid black;">Klassifikation: Risikobetrachtung bei Klassifikatoren, Gaussian Mixtures, Parzen Windows (nicht-parametrisch, überwacht), Fisher Linear Discriminant (scatter matrix), Linear separabel, <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearest neighbors</a> (nicht-parametrisch, nicht-linear, überwacht)</td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">13.05.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/07_08-MachineLearning_2013.pdf#page=25">Neural Nets</a></td>
-<td style="border-bottom:1px solid black;">Perceptron Criterion Function; <abbr title="Multilevel Perceptron">MLP</abbr></td>
+<td style="border-bottom:1px solid black;">Perceptron Criterion Function; <abbr title="Multilayer Perceptron">MLP</abbr></td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">27.05.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/09_Bildverarbeitung1-2013.pdf">Bildverarbeitung I</a></td>
-<td style="border-bottom:1px solid black;">Lochkartenmodell, HSI-Farbmodell, RGB2HSI, RGB2Graustufen, <a href="http://de.wikipedia.org/wiki/Punktoperator_(Bildverarbeitung)#Histogrammspreizung_und_-stauchung">Histogrammspreizung</a></td>
+<td style="border-bottom:1px solid black;">Lochkameramodell, HSI-Farbmodell, RGB2HSI, RGB2Graustufen, <a href="http://de.wikipedia.org/wiki/Punktoperator_(Bildverarbeitung)#Histogrammspreizung_und_-stauchung">Histogrammspreizung</a></td>
 </tr>
 
 <tr>
@@ -59,13 +59,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">03.06.2013</td>
 <td style="border-bottom:1px solid black;">(Nicht verfügbar)</td>
-<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Knotenerkennung; Hough-Transformation; Harris-Corner-Detector; <a href="../kalman-filter/">Kalman-Filter</a>; Erosion / Dilatation; Öffnen / Schließen</td>
+<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Eckenerkennung; Hough-Transformation; Harris-Corner-Detector; <a href="../kalman-filter/">Kalman-Filter</a>; Erosion / Dilatation; Öffnen / Schließen</td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">10.06.2013</td>
 <td style="border-bottom:1px solid black;">(Nicht verfügbar)</td>
-<td style="border-bottom:1px solid black;">Spracherkennung: Lautbildung, Vokale werden durch 1., 2. Formante bestimmt</td>
+<td style="border-bottom:1px solid black;">Spracherkennung: Lautbildung, Vokale werden durch den 1. und 2. Formanten bestimmt</td>
 </tr>
 
 <tr>
@@ -92,7 +92,7 @@ Nichts Interessantes.
 </ul>
 
 <h4>04: Intelligente und Kognitive Systeme</h4>
-Interessant, aber vermutlich nicht Klausurrelevant.
+Interessant, aber vermutlich nicht klausurrelevant.
 
 <h4>05, 06: Klassifikation</h4>
 <ul>
@@ -125,12 +125,12 @@ Interessant, aber vermutlich nicht Klausurrelevant.
   <li>RGB / HSI-Modell</li>
   <li>Bayer-Pattern</li>
   <li>Lochkamera-Modell</li>
-  <li>Affine Punktoperatoren: $g := round(a \cdot I(u,v) + b)
-I'(u,v) :=
+  <li>Affine Punktoperatoren: $g := \text{round}(a \cdot I(u,v) + b)$,
+$I'(u,v) :=
 \begin{cases}
 0 &\text{, falls } g < 0\\
 q &\text{, falls } g > q\\
-g &\text{sonst}
+g &\text{, sonst}
 \end{cases}$
     <ul>
       <li>Kontrasterhöhung: $b=0; a > 1$</li>
@@ -140,7 +140,7 @@ g &\text{sonst}
       <li>Invertierung:  $b=q; a =-1$</li>
     </ul>
   </li>
-  <li>Nicht-Affine Punktoperatoren</li>
+  <li>Nicht-affine Punktoperatoren</li>
   <li>Automatische Kontrastanpassung (Spreizung, Histogrammdehnung, Histogrammausgleich)</li>
 </ul>
 
@@ -186,7 +186,7 @@ g &\text{sonst}
 <ul>
   <li>Faltung</li>
   <li>Formanten</li>
-  <li>Spektogramm</li>
+  <li>Spektrogramm</li>
   <li>Akustisches Modell, Sprachmodell</li>
   <li>(Hidden-)Markov-Modell</li>
   <li><strong>Forward-, Forward-Backward- und Viterbi-Algorithmus</strong></li>
@@ -234,7 +234,7 @@ Vermutlich nichts Klausurrelevantes (offiziell ab Folie 25)
 </ul>
 
 <h4>19: Robotik</h4>
-Offiziell nicht Klausurrelevant.
+Offiziell nicht klausurrelevant.
 
 <h2>Material</h2>
 <ul>
@@ -246,8 +246,8 @@ Offiziell nicht Klausurrelevant.
   <li><a href="https://github.com/elm/KogSys-Zusammenfassung">Zusammenfassung</a></li>
   <li>Videos
     <ul>
-      <li><a href="//www.youtube.com/watch?v=aVId8KMsdUU">Neural network tutorial: The back-propagation algorithm</a></li>
-      <li><a href="//www.youtube.com/watch?v=46Jzu-xWIBk">The backpropagation algorithm</a></li>
+      <li><a href="https://www.youtube.com/watch?v=aVId8KMsdUU">Neural network tutorial: The back-propagation algorithm</a></li>
+      <li><a href="https://www.youtube.com/watch?v=46Jzu-xWIBk">The backpropagation algorithm</a></li>
     </ul>
   </li>
   <li>Pseudocode für
@@ -257,7 +257,7 @@ Offiziell nicht Klausurrelevant.
     </ul>
   </li>
   <li><a href="http://colorizer.org/">Colorizer</a>: Hier kann man ein bisschen mit Farbräumen rumspielen und die Unterschiede interaktiv feststellen.</li>
-  <li>StackOverflow:
+  <li>StackExchange:
     <ul>
       <li><a href="http://math.stackexchange.com/q/487245/6876">Why is $(-1) \cdot j = j \cdot (-1)$ for quaternions?</a></li>
     </ul>
@@ -265,7 +265,7 @@ Offiziell nicht Klausurrelevant.
   <li>Artikel:
     <ul>
       <li><a href="../graphic-filters/">Graphic filters</a>: Mit einem interaktiven Beispiel aller Filter!</li>
-      <li><a href="../k-nearest-neighbor-classification-interactive-example/">Clustering-Algorithmen</a>: Mit interaktivem Beispiel</li>
+      <li><a href="../k-nearest-neighbor-classification-interactive-example/">k-nearest-neighbor und k-means</a>: Mit interaktivem Beispiel</li>
       <li><a href="../calculations-with-quaternions/">Calculations with quaternions</a></li>
       <li><a href="../calculate-histogram-equalization/">How do I calculate a histogram equalization?</a></li>
       <li><a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></li>
@@ -275,7 +275,6 @@ Offiziell nicht Klausurrelevant.
   </li>
   <li>Grafische Faltung:
     <ul>
-      <li><a href="http://www.jhu.edu/signals/convolve/">John Hopkins University</a>, Java Applet</li>
       <li><a href="http://www.onmyphd.com/?p=convolution">onmyphd.com</a>, JavaScript</li>
     </ul>
   </li>

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2017-01-15 17:30
 category: German posts
-tags: Klausur, University, Mathematics
+tags: Klausur, University, Mathematics, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Statistik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.math.kit.edu/stoch/~klar/de">Herrn Prof. Dr. Bernhard Klar</a> im Wintersemester 2016 / 2017 gehört.</div>
@@ -73,11 +73,11 @@ featured_image: logos/klausur.png
     <dd>
 
     <ol>
-        <li><b>Likelihood-Funktion</b>: Multipliziere die Wahrscheinlichkeit der Werte um $L_x(\vartheta)$ zu bestimmen</li>
+        <li><b>Likelihood-Funktion</b>: Multipliziere die Wahrscheinlichkeiten (bzw. Dichten) der Werte, um $L_x(\vartheta)$ zu bestimmen</li>
         <li><b>Log-Likelihood</b>: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird</li>
-        <li><b>Maximieren</b>: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
+        <li><b>Maximieren</b>: Leite die (Log-)Likelihood-Funktion ab und setze sie gleich 0, um
             den Maximum-Likelihood-Schätzer $\hat{\vartheta}$ zu bestimmen.</li>
-        <li><b>Maximalstelle</b>: Prüfe ob zweite Ableitung negativ ist</li>
+        <li><b>Maximalstelle</b>: Prüfe, ob die zweite Ableitung negativ ist</li>
     </ol>
 
     </dd>
@@ -110,7 +110,7 @@ featured_image: logos/klausur.png
         Für erwartungstreue Schätzer $T$ gilt:
         $$V_\vartheta(T) \geq \frac{1}{n I (\vartheta)}$$
     </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz Ungleichung</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz-Ungleichung</dfn></a></dt>
     <dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn id="zgws">ZGWS</dfn>)</dt>
     <dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
@@ -180,11 +180,11 @@ featured_image: logos/klausur.png
         Studentschen $t$-Verteilung entspricht ($T \sim t_n$), dann hat man
         einen $t$-Test.<br/>
         <br/>
-        Wenn der Testentscheid, ob $H_0$ verworfen wird so
+        Wenn der Testentscheid, ob $H_0$ verworfen wird, so
         aussieht:
         $$H_0 \text{ wird verworfen, falls } T < 123$$
         dann liegt ein einseitiger Test vor.
-        Falls der Testentscheid, ob $H_0$ verworfen wird so
+        Falls der Testentscheid, ob $H_0$ verworfen wird, so
         aussieht:
         $$H_0 \text{ wird verworfen, falls } T < -123 \text{ oder } T > +123$$
         dann liegt ein zweiseitiger Test vor. Kurz schreibt man dann auch meistens
@@ -193,7 +193,7 @@ featured_image: logos/klausur.png
         In dem beschriebenen Fall liegt eine Stichprobe $X_1, \dots, X_n$ vor,
         welche aus einer Verteilung gezogen wurde. Es ist aber auch möglich,
         dass man zwei Stichproben $X_1, \dots, X_n$ und $Y_1, \dots, Y_m$ hat.
-        Das ist z.B. bei Medikamententests häufig der Fall. Da will man wissen
+        Das ist z.B. bei Medikamententests häufig der Fall. Da will man wissen,
         ob beide Stichproben aus der gleichen Verteilung stammen (also das
         Medikament nichts macht) oder eben nicht.
 
@@ -342,7 +342,7 @@ featured_image: logos/klausur.png
         $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$<br/>
         $H_0$ verwerfen, wenn $F \geq F_{k-1, n-k; 1- \alpha}$.
     </dd>
-    <dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Schätzer</dfn></dt>
+    <dt><dfn id="least-squares-estimator">Kleinste-Quadrate-Schätzer</dfn></dt>
     <dd>
 
         Der Kleinste-Quadrate-Schätzer für das klassische lineare Modell
@@ -511,7 +511,7 @@ featured_image: logos/klausur.png
         <th>Verteilung</th>
         <th>Schreibweise</th>
         <th>$\mathbb{E}(X)$</th>
-        <th>$Var(x)$</th>
+        <th>$Var(X)$</th>
         <th>Bemerkung</th>
     </tr>
     <tr>
@@ -533,7 +533,7 @@ featured_image: logos/klausur.png
         <td>$X \sim Exp(\lambda)$</td>
         <td>$\frac{1}{\lambda}$</td>
         <td>$\frac{1}{\lambda^2}$</td>
-        <td>Zerfall-Prozess</td>
+        <td>Zerfallsprozess</td>
     </tr>
     <tr>
         <td><a href="https://de.wikipedia.org/wiki/Normalverteilung">Normalverteilung</a></td>
@@ -591,11 +591,11 @@ rv = scipy.stats.f(dfn=3, dfd=19)
 rv.ppf(0.95)  # gives 3.1273500051133989
 ```
 
-## Klausur Aufbau
+## Klausuraufbau
 
 * Aufgabe 1 und 2
     * [ML-Schätzer bestimmen](#maximum-likelihood-estimator)
-    * [Score-Funktion](#score-function) / [Fisher-Information](#fisher-information)
+    * [Score-Funktion](#score-funktion) / [Fisher-Information](#fisher-information)
     * [Cramér-Rao-Schranke](#cramer-rao)
     * asymptotische Erwartungstreue / Konsistenz von Schätzern
     * Erwartungswert, Varianz, [MQA](#mqa) eines Schätzers bestimmen
@@ -619,13 +619,13 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * Modellannahmen bei einfacher Varianzanalyse
 * Aufgabe 7
     * Lineares Regressionsmodell
-    * [Kleinster-Quadrate-Schätzer](#least-squares-estimator)
+    * [Kleinste-Quadrate-Schätzer](#least-squares-estimator)
     * [Bestimmtheitsmaß](#bestimmtheitsmass)
     * Chi-Quadrat-Test auf Homogenität ($D := \sum_{i=1}^n \frac{n_i {(\hat{p}_i - \hat{p})}^2}{\hat{p} (1 - \hat{p})} \stackrel{H_0}{\sim} \chi^2_{k-1}$)
 * Various
     * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
     * Binomial-Verteilung
-    * 1-Stichproben t-Test
+    * 1-Stichproben-t-Test
     * [F-Test für den Varianzquotienten](#f-test-varianzquotient)
     * [Globaler F-Test](#globaler-f-test)
 
@@ -686,8 +686,8 @@ Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \fra
 ## Literatur
 
 * Skript von Dr. B. Klar: Statistik
-* [<a href="#ref-bic01-anchor" name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.
-* [<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Czado and T. Schmidt. Mathematische Statistik.
+* [<a name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.
+* [<a name="ref-cza11">Cza11</a>] C. Czado and T. Schmidt. Mathematische Statistik.
 
 
 ## Übungsbetrieb

@@ -6,12 +6,12 @@ lang: de
 author: Martin Thoma
 date: 2012-08-07 09:35:33.000000000 +02:00
 category: German posts
-tags: Klausur, University
+tags: Klausur, University, KIT, Linear Algebra, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Leuzinger am KIT die Klausur über Lineare Algebra und analytische Geometrie schreiben werden.
 
-Was ich im folgenden unter "Themen" schreibe, wurde von Prof. Dr. Leuzinger in der letzten Stunde aufgeschrieben. Das habe ich als Grundlage genommen und ergänzt. Er gab folgende Tipps:
+Was ich im Folgenden unter "Themen" schreibe, wurde von Prof. Dr. Leuzinger in der letzten Stunde aufgeschrieben. Das habe ich als Grundlage genommen und ergänzt. Er gab folgende Tipps:
 <ul>
   <li>Zeitplan aufstellen</li>
   <li>Aktiv lernen</li>
@@ -31,7 +31,7 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
   <li><strong>Gruppen</strong>: Untergruppe, Homomorphismus/Isomorphismus, $GL(n, \mathbb{K})$</li>
   <li><strong>Körper</strong>: $\mathbb{R}, \mathbb{C}, \mathbb{Z}/p\mathbb{Z}$ (insbesondere $p=2$)</li>
   <li><strong>Vektorräume</strong>: Basis, Basisergänzungssatz, Dimension, Basiswechsel, $V \cong \mathbb{K}^n$ (für $\dim V = n$); $\dim (U_1 \oplus U_2) = \dim U_1 + \dim U_2$</li>
-  <li><strong>Lineare Abblidungen</strong> (Definitionen, Beispiele):
+  <li><strong>Lineare Abbildungen</strong> (Definitionen, Beispiele):
     <ul>
       <li>Lineare Fortsetzung, $\phi: V \rightarrow W$</li>
       <li>Dimensionssatz $\dim \text{Bild} \phi = \dim V - \dim \phi^2$</li>
@@ -46,16 +46,16 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
   </li>
   <li><strong>Determinante</strong>:
      <ul>
-       <li>Laplacesche Entwicklungsformel (z.B. nach i-ter Spalte)</li>
+       <li>Laplacesche Entwicklungsformel (z.B. nach der $i$-ten Spalte)</li>
        <li>$\det A^T = \det A$</li>
        <li>$\det(A \cdot B) = \det A \cdot \det B$</li>
        <li>$\det(A^{-1}) = \frac{1}{\det A}$</li>
        <li>$$\det \begin{pmatrix}A & * \\0 & B\end{pmatrix} = \det A \cdot \det B$$ ("Kästchensatz")</li>
-       <li>Bei beliebig großen Matrizen &agrave; la $A \in \mathbb{R}^{n \times n}$ gibt es ein paar Dinge, die beim Suchen der Determinante hilfreich sein können:
+       <li>Bei beliebig großen Matrizen &agrave; la $A \in \mathbb{R}^{n \times n}$ gibt es ein paar Dinge, die beim Berechnen der Determinante hilfreich sein können:
          <ul>
            <li>Ist die Matrix symmetrisch? Falls ja, muss man sich nur die Zeilen anschauen. Falls nein, können die folgenden Tipps sowohl für die Zeilen als auch für die Spalten überprüft werden.</li>
            <li>Nützt es etwas, wenn ich auf die letzte Zeile alle vorherigen Zeilen addiere?</li>
-           <li>Was passiert, wenn ich Zeile $i$ auf Zeile $(i+1)$ addiere für $i \in 1, ..., (n-1)$?</li>
+           <li>Was passiert, wenn ich Zeile $i$ auf Zeile $(i+1)$ addiere für $i \in \{1, \dots, n-1\}$?</li>
          </ul>
        </li>
      </ul>
@@ -93,7 +93,7 @@ Mit diesen Aufgabentypen sollte man rechnen:
 <h4>Siehe auch</h4>
 <ul>
   <li><a href="http://commons.wikimedia.org/wiki/File:Venn-diagramm-algebraische-strukturen.svg">Übersicht über algebraische Strukturen</a></li>
-  <li><a href="http://next-internet.com/la/texte/la_zusammenfassung.pdf">Zusammenfassung auf next-indernet.com</a></li>
+  <li><a href="http://next-internet.com/la/texte/la_zusammenfassung.pdf">Zusammenfassung auf next-internet.com</a></li>
 </ul>
 
 <h3>Lineare Algebra II</h3>
@@ -125,7 +125,7 @@ Mit diesen Aufgabentypen sollte man rechnen:
   <li>Spektralsatz: $\phi s.a. \Rightarrow \phi \text{ diagonalisierbar}, \exists S \in O(n) \text{ mit } S^{-1} A S = D$.</li>
   <li>Abbildungsmatrizen bzgl. ONB</li>
   <li>$\phi$ s.a. Basis: ONB $\Rightarrow$ Abb. Matrix symmetrisch, aber noch mehr: $\exists$ ONB aus EV mit Abb. Matrix = Diagonalmatrix (Spektralsatz)</li>
-  <li>$\phi$ lin. Isometrie, Basis ONB $\Rightarrow$ Abb. Matrix ist orthogonal / unitär, aber noch mehr: $\exists$ ONB mit Abb. in euklid NF</li>
+  <li>$\phi$ lin. Isometrie, Basis ONB $\Rightarrow$ Abb. Matrix ist orthogonal / unitär, aber noch mehr: $\exists$ ONB mit Abb.-Matrix in euklidischer Normalform</li>
   <li><strong><a href="../berechnung-der-euklidischen-normalform/">Berechnung der euklidischen Normalform</a></strong></li>
   <li>Kriterien für pos. definit (Ist geg. BF $\beta$ ein SP?)</li>
   <li><a href="http://de.wikipedia.org/wiki/Hauptachsentransformation">Hauptachsentransformation</a></li>
@@ -156,8 +156,8 @@ Es empfiehlt sich, einen Lernplan aufzustellen. Wenn ich die Übungsblätter mac
 </ul>
 
 Ein paar interessante Aussagen:
-<blockquote>In den letzten Jahren reichten 20 Punkte zum bestehen</blockquote>
-<blockquote>In den letzten Jahren wurde jeweils im LA I und in LA II der beste Teil doppelt bepunktet</blockquote>
+<blockquote>In den letzten Jahren reichten 20 Punkte zum Bestehen.</blockquote>
+<blockquote>In den letzten Jahren wurde jeweils in LA I und in LA II der beste Teil doppelt bepunktet.</blockquote>
 <blockquote>Es gab bisher nur eine Gesamtnote für LA I und II, man musste die beiden Tests also nicht einzeln bestehen.</blockquote>
 
 ## Ergebnisse

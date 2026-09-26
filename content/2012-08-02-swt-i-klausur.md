@@ -11,13 +11,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Für die Klausur in Softwaretechnik I 2012 bei Herrn Prof. Dr. Tichy sollte man Folgendes auf jeden Fall wissen:
 <ul>
-  <li>Wie lautet der Aufbau des Wasserfallmodells?</li>
-  <li>Was ist ein Sequenzdiagramm und wie sieht es aus?  &rarr; <a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Antwort</a></li>
+  <li>Wie ist das Wasserfallmodell aufgebaut?</li>
+  <li>Was ist ein Sequenzdiagramm und wie sieht es aus? &rarr; <a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Antwort</a></li>
   <li>Wozu dient ein Aktivitätsdiagramm und wie sieht es aus? &rarr; <a href="http://de.wikipedia.org/wiki/Aktivit%C3%A4tsdiagramm">Antwort</a></li>
   <li>Wozu dienen die 21 Entwurfsmuster? &rarr; Siehe <a href="http://www.jetpunk.com/user-quizzes/27013/entwurfsmuster">mein Spiel</a> und <a href="http://www.vincehuston.org/dp/patterns_quiz.html">weiteres Spiel</a></li>
-  <li>Wie sehen die Strukturmuster der 21 Entwurfmuster aus? &rarr; Siehe Kapitel 3.5</li>
-  <li>Was wird zuerst erstellt: Das Lastenheft oder das Pflichtenheft?  &rarr; <a href="http://de.wikipedia.org/wiki/Lastenheft">Antwort</a></li>
-  <li>Welche zwei Möglichkeiten gibt es in Java, um eine Aufgabe parallel auszuführen? Was sind die Vor- und Nachteile?  &rarr; <a href="http://stackoverflow.com/a/11774135/562769">Antwort</a></li>
+  <li>Wie sehen die Strukturmuster der 21 Entwurfsmuster aus? &rarr; Siehe Kapitel 3.5</li>
+  <li>Was wird zuerst erstellt: Das Lastenheft oder das Pflichtenheft? &rarr; <a href="http://de.wikipedia.org/wiki/Lastenheft">Antwort</a></li>
+  <li>Welche zwei Möglichkeiten gibt es in Java, um eine Aufgabe parallel auszuführen? Was sind die Vor- und Nachteile? &rarr; <a href="http://stackoverflow.com/a/11774135/562769">Antwort</a></li>
   <li>Wie nennt man die Schlüsselwörter der Art <code>@Test</code>, <code>@Before</code> und <code>@BeforeClass</code>? Was bewirken diese Schlüsselwörter in JUnit? &rarr; <a href="http://www.vogella.com/articles/JUnit/article.html#usingjunit_annotations">Antwort</a></li>
   <li>Wozu dient JFrame? &rarr; <a href="../how-to-use-swing/" title="Swing I: How to use Swing">Antwort</a></li>
 </ul>
@@ -38,9 +38,9 @@ Aus dem Mailman-Verteiler von Herrn Karcher.
 <h2>Termine</h2>
 <strong>Datum</strong>: Montag, den 06.08.2012 um 14:00 Uhr<br/>
 <strong>Ort</strong>:<br/>
-A - E: HSaF (Geb. 50.35)<br/>
-F - K: Gerthsen (Geb. 30.21)<br/>
-L - Q: Benz (Geb. 10.21)<br/>
+A&ndash;E: HSaF (Geb. 50.35)<br/>
+F&ndash;K: Gerthsen (Geb. 30.21)<br/>
+L&ndash;Q: Benz (Geb. 10.21)<br/>
 R&ndash;S: Gaede (Geb. 30.22)<br/>
 T&ndash;Z: Daimler (Geb. 10.21)<br/>
 
