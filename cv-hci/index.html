@@ -447,26 +447,34 @@ try {
 </ul>
 </dd>
 <dt><dfn id="gabor-filter"><a href="https://en.wikipedia.org/wiki/Gabor_filter">Gabor Filter</a></dfn></dt>
-<dd>TODO</dd>
+<dd>A linear filter formed by a sinusoidal plane wave multiplied by a Gaussian envelope. It responds strongly to edges/textures of a specific orientation and frequency, similar to simple cells in the human visual cortex.</dd>
 <dt><dfn><a href="https://en.wikipedia.org/wiki/Local_binary_patterns">Local Binary Pattern</a></dfn> (<dfn id="lbp">LBP</dfn>)</dt>
-<dd>TODO</dd>
+<dd>For each pixel, compare its intensity to its neighbors (e.g. 8 neighbors in a 3&times;3 window): 1 if the neighbor is greater or equal, 0 otherwise. Reading these bits gives a code per pixel; a histogram of the codes over an image region is used as a texture descriptor.</dd>
 <dt><dfn id="sift"><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a></dfn></dt>
-<dd>TODO
+<dd>Detects and describes local keypoints that are invariant to scale, rotation and (partially) illumination. Keypoints are found via a Difference-of-Gaussians pyramid; each is described by a histogram of local gradient orientations.
 
         SIFT vector is 128 dimensional
     </dd>
 <dt><dfn><a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision">Bag of Visual Words</a></dfn> (<dfn id="bovw">BoVW</dfn>)</dt>
-<dd>TODO</dd>
+<dd>Visual analogue of bag-of-words in NLP: local descriptors (e.g. SIFT) are clustered into a "visual vocabulary" (codebook); an image is represented as a histogram of how often each visual word occurs, discarding spatial information.</dd>
 <dt><dfn id="fisher-encoding">Fisher Encoding</dfn></dt>
-<dd>TODO</dd>
+<dd>Instead of plain BoVW counts, encodes the difference between local descriptors and a Gaussian Mixture Model fitted to the codebook (first- and second-order statistics). This gives a higher-dimensional, more discriminative representation than BoVW for the same vocabulary size.</dd>
 </dl>
 <h3 id="cnns">CNNs</h3>
 <ul>
-<li>Lernen Gabor Wavelets (TODO: Quelle?)</li>
+<li>Lernen Gabor Wavelets: die ersten Conv-Layer trainierter CNNs zeigen Gabor-artige und
+  Farbblob-Filter (z.B. sichtbar in den AlexNet-Filtervisualisierungen von Krizhevsky
+  et al., 2012)</li>
 <li>Warum tiefere Netze? &rarr; Muster k&ouml;nnen geteilt werden (R&auml;der f&uuml;r Traktoren / Motorr&auml;der)</li>
-<li>TODO: Filter response = Feature Map?</li>
-<li>TODO: Warum ist es ok, dass der Gradient von ReLU(x) f&uuml;r <span class="math">\(x \leq 0\)</span> gleich 0 ist? (Saturierungsproblem)</li>
-<li>TODO: Negative Log Likelihood vs Cross Correlation - what are differences?</li>
+<li>Filter Response = Feature Map: die Ausgabe eines einzelnen Filters/Kernels auf den
+  Input ist eine Feature Map</li>
+<li>Der Gradient von ReLU(x) f&uuml;r <span class="math">\(x \leq 0\)</span> ist 0, aber das ist ok, weil pro Batch immer
+  genug andere Units aktiv bleiben, &uuml;ber die weiter gelernt wird; anders als bei
+  sigmoid/tanh verschwindet der Gradient nicht <em>&uuml;berall</em> (S&auml;ttigung nur auf einer Seite)</li>
+<li>Negative Log Likelihood vs. Cross-Entropy: f&uuml;r eine Softmax-Ausgabe mit One-Hot-Ziel
+  ist die Categorical-Cross-Entropy-Loss identisch zur NLL-Loss der wahren Klasse;
+  Cross-Entropy vergleicht allgemein zwei Verteilungen, NLL ist die negative
+  Log-Wahrscheinlichkeit der korrekten Klasse</li>
 </ul>
 <dl>
 <dt><dfn>Pooling</dfn> (<dfn>Subsampling</dfn>)</dt>
@@ -483,7 +491,9 @@ try {
 <dt><dfn>Normalization Layers</dfn></dt>
 <dd>
 
-        TODO
+        Normalize activations to stabilize training and improve generalization, either
+        locally within a feature map or by rescaling the value range. Batch Normalization
+        is a related, more commonly used technique that normalizes over the mini-batch.
 
         <ul>
 <li>Contrast Normalization</li>
@@ -514,7 +524,9 @@ try {
 
     </dd>
 <dt><dfn>Disparit&auml;tenkarte</dfn></dt>
-<dd>TODO</dd>
+<dd>Gibt f&uuml;r jeden Pixel eines Stereobildpaars den horizontalen Versatz (Disparit&auml;t)
+        zwischen linkem und rechtem Bild an; sie ist umgekehrt proportional zur Tiefe
+        (n&auml;her = gr&ouml;&szlig;ere Disparit&auml;t).</dd>
 </dl>
 <h3 id="facial-feature-detection">Facial Feature Detection</h3>
 <dl>
@@ -578,7 +590,7 @@ try {
 </ul>
 </dd>
 <dt><dfn>Bag of Visual Words</dfn></dt>
-<dd>TODO</dd>
+<dd>Siehe <a href="#bovw">Bag of Visual Words</a> oben.</dd>
 </dl>
 <h3 id="person-detection">Person detection</h3>
 <dl>
@@ -607,12 +619,15 @@ try {
 </ul>
 
         Silhouette matching is a discriminative, global, single image approach.
-        HOG people detector is a single image approach (TODO: global/part based? generative / discriminative?)
+        HOG people detector is also a discriminative, global, single image approach
+        (sliding window over the whole person, not individual parts).
     </dd>
 <dt>L2 hysterese</dt>
 <dd>A variant of the L2 norm which cuts peaks</dd>
 <dt>HOG People Detector</dt>
-<dd>TODO</dd>
+<dd>A person/pedestrian detector based on Histogram of Oriented Gradients features
+        combined with a linear SVM classifier (Dalal &amp; Triggs, 2005); a sliding-window,
+        global, discriminative, single-image approach.</dd>
 <dt>Silhouette Matching</dt>
 <dd>
 
@@ -639,7 +654,9 @@ try {
         time delay when microphone 1 records the same as microphone 2
         is called TDOA. It can be used to locate the audio source.</dd>
 <dt><dfn>Adaptive Merkmalsgewichtung</dfn></dt>
-<dd>TODO</dd>
+<dd>Beim Tracking wird die Gewichtung einzelner Merkmale (z.B. Farbe, Form, Bewegung)
+        laufend an die aktuelle Szene angepasst, um robuster gegen Beleuchtungs&auml;nderungen,
+        Verdeckungen etc. zu sein.</dd>
 </dl>
 <h3 id="gesten">Gesten</h3>
 <dl>
@@ -673,21 +690,32 @@ try {
 <u>Datasets</u>: UCF Sport; Hollywood 2; Sports-1M</dd>
 <dt><dfn>Zero-Crossing Rate</dfn></dt>
 <dd>Extrem einfaches Audio-Merkmal, welches es erlaubt, Auto-Hintergrundrauschen
-        von Sprache zu unterscheiden. TODO</dd>
+        von Sprache zu unterscheiden. Die Zero-Crossing-Rate z&auml;hlt, wie oft das Signal
+        pro Zeiteinheit das Vorzeichen wechselt; Sprache und tonales Rauschen haben meist
+        niedrigere ZCR-Werte als raues Hintergrundrauschen.</dd>
 <dt><dfn>MFCC</dfn> (<a href="https://de.wikipedia.org/wiki/Mel_Frequency_Cepstral_Coefficients"><dfn>Mel Frequency Cepstral Coefficients</dfn></a>)</dt>
 <dd>MFCCs sind g&auml;ngige Features der Sprachverarbeitung.</dd>
 <dt><dfn>BoW</dfn> (<dfn>Bag of Words</dfn>, <dfn>Bag of Visual Words</dfn>)</dt>
-<dd>Cluster Features for objects by feature similarity; gives histogram representation of object; TODO</dd>
+<dd>Cluster Features for objects by feature similarity; gives histogram representation of object.</dd>
 <dt><dfn>HOG</dfn> (<dfn>Histogram of Oriented Gradients</dfn>)</dt>
 <dd>Ein Merkmal f&uuml;r Bilder: Histogramme der Gradientenrichtungen in kleinen Zellen. SIFT-Deskriptoren verwenden eine &auml;hnliche Idee.</dd>
 <dt><dfn>Optical Flow</dfn> (<dfn>OF</dfn>)</dt>
-<dd>TODO</dd>
+<dd>Das Vektorfeld, das f&uuml;r jeden Pixel angibt, wie er sich zwischen zwei
+        aufeinanderfolgenden Bildern (scheinbar) bewegt hat, gesch&auml;tzt aus der &Auml;nderung
+        der Helligkeitsmuster.</dd>
 <dt><dfn>HOF</dfn> (<dfn>Histogram of Optical Flow</dfn>)</dt>
-<dd>TODO</dd>
+<dd>Histogramm der Richtungen (und ggf. Betr&auml;ge) des optischen Flusses in einer
+        lokalen Region; analog zu HOG, aber auf Bewegungsvektoren statt Gradienten
+        angewendet.</dd>
 <dt><dfn>MBH</dfn> (<dfn>Motion Boundary Histogram</dfn>)</dt>
-<dd>TODO</dd>
+<dd>Wendet den HOG-Deskriptor auf die Ableitung des optischen Flusses statt auf den
+        Fluss selbst an; dadurch werden konstante Kamerabewegungen herausgerechnet und
+        nur relative Bewegung (Bewegungsr&auml;nder) erfasst.</dd>
 <dt><dfn>Dense Trajectories</dfn></dt>
-<dd>TODO</dd>
+<dd>Merkmal f&uuml;r Aktionserkennung in Videos: Punkte werden dicht in jedem Frame
+        gesampelt und &uuml;ber mehrere Frames mittels optischem Fluss verfolgt (typischerweise
+        15 Frames); entlang der resultierenden Trajektorien werden HOG-, HOF- und
+        MBH-Deskriptoren berechnet.</dd>
 </dl>
 <h3 id="wrap-up">Wrap-up</h3>
 <ul>
@@ -853,7 +881,11 @@ Smart Houses, Roboter-Interaktion, Smart Cars, Smart Rooms, Assistenztechnologie
 <details class="question">
 <summary>Auf welcher Ebene, wann und wie werden Informationen zusammengef&uuml;hrt (z.B. Face / Pose)?</summary>
 <div class="answer">
-TODO
+Man unterscheidet Early Fusion (Rohdaten/Features werden vor der Klassifikation
+kombiniert, z.B. konkateniert), Late Fusion (jede Modalit&auml;t wird separat klassifiziert,
+die Entscheidungen/Scores werden erst danach kombiniert, z.B. gewichtete Summe) und
+hybride Ans&auml;tze dazwischen. Der Zeitpunkt h&auml;ngt davon ab, wie stark die Modalit&auml;ten
+korreliert sind: stark korrelierte Merkmale profitieren eher von Early Fusion.
 </div>
 </details>
 <h2 id="material-und-links">Material und Links</h2>

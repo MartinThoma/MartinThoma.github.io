@@ -898,7 +898,9 @@ top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt
 &lt;dt&gt;Recall@k&lt;/dt&gt;
 &lt;dd&gt;$\frac{\text{recommended items @k that are relevant}}{\text{total relevant items}}$. If precision is high and recall is low, it might indicate that $k$ is just very small. If recall is high and precision is low, it might show that not so many items are relevant in comparison to the choice of $k$.&lt;/dd&gt;
 &lt;dt&gt;Average Precision@k&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;$\frac{1}{k}\sum_{i=1}^k \text{Precision@}i \cdot \text{rel}(i)$, where
+        $\text{rel}(i)$ is 1 if the item at rank $i$ is relevant, else 0. Unlike
+        plain Precision@k, it rewards putting relevant items earlier in the ranking.&lt;/dd&gt;
 &lt;dt&gt;Hit Rate&lt;/dt&gt;
 &lt;dd&gt;Number of hits in your $n$ recommendations, divided by the number of users&lt;/dd&gt;
 &lt;dt&gt;Average Reciprocal Hit Rank (ARHR)&lt;/dt&gt;
@@ -9687,9 +9689,13 @@ in full detail.&lt;/p&gt;
 &lt;dd&gt;Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
         High-dimensional often means several 100 dimensions.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="dcgan"&gt;DCGAN&lt;/dfn&gt; (&lt;dfn&gt;Deep Convolutional Generative Adversarial Networks&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;A GAN whose generator and discriminator are both convolutional networks (using
+        strided/transposed convolutions instead of pooling), introduced by Radford, Metz
+        and Chintala (2015) as a stable architecture for image generation.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="dcign"&gt;DCIGN&lt;/dfn&gt; (&lt;dfn&gt;Deep Convolutional Inverse Graphics Network&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;A convolutional variational autoencoder whose latent space is disentangled into
+        interpretable factors (e.g. pose, lighting), so that varying one latent
+        dimension changes only that factor of the rendered image (Kulkarni et al., 2015).&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="dcnn"&gt;DCNN&lt;/dfn&gt; (&lt;dfn&gt;Doubly Convolutional Neural Network&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Introduced in &lt;a href="https://arxiv.org/pdf/1610.09716v1.pdf"&gt;this paper&lt;/a&gt; (&lt;a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/ZhaiCZL16#martinthoma"&gt;summary&lt;/a&gt;).
 

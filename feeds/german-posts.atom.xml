@@ -17086,26 +17086,34 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="gabor-filter"&gt;&lt;a href="https://en.wikipedia.org/wiki/Gabor_filter"&gt;Gabor Filter&lt;/a&gt;&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;A linear filter formed by a sinusoidal plane wave multiplied by a Gaussian envelope. It responds strongly to edges/textures of a specific orientation and frequency, similar to simple cells in the human visual cortex.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;&lt;a href="https://en.wikipedia.org/wiki/Local_binary_patterns"&gt;Local Binary Pattern&lt;/a&gt;&lt;/dfn&gt; (&lt;dfn id="lbp"&gt;LBP&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;For each pixel, compare its intensity to its neighbors (e.g. 8 neighbors in a 3&amp;times;3 window): 1 if the neighbor is greater or equal, 0 otherwise. Reading these bits gives a code per pixel; a histogram of the codes over an image region is used as a texture descriptor.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="sift"&gt;&lt;a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform"&gt;SIFT&lt;/a&gt;&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO
+&lt;dd&gt;Detects and describes local keypoints that are invariant to scale, rotation and (partially) illumination. Keypoints are found via a Difference-of-Gaussians pyramid; each is described by a histogram of local gradient orientations.
 
         SIFT vector is 128 dimensional
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;&lt;a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision"&gt;Bag of Visual Words&lt;/a&gt;&lt;/dfn&gt; (&lt;dfn id="bovw"&gt;BoVW&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Visual analogue of bag-of-words in NLP: local descriptors (e.g. SIFT) are clustered into a "visual vocabulary" (codebook); an image is represented as a histogram of how often each visual word occurs, discarding spatial information.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="fisher-encoding"&gt;Fisher Encoding&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Instead of plain BoVW counts, encodes the difference between local descriptors and a Gaussian Mixture Model fitted to the codebook (first- and second-order statistics). This gives a higher-dimensional, more discriminative representation than BoVW for the same vocabulary size.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="cnns"&gt;CNNs&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Lernen Gabor Wavelets (TODO: Quelle?)&lt;/li&gt;
+&lt;li&gt;Lernen Gabor Wavelets: die ersten Conv-Layer trainierter CNNs zeigen Gabor-artige und
+  Farbblob-Filter (z.B. sichtbar in den AlexNet-Filtervisualisierungen von Krizhevsky
+  et al., 2012)&lt;/li&gt;
 &lt;li&gt;Warum tiefere Netze? &amp;rarr; Muster k&amp;ouml;nnen geteilt werden (R&amp;auml;der f&amp;uuml;r Traktoren / Motorr&amp;auml;der)&lt;/li&gt;
-&lt;li&gt;TODO: Filter response = Feature Map?&lt;/li&gt;
-&lt;li&gt;TODO: Warum ist es ok, dass der Gradient von ReLU(x) f&amp;uuml;r &lt;span class="math"&gt;\(x \leq 0\)&lt;/span&gt; gleich 0 ist? (Saturierungsproblem)&lt;/li&gt;
-&lt;li&gt;TODO: Negative Log Likelihood vs Cross Correlation - what are differences?&lt;/li&gt;
+&lt;li&gt;Filter Response = Feature Map: die Ausgabe eines einzelnen Filters/Kernels auf den
+  Input ist eine Feature Map&lt;/li&gt;
+&lt;li&gt;Der Gradient von ReLU(x) f&amp;uuml;r &lt;span class="math"&gt;\(x \leq 0\)&lt;/span&gt; ist 0, aber das ist ok, weil pro Batch immer
+  genug andere Units aktiv bleiben, &amp;uuml;ber die weiter gelernt wird; anders als bei
+  sigmoid/tanh verschwindet der Gradient nicht &lt;em&gt;&amp;uuml;berall&lt;/em&gt; (S&amp;auml;ttigung nur auf einer Seite)&lt;/li&gt;
+&lt;li&gt;Negative Log Likelihood vs. Cross-Entropy: f&amp;uuml;r eine Softmax-Ausgabe mit One-Hot-Ziel
+  ist die Categorical-Cross-Entropy-Loss identisch zur NLL-Loss der wahren Klasse;
+  Cross-Entropy vergleicht allgemein zwei Verteilungen, NLL ist die negative
+  Log-Wahrscheinlichkeit der korrekten Klasse&lt;/li&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn&gt;Pooling&lt;/dfn&gt; (&lt;dfn&gt;Subsampling&lt;/dfn&gt;)&lt;/dt&gt;
@@ -17122,7 +17130,9 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 &lt;dt&gt;&lt;dfn&gt;Normalization Layers&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
-        TODO
+        Normalize activations to stabilize training and improve generalization, either
+        locally within a feature map or by rescaling the value range. Batch Normalization
+        is a related, more commonly used technique that normalizes over the mini-batch.
 
         &lt;ul&gt;
 &lt;li&gt;Contrast Normalization&lt;/li&gt;
@@ -17153,7 +17163,9 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Disparit&amp;auml;tenkarte&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Gibt f&amp;uuml;r jeden Pixel eines Stereobildpaars den horizontalen Versatz (Disparit&amp;auml;t)
+        zwischen linkem und rechtem Bild an; sie ist umgekehrt proportional zur Tiefe
+        (n&amp;auml;her = gr&amp;ouml;&amp;szlig;ere Disparit&amp;auml;t).&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="facial-feature-detection"&gt;Facial Feature Detection&lt;/h3&gt;
 &lt;dl&gt;
@@ -17217,7 +17229,7 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Bag of Visual Words&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="#bovw"&gt;Bag of Visual Words&lt;/a&gt; oben.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="person-detection"&gt;Person detection&lt;/h3&gt;
 &lt;dl&gt;
@@ -17246,12 +17258,15 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 &lt;/ul&gt;
 
         Silhouette matching is a discriminative, global, single image approach.
-        HOG people detector is a single image approach (TODO: global/part based? generative / discriminative?)
+        HOG people detector is also a discriminative, global, single image approach
+        (sliding window over the whole person, not individual parts).
     &lt;/dd&gt;
 &lt;dt&gt;L2 hysterese&lt;/dt&gt;
 &lt;dd&gt;A variant of the L2 norm which cuts peaks&lt;/dd&gt;
 &lt;dt&gt;HOG People Detector&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;A person/pedestrian detector based on Histogram of Oriented Gradients features
+        combined with a linear SVM classifier (Dalal &amp;amp; Triggs, 2005); a sliding-window,
+        global, discriminative, single-image approach.&lt;/dd&gt;
 &lt;dt&gt;Silhouette Matching&lt;/dt&gt;
 &lt;dd&gt;
 
@@ -17278,7 +17293,9 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
         time delay when microphone 1 records the same as microphone 2
         is called TDOA. It can be used to locate the audio source.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Adaptive Merkmalsgewichtung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Beim Tracking wird die Gewichtung einzelner Merkmale (z.B. Farbe, Form, Bewegung)
+        laufend an die aktuelle Szene angepasst, um robuster gegen Beleuchtungs&amp;auml;nderungen,
+        Verdeckungen etc. zu sein.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="gesten"&gt;Gesten&lt;/h3&gt;
 &lt;dl&gt;
@@ -17312,21 +17329,32 @@ Bergsportladen auf der Hauptstrasse...inshallah...&lt;/li&gt;
 &lt;u&gt;Datasets&lt;/u&gt;: UCF Sport; Hollywood 2; Sports-1M&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Zero-Crossing Rate&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Extrem einfaches Audio-Merkmal, welches es erlaubt, Auto-Hintergrundrauschen
-        von Sprache zu unterscheiden. TODO&lt;/dd&gt;
+        von Sprache zu unterscheiden. Die Zero-Crossing-Rate z&amp;auml;hlt, wie oft das Signal
+        pro Zeiteinheit das Vorzeichen wechselt; Sprache und tonales Rauschen haben meist
+        niedrigere ZCR-Werte als raues Hintergrundrauschen.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;MFCC&lt;/dfn&gt; (&lt;a href="https://de.wikipedia.org/wiki/Mel_Frequency_Cepstral_Coefficients"&gt;&lt;dfn&gt;Mel Frequency Cepstral Coefficients&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;MFCCs sind g&amp;auml;ngige Features der Sprachverarbeitung.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;BoW&lt;/dfn&gt; (&lt;dfn&gt;Bag of Words&lt;/dfn&gt;, &lt;dfn&gt;Bag of Visual Words&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Cluster Features for objects by feature similarity; gives histogram representation of object; TODO&lt;/dd&gt;
+&lt;dd&gt;Cluster Features for objects by feature similarity; gives histogram representation of object.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;HOG&lt;/dfn&gt; (&lt;dfn&gt;Histogram of Oriented Gradients&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Ein Merkmal f&amp;uuml;r Bilder: Histogramme der Gradientenrichtungen in kleinen Zellen. SIFT-Deskriptoren verwenden eine &amp;auml;hnliche Idee.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Optical Flow&lt;/dfn&gt; (&lt;dfn&gt;OF&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Das Vektorfeld, das f&amp;uuml;r jeden Pixel angibt, wie er sich zwischen zwei
+        aufeinanderfolgenden Bildern (scheinbar) bewegt hat, gesch&amp;auml;tzt aus der &amp;Auml;nderung
+        der Helligkeitsmuster.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;HOF&lt;/dfn&gt; (&lt;dfn&gt;Histogram of Optical Flow&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Histogramm der Richtungen (und ggf. Betr&amp;auml;ge) des optischen Flusses in einer
+        lokalen Region; analog zu HOG, aber auf Bewegungsvektoren statt Gradienten
+        angewendet.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;MBH&lt;/dfn&gt; (&lt;dfn&gt;Motion Boundary Histogram&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Wendet den HOG-Deskriptor auf die Ableitung des optischen Flusses statt auf den
+        Fluss selbst an; dadurch werden konstante Kamerabewegungen herausgerechnet und
+        nur relative Bewegung (Bewegungsr&amp;auml;nder) erfasst.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Dense Trajectories&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Merkmal f&amp;uuml;r Aktionserkennung in Videos: Punkte werden dicht in jedem Frame
+        gesampelt und &amp;uuml;ber mehrere Frames mittels optischem Fluss verfolgt (typischerweise
+        15 Frames); entlang der resultierenden Trajektorien werden HOG-, HOF- und
+        MBH-Deskriptoren berechnet.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="wrap-up"&gt;Wrap-up&lt;/h3&gt;
 &lt;ul&gt;
@@ -17492,7 +17520,11 @@ Smart Houses, Roboter-Interaktion, Smart Cars, Smart Rooms, Assistenztechnologie
 &lt;details class="question"&gt;
 &lt;summary&gt;Auf welcher Ebene, wann und wie werden Informationen zusammengef&amp;uuml;hrt (z.B. Face / Pose)?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-TODO
+Man unterscheidet Early Fusion (Rohdaten/Features werden vor der Klassifikation
+kombiniert, z.B. konkateniert), Late Fusion (jede Modalit&amp;auml;t wird separat klassifiziert,
+die Entscheidungen/Scores werden erst danach kombiniert, z.B. gewichtete Summe) und
+hybride Ans&amp;auml;tze dazwischen. Der Zeitpunkt h&amp;auml;ngt davon ab, wie stark die Modalit&amp;auml;ten
+korreliert sind: stark korrelierte Merkmale profitieren eher von Early Fusion.
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
@@ -24104,7 +24136,10 @@ Dieser Term wird in der &lt;i&gt;Structural Risk Minimization&lt;/i&gt; minimier
 
       &lt;ol&gt;
 &lt;li&gt;Bestimme $P(O_{\text{train}} | \lambda)$&lt;/li&gt;
-&lt;li&gt;Sch&amp;auml;tze ein besseres Modell $\bar \lambda$: TODO - Genauer! (Folie 31 - 36)&lt;/li&gt;
+&lt;li&gt;Sch&amp;auml;tze ein besseres Modell $\bar \lambda$: mit Forward-Backward werden die
+              erwarteten &amp;Uuml;bergangs- und Emissionsh&amp;auml;ufigkeiten unter dem aktuellen Modell
+              berechnet (E-Schritt); daraus werden $\bar A, \bar B, \bar \Pi$ neu gesch&amp;auml;tzt
+              (M-Schritt), analog zum EM-Algorithmus.&lt;/li&gt;
 &lt;/ol&gt;
 
       Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.
@@ -24510,13 +24545,19 @@ wird minimiert.
 &lt;details class="question"&gt;
 &lt;summary&gt;Warum lernen SVMs "korrekt"?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-&lt;p&gt;Es gibt ein Theorem (TODO: Welches?), das besagt, dass die VC-Dimension
+&lt;p&gt;Es gibt ein Theorem (Vapniks Margin-Bound, aus "The Nature of Statistical Learning
+Theory", 1995), das besagt, dass die VC-Dimension
 eines Klassifikators, welcher Datenpunkte im $n$-dimensionalen Raum
 innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
 mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
 beschr&amp;auml;nkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
 Margin maximiert.&lt;/p&gt;
-&lt;p&gt;Alternativ: Erkl&amp;auml;rung durch Strukturierung des Hypothesenraumes (TODO).&lt;/p&gt;
+&lt;p&gt;Alternativ: Erkl&amp;auml;rung durch Strukturierung des Hypothesenraumes. Structural
+Risk Minimization ordnet Hypothesenr&amp;auml;ume nach aufsteigender Kapazit&amp;auml;t
+(VC-Dimension) und w&amp;auml;hlt das Modell, das den besten Kompromiss zwischen
+empirischem Risiko und Kapazit&amp;auml;t liefert. Die SVM setzt das um, indem sie unter
+allen Trennebenen die mit maximalem Margin w&amp;auml;hlt, was einer Hypothese mit
+m&amp;ouml;glichst geringer Kapazit&amp;auml;t entspricht.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;h3 id="reinforcement-learning_1"&gt;Reinforcement Learning&lt;/h3&gt;
@@ -25487,7 +25528,10 @@ gesagt...)&lt;/p&gt;</content><category term="German posts"/><category term="KIT
 &lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;B-Splines&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;St&amp;uuml;ckweise polynomielle Kurven, die durch eine Folge von Kontrollpunkten und
+        einen Knotenvektor definiert sind. Anders als bei B&amp;eacute;zierkurven beeinflusst jeder
+        Kontrollpunkt nur einen lokalen Bereich der Kurve (lokale Kontrolle), und der Grad
+        der Kurve ist unabh&amp;auml;ngig von der Anzahl der Kontrollpunkte.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Algorithmus von De Casteljau&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://github.com/MartinThoma/algorithms/tree/master/de-casteljau-algorithm"&gt;Code&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
@@ -25817,9 +25861,10 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
       abgebildet.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;MaxQ-Dekomposition&lt;/dfn&gt; (siehe [&lt;a href="#ref-die00" name="ref-die00-anchor"&gt;Die00&lt;/a&gt;])&lt;/dt&gt;
 &lt;dd&gt;Das zu l&amp;ouml;sende MDP $M$ wird als Menge von Unteraufgaben $\{M_0, \dots, M_n\}$
-      interpretiert. Dabei ist $M_0$ das Haupt-MDP.
-
-      TODO.&lt;/dd&gt;
+      interpretiert. Dabei ist $M_0$ das Haupt-MDP. Jede Unteraufgabe $M_i$ hat eine
+      eigene Value-Funktion, die sich additiv aus den Value-Funktionen der von ihr
+      aufgerufenen Unteraufgaben zusammensetzt; dadurch wird die globale Value-Funktion
+      hierarchisch zerlegt (daher "MaxQ").&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;Folie 35:&lt;/p&gt;
 &lt;ul&gt;
@@ -26296,8 +26341,9 @@ Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
 &lt;details class="question"&gt;
 &lt;summary&gt;Was macht man im Reinforcement Learning, wenn Aktionen l&amp;auml;nger dauern?&lt;/summary&gt;
 &lt;div class="answer"&gt;
-Options verwenden (TODO: Wie &amp;auml;ndert sich die Value Iteration Formel
-nun bzgl. der Zeit?)
+Options verwenden. Die Value-Iteration-Formel eines SMDP diskontiert dann nicht mehr
+pro Zeitschritt, sondern &amp;uuml;ber die (ggf. stochastische) Dauer $\tau$ der Option:
+$V(s) = \max_o \left[ R(s,o) + \sum_{s', \tau} P(s', \tau | s, o) \gamma^\tau V(s') \right]$
 &lt;/div&gt;
 &lt;/details&gt;
 &lt;details class="question"&gt;
