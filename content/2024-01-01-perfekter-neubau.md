@@ -316,7 +316,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <td class="bad">Sehr einseitig</td>
         <td class="good">Beliebig</td>
         <td class="good">Beliebig</td>
-        <td>TODO</td>
+        <td>Vielfältig: viele Farben, Muster und Marmorierungen, inzwischen auch Holzoptik[^3]</td>
     </tr>
     <tr>
         <th>Kratz-Robustheit</th>
@@ -325,7 +325,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <td class="bad">Ausreichend</td>
         <td>Gut</td>
         <td>Gut</td>
-        <td>TODO</td>
+        <td>Gut: elastisch, Druckstellen bilden sich zurück[^4]</td>
     </tr>
     <tr>
         <th>Wasser-Robustheit</th>
@@ -334,7 +334,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <td>wasserfest + wasserabweisend</td>
         <td>nur bei Feuchtraumlaminat</td>
         <td>typischerweise wasserfest, wasserdicht möglich mit vollflächiger Verklebung</td>
-        <td>TODO</td>
+        <td>Spritzwasser ja, stehendes Wasser nein: Nässe dringt an Fugen ein, im Bad nur zweite Wahl[^3][^5]</td>
     </tr>
     <tr>
         <th>Flecken-Robustheit (Wein)</th>
@@ -343,13 +343,13 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <td class="bad">Mangelhaft</td>
         <td>Befriedigend</td>
         <td>Gut</td>
-        <td>TODO</td>
+        <td>Pflegeleicht dank werkseitiger Beschichtung; keine Scheuermittel oder Essigessenz[^3][^5]</td>
     </tr>
     <tr>
         <th><a href="https://de.wikipedia.org/wiki/W%C3%A4rmeleitf%C3%A4higkeit">Wärmeleitfähigkeit</a> λ<sup title="Die Wärmeleitfähigkeit bestimmt, wie kalt wir einen Boden empfinden, weil sie
 aussagt, wie schnell Wärme vom Fuß weggeleitet wird. Bei Fliesen ist sie hoch,
 bei Holz niedrig. Fußwarm sind Baustoffe mit einer Wärmeleitfähigkeit bis 0,2 W/mK: Holz, Kork,
-Linoleum, Teppich.">*</sup>[^3]</th>
+Linoleum, Teppich.">*</sup>[^6]</th>
         <td class="bad">1,05 W/(mK)</td>
         <td class="good">0.11 - 0,21 W/(mK)</td>
         <td class="good">0,079 W/(mK)[^2]</td>
@@ -716,4 +716,7 @@ Generationen im Haus leben zu können.
 
 [^1]: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/) via Selfio.
 [^2]: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm) via Der Bauladen, abgerufen am 27.09.2026.
-[^3]: [Fachinformation Bodenbeläge – Fußbodenmaterial](https://cdn.vbg.de/media/7b279f9c90e74217a108fe7c27afad8b/dld:attachment/07.2021_fi_boden_fussboden_arbeitsstaette.pdf) via VBG, Juli 2021.
+[^3]: [Linoleum vorgestellt: Vorteile & Nachteile des Bodenbelags](https://www.bodenfuchs24.de/ratgeber/linoleum-vorteile-nachteile) via bodenfuchs24.de, abgerufen am 27.09.2026.
+[^4]: [Linoleum Vorteile und Nachteile](https://hamitaga-boden.de/linoleum-vorteile-und-nachteile) via Hamitaga Boden, 02.03.2022.
+[^5]: Uske Berndt: [Linoleum als Bodenbelag: Alle Vorteile und Nachteile auf einen Blick](https://wohnglueck.de/artikel/linoleum-vorteile-und-nachteile-6011) via wohnglueck.de, abgerufen am 27.09.2026.
+[^6]: [Fachinformation Bodenbeläge – Fußbodenmaterial](https://cdn.vbg.de/media/7b279f9c90e74217a108fe7c27afad8b/dld:attachment/07.2021_fi_boden_fussboden_arbeitsstaette.pdf) via VBG, Juli 2021.

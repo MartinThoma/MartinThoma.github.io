@@ -186,9 +186,36 @@ So each feature $x_i \in \mathbb{R}$ has a weight $a_i \in \mathbb{R}$. This
 weight is the importance of the feature.
 
 
-## TODOs
+## How do libraries calculate feature importances?
 
-Explain how sklearn / [catboost](https://github.com/catboost/catboost) calculates feature importances
+**sklearn** trees and forests have the attribute `feature_importances_`. It is
+the *mean decrease in impurity* (MDI): every time a node splits on a feature,
+the impurity (Gini, log loss or mean squared error) of the children is lower
+than the impurity of the parent. This decrease, weighted by the share of
+training samples that reach the node, is added to the feature. For forests it
+is averaged over all trees, and the values are normalized so that they sum up
+to 1. The [sklearn documentation](https://scikit-learn.org/stable/modules/permutation_importance.html)
+warns that MDI is computed on the training set and favors features with many
+distinct values.
+
+The alternative in sklearn is
+[`permutation_importance`](https://scikit-learn.org/stable/modules/permutation_importance.html):
+shuffle one feature column of a validation set and measure how much the score
+drops. It works for any model. For the 3-XOR example with a perfect model,
+shuffling any single feature drops the accuracy to 50%. So all three features
+get the same high importance, although none of them is useful on its own.
+Permutation importance tells you what the model relies on, not which feature
+you could use alone.
+
+**[CatBoost](https://github.com/catboost/catboost)** has several
+[importance types](https://catboost.ai/docs/en/concepts/fstr):
+
+* `PredictionValuesChange` (default for most losses): how much the prediction
+  changes on average if the feature value changes. Normalized to sum up to 100.
+* `LossFunctionChange` (default for ranking): the difference between the loss
+  of the model with and without the feature. It depends on the dataset and can
+  be negative.
+* `ShapValues`: the contribution of each feature to a single prediction.
 
 
 ## TL;DR

@@ -788,13 +788,6 @@ However, both encodings did not yield better results than the simple integer
 encoding of a month for this dataset and all tried regressors.
 
 
-## TODOs
-
-* Make a hand-crafted model
-* Get a human baseline
-* Make a neural network model
-
-
 ## Learnings
 
 The following should have become clear from reading this blog post:

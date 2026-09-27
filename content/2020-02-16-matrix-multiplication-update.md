@@ -244,7 +244,7 @@ Python 3.8 on others as well:
 </table>
 
 The interesting thing to note here is that the EliteBook is about the same
-speed for the ikj-algorithm (even a tiny bit slower), but the EliteBook is way
+speed for the ijk-algorithm (even a tiny bit slower), but the EliteBook is way
 slower for the ikj algorithm.
 
 

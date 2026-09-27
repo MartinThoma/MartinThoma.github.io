@@ -23,8 +23,11 @@ Split-Klimaanlagen haben für mich einen besonderen Charme:
 
 ## Allgemeines
 
-* TODO: Schalltechnische Entkopplung: Wie funktioniert das, wenn das Gerät an
-  der Wand montiert ist?
+* Schalltechnische Entkopplung: Bei Wand-, Balkon- und Dachmontage ist sie
+  besonders wichtig, weil das Außengerät sonst Körperschall über die Wand ins
+  Haus überträgt. Zwischen Gerät und Wandkonsole kommen Schwingungsdämpfer
+  (Antivibrationsfüße bzw. Gummipuffer), die Leitungen werden mit flexiblen
+  Rohrverbindungen und gedämpften Halterungen angeschlossen.[^1]
 * Heizleistung: Achtung! Bei niedrigeren Temperaturen sinkt die Heizleistung!
 
 ## Betriebskosten
@@ -620,3 +623,8 @@ FTXZ50N+RXZ50N:
   Schuhe. Man kann mit der Klimaanlage Feuchtigkeit aus der Luft nehmen, aber
   die CO2-Konzentration/Schadstoffbelastung wird dadurch nicht geändert.
 * Truhengeräte haben eine schlechtere Effizienz als Wandgeräte
+
+
+## Einzelnachweise
+
+[^1]: [Schallschutz Wärmepumpe: Maßnahmen und Produkte](https://www.bosch-homecomfort.com/de/de/wohngebaeude/wissen/heizungsratgeber/waermepumpe/schallschutz-waermepumpe/) via Bosch Home Comfort, abgerufen am 27.09.2026.

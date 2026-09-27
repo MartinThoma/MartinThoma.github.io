@@ -1084,15 +1084,13 @@ Neuronale Netze kann man durch folgende Kriterien miteinander vergleichen:
         <td>Unsupervised (Hebbsche Lernregel)</td>
         <td>Associative memories, <a href="http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf">travelling salesman</a></td>
     </tr>
-    <!--
     <tr>
-        <th>Helmholtz machines</th>
+        <th><a href="https://en.wikipedia.org/wiki/Helmholtz_machine">Helmholtz machines</a></th>
         <td>stochastic</td>
-        <td>TODO</td>
-        <td>wake-sleep algorithm</td>
-        <td>TODO</td>
+        <td>Feed-Forward: a bottom-up recognition network approximates the posterior, a top-down generative network generates data</td>
+        <td><a href="https://en.wikipedia.org/wiki/Wake-sleep_algorithm">wake-sleep algorithm</a></td>
+        <td>Unsupervised learning of generative models; precursor of variational autoencoders</td>
     </tr>
-    -->
     <tr>
         <th>Boltzmann machines</th>
         <td>stochastic</td>

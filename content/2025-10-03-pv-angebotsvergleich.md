@@ -131,8 +131,8 @@ Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Garantie</th>
             <td>10 Jahre auf 80%</td>
-            <td>10 Jahre auf TODO Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf min. 80% Kapazität</td>
-            <td>10 Jahre auf TODO</td>
+            <td>10 Jahre Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf min. 80% Kapazität</td>
+            <td><a href="https://www.sonnen.de/haeufig-gestellte-fragen/sonnenbatterie">10 Jahre bzw. 10.000 Zyklen auf alle Komponenten, min. 80% Kapazität</a></td>
         </tr>
         <tr>
             <th>Kapazität</th>
@@ -154,7 +154,7 @@ Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         </tr>
         <tr>
             <th>Schnittstellen</th>
-            <td>WiNet-S Kommunikationsadapter (TODO! Nicht im Angebot gelistet!)<br/>CAN/<a href="https://de.wikipedia.org/wiki/EIA-485">RS485</a></td>
+            <td>WLAN/Ethernet über den WiNet-S Kommunikationsadapter (nicht im Angebot gelistet, aber <a href="https://www.mg-solar-shop.de/sungrow-sh10-0rt-20-v11-hybrid-wechselrichter">im Lieferumfang des Wechselrichters</a>)<br/>CAN/<a href="https://de.wikipedia.org/wiki/EIA-485">RS485</a></td>
             <td>Internet via LAN, Modbus/TCP-API (lesend, optional schreibend), REST-API (lesend, optional schreibend)<br/>Komponenten: CAN/<a href="https://de.wikipedia.org/wiki/EIA-485">RS485</a></td>
             <td>sonnenKNX Module, unklar ob/wie es eine lokale REST-API gibt</td>
         </tr>
@@ -221,13 +221,13 @@ Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         </tr>
         <tr>
             <th><a href="https://www.solaranlage-ratgeber.de/photovoltaik/photovoltaik-technik/photovoltaik-auch-bei-stromausfall-nutzen">Solare Nachladung</a></th>
-            <td>TODO</td>
+            <td><a href="https://ger.sungrowpower.com/upload/file/20220202/DE%20FS%20Sungrow%203-phasiger%20Hybrid%20Factsheet%20FAQ%203.pdf">Ja</a></td>
             <td>Ja</td>
             <td class="bad"><a href="https://www.sonnen.de/notstrom-ersatzstrom/sonnenprotect-8000">Nicht</a> <a href="https://www.sonnen.de/stromspeicher/sonnenbatterie-10-hybrid">möglich</a></td>
         </tr>
         <tr>
             <th><a href="https://www.photovoltaik-web.de/photovoltaik/photovoltaik-quiz/quizfragen/schieflast-drehstromnetz">Schieflast</a></th>
-            <td>TODO</td>
+            <td><a href="https://www.cet-technology.de/wp-content/uploads/2023/12/Sungrow-SH6.0RT_SH8.0RT_SH10RT-20_Datenblatt.pdf" title="Laut Datenblatt: eingeschränkte unsymmetrische Last im Backup-Modus möglich; Auslegungsempfehlung 3400 VA pro Phase mit einer Sungrow-Batterie ab 12,8 kWh">eingeschränkt, 3400 VA pro Phase</a></td>
             <td><a href="https://docs.fenecon.de/de/home/home_10/betrieb_und_serviceanleitung/Betrieb_und_Serviceanleitung_Home_10.html">3333 VA</a></td>
             <td class="bad">nicht im Datenblatt</td>
         </tr>

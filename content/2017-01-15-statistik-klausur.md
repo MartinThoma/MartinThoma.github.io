@@ -695,7 +695,6 @@ Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \fra
 **Ort**: <a href="https://www.kit.edu/campusplan/">Benz-Hörsaal Geb. 10.21</a><br/>
 **Punkte**: 60<br/>
 **Zeit**: 2h<br/>
-**Punkteverteilung**: TODO<br/>
 **Bestehensgrenze**: mit 20 Punkten hat man bestanden<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>

@@ -125,7 +125,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Kalziumsilikatplatte ("CaSi Klimaplatte")</td>
-        <td>TODO €/m²</td>
+        <td><a href="https://www.wohnklimaplatte.de/produkt/kalziumsilikatplatte-50-mm/">52.90&nbsp;€/m² bei 5cm</a></td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td>0.070&nbsp;W/mK</td>
@@ -195,7 +195,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Beton</td>
-        <td>TODO €/m²</td>
+        <td><a href="https://tbg-haidenaab.de/wp-content/uploads/2025/12/Preisliste-TBG-Haidenaab-2026.pdf" title="Transportbeton C25/30: 193,50 €/m³ zzgl. MwSt., ohne Lieferung und Schalung">23&nbsp;€/m² bei 10cm</a></td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td class="bad">1.4&nbsp;W/mK</td>

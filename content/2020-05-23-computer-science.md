@@ -145,10 +145,6 @@ See [my German article about sorting algorithms](../ubersicht-uber-sortieralgori
 
 ## Communication
 
-### Pseudo-Code
-
-TODO
-
 ### Architecture
 
 Some components:
@@ -167,10 +163,6 @@ Some components:
 
 * [medium.com/…/machine-learning-algorithm-overview-…](https://medium.com/ml-research-lab/machine-learning-algorithm-overview-5816a2e6303)
 
-
-## Marvin
-
-* TODO
 
 ## Questions
 

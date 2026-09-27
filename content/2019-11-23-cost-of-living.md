@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cost of Living
+title: Cost of Living (2019)
 slug: cost-of-living
 lang: en
 author: Martin Thoma
@@ -419,8 +419,8 @@ which I think I really need... turns out, it's a lot of stuff.
             <th>Total</th>
             <th></th>
             <th></th>
-            <th>TODO</th>
-            <th>17.54 €</th>
+            <th>117.76 € / year</th>
+            <th>377.46 €</th>
         </tr>
     </tfoot>
 </table>

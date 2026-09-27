@@ -107,7 +107,6 @@ Das Jahresnettoeinkommen von diesen betrug also 18.576 EUR.
 
 Der Grundfreibetrag ist bei 9.984 Euro.
 
-TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Einsparen von Verwaltungskosten
 
 ### Kapitalertragsteuer durch Einkommensteuer ersetzen?
 

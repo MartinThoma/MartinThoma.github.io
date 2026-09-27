@@ -295,7 +295,7 @@ stuff from your site and being active on that site. Or at least reachable.
 * [IPv6](https://ipv6-test.com/validate.php)
 
 
-## TODO
+## More
 
 * OpenID: [developer.okta.com/blog/…/25/oidc-primer-part-1](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) and [developer.okta.com/product](https://developer.okta.com/product/), [Coding Horror](https://blog.codinghorror.com/openid-does-the-world-really-need-yet-another-username-and-password/)
 * [Login design](https://blog.codinghorror.com/the-god-login/)

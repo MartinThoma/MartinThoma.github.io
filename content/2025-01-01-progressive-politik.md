@@ -109,13 +109,22 @@ Jahren ein Dauerthema. Der sinkende Bestand an Sozialwohnungen und die steigende
 Einwohnerzahlen bei gleichzeitig stagnierendem Neubau führen zu einer immer
 größeren Verdrängung von Menschen mit geringem Einkommen aus den Innenstädten.
 
-> **Forderung 4**: Der Bund sollte jeder Stadt Geld zum Bau von
+> **Forderung 5**: Der Bund sollte jeder Stadt Geld zum Bau von
 > Studentenwohnheimen geben; vgl. [Wohnungsmangel](../wohnungsmangel/)
 
 
 ## Rente
 
-TODO
+Das Umlageverfahren gerät unter Druck, weil immer weniger Beitragszahler immer
+mehr Rentner finanzieren. Ein Wechsel zu einem rein kapitalgedeckten System
+mag charmant erscheinen, ist wegen der Übergangsphase aber praktisch nicht
+umsetzbar und löst die aktuellen Probleme nicht. Die Details habe ich im Artikel [Rente](../rente/)
+beschrieben.
+
+> **Forderung 6**: Alle zahlen in die gesetzliche Rentenversicherung ein, auch
+> Beamte, Selbstständige und Abgeordnete. Das Renteneintrittsalter wird an die
+> Lebenserwartung gekoppelt, der Beitragssatz wird festgeschrieben. Reicht die
+> Rente zum Leben nicht, stockt der Staat sie aus dem Haushalt auf.
 
 ## Gesundheit
 
@@ -134,10 +143,10 @@ In Deutschland sind insgesamt 53,5 % der Bevölkerung (46,6% der Frauen und 60,5
 der Männer) von Übergewicht (einschließlich Adipositas) betroffen. Bei 19,0%
 der Erwachsenen liegt eine Adipositas vor.[^8]
 
-> **Forderung 5**: Werbung für Alkohol, Tabak und Lebensmittel mit hohem Zucker-
+> **Forderung 7**: Werbung für Alkohol, Tabak und Lebensmittel mit hohem Zucker-
 > oder Fettgehalt soll verboten werden.
 
-> **Forderung 6**: Es soll eine Steuer auf Zucker eingeführt werden, um
+> **Forderung 8**: Es soll eine Steuer auf Zucker eingeführt werden, um
 > Lebensmittelhersteller zu motivieren, weniger Zucker zu verwenden.
 
 In Schweden hat das staatliche Unternehmen [Systembolaget](https://de.wikipedia.org/wiki/Systembolaget)
@@ -161,10 +170,10 @@ Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:[^9]
 Schädlicher Alkoholkonsum hat 2022 Kosten in Höhe von 57,04 Mrd. EUR verursacht.[^10]
 Demgegenüber stehen Einnahmen aus Alkoholsteuern in Höhe von 2,19 Mrd. EUR.[^11]
 
-> **Forderung 7**: AlkStG §2 Abs. 1 wird von 1303 €/hl reinen Alkohols auf 3000 €/hl
+> **Forderung 9**: AlkStG §2 Abs. 1 wird von 1303 €/hl reinen Alkohols auf 3000 €/hl
 > erhöht.
 
-> **Forderung 8**: Spezialgeschäfte für Alkohol und Tabakwaren. Diese dürfen
+> **Forderung 10**: Spezialgeschäfte für Alkohol und Tabakwaren. Diese dürfen
 dann nur Alkohol und Tabakwaren verkaufen - keine Lebensmittel, keine
 Zeitschriften. Es soll keine Werbung für diese Geschäfte geben, keine
 Zigarettenautomaten, kein Alkohol im Supermarkt.
@@ -173,7 +182,7 @@ Zigarettenautomaten, kein Alkohol im Supermarkt.
 Unser System aus 95 gesetzlichen Krankenkassen (Stand 2024) ist ineffizient.[^12] Wir leisten uns hier 95 mal die
 gleichen Strukturen. Das ist ineffizient und teuer.
 
-> **Forderung 9**: Schrittweise Überführung der gesetzlichen Krankenkassen in eine
+> **Forderung 11**: Schrittweise Überführung der gesetzlichen Krankenkassen in eine
 > einzige. Die kleinsten 10 Krankenkassen nach Mitgliederanzahl sollten jedes
 > Jahr aus dem Gesundheitsfonds ausgeschlossen werden. Neugründungen von
 > gesetzlichen Krankenkassen sollten verboten werden. Sobald es nur noch eine
@@ -194,26 +203,26 @@ Dieses Ziel werden wir verfehlen.
 Weil wir so lange zu wenig gemacht haben, müssen nun drastischere Maßnahmen
 ergriffen werden. Das bedeutet:
 
-> **Forderung 7**: Innerhalb von 3 Jahren ein Neuzulassungsverbot für
+> **Forderung 12**: Innerhalb von 3 Jahren ein Neuzulassungsverbot für
 > Verbrenner. Die einzige Ausnahme sollten Rettungsfahrzeuge und Traktoren sein,
 > die aktuell noch keine Elektroalternativen haben.
 
 Auch im Heizungssektor muss etwas geschehen:
 
-> **Forderung 8**: Innerhalb von 3 Jahren ein Verbot vom Verkauf und Einbau
+> **Forderung 13**: Innerhalb von 3 Jahren ein Verbot vom Verkauf und Einbau
 > neuer Verbrennungsheizungen. Das beinhaltet Brenner und Tanks. Einfache
 > Reparaturarbeiten sollen beliebig lange möglich sein.
 
 Da wir so lange gewartet haben, müssen wir nun Maßnahmen zur Bekämpfung der
 Klimawandelfolgen treffen:
 
-> **Forderung 9**: Förderung von städtischen Begrünungsmaßnahmen, von
+> **Forderung 14**: Förderung von städtischen Begrünungsmaßnahmen, von
 Klimaanlagen für Krankenhäuser/Pflegeeinrichtungen/Schulen/Kindergärten, von
 Starkregenrückhaltebecken, von Flussrenaturierungen, von Deichbau.
 
 Seit langem überfällig:
 
-> **Forderung 10**: Einnahmen aus CO2-Steuer sollen gleichmäßig auf alle
+> **Forderung 15**: Einnahmen aus CO2-Steuer sollen gleichmäßig auf alle
 > umverteilt werden. Der CO2-Preis soll massiv und berechenbar steigen. Beim
 > Verkauf von Verbrennern soll sofort diese Steigerung auf der Rechnung/dem
 > Angebot deutlich sichtbar stehen.
@@ -228,7 +237,7 @@ den Bundestag kommt. Das bedeutet, dass Menschen strategisch wählen müssen.
 Bei der Bundestagswahl 2021 haben 8,7% der Wähler:innen ihre Stimme verloren,
 weil sie für kleine Parteien gestimmt haben. Hätte die Linke nicht drei Direktmandate erhalten (Grundmandatsklausel), wären es 13,6% gewesen.
 
-> **Forderung 11**: Einführung einer Ersatzstimme für die Zweitstimme.
+> **Forderung 16**: Einführung einer Ersatzstimme für die Zweitstimme.
 
 Anstelle von einem Kreuz für die Zweitstimme sollten wir eine Ersatzstimme
 erlauben. Diese Ersatzstimme wird nur dann gezählt, wenn die Partei der
@@ -238,7 +247,7 @@ große Partei angeben, ohne dass ihre Stimme verloren geht.
 
 ### Abgeordnetenbezüge
 
-> **Forderung 12**: Abgeordnete dürfen während ihrer Amtszeit keine anderen Einkünfte haben.
+> **Forderung 17**: Abgeordnete dürfen während ihrer Amtszeit keine anderen Einkünfte haben.
 
 Ein Bundestagsabgeordneter zu sein ist ein Vollzeitjob, wenn man es richtig macht.
 Die Abgeordneten sollen ein ordentliches Gehalt bekommen, aber eben auch ihre
@@ -246,7 +255,7 @@ volle Energie in die Abgeordnetentätigkeit stecken. Das bedeutet, dass sie kein
 Nebenjobs haben sollten: Keine bezahlten Vorträge, keine Mandanten, keine
 Aufsichtsratsposten, keine Firmenleitungen.
 
-> **Forderung 13**: Übergangsgeld nur so lange wie nötig.
+> **Forderung 18**: Übergangsgeld nur so lange wie nötig.
 
 Abgeordnete bekommen nach ihrer Amtszeit ein [Übergangsgeld](https://de.wikipedia.org/wiki/%C3%9Cbergangsgeld#%C3%9Cbergangsgeld_f%C3%BCr_Abgeordnete). Dieses sollten
 sie nur erhalten, solange sie keine anderen Einkünfte haben.
@@ -309,7 +318,7 @@ Konkret kann ich mir Folgendes vorstellen:
 
 ## Justiz
 
-> **Forderung 12:** Schaffung einer von der Polizei unabhängigen Aufsichtsbehörde.
+> **Forderung 19:** Schaffung einer von der Polizei unabhängigen Aufsichtsbehörde.
 > Diese soll nicht dem Bundesinnenministerium unterstellt sein, sondern dem
 > Bundesministerium der Justiz. Ein Beispiel für eine solche Behörde wäre in
 > England und Wales das [Independent Office for Police Conduct](https://en.wikipedia.org/wiki/Independent_Office_for_Police_Conduct).

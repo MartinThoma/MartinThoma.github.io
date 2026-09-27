@@ -237,10 +237,6 @@ Siehe auch:
       hierarchisch zerlegt (daher "MaxQ").</dd>
 </dl>
 
-Folie 35:
-
-* TODO: Was heißt hier "mit festen Knoten"?
-
 
 ### <a name="dynamic-bayes-networks"></a>Dynamische Bayessche Netze
 
@@ -786,7 +782,13 @@ Query Synthesis / Selective Sampling / Pool-based (vgl. <a href="#query-by-commi
 <details class="question">
 <summary>Wie nennt man ein instanziiertes OPRM?</summary>
 <div class="answer">
-TODO (Skelett?)
+Die konkreten Objekte und ihre Beziehungen (ohne Attributwerte) bilden das
+<i>relationale Skelett</i>. Das Modell zusammen mit einem Skelett ergibt ein
+<i>Ground Bayesian Network</i>: ein gewöhnliches Bayessches Netz mit einem Knoten
+für jedes Attribut jedes Objekts (vgl.
+<a href="https://ai.stanford.edu/~koller/Papers/Getoor+al:SRL07.pdf">Getoor et al.: Probabilistic Relational Models</a>).
+Howard und Stumptner nennen das aus der Wissensbasis konstruierte Netz ein
+situationsspezifisches Modell.
 </div>
 </details>
 
