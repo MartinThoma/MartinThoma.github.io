@@ -132,24 +132,24 @@ This is AT&amp;T Syntax:</p>
 <li><code>%ebp</code>: Stack base pointer for holding the address of the current stack frame.</li>
 <li><code>%eax</code>: Accumulator</li>
 </ul>
-<p>The size of the eax register will always be 32 bit, regardless of the system's register size.<sup id="fnref:movl"><a class="footnote-ref" href="#fn:movl">1</a></sup></p>
+<p>The size of the eax register will always be 32 bit, regardless of the system's register size.<sup id="fnref:movl"><a class="footnote-ref" href="#fn:movl">[1]</a></sup></p>
 <h3 id="dollar-and-percentage-signs"><code>$</code> Dollar and <code>%</code> Percentage signs</h3>
-<p><code>$i</code>, with <span class="math">\(i \in \mathbb{N}\)</span>, is a constant<sup id="fnref:dollar-asm"><a class="footnote-ref" href="#fn:dollar-asm">2</a></sup> and percentages mean registers.<sup id="fnref:dollar-percent"><a class="footnote-ref" href="#fn:dollar-percent">3</a></sup></p>
+<p><code>$i</code>, with <span class="math">\(i \in \mathbb{N}\)</span>, is a constant<sup id="fnref:dollar-asm"><a class="footnote-ref" href="#fn:dollar-asm">[2]</a></sup> and percentages mean registers.<sup id="fnref:dollar-percent"><a class="footnote-ref" href="#fn:dollar-percent">[3]</a></sup></p>
 <h3 id="instruction">Instruction</h3>
 <ul>
-<li><code>pushl &lt;register&gt;</code>: To push the source operand onto the stack<sup id="fnref:pushl"><a class="footnote-ref" href="#fn:pushl">4</a></sup></li>
-<li><code>movl &lt;from&gt;, &lt;to&gt;</code>: moves a long<sup id="fnref:ia32"><a class="footnote-ref" href="#fn:ia32">5</a></sup></li>
+<li><code>pushl &lt;register&gt;</code>: To push the source operand onto the stack<sup id="fnref:pushl"><a class="footnote-ref" href="#fn:pushl">[4]</a></sup></li>
+<li><code>movl &lt;from&gt;, &lt;to&gt;</code>: moves a long<sup id="fnref:ia32"><a class="footnote-ref" href="#fn:ia32">[5]</a></sup></li>
 <li><code>call &lt;function&gt;</code>: Calls function (which might be printf, putchar, ...)</li>
-<li><code>subl $16, %esp</code>: allocate a local variable<sup id="fnref:c-to-asm"><a class="footnote-ref" href="#fn:c-to-asm">6</a></sup></li>
-<li><code>ret</code>: transfers control back to the place where the current function was called.<sup id="fnref2:c-to-asm"><a class="footnote-ref" href="#fn:c-to-asm">6</a></sup></li>
-<li><code>leave</code>: sets the stack pointer to the base frame address, effectively releasing the whole frame<sup id="fnref:leave"><a class="footnote-ref" href="#fn:leave">7</a></sup></li>
-<li><code>andl $-16, %esp</code>: ANDs the stack pointer with <code>0xfffffff0</code>, which effectively aligns it on a 16 byte boundary. Access to aligned values on the stack is much faster than if they were unaligned.<sup id="fnref:align"><a class="footnote-ref" href="#fn:align">8</a></sup></li>
+<li><code>subl $16, %esp</code>: allocate a local variable<sup id="fnref:c-to-asm"><a class="footnote-ref" href="#fn:c-to-asm">[6]</a></sup></li>
+<li><code>ret</code>: transfers control back to the place where the current function was called.<sup id="fnref2:c-to-asm"><a class="footnote-ref" href="#fn:c-to-asm">[6]</a></sup></li>
+<li><code>leave</code>: sets the stack pointer to the base frame address, effectively releasing the whole frame<sup id="fnref:leave"><a class="footnote-ref" href="#fn:leave">[7]</a></sup></li>
+<li><code>andl $-16, %esp</code>: ANDs the stack pointer with <code>0xfffffff0</code>, which effectively aligns it on a 16 byte boundary. Access to aligned values on the stack is much faster than if they were unaligned.<sup id="fnref:align"><a class="footnote-ref" href="#fn:align">[8]</a></sup></li>
 <li><code>jmp &lt;target&gt;</code>: Jump to target label.</li>
 <li><code>jbe &lt;target&gt;</code>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?</li>
-<li><code>leal &lt;command-address&gt; &lt;store&gt;</code>: Load effective address.<sup id="fnref:leal"><a class="footnote-ref" href="#fn:leal">9</a></sup> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</li>
+<li><code>leal &lt;command-address&gt; &lt;store&gt;</code>: Load effective address.<sup id="fnref:leal"><a class="footnote-ref" href="#fn:leal">[9]</a></sup> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</li>
 </ul>
 <h4 id="suffixes">Suffixes</h4>
-<p>Many instructions have suffixes. This is what they mean<sup id="fnref2:movl"><a class="footnote-ref" href="#fn:movl">1</a></sup>:</p>
+<p>Many instructions have suffixes. This is what they mean<sup id="fnref2:movl"><a class="footnote-ref" href="#fn:movl">[1]</a></sup>:</p>
 <ul>
 <li><code>b</code>: byte (8 bit)</li>
 <li><code>s</code>: short (16 bit integer) or single (32-bit floating point)</li>
@@ -333,7 +333,7 @@ Contents of the .eh_frame section:
 <p>By the way, <a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="https://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="https://en.wikipedia.org/wiki/Backronym">backronym</a>.</p>
 <h2 id="fibonacci">Fibonacci</h2>
 <h3 id="c-code_1">C-Code</h3>
-<p>This is the most simple version of Fibonacci I could find:<sup id="fnref:fib"><a class="footnote-ref" href="#fn:fib">10</a></sup></p>
+<p>This is the most simple version of Fibonacci I could find:<sup id="fnref:fib"><a class="footnote-ref" href="#fn:fib">[10]</a></sup></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>

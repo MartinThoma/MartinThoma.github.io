@@ -126,14 +126,14 @@ try {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+    <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup></p>
 <p>Initially, the label might be something like "cat" or "dog". But the machine learning algorithms can't deal with those directly, so you need to encode the labels. The simplest way of encoding them is to use integers <span class="math">\(0, 1, \dots, k - 1\)</span>. However, in many cases it is handy to use a <em>one-hot encoding</em>. This means you make a <span class="math">\(k\)</span>-dimensional vector for each label. <span class="math">\((1, 0)\)</span> might encode "dog" and <span class="math">\((0, 1)\)</span> might encode "cat". <code>sklearn</code> supports this encoding in a convenient way
-(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is <span class="math">\(-1\)</span> and <span class="math">\(1\)</span> for binary classification problems.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is <span class="math">\(-1\)</span> and <span class="math">\(1\)</span> for binary classification problems.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></p>
 <p>A linear model is one which applies only linear operations to the features. So basically the model may only be a matrix. Typically the elements of the matrix are called <em>weights</em>, because they weight the importance of each feature.</p>
-<p>The objective of such a classifier<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> is to find a matrix <span class="math">\(W^*\)</span> such that the MSE is as small as possible on the test set <span class="math">\(D\)</span>:</p>
+<p>The objective of such a classifier<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">[3]</a></sup> is to find a matrix <span class="math">\(W^*\)</span> such that the MSE is as small as possible on the test set <span class="math">\(D\)</span>:</p>
 <div class="math">$$W^* = \arg \min_{W} E_{MSE} (f_W, D)$$</div>
 <h2 id="one-hot-encoding">One-hot encoding</h2>
-<p>If one-hot encoded labels are used,<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> a linear classifier
+<p>If one-hot encoded labels are used,<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">[4]</a></sup> a linear classifier
 </p>
 <div class="math">$$f: \text{feature space} \rightarrow \text{class space}$$</div>
 <p>
@@ -306,11 +306,11 @@ SVMs.</p>
 <li id="fn:2">
 <p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
 </li>
-<li id="fn:3">
-<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
-</li>
 <li id="fn:4">
-<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
+<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
 </li>
 </ol>
 </div>

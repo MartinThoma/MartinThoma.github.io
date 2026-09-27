@@ -378,6 +378,78 @@ thead th, th { background: var(--surface-sunk); font-weight: 600; }
 tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-sunk) 45%, transparent); }
 table.transparent, table.transparent tr, table.transparent td { border: 0; background: none; }
 table.transparent td { padding: 0.5rem; }
+
+/* Large tables (tables.js). A too wide table scrolls inside a box that fits the window;
+   its header rows and (if narrow enough) first column stick, and the button above it
+   opens a dialog that fills the window. A table that is only too long scrolls with the
+   page, its header rows stick below the site header. */
+.article-content table.table-large { overflow: visible; }
+.article-content table.table-boxed { overflow: auto; overscroll-behavior-x: contain; max-height: calc(100vh - 7rem); }
+/* Scrolling in the box stops at the start of a row and of a column; tables.js sets the
+   scroll-padding to the sticky header and column. Every row and cell is a snap point:
+   Chrome only snaps to points that are visible in the other direction. */
+.article-content table.table-boxed { scroll-snap-type: both mandatory; }
+.table-boxed tr { scroll-snap-align: start none; }
+.table-boxed :is(td, th) { scroll-snap-align: none start; }
+/* Collapsed borders stay behind when a cell sticks, which would leave a see-through gap.
+   So the cells stick 1–2px beyond the edge (tables.js sets `top`), and a 1px line just
+   outside the last header row and the first column covers the gap on the inner side and
+   separates them from the cells scrolling underneath. */
+.table-large .sticky-top { position: sticky; z-index: 2; }
+.table-large .sticky-left { position: sticky; left: -2px; z-index: 1; }  /* -2px: fractional device pixels */
+.table-large .sticky-top.sticky-left { z-index: 3; }
+.table-large :is(.sticky-edge, .sticky-left)::after, .table-large .sticky-edge.sticky-left::before {
+  content: ""; position: absolute; background: var(--hairline-strong); pointer-events: none;
+}
+.table-large .sticky-edge::after { left: 0; right: 0; bottom: -1px; height: 1px; }
+.table-large .sticky-left:not(.sticky-edge)::after, .table-large .sticky-edge.sticky-left::before { top: 0; bottom: 0; right: -1px; width: 1px; }
+.table-large :is(.sticky-top, .sticky-left).sticky-fill { background-color: var(--paper); }
+.table-large tbody tr:nth-child(even) > .sticky-left.sticky-fill {
+  background-color: color-mix(in srgb, var(--surface-sunk) 45%, var(--paper));
+}
+.table-tools { display: flex; justify-content: flex-end; margin-bottom: 0.4rem; }
+.table-tools[hidden] { display: none; }
+.table-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem; min-height: 36px; padding: 0.3rem 0.85rem;
+  font: inherit; font-size: 0.875rem; color: var(--ink-muted); cursor: pointer;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--pill);
+  transition: color 0.15s, border-color 0.15s;
+}
+.table-btn:hover { color: var(--ink); border-color: var(--hairline-strong); }
+.table-btn svg { width: 1rem; height: 1rem; flex: none; }
+.table-placeholder { margin: 0 0 1.25rem; }
+
+.table-dialog {
+  width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0;
+  border: 0; background: var(--paper); color: var(--ink);
+}
+.table-dialog::backdrop { background: var(--paper); }
+.table-dialog[open] { display: grid; grid-template: auto minmax(0, 1fr) / minmax(0, 1fr); }
+html:has(.table-dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
+.table-dialog-bar { display: flex; align-items: center; gap: 1rem; padding: 0.6rem 1rem; }
+.table-dialog-title { flex: 1; min-width: 0; margin: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.table-dialog-stage { display: flex; flex-direction: column; align-items: center; min-height: 0; padding: 0 1rem 1rem; }
+.table-dialog-stage > table.table-large.table-boxed { flex: 0 1 auto; min-height: 0; max-height: 100%; max-width: 100%; margin: 0; }
+/* A first column too wide to stick gets narrower: long words are hyphenated or, failing
+   that, broken anywhere. */
+.table-large.first-col-narrow .first-col { width: min(9rem, 35vw); min-width: min(9rem, 35vw); overflow-wrap: anywhere; hyphens: auto; }
+.table-large .footnote-ref { white-space: nowrap; }  /* never break a [14] */
+@media (max-width: 46rem) {
+  /* Phones: compact large tables. The box leaves a quarter of the screen free, so the page
+     can still be scrolled past the table; "Maximieren" shows it in the whole window. */
+  .article-content table.table-large { font-size: 0.875rem; }
+  .table-large :is(th, td) { padding: 0.35rem 0.55rem; hyphens: auto; }
+  .article-content table.table-boxed { max-height: 75vh; max-height: 75svh; }
+  .table-dialog-bar { padding: 0.5rem 0.75rem; }
+  .table-dialog-stage { padding: 0 0.5rem 0.5rem; }
+}
+@media (pointer: coarse) {
+  .table-btn { min-height: 44px; }
+}
+@media print {
+  .table-tools { display: none; }
+  .article-content table.table-boxed { max-height: none; overflow: visible; }
+}
 caption { font-weight: 600; padding-bottom: 0.4rem; }
 
 img { max-width: 100%; height: auto; }
@@ -543,6 +615,12 @@ html:has(.lightbox[open]) { overflow: hidden; scrollbar-gutter: stable; }
 
 .footnote { font-size: 0.9rem; color: var(--ink-muted); }
 .footnote hr { border-top: 1px solid var(--hairline); }
+h2 + .footnote > hr { display: none; }  /* directly under "## Einzelnachweise" */
+.footnote-backref + .footnote-backref { margin-left: 0.3em; }  /* one ↩ per citation */
+/* the footnote or citation a click on [1] / ↩ jumped to */
+.footnote li:target, sup[id^="fnref"]:target {
+  background: var(--accent-soft); border-radius: var(--r-xs); box-shadow: 0 0 0 0.3em var(--accent-soft);
+}
 
 /* ---------- search (templates/search.html, js/search.js) ---------- */
 .visually-hidden {
