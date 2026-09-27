@@ -231,9 +231,10 @@ Siehe auch:
       abgebildet.</dd>
   <dt><dfn>MaxQ-Dekomposition</dfn> (siehe [<a href="#ref-die00" name="ref-die00-anchor">Die00</a>])</dt>
   <dd>Das zu lösende MDP $M$ wird als Menge von Unteraufgaben $\{M_0, \dots, M_n\}$
-      interpretiert. Dabei ist $M_0$ das Haupt-MDP.
-
-      TODO.</dd>
+      interpretiert. Dabei ist $M_0$ das Haupt-MDP. Jede Unteraufgabe $M_i$ hat eine
+      eigene Value-Funktion, die sich additiv aus den Value-Funktionen der von ihr
+      aufgerufenen Unteraufgaben zusammensetzt; dadurch wird die globale Value-Funktion
+      hierarchisch zerlegt (daher "MaxQ").</dd>
 </dl>
 
 Folie 35:
@@ -760,8 +761,9 @@ Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
 <details class="question">
 <summary>Was macht man im Reinforcement Learning, wenn Aktionen länger dauern?</summary>
 <div class="answer">
-Options verwenden (TODO: Wie ändert sich die Value Iteration Formel
-nun bzgl. der Zeit?)
+Options verwenden. Die Value-Iteration-Formel eines SMDP diskontiert dann nicht mehr
+pro Zeitschritt, sondern über die (ggf. stochastische) Dauer $\tau$ der Option:
+$V(s) = \max_o \left[ R(s,o) + \sum_{s', \tau} P(s', \tau | s, o) \gamma^\tau V(s') \right]$
 </div>
 </details>
 

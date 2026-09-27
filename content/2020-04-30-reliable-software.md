@@ -289,7 +289,11 @@ There are lots of different things you can test:
 
 * Feature Tests
 * Load-Tests
-* Regression Tests: check if things still work. TODO: difference to unit tests / feature or load tests?
+* Regression Tests: re-run existing tests (often unit or feature tests) after a change
+  to check that previously working behavior didn't break. It's not a separate test
+  *type* so much as a *purpose*: any test can be part of a regression suite, while unit
+  tests target a single component in isolation, feature tests a user-visible behavior,
+  and load tests the system's behavior under high traffic/data volume.
 * Unit Tests
 * Integration Tests
 * End-to-End Tests

@@ -890,7 +890,10 @@ Slides: `09_ Kurven und Flachen.pdf`
     </div>
     </dd>
     <dt><dfn>B-Splines</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Stückweise polynomielle Kurven, die durch eine Folge von Kontrollpunkten und
+        einen Knotenvektor definiert sind. Anders als bei Bézierkurven beeinflusst jeder
+        Kontrollpunkt nur einen lokalen Bereich der Kurve (lokale Kontrolle), und der Grad
+        der Kurve ist unabhängig von der Anzahl der Kontrollpunkte.</dd>
     <dt><dfn>Algorithmus von De Casteljau</dfn></dt>
     <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/tree/master/de-casteljau-algorithm">Code</a>.</dd>
 </dl>

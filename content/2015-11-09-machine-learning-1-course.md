@@ -1016,7 +1016,10 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 
       <ol>
           <li>Bestimme $P(O_{\text{train}} | \lambda)$</li>
-          <li>Schätze ein besseres Modell $\bar \lambda$: TODO - Genauer! (Folie 31 - 36)</li>
+          <li>Schätze ein besseres Modell $\bar \lambda$: mit Forward-Backward werden die
+              erwarteten Übergangs- und Emissionshäufigkeiten unter dem aktuellen Modell
+              berechnet (E-Schritt); daraus werden $\bar A, \bar B, \bar \Pi$ neu geschätzt
+              (M-Schritt), analog zum EM-Algorithmus.</li>
       </ol>
 
       Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.
@@ -1465,14 +1468,20 @@ wird minimiert.
 <details class="question">
 <summary>Warum lernen SVMs "korrekt"?</summary>
 <div class="answer">
-<p>Es gibt ein Theorem (TODO: Welches?), das besagt, dass die VC-Dimension
+<p>Es gibt ein Theorem (Vapniks Margin-Bound, aus "The Nature of Statistical Learning
+Theory", 1995), das besagt, dass die VC-Dimension
 eines Klassifikators, welcher Datenpunkte im $n$-dimensionalen Raum
 innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
 mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
 beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
 Margin maximiert.</p>
 
-<p>Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).</p>
+<p>Alternativ: Erklärung durch Strukturierung des Hypothesenraumes. Structural
+Risk Minimization ordnet Hypothesenräume nach aufsteigender Kapazität
+(VC-Dimension) und wählt das Modell, das den besten Kompromiss zwischen
+empirischem Risiko und Kapazität liefert. Die SVM setzt das um, indem sie unter
+allen Trennebenen die mit maximalem Margin wählt, was einer Hypothese mit
+möglichst geringer Kapazität entspricht.</p>
 </div>
 </details>
 
