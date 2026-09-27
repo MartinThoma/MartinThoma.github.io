@@ -356,13 +356,33 @@ TODO: Wie groß ist die Fläche?
 
 ### Sockel unter Tür
 
-TODO: Tutorial für Sockeldämmung
+So funktioniert eine Sockeldämmung:
 
-* Klebe- und Armierungsmörtel?
-* Maueranker? / Schlagdübel?
-* Putz?
-* Armierungsgewebe?
-* Auf Boden oder auf Sockelschiene kleben?
+1. **Material**: Im Sockel- und Spritzwasserbereich nimmt man Sockel- bzw.
+   Perimeterdämmplatten (z.B. XPS). Sie sind wasserbeständiger und druckfester
+   als normale Fassadendämmplatten.[^6]
+2. **Untergrund**: Die vertikale Bauwerksabdichtung (meist ein Bitumenanstrich
+   oder eine Dickbeschichtung) muss über die Mauerwerkssperrbahn geführt sein.[^7]
+3. **Kleben**: Mit einem Klebe- und Armierungsmörtel, der auch auf Bitumen hält.
+   Normaler Fassadenkleber haftet dort nicht. Den Kleber mit einer Zahntraufel
+   vollflächig auf die Plattenrückseite auftragen und die Platte andrücken.[^7]
+4. **Boden oder Sockelschiene?** Beides geht. Ohne Sockelschiene läuft die
+   Perimeterdämmung bis ins Erdreich. Mit Sockelschiene steht die
+   Fassadendämmung auf einem Profil mit Tropfkante.[^6] In beiden Fällen sollte
+   die Fuge zwischen Sockel- und Fassadendämmung mindestens 30cm über dem Boden
+   liegen.[^8]
+5. **Dübeln**: Im Erdreich nicht nötig, weil das Erdreich die Platten andrückt.
+   Oberirdisch zusätzlich mit Schlag- oder Schraubdübeln, aber nicht in den
+   unteren 15cm über dem Boden, weil dort die Abdichtung ist.[^8]
+6. **Armieren**: Armierungsmörtel vollflächig auftragen, mit einer 10mm
+   Zahntraufel durchkämmen, das Glasfaser-Armierungsgewebe faltenfrei einbetten
+   (Bahnen ca. 10cm überlappen) und glätten. Mindestens 4 Tage trocknen
+   lassen.[^9]
+7. **Abdichten**: Den erdberührten Bereich bis 5cm über dem späteren
+   Geländeniveau mit einer flexiblen Dichtschlämme in zwei Lagen (zusammen ca.
+   1mm) abdichten.[^9]
+
+Mögliche Platten:
 
 * [bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm…](https://www.bausep.de/sockeldaemmplatte-eps-035-500-x-1000-mm.html?361=675965) 33.40€/m² bei 20cm, WLS 035
 * [bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mi…](https://www.bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mit-stufenfalz.html) : 19.20€/m² bei 12cm WLS 036
@@ -374,4 +394,8 @@ TODO: Tutorial für Sockeldämmung
 [^2]: Der Fachwerker: [Finger weg von diesen 3 Dämmstoffen!](https://www.youtube.com/watch?v=4iHTrwrfsIs) via YouTube, 15.11.2023.
 [^3]: [Holzfaser-Dämmplatten](http://www.architekt-riebler.at/energieeffizienz/waermedaemmungen/holzfaserdaemmung) via architekt-riebler.at.
 [^4]: [Qualitätsanforderungen an Passivhäuser](https://passiv.de/de/02_informationen/02_qualitaetsanforderungen/02_qualitaetsanforderungen.htm) via Passivhaus Institut, abgerufen am 02.11.2025.
-[^5]: [Anlage zum Merkblatt Energieeffizient Bauen](https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-(Inlandsf%C3%B6rderung) via KfW, 01.01.2020.
+[^5]: [Anlage zum Merkblatt Energieeffizient Bauen](https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-%28Inlandsf%C3%B6rderung%29/PDF-Dokumente/6000003465_M_153_EEB_TMA_2018_04.pdf) via KfW, 01.01.2020.
+[^6]: [Aufbau Fassaden- & Perimeterdämmung / Sockelschiene](https://www.dk-westment.de/info-aktuelles/wdvs-anleitungen/anleitungen/aufbau-fassadendaemmung-sockeldaemmung.html) via DK Westment, abgerufen am 27.09.2026.
+[^7]: [Sockeldämmung bzw. Perimeterdämmung kleben](https://www.baumit-selbermachen.de/fassaden-daemmen/anleitungen/sockeldaemmung-bzw-perimeterdaemmung/sockeldaemmung-bzw-perimeterdaemmung-kleben_aid_1119.html) via Baumit, abgerufen am 27.09.2026.
+[^8]: [Sockeldämmung: Aufbau, Pflicht-Dicke & Feuchte](https://www.energie-experten.org/bauen-und-sanieren/daemmung/perimeterdaemmung/sockeldaemmung) via energie-experten.org, 14.09.2026.
+[^9]: [Sockeldämmung bzw. Perimeterdämmung armieren oder verputzen](https://www.baumit-selbermachen.de/fassaden-daemmen/anleitungen/sockeldaemmung-bzw-perimeterdaemmung/sockeldaemmung-bzw-perimeterdaemmung-armieren-oder-verputzen_aid_1120.html) via Baumit, abgerufen am 27.09.2026.
