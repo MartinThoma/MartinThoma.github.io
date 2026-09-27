@@ -1639,8 +1639,34 @@ form&lt;/p&gt;
 &lt;div class="math"&gt;$$y := \sum_{i=1}^n a_i \cdot x_i$$&lt;/div&gt;
 &lt;p&gt;So each feature &lt;span class="math"&gt;\(x_i \in \mathbb{R}\)&lt;/span&gt; has a weight &lt;span class="math"&gt;\(a_i \in \mathbb{R}\)&lt;/span&gt;. This
 weight is the importance of the feature.&lt;/p&gt;
-&lt;h2 id="todos"&gt;TODOs&lt;/h2&gt;
-&lt;p&gt;Explain how sklearn / &lt;a href="https://github.com/catboost/catboost"&gt;catboost&lt;/a&gt; calculates feature importances&lt;/p&gt;
+&lt;h2 id="how-do-libraries-calculate-feature-importances"&gt;How do libraries calculate feature importances?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;sklearn&lt;/strong&gt; trees and forests have the attribute &lt;code&gt;feature_importances_&lt;/code&gt;. It is
+the &lt;em&gt;mean decrease in impurity&lt;/em&gt; (MDI): every time a node splits on a feature,
+the impurity (Gini, log loss or mean squared error) of the children is lower
+than the impurity of the parent. This decrease, weighted by the share of
+training samples that reach the node, is added to the feature. For forests it
+is averaged over all trees, and the values are normalized so that they sum up
+to 1. The &lt;a href="https://scikit-learn.org/stable/modules/permutation_importance.html"&gt;sklearn documentation&lt;/a&gt;
+warns that MDI is computed on the training set and favors features with many
+distinct values.&lt;/p&gt;
+&lt;p&gt;The alternative in sklearn is
+&lt;a href="https://scikit-learn.org/stable/modules/permutation_importance.html"&gt;&lt;code&gt;permutation_importance&lt;/code&gt;&lt;/a&gt;:
+shuffle one feature column of a validation set and measure how much the score
+drops. It works for any model. For the 3-XOR example with a perfect model,
+shuffling any single feature drops the accuracy to 50%. So all three features
+get the same high importance, although none of them is useful on its own.
+Permutation importance tells you what the model relies on, not which feature
+you could use alone.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/catboost/catboost"&gt;CatBoost&lt;/a&gt;&lt;/strong&gt; has several
+&lt;a href="https://catboost.ai/docs/en/concepts/fstr"&gt;importance types&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PredictionValuesChange&lt;/code&gt; (default for most losses): how much the prediction
+  changes on average if the feature value changes. Normalized to sum up to 100.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LossFunctionChange&lt;/code&gt; (default for ranking): the difference between the loss
+  of the model with and without the feature. It depends on the dataset and can
+  be negative.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ShapValues&lt;/code&gt;: the contribution of each feature to a single prediction.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="tldr"&gt;TL;DR&lt;/h2&gt;
 &lt;p&gt;Feature importances don't make any sense if the problem is non-linear enough.
 Many problems, however, could potentially be described in a linear way.&lt;/p&gt;</content><category term="Machine Learning"/><category term="Machine Learning"/><category term="Data Science"/><category term="AI"/></entry><entry><title>Data Science Project Guide</title><link href="https://martin-thoma.com/ds-project-guide/" rel="alternate"/><published>2018-06-03T20:00:00+02:00</published><updated>2018-06-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-03:/ds-project-guide/</id><summary type="html">&lt;p&gt;Data Science projects are either pure analytics projects, or software projects,
