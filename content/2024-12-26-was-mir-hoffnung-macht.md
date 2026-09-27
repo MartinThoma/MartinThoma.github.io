@@ -19,13 +19,13 @@ Wir sind nun endlich so weit, dass Endverbraucher einfach durch ihr Kaufverhalte
 den Klimawandel stoppen können. Die klimaoptimale Variante ist oder wird
 absehbar auch die günstigste Variante:
 
-* **Wärmewende**: 65,5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>, 23% nutzen
+* **Wärmewende**: 65,5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen[^1], 23% nutzen
   Fernwärme, 2% Strom-Direktheizungen (vermutlich Infrarot, weil sie sehr gut
   gedämmt sind). Nur 0,1% nutzen Heizöl und 5,4% Gas.
-* **Verkehrswende**: Norwegen lässt ab 2025 keine Verbrenner mehr zu<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>. Das
+* **Verkehrswende**: Norwegen lässt ab 2025 keine Verbrenner mehr zu[^2]. Das
   zeigt deutlich, dass das kalte Wetter und weite Strecken ohne Infrastruktur
-  kein Hindernis mehr sind. Selbst am Polarkreis fahren Elektrobusse<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>. Auch
-  Island, Schweden, Dänemark und Finnland schreiten deutlich voran. Der
+  kein Hindernis mehr sind. Selbst am Polarkreis fahren Elektrobusse[^3]. Auch
+  Island, Schweden, Dänemark und Finnland schreiten deutlich voran[^4]. Der
   technische Fortschritt und Skaleneffekte werden die Wahl immer klarer machen:
   Die Reichweiten steigen, die Ladezeiten sinken, die Anschaffungskosten sinken.
   Und die Reparaturkosten sowie die Betriebskosten waren schon immer geringer
@@ -33,12 +33,15 @@ absehbar auch die günstigste Variante:
   [London kann man an Straßenlaternen laden](https://edison.media/laden-an-laternen-in-london/25202454/), [bei IKEA konnte man kostenlos laden](https://www.golem.de/news/mehr-ladepunkte-ikea-beendet-kostenloses-e-auto-laden-2403-183086.html), und
   die Ladepunkte bei [Aldi](https://www.e-ladestation.aldi-sued.de/)/[Lidl](https://www.lidl.de/c/e-ladesaeulen/s10007751) sind inzwischen wirklich überall.
 * **Energiewende**: Der Ausbau an Photovoltaik-Anlagen geht immer schneller
-  voran. Schneller als jeder erwartet hat<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>. Und der Ausbau wird immer
+  voran. Schneller als jeder erwartet hat[^5]. Und der Ausbau wird immer
   günstiger und einfacher. In Deutschland merken wir das bei Steckerkraftwerken
   (Balkon-Solaranlagen). Ähnlich wie bei der Photovoltaik geht es auch bei den
   Batterien voran. Immer mehr Menschen haben Heimspeicher. Die Batterie-Systeme
-  werden immer günstiger<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>. Die Anschlussbegehren für Großspeicherprojekte
-  summieren sich aktuell auf 161 GW<small><sup><a href="#ref8" name="anchor8">[8]</a></sup></small>.
+  werden immer günstiger[^6]. Die Anschlussbegehren für Großspeicherprojekte
+  summieren sich aktuell auf 161 GW[^7]. Selbst ausgediente
+  Windräder bekommen ein zweites Leben: Beim Repowering abgebaute
+  Anlagen werden anderswo als Second-Hand-Windräder wieder
+  aufgebaut[^8].
 
 Das ist ein riesiger Fortschritt. Wenn die Politik nun zumindest nicht aktiv
 gegensteuert und alles so lässt, wie es ist, werden sich E-Autos bis 2030 auch in
@@ -74,14 +77,14 @@ Arbeit einzusparen, allerdings schon seit langem:
 
 * **Behörden-Kommunikation**: Wenn man von einem Bundesland in ein anderes
   zieht, druckt das Finanzamt die Dokumente aus, schickt sie per Post an den neuen
-  Wohnort, wo das zuständige Finanzamt sie wieder abtippt.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small> Solche absurden Beispiele gibt es sicher häufiger in
+  Wohnort, wo das zuständige Finanzamt sie wieder abtippt.[^9] Solche absurden Beispiele gibt es sicher häufiger in
   Behörden und Ämtern.
 * **Autonomes Fahren**: Insbesondere bei U-Bahnen sollte es nicht so schwer sein,
   autonom zu fahren. Das würde eine höhere Taktung erlauben und die Zuverlässigkeit
   steigern - wenn kein Fahrer da ist, kann auch keiner streiken. Allerdings
   muss dazu [CBTC](https://de.wikipedia.org/wiki/Communication-Based_Train_Control#Einsatz)
-  umgesetzt werden.<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small>
-  Genauso gibt es schon autonome Shuttle-Busse in Kronach, Hof und Rehau.<small><sup><a href="#ref11" name="anchor11">[11]</a></sup></small> Aktuell werden diese Shuttles mit einem
+  umgesetzt werden.[^10]
+  Genauso gibt es schon autonome Shuttle-Busse in Kronach, Hof und Rehau.[^11] Aktuell werden diese Shuttles mit einem
   "Operator" (so etwas Ähnliches wie ein Fahrer) betrieben. In Zukunft soll es
   eine Tele-Leitstelle geben, welche die Shuttles überwacht und sich um ungeplante
   Ereignisse kümmert. In Hamburg gibt es [HEAT](https://www.hochbahn.de/de/projekte/das-projekt-heat) und [ab 2025 ID.Buzz von Moia](https://www.golem.de/news/autonomes-fahren-moia-testet-autonomen-id-buzz-2025-in-hamburg-2411-190631.html),
@@ -114,14 +117,14 @@ wie gut ich versorgt werde.
 
 ## Einzelnachweise
 
-* 1<a name="ref1" href="#anchor1">&uarr;</a> ARTEde: [Das zweite Leben der Windräder](https://www.youtube.com/watch?v=BaHtXfccDfk) auf YouTube, 24.12.2024.
-* 2<a name="ref2" href="#anchor2">&uarr;</a> Money & Macro: [Why solar will soon dominate & what that means for the world](https://www.youtube.com/watch?v=edAdJxxstTE) on YouTube, 22.10.2024.
-* 3<a name="ref3" href="#anchor3">&uarr;</a> Prof. Rupp im Geladen Podcast: [E-Auto-Batterien bald VIEL billiger? Akku-Rennen etwa vorbei?](https://www.youtube.com/watch?v=G9LXcvL1w8E) auf YouTube, 29.09.2024.
-* 4<a name="ref4" href="#anchor4">&uarr;</a> bdew: [Entwicklung der Beheizungsstruktur im Neubau - Baugenehmigungen](https://www.bdew.de/service/daten-und-grafiken/entwicklung-beheizungsstruktur-baugenehmigungen/), 09.12.2024.
-* 5<a name="ref5" href="#anchor5">&uarr;</a> Katja Evers: [Verbrenneraus 2025: Wie Norwegen es fast geschafft hat](https://www.mdr.de/wissen/umwelt-klima/verbrenneraus-warum-Norwegen-es-fast-geschafft-hat100.html) auf mdr.de, 29.12.2024.
-* 6<a name="ref6" href="#anchor6">&uarr;</a> Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/), 20.11.2024.
-* 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14,6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
-* 8<a name="ref8" href="#anchor8">&uarr;</a> Christian Stöcker: [Ein Batterie-Tsunami rollt heran](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) in Spiegel Wissenschaft, 17.11.2024.
-* 9<a name="ref9" href="#anchor9">&uarr;</a> Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) im MDR.
-* 10<a name="ref10" href="#anchor10">&uarr;</a> Christina Hertel: [MVG stellt Weichen für autonom fahrende U-Bahnen in München](https://www.abendzeitung-muenchen.de/muenchen/mvg-stellt-weichen-fuer-autonom-fahrende-u-bahnen-in-muenchen-art-946721), 15.12.2023.
-* 11<a name="ref11" href="#anchor11">&uarr;</a> BR: [E-Mobilität: Autonom fahrende Shuttle-Busse](https://www.youtube.com/watch?v=iAkMQODZ5MY) auf YouTube, 15.12.2021.
+[^1]: [Entwicklung der Beheizungsstruktur im Neubau – Baugenehmigungen](https://www.bdew.de/service/daten-und-grafiken/entwicklung-beheizungsstruktur-baugenehmigungen/) via BDEW, 09.12.2024.
+[^2]: Katja Evers: [Verbrenneraus 2025: Wie Norwegen es fast geschafft hat](https://www.mdr.de/wissen/umwelt-klima/verbrenneraus-warum-Norwegen-es-fast-geschafft-hat100.html) via MDR, 29.12.2024.
+[^3]: Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/) via electrive, 20.11.2024.
+[^4]: [14,6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html) via Destatis, 10.09.2024.
+[^5]: Money & Macro: [Why solar will soon dominate & what that means for the world](https://www.youtube.com/watch?v=edAdJxxstTE) via YouTube, 22.10.2024.
+[^6]: Geladen – Batteriepodcast zur Energiewende: [E-Auto-Batterien bald VIEL billiger? Akku-Rennen etwa vorbei?](https://www.youtube.com/watch?v=G9LXcvL1w8E) via YouTube, 29.09.2024 (mit Prof. Rupp).
+[^7]: Christian Stöcker: [Ein Batterie-Tsunami rollt heran](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) via Der Spiegel, 17.11.2024.
+[^8]: ARTEde: [Das zweite Leben der Windräder](https://www.youtube.com/watch?v=BaHtXfccDfk) via YouTube, 24.12.2024.
+[^9]: Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) via YouTube.
+[^10]: Christina Hertel: [MVG stellt Weichen für autonom fahrende U-Bahnen in München](https://www.abendzeitung-muenchen.de/muenchen/mvg-stellt-weichen-fuer-autonom-fahrende-u-bahnen-in-muenchen-art-946721) via Abendzeitung München, 15.12.2023.
+[^11]: Bayerischer Rundfunk: [E-Mobilität: Autonom fahrende Shuttle-Busse](https://www.youtube.com/watch?v=iAkMQODZ5MY) via YouTube, 15.12.2021.

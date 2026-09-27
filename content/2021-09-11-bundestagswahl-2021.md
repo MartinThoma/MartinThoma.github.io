@@ -18,7 +18,7 @@ dazu.
 
 Seit März 2020 dominiert die [COVID-19-Pandemie](https://de.wikipedia.org/wiki/COVID-19-Pandemie) das Weltgeschehen. Spätestens seit 2005 mit dem [Kyoto-Protokoll](https://de.wikipedia.org/wiki/Kyoto-Protokoll) muss auch jedem Politiker klar sein, dass die [globale Erwärmung](https://de.wikipedia.org/wiki/Globale_Erw%C3%A4rmung) ein riesiges Problem ist:
 
-* 216 Millionen Klima-Flüchtlinge bis 2050<sup id="fnref:25"><a class="footnote-ref" href="#fn:25">25</a></sup>. Das sind 216 Millionen Menschen, die aktuell in Regionen leben, die durch den Klimawandel unbewohnbar werden. Bei der [Flüchtlingskrise 2015](https://de.wikipedia.org/wiki/Europ%C3%A4ische_Fl%C3%BCchtlingskrise) waren es gerade mal 627.000 Flüchtlinge. Wir reden also von 344x dieser Flüchtlingskrise!
+* 216 Millionen Klima-Flüchtlinge bis 2050[^1]. Das sind 216 Millionen Menschen, die aktuell in Regionen leben, die durch den Klimawandel unbewohnbar werden. Bei der [Flüchtlingskrise 2015](https://de.wikipedia.org/wiki/Europ%C3%A4ische_Fl%C3%BCchtlingskrise) waren es gerade mal 627.000 Flüchtlinge. Wir reden also von 344x dieser Flüchtlingskrise!
 * Mehr Naturkatastrophen: [Hochwasser](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021#Deutschland), [Dürren](https://de.wikipedia.org/wiki/D%C3%BCrre_in_Nordamerika_2020/21), [Hitzewellen](https://de.wikipedia.org/wiki/Hitzewelle_und_Waldbr%C3%A4nde_in_S%C3%BCdeuropa_und_der_T%C3%BCrkei_2021).
 * Ernteausfälle: Die Naturkatastrophen wirken sich natürlich auch auf die Nahrungsmittelversorgung aus.
 
@@ -46,7 +46,7 @@ Tempolimits einzuführen, usw. können nur unterstützend sein.
 
 **Regelung**: Der Staat sollte eine Maximalmenge an CO<sub>2</sub>-Äquivalenztonnen
 definieren, welche ausgestoßen werden darf. 2018 hat Deutschland 753 Millionen
-Tonnen CO<sub>2</sub> ausgestoßen<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.
+Tonnen CO<sub>2</sub> ausgestoßen[^2].
 Wenn man nun den Ausstoß auf 700 Millionen Tonnen CO<sub>2</sub> begrenzen will,
 gibt man Zertifikate in genau dieser Höhe aus. Bevor eine Firma Produkte
 verkaufen darf, welche CO<sub>2</sub> ausstoßen, benötigt sie ein Zertifikat.
@@ -55,13 +55,13 @@ Entfernen des CO<sub>2</sub> bezahlen (die sind immens!).
 
 **Emissionen**: CO<sub>2</sub> wird vor allem bei der Energieerzeugung
 ausgestoßen, also wenn man Benzin, Diesel, Kerosin, Erdgas, Kohle oder Ähnliches
-verbrennt oder wenn Zement produziert wird<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Das heißt, vor allem Firmen, welche diese Produkte fördern, müssen beim Verkauf
+verbrennt oder wenn Zement produziert wird[^3]. Das heißt, vor allem Firmen, welche diese Produkte fördern, müssen beim Verkauf
 nachweisen, dass sie über genügend viele Zertifikate verfügen. Da es
 überschaubar viele Firmen gibt, welche Öl / Kohle / Gas fördern bzw. Zement
 brennen, ist es auch kontrollierbar.
 
 Es gibt jedoch auch andere CO<sub>2</sub>-Emittenten, wie z.B. die Trockenlegung
-von Mooren<sup id="fnref:18"><a class="footnote-ref" href="#fn:18">18</a></sup>.
+von Mooren[^4].
 Auch solche Aktivitäten müssten selbstverständlich mit CO<sub>2</sub>-Zertifikaten
 abgedeckt werden.
 
@@ -77,7 +77,7 @@ Am Ende eines Jahres sollten Zertifikate verfallen und wieder neue versteigert w
 
 <b>Wir haben bereits das [EU-ETS](https://de.wikipedia.org/wiki/EU-Emissionshandel)
 bei dem ein Zertifikat zur Emission einer Tonne CO<sub>2</sub> berechtigt.</b>
-Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:28"><a class="footnote-ref" href="#fn:28">28</a></sup>
+Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.[^5]
 
 Anhand des <a href="https://www.bmu.de/themen/klimaschutz-anpassung/klimaschutz/emissionshandel/nationaler-allokationsplan-nap">Nationalen Allokationsplanes (NAP)</a> werden
 die Zertifikate in Deutschland verteilt. Initial wurde der
@@ -104,20 +104,20 @@ Nettoäquivalenzeinkommens (NÄE) als Schwelle.
 
 Das Median-NÄE war 2019 bei 23.515 EUR/Jahr. 2019 wäre man also mit einem
 Einkommen von weniger als 14.109 EUR/Jahr arm. Das ist netto 1175 EUR/Monat oder
-brutto 1562 EUR/Monat. Das sind 19% der Bevölkerung<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>!
+brutto 1562 EUR/Monat. Das sind 19% der Bevölkerung[^6]!
 
 Als reich gilt man übrigens bei 200% des Median-NÄEs. Das wäre 2019 ein
 Netto-Monatseinkommen von 3920 EUR gewesen. Das entspricht einem Brutto-Gehalt
-von 6747 EUR/Monat<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>,
-das sind immerhin 24% der Gesamtbevölkerung<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.
+von 6747 EUR/Monat[^7],
+das sind immerhin 24% der Gesamtbevölkerung[^6].
 
 Intuitiv hätte ich erwartet, dass ca. 5% arm sind. Und akzeptabel würde ich etwa
 1% finden. 19% ist definitiv zu viel.
 
 Wer ist arm?
 
-* 15% der über 60-Jährigen<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>
-* 3,8 Millionen Hartz-IV-Empfänger<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
+* 15% der über 60-Jährigen[^8]
+* 3,8 Millionen Hartz-IV-Empfänger[^9]
 
 Wir werden in den kommenden Jahren einen immer höheren Grad an Automatisierung sehen.
 Jobs fallen im Prinzip ersatzlos weg. Insbesondere selbstfahrende Autos machen
@@ -132,7 +132,7 @@ Grundeinkommen.
 ### Wohnen
 
 Die Mieten in großen Städten, insbesondere München, sind extrem hoch. Die Zahlen
-variieren sehr, aber wir sprechen von 12,05 EUR/m²<sup id="fnref:19"><a class="footnote-ref" href="#fn:19">19</a></sup> bis 20,07 EUR/m²<sup id="fnref:20"><a class="footnote-ref" href="#fn:20">20</a></sup>. Ich wohne in Germering, ca. 20km/40min vom Stadtzentrum entfernt und
+variieren sehr, aber wir sprechen von 12,05 EUR/m²[^10] bis 20,07 EUR/m²[^11]. Ich wohne in Germering, ca. 20km/40min vom Stadtzentrum entfernt und
 bezahle kalt 15,64 EUR/m² bei einer 78m² Wohnung.
 
 Dieses Problem kann nur durch **mehr Wohnraum** behoben werden. Ich halte wenig von
@@ -153,10 +153,10 @@ Die Parteien müssen also folgende Fragen beantworten:
 
 Das Renteneintrittsalter ist inzwischen bei 67 Jahren. Das bedeutet, dass viele
 Arbeitnehmer über 40 Jahre in die Rentenkasse einzahlen werden. Bei einer
-Lebenserwartung von 78,6 Jahren für Männer und 83,4 Jahren für Frauen<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup>
+Lebenserwartung von 78,6 Jahren für Männer und 83,4 Jahren für Frauen[^12]
 muss man also mit 16 Jahren Rente rechnen.
 
-Es gelten jetzt schon 15% der über 60-Jährigen als arm<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>.
+Es gelten jetzt schon 15% der über 60-Jährigen als arm[^8].
 Da macht man sich natürlich Sorgen, wie sicher die Rente ist.
 
 ### Demokratie & Korruption
@@ -427,7 +427,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg"><a href="https://www.die-linke.de/fileadmin/download/wahlen2021/Wahlprogramm/DIE_LINKE_Wahlprogramm_zur_Bundestagswahl_2021.pdf">168 Seiten</a></td>
     </tr>
     <tr>
-        <td>Mitgliedsalter<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></td>
+        <td>Mitgliedsalter[^13]</td>
         <td class="cdu-bg">61</td>
         <td class="spd-bg">60</td>
         <td class="green-bg">48</td>
@@ -476,7 +476,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
     </tr>
     <tr>
-        <td>MdB Durchschnittsalter<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></td>
+        <td>MdB Durchschnittsalter[^14]</td>
         <td class="cdu-bg">50,0&nbsp;</td>
         <td class="spd-bg">50,5&nbsp;</td>
         <td class="green-bg">47,0</td>
@@ -484,7 +484,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">50,0&nbsp;</td>
     </tr>
     <tr>
-        <td class="border-bottom">MdB Frauenanteil<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup></td>
+        <td class="border-bottom">MdB Frauenanteil[^15]</td>
         <td class="cdu-bg border-bottom">21%</td>
         <td class="spd-bg border-bottom">44%</td>
         <td class="green-bg border-bottom">57%</td>
@@ -540,7 +540,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">ab 2030 keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
     </tr>
 	<tr>
-        <td>Tempolimit<sup id="fnref:26"><a class="footnote-ref" href="#fn:26">26</a></sup></td>
+        <td>Tempolimit[^16]</td>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">130km/h</td>
         <td class="green-bg">130km/h</td>
@@ -548,7 +548,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/verkehrspolitik/">120km/h</a></td>
     </tr>
 	<tr>
-        <td>Dieselsubvention beenden<sup id="fnref:34"><a class="footnote-ref" href="#fn:34">34</a></sup></td>
+        <td>Dieselsubvention beenden[^17]</td>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">?</td>
         <td class="green-bg">✅</td>
@@ -556,7 +556,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">✅</td>
     </tr>
     <tr>
-        <td>Förderung von Wasserstoff-PKWs<br>(Das ist <b>nicht</b> sinnvoll<sup id="fnref:31"><a class="footnote-ref" href="#fn:31">31</a>, </sup><sup id="fnref:32"><a class="footnote-ref" href="#fn:32">32</a>, </sup><sup id="fnref:33"><a class="footnote-ref" href="#fn:33">33</a></sup>!)</td>
+        <td>Förderung von Wasserstoff-PKWs<br>(Das ist <b>nicht</b> sinnvoll[^18][^19][^20]!)</td>
         <td class="cdu-bg">✅</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">❌</td>
@@ -659,7 +659,7 @@ abschaffen</a></td>
         <td class="linke-bg">- 1200 EUR/Monat Steuerfreibetrag</td>
     </tr>
     <tr>
-        <td>Mindestlohn<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup><br/>Aktuell: 10,45 Euro/h</td>
+        <td>Mindestlohn[^21]<br/>Aktuell: 10,45 Euro/h</td>
         <td class="cdu-bg">10,45 Euro/h</td>
         <td class="spd-bg">12,00 EUR/h</td>
         <td class="green-bg">12,00 EUR/h</td>
@@ -667,7 +667,7 @@ abschaffen</a></td>
         <td class="linke-bg">13,00 EUR/h</td>
     </tr>
 	<tr>
-        <td>Entlastung bei 40k €/Jahr (brutto)<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">15</a></sup></td>
+        <td>Entlastung bei 40k €/Jahr (brutto)[^22]</td>
         <td class="cdu-bg">920 €</td>
         <td class="spd-bg">460 €</td>
         <td class="green-bg">970 €</td>
@@ -712,7 +712,7 @@ abschaffen</a></td>
         <td class="spd-bg">-</td>
         <td class="green-bg">ab 100.000 EUR/Jahr (brutto) auf 48%</td>
         <td class="fdp-bg">Spitzensteuersatz ab 90.000 EUR Einkommen auf 48%</td>
-        <td class="linke-bg">ab 76.000 EUR/Jahr (brutto) auf 53%<sup id="fnref:23"><a class="footnote-ref" href="#fn:23">23</a></sup></td>
+        <td class="linke-bg">ab 76.000 EUR/Jahr (brutto) auf 53%[^23]</td>
     </tr>
 	<tr>
         <td>Erbschaftsteuer</td>
@@ -721,7 +721,7 @@ abschaffen</a></td>
         <td class="green-bg">(keine Änderung)</td>
         <td class="fdp-bg">(keine Änderung)</td>
         <td class="linke-bg">Freibetrag: 150.000 EUR - 300.000 EUR<br/>
-                             Spitzensteuersatz: 60%<sup id="fnref:24"><a class="footnote-ref" href="#fn:24">24</a></sup></td>
+                             Spitzensteuersatz: 60%[^24]</td>
     </tr>
 	<tr>
         <td class="border-bottom"><a href="https://www.abgeordnetenwatch.de/bundestag/19/abstimmungen/abschaffung-des-solidaritaetszuschlags">Soli abschaffen</a></td>
@@ -755,7 +755,7 @@ abschaffen</a></td>
         <td class="linke-bg">✅</td>
     </tr>
     <tr>
-        <td class=""><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Parteispenden von Unternehmen/Verbänden verbieten</a><sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+        <td class=""><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Parteispenden von Unternehmen/Verbänden verbieten</a>[^25]</td>
         <td class="cdu-bg"><a href="https://www.tagesschau.de/inland/parteien-spenden-101.html">❌</a></td>
         <td class="spd-bg">❌</td>
         <td class="green-bg">✅</td>
@@ -857,7 +857,7 @@ abschaffen</a></td>
                 <li>Hans-Georg von der Marwitz (<a href="https://www.abgeordnetenwatch.de/profile/hans-georg-von-der-marwitz/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Landwirt</a>): 1.223.500 EUR</li>
                 <li>Albert Stegemann (<a href="https://www.abgeordnetenwatch.de/profile/albert-stegemann/nebentaetigkeiten">Landwirt</a>): 1.035.500 EUR</li>
                 <li>Michael Kuffer (<a href="https://www.abgeordnetenwatch.de/profile/michael-kuffer/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Rechtsanwalt</a>): 639.000 EUR</li>
-                <li>Johannes Röring (Landwirt): 620.000 EUR<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup></li>
+                <li>Johannes Röring (Landwirt): 620.000 EUR[^26]</li>
                 <li>Hans Michelbach (persönlich haftender Gesellschafter eines Projektentwicklers): 500.000 EUR</li>
                 <li>Peter Ramsauer (Gesellschafter des Familienbetriebs, Aufsichtsrat): 487.500 EUR</li>
                 <li>Olav Gutting (Rechtsanwalt): 450.000 EUR</li>
@@ -920,7 +920,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Unabhängige Prüfinstanz für Abgeordneten- und Lobbytransparenz<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+		<td>Unabhängige Prüfinstanz für Abgeordneten- und Lobbytransparenz[^25]</td>
 		<td class="cdu-bg">✅</td>
 		<td class="spd-bg">❌</td>
 		<td class="green-bg">✅</td>
@@ -928,7 +928,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Effektives Lobbyregister<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+		<td>Effektives Lobbyregister[^25]</td>
 		<td class="cdu-bg">✅</td>
 		<td class="spd-bg">✅</td>
 		<td class="green-bg">✅</td>
@@ -936,7 +936,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Einkünfte und Ausgaben als Abgeordnete:r<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+		<td>Einkünfte und Ausgaben als Abgeordnete:r[^25]</td>
 		<td class="cdu-bg">✅</td>
 		<td class="spd-bg">✅</td>
 		<td class="green-bg">✅</td>
@@ -944,7 +944,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Lobbykontakte der Abgeordneten<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+		<td>Lobbykontakte der Abgeordneten[^25]</td>
 		<td class="cdu-bg">~</td>
 		<td class="spd-bg">✅</td>
 		<td class="green-bg">❌</td>
@@ -952,7 +952,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Drohnenmorde via Ramstein unterbinden<sup id="fnref:21"><a class="footnote-ref" href="#fn:21">21</a>,</sup><sup id="fnref:22"><a class="footnote-ref" href="#fn:22">22</a></sup></td>
+		<td>Drohnenmorde via Ramstein unterbinden[^27][^28]</td>
 		<td class="cdu-bg">❌</td>
 		<td class="spd-bg">❌</td>
 		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/sicherheitspolitik/ramstein-nicht-fuer-voelkerrechtswidrige-toetungen-nutzen">✅</a></td>
@@ -968,14 +968,14 @@ Die CDU/CSU hat von 2005 - 2021 insgesamt vier Kabinette gestellt.
 
 Schauen wir uns mal vergangene Wahlversprechen aus der Wahl 2017 an:
 
-* **Elektronisches Bürgerkonto**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:
+* **Elektronisches Bürgerkonto**[^29]:
   Die CDU/CSU wollte ein elektronisches Bürgerkonto einführen, über welches man
   z.B. einen Antrag auf Kindergeld machen kann. Soweit ich weiß, gibt es keinen
   einzelnen Dienst, über den man alles machen kann. Das für mich relevanteste
   Projekt ist [Elster](https://de.wikipedia.org/wiki/Elster_(Software)). Hier vermute ich mal, dass man es der CSU zuschreiben kann. Es wundert mich allerdings, dass sich die CSU nicht selbst mit diesen Federn schmückt; eventuell kommt es also doch woanders her?
-* **Flächendeckender Glasfaser-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: 8,3 Millionen Haushalte von 41,5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Für mich sieht es nicht so aus, als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
-* **Vorreiter beim 5G-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: Hier bin ich überfragt. Aber es fühlt sich zumindest nicht so an.
-* **Bildungscloud**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>: Sehr gute Ideen, allerdings ungenügende Umsetzung.
+* **Flächendeckender Glasfaser-Ausbau**[^29] bis 2025: 8,3 Millionen Haushalte von 41,5 Millionen Haushalten haben aktuell Glasfaser-Zugang[^30]. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen[^31]. Für mich sieht es nicht so aus, als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
+* **Vorreiter beim 5G-Ausbau**[^29] bis 2025: Hier bin ich überfragt. Aber es fühlt sich zumindest nicht so an.
+* **Bildungscloud**[^29]: Sehr gute Ideen, allerdings ungenügende Umsetzung.
 
 Negativ aufgefallen ist mir der Abschnitt "Gefahrenabwehr im Cyberraum". Allein schon der Titel. WTF. Was ist denn bitte der "Cyberraum"? Ich vermute das liegt irgendwo im Neuland?
 
@@ -1034,7 +1034,7 @@ Im Wahlprogramm und dem Werbematerial liest man sehr häufig "Respekt". Keine Ah
 * 2040 soll unser Strom vollständig aus erneuerbaren Energien kommen
 * Bis spätestens 2045 soll Deutschland klimaneutral sein
 * Mindestlohn von 12 EUR/h
-* Jährlich sollen 400.000 Wohnungen gebaut werden, davon sind 100.000 öffentlich gefördert. 2020 waren es 306.000 Wohnungen<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.
+* Jährlich sollen 400.000 Wohnungen gebaut werden, davon sind 100.000 öffentlich gefördert. 2020 waren es 306.000 Wohnungen[^32].
 * Mietpreisbremse in Inflationshöhe
 * Bürgerversicherung
 * Kostenloser ÖPNV für Kinder
@@ -1178,7 +1178,7 @@ In ihrer Wahlwerbung fokussieren sie sich auf 6 Punkte:
 Kritikpunkte:
 
 * Homöopathie: 2019 haben sie sich aus meiner Sicht zu dem Thema nicht gut
-  präsentiert<sup id="fnref:29"><a class="footnote-ref" href="#fn:29">29</a></sup>, aber das wurde 2020 beigelegt.<sup id="fnref:30"><a class="footnote-ref" href="#fn:30">30</a></sup>
+  präsentiert[^33], aber das wurde 2020 beigelegt.[^34]
 * Enthaltung / Befürwortung von Urheberrechtsreform
 * Hambacher Forst
 
@@ -1241,39 +1241,37 @@ werden.
 
 ## Einzelnachweise
 
-[^1]: cdu.de: [Chancen im digitalen Zeitalter nutzen](https://archiv.cdu.de/artikel/chancen-im-digitalen-zeitalter-nutzen), 2017.
-[^2]: Volker Briegleb: [Glasfaser-Ausbau in Deutschland: "Der Markt funktioniert"](https://www.heise.de/news/Glasfaser-Ausbau-in-Deutschland-Der-Markt-funktioniert-6149233.html), 2021.
-[^3]: Deutscher Bundestag: [11,8 Prozent der Haushalte mit Glasfaseranschluss](https://www.bundestag.de/presse/hib/707096-707096), 2020.
-[^4]: dpa: [So viele neue Wohnungen wie seit 2001 nicht mehr](https://www.faz.net/aktuell/wirtschaft/wohnungsbau-in-deutschland-erreicht-hoechsten-stand-seit-2001-17360641.html), 2021.
-[^5]: [Wunschnettorechner](https://www.nettolohn.de/rechner/netto-brutto-ergebnis)
-[^6]: Institut der deutschen Wirtschaft: [Wie wohlhabend bin ich im Vergleich?](https://www.iwkoeln.de/fileadmin/user_upload/HTML/2019/einkommensverteilung/index.html)
-[^7]: Statista: [Hartz IV: Leistungsempfänger von Arbeitslosengeld II im Jahresdurchschnitt von 2013 bis 2021](https://de.statista.com/statistik/daten/studie/1396/umfrage/leistungsempfaenger-von-arbeitslosengeld-ii-jahresdurchschnittswerte/)
-[^8]: Bayerischer Rundfunk: [Warum Zement klimaschädlich ist](https://www.youtube.com/watch?v=IYqjKJOzG6g) auf YouTube, 2018.
-[^9]: [CO<sub>2</sub>-Ausstoß der Länder: Top-10 und Pro-Kopf-Verbrauch im Überblick](https://www.co2online.de/klima-schuetzen/klimawandel/co2-ausstoss-der-laender/)
-[^10]: Statista.com: [Durchschnittsalter der Mitglieder der politischen Parteien in Deutschland am 31. Dezember 2019](https://de.statista.com/statistik/daten/studie/192255/umfrage/durchschnittsalter-in-den-parteien/)
-[^11]: bundestag.de: [Durchschnittsalter der Abgeordneten](https://www.bundestag.de/resource/blob/272474/4a216913aff5f5c25c41572257a57e4a/Kapitel_03_02_Durchschnittsalter-pdf-data.pdf), 2017
-[^12]: bundestag.de: [Abgeordnete in Zahlen: Frauen und Männer](https://www.bundestag.de/abgeordnete/biografien/mdb_zahlen_19/frauen_maenner-529508), 2021
-[^13]: Birgit Harprath: [Umstrittener Mindestlohn: Die Konzepte der Parteien](https://www.br.de/nachrichten/wirtschaft/umstrittener-mindestlohn-die-konzepte-der-parteien,Sh6YBa0), 2021
-[^14]: Abgeordnetenwatch: [Transparenz-Versprechen zur Bundestagswahl 2021](https://www.abgeordnetenwatch.de/transparenz-versprechen-zur-bundestagswahl-2021)
-[^15]: Tagesschau: [Wer sorgt für mehr Netto vom Brutto?](https://www.tagesschau.de/inland/btw21/steuerkonzepte-101.html), 2021
-[^16]: [Pressemitteilung Nr. 331 vom 9. Juli 2021](https://www.destatis.de/DE/Presse/Pressemitteilungen/2021/07/PD21_331_12621.html)
-[^17]: Nicole Ficociello: [Altersarmut in Deutschland](https://www.daserste.de/unterhaltung/film/themenabend-armut-und-verschuldung/altersarmut-ursache-tipps-100.html) - aufgerufen am 12.09.2021
-[^18]: [Moore - unheimlich und unheimlich wichtig](https://www.ndr.de/ratgeber/Klimaschutz-Moore-sind-effektive-CO2-Speicher,moore158.html), 2020.
-[^19]: [Mietspiegel für München](https://www.muenchen.de/rathaus/Stadtverwaltung/Sozialreferat/Wohnungsamt/Mietspiegel.html)
-[^20]: [Mietspiegel München](https://www.miet-check.de/mietspiegel/muenchen/), abgerufen am 14.09.2021
-[^21]: dpa: [US-Drohne feuert Rakete auf Hochzeitskonvoi](https://www.stern.de/politik/ausland/toedlicher-irrtum-im-jemen-us-drohne-feuert-rakete-auf-hochzeitskonvoi-3656762.html), 2013
-[^22]: Justus Leicht: [Macht vor Recht: Bundesverwaltungsgericht rechtfertigt deutsche Beihilfe zu US-Drohnenmorden](https://www.wsws.org/de/articles/2020/12/04/rams-d04.html), 2020.
-[^23]: Die Linke: [Die Mehrheit entlasten: Für eine gerechte Einkommenssteuer](https://www.die-linke.de/themen/steuern/gerechte-einkommensteuern/)
-[^24]: Die Linke: [Erbschaftsteuer](https://www.linksfraktion.de/themen/a-z/detailansicht/erbschaftsteuer/)
-[^25]: Zeit Online / dpa: [Weltbank rechnet mit 216 Millionen Klimaflüchtlingen in dreißig Jahren](https://www.zeit.de/gesellschaft/2021-09/klimawandel-migration-weltbank-fluechtlinge-wasserknappheit-meeresspiegel), 2021.
-[^26]: Umweltbundesamt: [Klimaschutz durch
-Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf), 2020.
-[^27]: Simplicissimus: [Warum deine Leberwurst 1,09€ kostet](https://www.youtube.com/watch?v=QTBg9la6RPE), 2021
-[^28]: Umweltbundesamt: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels), 2021.
-[^29]: Florian Staeck: [Grüne sind bei Homöopathie gespalten
-](https://www.aerztezeitung.de/Politik/Gruene-sind-bei-Homoeopathie-gespalten-402464.html), 2019.
-[^30]: Florian Staeck: [Grüne distanzieren sich von Homöopathie](https://www.aerztezeitung.de/Politik/Gruene-distanzieren-sich-von-Homoeopathie-ein-bisschen-414943.html), 2020.
-[^31]: Martin Thoma: [Why Hydrogen Cars will die](https://martinthoma.medium.com/why-hydrogen-cars-will-die-38efd117e7bc) in Medium, 2021.
-[^32]: Andreas Schmitz: [Die Zerstörung der Wasserstoffstrategie](https://www.youtube.com/watch?v=VLdFn9wjqvw) auf YouTube, 2021.
-[^33]: Robert W. Howarth, Mark Z. Jacobson: [How green is blue hydrogen?](https://onlinelibrary.wiley.com/doi/full/10.1002/ese3.956), 2021.
-[^34]: David Böcking: [VW-Chef Müllers Überraschungsangriff auf die Dieselsubvention](https://www.spiegel.de/wirtschaft/unternehmen/subventionen-fuer-diesel-das-steckt-hinter-den-forderungen-von-vw-chef-mueller-a-1182815.html), 2017.
+[^1]: Alexander Eydlin, dpa, AP: [Weltbank rechnet mit 216 Millionen Klimaflüchtlingen in dreißig Jahren](https://www.zeit.de/gesellschaft/2021-09/klimawandel-migration-weltbank-fluechtlinge-wasserknappheit-meeresspiegel) via Zeit Online, 13.09.2021.
+[^2]: [CO<sub>2</sub>-Ausstoß der Länder: Top-10 und Pro-Kopf-Verbrauch im Überblick](https://www.co2online.de/klima-schuetzen/klimawandel/co2-ausstoss-der-laender/) via co2online, 14.04.2020.
+[^3]: Bayerischer Rundfunk: [Warum Zement klimaschädlich ist](https://www.youtube.com/watch?v=IYqjKJOzG6g) via YouTube, 2018.
+[^4]: [Moore - unheimlich und unheimlich wichtig](https://www.ndr.de/ratgeber/Klimaschutz-Moore-sind-effektive-CO2-Speicher,moore158.html) via NDR, 2020.
+[^5]: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels) via Umweltbundesamt, 2021.
+[^6]: [Wie wohlhabend bin ich im Vergleich?](https://www.iwkoeln.de/fileadmin/user_upload/HTML/2019/einkommensverteilung/index.html) via Institut der deutschen Wirtschaft, 2019.
+[^7]: [Wunschnettorechner](https://www.nettolohn.de/rechner/netto-brutto-ergebnis) via nettolohn.de, abgerufen am 27.09.2026.
+[^8]: Nicole Ficociello: [Altersarmut in Deutschland](https://www.daserste.de/unterhaltung/film/themenabend-armut-und-verschuldung/altersarmut-ursache-tipps-100.html) via Das Erste, abgerufen am 12.09.2021.
+[^9]: [Hartz IV: Leistungsempfänger von Arbeitslosengeld II im Jahresdurchschnitt von 2013 bis 2021](https://de.statista.com/statistik/daten/studie/1396/umfrage/leistungsempfaenger-von-arbeitslosengeld-ii-jahresdurchschnittswerte/) via Statista, abgerufen am 27.09.2026.
+[^10]: [Mietspiegel für München](https://www.muenchen.de/rathaus/Stadtverwaltung/Sozialreferat/Wohnungsamt/Mietspiegel.html) via muenchen.de.
+[^11]: [Mietspiegel München](https://www.miet-check.de/mietspiegel/muenchen/) via Miet-Check.de, abgerufen am 14.09.2021.
+[^12]: [Lebenserwartung in Deutschland nahezu unverändert](https://www.destatis.de/DE/Presse/Pressemitteilungen/2021/07/PD21_331_12621.html) via Destatis, 09.07.2021.
+[^13]: [Durchschnittsalter der Mitglieder der politischen Parteien in Deutschland am 31. Dezember 2019](https://de.statista.com/statistik/daten/studie/192255/umfrage/durchschnittsalter-in-den-parteien/) via Statista, abgerufen am 27.09.2026.
+[^14]: [Durchschnittsalter der Abgeordneten](https://www.bundestag.de/resource/blob/272474/4a216913aff5f5c25c41572257a57e4a/Kapitel_03_02_Durchschnittsalter-pdf-data.pdf) via Deutscher Bundestag, 2017.
+[^15]: [Abgeordnete in Zahlen: Frauen und Männer](https://www.bundestag.de/abgeordnete/biografien/mdb_zahlen_19/frauen_maenner-529508) via Deutscher Bundestag, 12.10.2017.
+[^16]: [Klimaschutz durch Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf) via Umweltbundesamt, 15.06.2020.
+[^17]: David Böcking: [VW-Chef Müllers Überraschungsangriff auf die Dieselsubvention](https://www.spiegel.de/wirtschaft/unternehmen/subventionen-fuer-diesel-das-steckt-hinter-den-forderungen-von-vw-chef-mueller-a-1182815.html) via Der Spiegel, 11.12.2017.
+[^18]: Martin Thoma: [Why Hydrogen Cars will die](https://martinthoma.medium.com/why-hydrogen-cars-will-die-38efd117e7bc) via Medium, 2021.
+[^19]: Andreas Schmitz (Der Akku Doktor): [Die Zerstörung der Wasserstoffstrategie](https://www.youtube.com/watch?v=VLdFn9wjqvw) via YouTube, 23.09.2021.
+[^20]: Robert W. Howarth, Mark Z. Jacobson: [How green is blue hydrogen?](https://onlinelibrary.wiley.com/doi/full/10.1002/ese3.956) via Energy Science & Engineering, 12.08.2021.
+[^21]: Birgit Harprath: [Umstrittener Mindestlohn: Die Konzepte der Parteien](https://www.br.de/nachrichten/wirtschaft/umstrittener-mindestlohn-die-konzepte-der-parteien,Sh6YBa0) via BR24, 26.08.2021.
+[^22]: Nicole Kohnert: [Wer sorgt für mehr Netto vom Brutto?](https://www.tagesschau.de/inland/btw21/steuerkonzepte-101.html) via Tagesschau, 10.09.2021.
+[^23]: [Die Mehrheit entlasten: Für eine gerechte Einkommenssteuer](https://www.die-linke.de/themen/steuern/gerechte-einkommensteuern/) via Die Linke.
+[^24]: [Erbschaftsteuer](https://dielinkebt.de/themen/a-z/detailansicht/erbschaftsteuer/) via Die Linke im Bundestag, abgerufen am 27.09.2026.
+[^25]: [Transparenz-Versprechen zur Bundestagswahl 2021](https://www.abgeordnetenwatch.de/transparenz-versprechen-zur-bundestagswahl-2021) via abgeordnetenwatch.de, abgerufen am 27.09.2026.
+[^26]: Simplicissimus: [Warum deine Leberwurst 1,09€ kostet](https://www.youtube.com/watch?v=QTBg9la6RPE) via YouTube, 18.08.2021.
+[^27]: dpa: [US-Drohne feuert Rakete auf Hochzeitskonvoi](https://www.stern.de/politik/ausland/toedlicher-irrtum-im-jemen-us-drohne-feuert-rakete-auf-hochzeitskonvoi-3656762.html) via Stern, 2013.
+[^28]: Justus Leicht: [Macht vor Recht: Bundesverwaltungsgericht rechtfertigt deutsche Beihilfe zu US-Drohnenmorden](https://www.wsws.org/de/articles/2020/12/04/rams-d04.html) via World Socialist Web Site, 04.12.2020.
+[^29]: [Chancen im digitalen Zeitalter nutzen](https://archiv.cdu.de/artikel/chancen-im-digitalen-zeitalter-nutzen) via CDU, 2017.
+[^30]: Volker Briegleb: [Glasfaser-Ausbau in Deutschland: "Der Markt funktioniert"](https://www.heise.de/news/Glasfaser-Ausbau-in-Deutschland-Der-Markt-funktioniert-6149233.html) via heise online, 27.07.2021.
+[^31]: [11,8 Prozent der Haushalte mit Glasfaseranschluss](https://www.bundestag.de/presse/hib/707096-707096) via Deutscher Bundestag, 27.07.2020.
+[^32]: dpa: [So viele neue Wohnungen wie seit 2001 nicht mehr](https://www.faz.net/aktuell/wirtschaft/wohnungsbau-in-deutschland-erreicht-hoechsten-stand-seit-2001-17360641.html) via FAZ, 27.05.2021.
+[^33]: Florian Staeck: [Grüne sind bei Homöopathie gespalten](https://www.aerztezeitung.de/Politik/Gruene-sind-bei-Homoeopathie-gespalten-402464.html) via Ärzte Zeitung, 16.10.2019.
+[^34]: Florian Staeck: [Grüne distanzieren sich von Homöopathie](https://www.aerztezeitung.de/Politik/Gruene-distanzieren-sich-von-Homoeopathie-ein-bisschen-414943.html) via Ärzte Zeitung, 23.11.2020.

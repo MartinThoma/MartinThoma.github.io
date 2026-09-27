@@ -86,7 +86,7 @@ werden, damit die richtigen Anreize geschaffen werden. Auch die Abgaben müssen
 hier wie bei jedem normalen Arbeitnehmer berechnet werden.
 
 Im Jahr 2018 betrug der Median des Nettoäquivalenzeinkommens in Deutschland
-22.713 Euro pro Jahr<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.
+22.713 Euro pro Jahr[^1].
 Die Mitglieder des Bundestages (MdB) erhalten eine monatliche
 „Abgeordnetenentschädigung“ in Höhe von 10.012,89 Euro (Stand 1. Juli 2021).
 Eine Kopplung wäre z.B., dass ein MdB in jedem Jahr das 5-fache des
@@ -99,10 +99,10 @@ Somit wäre man auch diesen Diskussionspunkt los.
 ### Lohnsteuerfreibetrag
 
 Der jährliche Steuerfreibetrag sollte auf die Median-Lebenshaltungskosten gesetzt werden.
-2019 betrugen die privaten Konsumausgaben 21.745 EUR je Einwohner.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+2019 betrugen die privaten Konsumausgaben 21.745 EUR je Einwohner.[^2]
 
 Einpersonenrentnerhaushalte hatten 2003 in Westdeutschland ein Nettoeinkommen von
-1548 EUR/Monat.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>
+1548 EUR/Monat.[^3]
 Das Jahresnettoeinkommen von diesen betrug also 18.576 EUR.
 
 Der Grundfreibetrag ist bei 9.984 Euro.
@@ -160,7 +160,7 @@ Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt.
 ## Entkriminalisierung
 
 * Fahren ohne Fahrtschein
-* Mindeststrafe/Verbrechenstatbestand bei § 184b StGB zurücknehmen (Besitz und Verbreitung kinderpornographischer Inhalte wieder als Vergehen mit Ermessensspielraum des Richters, damit z.B. auch Personen, die Material melden, nicht mit Mindeststrafen rechnen müssen)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
+* Mindeststrafe/Verbrechenstatbestand bei § 184b StGB zurücknehmen (Besitz und Verbreitung kinderpornographischer Inhalte wieder als Vergehen mit Ermessensspielraum des Richters, damit z.B. auch Personen, die Material melden, nicht mit Mindeststrafen rechnen müssen)[^4]
 * [Legalisierung von Drogenkonsum](https://de.wikipedia.org/wiki/Legalisierung_von_Drogen)
 
 
@@ -183,7 +183,7 @@ Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt.
 
 ## Einzelnachweise
 
-[^1]: bib.bund.de: [Private Haushalte – Einkommen und Konsum](https://www.bib.bund.de/Publikation/2021/pdf/Datenreport-2021-Ein-Sozialbericht-fuer-die-Bundesrepublik-Deutschland-Kapitel-6.pdf?__blob=publicationFile&v=3), 2021.
-[^2]: [Private Konsumausgaben je Einwohner in Deutschland von 1991 bis 2019](https://de.statista.com/statistik/daten/studie/440626/umfrage/private-konsumausgaben-je-einwohner-in-deutschland/), 2022.
-[^3]: Dr. Margot Münnich: [Einnahmen und Ausgaben von Rentner- und Pensionärshaushalten](https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2007/06/einnahmen-ausgaben-rentner-062007.pdf?__blob=publicationFile), 2007.
-[^4]: Joachim Wulkop: [Lehrerin will helfen - und wird wegen Kinderpornografie angeklagt](https://www.swr.de/swraktuell/rheinland-pfalz/koblenz/lehrerin-kinderpornografischer-inhalte-konfisziert-deswegen-angeklagt-100.html), 2023.
+[^1]: [Datenreport 2021, Kapitel 6: Private Haushalte – Einkommen und Konsum](https://www.bib.bund.de/Publikation/2021/pdf/Datenreport-2021-Ein-Sozialbericht-fuer-die-Bundesrepublik-Deutschland-Kapitel-6.pdf?__blob=publicationFile&v=3) via Bundesinstitut für Bevölkerungsforschung, 2021.
+[^2]: [Private Konsumausgaben je Einwohner in Deutschland von 1991 bis 2019](https://de.statista.com/statistik/daten/studie/440626/umfrage/private-konsumausgaben-je-einwohner-in-deutschland/) via Statista, 2022.
+[^3]: Dr. Margot Münnich: [Einnahmen und Ausgaben von Rentner- und Pensionärshaushalten](https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2007/06/einnahmen-ausgaben-rentner-062007.pdf?__blob=publicationFile) via Destatis, 2007.
+[^4]: Joachim Wulkop: [Lehrerin will helfen - und wird wegen Kinderpornografie angeklagt](https://www.swr.de/swraktuell/rheinland-pfalz/koblenz/lehrerin-kinderpornografischer-inhalte-konfisziert-deswegen-angeklagt-100.html) via SWR, 2023.

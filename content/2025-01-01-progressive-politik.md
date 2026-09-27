@@ -35,10 +35,10 @@ Die Politik hat verschiedene Stellschrauben:
   variiert je nach Lebenssituation (z.B. alleinstehend, verheiratet, Kinder im
   Haushalt). Der Gesetzgeber ist bei Vorliegen einer neuen Einkommens- und
   Verbrauchsstichprobe (EVS) des Statistischen Bundesamtes verpflichtet, die
-  Höhe der Regelbedarfe neu zu ermitteln.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Ab 2024 beträgt der Regelbedarf für einen alleinstehenden Erwachsenen 564 EUR/Monat.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> Dazu kommt
+  Höhe der Regelbedarfe neu zu ermitteln.[^1] Ab 2024 beträgt der Regelbedarf für einen alleinstehenden Erwachsenen 564 EUR/Monat.[^2] Dazu kommt
   [Wohngeld](https://de.wikipedia.org/wiki/Wohngeld), das auch eine
   Heizkostenkomponente enthält.
-* **Mindestlohn**: Seit 2024 beträgt der Mindestlohn 12,41 EUR/Stunde (Brutto).<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> Bei 40h/Woche sind das 2159,34 EUR/Monat (Brutto). Bei Steuerklasse 1 sind das ca. 1566€/Monat (Netto). Also das 2,77-Fache vom Regelbedarf.
+* **Mindestlohn**: Seit 2024 beträgt der Mindestlohn 12,41 EUR/Stunde (Brutto).[^3] Bei 40h/Woche sind das 2159,34 EUR/Monat (Brutto). Bei Steuerklasse 1 sind das ca. 1566€/Monat (Netto). Also das 2,77-Fache vom Regelbedarf.
 
 > **Forderung 1**: Der Mindestlohn soll an den Bürgergeld-Regelbedarf gekoppelt
 > werden. Ich würde das 3-fache vom Regelbedarf eines Alleinstehenden als
@@ -64,7 +64,7 @@ Neuvermietungen an. Das wären in München aktuell ca. 23,79€/m². Wir rechnen
 40m² pro Person. Das wären also 951,60€/Monat. Dazu kommen 200€ für Essen, 50€
 für Kleidung, 30€ für Strom, 20€ für Wasser, 20€ für Heizung, 20€ für Internet.
 Also alles in allem ca. 1290€/Monat, also ein Freibetrag von 15480€/Jahr.
-Aktuell haben wir 11604 EUR/Jahr.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
+Aktuell haben wir 11604 EUR/Jahr.[^4]
 
 Alternativ könnte man den Grenzwert zur Armutsgefährdung nehmen. Bei
 Alleinlebenden war das 2023 bei [1.310€/Monat oder 15.720€/Jahr](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/04/PD24_147_63.html).
@@ -121,22 +121,18 @@ TODO
 
 Der Bedarf an Pflegekräften steigt bis zum Jahr 2049 [...] auf 2,15 Millionen.
 Laut Pflegekräftevorausberechnung liegt die erwartete Zahl an Pflegekräften im
-Jahr 2049 zwischen 280000 und 690000 unter dem erwarteten Bedarf.<sup
-id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> Das umfasst sowohl
+Jahr 2049 zwischen 280000 und 690000 unter dem erwarteten Bedarf.[^5] Das umfasst sowohl
 Kranken- als auch Altenpflege. [Es fehlen voraussichtlich im]
 Projektionszeitraum 2022 bis 2040 jährlich rund 2.500 Köpfe (kumuliert rund
-50.000).<sup
-id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>
+50.000).[^6]
 
 Es sollte also höchste Priorität haben, dass wir weniger Patienten bekommen.
 Kreislauferkrankungen waren 2021 der häufigste Grund für Krankenhausaufenthalte
-in NRW.<sup
-id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
+in NRW.[^7]
 
 In Deutschland sind insgesamt 53,5 % der Bevölkerung (46,6% der Frauen und 60,5%
 der Männer) von Übergewicht (einschließlich Adipositas) betroffen. Bei 19,0%
-der Erwachsenen liegt eine Adipositas vor.<sup id="fnref:8"><a
-class="footnote-ref" href="#fn:8">8</a></sup>
+der Erwachsenen liegt eine Adipositas vor.[^8]
 
 > **Forderung 5**: Werbung für Alkohol, Tabak und Lebensmittel mit hohem Zucker-
 > oder Fettgehalt soll verboten werden.
@@ -146,7 +142,7 @@ class="footnote-ref" href="#fn:8">8</a></sup>
 
 In Schweden hat das staatliche Unternehmen [Systembolaget](https://de.wikipedia.org/wiki/Systembolaget)
 das Monopol auf Alkohol mit mehr als 3,5 Prozent. Dänemark, Norwegen und
-Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup>
+Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:[^9]
 
 * mit 15% vol:
   * 5,75€ Finnland
@@ -162,8 +158,8 @@ Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:<sup
   * 3,47€ Deutschland
 
 
-Schädlicher Alkoholkonsum hat 2022 Kosten in Höhe von 57,04 Mrd. EUR verursacht.<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">15</a></sup>
-Demgegenüber stehen Einnahmen aus Alkoholsteuern in Höhe von 2,19 Mrd. EUR.<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup>
+Schädlicher Alkoholkonsum hat 2022 Kosten in Höhe von 57,04 Mrd. EUR verursacht.[^10]
+Demgegenüber stehen Einnahmen aus Alkoholsteuern in Höhe von 2,19 Mrd. EUR.[^11]
 
 > **Forderung 7**: AlkStG §2 Abs. 1 wird von 1303 €/hl reinen Alkohols auf 3000 €/hl
 > erhöht.
@@ -174,7 +170,7 @@ Zeitschriften. Es soll keine Werbung für diese Geschäfte geben, keine
 Zigarettenautomaten, kein Alkohol im Supermarkt.
 
 
-Unser System aus 95 gesetzlichen Krankenkassen (Stand 2024) ist ineffizient.<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup> Wir leisten uns hier 95 mal die
+Unser System aus 95 gesetzlichen Krankenkassen (Stand 2024) ist ineffizient.[^12] Wir leisten uns hier 95 mal die
 gleichen Strukturen. Das ist ineffizient und teuer.
 
 > **Forderung 9**: Schrittweise Überführung der gesetzlichen Krankenkassen in eine
@@ -284,11 +280,9 @@ Konkret kann ich mir Folgendes vorstellen:
    sein muss.
 3. **Justiz und Strafverfolgung**:
    * **Legalisierung von Drogenkonsum**: Mehr als 900.000 offene Verfahren lagen
-     2023 bei der Staatsanwaltschaft.<sup id="fnref:9"><a class="footnote-ref"
-     href="#fn:9">9</a></sup> Im Jahr 2023 wurden 173.945 Fälle von allgemeinen
+     2023 bei der Staatsanwaltschaft.[^13] Im Jahr 2023 wurden 173.945 Fälle von allgemeinen
      Verstößen mit Cannabis und Zubereitungen in Deutschland polizeilich
-     erfasst. <sup id="fnref:10"><a class="footnote-ref"
-     href="#fn:10">10</a></sup> Das sind Fälle, die dank der Teillegalisierung
+     erfasst. [^14] Das sind Fälle, die dank der Teillegalisierung
      hoffentlich nicht mehr unsere Polizei und Justiz belasten. Analog zu der
      Legalisierung von Cannabiskonsum und -besitz für den Eigenbedarf sollten
      alle Drogen legalisiert werden. Der Verkauf und die Produktion sind ein
@@ -296,8 +290,7 @@ Konkret kann ich mir Folgendes vorstellen:
      werden.
    * **Kostenloses Deutschlandticket**: Jährlich sitzen etwa 7.000 Schwarzfahrer
      im Gefängnis, weil sie die Geldstrafe fürs Schwarzfahren nicht zahlen
-     können.<sup id="fnref:11"><a class="footnote-ref"
-     href="#fn:11">11</a></sup> 230.000 Menschen werden jährlich wegen
+     können.[^15] 230.000 Menschen werden jährlich wegen
      Schwarzfahrens angezeigt. Stattdessen sollte ÖPNV komplett kostenlos sein.
      Das Deutschlandticket hat ca. 6,5 Mrd EUR im Jahr für die Ticketkosten
      eingebracht. Und man rechnet mit ca. 4,2 Mrd EUR an Mehrkosten. Das
@@ -305,13 +298,11 @@ Konkret kann ich mir Folgendes vorstellen:
      Deutschland komplett kostenlos machen. Keine Kosten mehr für
      Ticket-Automaten, keine Kontrolleure, keine Strafverfolgung. Allein die
      Tatsache, dass wir nicht mehr 7000 arme Schwarzfahrer im Gefängnis haben,
-     spart jährlich 200 Millionen EUR.<sup id="fnref:13"><a class="footnote-ref"
-     href="#fn:13">13</a></sup>
+     spart jährlich 200 Millionen EUR.[^16]
    * **Bundesfinanzamt**: Cum-Ex-Geschäfte haben den Staat Milliarden gekostet
      und durch deren Verfolgung wurden hunderte Millionen in die Staatskasse
      zurückgeführt. Die Chefermittlerin Anne Brorhilker hat 2024 den Job
-     hingeschmissen, weil sie nicht genug Personal hatte.<sup id="fnref:12"><a
-     class="footnote-ref" href="#fn:12">12</a></sup> Sie schlägt eine
+     hingeschmissen, weil sie nicht genug Personal hatte.[^17] Sie schlägt eine
      bundesweite zentrale Behörde zur Bekämpfung von Finanzkriminalität vor, die
      auch Steuervergehen verfolgt. Aktuell haben wir nur die lokalen Finanzämter
      sowie die Staatsanwaltschaften. Die [Bürgerbewegung Finanzwende](https://de.wikipedia.org/wiki/B%C3%BCrgerbewegung_Finanzwende) hat hier sicherlich weitere gute Ideen.
@@ -333,20 +324,20 @@ die Energiesteuer.
 
 ## Einzelnachweise
 
- [^1] Bundesministerium für Arbeit und Soziales: [Methodik der Regelbedarfsermittlung – Fragen und Antworten](https://www.bmas.de/DE/Soziales/Sozialhilfe/faq-sozialhilfe-regelbedarfsermittlung.html), abgerufen am 7. September 2024.
- [^2] Bundesregierung: [Regelsätze 2024 deutlich gestiegen](https://www.bundesregierung.de/breg-de/themen/arbeit-und-soziales/regelsaetze-erhoehung-2222924), abgerufen am 7. September 2024.
- [^3] Bundesregierung: [Mindestlohn zum 1. Januar 2024 gestiegen](https://www.bundesregierung.de/breg-de/themen/arbeit-und-soziales/mindestlohn-steigt-2223632), abgerufen am 7. September 2024.
- [^4] Bundesfinanzministerium: [Sie haben was gut. Weniger Steuern.](https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Steuern/Mehr-Ausgleich/mehr-ausgleich.html), abgerufen am 7. September 2024.
- [^5] Statistisches Bundesamt: [Pressemitteilung Nr. 033](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/01/PD24_033_23_12.html) vom 24. Januar 2024.
- [^6] Ärzte-Zeitung: [Zi: Bis 2040 fehlen ambulant jedes Jahr 2.500 Ärzte](https://www.aerztezeitung.de/Politik/Zi-Bis-2040-fehlen-ambulant-jedes-Jahr-2500-Aerzte--447152.html), 15. Februar 2024.
- [^7] Landesbetrieb IT.NRW: [NRW: Kreislauferkrankungen waren 2021 der häufigste Grund für Krankenhausaufenthalte](https://www.it.nrw/nrw-kreislauferkrankungen-waren-2021-der-haeufigste-grund-fuer-krankenhausaufenthalte-18375),  11. November 2022.
- [^8] Anja Schienkiewitz, Ronny Kuhnert, Miriam Blume, Gert B.M. Mensink: [Übergewicht und Adipositas bei Erwachsenen in Deutschland – Ergebnisse der Studie GEDA 2019/2020-EHIS](https://www.rki.de/DE/Content/Gesundheitsmonitoring/Gesundheitsberichterstattung/GBEDownloadsJ/FactSheets/JHealthMonit_2022_03_Uebergewicht_GEDA_2019_2020.pdf) in Journal of Health Monitoring, 2022.
- [^9] Tagesschau: [Zahl unerledigter Verfahren steigt weiter](https://www.tagesschau.de/inland/gesellschaft/strafverfahren-justiz-100.html), 2024.
- [^10] statista: [Anzahl der polizeilich erfassten Fälle allgemeiner Verstöße mit Cannabis und Zubereitungen in Deutschland von 2013 bis 2023](https://de.statista.com/statistik/daten/studie/702178/umfrage/polizeilich-erfasste-faelle-allgemeiner-verstoesse-mit-cannabis-in-deutschland/), 22.04.2024.
- [^11] Eva-Lena Lörzer: [Wer zu arm ist, kommt in den Knast](https://taz.de/Haftstrafen-fuer-Schwarzfahren/!5529577/) in der taz, 2018.
- [^12] Tagesschau: [Chefermittlerin kündigt überraschend und übt Kritik](https://www.tagesschau.de/investigativ/ndr-wdr/cum-ex-aufarbeitung-100.html), 22.04.2024.
- [^13] Tagesschau: [Staat zahlt Millionen für Schwarzfahrer im Knast](https://www.tagesschau.de/inland/ersatzfreiheitsstrafen-101.html), 11.01.2018.
- [^14] Statista: [Steuersätze für Spirituosen in der Europäischen Union nach Ländern im Jahr 2024](https://de.statista.com/statistik/daten/studie/166425/umfrage/steuersaetze-fuer-spirituosen/), abgerufen am 9. September 2024.
- [^15] Deutsches Krebsforschungszentrum: [Alkoholatlas 2022](https://www.dkfz.de/de/tabakkontrolle/download/Publikationen/sonstVeroeffentlichungen/Alkoholatlas-Deutschland-2022_Auf-einen-Blick.pdf)
- [^16] Statista: [Steuereinnahmen aus der Alkoholsteuer (bis 2017 Branntweinsteuer) in Deutschland von 2010 bis 2023](https://de.statista.com/statistik/daten/studie/77503/umfrage/einnahmen-aus-branntweinsteuer-in-deutschland-seit-1960/), veröffentlicht am 16.08.2024.
- [^17] GKV-Spitzenverband: [Die gesetzlichen Krankenkassen](https://www.gkv-spitzenverband.de/krankenversicherung/kv_grundprinzipien/alle_gesetzlichen_krankenkassen/alle_gesetzlichen_krankenkassen.), 01.01.2024.
+[^1]: [Methodik der Regelbedarfsermittlung – Fragen und Antworten](https://www.bmas.de/DE/Soziales/Sozialhilfe/faq-sozialhilfe-regelbedarfsermittlung.html) via Bundesministerium für Arbeit und Soziales, abgerufen am 07.09.2024.
+[^2]: [Regelsätze 2024 deutlich gestiegen](https://www.bundesregierung.de/breg-de/themen/arbeit-und-soziales/regelsaetze-erhoehung-2222924) via Bundesregierung, 01.01.2024.
+[^3]: [Mindestlohn zum 1. Januar 2024 gestiegen](https://www.bundesregierung.de/breg-de/themen/arbeit-und-soziales/mindestlohn-steigt-2223632) via Bundesregierung, abgerufen am 07.09.2024.
+[^4]: [Sie haben was gut. Weniger Steuern.](https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Steuern/Mehr-Ausgleich/mehr-ausgleich.html) via Bundesministerium der Finanzen, abgerufen am 07.09.2024.
+[^5]: [Bis 2049 werden voraussichtlich mindestens 280 000 zusätzliche Pflegekräfte benötigt](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/01/PD24_033_23_12.html) via Destatis, 24.01.2024.
+[^6]: [Zi: Bis 2040 fehlen ambulant jedes Jahr 2.500 Ärzte](https://www.aerztezeitung.de/Politik/Zi-Bis-2040-fehlen-ambulant-jedes-Jahr-2500-Aerzte--447152.html) via Ärzte Zeitung, 15.02.2024.
+[^7]: [NRW: Kreislauferkrankungen waren 2021 der häufigste Grund für Krankenhausaufenthalte](https://www.it.nrw/nrw-kreislauferkrankungen-waren-2021-der-haeufigste-grund-fuer-krankenhausaufenthalte-18375) via IT.NRW, 11.11.2022.
+[^8]: Anja Schienkiewitz, Ronny Kuhnert, Miriam Blume, Gert B.M. Mensink: [Übergewicht und Adipositas bei Erwachsenen in Deutschland – Ergebnisse der Studie GEDA 2019/2020-EHIS](https://www.rki.de/DE/Content/Gesundheitsmonitoring/Gesundheitsberichterstattung/GBEDownloadsJ/FactSheets/JHealthMonit_2022_03_Uebergewicht_GEDA_2019_2020.pdf) via Journal of Health Monitoring, 2022.
+[^9]: [Steuersätze für Spirituosen in der Europäischen Union nach Ländern im Jahr 2024](https://de.statista.com/statistik/daten/studie/166425/umfrage/steuersaetze-fuer-spirituosen/) via Statista, abgerufen am 09.09.2024.
+[^10]: [Alkoholatlas 2022](https://www.dkfz.de/de/tabakkontrolle/download/Publikationen/sonstVeroeffentlichungen/Alkoholatlas-Deutschland-2022_Auf-einen-Blick.pdf) via Deutsches Krebsforschungszentrum, 2022.
+[^11]: [Steuereinnahmen aus der Alkoholsteuer (bis 2017 Branntweinsteuer) in Deutschland von 2010 bis 2023](https://de.statista.com/statistik/daten/studie/77503/umfrage/einnahmen-aus-branntweinsteuer-in-deutschland-seit-1960/) via Statista, 16.08.2024.
+[^12]: [Die gesetzlichen Krankenkassen](https://www.gkv-spitzenverband.de/krankenversicherung/kv_grundprinzipien/alle_gesetzlichen_krankenkassen/alle_gesetzlichen_krankenkassen.jsp) via GKV-Spitzenverband, 01.01.2024.
+[^13]: [Zahl unerledigter Verfahren steigt weiter](https://www.tagesschau.de/inland/gesellschaft/strafverfahren-justiz-100.html) via Tagesschau, 28.04.2024.
+[^14]: [Anzahl der polizeilich erfassten Fälle allgemeiner Verstöße mit Cannabis und Zubereitungen in Deutschland von 2013 bis 2023](https://de.statista.com/statistik/daten/studie/702178/umfrage/polizeilich-erfasste-faelle-allgemeiner-verstoesse-mit-cannabis-in-deutschland/) via Statista, 22.04.2024.
+[^15]: Eva-Lena Lörzer, Luciana Ferrando: [Wer zu arm ist, kommt in den Knast](https://taz.de/Haftstrafen-fuer-Schwarzfahren/!5529577/) via taz, 07.09.2018.
+[^16]: Achim Pollmeier, Ralph Hötte: [Staat zahlt Millionen für Schwarzfahrer im Knast](https://www.tagesschau.de/inland/ersatzfreiheitsstrafen-101.html) via Tagesschau, 11.01.2018.
+[^17]: Massimo Bognanni: [Chefermittlerin kündigt überraschend und übt Kritik](https://www.tagesschau.de/investigativ/ndr-wdr/cum-ex-aufarbeitung-100.html) via Tagesschau, 22.04.2024.

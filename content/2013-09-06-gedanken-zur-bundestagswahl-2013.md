@@ -11,10 +11,6 @@ featured_image: logos/germany.png
 ---
 Am 22. September 2013 findet die Bundestagswahl 2013 statt.
 
-## Worum geht es?
-
-<iframe width="512" height="288" src="//www.youtube.com/embed/qP6ye8R_QEA" frameborder="0" allowfullscreen></iframe>
-
 ## Parteien
 Ich werde jeweils zwei Videos verlinken. Eines von &bdquo;MrWissen2go&ldquo; und einen Wahlwerbespot der Parteien selbst.
 Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.

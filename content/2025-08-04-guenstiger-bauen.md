@@ -36,10 +36,10 @@ will, dann meist:
 Dann muss man mit folgenden Kosten rechnen:
 
 1. **Grundstück**: ca. 105.000 €
-    * min. 90.000 € (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
-    * +3,5 % Grunderwerbsteuer<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
-    * +2 % Notar & Grundbuch<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
-    * +3,57 % Maklerprovision<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
+    * min. 90.000 € (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).[^1]
+    * +3,5 % Grunderwerbsteuer[^2]
+    * +2 % Notar & Grundbuch[^3]
+    * +3,57 % Maklerprovision[^4]
     * bis zu 5.000 € Vermessungskosten
     * bis zu 2.500 € Bodengutachten
     * bis zu 20.000 € Erschließungskosten
@@ -189,7 +189,7 @@ optimieren.
 
 ## Einzelnachweise
 
-* 1<a name="ref1" href="#anchor1">&uarr;</a> [Immobilienscout24: Grundstücke in Bayern](https://www.immobilienscout24.de/Suche/de/bayern/grundstueck-kaufen), abgerufen am 12.04.2026
-* 2<a name="ref2" href="#anchor2">&uarr;</a> [GrEStG § 11 Steuersatz, Abrundung](https://www.gesetze-im-internet.de/grestg_1983/__11.html), abgerufen am 12.04.2026
-* 3<a name="ref3" href="#anchor3">&uarr;</a> [GNotKG (Gebührenrahmen für Gerichte und Notare)](https://www.gesetze-im-internet.de/gnotkg/), abgerufen am 12.04.2026
-* 4<a name="ref4" href="#anchor4">&uarr;</a> [BGB § 656c](https://www.gesetze-im-internet.de/bgb/__656c.html), [BGB § 656d](https://www.gesetze-im-internet.de/bgb/__656d.html), abgerufen am 12.04.2026
+[^1]: [Grundstücke in Bayern](https://www.immobilienscout24.de/Suche/de/bayern/grundstueck-kaufen) via ImmoScout24, abgerufen am 12.04.2026.
+[^2]: [§ 11 GrEStG: Steuersatz, Abrundung](https://www.gesetze-im-internet.de/grestg_1983/__11.html) via gesetze-im-internet.de, abgerufen am 12.04.2026.
+[^3]: [GNotKG (Gebührenrahmen für Gerichte und Notare)](https://www.gesetze-im-internet.de/gnotkg/) via gesetze-im-internet.de, abgerufen am 12.04.2026.
+[^4]: [§ 656c BGB](https://www.gesetze-im-internet.de/bgb/__656c.html) und [§ 656d BGB](https://www.gesetze-im-internet.de/bgb/__656d.html) via gesetze-im-internet.de, abgerufen am 12.04.2026.

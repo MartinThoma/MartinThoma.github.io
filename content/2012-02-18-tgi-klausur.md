@@ -27,15 +27,15 @@ Für die Klausur in den Theoretischen Grundlagen der Informatik sollte man Folge
 
 <h2>Some Random Facts</h2>
 <ul>
-	<li>"aaa" ist in der Sprache aller Wörter, die zweimal "aa" enthalten. <small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small></li>
-	<li>Die Grammatik $G_1(\{S\}, \{\varepsilon\}, \{S \rightarrow \varepsilon\},S)$ erzeugt die Sprache $L(G_1) = \{\varepsilon\}$.<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small></li>
+	<li>"aaa" ist in der Sprache aller Wörter, die zweimal "aa" enthalten. [^1]</li>
+	<li>Die Grammatik $G_1(\{S\}, \{\varepsilon\}, \{S \rightarrow \varepsilon\},S)$ erzeugt die Sprache $L(G_1) = \{\varepsilon\}$.[^2]</li>
 	<li>Die Grammatik $G_2(\{S\}, \{\varepsilon\}, \{\},S)$ erzeugt die Sprache $L(G_2) = \{\}$.</li>
 	<li>$L_1 := \{aba, bab, ab\}, L_2 := \{bb,ab,ba\}$. Dann ist
 $L_1 / L_2 = \{\varepsilon, a, b\}$ und
-$L_1 \setminus L_2 = \{aba, bab\}$<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small></li>
-	<li>$PKP \notin \cal NPC$<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small></li>
+$L_1 \setminus L_2 = \{aba, bab\}$[^3]</li>
+	<li>$PKP \notin \cal NPC$[^4]</li>
 	<li>Es kann sein, dass die Ableitung eines Wortes nicht eindeutig ist, aber der Syntaxbaum eindeutig ist.</li>
-	<li>Für jedes Wort $w$ gibt es einen DEA, der $w$ akzeptiert.<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small></li>
+	<li>Für jedes Wort $w$ gibt es einen DEA, der $w$ akzeptiert.[^5]</li>
 	<li>$L' \propto L$ bedeutet, dass $L'$ polynomial auf $L$ transformierbar ist.</li>
 	<li>$L' \propto_T L$ bedeutet, dass $L'$ Turing-reduzierbar auf $L$ ist.</li>
 
@@ -62,8 +62,9 @@ edit: Das Leck scheint ausgebessert worden zu sein. Nun sind die Noten nach Klau
 
 
 <h2>Einzelnachweise</h2>
-1. <a name="ref1" href="#anchor1">&uarr;</a>: 2. Klausur WS 2003/2004, Aufgabe 1a
-2. <a name="ref2" href="#anchor2">&uarr;</a>: 1. Klausur WS 2003/2004, Aufgabe 5
-3. <a name="ref3" href="#anchor3">&uarr;</a>: 1. Klausur WS 2007/2008, Aufgabe 3c
-4. <a name="ref4" href="#anchor4">&uarr;</a>: 1. Klausur WS 2007/2008, Aufgabe 5
-5. <a name="ref5" href="#anchor5">&uarr;</a>: 1. Klausur WS 2010/2011, Aufgabe 5
+
+[^1]: 2\. Klausur WS 2003/2004, Aufgabe 1a.
+[^2]: 1\. Klausur WS 2003/2004, Aufgabe 5.
+[^3]: 1\. Klausur WS 2007/2008, Aufgabe 3c.
+[^4]: 1\. Klausur WS 2007/2008, Aufgabe 5.
+[^5]: 1\. Klausur WS 2010/2011, Aufgabe 5.

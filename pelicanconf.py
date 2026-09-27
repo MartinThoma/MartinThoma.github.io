@@ -77,6 +77,7 @@ PLUGIN_PATHS = [
 PLUGINS = [
     "pelican.plugins.render_math",
     "render_math_fixes",
+    "footnotes_in_html",
     "clean_summary",
     "search_index",
     "toc",
@@ -89,7 +90,8 @@ MARKDOWN = {
         "markdown.extensions.codehilite": {"css_class": "highlight"},
         "markdown.extensions.extra": {},
         "markdown.extensions.toc": {},
-        "markdown.extensions.footnotes": {},
+        # [1] with brackets; numbered in the order of the first citation
+        "markdown.extensions.footnotes": {"SUPERSCRIPT_TEXT": "[{}]", "USE_DEFINITION_ORDER": False},
     },
     "output_format": "html5",
 }

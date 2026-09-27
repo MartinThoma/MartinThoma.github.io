@@ -93,7 +93,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>12.6 W/m&sup2;</td>
         <td>1</td>
         <td>0</td>
-        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut, wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden[^1] - gut, wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach![^2]</td>
     </tr>
     <tr>
         <td>Mineral&shy;faserplatten (Steinwolle als Platte)</td>
@@ -155,7 +155,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>Polyurethan Hartschaum (PUR)</td>
         <td>19&nbsp;€/m² bei 10cm</td>
         <td>B2</td>
-        <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+        <td class="bad">✘[^1]</td>
         <td class="good">0.023&nbsp;W/mK</td>
         <td>2 - 4</td>
         <td>0.2 - 0.4</td>
@@ -169,7 +169,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
         <td>17&nbsp;€/m² für 12cm</td>
         <td>B1 - B2</td>
-        <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+        <td class="bad">✘[^1]</td>
         <td class="good">0.032 - 0.040 W/mK</td>
         <td>3.2 - 4</td>
         <td>0.32 - 0.4</td>
@@ -183,7 +183,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>Holzfaserdämmplatten</td>
         <td>23&nbsp;€/m² für 10cm Dicke</td>
         <td class="bad">E</td>
-        <td class="good">✔<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+        <td class="good">✔[^3]</td>
         <td class="good">0.040&nbsp;W/mK</td>
         <td>4.0</td>
         <td>0.40</td>
@@ -191,7 +191,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>14.4 W/m&sup2;</td>
         <td>5-10</td>
         <td></td>
-        <td class="good">resistent gegen Verrottung/Pilzbefall<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+        <td class="good">resistent gegen Verrottung/Pilzbefall[^3]</td>
     </tr>
     <tr>
         <td>Beton</td>
@@ -285,21 +285,21 @@ Die Begriffe λ-Wert, R-Wert und U-Wert sind oben erklärt. Hier die wichtigsten
         <tr>
         <td>Außenwand</td>
         <td>0.20</td>
-        <td>0.15<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></td>
+        <td>0.15[^4]</td>
         <td>0.30</td>
         <td>1.39</td>
         </tr>
         <tr>
         <td>Oberste Geschossdecke</td>
-        <td>0.14<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
+        <td>0.14[^5]</td>
         <td>0.10</td>
         <td>0.20</td>
         <td>?</td>
         </tr>
         <tr>
         <td>Kellerwand</td>
-        <td>0.25<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
-        <td>0.15<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></td>
+        <td>0.25[^5]</td>
+        <td>0.15[^4]</td>
         <td>0.40</td>
         <td>5 (36cm Beton)</td>
         </tr>
@@ -370,8 +370,8 @@ TODO: Tutorial für Sockeldämmung
 
 ## Einzelnachweise
 
-[^1]: n-tv.de: [Welcher Dämmstoff ist wofür geeignet?](https://www.n-tv.de/ratgeber/Welcher-Daemmstoff-ist-wofuer-geeignet-article21401269.html), 2019.
-[^2]: architekt-riebler.at: [Holzfaser-Dämmplatten](http://www.architekt-riebler.at/energieeffizienz/waermedaemmungen/holzfaserdaemmung)
-[^3]: Der Fachwerker: [Finger weg von diesen 3 Dämmstoffen!](https://www.youtube.com/watch?v=4iHTrwrfsIs)
-[^4]: KfW: [Anlage zum Merkblatt Energieeffizient Bauen](https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-(Inlandsf%C3%B6rderung)/PDF-Dokumente/6000003465_M_153_EEB_TMA_2018_04.pdf) auf kfw.de, 01.01.2020.
-[^5]: [Qualitätsanforderungen an Passivhäuser](https://passiv.de/de/02_informationen/02_qualitaetsanforderungen/02_qualitaetsanforderungen.htm) auf passiv.de, abgerufen am 02.11.2025.
+[^1]: [Welcher Dämmstoff ist wofür geeignet?](https://www.n-tv.de/ratgeber/Welcher-Daemmstoff-ist-wofuer-geeignet-article21401269.html) via n-tv, 25.11.2019.
+[^2]: Der Fachwerker: [Finger weg von diesen 3 Dämmstoffen!](https://www.youtube.com/watch?v=4iHTrwrfsIs) via YouTube, 15.11.2023.
+[^3]: [Holzfaser-Dämmplatten](http://www.architekt-riebler.at/energieeffizienz/waermedaemmungen/holzfaserdaemmung) via architekt-riebler.at.
+[^4]: [Qualitätsanforderungen an Passivhäuser](https://passiv.de/de/02_informationen/02_qualitaetsanforderungen/02_qualitaetsanforderungen.htm) via Passivhaus Institut, abgerufen am 02.11.2025.
+[^5]: [Anlage zum Merkblatt Energieeffizient Bauen](https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-(Inlandsf%C3%B6rderung) via KfW, 01.01.2020.

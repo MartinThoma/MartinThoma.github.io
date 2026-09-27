@@ -34,7 +34,7 @@ die Krankenversorgung in Deutschland senken können. Dabei geht es nicht um Kür
 ## 🏃♂️ Prävention - Vorbeugen ist günstiger als Heilen
 
 In vielen Fällen ist es deutlich günstiger, Krankheiten zu verhindern als sie zu
-behandeln. **Studien zeigen, dass jeder in Prävention investierte Euro 2-4 Euro an Behandlungskosten einsparen kann.**<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
+behandeln. **Studien zeigen, dass jeder in Prävention investierte Euro 2-4 Euro an Behandlungskosten einsparen kann.**[^1]
 
 ### Gesunder Lebensstil
 
@@ -202,4 +202,4 @@ Eine erfolgreiche Reform des deutschen Gesundheitswesens wird nur durch eine Kom
 
 ## Einzelnachweise
 
-* 1<a name="ref1" href="#anchor1">&uarr;</a> WHO: [The case for investing in public health: A public health summary report for EPHO 8](https://iris.who.int/bitstream/handle/10665/351406/WHO-EURO-2014-2581-42337-58615-eng.pdf), 2014. McKinsey & Company: [The economic case for investing in healthy aging: Lessons from the United States](https://www.mckinsey.com/mhi/our-insights/the-economic-case-for-investing-in-healthy-aging-lessons-from-the-united-states), 2025. OECD: [Prevention of Chronic Diseases: A Vital Investment](https://www.oecd.org/health/prevention-chronic-diseases-vital-investment.htm), 2019.
+[^1]: [The case for investing in public health: A public health summary report for EPHO 8](https://iris.who.int/bitstream/handle/10665/351406/WHO-EURO-2014-2581-42337-58615-eng.pdf) via WHO, 2014; [The economic case for investing in healthy aging: Lessons from the United States](https://www.mckinsey.com/mhi/our-insights/the-economic-case-for-investing-in-healthy-aging-lessons-from-the-united-states) via McKinsey & Company, 2025; [Prevention of Chronic Diseases: A Vital Investment](https://www.oecd.org/health/prevention-chronic-diseases-vital-investment.htm) via OECD, 2019.

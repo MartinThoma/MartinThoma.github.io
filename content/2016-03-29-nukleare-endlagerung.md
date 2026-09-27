@@ -10,7 +10,7 @@ tags: Politics, Energy, Germany
 featured_image: logos/science.png
 ---
 Das Finden eines Endlagers für unsere nuklearen Abfälle ist seit etwa 1963
-ein Thema in der Politik in Deutschland.<sup>[<a href="#ref-koe03" name="ref-koe03-anchor">Koe03</a>]</sup>
+ein Thema in der Politik in Deutschland.[^1]
 Es geht dabei um die Frage, wie wir die gefährlichen Überreste der
 Atomkraftwerke, den sogenannten <i>Atommüll</i>, entsorgen.
 
@@ -118,12 +118,10 @@ Es gibt tatsächlich nicht nur eine Art wie sie zerfallen können, sondern drei
 verschiedene. Bei der ersten, der Alpha-Strahlung, werden vergleichsweise große
 Teilchen frei, die aber allein schon durch die Luft so schnell und stark
 abgebremst werden, dass die Teilchen an sich relativ leicht zu handhaben sind.
-Schon ein Blatt Papier reicht zur Abschirmung.<sup>[<a href="#ref-jen"
-name="ref-jen-anchor">Jen</a>]</sup>
+Schon ein Blatt Papier reicht zur Abschirmung.[^2]
 
 Beta-Strahlung ist da schon schwerer zu handhaben. Aber auch sie kann z.B.
-durch 15&nbsp;Papierblätter / 4mm Aluminium abgehalten werden.<sup>[<a href="#ref-jen"
-name="ref-jen-anchor">Jen</a>]</sup>
+durch 15&nbsp;Papierblätter / 4mm Aluminium abgehalten werden.[^2]
 
 Bleibt noch die Gamma-Strahlung. Diese kann nur abgeschwächt, aber nicht
 komplett aufgehalten werden. So bleibt bei einer Gamma-Strahlung von 1&nbsp;MeV
@@ -141,7 +139,7 @@ für Zwischenlager. Irgendwo muss das Zeug halt stehen.
 
 Das Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit hat einen
 Anforderungskatalog für Endlagerstätten
-geschrieben.<sup>[<a href="#ref-bmu10" name="ref-bmu10-anchor">BMU10</a>]</sup>
+geschrieben.[^3]
 Liest man sich diesen durch, findet man schnell den Grund warum seit über
 50&nbsp;Jahren kein Endlager gefunden wurde:
 
@@ -164,7 +162,7 @@ Liest man sich diesen durch, findet man schnell den Grund warum seit über
 
 Von 4.7 kann man sich 6&nbsp;Jahre nach der Veröffentlichung wohl
 verabschieden. SPD und CDU/CSU haben auch dafür gesorgt, dass 4.8 nicht bedeutet,
-dass die Energiekonzerne den Betrieb bezahlen.<sup>[<a href="#ref-tag16" name="ref-tag16-anchor">Tag16</a>]</sup>
+dass die Energiekonzerne den Betrieb bezahlen.[^4]
 Obwohl das auch mal anders lautete:
 
 <blockquote cite="http://www.spiegel.de/wirtschaft/soziales/atomausstieg-wer-zahlt-endlagerung-von-atommuell-und-abriss-der-meiler-a-968835.html">
@@ -176,7 +174,7 @@ Obwohl das auch mal anders lautete:
 Nun gibt es noch 4.6, der mich besonders stört. Das ist einfach unrealistisch.
 Natürlich wird man keinen Ort auf der Erde finden bei dem für mehrere Millionen
 Jahre davon auszugehen ist, dass dieser ohne Eingriffe und Wartungsarbeiten
-den Müll sicher wegschließt.<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup>
+den Müll sicher wegschließt.[^5]
 Da es immer noch keine wirklich sichere Methode
 gibt Dinge ins All zu befördern (vgl. [Liste von Katastrophen der Raumfahrt](https://de.wikipedia.org/wiki/Liste_von_Katastrophen_der_Raumfahrt))
 muss es aber auf der Erde sein. Daher sollte man diesen Punkt einfach
@@ -192,7 +190,7 @@ Lagerstätte so einrichten, dass diese Prüfung leicht ist. Man könnte
 Robotersysteme erstellen, welche eine Fernwartung erlauben. Es sollte auf jeden
 Fall redundante Systeme zur Bergung der Container geben. Die Systeme sollten
 robust gebaut werden. Wie man an den versagenden Robotern bei Fukushima
-sieht<sup>[<a href="#ref-new16" name="ref-new16-anchor">New16</a>]</sup> müssen
+sieht[^6] müssen
 die Systeme unbedingt vorher getestet werden.
 
 Ich könnte mir Schienen-Systeme für die Container vorstellen. Das sollte recht
@@ -213,11 +211,11 @@ Es ist erstaunlich wie schwer es ist dazu gute Aussagen zu finden. Hier ein
 paar:
 
 <blockquote cite="http://www.focus.de/wissen/technik/tid-20278/atommuell-wieviel-hochradioaktiver-muell-in-deutschland-lagert_aid_567043.html">
-    <p>Der Restmüll, der in den Wiederaufarbeitungsanlagen neben Plutonium und Uran entsteht, macht zwar nur vier Prozent aus, ist aber das Hauptproblem. In ihm sind 99 Prozent der gefährlichen Strahlung konzentriert. Er wird in flüssiges Glas eingeschmolzen und in sogenannte Kokillen aus Edelstahl gefüllt. Ein 1000-Megawatt-Kraftwerk – deutsche Kernkraftwerke erbringen eine Bruttoleistung zwischen 800 und 1480 Megawatt – produziert jährlich etwa 20 Tonnen ausgedienter Brennelemente.<br/>
+    <p>Der Restmüll, der in den Wiederaufarbeitungsanlagen neben Plutonium und Uran entsteht, macht zwar nur vier Prozent aus, ist aber das Hauptproblem. In ihm sind 99 Prozent der gefährlichen Strahlung konzentriert. Er wird in flüssiges Glas eingeschmolzen und in sogenannte Kokillen aus Edelstahl gefüllt. Ein 1000-Megawatt-Kraftwerk – deutsche Kernkraftwerke erbringen eine Bruttoleistung zwischen 800 und 1480 Megawatt – produziert jährlich etwa 20&nbsp;Tonnen ausgedienter Brennelemente.<br/>
     [...]<br/>
     [In Gorleben] liegen nach Angaben des Bundesamtes für Strahlenschutz insgesamt 2408 Glaskokillen aus der Wiederaufarbeitung in der französischen Anlage.<br/>
     [...]<br/>
-    Hinzu kommt der hochradioaktive Atommüll, der seit dem Jahr 2005 entstanden ist und nicht wiederaufgearbeitet wurde [...]. Dieser Müll – pro Jahr etwa 400 Tonnen, schätzt die Gesellschaft für Anlagen- und Reaktorsicherheit – lagert, verteilt über die ganze Republik, in Hallen neben den Kernkraftwerken.</p>
+    Hinzu kommt der hochradioaktive Atommüll, der seit dem Jahr 2005 entstanden ist und nicht wiederaufgearbeitet wurde [...]. Dieser Müll – pro Jahr etwa 400&nbsp;Tonnen, schätzt die Gesellschaft für Anlagen- und Reaktorsicherheit – lagert, verteilt über die ganze Republik, in Hallen neben den Kernkraftwerken.</p>
 
     <footer>Christina Steinlein, in <cite>Focus Online: Die Angst wiegt schwer</cite> vom 11. November 2010.</footer>
 </blockquote>
@@ -230,14 +228,14 @@ an Atommüll. Hinzu kommen diese [Kokillen](https://de.wikipedia.org/wiki/Kokill
 vor 2005, von denen ich leider nicht weiß wie groß die sind.
 
 Laut [kiefermedia.de](http://www.kiefermedia.de/fakten/atommuell) haben wir
-in Deutschland bis 2022 etwa 17&thinsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&thinsp;000&nbsp;Tonnen Atommüll geben.
+in Deutschland bis 2022 etwa 17&numsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&numsp;000&nbsp;Tonnen Atommüll geben.
 Laut [BUND](http://www.bund.net/themen_und_projekte/atomkraft/atommuell/) sind
-es 17&thinsp;000&nbsp;Tonnen und 300&thinsp;000&nbsp;m<sup>3</sup>.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup>
+es 17&numsp;000&nbsp;Tonnen und 300&numsp;000&nbsp;m<sup>3</sup>.[^7]
 
 Laut [Statistischem Bundesamt](http://de.statista.com/statistik/daten/studie/167241/umfrage/jaehrlich-produzierte-menge-an-atommuell-in-ausgewaehlten-laendern/) sind in Deutschland alleine im
 Jahr 2009 etwa 450&nbsp;Tonnen Atommüll angefallen. Diese 450&nbsp;Tonnen
 wurden in vielen Quellen als "Jährlich anfallender Atommüll" genannt. Als ob
-das jedes Jahr gleich wäre. Dann hätten wir heute keine ~17&thinsp;000&nbsp;Tonnen
+das jedes Jahr gleich wäre. Dann hätten wir heute keine ~17&numsp;000&nbsp;Tonnen
 Atommüll sondern
 
 <div markdown="0">$$(2016-1960) \cdot 450 \text{ Tonnen} = 25200\text{ Tonnen}$$</div>
@@ -249,35 +247,13 @@ Atommüll sondern
 * [Liste der Isotope](https://de.wikipedia.org/wiki/Liste_der_Isotope)
 
 
-## Fußnoten
-
-* [<a href="#ref-1-anchor" name="ref-1">1</a>] Der Homo Sapiens ist etwa
-  200&thinsp;000&nbsp;Jahre alt; die ersten staatlichen Gebilde sind
-  ca.&nbsp;6000&nbsp;Jahre alt. Und da wollen wir für etwas planen, was mehr
-  als 100&thinsp;000&nbsp;Jahre in der Zukunft liegt? Lächerlich.
-* [<a href="#ref-2-anchor" name="ref-2">2</a>] Das würde eine Dichte von nur
-  57&nbsp;kg/m<sup>3</sup> ergeben. Eisen hat eine Dichte von 7874&nbsp;kg/m<sup>3</sup>
-  und Wasser eine Dichte von 1000&nbsp;kg/m<sup>3</sup>.
-
 
 ## Einzelnachweise
 
-* [<a href="#ref-koe03-anchor" name="ref-koe03">Koe03</a>] W. König. Atomare
-  Endlagerung im Spannungsfeld zwischen fachlichen Notwendigkeiten und
-  gesellschaftlichen Realitäten. Evangelische Akademie Loccum, 2003.
-  (<a href="http://www.bfs.de/SharedDocs/Reden/BfS/DE/2003-02-07-koenig-atom-end.html">Quelle</a>)
-* [<a href="#ref-jen-anchor" name="ref-jen">Jen</a>] Zukunftswerkstatt Jena. Schutzmöglichkeiten vor ionisierender Strahlung: Alphastrahlen.
-  (<a href="http://www.zw-jena.de/energie/schutz.html#alpha">Quelle</a>)
-* [<a href="#ref-bmu10-anchor" name="ref-bmu10">BMU10</a>]
-  Sicherheitsanforderungen an die Endlagerung wärmeentwickelnder radioaktiver
-  Abfälle. Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit, 30.
-  September 2010.
-  (<a href="http://www.bmub.bund.de/fileadmin/bmu-import/files/pdfs/allgemein/application/pdf/sicherheitsanforderungen_endlagerung_bf.pdf">Quelle</a>)
-* [<a href="#ref-tag16-anchor" name="ref-tag16">Tag16</a>]
-  Energiekonzerne blockieren Atomkompromiss.
-  Der Tagesspiegel, 28.02.2016.
-  (<a href="http://www.tagesspiegel.de/politik/atom-rueckstellungen-energiekonzerne-blockieren-atomkompromiss/13027254.html">Quelle</a>)
-* [<a href="#ref-new16-anchor" name="ref-new16">New16</a>]
-  The robots sent into Fukushima have 'died'.
-  Newsweek, 10.03.2016.
-  (<a href="http://europe.newsweek.com/robots-sent-fukushima-have-died-435332?rm=eu">Quelle</a>)
+[^1]: Wolfram König: [Atomare Endlagerung im Spannungsfeld zwischen fachlichen Notwendigkeiten und gesellschaftlichen Realitäten](http://www.bfs.de/SharedDocs/Reden/BfS/DE/2003-02-07-koenig-atom-end.html) via Bundesamt für Strahlenschutz, 07.02.2003 (Vortrag an der Evangelischen Akademie Loccum).
+[^2]: [Schutzmöglichkeiten vor ionisierender Strahlung: Alphastrahlen](http://www.zw-jena.de/energie/schutz.html#alpha) via Zukunftswerkstatt Jena, abgerufen am 27.09.2026.
+[^3]: [Sicherheitsanforderungen an die Endlagerung wärmeentwickelnder radioaktiver Abfälle](http://www.bmub.bund.de/fileadmin/bmu-import/files/pdfs/allgemein/application/pdf/sicherheitsanforderungen_endlagerung_bf.pdf) via Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit, 30.09.2010.
+[^4]: Dagmar Dehmer: [Energiekonzerne blockieren Atomkompromiss](http://www.tagesspiegel.de/politik/atom-rueckstellungen-energiekonzerne-blockieren-atomkompromiss/13027254.html) via Der Tagesspiegel, 28.02.2016.
+[^5]: Der Homo Sapiens ist etwa 200&numsp;000&nbsp;Jahre alt; die ersten staatlichen Gebilde sind ca.&nbsp;6000&nbsp;Jahre alt. Und da wollen wir für etwas planen, was mehr als 100&numsp;000&nbsp;Jahre in der Zukunft liegt? Lächerlich.
+[^6]: Reuters: [The robots sent into Fukushima have 'died'](http://europe.newsweek.com/robots-sent-fukushima-have-died-435332?rm=eu) via Newsweek, 10.03.2016.
+[^7]: Das würde eine Dichte von nur 57&nbsp;kg/m<sup>3</sup> ergeben. Eisen hat eine Dichte von 7874&nbsp;kg/m<sup>3</sup> und Wasser eine Dichte von 1000&nbsp;kg/m<sup>3</sup>.

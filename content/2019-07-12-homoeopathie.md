@@ -39,9 +39,9 @@ Wir haben diese Ausreden heutzutage nicht mehr.
 ## Zahlen
 
 <ul>
-    <li>2018 wurden in Deutschland Homöopathika für 670 Mio. Euro verkauft.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-    <li>2018 wurden in Deutschland 54,5 Millionen Packungen verkauft.<sup><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-    <li>2018 haben in 87% der Fälle die Verbraucher selbst bezahlt.<sup><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+    <li>2018 wurden in Deutschland Homöopathika für 670 Mio. Euro verkauft.[^1]</li>
+    <li>2018 wurden in Deutschland 54,5 Millionen Packungen verkauft.[^1]</li>
+    <li>2018 haben in 87% der Fälle die Verbraucher selbst bezahlt.[^1]</li>
     <li>2018 hat <a href="https://de.wikipedia.org/wiki/Hevert-Arzneimittel">Hevert</a> ca. 30 Mio. EUR Umsatz gemacht.</li>
 </ul>
 
@@ -211,7 +211,7 @@ sieht man dann "Aconitinum Dil. D5 (HAB, V. 5a)", "Atropinum sulfuricum Dil. D5"
 "Mercurius cyanatus Dil. D8".
 
 **Fehler beim Verdünnen** passieren. Und dann gibt es einen (schädlichen) Effekt
-über den Placebo-Effekt hinaus.[^5]<sup>,</sup>[^6]
+über den Placebo-Effekt hinaus.[^5][^6]
 
 Und selbstverständlich ist Homöopathie einfach **Geldverschwendung**.
 
@@ -266,9 +266,9 @@ Sonnen-Vergleich:
 
 ## Einzelnachweise
 
- [^1]: <a href="https://www.spiegel.de/gesundheit/diagnose/homoeopathie-in-deutschland-absatz-steigt-auf-670-millionen-euro-im-jahr-2018-a-1256101.html">Das Geschäft mit Homöopathie wächst</a>, 04.03.2019.
- [^2]: Dr. Christian Lübbers (Sprecher Informationsnetzwerk Homöopathie, INH) <a href="https://www.youtube.com/watch?v=pU3sAYRl4-k&t=842">auf YouTube</a>
- [^3]: Wolfgang Wodarg (Arzt, Mitglied des Bundestages 1994-2009, SPD), <a href="https://youtu.be/pU3sAYRl4-k?t=890">auf YouTube</a>, 2019.
- [^4]: <a href="https://www.bfarm.de/DE/Buerger/Arzneimittel/Arzneimittelzulassung/_node.html">Arzneimittelzulassung</a>
- [^5]: Beth Mole: <a href="https://arstechnica.com/science/2018/08/homeopathic-co-expands-recall-as-fda-warns-of-life-threatening-infections/">Homeopathic co. expands recall as FDA warns of “life-threatening” infections</a>, 2018.
- [^6]: Olivia Solon: <a href="https://www.wired.co.uk/article/homeopathy-contains-medicine">Homeopathic remedies recalled for containing real medicine</a>, 2014.
+[^1]: [Das Geschäft mit Homöopathie wächst](https://www.spiegel.de/gesundheit/diagnose/homoeopathie-in-deutschland-absatz-steigt-auf-670-millionen-euro-im-jahr-2018-a-1256101.html) via Der Spiegel, 04.03.2019.
+[^2]: ZDF Magazin Royale: [Homöopathie wirkt\*](https://www.youtube.com/watch?v=pU3sAYRl4-k&t=842) via YouTube, 13.06.2019 (Aussage von Dr. Christian Lübbers, Sprecher des Informationsnetzwerks Homöopathie).
+[^3]: ZDF Magazin Royale: [Homöopathie wirkt\*](https://youtu.be/pU3sAYRl4-k?t=890) via YouTube, 13.06.2019 (Aussage von Wolfgang Wodarg, Arzt und 1994–2009 SPD-Bundestagsabgeordneter).
+[^4]: [Arzneimittelzulassung](https://www.bfarm.de/DE/Aktuelles/Themendossiers/Homoeopathische-Arzneimittel/_node.html) via BfArM.
+[^5]: Beth Mole: [Homeopathic co. expands recall as FDA warns of “life-threatening” infections](https://arstechnica.com/science/2018/08/homeopathic-co-expands-recall-as-fda-warns-of-life-threatening-infections/) via Ars Technica, 29.08.2018.
+[^6]: Olivia Solon: [Homeopathic remedies recalled for containing real medicine](https://www.wired.co.uk/article/homeopathy-contains-medicine) via Wired UK, 2014.

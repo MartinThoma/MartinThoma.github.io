@@ -9,8 +9,8 @@ category: German posts
 tags: Germany, Politics
 featured_image: logos/mathematics.png
 ---
-Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos,
-aber das ist tatsächlich nicht die Zahl, auf die man sich fokussieren sollte.
+Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos[^1],
+aber das ist tatsächlich nicht die Zahl, auf die man sich fokussieren sollte[^2][^3].
 Interessanter wäre es zu sehen, wie viele Menschen einen Job nicht angenommen
 haben, weil sie keine Wohnung gefunden haben. Oder wie viele Menschen mehr als
 33% ihres Netto-Einkommens für die Miete ausgeben. Oder in wie vielen Städten
@@ -22,7 +22,7 @@ der Leerstand unter 3% liegt.
 ### Leerstand
 
 Eine Leerstandsquote von 3%-5% wird als normal angesehen. Hier mal ein paar
-ausgewählte Städte:
+ausgewählte Städte[^4]:
 
 * Aschheim: 1,5%
 * Unterhaching: 1,7%
@@ -40,7 +40,7 @@ ausgewählte Städte:
 
 ### Neubau
 
-Neue Wohnungen pro Jahr:
+Neue Wohnungen pro Jahr[^5]:
 
 * 1995: 602.800
 * 2000: 423.000
@@ -50,7 +50,7 @@ Neue Wohnungen pro Jahr:
 * 2021: 293.400
 * 2022: 295.300
 * 2023: 294.400, davon 257.200 Neubauwohnungen in Wohngebäuden. Auf
-  Einfamilienhäuser entfielen davon 69.900 Wohnungen
+  Einfamilienhäuser entfielen davon 69.900 Wohnungen[^6]
 
 
 ## Aktuelle Politik
@@ -61,13 +61,13 @@ Die SPD spricht in ihrem Bundestagswahlprogramm 2021 von
 konnte mit diesem Ansatz keinen Erfolg erzielen.
 
 Auch die CDU/CSU erkennt "bezahlbaren Wohnraum" in ihrem Wahlprogramm als eine
-Herausforderung des Jahrzehnts an. Sie wollten von 2021 bis 2025 1,5 Millionen
+Herausforderung des Jahrzehnts an.[^7] Sie wollten von 2021 bis 2025 1,5 Millionen
 Wohnungen bauen. Dabei wollen sie durch schnellere Abschreibungsmöglichkeiten
 Investitionsanreize schaffen und Bauantragsgenehmigungen beschleunigen. Außerdem
 wollen sie den ÖPNV stärken, um so Ballungsgebiete zu entlasten.
 
 Die Grünen wollen bezahlbaren Wohnraum schaffen, indem sie die Mittel für den
-sozialen Wohnungsbau deutlich erhöhen.
+sozialen Wohnungsbau deutlich erhöhen.[^8]
 
 ## Politische Maßnahmen
 
@@ -120,7 +120,7 @@ Wie viel Wohnfläche wäre das in etwa?
 Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13,5 Millionen
 Euro pro Haus. Also 70k Euro pro Student.
 
-Man könnte nun bundespolitisch für jede Stadt für jeden Studenten über 10 Jahre
+Man könnte nun bundespolitisch für jede Stadt für jeden Studenten[^9] über 10 Jahre
 verteilt 35k EUR an Zuschüssen für den Bau von Wohnheimen der Hadiko-Klasse
 bereitstellen. Also sehr dichter Wohnraum.
 
@@ -146,7 +146,7 @@ Die Verwaltung des Wohnheims könnte - genau wie beim Hadiko - von Studenten
 * Stuttgart 21: 12.000 Millionen EUR
 * Elbphilharmonie Hamburg: 866 Millionen EUR
 * Frankfurt Main Tower: 350 Millionen EUR
-* Wohngeld für 12826 Haushalte in Frankfurt 2023: 36,6 Millionen Euro
+* Wohngeld für 12826 Haushalte in Frankfurt 2023: 36,6 Millionen Euro[^10]
 
 
 Das wäre ein konkreter Plan. Er wäre umsetzbar, würde sowohl kurzfristig als
@@ -161,8 +161,8 @@ fünftgrößte Stadt Deutschlands:
 
 * Einwohner: 775.790 (31. Dez. 2023)
 * Fläche: 248,31 km²
-* Gebäude mit Wohnungen: 81.129
-* Wohnungen: 410.235
+* Gebäude mit Wohnungen: 81.129[^11]
+* Wohnungen: 410.235[^11]
 * Studierende: 64.953
     * [Johann Wolfgang Goethe-Universität Frankfurt am Main](https://de.wikipedia.org/wiki/Johann_Wolfgang_Goethe-Universit%C3%A4t_Frankfurt_am_Main): 41.783 (Wintersemester 2023/24)
     * [Frankfurt University of Applied Sciences](https://de.wikipedia.org/wiki/Frankfurt_University_of_Applied_Sciences): 15.036 (Wintersemester 2023/24)
@@ -177,14 +177,14 @@ fünftgrößte Stadt Deutschlands:
 
 ## Einzelnachweise
 
-1. destatis.de: [Pressemitteilung Nr. 203](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/05/PD24_203_31121.html), 23. Mai 2024.
-2. [Wahlprogramm 2021, CDU/CSU](https://www.cdu.de/artikel/ein-guter-plan-fuer-deutschland)
-3. [Wahlprogramm 2021, Die Grünen](https://www.gruene.de/artikel/wahlprogramm-zur-bundestagswahl-2021)
-4. destatis.de: [Statistik untergebrachter wohnungsloser Personen](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Wohnungslosigkeit/_inhalt.html), 15. Juli 2024.
-5. statista.com: [Schätzung zur Anzahl der Wohnungslosen in Deutschland von 1995 bis 2022](https://de.statista.com/statistik/daten/studie/36350/umfrage/anzahl-der-wohnungslosen-in-deutschland-seit-1995/)
-6. Stadt Frankfurt: [Bauen und Wohnen](https://frankfurt.de/service-und-rathaus/daten-informationen-wissen/themen/bauen-und-wohnen), Datenstand: 2021
-7. Christoph Manus: [Viel mehr Wohngeld ausgezahlt in Frankfurt](https://www.fr.de/frankfurt/viel-mehr-wohngeld-ausgezahlt-in-frankfurt-92879414.html), Stand:08.03.2024.
-8. statista.com: [Anzahl der Studierenden an Hochschulen in Deutschland in den Wintersemestern von 2002/2003 bis 2023/2024](https://de.statista.com/statistik/daten/studie/221/umfrage/anzahl-der-studenten-an-deutschen-hochschulen/)
-9. bmwsb.bund.de: [Wohnungslosenbericht 2022](https://www.bmwsb.bund.de/SharedDocs/downloads/Webs/BMWSB/DE/veroeffentlichungen/pm-kurzmeldung/wohnungslosenbericht-2022.html)
-10. Sophie Menner: [Leerstand in Bayern trotz Wohnungsnot: Wie passt das zusammen?](https://www.br.de/nachrichten/bayern/leerstand-in-bayern-und-wohnungsnot-wie-passt-das-zusammen,UIa6oLh), 28.09.2024
-11. [Pressemitteilung Nr. N041 vom 29. Juni 2023](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/06/PD23_N041_31.html): Fertiggestellte Wohnungen pro Jahr
+[^1]: [Statistik untergebrachter wohnungsloser Personen](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Wohnungslosigkeit/_inhalt.html) via Destatis, 15.07.2024.
+[^2]: [Schätzung zur Anzahl der Wohnungslosen in Deutschland von 1995 bis 2022](https://de.statista.com/statistik/daten/studie/36350/umfrage/anzahl-der-wohnungslosen-in-deutschland-seit-1995/) via Statista, 20.02.2024.
+[^3]: [Wohnungslosenbericht 2022](https://www.bmwsb.bund.de/SharedDocs/downloads/Webs/BMWSB/DE/veroeffentlichungen/pm-kurzmeldung/wohnungslosenbericht-2022.html) via Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen, 2022.
+[^4]: Sophie Menner: [Leerstand in Bayern trotz Wohnungsnot: Wie passt das zusammen?](https://www.br.de/nachrichten/bayern/leerstand-in-bayern-und-wohnungsnot-wie-passt-das-zusammen,UIa6oLh) via BR24, 28.09.2024.
+[^5]: [Seit 1950 wurden in der Bundesrepublik Deutschland durchschnittlich 405 000 neue Wohnungen pro Jahr fertiggestellt](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/06/PD23_N041_31.html) via Destatis, 29.06.2023.
+[^6]: [0,3 % weniger fertiggestellte Wohnungen im Jahr 2023](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/05/PD24_203_31121.html) via Destatis, 23.05.2024.
+[^7]: [Wahlprogramm 2021, CDU/CSU](https://www.cdu.de/artikel/ein-guter-plan-fuer-deutschland) via CDU, 2021.
+[^8]: [Grünes Wahlprogramm zur Bundestagswahl 2021](https://www.gruene.de/artikel/wahlprogramm-zur-bundestagswahl-2021) via Bündnis 90/Die Grünen, 2021.
+[^9]: [Anzahl der Studierenden an Hochschulen in Deutschland in den Wintersemestern von 2002/2003 bis 2023/2024](https://de.statista.com/statistik/daten/studie/221/umfrage/anzahl-der-studenten-an-deutschen-hochschulen/) via Statista, abgerufen am 27.09.2026.
+[^10]: Christoph Manus: [Viel mehr Wohngeld ausgezahlt in Frankfurt](https://www.fr.de/frankfurt/viel-mehr-wohngeld-ausgezahlt-in-frankfurt-92879414.html) via Frankfurter Rundschau, 08.03.2024.
+[^11]: [Bauen und Wohnen](https://frankfurt.de/service-und-rathaus/daten-informationen-wissen/themen/bauen-und-wohnen) via Stadt Frankfurt am Main, abgerufen am 27.09.2026 (Datenstand 2021).

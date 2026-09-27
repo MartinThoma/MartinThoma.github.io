@@ -84,9 +84,10 @@ findings per article; remove an entry once it is fixed.
   (`[logotournament.com](http://logotournament.com/)`).
   `python scripts/link_bare_urls.py` does the latter. A URL that is the subject of the text
   (an example domain, an API endpoint, a metadata value) goes into a code span instead.
-* Remove tracking parameters from links (`utm_*`, `fbclid`, YouTube `si=`, Twitter
-  `ref_src`, Amazon `/ref=…` and the like). Keep parameters that change the
-  target, such as YouTube `t=` or Amazon `psc=`.
+* Remove tracking parameters from links (`utm_*`, `fbclid`, Twitter `ref_src`,
+  Amazon `/ref=…` and the like). Keep parameters that change the target, such as
+  YouTube `t=` or Amazon `psc=`. Always keep YouTube's `si=` (in links and embeds):
+  without it the video is not shown correctly.
 * Cards that link to a blog article end with the subtitle only; do not append the
   domain name (`…levelup.gitconnected.com`).
 
@@ -157,6 +158,24 @@ Math is rendered by MathJax 2. In Markdown, the `render_math` plugin (plus the l
 * Exam questions whose answer is revealed on click use
   `<details class="question"><summary>Frage?</summary><div class="answer">…</div></details>`
   (styles in `static/custom.css`, no JavaScript).
+
+## Footnotes and sources
+
+* Cite with Markdown footnotes: `text[^1]` in the text, `[^1]: …` as one line per
+  footnote. This also works inside raw HTML blocks (tables, lists, figures) thanks to
+  `plugins/footnotes_in_html.py`. Never write footnote HTML (`<sup>`, `#fn:1`,
+  `name="anchor1"`) by hand.
+* A footnote text that starts like a list item becomes a nested list: write
+  `[^1]: 2\. Klausur …`, not `[^1]: 2. Klausur …`.
+* Footnotes render as `[1]`, numbered in the order of their first citation, with one ↩
+  per citation. Number the labels in that order and list the definitions sorted.
+* Sources of a German article go under a final `## Einzelnachweise` heading (English:
+  `## Footnotes`), with nothing after the definitions: the list renders at the end of
+  the article. Every footnote must be cited in the text; an uncited one gets a dead ↩.
+* Format of a source: `Autor: [Titel](URL) via Website, TT.MM.JJJJ.` The author only if
+  one is named (a person, or an agency like `dpa` that differs from the site); the date
+  is the publication date, otherwise `abgerufen am TT.MM.JJJJ`. YouTube: the channel is
+  the author, `via YouTube`.
 
 ## Facts and numbers
 

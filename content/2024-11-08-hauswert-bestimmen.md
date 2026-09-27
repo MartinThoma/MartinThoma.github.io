@@ -290,7 +290,7 @@ Hier ein Auszug aus dem [Bewertungsgesetz (BewG)](https://www.gesetze-im-interne
   </tbody>
 </table>
 
-Und noch ein paar weitere aus anderen Quellen:
+Und noch ein paar weitere aus anderen Quellen[^1][^2][^3][^4]:
 
 <table border="1">
   <tr>
@@ -348,7 +348,7 @@ Das will die Bank auch wissen, wenn sie die Finanzierung prüft.
 
 ## Einzelnachweise
 
-* "Ausstattungsstandard" auf [immobilienbewertung-info.de](https://www.immobilienbewertung-info.de/themen/fachbegriffe/ausstattungsstandard/), abgerufen am 2024-11-09
-* "Wohnung und Haus – was zählt alles zu einer gehobenen Ausstattung?" auf [edle-bauelemente.de](https://www.edle-bauelemente.de/wohnung-und-haus-was-zaehlt-alles-zu-einer-gehobenen-ausstattung/), abgerufen am 2024-11-09
-* "Was ist eigentlich eine gehobene Gebäudeausstattung aus Sicht der Gebäudeversicherung?" auf [versicherungsmakler-guetersloh.de](https://versicherungsmakler-guetersloh.de/was-ist-eigentlich-eine-gehobene-gebaeudeausstattung-aus-sicht-der-gebaeudeversicherung/), abgerufen am 2024-11-09
-* "Ausstattungsmerkmale und Lage beim Hausverkauf" auf [praxiswissen-immobilien.de](https://www.praxiswissen-immobilien.de/ausstattung-lage-immobilie/), abgerufen am 2024-11-09
+[^1]: [Ausstattungsstandard](https://www.immobilienbewertung-info.de/themen/fachbegriffe/ausstattungsstandard/) via immobilienbewertung-info.de, abgerufen am 09.11.2024.
+[^2]: [Wohnung und Haus – was zählt alles zu einer gehobenen Ausstattung?](https://www.edle-bauelemente.de/wohnung-und-haus-was-zaehlt-alles-zu-einer-gehobenen-ausstattung/) via Edle Bauelemente, 11.10.2016.
+[^3]: [Was ist eigentlich eine gehobene Gebäudeausstattung aus Sicht der Gebäudeversicherung?](https://versicherungsmakler-guetersloh.de/was-ist-eigentlich-eine-gehobene-gebaeudeausstattung-aus-sicht-der-gebaeudeversicherung/) via versicherungsmakler-guetersloh.de, abgerufen am 09.11.2024.
+[^4]: [Ausstattungsmerkmale und Lage beim Hausverkauf](https://www.praxiswissen-immobilien.de/ausstattung-lage-immobilie/) via praxiswissen-immobilien.de, abgerufen am 09.11.2024.

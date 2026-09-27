@@ -245,7 +245,7 @@ Die Spachtel-Methoden benötigen eine Versiegelung.
 
 Zusammenaddiert durch alle Schichten der Fußbodenheizung sollte der
 Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
-überschreiten.
+überschreiten.[^1]
 
 
 <table>
@@ -286,7 +286,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <th>Brandklasse</th>
         <td class="good">A1</td>
         <td class="bad">Cfl-s1 / Dfl-s1</td>
-        <td>B2</td>
+        <td>B2[^2]</td>
         <td class="bad">Cfl-s1</td>
         <td>Bfl-s1</td>
         <td class="bad">Cfl-s1</td>
@@ -349,10 +349,10 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
         <th><a href="https://de.wikipedia.org/wiki/W%C3%A4rmeleitf%C3%A4higkeit">Wärmeleitfähigkeit</a> λ<sup title="Die Wärmeleitfähigkeit bestimmt, wie kalt wir einen Boden empfinden, weil sie
 aussagt, wie schnell Wärme vom Fuß weggeleitet wird. Bei Fliesen ist sie hoch,
 bei Holz niedrig. Fußwarm sind Baustoffe mit einer Wärmeleitfähigkeit bis 0,2 W/mK: Holz, Kork,
-Linoleum, Teppich.">*</sup></th>
+Linoleum, Teppich.">*</sup>[^3]</th>
         <td class="bad">1,05 W/(mK)</td>
         <td class="good">0.11 - 0,21 W/(mK)</td>
-        <td class="good">0,079 W/(mK)</td>
+        <td class="good">0,079 W/(mK)[^2]</td>
         <td class="good">0,17 W/(mK)</td>
         <td class="good">0,17 W/(mK)</td>
         <td class="good">0,17 W/(mK)</td>
@@ -714,6 +714,6 @@ Generationen im Haus leben zu können.
 
 ## Einzelnachweise
 
-1. selfio.de: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
-2. Der Bauladen: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm)
-3. VBG: [Bodenbeläge – Fußbodenmaterial](https://www.vbg.de/SharedDocs/Medien-Center/DE/Faltblatt/Themen/Arbeitsstaetten_gestalten/fi_boden_fussboden.pdf?__blob=publicationFile&v=9)
+[^1]: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/) via Selfio.
+[^2]: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm) via Der Bauladen, abgerufen am 27.09.2026.
+[^3]: [Fachinformation Bodenbeläge – Fußbodenmaterial](https://cdn.vbg.de/media/7b279f9c90e74217a108fe7c27afad8b/dld:attachment/07.2021_fi_boden_fussboden_arbeitsstaette.pdf) via VBG, Juli 2021.
