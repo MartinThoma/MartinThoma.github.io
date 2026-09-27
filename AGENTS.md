@@ -139,6 +139,14 @@ findings per article; remove an entry once it is fixed.
   Convert PNG screenshots without transparency to JPG and scale to at most 1600–2000
   px width.
 
+## Tables
+
+* Large tables are handled by `pelican-thoma/static/js/tables.js`: a table wider than the
+  text column scrolls in its own box with a sticky header row, a sticky first column (if it
+  is narrow enough) and a "Maximieren" button; a table that is only long gets a header row
+  that sticks below the site header. For this the header row must be a `<thead>` or a first
+  row of `<th>` cells. Layout tables get `class="transparent"` and are left alone.
+
 ## Math
 
 Math is rendered by MathJax 2. In Markdown, the `render_math` plugin (plus the local
