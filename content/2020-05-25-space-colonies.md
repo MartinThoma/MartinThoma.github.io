@@ -34,15 +34,51 @@ another potential solution.
 
 ### Air
 
-TODO
+Humans need oxygen and breathe out carbon dioxide (CO₂), which has to be
+removed. The ISS does both with machines (Air Revitalization System and Oxygen Generation System)[^3]:
+
+* **Electrolysis**: Electricity from the solar panels splits water into
+  oxygen and hydrogen. The oxygen goes into the cabin.
+* **CO₂ reduction**: A [Sabatier reactor](https://en.wikipedia.org/wiki/Sabatier_reaction)
+  combines the hydrogen with the exhaled CO₂ to water and methane. The water
+  goes back into the electrolysis, the methane is vented into space. Some
+  hydrogen is lost this way, so the loop is not fully closed.
+
+Plants do the same with sunlight: they take up CO₂ and release oxygen. A
+colony could use plants or algae instead of (or in addition to) machines. That
+is harder than it sounds: in [Biosphere 2](https://en.wikipedia.org/wiki/Biosphere_2),
+a sealed ecosystem in Arizona, the oxygen fell from 20.9% to 14.5%. Soil
+microbes consumed oxygen, and the fresh concrete absorbed the CO₂ they
+produced, so nobody noticed it at first[^4].
+
+On the Moon and on Mars, oxygen can also come from local resources (see below).
 
 ### Water
 
-TODO
+Recycling works well, but it took a long time: since 2023, the ISS recovers
+98% of the water from urine, sweat and air humidity[^5]. The remaining
+2%, and all water for growing plants, must come from somewhere. Without
+supplies from Earth, that means local ice:
+
+* **Moon**: In 2009, NASA crashed the upper stage of the LCROSS mission into
+  the permanently shadowed crater Cabeus at the lunar south pole. The ejected
+  material contained water[^6].
+* **Mars**: There is water on Mars, mostly as ice (see below).
 
 ### Food
 
-TODO
+Three concepts are being tested:
+
+* **Plants**: The ISS has a small plant growth system called Veggie. In August
+  2015, astronauts ate lettuce grown on the station for the first time[^7].
+* **Closed ecosystems with animals**: In the Chinese experiment
+  [Yuegong-1](https://en.wikipedia.org/wiki/Yuegong-1) (Lunar Palace 1), two
+  teams of four volunteers lived 370 days (2017-2018) in a sealed habitat in
+  Beijing. They ate plants they grew and mealworms, which were fed with the
+  inedible parts of the plants[^8].
+* **Synthetic food**: The Finnish company Solar Foods lets microbes produce a
+  protein powder (Solein) from CO₂, hydrogen and electricity. It needs neither
+  soil nor sunlight. The ESA funds a project to test it in weightlessness[^9].
 
 ### Habitation
 
@@ -57,9 +93,23 @@ Cosmic radiation causes cancer and kills life. On Earth, the magnetic field
 protects us.
 
 If you build thick enough walls, probably any material can protect from
-radiation. TODO
+radiation. But the material matters: aluminum, the typical material for
+spacecraft, is a poor shield against cosmic rays. Materials with a lot of
+hydrogen, like polyethylene, need much less mass for the same protection[^10].
+The 1975 NASA/Stanford design study needed 4.4&thinsp;t of lunar soil per m²
+(441&thinsp;g/cm²) to keep the dose below 2.5&thinsp;mSv per year[^11].
+On Mars, more than 3&thinsp;m of regolith are needed to stay below the safety
+limits[^12]. For comparison: the air above us has a mass of about
+10&thinsp;t per m² (that's what 1&thinsp;bar air pressure means).
 
-Water can protect from radiation. TODO
+Water can protect from radiation. Due to its hydrogen, it is a better shield
+than aluminum: 10&thinsp;cm of water (10&thinsp;g/cm²) reduce the dose from
+galactic cosmic rays on Mars by about a third, from 297 to 199&thinsp;µGy per
+day[^12]. To have the same mass as the shield of the NASA study, you
+would need a 4.4&thinsp;m thick layer of water, as 1&thinsp;m³ of water
+weighs 1&thinsp;t. Because water is the better shield, probably a bit less
+would do. A nice side effect: the colony needs large water reserves anyway, so
+they could be stored in the walls.
 
 
 ## Space Stations
@@ -73,7 +123,7 @@ smallest population size for a permanent settlement assumes 80 people. This mean
 we have to go way bigger.
 
 The ISS needed 420 tonnes of material and bringing one kg to space costs
-about 25&thinsp;000 EUR[^4]. This means rebuilding the ISS would cost 10.5 billion
+about 25&thinsp;000 EUR[^13]. This means rebuilding the ISS would cost 10.5 billion
 EUR. This is already pretty expensive. Building any of the proposals for permanent settlement
 by bringing material from Earth to space is completely unrealistic. This means
 we either have to mine materials from the moon or from asteroids.
@@ -112,14 +162,14 @@ Stanford torus.
 
 The [O'Neill cylinder](https://en.wikipedia.org/wiki/O%27Neill_cylinder) (Island Three) is
 a design proposed by [Gerard K. O'Neill](https://en.wikipedia.org/wiki/Gerard_K._O%27Neill)
-in 1976 for a space habitat capable of housing several million people.
+in 1976 for a space habitat capable of housing several million people[^14].
 
 
 ## Asteroids
 
 ## The Moon
 
-The moon cannot have an atmosphere[^6].
+The moon cannot have an atmosphere[^15].
 
 The communication with Earth would be delayed between 1.2 and 1.4 seconds.
 
@@ -133,13 +183,13 @@ energy source to solar energy.
 
 ### Air
 
-It might be possible to create oxygen from moon dust[^8].
+It might be possible to create oxygen from moon dust[^16].
 
 
 ### Water
 
 There seems to be water on the surface of the moon, but it's by no means
-clear to me how much there is and how easy it is to access.[^9]
+clear to me how much there is and how easy it is to access.[^17]
 
 ### Food
 
@@ -164,7 +214,7 @@ The Moon Village is a concept presented in 2015 by the European Space Agency (ES
 The [colonization of Mars](https://en.wikipedia.org/wiki/Colonization_of_Mars)
 is a fascinating thought which is shown in many different novels and movies.
 
-It takes about nine months to bring humans to Mars[^5].
+It takes about nine months to bring humans to Mars[^18].
 
 The [Mars atmosphere](https://en.wikipedia.org/wiki/Atmosphere_of_Mars) is primarily
 CO2.
@@ -234,7 +284,7 @@ CO2.
 
 ### Energy
 
-Besides night, you can have dust storms on Mars which could take weeks[^7].
+Besides night, you can have dust storms on Mars which could take weeks[^19].
 This means it is necessary to have an alternative.
 
 ### Air
