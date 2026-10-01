@@ -19,6 +19,13 @@ CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 
+# Drafts are only for local previews (pelicanconf-local.py); an empty SAVE_AS
+# keeps them out of the published site.
+DRAFT_SAVE_AS = ""
+DRAFT_PAGE_SAVE_AS = ""
+DRAFT_LANG_SAVE_AS = ""
+DRAFT_PAGE_LANG_SAVE_AS = ""
+
 # Following items are often useful when publishing
 
 # DISQUS_SITENAME = ""
