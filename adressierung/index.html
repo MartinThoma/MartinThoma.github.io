@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <details class="toc" open>
     <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#physical-address-and-virtual-address" title="Physical address and virtual address">Physical address and virtual address</a></li><li><a class="toc-href" href="#cache-modelle" title="Cache-Modelle">Cache-Modelle</a><ul><li><a class="toc-href" href="#physically-indexed-physically-tagged" title="Physically Indexed, Physically Tagged">Physically Indexed, Physically Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-physically-tagged" title="Virtually indexed, physically tagged">Virtually indexed, physically tagged</a></li><li><a class="toc-href" href="#physically-indexed-virtually-tagged" title="Physically Indexed / Virtually Tagged">Physically Indexed / Virtually Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-virtually-tagged" title="Virtually Indexed / Virtually Tagged">Virtually Indexed / Virtually Tagged</a></li></ul></li><li><a class="toc-href" href="#quellen" title="Quellen">Quellen</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#physical-address-and-virtual-address" title="Physical address and virtual address">Physical address and virtual address</a></li><li><a class="toc-href" href="#cache-modelle" title="Cache-Modelle">Cache-Modelle</a><ul><li><a class="toc-href" href="#physically-indexed-physically-tagged" title="Physically Indexed, Physically Tagged">Physically Indexed, Physically Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-physically-tagged" title="Virtually indexed, physically tagged">Virtually indexed, physically tagged</a></li><li><a class="toc-href" href="#physically-indexed-virtually-tagged" title="Physically Indexed / Virtually Tagged">Physically Indexed / Virtually Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-virtually-tagged" title="Virtually Indexed / Virtually Tagged">Virtually Indexed / Virtually Tagged</a></li></ul></li><li><a class="toc-href" href="#einzelnachweise" title="Einzelnachweise">Einzelnachweise</a></li></ul></div>
 </details>
 <script>
 try {
@@ -128,7 +128,7 @@ try {
     
     <div class="info">Dies ist eine Zusammenfassung von mir zu den Themen Caches, Adressierung und TLB. Ich habe insbesondere bei dem letzten Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
 <h2 id="allgemeines">Allgemeines</h2>
-<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
+<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 <p>Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped
 cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tzlich noch
 schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man
@@ -197,7 +197,7 @@ Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum i
 <p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
 <h3 id="virtually-indexed-virtually-tagged">Virtually Indexed / Virtually Tagged</h3>
 <p>Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
-<h2 id="quellen">Quellen</h2>
+<h2 id="einzelnachweise">Einzelnachweise</h2>
 <ul>
 <li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
 <li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>

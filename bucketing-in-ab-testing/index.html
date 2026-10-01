@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <details class="toc" open>
     <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
 </details>
 <script>
 try {
@@ -173,7 +173,7 @@ the variation as value.</p>
 <ol>
 <li>Have another table mapping the strings to the numbers, counting up from 0.</li>
 <li>Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion).
-   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)</li>
+   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">[1]</a></sup></li>
 </ol>
 <h2 id="seeding-solution">Seeding Solution</h2>
 <p>The above solution is nice because it is absolutely clear how it works. It is
@@ -281,13 +281,13 @@ solution. The following is a list of common RNGs:</p>
 <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
 </tr>
 <tr>
-<td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
+<td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
 <td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
 <td class="text-center">?</td>
-<td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
+<td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">[3]</a></sup></td>
 </tr>
 <tr>
-<td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">[4]</a></sup></td>
 <td class="text-center">?</td>
 <td class="text-center">?</td>
 <td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
@@ -313,7 +313,8 @@ solution. The following is a list of common RNGs:</p>
 </tbody>
 </table>
 <p>I cannot properly judge the statistical quality of those, but I recommend
-reading <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup> and <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup>.</p>
+reading <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[5]</a></sup> and <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup>. More generators are listed on Wikipedia<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">[6]</a></sup> and
+in the Python package randomgen<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">[7]</a></sup>.</p>
 <p>However, I tried <a href="https://pypi.org/project/java-random/"><code>java-random</code></a> and
 visualized the results (<a href="https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py">code</a>).
 What you see is 1000 generated random numbers per seed. The column is the seed, the rows
@@ -365,34 +366,35 @@ default random number generator is.</p>
 <h2 id="tldr">TL;DR</h2>
 <p>Bucketing is easy as long as you have one system (OS and Programming language /
 library) where you execute the bucketing. Once you have more, you need to take
-care of how <code>random.random()</code> actually works.</p>
-<h2 id="see-also">See also</h2>
+care of how <code>random.random()</code> actually works. For A/B testing in
+general, see <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">[8]</a></sup>.</p>
+<h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
 <hr/>
 <ol>
-<li id="fn:1">
-<p><a href="http://www.pcg-random.org/">Random Number Generator Overview</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+<li id="fn:4">
+<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:2">
-<p>Melissa E. O'Neill: <a href="https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a>, 2014.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
-</li>
-<li id="fn:3">
-<p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
-</li>
-<li id="fn:4">
-<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
-</li>
-<li id="fn:5">
-<p>Dario Gieselaar: <a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
+<p>Melissa E. O'Neill: <a href="https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a>, 2014.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:6">
-<p><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/">Bit Generators</a>&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
+<p><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/">Bit Generators</a>&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:1">
+<p><a href="http://www.pcg-random.org/">Random Number Generator Overview</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:8">
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">List of random number generators</a>&nbsp;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:7">
 <p>PyPI: <a href="https://pypi.org/project/randomgen/">randomgen</a>&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&larrhk;</a></p>
 </li>
-<li id="fn:8">
-<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">List of random number generators</a>&nbsp;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&larrhk;</a></p>
+<li id="fn:5">
+<p>Dario Gieselaar: <a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 8 in the text">&larrhk;</a></p>
 </li>
 </ol>
 </div>
