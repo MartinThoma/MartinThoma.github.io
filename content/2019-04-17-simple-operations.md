@@ -309,23 +309,23 @@ streaming:
     <tbody>
     <tr>
         <td>0.5 Mbit/s</td>
-        <td>Minimum required for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Minimum required for Netflix[^1]</td>
     </tr>
     <tr>
         <td>1.5 Mbit/s</td>
-        <td>Recommended speed for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Recommended speed for Netflix[^1]</td>
     </tr>
     <tr>
         <td>3.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with standard resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Recommended speed for Netflix with standard resolution[^1]</td>
     </tr>
     <tr>
         <td>5.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Recommended speed for Netflix with HD resolution[^1]</td>
     </tr>
     <tr>
         <td>25.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with Ultra-HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Recommended speed for Netflix with Ultra-HD resolution[^1]</td>
     </tr>
     </tbody>
 </table>

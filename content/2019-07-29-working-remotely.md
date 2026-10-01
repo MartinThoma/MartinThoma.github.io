@@ -412,7 +412,7 @@ Mostly found via <a href="https://stackoverflow.com/jobs?id=393644&l=Germany&d=2
 
 ## Sources
 
- [^1]: Balsamiq: [Remote Work: What's Hard, What's Great, and How to Stay Connected](https://blog.balsamiq.com/remote-work/), 2016.
- [^2]: Auth0: [We Are Thankful For These Benefits of Working Remote](https://auth0.com/blog/we-are-thankful-for-these-benefits-of-working-remote/), 2018.
- [^3]: Zapier: [The Ultimate Guide to Remote Work](https://zapier.com/learn/remote-work/)
- [^4]: GitLab: [GitLab Culture - All Remote](https://about.gitlab.com/company/culture/all-remote/)
+* Balsamiq: [Remote Work: What's Hard, What's Great, and How to Stay Connected](https://blog.balsamiq.com/remote-work/), 2016.
+* Auth0: [We Are Thankful For These Benefits of Working Remote](https://auth0.com/blog/we-are-thankful-for-these-benefits-of-working-remote/), 2018.
+* Zapier: [The Ultimate Guide to Remote Work](https://zapier.com/learn/remote-work/)
+* GitLab: [GitLab Culture - All Remote](https://about.gitlab.com/company/culture/all-remote/)

@@ -134,7 +134,7 @@ of reaching the climate targets and the cost of not doing so:
     <tr>
         <th>Target</th>
         <th>Cost to reach</th>
-        <th>Expected Economic Damages</th>
+        <th>Expected Economic Damages[^14]</th>
     </tr>
     <tr>
         <td>1.5 &deg;C</td>
@@ -198,10 +198,10 @@ This means we have a budget of 100&nbsp;Mt per year. In 2017, we were at
 Let's assume we had a budget of 100&nbsp;Mt for 2019. Now Germany could sell
 certificates. Companies could buy them and they would need to have a
 certificate for each ton of CO2-equivalent they emit. If they emit more, they
-have to buy from another company or plant 2 trees (and keep them alive for
+have to buy from another company or plant 2 trees[^2] (and keep them alive for
 40&nbsp;years) per ton they emitted. As a
 [hornbeam](https://en.wikipedia.org/wiki/Carpinus_betulus) of 22 years costs
-890&nbsp;EUR this means each ton of CO2 has to be punished by 3236&nbsp;EUR.
+890&nbsp;EUR[^3] this means each ton of CO2 has to be punished by 3236&nbsp;EUR.
 
 The 696&nbsp;Mt we emitted too much in 2017 would therefore cost
 2&thinsp;252&thinsp;256 million Euro. Here you can see that planting trees is
@@ -257,107 +257,107 @@ Here you can get a feeling for which action has which effect:
     <tr>
         <td>1kg Lamb</td>
         <td>39.2 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Beef</td>
         <td>27.0 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Cheese</td>
         <td>13.5 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Pork</td>
         <td>12.1 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Turkey</td>
         <td>10.9 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Chicken</td>
         <td>6.9 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Tuna</td>
         <td>6.1 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Eggs</td>
         <td>4.8 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Potatoes</td>
         <td>2.9 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Rice</td>
         <td>2.7 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Nuts</td>
         <td>2.3 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Beans/tofu</td>
         <td>2.0 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Vegetables</td>
         <td>2.0 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Milk</td>
         <td>1.9 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Fruit</td>
         <td>1.1 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1kg Lentils</td>
         <td>0.9 kg</td>
-        <td><sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup></td>
+        <td>[^4]</td>
     </tr>
     <tr>
         <td>1L <a href="https://en.wikipedia.org/wiki/Gasoline">Gasoline</a></td>
         <td>2.32 kg</td>
-        <td><sup id="fnref-5"><a class="footnote-ref" href="#fn-5">5</a></sup></td>
+        <td>[^5]</td>
     </tr>
     <tr>
         <td>1L <a href="https://en.wikipedia.org/wiki/Diesel_fuel">Diesel</a></td>
         <td>1.65 kg</td>
-        <td><sup id="fnref-5"><a class="footnote-ref" href="#fn-5">5</a></sup></td>
+        <td>[^5]</td>
     </tr>
     <tr>
         <td>1L <a href="https://en.wikipedia.org/wiki/Liquefied_petroleum_gas">LPG</a></td>
         <td>1.79 kg</td>
-        <td><sup id="fnref-5"><a class="footnote-ref" href="#fn-5">5</a></sup></td>
+        <td>[^5]</td>
     </tr>
     <tr>
         <td>1L <a href="https://en.wikipedia.org/wiki/Compressed_natural_gas">CNG</a></td>
         <td>1.63 kg</td>
-        <td><sup id="fnref-5"><a class="footnote-ref" href="#fn-5">5</a></sup></td>
+        <td>[^5]</td>
     </tr>
     <tr>
         <td>Driving 100 km with VW Golf (gasoline)</td>
         <td>13.22 kg</td>
-        <td>5.7L/100km * 2.32 kg / L * 100 km</td>
+        <td>5.7L/100km[^6] * 2.32 kg / L * 100 km</td>
     </tr>
     <tr>
         <td>Driving 100 km with VW Golf (Diesel)</td>
@@ -372,22 +372,22 @@ Here you can get a feeling for which action has which effect:
     <tr>
         <td>Driving 100 km with Opel Astra (gasoline)</td>
         <td>15.08 kg</td>
-        <td>6.5L/100km * 2.32 kg / L * 100 km</td>
+        <td>6.5L/100km[^8] * 2.32 kg / L * 100 km</td>
     </tr>
     <tr>
         <td>Driving 100 km with Opel Astra (Diesel)</td>
         <td>9.08 kg</td>
-        <td>5.5L/100km * 1.65 kg / L * 100 km</td>
+        <td>5.5L/100km[^7] * 1.65 kg / L * 100 km</td>
     </tr>
     <tr>
         <td>Flying 100km (per person)</td>
         <td>38 kg</td>
-        <td><sup id="fnref-9"><a class="footnote-ref" href="#fn-9">9</a></sup></td>
+        <td>[^9]</td>
     </tr>
     <tr>
         <td>1 kWh electricity</td>
         <td>0.474 kg</td>
-        <td>statista</td>
+        <td>statista[^10]</td>
     </tr>
     <tr>
         <td>1 year of <a href="https://www.amazon.de/dp/B071NGHJWB">AmazonBasics E27</a></td>
@@ -402,12 +402,12 @@ Here you can get a feeling for which action has which effect:
     <tr>
         <td>1 year of old refrigerator (90L)</td>
         <td>185.80 kg</td>
-        <td>392 kWh * 0.474 kg / kWh, Röhling</td>
+        <td>392 kWh * 0.474 kg / kWh, Röhling[^11]</td>
     </tr>
     <tr>
         <td>1 year of new refrigerator (90L)</td>
         <td>74.42 kg</td>
-        <td>157 kWh * 0.474 kg / kWh, Röhling</td>
+        <td>157 kWh * 0.474 kg / kWh, Röhling[^11]</td>
     </tr>
 </table>
 

@@ -65,7 +65,7 @@ In case the `user_id` is not an integer, you have two ways to assign one:
 
 1. Have another table mapping the strings to the numbers, counting up from 0.
 2. Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion).
-   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)
+   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)[^4]
 
 
 ## Seeding Solution
@@ -188,13 +188,13 @@ solution. The following is a list of common RNGs:
             <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
         </tr>
         <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
+            <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> [^2]</td>
             <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
             <td class="text-center">?</td>
-            <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
+            <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a>[^6]</td>
         </tr>
         <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
+            <td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a>[^3]</td>
             <td class="text-center">?</td>
             <td class="text-center">?</td>
             <td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
@@ -221,7 +221,8 @@ solution. The following is a list of common RNGs:
 </table>
 
 I cannot properly judge the statistical quality of those, but I recommend
-reading [^1] and [^2].
+reading [^1] and [^2]. More generators are listed on Wikipedia[^8] and
+in the Python package randomgen[^7].
 
 However, I tried [`java-random`](https://pypi.org/project/java-random/) and
 visualized the results ([code](https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py)).
@@ -281,10 +282,11 @@ default random number generator is.
 
 Bucketing is easy as long as you have one system (OS and Programming language /
 library) where you execute the bucketing. Once you have more, you need to take
-care of how <code>random.random()</code> actually works.
+care of how <code>random.random()</code> actually works. For A/B testing in
+general, see [^5].
 
 
-## See also
+## Footnotes
 
 [^1]: [Random Number Generator Overview](http://www.pcg-random.org/)
 [^2]: Melissa E. O'Neill: [PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation](https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf), 2014.

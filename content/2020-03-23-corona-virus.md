@@ -91,7 +91,7 @@ of April and then becomes better.
 I was pretty confused when I was trying to calculate those numbers. It seemed as if
 every scenario which stayed under the capacity of the healthcare system would
 take massive measures to reach (isolation) and then also make the pandemic take
-at least a year, rather two years. This was confirmed in [^7]. Obviously, it
+at least a year, rather two years. This was confirmed in [^7] and [^8]. Obviously, it
 is not possible to keep those measures up that long.
 
 Now, the interesting part: **Due to economic reasons, we cannot keep

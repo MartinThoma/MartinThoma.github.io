@@ -12,7 +12,7 @@ featured_image: logos/ml.png
 I recently became interested in recommender systems. You know, the thing on
 Amazon that tells you which products you might be interested in. Or the stuff
 on Spotify that gives you a song you might like. On YouTube the next videos
-shown. On StumbleUpon, your next stumble. On a news page, another article.
+shown[^1]. On StumbleUpon, your next stumble. On a news page, another article.
 
 
 ## Conceptual Approaches
@@ -277,7 +277,7 @@ achieving the surrogate goal.
     <dd>The idea in content-based filtering for movies to extract properties
         directly from the movie itself. It includes:
         Average shot length, color variance, mean motion average across all the
-        frames, lighting, number of shots</dd>
+        frames, lighting, number of shots[^2]</dd>
 </dl>
 
 
@@ -289,7 +289,7 @@ the complete matrix $R$ is given, $R$ can be factorized with Singular Value
 Decomposition (SVD) or Probabilistic Latent Semantic Analysis (PLSA).
 
 Matrix Factorization is also one way to do collaborative filtering. It was done
-for the Netflix prize and is described in [^3]. A [neat short description](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD) is in
+for the Netflix prize and is described in [^3] and [^7]. A [neat short description](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD) is in
 SurpriseLib.
 
 **Input**: The ratings of $n$ users for $m$ movies in a matrix $R \in \mathbb{R}^{n \times m}$.

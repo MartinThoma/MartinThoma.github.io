@@ -42,6 +42,7 @@ Which leads to the myth that you can't build complex systems with Python.
 ## Myth: Python is Slow
 
 What people usually mean by that statement is that raw execution speed is low.
+Anders Hovmöller argues that Python does not have to be slow[^7].
 
 ### Speed is not Everything
 
