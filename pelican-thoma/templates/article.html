@@ -4,11 +4,7 @@
 {{ article.title|striptags|e }} {%if article.subtitle %} - {{ article.subtitle|striptags|e }} {% endif %} · {{ super() }}
 {% endblock title %}
 
-{% block head_description %}
-{% if article.summary %}
-{{ article.summary|striptags|e }}
-{% endif %}
-{% endblock head_description %}
+{% block head_description %}{% set desc = (article.summary|default('')|striptags|trim) or SITE_DESCRIPTION %}{{ desc|truncate(200)|e }}{% endblock head_description %}
 
 {% block meta_tags_in_head %}
 {{ super() }}

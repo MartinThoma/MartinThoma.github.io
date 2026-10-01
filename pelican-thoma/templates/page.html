@@ -4,11 +4,7 @@
 {{ page.title|striptags|e }} {%if page.subtitle %} - {{ page.subtitle|striptags|e }} {% endif %} · {{ super() }}
 {% endblock title %}
 
-{% block head_description %}
-{% if page.summary %}
-{{ page.summary|striptags|e }}
-{% endif %}
-{% endblock head_description %}
+{% block head_description %}{% set desc = (page.summary|default('')|striptags|trim) or SITE_DESCRIPTION %}{{ desc|truncate(200)|e }}{% endblock head_description %}
 
 {% block meta_tags_in_head %}
 {{ super() }}
