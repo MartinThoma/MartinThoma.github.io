@@ -73,7 +73,7 @@ svn add myFile.php
 
 <h2>Commit the latest changes</h2>
 <h3>Check your changes</h3>
-First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?
+First you should try <a href="#check-for-changes">svn status</a>. What files did you change? Do you really want to upload those changes?
 
 If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just run
 

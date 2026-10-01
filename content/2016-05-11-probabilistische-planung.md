@@ -2166,7 +2166,7 @@ $$
     <dd>
 
         Siehe <a href="../function-approximation/">Function Approximation</a>
-        und <a href="../machine-learning-2-course/#gaussche-prozesse">Gaußsche Prozesse</a>.
+        und <a href="../machine-learning-2-course/#gausche-prozesse">Gaußsche Prozesse</a>.
 
     </dd>
     <dt><dfn id="pilco">PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>

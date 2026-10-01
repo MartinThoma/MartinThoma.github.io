@@ -49,7 +49,7 @@ If you post a solution, please consider these restrictions:
 </ul>
 
 <h2>Tests and Setting</h2>
-<a href="../matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.
+<a href="../matrix-multiplication-python-java-cpp/#the-tests">Tests and setting</a> are the same as in the first part.
 
 <h2>Python</h2>
 I&rsquo;ve used Python 2.6.5.

@@ -316,10 +316,20 @@ chlorine.
 
 [^1]: Damian Carrington: ["Magic number" for space pioneers calculated](https://www.newscientist.com/article/dn1936-magic-number-for-space-pioneers-calculated/?ignored=irrelevant#.VBiC_XtDLwo) in [New Scientist](https://en.wikipedia.org/wiki/New_Scientist), 2002.
 [^2]: [Cameron M. Smith](http://cameronmsmith.com/index.html): [Estimation of a genetically viable population for multigenerational interstellar voyaging: Review and data for project Hyperion](https://ui.adsabs.harvard.edu/abs/2014AcAau..97...16S/abstract) in [Acta Astronautica](https://en.wikipedia.org/wiki/Acta_Astronautica), 2014.
-[^3]: [O’Neill Cylinder Space Settlement](https://space.nss.org/o-neill-cylinder-space-settlement/) on National Space Society.
-[^4]: [Wie teuer ist es 1 kg Nutzlast in den Weltraum zu befördern?](https://www.astronews.com/frag/antworten/4/frage4884.html) on astronews, 2019 (German).
-[^5]: Craig C. Patten: [How long would a trip to Mars take?](https://image.gsfc.nasa.gov/poetry/venus/q2811.html).
-[^6]: Martin Thoma: [Warum kann der Mond keine Atmosphäre haben?](../warum-kann-der-mond-keine-atmosphare-haben/), 2012.
-[^7]: [How bad are the dust storms on Mars?](http://coolcosmos.ipac.caltech.edu/ask/77-How-bad-are-the-dust-storms-on-Mars-)
-[^8]: Erika K. Carlson: [Making air from Moon dust: Scientists create a prototype oxygen plant](https://astronomy.com/news/2020/01/how-to-make-air-from-moondust), 2020.
-[^9]: Mike Wall: [Water Ice Confirmed on the Surface of the Moon for the 1st Time!](https://www.space.com/41554-water-ice-moon-surface-confirmed.html), 2018.
+[^3]: [Environmental Control and Life Support System](https://www.nasa.gov/wp-content/uploads/2025/08/g-657270-59-hp-environmental-control-and-life-support-system-eclss.pdf) via NASA Marshall Space Flight Center, accessed 27.09.2026.
+[^4]: J. P. Severinghaus, W. S. Broecker, W. F. Dempster, T. MacCallum, M. Wahlen: [Oxygen loss in Biosphere 2](https://ui.adsabs.harvard.edu/abs/1994EOSTr..75...33S/abstract) in Eos, 1994.
+[^5]: [Status of ISS Water Management and Recovery](https://ntrs.nasa.gov/api/citations/20230006217/downloads/ICES%202023-097%20Status%20of%20ISS%20Water%20Management%20and%20Recovery.pdf) via NASA Technical Reports Server, 2023.
+[^6]: [LCROSS](https://science.nasa.gov/mission/lcross/) via NASA Science, accessed 27.09.2026.
+[^7]: [Lettuce in Space: Astronauts Enjoy Their Harvest](https://time.com/3991352/lettuce-space-station/) via Time, 10.08.2015.
+[^8]: [Yuegong-1](https://en.wikipedia.org/wiki/Yuegong-1) via Wikipedia, accessed 27.09.2026.
+[^9]: [Solar Foods to develop Solein® production technology for testing onboard the International Space Station](https://solarfoods.com/solar-foods-to-develop-solein-production-technology-for-testing-onboard-the-international-space-station/) via Solar Foods, accessed 27.09.2026.
+[^10]: John W. Wilson, Francis A. Cucinotta, H. Tai, Lisa C. Simonsen, Judy L. Shinn, Shelia A. Thibeault, M. Y. Kim: [Galactic and Solar Cosmic Ray Shielding in Deep Space](https://ntrs.nasa.gov/api/citations/19980006777/downloads/19980006777.pdf), NASA Technical Paper 3682, 1997.
+[^11]: Richard D. Johnson, Charles Holbrow (eds.): [Space Settlements: A Design Study, Appendix E: Mass Shielding](https://nss.org/settlement/nasa/75SummerStudy/5appendE.html), NASA SP-413, 1977.
+[^12]: Dionysios Gakis, Dimitra Atri: [Modeling the effectiveness of radiation shielding materials for astronaut protection on Mars](https://arxiv.org/abs/2205.13786) via arXiv, 2024.
+[^13]: [Wie teuer ist es 1 kg Nutzlast in den Weltraum zu befördern?](https://www.astronews.com/frag/antworten/4/frage4884.html) on astronews, 2019 (German).
+[^14]: [O’Neill Cylinder Space Settlement](https://space.nss.org/o-neill-cylinder-space-settlement/) on National Space Society.
+[^15]: Martin Thoma: [Warum kann der Mond keine Atmosphäre haben?](../warum-kann-der-mond-keine-atmosphare-haben/), 2012.
+[^16]: Erika K. Carlson: [Making air from Moon dust: Scientists create a prototype oxygen plant](https://astronomy.com/news/2020/01/how-to-make-air-from-moondust), 2020.
+[^17]: Mike Wall: [Water Ice Confirmed on the Surface of the Moon for the 1st Time!](https://www.space.com/41554-water-ice-moon-surface-confirmed.html), 2018.
+[^18]: Craig C. Patten: [How long would a trip to Mars take?](https://image.gsfc.nasa.gov/poetry/venus/q2811.html).
+[^19]: [How bad are the dust storms on Mars?](http://coolcosmos.ipac.caltech.edu/ask/77-How-bad-are-the-dust-storms-on-Mars-)

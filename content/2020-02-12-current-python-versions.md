@@ -166,7 +166,7 @@ what is used. I've used the <a href="https://packages.debian.org/search?suite=de
 
 ## Python Download Statistics
 
-I'm <a href="each x.y Python version">trying to get more recent data</a>,
+I'm trying to get more recent data,
 but here you see subtotals for some time before May 2019:
 
 <table class="table">

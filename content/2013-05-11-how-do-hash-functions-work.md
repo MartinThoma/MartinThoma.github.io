@@ -35,7 +35,7 @@ This approach has generally two problems:
 Anyway, lets say we want to store many unique game situations. Unique means, even if you have hundreds of possible paths to get to a given game situations, you will store this game situation only once.
 
 <h2>Implementation</h2>
-First of all, I would like to mention that you can <a href="#How_is_this_realated_to_hash_functions">skip the source code</a>. I've only included it to make it easier to understand what I'm talking about.
+First of all, I would like to mention that you can <a href="#how-is-this-related-to-hash-functions">skip the source code</a>. I've only included it to make it easier to understand what I'm talking about.
 
 Lets say our game situation looks like this:
 

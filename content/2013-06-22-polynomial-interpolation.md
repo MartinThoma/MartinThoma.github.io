@@ -47,7 +47,7 @@ This means, the solution $(a_0 \dots a_n)^T$ of this linear equation gives the p
 So the solution exists and is unique $\blacksquare$
 
 <h2>Straight forward interpolating polynomials</h2>
-For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".
+For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#existence-and-uniqueness">Uniqueness</a>".
 
 You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.
 
