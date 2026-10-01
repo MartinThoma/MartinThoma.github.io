@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Serialization is the act of transforming objects from an internal representation to a stream of characters or bytes. The representation of the serialized object should be platform- and..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="AppSec, Security, Security, " />
 
-<meta property="og:title" content="Insecure Deserialization 😈🐝 "/>
-<meta property="og:url" content="insecure-deserialization/" />
+<link rel="canonical" href="../insecure-deserialization/" />
+<meta property="og:title" content="Insecure Deserialization 😈🐝"/>
+<meta property="og:url" content="../insecure-deserialization/" />
 <meta property="og:description" content="Serialization is the act of transforming objects from an internal representation to a stream of characters or bytes. The representation of the serialized object should be platform- and language-independent. Data is serialized and deserialized in applications to store or transport it. In web applications, JSON or XML is often used …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2021-01-28T20:00:00+01:00" />
-<meta name="twitter:title" content="Insecure Deserialization 😈🐝 ">
+<meta name="twitter:title" content="Insecure Deserialization 😈🐝">
 <meta name="twitter:description" content="Serialization is the act of transforming objects from an internal representation to a stream of characters or bytes. The representation of the serialized object should be platform- and language-independent. Data is serialized and deserialized in applications to store or transport it. In web applications, JSON or XML is often used …">
-<meta property="og:image" content="logos/cybersecurity.png" />
-<meta name="twitter:image" content="logos/cybersecurity.png" >
+<meta property="og:image" content="../images/logos/cybersecurity.png" />
+<meta name="twitter:image" content="../images/logos/cybersecurity.png" >
 
         <title>Insecure Deserialization 😈🐝  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Eel is a little Python library for making simple Electron-like offline HTML/JS GUI apps, with full access to Python capabilities and libraries. Hello World As a hello world example, I decided to..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Python, GUI, Electron, JavaScript, Code, " />
 
-<meta property="og:title" content="Python EEL "/>
-<meta property="og:url" content="eel/" />
+<link rel="canonical" href="../eel/" />
+<meta property="og:title" content="Python EEL"/>
+<meta property="og:url" content="../eel/" />
 <meta property="og:description" content="Eel is a little Python library for making simple Electron-like offline HTML/JS GUI apps, with full access to Python capabilities and libraries. Hello World As a hello world example, I decided to create an offline version of write-math.com. Write-math in eel is on GitHub. The directory structure of …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-23T20:00:00+02:00" />
-<meta name="twitter:title" content="Python EEL ">
+<meta name="twitter:title" content="Python EEL">
 <meta name="twitter:description" content="Eel is a little Python library for making simple Electron-like offline HTML/JS GUI apps, with full access to Python capabilities and libraries. Hello World As a hello world example, I decided to create an offline version of write-math.com. Write-math in eel is on GitHub. The directory structure of …">
-<meta property="og:image" content="logos/python.png" />
-<meta name="twitter:image" content="logos/python.png" >
+<meta property="og:image" content="../images/logos/python.png" />
+<meta name="twitter:image" content="../images/logos/python.png" >
 
         <title>Python EEL  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

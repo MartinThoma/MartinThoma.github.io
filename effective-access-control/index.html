@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Security, AppSec, OWASP, Security, " />
 
-<meta property="og:title" content="Effective Access Control 😇 "/>
-<meta property="og:url" content="effective-access-control/" />
+<link rel="canonical" href="../effective-access-control/" />
+<meta property="og:title" content="Effective Access Control 😇"/>
+<meta property="og:url" content="../effective-access-control/" />
 <meta property="og:description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated. In this article, I focus on web services. Access to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-12-23T20:00:00+01:00" />
-<meta name="twitter:title" content="Effective Access Control 😇 ">
+<meta name="twitter:title" content="Effective Access Control 😇">
 <meta name="twitter:description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated. In this article, I focus on web services. Access to …">
-<meta property="og:image" content="logos/cybersecurity.png" />
-<meta name="twitter:image" content="logos/cybersecurity.png" >
+<meta property="og:image" content="../images/logos/cybersecurity.png" />
+<meta name="twitter:image" content="../images/logos/cybersecurity.png" >
 
         <title>Effective Access Control 😇  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

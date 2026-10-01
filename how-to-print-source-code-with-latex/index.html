@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Note: This article is from 2012 and some information may be outdated. Modern LaTeX distributions include updated versions of these packages. I often need to print source code. Years ago for a..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="LaTeX, Documentation, Code, " />
 
-<meta property="og:title" content="How to Print Source Code with LaTeX "/>
-<meta property="og:url" content="how-to-print-source-code-with-latex/" />
+<link rel="canonical" href="../how-to-print-source-code-with-latex/" />
+<meta property="og:title" content="How to Print Source Code with LaTeX"/>
+<meta property="og:url" content="../how-to-print-source-code-with-latex/" />
 <meta property="og:description" content="Note: This article is from 2012 and some information may be outdated. Modern LaTeX distributions include updated versions of these packages. I often need to print source code. Years ago for a German competition called &#34;Bundeswettbewerb Informatik&#34;, and now for projects at my university. If you use LaTeX, you can …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-04-29T12:04:32+02:00" />
-<meta name="twitter:title" content="How to Print Source Code with LaTeX ">
+<meta name="twitter:title" content="How to Print Source Code with LaTeX">
 <meta name="twitter:description" content="Note: This article is from 2012 and some information may be outdated. Modern LaTeX distributions include updated versions of these packages. I often need to print source code. Years ago for a German competition called &#34;Bundeswettbewerb Informatik&#34;, and now for projects at my university. If you use LaTeX, you can …">
-<meta property="og:image" content="2012/01/latex-logo.png" />
-<meta name="twitter:image" content="2012/01/latex-logo.png" >
+<meta property="og:image" content="../images/2012/01/latex-logo.png" />
+<meta name="twitter:image" content="../images/2012/01/latex-logo.png" >
 
         <title>How to Print Source Code with LaTeX  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

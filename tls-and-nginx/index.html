@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence, we need..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Security, Code, " />
 
-<meta property="og:title" content="TLS and Nginx "/>
-<meta property="og:url" content="tls-and-nginx/" />
+<link rel="canonical" href="../tls-and-nginx/" />
+<meta property="og:title" content="TLS and Nginx"/>
+<meta property="og:url" content="../tls-and-nginx/" />
 <meta property="og:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence, we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-06-16T20:00:00+02:00" />
-<meta name="twitter:title" content="TLS and Nginx ">
+<meta name="twitter:title" content="TLS and Nginx">
 <meta name="twitter:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence, we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …">
-<meta property="og:image" content="logos/nginx.png" />
-<meta name="twitter:image" content="logos/nginx.png" >
+<meta property="og:image" content="../images/logos/nginx.png" />
+<meta name="twitter:image" content="../images/logos/nginx.png" >
 
         <title>TLS and Nginx  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

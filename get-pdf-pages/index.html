@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Once in a while, I want to get the total number of PDF pages of a document. You can do that with the command $ pdfinfo document.pdf | grep Pages | awk -F&#39;:&#39; &#39;{gsub(/ /, &#34;&#34;, $0);print $2}&#39; It works..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="PDF, Command Line, Linux, Cyberculture, " />
 
-<meta property="og:title" content="Get PDF pages "/>
-<meta property="og:url" content="get-pdf-pages/" />
+<link rel="canonical" href="../get-pdf-pages/" />
+<meta property="og:title" content="Get PDF pages"/>
+<meta property="og:url" content="../get-pdf-pages/" />
 <meta property="og:description" content="Once in a while, I want to get the total number of PDF pages of a document. You can do that with the command $ pdfinfo document.pdf | grep Pages | awk -F&#39;:&#39; &#39;{gsub(/ /, &#34;&#34;, $0);print $2}&#39; It works like this: Call pdfinfo to get a lot of information, including a line …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-02-29T09:51:00+01:00" />
-<meta name="twitter:title" content="Get PDF pages ">
+<meta name="twitter:title" content="Get PDF pages">
 <meta name="twitter:description" content="Once in a while, I want to get the total number of PDF pages of a document. You can do that with the command $ pdfinfo document.pdf | grep Pages | awk -F&#39;:&#39; &#39;{gsub(/ /, &#34;&#34;, $0);print $2}&#39; It works like this: Call pdfinfo to get a lot of information, including a line …">
-<meta property="og:image" content="logos/pdf.png" />
-<meta name="twitter:image" content="logos/pdf.png" >
+<meta property="og:image" content="../images/logos/pdf.png" />
+<meta name="twitter:image" content="../images/logos/pdf.png" >
 
         <title>Get PDF pages  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

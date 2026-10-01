@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Reinforcement Learning (RL) is about finding optimal actions automatically. So you have an environment env which has env.reset() -&gt; None: Start a new episode. This could be a new game in the case..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Machine Learning, RL, Reinforcement Learning, AI, Machine learning, " />
 
-<meta property="og:title" content="Q-Learning "/>
-<meta property="og:url" content="q-learning/" />
+<link rel="canonical" href="../q-learning/" />
+<meta property="og:title" content="Q-Learning"/>
+<meta property="og:url" content="../q-learning/" />
 <meta property="og:description" content="Reinforcement Learning (RL) is about finding optimal actions automatically. So you have an environment env which has env.reset() -&gt; None: Start a new episode. This could be a new game in the case of chess. env.step(action) -&gt; observation, reward, is_done, additional_information: Make a step in the environment. The is_done …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-11-26T20:00:00+01:00" />
-<meta name="twitter:title" content="Q-Learning ">
+<meta name="twitter:title" content="Q-Learning">
 <meta name="twitter:description" content="Reinforcement Learning (RL) is about finding optimal actions automatically. So you have an environment env which has env.reset() -&gt; None: Start a new episode. This could be a new game in the case of chess. env.step(action) -&gt; observation, reward, is_done, additional_information: Make a step in the environment. The is_done …">
-<meta property="og:image" content="logos/ml.png" />
-<meta name="twitter:image" content="logos/ml.png" >
+<meta property="og:image" content="../images/logos/ml.png" />
+<meta name="twitter:image" content="../images/logos/ml.png" >
 
         <title>Q-Learning  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

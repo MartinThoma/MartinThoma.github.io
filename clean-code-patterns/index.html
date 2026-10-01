@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Do you know the feeling when you look back at code which you wrote early in your career? I always feel a bit horrified. But there is a positive side to it: I learned something new 😄 A core part of..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Python, Programming, Software Engineering, Code, " />
 
-<meta property="og:title" content="9 Clean Code Patterns I wish I knew earlier "/>
-<meta property="og:url" content="clean-code-patterns/" />
+<link rel="canonical" href="../clean-code-patterns/" />
+<meta property="og:title" content="9 Clean Code Patterns I wish I knew earlier"/>
+<meta property="og:url" content="../clean-code-patterns/" />
 <meta property="og:description" content="Do you know the feeling when you look back at code which you wrote early in your career? I always feel a bit horrified. But there is a positive side to it: I learned something new 😄 A core part of good software is readability. Keeping the mental complexity low so …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2021-10-17T20:00:00+02:00" />
-<meta name="twitter:title" content="9 Clean Code Patterns I wish I knew earlier ">
+<meta name="twitter:title" content="9 Clean Code Patterns I wish I knew earlier">
 <meta name="twitter:description" content="Do you know the feeling when you look back at code which you wrote early in your career? I always feel a bit horrified. But there is a positive side to it: I learned something new 😄 A core part of good software is readability. Keeping the mental complexity low so …">
-<meta property="og:image" content="logos/python.png" />
-<meta name="twitter:image" content="logos/python.png" >
+<meta property="og:image" content="../images/logos/python.png" />
+<meta name="twitter:image" content="../images/logos/python.png" >
 
         <title>9 Clean Code Patterns I wish I knew earlier  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

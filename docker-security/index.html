@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Docker, AppSec, DevOps, Software Engineering, Security, Security, " />
 
-<meta property="og:title" content="Docker Security 😇  - A hands-on guide to security for Docker "/>
-<meta property="og:url" content="docker-security/" />
+<link rel="canonical" href="../docker-security/" />
+<meta property="og:title" content="Docker Security 😇 - A hands-on guide to security for Docker"/>
+<meta property="og:url" content="../docker-security/" />
 <meta property="og:description" content="Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer look! Host Security All Docker containers …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2021-02-06T20:00:00+01:00" />
-<meta name="twitter:title" content="Docker Security 😇  - A hands-on guide to security for Docker ">
+<meta name="twitter:title" content="Docker Security 😇 - A hands-on guide to security for Docker">
 <meta name="twitter:description" content="Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer look! Host Security All Docker containers …">
-<meta property="og:image" content="logos/docker.png" />
-<meta name="twitter:image" content="logos/docker.png" >
+<meta property="og:image" content="../images/logos/docker.png" />
+<meta name="twitter:image" content="../images/logos/docker.png" >
 
         <title>Docker Security 😇  - A hands-on guide to security for Docker  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

@@ -11,12 +11,15 @@
               rel   = "search"
               href  = "../../opensearch.xml">
 
+        <meta name="description" content="Martin Thoma&#39;s blog about code, machine learning, the web, cyberculture and German politics." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta property="og:title" content="Martin Thoma"/>
 <meta name="twitter:title" content="Martin Thoma">
 <meta property="og:url" content="../.." />
+<meta property="og:description" content="Martin Thoma&#39;s blog about code, machine learning, the web, cyberculture and German politics." />
+<meta name="twitter:description" content="Martin Thoma&#39;s blog about code, machine learning, the web, cyberculture and German politics.">
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
         <title>Martin Thoma - Italian tag</title>
@@ -47,8 +50,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

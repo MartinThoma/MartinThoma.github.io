@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Python, pytest, tox, Unit Testing, Testing, Software Engineering, Code, " />
 
-<meta property="og:title" content="Unit Testing in Python — tox and nox "/>
-<meta property="og:url" content="tox-and-nox/" />
+<link rel="canonical" href="../tox-and-nox/" />
+<meta property="og:title" content="Unit Testing in Python — tox and nox"/>
+<meta property="og:url" content="../tox-and-nox/" />
 <meta property="og:description" content="When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how to locally and automatically test multiple Python versions in isolated …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-07-23T20:00:00+02:00" />
-<meta name="twitter:title" content="Unit Testing in Python — tox and nox ">
+<meta name="twitter:title" content="Unit Testing in Python — tox and nox">
 <meta name="twitter:description" content="When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how to locally and automatically test multiple Python versions in isolated …">
-<meta property="og:image" content="logos/python.png" />
-<meta name="twitter:image" content="logos/python.png" >
+<meta property="og:image" content="../images/logos/python.png" />
+<meta name="twitter:image" content="../images/logos/python.png" >
 
         <title>Unit Testing in Python — tox and nox  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

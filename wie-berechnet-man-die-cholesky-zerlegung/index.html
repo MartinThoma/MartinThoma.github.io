@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Sei \(A \in \mathbb{R}^{n \times n}\) eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung \(A = S \cdot D \cdot S^T\), wobei \(S\) eine unipotente Dreiecksmatrix ist und D..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Python, Wolfram|Alpha, Mathematics, Linear Algebra, NumPy, German posts, " />
 
-<meta property="og:title" content="Wie berechnet man die Cholesky-Zerlegung? "/>
-<meta property="og:url" content="wie-berechnet-man-die-cholesky-zerlegung/" />
+<link rel="canonical" href="../wie-berechnet-man-die-cholesky-zerlegung/" />
+<meta property="og:title" content="Wie berechnet man die Cholesky-Zerlegung?"/>
+<meta property="og:url" content="../wie-berechnet-man-die-cholesky-zerlegung/" />
 <meta property="og:description" content="Sei \(A \in \mathbb{R}^{n \times n}\) eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung \(A = S \cdot D \cdot S^T\), wobei \(S\) eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-07-03T19:09:22+02:00" />
-<meta name="twitter:title" content="Wie berechnet man die Cholesky-Zerlegung? ">
+<meta name="twitter:title" content="Wie berechnet man die Cholesky-Zerlegung?">
 <meta name="twitter:description" content="Sei \(A \in \mathbb{R}^{n \times n}\) eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung \(A = S \cdot D \cdot S^T\), wobei \(S\) eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links …">
-<meta property="og:image" content="2012/01/vector-space.png" />
-<meta name="twitter:image" content="2012/01/vector-space.png" >
+<meta property="og:image" content="../images/2012/01/vector-space.png" />
+<meta name="twitter:image" content="../images/2012/01/vector-space.png" >
 
         <title>Wie berechnet man die Cholesky-Zerlegung?  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

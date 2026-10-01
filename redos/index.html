@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Security, AppSec, RegEx, Security, " />
 
-<meta property="og:title" content="ReDoS — Denial of Service by RegEx 😈 "/>
-<meta property="og:url" content="redos/" />
+<link rel="canonical" href="../redos/" />
+<meta property="og:title" content="ReDoS — Denial of Service by RegEx 😈"/>
+<meta property="og:url" content="../redos/" />
 <meta property="og:description" content="Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically fast and sometimes a clean solution. However, in some cases, an attacker can craft input to a vulnerable …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2022-01-01T20:00:00+01:00" />
-<meta name="twitter:title" content="ReDoS — Denial of Service by RegEx 😈 ">
+<meta name="twitter:title" content="ReDoS — Denial of Service by RegEx 😈">
 <meta name="twitter:description" content="Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically fast and sometimes a clean solution. However, in some cases, an attacker can craft input to a vulnerable …">
-<meta property="og:image" content="logos/security.png" />
-<meta name="twitter:image" content="logos/security.png" >
+<meta property="og:image" content="../images/logos/security.png" />
+<meta name="twitter:image" content="../images/logos/security.png" >
 
         <title>ReDoS — Denial of Service by RegEx 😈  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="An event-driven software architecture can help you write cleaner code. Most software engineers are likely familiar with pre-defined event systems such as those provided by frontend..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Software Architecture, Python, Software Engineering, Code, " />
 
-<meta property="og:title" content="Designing Event-Driven Systems in Local Python Applications "/>
-<meta property="og:url" content="event-driven-software/" />
+<link rel="canonical" href="../event-driven-software/" />
+<meta property="og:title" content="Designing Event-Driven Systems in Local Python Applications"/>
+<meta property="og:url" content="../event-driven-software/" />
 <meta property="og:description" content="An event-driven software architecture can help you write cleaner code. Most software engineers are likely familiar with pre-defined event systems such as those provided by frontend frameworks/languages: keypress in JavaScript, bind in Tkinter, or keyPressEvent in PyQt/PySide. You might also know Django Signals, or have heard of Apache …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2024-02-12T20:00:00+01:00" />
-<meta name="twitter:title" content="Designing Event-Driven Systems in Local Python Applications ">
+<meta name="twitter:title" content="Designing Event-Driven Systems in Local Python Applications">
 <meta name="twitter:description" content="An event-driven software architecture can help you write cleaner code. Most software engineers are likely familiar with pre-defined event systems such as those provided by frontend frameworks/languages: keypress in JavaScript, bind in Tkinter, or keyPressEvent in PyQt/PySide. You might also know Django Signals, or have heard of Apache …">
-<meta property="og:image" content="logos/star.png" />
-<meta name="twitter:image" content="logos/star.png" >
+<meta property="og:image" content="../images/logos/star.png" />
+<meta name="twitter:image" content="../images/logos/star.png" >
 
         <title>Designing Event-Driven Systems in Local Python Applications  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />

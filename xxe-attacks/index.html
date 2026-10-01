@@ -11,21 +11,23 @@
               rel   = "search"
               href  = "../opensearch.xml">
 
+        <meta name="description" content="XML is probably the most commonly used markup language. It’s organized around tags &lt;example&gt;foo&lt;/example&gt; and allows pretty complicated structures. One interesting property of XML is that you can..." />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="Security, AppSec, Security, " />
 
-<meta property="og:title" content="XXE attacks 😈  - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable. "/>
-<meta property="og:url" content="xxe-attacks/" />
+<link rel="canonical" href="../xxe-attacks/" />
+<meta property="og:title" content="XXE attacks 😈 - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable."/>
+<meta property="og:url" content="../xxe-attacks/" />
 <meta property="og:description" content="XML is probably the most commonly used markup language. It’s organized around tags &lt;example&gt;foo&lt;/example&gt; and allows pretty complicated structures. One interesting property of XML is that you can reference external entities, e.g. you can include another file. That is where the name XXE comes from: X …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-17T20:00:00+02:00" />
-<meta name="twitter:title" content="XXE attacks 😈  - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable. ">
+<meta name="twitter:title" content="XXE attacks 😈 - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable.">
 <meta name="twitter:description" content="XML is probably the most commonly used markup language. It’s organized around tags &lt;example&gt;foo&lt;/example&gt; and allows pretty complicated structures. One interesting property of XML is that you can reference external entities, e.g. you can include another file. That is where the name XXE comes from: X …">
-<meta property="og:image" content="logos/cybersecurity.png" />
-<meta name="twitter:image" content="logos/cybersecurity.png" >
+<meta property="og:image" content="../images/logos/cybersecurity.png" />
+<meta name="twitter:image" content="../images/logos/cybersecurity.png" >
 
         <title>XXE attacks 😈  - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable.  · Martin Thoma
 </title>
@@ -56,8 +58,17 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
 </script>
 
         <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
