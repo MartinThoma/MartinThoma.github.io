@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Kameralistik
+title: Kameralistik: Der Gemeindehaushalt einfach erklärt
 slug: kameralistik
 lang: de
 author: Martin Thoma
 date: 2026-10-01 20:00
-category: My bits and bytes
-tags: Politics
+category: German posts
+tags: Politics, Money
 featured_image: logos/kameralistik.png  # TODO: create it
 status: draft
 ---
