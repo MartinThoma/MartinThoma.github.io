@@ -105,3 +105,117 @@ span.line-numbers { margin-right: 10px; }
 span.line-numbers a { color: var(--ink-muted); }
 
 .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th { border: none; }
+
+/* Accordion: <div class="accordion"><details><summary><span>Title</span> <span class="amount">Value</span></summary>
+   <div class="panel">…</div></details></div>. Closed at first; native <details>, works without JavaScript.
+   Top-level items get a numbered badge, nested ones "2.1"-style numbers (CSS counters).
+   Optional <div class="accordion-grid"> puts nested items in two columns. */
+.accordion { margin: 0 0 1.5rem; counter-reset: top; }
+.accordion details {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.accordion > details { margin: 0 0 1rem; counter-increment: top; }
+.accordion > details > .panel { counter-reset: sub; }
+.accordion details[open] { box-shadow: var(--shadow); }
+.accordion summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary:focus-visible { outline-offset: -3px; }
+@media (hover: hover) { .accordion summary:hover { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); } }
+.accordion summary > span:first-child { flex: 1; display: flex; align-items: center; gap: 0.75rem; }
+/* Number badge (top level) and sub number (nested) */
+.accordion > details > summary > span:first-child::before {
+    content: counter(top);
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+    color: var(--accent-strong);
+}
+.accordion .panel details { counter-increment: sub; border-radius: 0.75rem; }
+.accordion .panel summary { padding: 0.8rem 1rem; font-weight: 500; }
+.accordion .panel summary > span:first-child::before {
+    content: counter(top) "." counter(sub);
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+}
+/* Amount pill */
+.accordion .amount {
+    flex: none;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background: color-mix(in srgb, #1f9d62 16%, var(--surface));
+    color: color-mix(in srgb, #1f9d62 70%, var(--ink));
+}
+.accordion .panel .amount {
+    padding: 0.1rem 0.6rem;
+    font-size: 0.8rem;
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    color: var(--accent-strong);
+}
+/* Chevron */
+.accordion summary::after {
+    content: "";
+    flex: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--ink-muted);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion details[open] > summary::after { transform: rotate(180deg); }
+/* Content */
+.accordion .panel {
+    padding: 1.1rem 1.25rem 0.6rem;
+    border-top: 1px solid var(--hairline);
+    background: color-mix(in srgb, var(--ink) 3%, var(--surface));
+    animation: accordion-reveal 0.3s ease-out;
+}
+.accordion .panel .panel { padding: 0.9rem 1rem 0.3rem; background: var(--surface); }
+.accordion .panel > :last-child { margin-bottom: 0.8rem; }
+.accordion .panel ul { margin-top: 0; padding-left: 1.25rem; }
+.accordion .panel li { margin-bottom: 0.5rem; }
+.accordion .panel li strong { font-weight: 600; }
+.accordion .panel .panel { font-size: 0.95rem; }
+.accordion .hint-line { margin: 0 0 1rem; font-size: 0.9rem; color: var(--ink-muted); }
+.accordion .note {
+    margin: 0 0 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid color-mix(in srgb, #d98a00 35%, var(--surface));
+    border-radius: var(--r-sm);
+    background: color-mix(in srgb, #d98a00 12%, var(--surface));
+    font-size: 0.9rem;
+}
+.accordion .panel > details { margin: 0 0 0.75rem; }
+.accordion-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; align-items: start; }
+.accordion-grid > details { margin: 0 !important; }
+@media (max-width: 40rem) {
+    .accordion-grid { grid-template-columns: 1fr; }
+    .accordion summary { padding: 0.9rem 1rem; }
+}
+@keyframes accordion-reveal { from { opacity: 0; transform: translateY(-0.5rem); } }
+@media (prefers-reduced-motion: reduce) {
+    .accordion .panel { animation: none; }
+    .accordion summary::after { transition: none; }
+}

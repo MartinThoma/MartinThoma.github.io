@@ -14,84 +14,168 @@ unerreichbar an. Die Immobilienpreise sind in den letzten Jahren stark
 gestiegen, und viele fragen sich, wie sie sich ihr
 [Traumhaus](../perfekter-neubau/) überhaupt
 noch leisten können. In diesem Artikel will ich einige Möglichkeiten aufzeigen,
-wie wir den Immobilienkauf günstiger machen könnten.
+wie wir den Immobilienkauf in Deutschland günstiger machen könnten.
 
 <figure class="ai-generated">
-    <a href="../images/2025/08/guenstiger-bauen.png"><img src="../images/2025/08/guenstiger-bauen.png" alt="Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen" width="819" height="512"></a>
-    <figcaption>Mit Claude AI generierte Illustration: Ein einfaches Einfamilienhaus mit Bodenplatte, Maßband und Euro-Münzen</figcaption>
+    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein modernes Einfamilienhaus" width="819" height="512"></a>
+    <figcaption>Ein modernes Einfamilienhaus</figcaption>
 </figure>
 
 
 ## Baukosten
 
-Zuerst einmal: Wo wir aktuell stehen. Wenn man halbwegs günstig und modern bauen
-will, dann meist:
+Wenn man halbwegs günstig und modern bauen will, dann meist:
 
 * Ohne Keller, weil eine Bodenplatte deutlich günstiger ist
 * **Grundstücksfläche**: ca. 600 m²
 * **Wohnfläche**: ca. 140 m², also nicht zu groß
 * **Energiestandard**: KfW-55-Niveau
-* **Standort**: Sagen wir Bayern für das Beispiel
+* **Standort**: Ich nehme Bayern für das Beispiel
 
 Dann muss man mit folgenden Kosten rechnen:
 
-1. **Grundstück**: ca. 105.000 €
-    * min. 90.000 € (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).[^1]
-    * +3,5 % Grunderwerbsteuer[^2]
-    * +2 % Notar & Grundbuch[^3]
-    * +3,57 % Maklerprovision[^4]
-    * bis zu 5.000 € Vermessungskosten
-    * bis zu 2.500 € Bodengutachten
-    * bis zu 20.000 € Erschließungskosten
-2. **Baukosten**: ca. 455.000 € (ca. 3.500 € pro Quadratmeter Wohnfläche)
-    1. **Erdarbeiten & Bodenplatte**: ca. 10.000 € (bei einem Keller müsste man eher mit 100.000 € rechnen)
-        * Aushub: 2.050 €, da ca. 50 €/m³ mit 9 x 9 x 0,5 = 40,5 m³
-        * Bodenplatte mit Dämmung: 7.700 €
-            * 5.500 € für Beton: 250 €/m³ Beton mit 8,5 m x 8,5 m x 0,3 m = 22 m³
-            * 2.145 € für Dämmung + Folie: 30 €/m² mit 8,5 m x 8,5 m
-    2. **Rohbau**: ca. 150.000 € bei massiver Bauweise mit Ziegeln
-        * 50% Mauerwerk (Außen+Innenwände): Ziegel für Außenwände, Innenwände
-          aus Kalksandstein/Poroton, inkl. Arbeitslohn
-        * 20% Decken: EG → OG, OG → Dach; Stahlbetondecken, Arbeitslohn,
-          Schalung, Bewehrung
-        * 30% Dachstuhl und Dachdeckung: Holzdachstuhl, Sparren, Latten,
-          Pfetten, Eindeckung (Ziegel/Beton), ggf. Abdichtung / Unterspannbahn
-    3. **Hausanschlüsse**: ca. 15.000 €
-        * 35% Wasser: Anschluss an Trinkwassernetz, Hausanschlussleitung, Zähler
-        * 30% Abwasser: Anschluss an Kanal, Rohrleitung, ggf. Schacht oder Revisionsöffnung
-        * 25% Strom: Anschluss an Netz, Zählerkasten, Kabel verlegen
-        * 10% Telekommunikation / Internet: Leerrohre, Hausanschlusskasten, Vorbereitung für Glasfaser
-    4. **Fassade & Fenster**: ca. 40.000 €
-        * 30% Außenputz: Putzsystem (mineralisch oder Silikat), Arbeitslohn, ggf. Gerüst
-        * 30% Dämmung: Wärmedämmverbundsystem (Dämmplatten, Kleber, Armierung,
-          Armierungsschicht)
-        * 30% Fenster
-        * 5 % Rollläden
-        * 5 % Haustür (ca. 2.000 €)
-    5. **Innenausbau**: ca. 75.000 €
-        * Trockenbau und Innenputz
-        * Estrich
-        * Malerarbeiten
-        * Bodenbeläge (z.B. Fliesen)
-        * Innentüren
-    6. **Haustechnik**: ca. 105.000 €
-        * Heizung (z.B. Wärmepumpe)
-        * Sanitär
-        * Elektroinstallation
-        * Lüftung
-    7. **Garage**: ca. 30.000 € (massiv aus Ziegeln)
-    8. **Außenanlagen**: ca. 30.000 €
-        * Zufahrt
-        * Garten
-        * Terrasse
-        * Zaun
-3. **Baunebenkosten**: 47.000 € (10-15 % der Baukosten)
-    * Planung & Betreuung: Architekt, Statiker, Energieberater, Bauleiter
-    * Gutachten & Prüfungen: Bodengutachten, Prüfstatiker, Vermessung
-    * Behördliche Gebühren: Baugenehmigung, Hausanschlussbeiträge (Abwasser/Wasser), Prüfgebühren
-    * Finanzierungskosten: Notar, Grundbuch, Bankgebühren (manchmal extra gerechnet)
-    * Versicherungen: Bauherrenhaftpflicht, Bauleistungsversicherung
-    * Baustelleneinrichtung: Baustrom, Bauwasser
+<div class="accordion">
+
+<details>
+<summary><span>Grundstück</span> <span class="amount">ca. 105.000 €</span></summary>
+<div class="panel">
+<ul>
+<li><strong>min. 90.000 €</strong> (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).[^1]</li>
+<li><strong>+3,5 %</strong> Grunderwerbsteuer[^2]</li>
+<li><strong>+2 %</strong> Notar &amp; Grundbuch[^3]</li>
+<li><strong>+3,57 %</strong> Maklerprovision[^4]</li>
+<li>bis zu <strong>5.000 €</strong> Vermessungskosten</li>
+<li>bis zu <strong>2.500 €</strong> Bodengutachten</li>
+<li>bis zu <strong>20.000 €</strong> Erschließungskosten</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Baukosten</span> <span class="amount">ca. 455.000 €</span></summary>
+<div class="panel">
+<p class="hint-line">Richtwert: ca. 3.500 € pro Quadratmeter Wohnfläche</p>
+
+<details>
+<summary><span>Erdarbeiten &amp; Bodenplatte</span> <span class="amount">ca. 10.000 €</span></summary>
+<div class="panel">
+<p class="note">Hinweis: Bei einem Keller müsste man eher mit 100.000 € rechnen.</p>
+<ul>
+<li><strong>Aushub:</strong> 2.050 € = 50 €/m³ · 9m · 9m · 0,5m</li>
+<li><strong>Bodenplatte mit Dämmung:</strong> 7.700 €
+<ul>
+<li><strong>5.500 € für Beton:</strong> 250 €/m³ Beton mit 8,5 m · 8,5 m · 0,3 m = 22 m³</li>
+<li><strong>2.145 € für Dämmung + Folie:</strong> 30 €/m² mit 8,5 m · 8,5 m</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Rohbau</span> <span class="amount">ca. 150.000 €</span></summary>
+<div class="panel">
+<p>Massive Bauweise mit Ziegeln.</p>
+<ul>
+<li><strong>50% Mauerwerk (Außen+Innenwände):</strong> Ziegel für Außenwände, Innenwände aus Kalksandstein/Poroton, inkl. Arbeitslohn</li>
+<li><strong>20% Decken:</strong> EG → OG, OG → Dach; Stahlbetondecken, Arbeitslohn, Schalung, Bewehrung</li>
+<li><strong>30% Dachstuhl und Dachdeckung:</strong> Holzdachstuhl, Sparren, Latten, Pfetten, Eindeckung (Ziegel/Beton), ggf. Abdichtung / Unterspannbahn</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Hausanschlüsse</span> <span class="amount">ca. 15.000 €</span></summary>
+<div class="panel">
+<ul>
+<li><strong>35% Wasser:</strong> Anschluss an Trinkwassernetz, Hausanschlussleitung, Zähler</li>
+<li><strong>30% Abwasser:</strong> Anschluss an Kanal, Rohrleitung, ggf. Schacht oder Revisionsöffnung</li>
+<li><strong>25% Strom:</strong> Anschluss an Netz, Zählerkasten, Kabel verlegen</li>
+<li><strong>10% Telekommunikation / Internet:</strong> Leerrohre, Hausanschlusskasten, Vorbereitung für Glasfaser</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Fassade &amp; Fenster</span> <span class="amount">ca. 40.000 €</span></summary>
+<div class="panel">
+<ul>
+<li><strong>30% Außenputz:</strong> Putzsystem (mineralisch oder Silikat), Arbeitslohn, ggf. Gerüst</li>
+<li><strong>30% Dämmung:</strong> Wärmedämmverbundsystem (Dämmplatten, Kleber, Armierung, Armierungsschicht)</li>
+<li>30% Fenster</li>
+<li>5 % Rollläden</li>
+<li>5 % Haustür (ca. 2.000 €)</li>
+</ul>
+</div>
+</details>
+
+<div class="accordion-grid">
+
+<details>
+<summary><span>Innenausbau</span> <span class="amount">ca. 75.000 €</span></summary>
+<div class="panel">
+<ul>
+<li>Trockenbau und Innenputz</li>
+<li>Estrich</li>
+<li>Malerarbeiten</li>
+<li>Bodenbeläge (z.B. Fliesen)</li>
+<li>Innentüren</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Haustechnik</span> <span class="amount">ca. 105.000 €</span></summary>
+<div class="panel">
+<ul>
+<li>Heizung (z.B. Wärmepumpe)</li>
+<li>Sanitär</li>
+<li>Elektroinstallation</li>
+<li>Lüftung</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Garage</span> <span class="amount">ca. 30.000 €</span></summary>
+<div class="panel">
+<p>Massiv aus Ziegeln.</p>
+</div>
+</details>
+
+<details>
+<summary><span>Außenanlagen</span> <span class="amount">ca. 30.000 €</span></summary>
+<div class="panel">
+<ul>
+<li>Zufahrt</li>
+<li>Garten</li>
+<li>Terrasse</li>
+<li>Zaun</li>
+</ul>
+</div>
+</details>
+
+</div>
+
+</div>
+</details>
+
+<details>
+<summary><span>Baunebenkosten</span> <span class="amount">47.000 €</span></summary>
+<div class="panel">
+<p class="hint-line">Ca. 10–15 % der Baukosten</p>
+<ul>
+<li><strong>Planung &amp; Betreuung:</strong> Architekt, Statiker, Energieberater, Bauleiter</li>
+<li><strong>Gutachten &amp; Prüfungen:</strong> Bodengutachten, Prüfstatiker, Vermessung</li>
+<li><strong>Behördliche Gebühren:</strong> Baugenehmigung, Hausanschlussbeiträge (Abwasser/Wasser), Prüfgebühren</li>
+<li><strong>Finanzierungskosten:</strong> Notar, Grundbuch, Bankgebühren (manchmal extra gerechnet)</li>
+<li><strong>Versicherungen:</strong> Bauherrenhaftpflicht, Bauleistungsversicherung</li>
+<li><strong>Baustelleneinrichtung:</strong> Baustrom, Bauwasser</li>
+</ul>
+</div>
+</details>
+
+</div>
 
 ### Rechenbeispiel als Zwischensumme
 
