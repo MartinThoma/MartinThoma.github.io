@@ -18,8 +18,8 @@ erneuerbaren Energien.
     <figcaption>Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos</figcaption>
 </figure>
 
-Die Energiewende hat folgende essenziellen Bausteine. Ihre Symbole tauchen später
-bei den Vorschlägen wieder auf:
+Die Energiewende hat folgende essenziellen Bausteine. Ihre Symbole tauchen im
+Überblick und bei den Vorschlägen wieder auf:
 
 <div class="accordion plain">
 
@@ -74,78 +74,86 @@ dann Details und Quellen. Die farbige Pille rechts zeigt den Stand:
 
 ## Überblick: Wer ist wofür zuständig?
 
-Die Grafik und die Tabelle zeigen, wo welche Ebene ansetzt. Die folgenden
+Jede Ebene setzt bei den vier Bausteinen an anderen Stellen an. Die folgenden
 Abschnitte gehen die Ebenen in derselben Reihenfolge durch.
 
-<figure>
-    <a href="../images/2026/09/energiewende-ebenen.png"><img src="../images/2026/09/energiewende-ebenen.png" alt="Die sieben Ebenen der Energiewende von der internationalen Politik bis zum eigenen Haus, jeweils mit Beispielen" width="819" height="512" loading="lazy"></a>
-    <figcaption>Mit Claude AI generierte Illustration: Die Ebenen der Energiewende, von der internationalen Politik bis zum eigenen Haus</figcaption>
-</figure>
+<div class="accordion plain">
 
+<details>
+<summary><span><span class="sym">🌍</span>International</span></summary>
+<div class="panel">
+<p><strong>☀️ Erneuerbare Energien:</strong> Ausbauziele, z.B. die Verdreifachung der erneuerbaren Kapazität bis 2030 (COP28).</p>
+<p><strong>💡 Energieeffizienz:</strong> Effizienzziele, z.B. die Verdopplung der jährlichen Effizienzsteigerung bis 2030.</p>
+<p>Verbindlich ist davon wenig: Jedes Land entscheidet selbst, wie viel es beiträgt.</p>
+<p>Mehr dazu: <a href="#international">International</a></p>
+</div>
+</details>
 
-<table>
-    <thead>
-        <tr>
-            <th>Ebene</th>
-            <th>Elektrifizierung<br/><small>(Verkehr, Wärme)</small></th>
-            <th>Erneuerbare Energien<br/><small>(Wind, Solar, Wasserkraft, Umweltwärme)</small></th>
-            <th>Flexibilisierung<br/><small>(Speicher, Lastmanagement, Netze)</small></th>
-            <th>Energieeffizienz<br/><small>(Technologien, Gebäude)</small></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>International</strong></td>
-            <td>-</td>
-            <td>Ausbauziele</td>
-            <td>-</td>
-            <td>Effizienzziele</td>
-        </tr>
-        <tr>
-            <td><strong>EU</strong></td>
-            <td>CO₂-Flottengrenzwerte, CO₂-Preis</td>
-            <td>Ausbauziele, Strommarktdesign</td>
-            <td>Strommarkt, grenzüberschreitende Netze</td>
-            <td>Effizienz- und Gebäuderichtlinie</td>
-        </tr>
-        <tr>
-            <td><strong>Bund</strong></td>
-            <td>Förderung, Steuern, Heizungsregeln</td>
-            <td>EEG, Flächenziele, Genehmigungsrecht</td>
-            <td>Netzausbau, Kraftwerke, Speicher, Wasserstoff, Smart Meter</td>
-            <td>Gebäuderecht, Förderung</td>
-        </tr>
-        <tr>
-            <td><strong>Länder</strong></td>
-            <td>-</td>
-            <td>Flächen für Windkraft, Solarpflicht</td>
-            <td>-</td>
-            <td>Landesbauordnung</td>
-        </tr>
-        <tr>
-            <td><strong>Kommunen</strong></td>
-            <td>Ladesäulen, ÖPNV</td>
-            <td>Bebauungspläne, eigene Dächer</td>
-            <td>Stadtwerke, Wärmenetze</td>
-            <td>Wärmeplanung, eigene Gebäude</td>
-        </tr>
-        <tr>
-            <td><strong>Unternehmen</strong></td>
-            <td>Prozesswärme, Fuhrpark</td>
-            <td>Eigene PV, Stromabnahmeverträge</td>
-            <td>Lastmanagement</td>
-            <td>Effizientere Prozesse</td>
-        </tr>
-        <tr>
-            <td><strong>Haushalte</strong></td>
-            <td>Wärmepumpe, E-Auto</td>
-            <td>PV-Anlage, Balkonkraftwerk</td>
-            <td>Dynamischer Tarif, Heimspeicher</td>
-            <td>Dämmung, sparsame Geräte</td>
-        </tr>
-    </tbody>
-</table>
+<details>
+<summary><span><span class="sym">🇪🇺</span>EU</span></summary>
+<div class="panel">
+<p><strong>⚡ Elektrifizierung:</strong> CO₂-Flottengrenzwerte für Neuwagen und der CO₂-Preis über den Emissionshandel, ab 2028 auch für Gebäude und Verkehr.</p>
+<p><strong>☀️ Erneuerbare Energien:</strong> Ausbauziele und das Strommarktdesign mit Differenzverträgen.</p>
+<p><strong>🔀 Flexibilisierung:</strong> Regeln für den europäischen Strommarkt und grenzüberschreitende Netze.</p>
+<p><strong>💡 Energieeffizienz:</strong> Energieeffizienz-Richtlinie und Gebäuderichtlinie.</p>
+<p>Mehr dazu: <a href="#europaische-union">Europäische Union</a></p>
+</div>
+</details>
 
+<details>
+<summary><span><span class="sym">🇩🇪</span>Bund</span></summary>
+<div class="panel">
+<p><strong>⚡ Elektrifizierung:</strong> Förderung, z.B. für E-Autos, Steuern und Abgaben auf Strom, der nationale CO₂-Preis und die Regeln für neue Heizungen.</p>
+<p><strong>☀️ Erneuerbare Energien:</strong> Das EEG mit Vergütung und Ausschreibungen, Flächenziele für Windkraft und das Genehmigungsrecht.</p>
+<p><strong>🔀 Flexibilisierung:</strong> Netzausbau, neue Kraftwerke, Speicher, Wasserstoff und der Smart-Meter-Rollout.</p>
+<p><strong>💡 Energieeffizienz:</strong> Gebäuderecht, Förderung von Sanierungen und das Energieeffizienzgesetz.</p>
+<p>Mehr dazu: <a href="#bund">Bund</a></p>
+</div>
+</details>
+
+<details>
+<summary><span><span class="sym">🗺️</span>Länder</span></summary>
+<div class="panel">
+<p><strong>☀️ Erneuerbare Energien:</strong> Flächen für Windkraft über die Regionalpläne, Abstandsregeln wie die bayerische 10H-Regel und Solarpflichten.</p>
+<p><strong>💡 Energieeffizienz:</strong> Die Landesbauordnung.</p>
+<p>Mehr dazu: <a href="#lander">Länder</a></p>
+</div>
+</details>
+
+<details>
+<summary><span><span class="sym">🏘️</span>Kommunen</span></summary>
+<div class="panel">
+<p><strong>⚡ Elektrifizierung:</strong> Ladesäulen, ÖPNV und der eigene Fuhrpark.</p>
+<p><strong>☀️ Erneuerbare Energien:</strong> Bebauungspläne und Flächen für Solar- und Windparks, PV auf den eigenen Dächern.</p>
+<p><strong>🔀 Flexibilisierung:</strong> Stadtwerke und Wärmenetze.</p>
+<p><strong>💡 Energieeffizienz:</strong> Die kommunale Wärmeplanung und die eigenen Gebäude.</p>
+<p>Mehr dazu: <a href="#kommunen">Kommunen</a></p>
+</div>
+</details>
+
+<details>
+<summary><span><span class="sym">🏭</span>Unternehmen</span></summary>
+<div class="panel">
+<p><strong>⚡ Elektrifizierung:</strong> Prozesswärme und Fuhrpark.</p>
+<p><strong>☀️ Erneuerbare Energien:</strong> Eigene PV-Anlagen und Stromabnahmeverträge (PPA) mit Wind- und Solarparks.</p>
+<p><strong>🔀 Flexibilisierung:</strong> Lastmanagement und Speicher.</p>
+<p><strong>💡 Energieeffizienz:</strong> Effizientere Prozesse und Abwärmenutzung.</p>
+<p>Mehr dazu: <a href="#unternehmen">Unternehmen</a></p>
+</div>
+</details>
+
+<details>
+<summary><span><span class="sym">🏠</span>Haushalte</span></summary>
+<div class="panel">
+<p><strong>⚡ Elektrifizierung:</strong> Wärmepumpe und E-Auto.</p>
+<p><strong>☀️ Erneuerbare Energien:</strong> PV-Anlage oder Balkonkraftwerk.</p>
+<p><strong>🔀 Flexibilisierung:</strong> Dynamischer Stromtarif und Heimspeicher.</p>
+<p><strong>💡 Energieeffizienz:</strong> Dämmung und sparsame Geräte.</p>
+<p>Mehr dazu: <a href="#private-haushalte">Private Haushalte</a></p>
+</div>
+</details>
+
+</div>
 
 ## International
 
