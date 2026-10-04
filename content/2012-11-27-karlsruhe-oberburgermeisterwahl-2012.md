@@ -9,7 +9,12 @@ category: German posts
 tags: Politics, Karlsruhe, Voting
 featured_image: 2012/11/Karlsruhe.png
 ---
-Da mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier wählen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberbürgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.[^1] <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gewählt werden.
+Da mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier wählen. Am Sonntag,
+den 2.&nbsp;Dezember 2012 ist die Wahl des Oberbürgermeisters in Karlsruhe. Seit
+1970 wird dieses Amt von einem CDU'ler besetzt.[^1] <a
+href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist
+seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder
+gewählt werden.
 
 <h2>Die Kandidaten</h2>
 Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank dafür!).

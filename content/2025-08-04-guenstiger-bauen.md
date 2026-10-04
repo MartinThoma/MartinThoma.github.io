@@ -202,25 +202,56 @@ Daumenregel. Diese sollte man immer mit mehreren regionalen Angeboten
 
 ## Politische Maßnahmen
 
-* Bauvorschriften harmonisieren
-  * Ziel: weniger Planungsvarianten je Bundesland, mehr Standardisierung.
-  * Effekt: geringere Planungs- und Genehmigungskosten, mehr serielle Bauweisen.
-* Baustoff-Wiederverwendung fördern
-  * Ziel: wiederverwendbare Komponenten leichter zulassen.
-  * Ansatz: Standards für rückbaubare Bauteile (z.B. modulare Wand- und
-    Fassadenelemente, Klick-Systeme im Innenausbau).
-  * Effekt: langfristig geringere Materialkosten und weniger Bauabfall.
+<div class="accordion">
+
+<details>
+<summary><span>Bauvorschriften harmonisieren</span></summary>
+<div class="panel">
+<ul>
+<li><strong>Ziel:</strong> weniger Planungsvarianten je Bundesland, mehr Standardisierung.</li>
+<li><strong>Effekt:</strong> geringere Planungs- und Genehmigungskosten, mehr serielle Bauweisen.</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Baustoff-Wiederverwendung fördern</span></summary>
+<div class="panel">
+<ul>
+<li><strong>Ziel:</strong> wiederverwendbare Komponenten leichter zulassen.</li>
+<li><strong>Ansatz:</strong> Standards für rückbaubare Bauteile (z.B. modulare Wand- und Fassadenelemente, Klick-Systeme im Innenausbau).</li>
+<li><strong>Effekt:</strong> langfristig geringere Materialkosten und weniger Bauabfall.</li>
+</ul>
+</div>
+</details>
+
+</div>
 
 ### Baunebenkosten senken
 
-* Notarkosten
-  * Vorschlag: rechtssichere Standardverträge mit pauschaler Gebühr statt
-    rein prozentualer Abrechnung.
-  * Erwarteter Effekt: geringere Kaufnebenkosten bei Standardfällen.
-* Maklerkosten
-  * Vorschlag: konsequentes Bestellerprinzip.
-  * Erwarteter Effekt: Entlastung von Käufern, wenn Verkäufer die Beauftragung
-    auslösen.
+<div class="accordion">
+
+<details>
+<summary><span>Notarkosten</span></summary>
+<div class="panel">
+<ul>
+<li><strong>Vorschlag:</strong> rechtssichere Standardverträge mit pauschaler Gebühr statt rein prozentualer Abrechnung.</li>
+<li><strong>Erwarteter Effekt:</strong> geringere Kaufnebenkosten bei Standardfällen.</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Maklerkosten</span></summary>
+<div class="panel">
+<ul>
+<li><strong>Vorschlag:</strong> konsequentes Bestellerprinzip.</li>
+<li><strong>Erwarteter Effekt:</strong> Entlastung von Käufern, wenn Verkäufer die Beauftragung auslösen.</li>
+</ul>
+</div>
+</details>
+
+</div>
 
 
 ## Bauherren-Entscheidungen

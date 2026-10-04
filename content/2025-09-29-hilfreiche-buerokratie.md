@@ -23,25 +23,44 @@ Aktuell plane ich eine Photovoltaikanlage (PV-Anlage) auf meinem Dach und lasse 
 Seriöse Anbieter gehen dabei alle ähnlich vor: Sie kommen persönlich vorbei, begutachten die Situation und erfassen relevante Informationen:
 
 
-1. Bedarf:
-    - Wie hoch ist der jährliche Stromverbrauch?
-    - Gibt es Besonderheiten beim Verbrauchsprofil (z. B. Wärmepumpe,
-      Elektroauto)?
-    - Wie viele Stromzähler sind vorhanden und welche Tarife (Grundgebühr,
-      Arbeitspreis) gelten?
-2. Gegebenheiten:
-    - Wie groß ist die Dachfläche, wie ist sie ausgerichtet und geneigt? Gibt es
-      Verschattung?
-    - Gibt es bauliche Besonderheiten wie Dachfenster, Gauben oder Schornsteine?
-    - Wie sieht die elektrische Infrastruktur aus (Zählerplatz, Einspeisepunkt,
-      Erdung)?
-    - Welche Dachziegel sind verbaut und in welchem Zustand befinden sie sich?
-3. Wünsche:
-    - Wie groß soll die Anlage werden (kWp)?
-    - Ist ein Batteriespeicher gewünscht? Falls ja, wie groß?
-    - Soll ein Hybrid-Wechselrichter (für PV und Speicher) oder ein reiner
-      PV-Wechselrichter installiert werden?
-    - Ist Monitoring gewünscht? Falls ja, wie (App, Website)?
+<div class="accordion">
+
+<details>
+<summary><span>Bedarf</span> <span class="amount">3 Fragen</span></summary>
+<div class="panel">
+<ul>
+<li>Wie hoch ist der jährliche Stromverbrauch?</li>
+<li>Gibt es Besonderheiten beim Verbrauchsprofil (z. B. Wärmepumpe, Elektroauto)?</li>
+<li>Wie viele Stromzähler sind vorhanden und welche Tarife (Grundgebühr, Arbeitspreis) gelten?</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Gegebenheiten</span> <span class="amount">4 Fragen</span></summary>
+<div class="panel">
+<ul>
+<li>Wie groß ist die Dachfläche, wie ist sie ausgerichtet und geneigt? Gibt es Verschattung?</li>
+<li>Gibt es bauliche Besonderheiten wie Dachfenster, Gauben oder Schornsteine?</li>
+<li>Wie sieht die elektrische Infrastruktur aus (Zählerplatz, Einspeisepunkt, Erdung)?</li>
+<li>Welche Dachziegel sind verbaut und in welchem Zustand befinden sie sich?</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Wünsche</span> <span class="amount">4 Fragen</span></summary>
+<div class="panel">
+<ul>
+<li>Wie groß soll die Anlage werden (kWp)?</li>
+<li>Ist ein Batteriespeicher gewünscht? Falls ja, wie groß?</li>
+<li>Soll ein Hybrid-Wechselrichter (für PV und Speicher) oder ein reiner PV-Wechselrichter installiert werden?</li>
+<li>Ist Monitoring gewünscht? Falls ja, wie (App, Website)?</li>
+</ul>
+</div>
+</details>
+
+</div>
 
 
 Am Ende werde ich jedoch nur ein Angebot annehmen. Die anderen Anbieter haben ihre Zeit und Ressourcen investiert, ohne dass daraus ein Auftrag entsteht.

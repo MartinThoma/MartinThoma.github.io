@@ -44,13 +44,17 @@ massive Auswirkungen auf die Wirtschaft:
   Interessanter wäre es zu wissen, wie hoch der Anteil der fossilen Industrien
   in den USA und Europa wäre, aber diese Zahlen sind schwer zu finden. Mit ein
   paar Branchenriesen kann man einen ersten Eindruck erhalten:
-    * [Saudi Aramco](https://de.wikipedia.org/wiki/Saudi_Aramco), Saudi-Arabien: 604 Mrd. USD (2022)
-    * [Shell](https://de.wikipedia.org/wiki/Shell_plc), England: 323 Mrd USD (2023)
-    * [China National Petroleum Corporation](https://de.wikipedia.org/wiki/China_National_Petroleum_Corporation), China: 266 Mrd. Euro (2020)
-    * [BP](https://de.wikipedia.org/wiki/BP), England: 241 Mrd USD (2022)
-    * [TotalEnergies](https://de.wikipedia.org/wiki/TotalEnergies), Frankreich: 237 Mrd USD (2023)
-    * [ExxonMobil](https://de.wikipedia.org/wiki/ExxonMobil), USA: 178 Mrd USD (2020)
-    * [Chevron](https://de.wikipedia.org/wiki/Chevron_Corporation), USA: 155 Mrd USD (2020)
+
+    | Unternehmen | Land | Umsatz | Jahr |
+    |-------------|------|-------:|-----:|
+    | [Saudi Aramco](https://de.wikipedia.org/wiki/Saudi_Aramco) | Saudi-Arabien | 604&nbsp;Mrd.&nbsp;USD | 2022 |
+    | [Shell](https://de.wikipedia.org/wiki/Shell_plc) | England | 323&nbsp;Mrd.&nbsp;USD | 2023 |
+    | [China National Petroleum Corporation](https://de.wikipedia.org/wiki/China_National_Petroleum_Corporation) | China | 266&nbsp;Mrd.&nbsp;Euro | 2020 |
+    | [BP](https://de.wikipedia.org/wiki/BP) | England | 241&nbsp;Mrd.&nbsp;USD | 2022 |
+    | [TotalEnergies](https://de.wikipedia.org/wiki/TotalEnergies) | Frankreich | 237&nbsp;Mrd.&nbsp;USD | 2023 |
+    | [ExxonMobil](https://de.wikipedia.org/wiki/ExxonMobil) | USA | 178&nbsp;Mrd.&nbsp;USD | 2020 |
+    | [Chevron](https://de.wikipedia.org/wiki/Chevron_Corporation) | USA | 155&nbsp;Mrd.&nbsp;USD | 2020 |
+
 * **Erze werden wichtiger**: Für die Produktion von Batterien werden Lithium,
   Kobalt, Nickel und Graphit benötigt. Niemand weiß, welche Erze in Zukunft
   wichtig sein werden. Ähnlich wie in der Autoindustrie wird es hier eine

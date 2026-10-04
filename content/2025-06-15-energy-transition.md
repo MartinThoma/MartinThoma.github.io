@@ -71,10 +71,15 @@ additional reactors planned
 * Only 15 countries are building new reactors: Argentina, Bangladesh, Brazil,
   China, Egypt, India, Iran, Japan, Pakistan, Russia, Slovakia, South Korea,
   Turkey, UK, and Ukraine.
-* Worldwide, there are proposals for 294091 MWe of new nuclear capacity:
-    * 184450 MWe in China (63%)
-    * 30800 MWe in India (10%)
-    * 10000 MWe in Poland (3%)
+
+Worldwide, there are proposals for 294091 MWe of new nuclear capacity. The
+largest shares:
+
+| Country | Proposed capacity | Share |
+|---------|------------------:|------:|
+| China   | 184450 MWe        | 63%   |
+| India   | 30800 MWe         | 10%   |
+| Poland  | 10000 MWe         | 3%    |
 
 In the context of our need to transition away from fossil fuels due to climate
 change, nuclear energy faces two main challenges:

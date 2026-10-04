@@ -153,18 +153,11 @@ In Schweden hat das staatliche Unternehmen [Systembolaget](https://de.wikipedia.
 das Monopol auf Alkohol mit mehr als 3,5 Prozent. Dänemark, Norwegen und
 Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:[^9]
 
-* mit 15% vol:
-  * 5,75€ Finnland
-  * 4,76€ Schweden
-  * 1,37€ Deutschland
-* mit 32% vol:
-  * 12,28€ Finnland
-  * 10,16€ Schweden
-  * 2,92€ Deutschland
-* mit 38% vol:
-  * 14,58€ Finnland
-  * 12,07€ Schweden
-  * 3,47€ Deutschland
+| Alkoholgehalt | Finnland | Schweden | Deutschland |
+|---------------|---------:|---------:|------------:|
+| 15% vol       | 5,75€    | 4,76€    | 1,37€       |
+| 32% vol       | 12,28€   | 10,16€   | 2,92€       |
+| 38% vol       | 14,58€   | 12,07€   | 3,47€       |
 
 
 Schädlicher Alkoholkonsum hat 2022 Kosten in Höhe von 57,04 Mrd. EUR verursacht.[^10]
