@@ -1148,32 +1148,78 @@ Weitere Ziele, die in der Tabelle oben nicht vorkommen:
 
 In ihrer Wahlwerbung fokussieren sie sich auf 6 Punkte:
 
-1. **Lebensgrundlagen schützen**:
-    * 100% erneuerbare Energien bis 2035
-    * Bahn-Angebote verbessern
-    * Artensterben durch weniger Pestizideinsatz und andere Landnutzung
-    * Tierschutz in der Tierhaltung
-2. **In die Zukunft wirtschaften**: Investitionen in...
-    * Schnelles Internet
-    * Spitzenforschung
-    * Ladesäulen
-    * Wasserstofftechnologie
-    * Moderne Stadtentwicklung
-    * Öffentliche Hand investiert nicht mehr in klimaschädliche Projekte
-3. **Solidarität sichern**:
-    * Hartz IV durch Grundsicherung ersetzen
-    * Mindestlohn auf 12 EUR anheben
-    * Bundeseinheitliche Mietobergrenzen
-4. **Bildung und Forschung ermöglichen**:
-    * Bildungszusammenarbeit zwischen Bund und Ländern
-    * Grundsicherung in Ausbildung und Studium
-5. **Zusammen leben**:
-    * Gleichberechtigung in allen Lebensbereichen
-    * Bekämpfung rechtsradikaler Strukturen
-6. **International zusammenarbeiten**:
-    * Waffenexporte in Kriegsgebiete / an Diktatoren verbieten
-    * Sichere und legale Fluchtwege schaffen und Einschränkungen beim Familiennachzug aufheben
-    * Schneller humanitäre Visa bereitstellen
+<div class="accordion">
+
+<details>
+<summary><span>Lebensgrundlagen schützen</span> <span class="amount">4 Punkte</span></summary>
+<div class="panel">
+<ul>
+<li>100% erneuerbare Energien bis 2035</li>
+<li>Bahn-Angebote verbessern</li>
+<li>Artensterben durch weniger Pestizideinsatz und andere Landnutzung</li>
+<li>Tierschutz in der Tierhaltung</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>In die Zukunft wirtschaften</span> <span class="amount">6 Punkte</span></summary>
+<div class="panel">
+<p>Investitionen in…</p>
+<ul>
+<li>Schnelles Internet</li>
+<li>Spitzenforschung</li>
+<li>Ladesäulen</li>
+<li>Wasserstofftechnologie</li>
+<li>Moderne Stadtentwicklung</li>
+<li>Öffentliche Hand investiert nicht mehr in klimaschädliche Projekte</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Solidarität sichern</span> <span class="amount">3 Punkte</span></summary>
+<div class="panel">
+<ul>
+<li>Hartz IV durch Grundsicherung ersetzen</li>
+<li>Mindestlohn auf 12 EUR anheben</li>
+<li>Bundeseinheitliche Mietobergrenzen</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Bildung und Forschung ermöglichen</span> <span class="amount">2 Punkte</span></summary>
+<div class="panel">
+<ul>
+<li>Bildungszusammenarbeit zwischen Bund und Ländern</li>
+<li>Grundsicherung in Ausbildung und Studium</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>Zusammen leben</span> <span class="amount">2 Punkte</span></summary>
+<div class="panel">
+<ul>
+<li>Gleichberechtigung in allen Lebensbereichen</li>
+<li>Bekämpfung rechtsradikaler Strukturen</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary><span>International zusammenarbeiten</span> <span class="amount">3 Punkte</span></summary>
+<div class="panel">
+<ul>
+<li>Waffenexporte in Kriegsgebiete / an Diktatoren verbieten</li>
+<li>Sichere und legale Fluchtwege schaffen und Einschränkungen beim Familiennachzug aufheben</li>
+<li>Schneller humanitäre Visa bereitstellen</li>
+</ul>
+</div>
+</details>
+
+</div>
 
 Kritikpunkte:
 
