@@ -11,6 +11,11 @@ featured_image: 2013/07/bus.png
 ---
 Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.
 
+<figure class="ai-generated">
+    <a href="../images/2013/07/modes-of-transportation.jpg"><img src="../images/2013/07/modes-of-transportation.jpg" alt="Modes of transportation: Walking, Biking, Car, Bus, Train" width="819" height="512"></a>
+    <figcaption>Modes of transportation: Walking, Biking, Car, Bus, Train</figcaption>
+</figure>
+
 <strong>A story from today:</strong>
 I've bought two tickets to get from Karlsruhe to Augsburg (230 km) in about a month. I wanted to visit my dad in summer break just after an exam. I've bought a fixed connection to get there for "only" 35 Euro instead of 59 Euro. But I've made a mistake, my connection started too early. Two hours after having bought the tickets, I wanted to exchange them for a connection that starts later. But I had to pay 15 Euro for exchanging them, 15 Euro for canceling the connection. And it got worse: I had to give them my home address to get at least some of the money back. For what the hell do they need my home address?
 

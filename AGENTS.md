@@ -180,6 +180,11 @@ Math is rendered by MathJax 2. In Markdown, the `render_math` plugin (plus the l
 * Sources of a German article go under a final `## Einzelnachweise` heading (English:
   `## Footnotes`), with nothing after the definitions: the list renders at the end of
   the article. Every footnote must be cited in the text; an uncited one gets a dead ↩.
+* Never renumber the footnotes of an already published article: its footnote labels
+  stay as they are, because they may be linked from elsewhere. A new footnote gets the
+  next free number, even if that breaks the citation order. Renumbering to citation
+  order is only for articles that are not yet published (`status: draft` or not yet
+  online).
 * Format of a source: `Autor: [Titel](URL) via Website, TT.MM.JJJJ.` The author only if
   one is named (a person, or an agency like `dpa` that differs from the site); the date
   is the publication date, otherwise `abgerufen am TT.MM.JJJJ`. YouTube: the channel is
