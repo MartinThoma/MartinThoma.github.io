@@ -375,6 +375,11 @@ Bayerischen Gemeindeordnung (GO):
 
 ## Gebührenhaushalte: Wasser, Abwasser, Friedhof
 
+<figure class="ai-generated">
+    <a href="../images/2026/10/gebuehrenhaushalte.jpg"><img src="../images/2026/10/gebuehrenhaushalte.jpg" alt="Gebührenhaushalte" width="1200" height="670" loading="lazy"></a>
+    <figcaption>Gebührenhaushalte</figcaption>
+</figure>
+
 Für Einrichtungen wie Wasserversorgung, Abwasser oder Friedhof gelten besondere
 Regeln. Nach dem Kommunalabgabengesetz (KAG) sollen die Gebühren die Kosten
 decken, und zu den Kosten gehören hier auch angemessene Abschreibungen und eine
@@ -418,6 +423,11 @@ Kein Haushalt geht exakt auf. Dafür gibt es Werkzeuge:
 
 
 ## Schulden, Kassenkredite und Rücklagen
+
+<figure class="ai-generated">
+    <a href="../images/2026/10/schulden-kassenkredit-ruecklagen.jpg"><img src="../images/2026/10/schulden-kassenkredit-ruecklagen.jpg" alt="Schulden, Kassenkredite und Rücklagen" width="1200" height="670" loading="lazy"></a>
+    <figcaption>Schulden, Kassenkredite und Rücklagen</figcaption>
+</figure>
 
 * **Investitionskredite:** Kredite gibt es nur im Vermögenshaushalt und nur für
   Investitionen, für Zuschüsse zu Investitionen anderer und zur Umschuldung. Ihr
