@@ -476,10 +476,15 @@ Luxus:
   Mit Bidet-Funktion (mit warmem Wasser). Beheizter Sitz.
 * **Wände und Böden**: Mikrozement. Keine Fugen im Nassbereich.
 * Beheizbarer Handtuchhalter
-* **Dusche**: Bodengleich, mit Regendusche und Handbrause. Mit Ablage für
-  Shampoo und Duschgel. Mit Sitzgelegenheit. Mit Dusch-WC. Nischen-Dusche mit
-  Pendeltür. Mindestens 90x90cm, besser 120x120cm. Eine Revisionsdusche, also
-  eine Dusche, bei der man ohne großen Aufwand an die Rohre kommt.
+* **Dusche**:
+  * Bodengleich - ca. 2cm als Kante sind ok laut DIN 18040-2 (Norm für barrierefreies Bauen in Wohnungen)
+  * Regendusche und Handbrause
+  * Ablage für Shampoo und Duschgel
+  * Sitzgelegenheit, ca. 45cm tief
+  * Nischen-Dusche mit Pendeltür
+  * Mindestens 90x90cm, besser 120x120cm. Die regel ist: Hände auf die Brust,
+    dann von Ellenbogen bis Ellenbogen messen und 30cm hinzufügen.
+  * Eine Revisionsdusche, also eine Dusche, bei der man ohne großen Aufwand an die Rohre kommt.
 
 <figure class="ai-generated">
     <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" width="512" height="512" loading="lazy"></a>
