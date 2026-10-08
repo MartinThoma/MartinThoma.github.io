@@ -33,6 +33,17 @@ Die meisten Ideen gelten aber auch anderswo.
 </ul>
 </div>
 
+<div class="info">
+<strong>Werkzeug: das Haushaltsplan-Tool</strong>
+<p>Mit meinem <a href="https://www.martin-thoma.de/haushaltsplan-tool/">Haushaltsplan-Tool</a>
+kann man kamerale Haushalte bayerischer Kommunen im Browser auswerten. Es zeigt eine
+Kommune über mehrere Jahre oder zwei Kommunen nebeneinander, auf Wunsch je Einwohner
+und inflationsbereinigt. So sieht man schnell, welche Posten wachsen und wo die eigene
+Kommune aus der Reihe fällt. Das hilft, den eigenen Haushalt zu verstehen, und liefert
+Ideen, was man sich vor einer Rechnungsprüfung genauer anschauen könnte. Fehlt die
+eigene Kommune noch, steht im Tool, wie man ihren Haushaltsplan einreichen kann.</p>
+</div>
+
 
 ## Was ist Kameralistik?
 
@@ -156,8 +167,8 @@ des Jahres davor.[^11] Dieser Vergleich ist aufschlussreich: Wird eine Einnahme
 jedes Jahr zu vorsichtig geschätzt, oder eine Ausgabe jedes Jahr überschritten?
 
 Der [Haushaltsplan der Stadt Plattling 2026](https://www.plattling.de/media/66939/faltblatt-2026.pdf)
-ist öffentlich. Ich habe ein [Haushaltsplan-Tool](https://www.martin-thoma.de/haushaltsplan-tool/#modus=zeitreihe&kommune=09271146)
-geschrieben, mit dem man den Plan leichter analysieren kann.
+ist öffentlich. Im [Haushaltsplan-Tool](https://www.martin-thoma.de/haushaltsplan-tool/#modus=zeitreihe&kommune=09271146)
+sieht man, wie sich die Zahlen von Plattling über die Jahre entwickeln.
 
 
 ## Die zwei Teile: Verwaltungshaushalt und Vermögenshaushalt
@@ -470,7 +481,12 @@ Kein Haushalt geht exakt auf. Dafür gibt es Werkzeuge:
 6. Wie weit liegen **Ansatz und Ergebnis** früherer Jahre auseinander?
 7. Wie entwickeln sich **Personalkosten** und **Kreisumlage**?
 8. Wie stehen die **Stadtwerke und anderen Beteiligungen** da?
-9. **Fragen stellen.** Die Kämmerei erklärt ihren Haushalt in der Regel gern.
+9. **Vergleichen.** Im [Haushaltsplan-Tool](https://www.martin-thoma.de/haushaltsplan-tool/)
+   die eigene Kommune über mehrere Jahre und neben ähnlich großen Kommunen ansehen,
+   am besten je Einwohner. Posten, die stark wachsen oder deutlich höher liegen als
+   anderswo, sind gute Fragen an die Kämmerei und gute Kandidaten für einen genaueren
+   Blick bei der Rechnungsprüfung.
+10. **Fragen stellen.** Die Kämmerei erklärt ihren Haushalt in der Regel gern.
    Viele Parteien und kommunalpolitische Vereinigungen bieten außerdem Seminare für
    neue Mandatsträger an.
 
