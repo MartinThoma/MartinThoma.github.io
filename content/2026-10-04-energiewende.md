@@ -355,6 +355,11 @@ Wichtig beim Lesen der Grafik:
 
 ### Erneuerbare Energien
 
+<figure class="ai-generated">
+    <a href="../images/2026/10/green-city.jpg"><img src="../images/2026/10/green-city.jpg" alt="Erneuerbare Energien in einer grünen Stadt" width="1200" height="655" loading="lazy"></a>
+    <figcaption>Erneuerbare Energien in einer grünen Stadt</figcaption>
+</figure>
+
 Beim Strom ist Deutschland schon weit: 2025 kamen 55,1 % des
 Bruttostromverbrauchs aus erneuerbaren Energien[^8]. Für das Ziel von 80 %
 bis 2030 muss der Anteil aber jedes Jahr um rund 5 Prozentpunkte steigen. Das
