@@ -26,12 +26,15 @@ sudo apt-get install bisigi-themes
 
 <h2>Color Theme</h2>
 <h3>LXDE</h3>
-<table class="wikitable">
+<table>
+    <thead>
 <tr>
   <th>&nbsp;</th>
   <th>Background</th>
   <th>Foreground</th>
 </tr>
+    </thead>
+    <tbody>
 <tr>
   <th>Normal windows:</th>
   <td style="background-color:#F5EDD8">#F5EDD8</td>
@@ -52,6 +55,7 @@ sudo apt-get install bisigi-themes
   <td style="background-color:#F5F5B5">#F5F5B5</td>
   <td style="background-color:#000">#000</td>
 </tr>
+    </tbody>
 </table>
 
 <h2>Icon Theme</h2>

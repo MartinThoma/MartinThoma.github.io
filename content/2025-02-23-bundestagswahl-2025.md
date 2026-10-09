@@ -54,7 +54,8 @@ SPD gebildet. Die Prognosen weiter unten können damit im Rückblick geprüft we
 
 ## Wahlprogramme
 
-<table border="1">
+<table>
+    <thead>
     <tr>
         <th>Thema</th>
         <th>CDU/CSU</th>
@@ -62,8 +63,10 @@ SPD gebildet. Die Prognosen weiter unten können damit im Rückblick geprüft we
         <th>Grüne</th>
         <th>Linke</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <th colspan="5" style="text-align: center;"><a href="https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-wirtschaft-100.html">Wirtschaft</a></th>
+        <th colspan="5"><a href="https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-wirtschaft-100.html">Wirtschaft</a></th>
     </tr>
     <tr>
         <th>Strompreise</th>
@@ -95,8 +98,10 @@ sozial ausgewogene Kauf- und Leasinganreize für verbrauchsarme E-Autos</td>
         <td></td>
         <td></td>
     </tr>
+    </tbody>
+    <tbody>
     <tr>
-        <th colspan="5" style="text-align: center;"><a href="https://www.tagesschau.de/inland/regional/brandenburg/rbb-bundestagswahl-2025-das-planen-die-parteien-zur-rente-100.html">Rente</a></th>
+        <th colspan="5"><a href="https://www.tagesschau.de/inland/regional/brandenburg/rbb-bundestagswahl-2025-das-planen-die-parteien-zur-rente-100.html">Rente</a></th>
     </tr>
     <tr>
         <th>Renteneinstiegsalter</th>
@@ -133,8 +138,10 @@ sozial ausgewogene Kauf- und Leasinganreize für verbrauchsarme E-Autos</td>
         <td>Staat übernimmt Rentenbeiträge für pflegende Angehörige; Rentenniveau bei 48% halten - vermutlich mit Steuergeldern</td>
         <td>Beitragsbemessungsgrenze verdoppeln; Rentenniveau auf 53% anheben - vermutlich mit Steuergeldern</td>
     </tr>
+    </tbody>
+    <tbody>
     <tr>
-        <th colspan="5" style="text-align: center;">Verkehr</th>
+        <th colspan="5">Verkehr</th>
     </tr>
     <tr>
         <th>Tempolimit</th>
@@ -150,8 +157,10 @@ sozial ausgewogene Kauf- und Leasinganreize für verbrauchsarme E-Autos</td>
         <td>Deutschland-Ticket langfristig günstiger machen</td>
         <td>Deutschland-Ticket kostenfrei für Geringverdiener</td>
     </tr>
+    </tbody>
+    <tbody>
     <tr>
-        <th colspan="5" style="text-align: center;">Migration</th>
+        <th colspan="5">Migration</th>
     </tr>
     <tr>
         <th>Migration</th>
@@ -160,6 +169,7 @@ sozial ausgewogene Kauf- und Leasinganreize für verbrauchsarme E-Autos</td>
         <td>Faire Verteilung Geflüchteter in Europa, humanere Asylpolitik</td>
         <td>Keine Einschränkungen des Asylrechts, mehr Bleiberecht</td>
     </tr>
+    </tbody>
 </table>
 
 
@@ -169,36 +179,40 @@ Ich vermute, dass wir eine Wahlbeteiligung von 78% haben werden, mit folgendem
 Ergebnis:
 
 <table>
+    <thead>
     <tr>
         <th>Partei</th>
         <th><a href="https://www.wahlrecht.de/umfragen/">Erwartetes Ergebnis</a></th>
         <th>Sitze</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>CDU/CSU</td>
+        <th>CDU/CSU</th>
         <td>30%</td>
         <td>220</td>
     </tr>
     <tr>
-        <td>AfD</td>
+        <th>AfD</th>
         <td>20%</td>
         <td>147</td>
     </tr>
     <tr>
-        <td>SPD</td>
+        <th>SPD</th>
         <td>16%</td>
         <td>117</td>
     </tr>
     <tr>
-        <td>Grüne</td>
+        <th>Grüne</th>
         <td>13%</td>
         <td>95</td>
     </tr>
     <tr>
-        <td>Linke</td>
+        <th>Linke</th>
         <td>7%</td>
         <td>51</td>
     </tr>
+    </tbody>
 </table>
 
 Insbesondere glaube ich, dass BSW, FDP und Volt die 5%-Hürde nicht schaffen werden.

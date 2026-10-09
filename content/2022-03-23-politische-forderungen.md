@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2022-03-23 20:00
 category: German posts
 tags: Politics, Germany
-featured_image: logos/de.png
+featured_image: logos/germany.png
 status: draft
 ---
 Hier sind ein paar politische Ideen, die ich gerne umgesetzt hätte.

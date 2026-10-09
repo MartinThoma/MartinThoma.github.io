@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2024-08-18 20:00
 category: German posts
 tags: Germany, Politics
-featured_image: logos/mathematics.png
+featured_image: logos/house.png
 ---
 Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos[^1],
 aber das ist tatsächlich nicht die Zahl, auf die man sich fokussieren sollte[^2][^3].

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-08-04 20:00
 category: German posts
-tags: German Politics, Politics, House
+tags: Germany, Politics, House
 featured_image: logos/earth.png
 ---
 Der Traum vom Eigenheim fühlt sich inzwischen für die meisten Menschen
@@ -17,7 +17,7 @@ noch leisten können. In diesem Artikel will ich einige Möglichkeiten aufzeigen
 wie wir den Immobilienkauf in Deutschland günstiger machen könnten.
 
 <figure class="ai-generated">
-    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein modernes Einfamilienhaus" width="819" height="512"></a>
+    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein modernes Einfamilienhaus" width="512" height="512"></a>
     <figcaption>Ein modernes Einfamilienhaus</figcaption>
 </figure>
 
@@ -61,11 +61,11 @@ Dann muss man mit folgenden Kosten rechnen:
 <div class="panel">
 <p class="note">Hinweis: Bei einem Keller müsste man eher mit 100.000 € rechnen.</p>
 <ul>
-<li><strong>Aushub:</strong> 2.050 € = 50 €/m³ · 9m · 9m · 0,5m</li>
+<li><strong>Aushub:</strong> 2.025 € = 50 €/m³ · 9m · 9m · 0,5m</li>
 <li><strong>Bodenplatte mit Dämmung:</strong> 7.700 €
 <ul>
 <li><strong>5.500 € für Beton:</strong> 250 €/m³ Beton mit 8,5 m · 8,5 m · 0,3 m = 22 m³</li>
-<li><strong>2.145 € für Dämmung + Folie:</strong> 30 €/m² mit 8,5 m · 8,5 m</li>
+<li><strong>2.168 € für Dämmung + Folie:</strong> 30 €/m² mit 8,5 m · 8,5 m</li>
 </ul>
 </li>
 </ul>

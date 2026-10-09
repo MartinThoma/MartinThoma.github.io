@@ -185,7 +185,7 @@ arbeiten, (2) Ineffiziente Unternehmen gehen pleite und machen damit Platz für
 effizientere Unternehmen oder Praktiken. Das sieht man z.B. daran, dass wir in
 Deutschland keine Einpacker in Supermärkten haben. Wir nutzen auch so gut wie
 immer einen Bankautomaten und keinen Schalter. Selbstbedienungskassen verbreiten
-sich weiter, umso teurer die Arbeitskraft wird. Firmen wie
+sich weiter, je teurer die Arbeitskraft wird. Firmen wie
 [Hilti](https://de.wikipedia.org/wiki/Hilti_(Unternehmen)) können ihre Produkte
 nur so teuer verkaufen, weil sie den Bauarbeitern Zeit sparen - und die
 Arbeitszeit teurer ist. Ein höherer Lohn führt also zu dem nötigen Druck, um
@@ -480,7 +480,7 @@ diesen Artikel zu schreiben:
       an, dass es im Schnitt 20 Tage wären. Seit 2014 haben wir im Schnitt etwa
       [20.000 Menschen pro Jahr](https://de.statista.com/statistik/daten/studie/451861/umfrage/abschiebungen-aus-deutschland/) abgeschoben. Ein Tag im Gefängnis kostet
       im Schnitt [110€/Tag](https://fragdenstaat.de/anfrage/inhaftierungskosten-in-justizvollzugsanstalten/), also würden wir jährlich
-      2.2&nbsp;Millionen EUR nur dafür ausgeben. Zusätzlich muss man sagen, dass in
+      44&nbsp;Millionen EUR (20.000 × 20 Tage × 110 €) nur dafür ausgeben. Zusätzlich muss man sagen, dass in
       [Afghanistan](https://de.wikipedia.org/wiki/Afghanistan) die Taliban
       herrschen und [in Syrien ist die Lage nach dem Sturz Assads im Dezember 2024 weiterhin instabil](https://www.auswaertiges-amt.de/de/service/laender/syrien-node/syriensicherheit-204278).
       Menschenrechte (das Non-Refoulement-Prinzip) verbieten, dass wir Menschen in Länder

@@ -27,7 +27,7 @@ Wie gut waren meine Prognosen?
       und der AfD fehlen wie erwartet 3&nbsp;Sitze zur absoluten Mehrheit. Das BSW
       ist aber entgegen meiner Erwartung ebenfalls eingezogen, die CDU war
       deutlich schwächer und die Grünen deutlich stärker als erwartet.</li>
-  <li><strong>Prognose 2</strong>: Nicht Eingetreten.
+  <li><strong>Prognose 2</strong>: Nicht eingetreten.
       Im Vorfeld wurde ein systematischer Briefwahlbetrug in Pflegeheimen nahegelegt, der sich jedoch nicht bestätigt hat. Nach der Wahl habe ich nichts dergleichen gehört.</li>
   <li><strong>Prognose 3</strong>: Noch offen. Sven Schulze hat angekündigt, dass
       die CDU in die Opposition geht. Der Ministerpräsident muss spätestens am
@@ -68,7 +68,7 @@ schaffen werden, BSW jedoch nicht.
 Das Ergebnis könnte in etwa so aussehen:
 
 <figure>
-    <a href="../images/2026/09/sachsen-anhalt-umfrage-2026.png"><img src="../images/2026/09/sachsen-anhalt-umfrage-2026.png" alt="Das zu erwartende Ergebnis der Landtagswahl in Sachsen-Anhalt 2026: 42%&amp;nbsp;AfD, 22%&amp;nbsp;CDU, 12%&amp;nbsp;Linke, 8%&amp;nbsp;SPD, 5%&amp;nbsp;Grüne" width="512" height="304"></a>
+    <a href="../images/2026/09/sachsen-anhalt-umfrage-2026.png"><img src="../images/2026/09/sachsen-anhalt-umfrage-2026.png" alt="Das zu erwartende Ergebnis der Landtagswahl in Sachsen-Anhalt 2026: 42 % AfD, 22 % CDU, 12 % Linke, 8 % SPD, 5 % Grüne" width="512" height="304"></a>
 </figure>
 
 Die **5%-Hürde** besagt, dass Parteien nur dann in den Landtag einziehen, wenn sie

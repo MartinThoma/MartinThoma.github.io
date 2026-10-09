@@ -131,31 +131,35 @@ To estimate how much money it is worth to put into this issue, look at the cost
 of reaching the climate targets and the cost of not doing so:
 
 <table>
+    <thead>
     <tr>
         <th>Target</th>
         <th>Cost to reach</th>
         <th>Expected Economic Damages[^14]</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>1.5 &deg;C</td>
+        <th>1.5 &deg;C</th>
         <td>?</td>
         <td>300 billion USD</td>
     </tr>
     <tr>
-        <td>2.0 &deg;C</td>
+        <th>2.0 &deg;C</th>
         <td>?</td>
         <td>20 trillion USD</td>
     </tr>
     <tr>
-        <td>3.0 &deg;C</td>
+        <th>3.0 &deg;C</th>
         <td>?</td>
         <td>15% - 25 % reduction in per capita outcome</td>
     </tr>
     <tr>
-        <td>4.0&deg;C</td>
+        <th>4.0&deg;C</th>
         <td>?</td>
         <td>30 % reduction in per capita outcome</td>
     </tr>
+    </tbody>
 </table>
 
 
@@ -248,167 +252,171 @@ There are many small things:
 
 Here you can get a feeling for which action has which effect:
 
-<table class="table">
+<table>
+    <thead>
     <tr>
-        <td>Name</td>
-        <td>CO2 Kilos Equivalent</td>
-        <td>Source</td>
+        <th>Name</th>
+        <th>CO2 Kilos Equivalent</th>
+        <th>Source</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>1kg Lamb</td>
+        <th>1kg Lamb</th>
         <td>39.2 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Beef</td>
+        <th>1kg Beef</th>
         <td>27.0 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Cheese</td>
+        <th>1kg Cheese</th>
         <td>13.5 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Pork</td>
+        <th>1kg Pork</th>
         <td>12.1 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Turkey</td>
+        <th>1kg Turkey</th>
         <td>10.9 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Chicken</td>
+        <th>1kg Chicken</th>
         <td>6.9 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Tuna</td>
+        <th>1kg Tuna</th>
         <td>6.1 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Eggs</td>
+        <th>1kg Eggs</th>
         <td>4.8 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Potatoes</td>
+        <th>1kg Potatoes</th>
         <td>2.9 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Rice</td>
+        <th>1kg Rice</th>
         <td>2.7 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Nuts</td>
+        <th>1kg Nuts</th>
         <td>2.3 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Beans/tofu</td>
+        <th>1kg Beans/tofu</th>
         <td>2.0 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Vegetables</td>
+        <th>1kg Vegetables</th>
         <td>2.0 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Milk</td>
+        <th>1kg Milk</th>
         <td>1.9 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Fruit</td>
+        <th>1kg Fruit</th>
         <td>1.1 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1kg Lentils</td>
+        <th>1kg Lentils</th>
         <td>0.9 kg</td>
         <td>[^4]</td>
     </tr>
     <tr>
-        <td>1L <a href="https://en.wikipedia.org/wiki/Gasoline">Gasoline</a></td>
+        <th>1L <a href="https://en.wikipedia.org/wiki/Gasoline">Gasoline</a></th>
         <td>2.32 kg</td>
         <td>[^5]</td>
     </tr>
     <tr>
-        <td>1L <a href="https://en.wikipedia.org/wiki/Diesel_fuel">Diesel</a></td>
+        <th>1L <a href="https://en.wikipedia.org/wiki/Diesel_fuel">Diesel</a></th>
         <td>1.65 kg</td>
         <td>[^5]</td>
     </tr>
     <tr>
-        <td>1L <a href="https://en.wikipedia.org/wiki/Liquefied_petroleum_gas">LPG</a></td>
+        <th>1L <a href="https://en.wikipedia.org/wiki/Liquefied_petroleum_gas">LPG</a></th>
         <td>1.79 kg</td>
         <td>[^5]</td>
     </tr>
     <tr>
-        <td>1L <a href="https://en.wikipedia.org/wiki/Compressed_natural_gas">CNG</a></td>
+        <th>1L <a href="https://en.wikipedia.org/wiki/Compressed_natural_gas">CNG</a></th>
         <td>1.63 kg</td>
         <td>[^5]</td>
     </tr>
     <tr>
-        <td>Driving 100 km with VW Golf (gasoline)</td>
+        <th>Driving 100 km with VW Golf (gasoline)</th>
         <td>13.22 kg</td>
         <td>5.7L/100km[^6] * 2.32 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Driving 100 km with VW Golf (Diesel)</td>
+        <th>Driving 100 km with VW Golf (Diesel)</th>
         <td>8.91 kg</td>
         <td>5.4L/100km * 1.65 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Driving 100 km with VW Golf (CNG)</td>
+        <th>Driving 100 km with VW Golf (CNG)</th>
         <td>6.85 kg</td>
         <td>4.2L/100km * 1.63 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Driving 100 km with Opel Astra (gasoline)</td>
+        <th>Driving 100 km with Opel Astra (gasoline)</th>
         <td>15.08 kg</td>
         <td>6.5L/100km[^8] * 2.32 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Driving 100 km with Opel Astra (Diesel)</td>
+        <th>Driving 100 km with Opel Astra (Diesel)</th>
         <td>9.08 kg</td>
         <td>5.5L/100km[^7] * 1.65 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Flying 100km (per person)</td>
+        <th>Flying 100km (per person)</th>
         <td>38 kg</td>
         <td>[^9]</td>
     </tr>
     <tr>
-        <td>1 kWh electricity</td>
+        <th>1 kWh electricity</th>
         <td>0.474 kg</td>
         <td>statista[^10]</td>
     </tr>
     <tr>
-        <td>1 year of <a href="https://www.amazon.de/dp/B071NGHJWB">AmazonBasics E27</a></td>
+        <th>1 year of <a href="https://www.amazon.de/dp/B071NGHJWB">AmazonBasics E27</a></th>
         <td>58.13 kg</td>
         <td>14 W * 365*24h * (0.474/1000) kg / Wh</td>
     </tr>
     <tr>
-        <td>10h Laptop usage</td>
+        <th>10h Laptop usage</th>
         <td>0.26 kg</td>
         <td>55 W * 10h * (0.474/1000) kg / Wh</td>
     </tr>
     <tr>
-        <td>1 year of old refrigerator (90L)</td>
+        <th>1 year of old refrigerator (90L)</th>
         <td>185.80 kg</td>
         <td>392 kWh * 0.474 kg / kWh, Röhling[^11]</td>
     </tr>
     <tr>
-        <td>1 year of new refrigerator (90L)</td>
+        <th>1 year of new refrigerator (90L)</th>
         <td>74.42 kg</td>
         <td>157 kWh * 0.474 kg / kWh, Röhling[^11]</td>
     </tr>
+    </tbody>
 </table>
 
 What you should take from this table:

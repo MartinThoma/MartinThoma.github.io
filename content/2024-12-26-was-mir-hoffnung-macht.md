@@ -68,8 +68,8 @@ Ganz konkret denke ich an unser Gesundheitssystem:
   Patienten direkt an den Facharzt weiterleiten.
 
 <figure class="ai-generated">
-  <img src="../images/2024/12/ai-assisted-living.jpg" alt="Automatisierung im Gesundheitssystem" width="512" height="288">
-  <figcaption>Automatisierung im Gesundheitssystem</figcaption>
+    <a href="../images/2024/12/ai-assisted-living.jpg"><img src="../images/2024/12/ai-assisted-living.jpg" alt="Automatisierung im Gesundheitssystem" width="512" height="279" loading="lazy"></a>
+    <figcaption>Automatisierung im Gesundheitssystem</figcaption>
 </figure>
 
 Und auch in anderen Bereichen haben wir die Möglichkeit, durch Automatisierung

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts
-tags: Politics, Bundestagswahl, German Politics
+tags: Politics, Bundestagswahl, Germany
 featured_image: logos/germany.png
 ---
 Am 22. September 2013 findet die Bundestagswahl 2013 statt.
@@ -17,9 +17,12 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 
 ### Piraten
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/Piratenpartei-logo.png"><img src="../images/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>31.669</td>
@@ -51,6 +54,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
       </ul>
     </td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/GNE0NOhN0pU" frameborder="0" allowfullscreen></iframe>
@@ -59,9 +63,12 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 
 ### DIE LINKE.
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/die-linke.png"><img src="../images/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" loading="lazy"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>63.761</td>
@@ -89,10 +96,11 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
     <td>
       <ul>
         <li><a href="http://www.die-linke.de/fileadmin/download/wahlen2013/bundestagswahlprogramm/bundestagswahlprogramm2013_langfassung.pdf">Vollständig als PDF</a> (912 kB)</li>
-        <li><a href="http://www.die-linke.de/fileadmin/download/wahlen2013/kurzfassung_audio/bundestagswahlprogramm2013_kurzfassung_weibliche_stimme.mp3">als Hörbuch</a> (6.1 MB)</li>
+        <li><a href="http://www.die-linke.de/fileadmin/download/wahlen2013/kurzfassung_audio/bundestagswahlprogramm2013_kurzfassung_weibliche_stimme.mp3">als Hörbuch</a> (6,1 MB)</li>
       </ul>
     </td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/TJzWq0O2k_Y" frameborder="0" allowfullscreen></iframe>
@@ -103,9 +111,12 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 ### FDP
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/FDP-logo.png"><img src="../images/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" loading="lazy"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>58.675</td>
@@ -132,6 +143,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
     <th>Wahlprogramm</th>
     <td><a href="http://www.fdp.de/files/408/B_rgerprogramm_A5_Online_2013-07-23.pdf">Vollständig als PDF</a></td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/UTIm_8-X4gM" frameborder="0" allowfullscreen></iframe>
@@ -140,9 +152,12 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 ### Grüne
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/gruenen-logo.png"><img src="../images/2013/09/gruenen-logo.png" alt="Logo von Bündnis 90 - die Grünen" width="180" height="108" loading="lazy"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>60.808</td>
@@ -178,6 +193,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
       </ul>
     </td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/LeHiHZ8m2rU" frameborder="0" allowfullscreen></iframe>
@@ -187,9 +203,12 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 ### SPD
 
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/spd-logo.png"><img src="../images/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" loading="lazy"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>472.469</td>
@@ -217,6 +236,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
     <th>Wahlprogramm</th>
     <td><a href="http://www.spd.de/linkableblob/96686/data/20130415_regierungsprogramm_2013_2017.pdf">Vollständig als PDF</a></td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/WNkDGxaRutQ" frameborder="0" allowfullscreen></iframe>
@@ -225,9 +245,12 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 ### CDU / CSU
 <table>
+  <thead>
   <tr>
     <th colspan="2"><a href="../images/2013/09/cdu-partei.png"><img src="../images/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" loading="lazy"></a></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>Mitgliederzahl</th>
     <td>469.575</td>
@@ -254,11 +277,12 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
     <th>Wahlprogramm</th>
     <td>
       <ul>
-        <li><a href="http://www.cdu.de/sites/default/files/media/dokumente/cdu_regierungsprogramm_2013-2017.pdf">Vollständig als PDF</a> (683.47 kB)</li>
-        <li><a href="http://www.cdu.de/sites/default/files/media/dokumente/bilanz-btw13.pdf">als Hörbuch</a> (1.44 MB)</li>
+        <li><a href="http://www.cdu.de/sites/default/files/media/dokumente/cdu_regierungsprogramm_2013-2017.pdf">Vollständig als PDF</a> (683,47 kB)</li>
+        <li><a href="http://www.cdu.de/sites/default/files/media/dokumente/bilanz-btw13.pdf">als Hörbuch</a> (1,44 MB)</li>
       </ul>
     </td>
   </tr>
+  </tbody>
 </table>
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/99zpMPcgnHc" frameborder="0" allowfullscreen></iframe>
@@ -272,7 +296,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
     <figcaption>Koalitionsrechner - Ergebnis</figcaption>
 </figure>
 
-Die Parteien haben viele aussagen über Koalitionen nach der Bundestagswahl gemacht:
+Die Parteien haben viele Aussagen über Koalitionen nach der Bundestagswahl gemacht:
 <ul>
   <li>Für CDU/CSU kommt die FDP und die SPD in Frage. (<a href="http://www.spiegel.de/politik/deutschland/kanzlerin-spricht-ueber-grosse-koalition-merkel-veraergert-fdp-a-917219.html">Quelle</a>)</li>
   <li>Die FDP will nur mit der Union eine Koalition. (<a href="http://www.n-tv.de/ticker/Westerwelle-schliesst-erneut-Koalition-mit-SPD-und-Gruenen-aus-article11278791.html">Quelle</a>)</li>
@@ -291,7 +315,7 @@ Damit steht fest:
 <ul>
   <li>CDU / CSU bleibt in der Regierung.</li>
   <li>Wenn die FDP die 5%-Hürde schafft, gibt es wieder Schwarz-Gelb.</li>
-  <li>Sonst wirds vielleicht interessant, aber vermutlich Schwarz-Rot</li>
+  <li>Sonst wird es vielleicht interessant, aber vermutlich Schwarz-Rot</li>
 </ul>
 
 ## Themen
@@ -315,7 +339,7 @@ Es ist sehr einfach, was dagegen hilft:
   <li>Höhere Steuern auf höhere Einkommen</li>
   <li>Mindestlohn</li>
   <li>Höhere Sozialleistungen für Arme</li>
-  <li>Höhe Erbschaftsvermögen (um eine konkrete Zahl zu nennen: > 10,000,000 Euro) müssen stark mit Erbschaftssteuer eingeschränkt werden. Davor darf es keine &bdquo;Steuerflucht&ldquo; geben. (Existiert dieses Problem?)</li>
+  <li>Hohe Erbschaftsvermögen (um eine konkrete Zahl zu nennen: > 10.000.000 Euro) müssen stark mit Erbschaftssteuer eingeschränkt werden. Davor darf es keine &bdquo;Steuerflucht&ldquo; geben. (Existiert dieses Problem?)</li>
 </ul>
 
 Ich bin außerdem davon überzeugt, dass viele Menschen, die eigentlich Anspruch auf Sozialleistungen hätten, diesen nicht in Anspruch nehmen. Zum einen, weil sie es nicht wollen (<a href="http://www.wdr2.de/aktuell/hartzvier122.html">Quelle</a>), zum anderen aber vermutlich auch, weil sie nicht wissen, dass sie Anspruch haben.
@@ -343,10 +367,10 @@ Die <a href="https://de.wikipedia.org/wiki/Eurokrise">Eurokrise</a> muss beendet
   <li>Die Jugendarbeitslosigkeit in Spanien betrug 2012 ca. 24,9%.</li>
   <li>Griechenland: Arbeitslosigkeit bei Menschen mit Hochschulbildung unter 24 Jahren: 28,8% - in Deutschland 12,8%</li>
   <li>In Griechenland betrug die Arbeitslosigkeit 2011 ca. 17,6%</li>
-  <li>Die <a href="https://de.wikipedia.org/wiki/Staatsverschuldung#Staatsverschuldung_in_entwickelten_L.C3.A4ndern">Staatverschuldung</a> ist katastrophal - egal ob man Deutschland, Frankreich, Spanien, Griechenland oder Italien anschaut.</li>
+  <li>Die <a href="https://de.wikipedia.org/wiki/Staatsverschuldung#Staatsverschuldung_in_entwickelten_L.C3.A4ndern">Staatsverschuldung</a> ist katastrophal - egal ob man Deutschland, Frankreich, Spanien, Griechenland oder Italien anschaut.</li>
 </ul>
 
-Hier kann man nicht davon ausgehen, dass irgendeine Partei eine belegbar gute Lösung vorbringt. Wie auch? Das Problem gab es noch nie. Aber die Frage nach dem, was man zu tun gedenkt ist doch interessant:
+Hier kann man nicht davon ausgehen, dass irgendeine Partei eine belegbar gute Lösung vorbringt. Wie auch? Das Problem gab es noch nie. Aber die Frage nach dem, was man zu tun gedenkt, ist doch interessant:
 
 <ul>
   <li>CDU / CSU:
@@ -402,35 +426,35 @@ Im Bezug auf Steuern sehe ich zwei große Probleme:
   <li>Steuern sind in Deutschland kompliziert</li>
 </ol>
 
-Das Konzerne Länder gegeneinander ausspielen, sieht man an Google (<a href="http://www.googlewatchblog.de/2012/11/frankreich-milliarden-euro-steuernachzahlung/">Quelle</a>). Versteht mich jetzt nicht falsch, ich finde Google super. Aber jedes Unternehmen wird, wenn es ihm auf legale Art möglich ist, versuchen Kosten (also auch Steuern) so niedrig wie möglich zu halten. Also sollte man sich doch innerhalb der Euro-Zone auf ein gemeinsames Steuersystem einigen können, oder?
+Dass Konzerne Länder gegeneinander ausspielen, sieht man an Google (<a href="http://www.googlewatchblog.de/2012/11/frankreich-milliarden-euro-steuernachzahlung/">Quelle</a>). Versteht mich jetzt nicht falsch, ich finde Google super. Aber jedes Unternehmen wird, wenn es ihm auf legale Art möglich ist, versuchen, Kosten (also auch Steuern) so niedrig wie möglich zu halten. Also sollte man sich doch innerhalb der Euro-Zone auf ein gemeinsames Steuersystem einigen können, oder?
 
-Außerdem scheint es mir in Deutschland zu viele Steuern/Abgaben zu geben und diese auch zu kompliziert zu sein
+Außerdem scheint es mir in Deutschland zu viele Steuern/Abgaben zu geben und diese auch zu kompliziert zu sein.
 Sinnvoll finde ich
 <ul>
   <li>Erbschaftssteuer: Sie sorgt dafür, dass sich Reichtum weniger stark anhäuft.</li>
   <li><span class="hint" title="Mehrwertsteuer">Umsatzsteuer</span>: Sie stellt einen einfachen Weg dar, wie der Staat an Geld kommt. Sie betrifft alle gleichmäßig. Ich finde es nicht sinnvoll, hier zwischen verschiedenen Klassen (Lebensmittel, Luxusgüter) zu unterscheiden. Wenn Lebensmittel mehr kosten würden, würde man ihren Wert vielleicht mehr schätzen.
   </li>
-  <li>Einkommensteuer: Auch mit der Lohnsteuer bekommt der Staat viel Geld. Aber im Gegensatz zur Umsatzsteuer kann man hier Leute, die viel Verdienen stärker belasten.</li>
+  <li>Einkommensteuer: Auch mit der Lohnsteuer bekommt der Staat viel Geld. Aber im Gegensatz zur Umsatzsteuer kann man hier Leute, die viel verdienen, stärker belasten.</li>
   <li>Energiesteuern: Durch Energiesteuern kann man Anreize schaffen, sparsame Geräte / Infrastruktur zu entwickeln. Dies sollte für die Bürger auf lange Sicht von Vorteil sein.</li>
-  <li><span class="hint" title="Tabaksteuer">Rauschmittelsteuern</span>: Eigentlich sollten Menschen nicht rauchen und saufen. Also sollten diese Produkte - obwohl sie eventuell billig in der Herstellung sind - teuer verkauft werden. Die Steuer sollte süchtigen dazu dienen, von ihrer Sucht frei zu kommen bzw. in die Suchtprävention gesteckt werden.</li>
+  <li><span class="hint" title="Tabaksteuer">Rauschmittelsteuern</span>: Eigentlich sollten Menschen nicht rauchen und saufen. Also sollten diese Produkte - obwohl sie eventuell billig in der Herstellung sind - teuer verkauft werden. Die Steuer sollte Süchtigen dazu dienen, von ihrer Sucht frei zu kommen bzw. in die Suchtprävention gesteckt werden.</li>
   <li>Grundsteuer: Durch eine hohe Grundsteuer nutzt vermutlich derjenige, der am meisten damit verdienen kann, das Grundstück. Sie kann also eine gute Verteilung dieser knappen Ressource ermöglichen.</li>
 </ul>
 
-Steuern/Abgaben die ich nicht verstehe, sind:
+Steuern/Abgaben, die ich nicht verstehe, sind:
 <ul>
   <li><a href="https://de.wikipedia.org/wiki/Solidarit%C3%A4tszuschlag">Solidaritätszuschlag</a></li>
   <li><a href="https://de.wikipedia.org/wiki/Kirchensteuer_(Deutschland)">Kirchensteuer</a>: Das sollte die Kirche selbst machen!</li>
-  <li>Arbeitslosenversicherung: Sollte durch Umsatz- und Einkommenssteuer gedeckt werden. Grundstätzlich denke ich sollte hier jeder gleich versichert sein. Wenn jemand mehr als grundlegende Leistungen will, soll er das privat machen. Aber eine gewisse Grundsicherung soll jeder bekommen.</li>
+  <li>Arbeitslosenversicherung: Sollte durch Umsatz- und Einkommensteuer gedeckt werden. Grundsätzlich, denke ich, sollte hier jeder gleich versichert sein. Wenn jemand mehr als grundlegende Leistungen will, soll er das privat machen. Aber eine gewisse Grundsicherung soll jeder bekommen.</li>
   <li>Krankenversicherung: Siehe Arbeitslosenversicherung</li>
   <li>Pflegeversicherung: Siehe Arbeitslosenversicherung</li>
   <li>Tabak, Alkopop, Schaumwein: Sollte eine &bdquo;Rauschmittelsteuer&ldquo; sein</li>
-  <li><a href="https://de.wikipedia.org/wiki/Grunderwerbsteuer_(Deutschland)">Grunderwerbssteuer</a>: Warum wird Grunderwerb extra gezählt? Warum nicht einfach nur Umsatzsteuer?</li>
-  <li><a href="https://de.wikipedia.org/wiki/Zinsabschlag">Kapitalertragsteuer</a>: Warum ist das nicht einfach Einkommenssteuer?</li>
+  <li><a href="https://de.wikipedia.org/wiki/Grunderwerbsteuer_(Deutschland)">Grunderwerbsteuer</a>: Warum wird Grunderwerb extra gezählt? Warum nicht einfach nur Umsatzsteuer?</li>
+  <li><a href="https://de.wikipedia.org/wiki/Zinsabschlag">Kapitalertragsteuer</a>: Warum ist das nicht einfach Einkommensteuer?</li>
   <li>Versicherungsteuer, <a href="https://de.wikipedia.org/wiki/Kraftfahrzeugsteuer">Kraftfahrzeugsteuer</a>: Siehe Grunderwerbsteuer</li>
   <li>Stromsteuer: Inwiefern unterscheidet sie sich von der Energiesteuer?</li>
 </ul>
 
-Ganz allgemein sollte es wenig Steuern geben. Die Steuer die es gibt, sollten einfach zu verstehen und zu berechnen sein. Außerdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
+Ganz allgemein sollte es wenig Steuern geben. Die Steuern, die es gibt, sollten einfach zu verstehen und zu berechnen sein. Außerdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
 
 Ich weiß nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich folgende Berechnung finden:
 <ul>
@@ -473,7 +497,7 @@ Aber auch die SPD scheint in dem NSA-Skandal nicht ganz unbeteiligt zu sein (<a 
 Die Grünen und Piraten sind gegen Videoüberwachung, wollen das Fernmeldegeheimnis zu einem Kommunikations- und Mediennutzungsgeheimnis ausweiten, gegen die Bestandsdatenauskunft vorgehen und Vorratsdatenspeicherung verhindern.
 
 ### Kleine Themen
-Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im Großen und Ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
+Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich, dass sie im Großen und Ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
 
 <ul>
   <li>Adoptionsrecht / Gleichstellung für Homosexuelle</li>
@@ -498,11 +522,11 @@ Dieser Artikel stellt nur eine kurze Zusammenfassung von Gedanken dar, die mir w
   <li>Was ist mir wichtig?</li>
 </ul>
 
-Wenn man nur auf die grobe Ausrichtung der Parteien betrachtet, kann man eventuell sagen:
+Wenn man nur die grobe Ausrichtung der Parteien betrachtet, kann man eventuell sagen:
 <ul>
   <li>Wenn man grundsätzlich mit der Politik der letzten Jahre zufrieden ist, sollte man CDU/CSU wählen.</li>
   <li>Wenn man Wert auf Transparenz legt, und will, dass Internetkompetenz in das Parlament kommt, sollte man die Piraten wählen.</li>
-  <li>Wenn man auf Umweltschutz, neue (aber nicht radikale) Ideen, Wert legt, sollte man die Grünen wählen</li>
+  <li>Wenn man auf Umweltschutz und neue (aber nicht radikale) Ideen Wert legt, sollte man die Grünen wählen.</li>
   <li>Wenn man extreme Änderungen im sozialen Bereich will, sollte man DIE LINKE wählen.</li>
   <li>Wenn man CDU/CSU und FDP wieder sehen will, und will, dass auf Datenschutz-Aspekte mehr Wert gelegt wird, sollte man FDP wählen.</li>
   <li>SPD: Hmm ... wenn man das Gleiche in Rot will, was man schon kennt? Ich kann keinen wirklichen Themenschwerpunkt finden, in dem sich die SPD stark von der CDU/CSU abhebt.</li>

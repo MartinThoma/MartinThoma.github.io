@@ -127,7 +127,7 @@ Changing opinions is difficult. Especially if you have had them for a long time 
 when you've already defended them. It's a little bit like an investment. When
 you've already spent 6,000 Euro on an investment and there is a tiny chance
 that you will get what you want but a growing chance that the investment was
-just a bad idea and probability suggests changing the investment and rescue what's
+just a bad idea and probability suggests changing the investment and rescuing what's
 left, most people will not do so. Somehow we quite often tend towards all-or-nothing
 thinking which is suboptimal in many cases.
 

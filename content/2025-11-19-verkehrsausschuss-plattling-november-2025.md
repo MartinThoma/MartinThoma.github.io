@@ -61,18 +61,18 @@ Die Nutzer müssten folgende Kosten tragen:
     <th>9-Sitzer</th>
   </tr>
   </thead>
-  <tbody>
+    <tbody>
     <tr>
-    <td>Stundenpreis</td>
+    <th>Stundenpreis</th>
     <td>5,50€</td>
     <td>7,90€</td>
     </tr>
     <tr>
-    <td>km-Preis</td>
+    <th>km-Preis</th>
     <td>0,15€/km</td>
     <td>0,15€/km</td>
     </tr>
-  </tbody>
+    </tbody>
 </table>
 
 Es gibt keine Registrierungsgebühr.
@@ -97,7 +97,7 @@ Die Stadt hat folgende Fakten zusammengestellt:
 * Aufgrund parkender Autos ist es im Kapellenweg kaum möglich, schneller als 50 km/h zu fahren.
 * Bei acht Messungen lag der Anteil der Regelverstöße bei 0,67 %.
 
-Eine Tempo-30-Zone würde automatisch bedeuten, dass an den Kreuzungen "rechts vor links" gelten würde. Deshalb sprachen sich die meisten Anwesenden im Ausschuss klar gegen eine Tempo-30-Zone aus.
+Eine Tempo-30-Zone würde automatisch bedeuten, dass an den Kreuzungen „rechts vor links“ gelten würde. Deshalb sprachen sich die meisten Anwesenden im Ausschuss klar gegen eine Tempo-30-Zone aus.
 
 Die Vertreterin der Polizei brachte ein Dammbruch-Argument vor: Würde man hier eine Geschwindigkeitsbegrenzung einführen, würden weitere Straßen in Plattling ebenfalls eine Begrenzung fordern; am Ende müsste man dann sogar die B8 diskutieren.
 

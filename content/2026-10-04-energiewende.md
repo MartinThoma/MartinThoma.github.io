@@ -14,7 +14,7 @@ den strukturellen und nachhaltigen Wandel weg von fossilen Energieträgern hin z
 erneuerbaren Energien.
 
 <figure class="ai-generated">
-    <a href="../images/2026/10/energiewende.jpg"><img src="../images/2026/10/energiewende.jpg" alt="Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos" width="819" height="512"></a>
+    <a href="../images/2026/10/energiewende.jpg"><img src="../images/2026/10/energiewende.jpg" alt="Gegenüberstellung Alt und Neu: Ölheizung und Verbrenner-Auto gegenüber Wärmepumpe und E-Auto, Kohlekraftwerk gegenüber Windkraft und Solar, konstante gegenüber flexibler Erzeugung und Verbrauch mit intelligenter Regelung, Glühbirne gegenüber LED" width="1200" height="655"></a>
     <figcaption>Von fossilen Kraftwerken zu Wind, Solar, Batteriespeichern, Wärmepumpen und E-Autos</figcaption>
 </figure>
 
@@ -351,7 +351,7 @@ Wichtig beim Lesen der Grafik:
 * Die **Projektion** (orange) ist keine Vorhersage, sondern zeigt, was mit den bis November 2025 beschlossenen Maßnahmen passiert[^14]. Später abgeschwächte Regeln wie das Heizungsgesetz sind darin noch nicht berücksichtigt.
 * Das Ziel für 2030 verfehlt die Projektion laut UBA um rund 30 Mio. t[^14]. Weil Deutschland in den Vorjahren weniger ausgestoßen hat als erlaubt, hält es das Gesamtbudget für 2021 bis 2030 rechnerisch trotzdem knapp ein. Das UBA hält das aber nicht für gesichert: Schon etwas mehr Wirtschaftswachstum, weniger Förderung oder abgeschwächte Gesetze würden reichen[^14]. Für 2040 sind es rund 100 Mio. t, weil die Projektion dort nur etwa −80 % statt −88 % erreicht[^14].
 * Unabhängig davon verfehlt Deutschland seine Pflichten aus der EU-Lastenteilung (vor allem Gebäude und Verkehr) für 2021 bis 2030 voraussichtlich um rund 255 Mio. t[^14]. Die fehlende Menge muss Deutschland anderen Mitgliedstaaten abkaufen.
-* „Netto-Null" heißt nicht, dass gar nichts mehr ausgestoßen wird: Restemissionen (z.B. aus der Landwirtschaft) müssen durch natürliche und technische Senken ausgeglichen werden. Die Projektion für 2045 (212,5 Mio. t) ist der Bruttowert ohne diese Senken[^14].
+* „Netto-Null“ heißt nicht, dass gar nichts mehr ausgestoßen wird: Restemissionen (z.B. aus der Landwirtschaft) müssen durch natürliche und technische Senken ausgeglichen werden. Die Projektion für 2045 (212,5 Mio. t) ist der Bruttowert ohne diese Senken[^14].
 
 ### Erneuerbare Energien
 
@@ -965,7 +965,7 @@ Hier ist bereits einiges passiert:
 <details>
 <summary><span><strong>Carsharing mit E-Autos und mehr Ladesäulen</strong></span> <span class="amount" role="img" aria-label="Elektrifizierung" title="Elektrifizierung">⚡</span></summary>
 <div class="panel">
-<p>Im Verkehrsausschuss wurde für den 9-Sitzer ein Diesel empfohlen. Für die meist kurzen Strecken in und um Plattling reicht ein E-Auto. Dazu gehören Ladesäulen, z.B. am Bahnhof und am Rathaus. Ich hoffe, dass wir diese Möglichkeit in den kommenden Jahren anbieten können.</p>
+<p>Im Verkehrsausschuss wurde für den Neunsitzer ein Diesel empfohlen. Für die meist kurzen Strecken in und um Plattling reicht ein E-Auto. Dazu gehören Ladesäulen, z.B. am Bahnhof und am Rathaus. Ich hoffe, dass wir diese Möglichkeit in den kommenden Jahren anbieten können.</p>
 </div>
 </details>
 
@@ -1328,7 +1328,7 @@ Haushalte entscheiden über Heizung, Auto, PV-Anlage, Stromtarif und Dämmung.
 <summary><span>Ernährung: weniger Fleisch und Milchprodukte</span> <span class="amount s-wip" title="Beschlossen oder in Arbeit">⏳</span></summary>
 <div class="panel">
 <p class="hint-line">Baustein: Übergreifend</p>
-<p>Vegetarisch oder vegan. Das Umweltbundesamt[^97] nennt für eine vegetarische bzw. vegane Ernährung nach der EAT-Lancet-Kommission 46 bzw. 49 % weniger ernährungsbedingte Treibhausgase, für die „flexitarische" Variante etwa die Hälfte. Der Unterschied zwischen vegetarisch und vegan ist damit klein. Käse verursacht ähnlich viel wie Geflügel oder Schwein.</p>
+<p>Vegetarisch oder vegan. Das Umweltbundesamt[^97] nennt für eine vegetarische bzw. vegane Ernährung nach der EAT-Lancet-Kommission 46 bzw. 49 % weniger ernährungsbedingte Treibhausgase, für die „flexitarische“ Variante etwa die Hälfte. Der Unterschied zwischen vegetarisch und vegan ist damit klein. Käse verursacht ähnlich viel wie Geflügel oder Schwein.</p>
 </div>
 </details>
 

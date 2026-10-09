@@ -6,11 +6,15 @@ lang: en
 author: Martin Thoma
 date: 2019-12-22 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, German
+tags: Cooking, Recipe
 featured_image: logos/cooking.png
 ---
 [Semmelknödel](https://en.wikipedia.org/wiki/Semmelkn%C3%B6del) are a kind of
 bread dumplings which are typically eaten in Bavaria (Germany).
+
+<figure class="ai-generated">
+    <a href="../images/2019/12/semmelknoedel.jpg"><img src="../images/2019/12/semmelknoedel.jpg" alt="Two Semmelknödel with gravy and parsley on a plate, one cut open, with a glass of Weissbier in the background" width="819" height="447"></a>
+</figure>
 
 You can buy them ready-made so that you only have to put them in water
 and cook them for a while. The ready-made ones taste fine.

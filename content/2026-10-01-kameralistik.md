@@ -509,7 +509,7 @@ Kein Haushalt geht exakt auf. Dafür gibt es Werkzeuge:
 * **Doppik:** doppelte Buchführung in Konten, wie bei Unternehmen. Die Alternative
   zur Kameralistik.
 * **Einzelplan:** einer der zehn großen Aufgabenbereiche des Haushalts (0 bis 9).
-* **Finanzplan:** Planung über fünf Jahre, mit dem Investitionsprogramm.
+* **Finanzplan:** Planung über fünf Jahre, mit dem Investitionsprogramm.[^12]
 * **Freie Finanzspanne:** Zuführung minus ordentliche Tilgung. Das Geld, das die
   Gemeinde aus eigener Kraft investieren kann.
 * **Freiwillige Leistung:** eine Aufgabe, zu der die Gemeinde nicht verpflichtet

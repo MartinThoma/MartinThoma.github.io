@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-01-11 20:00
 category: German posts
-tags: Germany, German, Politics, Climate Change, Energy
+tags: Germany, Politics, Climate Change, Energy
 featured_image: logos/germany.png
 ---
 Deutschland hat in den letzten Jahrzehnten beeindruckende Fortschritte bei der
@@ -56,7 +56,7 @@ Im zeitlichen Verlauf sieht man:
 Das Fraunhofer-Institut für Solare Energiesysteme (ISE) hat eine [Live-Visualisierung](https://www.energy-charts.info/charts/energy/chart.htm?l=de&c=DE&stacking=stacked_absolute&timeslider=1&year=-1&interval=year&legendItems=lz0zczk) der Stromerzeugung in Deutschland:
 
 <figure>
-    <a href="../images/2025/01/nettostromerzeugung-dl-bis-2025.png"><img src="../images/2025/01/nettostromerzeugung-dl-bis-2025.png" alt="Bruttostromerzeugung in DL von 2019 - 2023" width="835" height="512" loading="lazy"></a>
+    <a href="../images/2025/01/nettostromerzeugung-dl-bis-2025.png"><img src="../images/2025/01/nettostromerzeugung-dl-bis-2025.png" alt="Säulendiagramm der öffentlichen Nettostromerzeugung in Deutschland nach Energieträgern von 2002 bis 2024 (Energy-Charts, Stand 10.01.2025)" width="835" height="512" loading="lazy"></a>
     <figcaption><a href="https://www.energy-charts.info/charts/energy/chart.htm?l=de&c=DE&stacking=stacked_absolute&timeslider=1&year=-1&interval=year&legendItems=lz0zczk">Datenquelle</a></figcaption>
 </figure>
 
@@ -166,7 +166,7 @@ Strompreis nur wegen der Baukosten sein müsste (ohne Betrieb, ohne Wartung, ohn
 Entsorgungskosten, ohne Personal, ohne Brennstoffkosten, ohne Rückbaukosten,
 ohne Steuern, ohne Netzabgaben, ohne Gewinnmarge):
 
-* [Hinkley Point C (Großbritannien)](https://de.wikipedia.org/wiki/Kernkraftwerk_Hinkley_Point): 51,3 Mrd (geplant waren 21,5 Mrd EUR), Bauzeit von 16 Jahren und noch ist es nicht fertig ➜ 14,7 ct/kWh
+* [Hinkley Point C (Großbritannien)](https://de.wikipedia.org/wiki/Kernkraftwerk_Hinkley_Point): 51,3 Mrd EUR (geplant waren 21,5 Mrd EUR), Bauzeit von 16 Jahren und noch ist es nicht fertig ➜ 14,7 ct/kWh
 * [Flamanville 3 (Frankreich)](https://de.wikipedia.org/wiki/Kernkraftwerk_Flamanville): 12 Mrd EUR (geplant waren 3,3 Mrd EUR), Bauzeit von 20 Jahren ([Quelle](https://www.fr.de/panorama/frankreich-nimmt-neues-atomkraftwerk-in-betrieb-fuer-12-milliarden-euro-zr-92920756.html)) ➜ 3,4 ct/kWh
 * [Olkiluoto 3 (Finnland)](https://de.wikipedia.org/wiki/Kernkraftwerk_Olkiluoto): 11 Mrd EUR (geplant waren 3 Mrd EUR), Bauzeit von 18 Jahren ➜ 3,1 ct/kWh
 

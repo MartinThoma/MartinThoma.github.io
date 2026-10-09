@@ -41,9 +41,9 @@ Leider sind diese nicht gleichmäßig verteilt:
 
 Schaut man sich z.B. nur Nordrhein-Westfalen (NRW) an:
 
-* 18190422 [Einwohner in NRW](https://de.wikipedia.org/wiki/Nordrhein-Westfalen)
+* 18.190.422 [Einwohner in NRW](https://de.wikipedia.org/wiki/Nordrhein-Westfalen)
 * [9,1 Millionen Wohnungen](https://www.mieterbund-nrw.de/startseite/news-details/leerstand-wohnungen)
-    * Davon 310000 am Stichtag leerstehend
+    * Davon 310.000 am Stichtag leerstehend
     * Davon ca. 48% mehr als ein Jahr ungenutzt
         * 24% der Wohnungen wegen Baumaßnahmen oder Sanierungen ungenutzt
         * 4%: Gebäude-Abriss geplant
@@ -93,50 +93,49 @@ Wenn man das nach der Kredithöhe auflöst, erhält man:
 
 $$
 \begin{align*}
-\text{Kredithöhe} &= \frac{12 \cdot (\text{Nettoeinkommen} \cdot 0.33)}{\text{Zinssatz} + \text{Tilgungssatz}}\\
-&= 3.96 \cdot \frac{\text{Nettoeinkommen}}{0.02 + \text{Zinssatz}}
+\text{Kredithöhe} &= \frac{12 \cdot (\text{Nettoeinkommen} \cdot 0{,}33)}{\text{Zinssatz} + \text{Tilgungssatz}}\\
+&= 3{,}96 \cdot \frac{\text{Nettoeinkommen}}{0{,}02 + \text{Zinssatz}}
 \end{align*}
 $$
 
 Nimmt man nun ein Haushalts-Nettoeinkommen von 4000€ an, ergibt sich:
 
 <table>
+    <thead>
     <tr>
-        <th>Haushalts-Nettoeinkommen</th>
         <th>Zinssatz</th>
         <th>Kredithöhe</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>4000€</td>
         <td>1%</td>
         <td>528.000€</td>
     </tr>
     <tr>
-        <td>4000€</td>
         <td>2%</td>
         <td>396.000€</td>
     </tr>
     <tr>
-        <td>4000€</td>
         <td>3%</td>
         <td>316.800€</td>
     </tr>
     <tr>
-        <td>4000€</td>
         <td>4%</td>
         <td>264.000€</td>
     </tr>
     <tr>
-        <td>4000€</td>
         <td>5%</td>
         <td>226.286€</td>
     </tr>
+    </tbody>
 </table>
 
 **Konkret** kann man auf [drklein.de](https://www.drklein.de/zinsentwicklung-prognose.html#!/) die Zinsentwicklung sehen. Bis November 2021 waren wir bei 0,66% Zinsen für 10 Jahre Zinsbindung und 1,27% für 30 Jahre Zinsbindung. Im Oktober 2022 waren es
 dann plötzlich 3,88% / 4,23% und inzwischen sind wir bei 2,99% / 3,43%.
 
 <table>
+    <thead>
     <tr>
         <th>Immobilienpreis</th>
         <th>Benötigtes Eigenkapital für eine 100%-Finanzierung</th>
@@ -147,6 +146,8 @@ dann plötzlich 3,88% / 4,23% und inzwischen sind wir bei 2,99% / 3,43%.
         <th>Restschulden nach 20 Jahren</th>
         <th>Restschulden nach 30 Jahren</th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
     <td>200.000€</td>
     <td>20.000€</td>
@@ -297,6 +298,7 @@ dann plötzlich 3,88% / 4,23% und inzwischen sind wir bei 2,99% / 3,43%.
     <td>194.354€</td>
     <td>0€</td>
 </tr>
+    </tbody>
 </table>
 
 Diese Tabelle kann man mit folgendem Python-Script erstellen:
@@ -413,8 +415,8 @@ $$\text{Monatsmiete pro m²} = \text{Baupreis pro m²} \cdot \frac{\text{Rendite
 Das bedeutet, wenn sich die Baukosten verdoppeln, verdoppelt sich auch die Miete
 bei Neubauten.
 
-Wenn man mit einer Rendite von 2,5% rechnet, ergibt das einen Faktor von
-0,0035. Das bedeutet, bei einem Baupreis von 2500€/m² ergibt sich eine
+Wenn man mit einer Rendite von 2,5% rechnet, ergibt das einen jährlichen Faktor von
+0,035. Das bedeutet, bei einem Baupreis von 2500€/m² ergibt sich eine
 Monatsmiete von 7,35€/m².
 
 Das ist die reine Kapitalkostenrechnung. Instandhaltung, Leerstand, Verwaltung,
@@ -424,11 +426,14 @@ zeige ich unten auch eine Rechnung mit 4.500€/m² für Bau plus Grundstück un
 Nebenkosten.
 
 <table>
+    <thead>
     <tr>
         <th>Baupreis</th>
         <th>Rendite-Erwartung</th>
         <th>Monatsmiete</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>2.500€/m²</td>
         <td>2,5%</td>
@@ -441,7 +446,7 @@ Nebenkosten.
     </tr>
     <tr>
         <td>2.500€/m²</td>
-        <td>3,5000000000000004%</td>
+        <td>3,5%</td>
         <td>8,88€/m²</td>
     </tr>
     <tr>
@@ -471,7 +476,7 @@ Nebenkosten.
     </tr>
     <tr>
         <td>4.500€/m²</td>
-        <td>3,5000000000000004%</td>
+        <td>3,5%</td>
         <td>15,99€/m²</td>
     </tr>
     <tr>
@@ -489,6 +494,7 @@ Nebenkosten.
         <td>5,0%</td>
         <td>20,54€/m²</td>
     </tr>
+    </tbody>
 </table>
 
 ## Schlussfolgerungen

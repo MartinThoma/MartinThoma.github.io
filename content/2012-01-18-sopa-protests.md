@@ -14,7 +14,7 @@ Some of the biggest sites in the internet are currently calling US citizens up t
 I am a little bit disappointed that Google had no special doodle today and twitter had no message at all ☹ Well, at least did Google offer <a href="https://www.google.com/landing/takeaction/">some information</a>.
 
 Here is a neat explanation of SOPA:
-<iframe src="http://player.vimeo.com/video/31100268?byline=0&amp;portrait=0" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe src="https://player.vimeo.com/video/31100268?byline=0&amp;portrait=0" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 <h2>Wikipedia</h2>
 Completely blacked out:
@@ -29,7 +29,7 @@ By the way, if you disable JavaScript you can view Wikipedia as always.
 
 <h2>German Wiki</h2>
 <figure>
-    <a href="../images/2012/01/sopa-wiki-de-300x81.png"><img src="../images/2012/01/sopa-wiki-de-300x81.png" alt="German Wikipedia SOPA protests" width="300" height="81" loading="lazy"></a>
+    <a href="../images/2012/01/sopa-wiki-de.png"><img src="../images/2012/01/sopa-wiki-de-300x81.png" alt="German Wikipedia SOPA protests" width="300" height="81" loading="lazy"></a>
     <figcaption>German Wikipedia SOPA protests</figcaption>
 </figure>
 
@@ -37,28 +37,28 @@ By the way, if you disable JavaScript you can view Wikipedia as always.
 <a href="http://theoatmeal.com/sopa">The Oatmeal</a> has also completely blacked out its website:
 
 <figure>
-    <a href="../images/2012/01/sopa-oatmeal-300x241.png"><img src="../images/2012/01/sopa-oatmeal-300x241.png" alt="Oatmeals SOPA protest" width="300" height="241" loading="lazy"></a>
+    <a href="../images/2012/01/sopa-oatmeal.png"><img src="../images/2012/01/sopa-oatmeal-300x241.png" alt="Oatmeals SOPA protest" width="300" height="241" loading="lazy"></a>
     <figcaption>Oatmeals SOPA protest</figcaption>
 </figure>
 
 <h2>Zachstronaut</h2>
 <a href="http://www.zachstronaut.com/lab/text-shadow-box/stop-sopa.html">zachstronaut.com</a> offers an interactive one:
 <figure>
-    <a href="../images/2012/01/sopa-zachstronaut-300x154.png"><img src="../images/2012/01/sopa-zachstronaut-300x154.png" alt="SOPA - Zachstronaut protests" width="300" height="154" loading="lazy"></a>
+    <a href="../images/2012/01/sopa-zachstronaut.png"><img src="../images/2012/01/sopa-zachstronaut-300x154.png" alt="SOPA - Zachstronaut protests" width="300" height="154" loading="lazy"></a>
     <figcaption>SOPA - Zachstronaut protests</figcaption>
 </figure>
 
 <h2>Boing Boing</h2>
 <a href="http://boingboing.net/2012/01/14/boing-boing-will-go-dark-on-ja.html">Boing Boing</a> is completely blacked out:
 <figure>
-    <a href="../images/2012/01/sopa-boingboing-300x140.png"><img src="../images/2012/01/sopa-boingboing-300x140.png" alt="SOPA - BoingBoing protest" width="300" height="140" loading="lazy"></a>
+    <a href="../images/2012/01/sopa-boingboing.png"><img src="../images/2012/01/sopa-boingboing-300x140.png" alt="SOPA - BoingBoing protest" width="300" height="140" loading="lazy"></a>
     <figcaption>SOPA - BoingBoing protest</figcaption>
 </figure>
 
 <h2>Tucows</h2>
-Tucows - a site with $80.939 million USD revenue - offers some information and a <a href="http://tucowsinc.com/news/2012/01/why-we-dont-like-sopa/">link</a> on the top. They normally offer shareware and freeware:
+Tucows - a site with \$80.939 million revenue - offers some information and a <a href="http://tucowsinc.com/news/2012/01/why-we-dont-like-sopa/">link</a> on the top. They normally offer shareware and freeware:
 <figure>
-    <a href="../images/2012/01/sopa-tucowsinc-300x182.png"><img src="../images/2012/01/sopa-tucowsinc-300x182.png" alt="SOPA Tucowsinc" width="300" height="182" loading="lazy"></a>
+    <a href="../images/2012/01/sopa-tucowsinc.png"><img src="../images/2012/01/sopa-tucowsinc-300x182.png" alt="SOPA Tucowsinc" width="300" height="182" loading="lazy"></a>
     <figcaption>SOPA Tucowsinc</figcaption>
 </figure>
 
@@ -71,15 +71,7 @@ If you want to participate, take a look at <a href="http://sopastrike.com/">SOPA
 
 <h2>Additional</h2>
 
-<object width="526" height="374">
-<param name="movie" value="http://video.ted.com/assets/player/swf/EmbedPlayer.swf"></param>
-<param name="allowFullScreen" value="true" />
-<param name="allowScriptAccess" value="always"/>
-<param name="wmode" value="transparent"></param>
-<param name="bgColor" value="#ffffff"></param>
-<param name="flashvars" value="vu=http://video.ted.com/talk/stream/2012S/Blank/ClayShirky_2012S-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/ClayShirky_2012S-embed.jpg&vw=512&vh=288&ap=0&ti=1329&lang=en&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=defend_our_freedom_to_share_or_why_sopa_is_a_bad_idea;year=2012;theme=media_that_matters;theme=master_storytellers;event=TEDSalon+NY2012;tag=Business;tag=Technology;tag=creativity;tag=media;tag=politics;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;" />
-<embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="526" height="374" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talk/stream/2012S/Blank/ClayShirky_2012S-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/ClayShirky_2012S-embed.jpg&vw=512&vh=288&ap=0&ti=1329&lang=en&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=defend_our_freedom_to_share_or_why_sopa_is_a_bad_idea;year=2012;theme=media_that_matters;theme=master_storytellers;event=TEDSalon+NY2012;tag=Business;tag=Technology;tag=creativity;tag=media;tag=politics;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;"></embed>
-</object>
+Clay Shirky: [Why SOPA is a bad idea](https://www.ted.com/talks/clay_shirky_why_sopa_is_a_bad_idea) (TED talk, 2012)
 
 <ul>
   <li>Paper of the <a href="https://www.eff.org/sites/default/files/One-Page-SOPA_0.pdf">Electronic Frontier Foundation</a> and <a href="https://www.eff.org/free-speech-weak-link">web page</a></li>

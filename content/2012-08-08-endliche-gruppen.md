@@ -25,7 +25,8 @@ Eine Gruppe $(A, \circ)$ müssen drei Eigenschaften erfüllen:
 </ul>
 
 Die Verknüpfungstafel für $G_1$ lautet:
-<table class="wikitable" style="width:300px">
+<table style="width:300px">
+    <thead>
   <tr>
     <th>+</th>
     <th>0</th>
@@ -33,6 +34,8 @@ Die Verknüpfungstafel für $G_1$ lautet:
     <th>2</th>
     <th>3</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>0</th>
     <td class="hintergrundfarbe9">0</td>
@@ -61,12 +64,14 @@ Die Verknüpfungstafel für $G_1$ lautet:
     <td>1</td>
     <td>2</td>
   </tr>
+    </tbody>
 </table>
 
 Man sieht direkt an der Tabelle, dass <strong>0</strong> das neutrale Element ist und jedes Element ein Inverses hat. Für die Assoziativität fällt mir nichts besseres ein, als die 64 Möglichkeiten alle auszuprobieren. Geht das kürzer?
 
 Die Verknüpfungstafel für $G_2$ lautet:
-<table class="wikitable" style="width:300px">
+<table style="width:300px">
+    <thead>
   <tr>
     <th>+</th>
     <th>(0,0)</th>
@@ -74,6 +79,8 @@ Die Verknüpfungstafel für $G_2$ lautet:
     <th>(1,0)</th>
     <th>(1,1)</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>(0,0)</th>
     <td class="hintergrundfarbe9">(0,0)</td>
@@ -102,6 +109,7 @@ Die Verknüpfungstafel für $G_2$ lautet:
     <td>(0,1)</td>
     <td class="hintergrundfarbe9">(0,0)</td>
   </tr>
+    </tbody>
 </table>
 
 Das neutrale Element ist hier also <strong>(0,0)</strong>.
@@ -110,7 +118,8 @@ Das neutrale Element ist hier also <strong>(0,0)</strong>.
 Hierfür ist es sehr hilfreich zu wissen, dass die Verknüpfungstafel einer Gruppe immer alle Elemente sowohl in jeder Spalte, als auch in jeder Zeile hat. Dann kann man es Sudoku-mäßig beweisen.
 
 Folgendes Skelett gilt immer:
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -118,6 +127,8 @@ Folgendes Skelett gilt immer:
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -146,14 +157,16 @@ Folgendes Skelett gilt immer:
     <td></td>
     <td></td>
   </tr>
+    </tbody>
 </table>
 
 <h4>#1: e auf (1,1)</h4>
 Wir haben nun folgende Tabelle:
-<table>
+<table class="transparent">
 <tr>
 <td>
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -161,6 +174,8 @@ Wir haben nun folgende Tabelle:
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -189,6 +204,7 @@ Wir haben nun folgende Tabelle:
     <td></td>
     <td></td>
   </tr>
+    </tbody>
 </table>
 </td>
 <td>
@@ -203,10 +219,11 @@ Wir haben nun folgende Tabelle:
 </table>
 
 <h4>#1.1: e auf (2,2)</h4>
-<table>
+<table class="transparent">
 <tr>
 <td>
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -214,6 +231,8 @@ Wir haben nun folgende Tabelle:
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -242,6 +261,7 @@ Wir haben nun folgende Tabelle:
     <td class="hintergrundfarbe8">a</td>
     <td class="hintergrundfarbe8">e</td>
   </tr>
+    </tbody>
 </table>
 </td>
 <td>
@@ -257,10 +277,11 @@ Wir haben nun folgende Tabelle:
 Diese Lösung entspricht $G_2$.
 
 <h4>#1.2: a auf (2, 2)</h4>
-<table>
+<table class="transparent">
 <tr>
 <td>
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -268,6 +289,8 @@ Diese Lösung entspricht $G_2$.
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -296,6 +319,7 @@ Diese Lösung entspricht $G_2$.
     <td class="hintergrundfarbe8">e</td>
     <td class="hintergrundfarbe8">a</td>
   </tr>
+    </tbody>
 </table>
 </td>
 <td>
@@ -316,10 +340,11 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
 </ol>
 
 <h4>#2: b auf (1, 1)</h4>
-<table>
+<table class="transparent">
 <tr>
 <td>
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -327,6 +352,8 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -355,6 +382,7 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
     <td class="hintergrundfarbe8">a</td>
     <td class="hintergrundfarbe8">b</td>
   </tr>
+    </tbody>
 </table>
 </td>
 <td>
@@ -375,10 +403,11 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
 Das entspricht wieder $G_1$.
 
 <h4>#3: c auf (1, 1)</h4>
-<table>
+<table class="transparent">
 <tr>
 <td>
-<table class="wikitable" style="width:250px">
+<table style="width:250px">
+    <thead>
   <tr>
     <th>+</th>
     <th>e</th>
@@ -386,6 +415,8 @@ Das entspricht wieder $G_1$.
     <th>b</th>
     <th>c</th>
   </tr>
+    </thead>
+    <tbody>
   <tr>
     <th>e</th>
     <td>e</td>
@@ -414,6 +445,7 @@ Das entspricht wieder $G_1$.
     <td class="hintergrundfarbe8">a</td>
     <td class="hintergrundfarbe8">e</td>
   </tr>
+    </tbody>
 </table>
 </td>
 <td>

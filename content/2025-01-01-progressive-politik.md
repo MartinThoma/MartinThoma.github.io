@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-09-07 20:00
 category: German posts
-tags: German Politics, Politics
+tags: Germany, Politics
 featured_image: logos/star.png
 status: draft
 ---
@@ -130,7 +130,7 @@ beschrieben.
 
 Der Bedarf an Pflegekräften steigt bis zum Jahr 2049 [...] auf 2,15 Millionen.
 Laut Pflegekräftevorausberechnung liegt die erwartete Zahl an Pflegekräften im
-Jahr 2049 zwischen 280000 und 690000 unter dem erwarteten Bedarf.[^5] Das umfasst sowohl
+Jahr 2049 zwischen 280.000 und 690.000 unter dem erwarteten Bedarf.[^5] Das umfasst sowohl
 Kranken- als auch Altenpflege. [Es fehlen voraussichtlich im]
 Projektionszeitraum 2022 bis 2040 jährlich rund 2.500 Köpfe (kumuliert rund
 50.000).[^6]

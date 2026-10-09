@@ -36,15 +36,15 @@ It is called "Civil Forfeiture":
 
 * [John Oliver: Mandatory Minimums](https://www.youtube.com/watch?v=pDVmldTurqk)
 * [John Oliver: Death Penalty](https://www.youtube.com/watch?v=Kye2oX-b39E) -
-  costly, they make faults
+  costly, and innocent people get executed
 * [John Oliver: Bail](https://www.youtube.com/watch?v=IS5mwymTIJU)
 * [John Oliver: Municipal Violations](https://www.youtube.com/watch?v=0UjpmT5noto)
 * [No Fly List](https://en.wikipedia.org/wiki/No_Fly_List)
 * [John Oliver: Torture](https://www.youtube.com/watch?v=zmeF2rzsZSU)
 * [Guantanamo Bay detention camp](https://en.wikipedia.org/wiki/Guantanamo_Bay_detention_camp)
 * [John Oliver: Elected Judges](https://www.youtube.com/watch?v=poL7l-Uk3I8)
-* [John Oliver: Public Defenders](https://www.youtube.com/watch?v=USkEzLuzmZ4)
-  - not having enough time to properly prepare
+* [John Oliver: Public Defenders](https://www.youtube.com/watch?v=USkEzLuzmZ4) -
+  not having enough time to properly prepare
 
 
 ## Democracy
@@ -82,7 +82,7 @@ with their vote. Namely:
 * [John Oliver: Native Advertising](https://www.youtube.com/watch?v=E_F5GxCwizc) - I think we have that problem in Germany, too (Apotheken Umschau, if I recall correctly)
 * [John Oliver: Student Debt](https://www.youtube.com/watch?v=P8pjd1QEA0c)
 * [John Oliver: Texas Republicans](https://www.youtube.com/watch?v=qgoypDIHKAQ).
-  Mary Lee Bruner on the Texas State Board of Education.
+  Mary Lou Bruner on the Texas State Board of Education.
 * Creationism (e.g. [Creation and evolution in public education in the United States](https://en.wikipedia.org/wiki/Creation_and_evolution_in_public_education_in_the_United_States))
 * [John Oliver: The Lottery](https://www.youtube.com/watch?v=9PK-netuhHA) -
   Cuts in education spending which should be filled by revenue from the lottery.

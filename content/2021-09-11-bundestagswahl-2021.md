@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
-tags: Politics, Bundestagswahl, German Politics
+tags: Politics, Bundestagswahl
 featured_image: logos/germany.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021)
@@ -240,21 +240,17 @@ Im [19. Deutschen Bundestag](https://de.wikipedia.org/wiki/19._Deutscher_Bundest
 
 In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 
-<style type="text/css">
-    .cdu {
-		background: black;
-		color: white;
-	}
-	.spd {
-		background: red;
-		color: white;
-	}
-	.fdp {
-		background: yellow;
-		color: black;
-	}
+<style>
+    /* Party colours as light tints that also work in dark mode; scoped so that the
+       zebra striping of the theme does not override them. */
+    .parteien .cdu-bg { background: color-mix(in srgb, #808080 22%, var(--surface)); }
+    .parteien .spd-bg { background: color-mix(in srgb, #e3000f 14%, var(--surface)); }
+    .parteien .green-bg { background: color-mix(in srgb, #1aa037 16%, var(--surface)); }
+    .parteien .fdp-bg { background: color-mix(in srgb, #ffcc00 24%, var(--surface)); }
+    .parteien .linke-bg { background: color-mix(in srgb, #be3075 14%, var(--surface)); }
+    .parteien tbody th[colspan] { padding-top: 0.9rem; border-top: 3px double var(--hairline-strong); }
 </style>
-<table>
+<table class="parteien">
 	<thead>
 	    <tr>
 	        <th>Minister</th>
@@ -266,116 +262,116 @@ In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 	</thead>
 	<tbody>
 	    <tr>
-	        <td class="cdu">Bundeskanzler</td>
-	        <td class="cdu">CDU (Merkel)</td>
-	        <td class="cdu">CDU (Merkel)</td>
-	        <td class="cdu">CDU (Merkel)</td>
-	        <td class="cdu">CDU (Merkel)</td>
+	        <th>Bundeskanzler</th>
+	        <td class="cdu-bg">CDU (Merkel)</td>
+	        <td class="cdu-bg">CDU (Merkel)</td>
+	        <td class="cdu-bg">CDU (Merkel)</td>
+	        <td class="cdu-bg">CDU (Merkel)</td>
 	    </tr>
 	    <tr>
-	        <td>Auswärtiges</td>
-	        <td class="spd">SPD (Steinmeier)</td>
-	        <td class="fdp">FDP (Westerwelle)</td>
-	        <td class="spd">SPD (Steinmeier&nbsp;/ Gabriel)</td>
-	        <td class="spd">SPD (Maas)</td>
+	        <th>Auswärtiges</th>
+	        <td class="spd-bg">SPD (Steinmeier)</td>
+	        <td class="fdp-bg">FDP (Westerwelle)</td>
+	        <td class="spd-bg">SPD (Steinmeier&nbsp;/ Gabriel)</td>
+	        <td class="spd-bg">SPD (Maas)</td>
 	    </tr>
 	    <tr>
-	        <td class="cdu">Inneres</td>
-	        <td class="cdu">CDU (Schäuble)</td>
-	        <td class="cdu">CDU (Maizi&egrave;re) / CSU (Friedrich)</td>
-	        <td class="cdu">CDU (Maizi&egrave;re)</td>
-	        <td class="cdu">CSU (Seehofer)</td>
+	        <th>Inneres</th>
+	        <td class="cdu-bg">CDU (Schäuble)</td>
+	        <td class="cdu-bg">CDU (Maizi&egrave;re) / CSU (Friedrich)</td>
+	        <td class="cdu-bg">CDU (Maizi&egrave;re)</td>
+	        <td class="cdu-bg">CSU (Seehofer)</td>
 	    </tr>
 	    <tr>
-	        <td>Justiz<br/>seit 2013 auch&nbsp;Verbraucherschutz</td>
-	        <td class="spd">SPD (Zypries)</td>
-	        <td class="fdp">FDP (Leutheusser-Schnarrenberger)</td>
-	        <td class="spd">SPD (Maas)</td>
-	        <td class="spd">SPD (Barley /&nbsp;Lambrecht)</td>
+	        <th>Justiz<br/>seit 2013 auch&nbsp;Verbraucherschutz</th>
+	        <td class="spd-bg">SPD (Zypries)</td>
+	        <td class="fdp-bg">FDP (Leutheusser-Schnarrenberger)</td>
+	        <td class="spd-bg">SPD (Maas)</td>
+	        <td class="spd-bg">SPD (Barley /&nbsp;Lambrecht)</td>
 	    </tr>
 	    <tr>
-	        <td>Finanzen</td>
-	        <td class="spd">SPD (Steinbrück)</td>
-	        <td class="cdu">CDU (Schäuble)</td>
-	        <td class="cdu">CDU (Schäuble, Altmaier)</td>
-	        <td class="spd">SPD (Scholz)</td>
+	        <th>Finanzen</th>
+	        <td class="spd-bg">SPD (Steinbrück)</td>
+	        <td class="cdu-bg">CDU (Schäuble)</td>
+	        <td class="cdu-bg">CDU (Schäuble, Altmaier)</td>
+	        <td class="spd-bg">SPD (Scholz)</td>
 	    </tr>
 	    <tr>
-	        <td>Wirtschaft und Technologie<br/>seit 2013 Wirtschaft und Energie</td>
-	        <td class="cdu">CDU (Glos&nbsp;/&nbsp;Guttenberg)</td>
-	        <td class="fdp">FDP (Brüderle, Rösler)</td>
-	        <td class="spd">SPD (Gabriel, Zypries)</td>
-	        <td class="cdu">CDU (Altmaier)</td>
+	        <th>Wirtschaft und Technologie<br/>seit 2013 Wirtschaft und Energie</th>
+	        <td class="cdu-bg">CDU (Glos&nbsp;/&nbsp;Guttenberg)</td>
+	        <td class="fdp-bg">FDP (Brüderle, Rösler)</td>
+	        <td class="spd-bg">SPD (Gabriel, Zypries)</td>
+	        <td class="cdu-bg">CDU (Altmaier)</td>
 	    </tr>
 	    <tr>
-	        <td>Arbeit und Soziales</td>
-	        <td class="spd">SPD (Müntefering&nbsp;/ Scholz)</td>
-	        <td class="cdu">CDU (Jung,&nbsp;von der Leyen)</td>
-	        <td class="spd">SPD (Nahles /&nbsp;Barley)</td>
-	        <td class="spd">SPD (Heil)</td>
+	        <th>Arbeit und Soziales</th>
+	        <td class="spd-bg">SPD (Müntefering&nbsp;/ Scholz)</td>
+	        <td class="cdu-bg">CDU (Jung,&nbsp;von der Leyen)</td>
+	        <td class="spd-bg">SPD (Nahles /&nbsp;Barley)</td>
+	        <td class="spd-bg">SPD (Heil)</td>
 	    </tr>
 	    <tr>
-	        <td class="cdu">Ernährung, Landwirtschaft und Verbraucherschutz<br/>seit 2013: Ernährung und Landwirtschaft</td>
-	        <td class="cdu">CSU (Seehofer&nbsp;/ Aigner)</td>
-	        <td class="cdu">CSU (Aigner,&nbsp;Friedrich)</td>
-	        <td class="cdu">CSU (Friedrich / Schmidt)</td>
-	        <td class="cdu">CDU (Klöckner)</td>
+	        <th>Ernährung, Landwirtschaft und Verbraucherschutz<br/>seit 2013: Ernährung und Landwirtschaft</th>
+	        <td class="cdu-bg">CSU (Seehofer&nbsp;/ Aigner)</td>
+	        <td class="cdu-bg">CSU (Aigner,&nbsp;Friedrich)</td>
+	        <td class="cdu-bg">CSU (Friedrich / Schmidt)</td>
+	        <td class="cdu-bg">CDU (Klöckner)</td>
 	    </tr>
 	    <tr>
-	        <td class="cdu">Verteidigung</td>
-	        <td class="cdu">CSU (Jung)</td>
-	        <td class="cdu">CSU (zu Guttenberg, de Maizi&egrave;re)</td>
-	        <td class="cdu">CDU (von der Leyen)</td>
-	        <td class="cdu">CDU (von der Leyen,&nbsp;Kramp-Karrenbauer)</td>
+	        <th>Verteidigung</th>
+	        <td class="cdu-bg">CSU (Jung)</td>
+	        <td class="cdu-bg">CSU (zu Guttenberg, de Maizi&egrave;re)</td>
+	        <td class="cdu-bg">CDU (von der Leyen)</td>
+	        <td class="cdu-bg">CDU (von der Leyen,&nbsp;Kramp-Karrenbauer)</td>
 	    </tr>
 	    <tr>
-	        <td>Familie, Senioren, Frauen und Jugend</td>
-	        <td class="cdu">CDU (Kues)</td>
-	        <td class="cdu">CDU (von der Leyen, Schröder)</td>
-	        <td class="spd">SPD (Schwesig, Barley)</td>
-	        <td class="spd">SPD (Giffey, Lambrecht)</td>
+	        <th>Familie, Senioren, Frauen und Jugend</th>
+	        <td class="cdu-bg">CDU (von der Leyen)</td>
+	        <td class="cdu-bg">CDU (von der Leyen, Schröder)</td>
+	        <td class="spd-bg">SPD (Schwesig, Barley)</td>
+	        <td class="spd-bg">SPD (Giffey, Lambrecht)</td>
 	    </tr>
 	    <tr>
-	        <td>Gesundheit</td>
-	        <td class="spd">SPD (Schmidt)</td>
-	        <td class="fdp">FDP (Rösler, Bahr)</td>
-	        <td class="cdu">CDU (Gröhe)</td>
-	        <td class="cdu">CDU (Spahn)</td>
+	        <th>Gesundheit</th>
+	        <td class="spd-bg">SPD (Schmidt)</td>
+	        <td class="fdp-bg">FDP (Rösler, Bahr)</td>
+	        <td class="cdu-bg">CDU (Gröhe)</td>
+	        <td class="cdu-bg">CDU (Spahn)</td>
 	    </tr>
 	    <tr>
-	        <td>Verkehr, Bau und Stadtentwicklung<br/>seit 2013:&nbsp;Verkehr und digitale Infrastruktur</td>
-	        <td class="spd">SPD (Tiefensee)</td>
-	        <td class="cdu">CSU (Ramsauer)</td>
-	        <td class="cdu">CSU (Dobrindt,&nbsp;Schmidt)</td>
-	        <td class="cdu">CSU (Scheuer)</td>
+	        <th>Verkehr, Bau und Stadtentwicklung<br/>seit 2013:&nbsp;Verkehr und digitale Infrastruktur</th>
+	        <td class="spd-bg">SPD (Tiefensee)</td>
+	        <td class="cdu-bg">CSU (Ramsauer)</td>
+	        <td class="cdu-bg">CSU (Dobrindt,&nbsp;Schmidt)</td>
+	        <td class="cdu-bg">CSU (Scheuer)</td>
 	    </tr>
 	    <tr>
-	        <td>Umwelt, Naturschutz und Reaktorsicherheit<br/>Seit 2013:&nbsp;Umwelt, Naturschutz, Bau und Reaktorsicherheit<br/>Seit 2018:&nbsp;Umwelt, Naturschutz und nukleare Sicherheit</td>
-	        <td class="spd">SPD (Gabriel)</td>
-	        <td class="cdu">CDU (Röttgen, Altmaier)</td>
-	        <td class="spd">SPD (Hendricks)</td>
-	        <td class="spd">SPD (Schulze)</td>
+	        <th>Umwelt, Naturschutz und Reaktorsicherheit<br/>Seit 2013:&nbsp;Umwelt, Naturschutz, Bau und Reaktorsicherheit<br/>Seit 2018:&nbsp;Umwelt, Naturschutz und nukleare Sicherheit</th>
+	        <td class="spd-bg">SPD (Gabriel)</td>
+	        <td class="cdu-bg">CDU (Röttgen, Altmaier)</td>
+	        <td class="spd-bg">SPD (Hendricks)</td>
+	        <td class="spd-bg">SPD (Schulze)</td>
 	    </tr>
 	    <tr>
-	        <td class="cdu">Bildung und Forschung</td>
-	        <td class="cdu">CDU (Schavan)</td>
-	        <td class="cdu">CDU (Schavan,&nbsp;Wanka)</td>
-	        <td class="cdu">CDU (Wanka)</td>
-	        <td class="cdu">CDU (Karliczek)</td>
+	        <th>Bildung und Forschung</th>
+	        <td class="cdu-bg">CDU (Schavan)</td>
+	        <td class="cdu-bg">CDU (Schavan,&nbsp;Wanka)</td>
+	        <td class="cdu-bg">CDU (Wanka)</td>
+	        <td class="cdu-bg">CDU (Karliczek)</td>
 	    </tr>
 	    <tr>
-	        <td>Wirtschaftliche Zusammenarbeit und Entwicklung</td>
-	        <td class="spd">SPD (Wieczorek-Zeul)</td>
-	        <td class="fdp">FDP (Niebel)</td>
-	        <td class="cdu">CSU (Müller)</td>
-	        <td class="cdu">CSU (Müller)</td>
+	        <th>Wirtschaftliche Zusammenarbeit und Entwicklung</th>
+	        <td class="spd-bg">SPD (Wieczorek-Zeul)</td>
+	        <td class="fdp-bg">FDP (Niebel)</td>
+	        <td class="cdu-bg">CSU (Müller)</td>
+	        <td class="cdu-bg">CSU (Müller)</td>
 	    </tr>
 	    <tr>
-	        <td class="cdu">Bundesminister für besondere Aufgaben</td>
-	        <td class="cdu">CDU (Maizi&egrave;re)</td>
-	        <td class="cdu">CDU (Pofalla)</td>
-	        <td class="cdu">CDU (Altmaier)</td>
-	        <td class="cdu">CDU (Braun)</td>
+	        <th>Bundesminister für besondere Aufgaben</th>
+	        <td class="cdu-bg">CDU (Maizi&egrave;re)</td>
+	        <td class="cdu-bg">CDU (Pofalla)</td>
+	        <td class="cdu-bg">CDU (Altmaier)</td>
+	        <td class="cdu-bg">CDU (Braun)</td>
 	    </tr>
 	</tbody>
 </table>
@@ -385,31 +381,12 @@ Interessante Oppositionsarbeit hat zusätzlich noch [Die PARTEI](https://de.wiki
 
 Im Folgenden will ich nun für die genannten Themen sehen, was die Parteien planen und wie sie sich bisher in der Vergangenheit geschlagen haben.
 
-Die Parlamentarier bezeichne ich im Folgenden als MdB - Mitglied des deutschen Bundestags.
+Die Parlamentarier bezeichne ich im Folgenden als MdB - Mitglied des Deutschen Bundestages.
 
 Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
 
-<style type="text/css">
-  .green-bg {
-	  background-color: #C9F6C6;
-  }
-  .spd-bg {
-	  background-color: #F6C6C6;
-  }
-  .cdu-bg {
-	  background-color: #cdcdcd;
-  }
-  .fdp-bg {
-	  background-color: #F6F1C6;
-  }
-  .linke-bg {
-	  background-color: #F2CCEF;
-  }
-  .border-bottom {
-	  border-bottom: 4px double black;
-  }
-</style>
-<table>
+<table class="parteien">
+    <thead>
     <tr>
         <th></th>
         <th class="cdu-bg">CDU/CSU</th>
@@ -418,8 +395,13 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <th class="fdp-bg">FDP</th>
         <th class="linke-bg">LINKE</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>Wahlprogramm</td>
+        <th colspan="6">Partei und Fraktion</th>
+    </tr>
+    <tr>
+        <th>Wahlprogramm</th>
         <td class="cdu-bg"><a href="https://www.abgeordnetenwatch.de/sites/default/files/election-program-files/CDU-CSU_Wahlprogramm_BTW2021.pdf">140 Seiten</a></td>
         <td class="spd-bg"><a href="https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/SPD-Zukunftsprogramm.pdf">66 Seiten</a></td>
         <td class="green-bg"><a href="https://cms.gruene.de/uploads/documents/Wahlprogramm-DIE-GRUENEN-Bundestagswahl-2021_barrierefrei.pdf">272 Seiten</a></td>
@@ -427,7 +409,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg"><a href="https://www.die-linke.de/fileadmin/download/wahlen2021/Wahlprogramm/DIE_LINKE_Wahlprogramm_zur_Bundestagswahl_2021.pdf">168 Seiten</a></td>
     </tr>
     <tr>
-        <td>Mitgliedsalter[^13]</td>
+        <th>Mitgliedsalter[^13]</th>
         <td class="cdu-bg">61</td>
         <td class="spd-bg">60</td>
         <td class="green-bg">48</td>
@@ -435,7 +417,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">55</td>
     </tr>
     <tr>
-        <td>Mitglieder</td>
+        <th>Mitglieder</th>
         <td class="cdu-bg">399.110/140.876</td>
         <td class="spd-bg">419.300</td>
         <td class="green-bg">120.000</td>
@@ -443,7 +425,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">60.350</td>
     </tr>
     <tr>
-        <td>Mitgliedsbeiträge (pro Monat)</td>
+        <th>Mitgliedsbeiträge (pro Monat)</th>
         <td class="cdu-bg">
             <a href="https://www.cdu.de/mitglied-werden">Nach Brutto-Einkommen</a>:<br/>
         - mindestens 6&nbsp;EUR<br/>
@@ -476,7 +458,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
     </tr>
     <tr>
-        <td>MdB Durchschnittsalter[^14]</td>
+        <th>MdB Durchschnittsalter[^14]</th>
         <td class="cdu-bg">50,0&nbsp;</td>
         <td class="spd-bg">50,5&nbsp;</td>
         <td class="green-bg">47,0</td>
@@ -484,15 +466,20 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">50,0&nbsp;</td>
     </tr>
     <tr>
-        <td class="border-bottom">MdB Frauenanteil[^15]</td>
-        <td class="cdu-bg border-bottom">21%</td>
-        <td class="spd-bg border-bottom">44%</td>
-        <td class="green-bg border-bottom">57%</td>
-        <td class="fdp-bg border-bottom">24%</td>
-        <td class="linke-bg border-bottom">54%</td>
+        <th>MdB Frauenanteil[^15]</th>
+        <td class="cdu-bg">21%</td>
+        <td class="spd-bg">44%</td>
+        <td class="green-bg">57%</td>
+        <td class="fdp-bg">24%</td>
+        <td class="linke-bg">54%</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Klimakrise</th>
     </tr>
     <tr>
-        <th>Klimakrise</th>
+        <th>Kernpunkte</th>
         <td class="cdu-bg">- Sie wollen Emissionshandel<br/>- Senkung der Strompreise</td>
         <td class="spd-bg">- Bis 2040: Strom vollständig aus erneuerbaren Energien (2020 waren es 45%)<br/>- CO<sub>2</sub>-Bepreisung<br/>- Modernisierung der Bahn<br/>- Elektro attraktiver machen (inkl. Wasserstoff)</td>
         <td class="green-bg">- Energiegeld<br/>- Reduzierter Steuersatz für pflanzliche Milch-Alternativen</td>
@@ -500,15 +487,15 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">- Lufthansa + DB werden zusammengelegt</td>
     </tr>
     <tr>
-        <td>Angestrebte Klimaneutralität</td>
+        <th>Angestrebte Klimaneutralität</th>
         <td class="cdu-bg">bis 2045</td>
         <td class="spd-bg">bis 2045</td>
         <td class="green-bg">bis 2035</td>
         <td class="fdp-bg">bis 2050</td>
         <td class="linke-bg">bis 2035</td>
     </tr>
-	<tr>
-        <td><a href="https://de.wikipedia.org/wiki/Kohleausstieg#Deutschland">Kohleausstieg</a></td>
+    <tr>
+        <th><a href="https://de.wikipedia.org/wiki/Kohleausstieg#Deutschland">Kohleausstieg</a></th>
         <td class="cdu-bg"><a href="https://archiv.cdu.de/artikel/der-weg-aus-der-kohle-einigung-zum-kohleausstieg-steht">2038</a></td>
         <td class="spd-bg"><a href="https://www.spd.de/aktuelles/kohleausstieg/">2038</a></td>
         <td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/kohleausstieg">2030</a></td>
@@ -516,15 +503,15 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/kohleausstieg/">2030</a></td>
     </tr>
     <tr>
-        <td>EU-ETS (Emissionshandel) verbessern</td>
+        <th>EU-ETS (Emissionshandel) verbessern</th>
         <td class="cdu-bg">- Emissionshandel auf den Verkehrs- und Wärmesektor ausweiten</td>
         <td class="spd-bg">?</td>
         <td class="green-bg">- deutliche Reduktion von Emissionszertifikaten</td>
         <td class="fdp-bg">- Emissionshandel auf alle Emissionen ausweiten</td>
         <td class="linke-bg">❌</td>
     </tr>
-	<tr>
-        <td>Bis 2030</td>
+    <tr>
+        <th>Bis 2030</th>
         <td class="cdu-bg">CO<sub>2</sub>-Ausstoß um 65% reduziert</td>
         <td class="spd-bg"></td>
         <td class="green-bg">bis: CO<sub>2</sub>-Ausstoß um 70% reduzieren<br/>ab: nur emissionsfreie Autos zulassen</td>
@@ -532,23 +519,23 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">ab: Keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
     </tr>
     <tr>
-        <td>Verbrennungsmotoren verbieten</td>
+        <th>Verbrennungsmotoren verbieten</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">?</td>
         <td class="green-bg">ab 2030 keine Zulassung von Autos mit Verbrennungsmotoren</td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg">ab 2030 keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
     </tr>
-	<tr>
-        <td>Tempolimit[^16]</td>
+    <tr>
+        <th>Tempolimit[^16]</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">130km/h</td>
         <td class="green-bg">130km/h</td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/verkehrspolitik/">120km/h</a></td>
     </tr>
-	<tr>
-        <td>Dieselsubvention beenden[^17]</td>
+    <tr>
+        <th>Dieselsubvention beenden[^17]</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">?</td>
         <td class="green-bg">✅</td>
@@ -556,15 +543,15 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">✅</td>
     </tr>
     <tr>
-        <td>Förderung von Wasserstoff-PKWs<br>(Das ist <b>nicht</b> sinnvoll[^18][^19][^20]!)</td>
+        <th>Förderung von Wasserstoff-PKWs<br>(Das ist <b>nicht</b> sinnvoll[^18][^19][^20]!)</th>
         <td class="cdu-bg">✅</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">❌</td>
         <td class="fdp-bg">✅</td>
         <td class="linke-bg">❌</td>
     </tr>
-	<tr>
-        <td><a href="https://www.abgeordnetenwatch.de/bundestag/17/abstimmungen/atomausstieg-bis-2022">Atomausstieg bis 2022</a></td>
+    <tr>
+        <th><a href="https://www.abgeordnetenwatch.de/bundestag/17/abstimmungen/atomausstieg-bis-2022">Atomausstieg bis 2022</a></th>
         <td class="cdu-bg">✅</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">✅</td>
@@ -572,23 +559,28 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">❌</td>
     </tr>
     <tr>
-        <td><a href="https://www.bundestag.de/dokumente/textarchiv/2020/kw38-de-nord-stream-2-792670">Nord Stream 2</a></td>
+        <th><a href="https://www.bundestag.de/dokumente/textarchiv/2020/kw38-de-nord-stream-2-792670">Nord Stream 2</a></th>
         <td class="cdu-bg">✅</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">❌</td>
         <td class="fdp-bg"><a href="https://www.fdp.de/bei-nord-stream-2-muss-es-jetzt-ein-moratorium-geben">?</a></td>
         <td class="linke-bg"><a href="https://www.linksfraktion.de/presse/pressemitteilungen/detail/weg-fuer-nord-stream-2-ist-frei/">✅</a></td>
     </tr>
-	<tr>
-        <td class="border-bottom">Weiteres zur Klimakrise</td>
-        <td class="cdu-bg border-bottom">- <a href="https://www.bund-naturschutz.de/pressemitteilungen/fuenf-jahre-10-h-regelung-gegen-die-windenergie-in-bayern">10H-Regelung</a> verhindert neue Windkrafträder in Bayern</td>
-        <td class="spd-bg border-bottom"></td>
-        <td class="green-bg border-bottom"></td>
-        <td class="fdp-bg border-bottom"></td>
-        <td class="linke-bg border-bottom"></td>
+    <tr>
+        <th>Weiteres zur Klimakrise</th>
+        <td class="cdu-bg">- <a href="https://www.bund-naturschutz.de/pressemitteilungen/fuenf-jahre-10-h-regelung-gegen-die-windenergie-in-bayern">10H-Regelung</a> verhindert neue Windkrafträder in Bayern</td>
+        <td class="spd-bg"></td>
+        <td class="green-bg"></td>
+        <td class="fdp-bg"></td>
+        <td class="linke-bg"></td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Wohnen</th>
     </tr>
     <tr>
-        <th class="">Wohnen</th>
+        <th>Kernpunkte</th>
         <td class="cdu-bg"></td>
         <td class="spd-bg">
             - Zeitlich begrenztes "Mietenmoratorium" in angespannten Wohnlagen
@@ -610,7 +602,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
     </tr>
     <tr>
-        <td class="">Sozialwohnungen</td>
+        <th>Sozialwohnungen</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">
         - Einführung einer "neue[n] Wohnungsgemeinnützigkeit" (was auch immer das bedeutet)
@@ -626,32 +618,42 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
     </tr>
     <tr>
-        <td class="border-bottom">Mietpreisbremse / <a href="https://de.wikipedia.org/wiki/Mietendeckel">Mietendeckel</a></td>
-        <td class="cdu-bg border-bottom">❌</td>
-        <td class="spd-bg border-bottom">✅ Mietpreisbremse in Inflationshöhe</td>
-        <td class="green-bg border-bottom">✅ Mietpreisbremse (Ausnahmen beim möblierten Wohnen werden abgeschafft)</td>
-        <td class="fdp-bg border-bottom"><a href="https://www.fdp.de/mietendeckel-ist-ideologischer-populismus-auf-kosten-der-mieter">❌ Mietendeckel
+        <th>Mietpreisbremse / <a href="https://de.wikipedia.org/wiki/Mietendeckel">Mietendeckel</a></th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">✅ Mietpreisbremse in Inflationshöhe</td>
+        <td class="green-bg">✅ Mietpreisbremse (Ausnahmen beim möblierten Wohnen werden abgeschafft)</td>
+        <td class="fdp-bg"><a href="https://www.fdp.de/mietendeckel-ist-ideologischer-populismus-auf-kosten-der-mieter">❌ Mietendeckel
 abschaffen</a></td>
-        <td class="linke-bg border-bottom">✅ Mietendeckel überall in Deutschland</td>
+        <td class="linke-bg">✅ Mietendeckel überall in Deutschland</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Rente</th>
     </tr>
     <tr>
-        <th>Rente</th>
+        <th>Kernpunkte</th>
         <td class="cdu-bg"></td>
         <td class="spd-bg">- Beamte sollen in Rentenkasse einzahlen müssen</td>
         <td class="green-bg"></td>
         <td class="fdp-bg"></td>
         <td class="linke-bg">- min. 1200 EUR/Monat</td>
     </tr>
-	<tr>
-		<td class="border-bottom">Kapitalgedeckte Altersvorsorge</td>
-		<td class="cdu-bg border-bottom"><a href="https://www.tagesschau.de/inland/btw21/programmvergleich-rente-107.html">✅</a></td>
-		<td class="spd-bg border-bottom"><a href="https://www.spd-wirtschaftsforum.de/presse/finanzen_kapitalmarkt_riesterrente-20201002-2/">~</a></td>
-		<td class="green-bg border-bottom"><a href="https://www.gruene.de/themen/rente">~</a></td>
-		<td class="fdp-bg border-bottom"><a href="https://www.fdp.de/position/rente-altersvorsorge">✅</a></td>
-		<td class="linke-bg border-bottom"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/altersvorsorge/">❌</a></td>
-	</tr>
     <tr>
-        <th>Mittelschicht</th>
+        <th>Kapitalgedeckte Altersvorsorge</th>
+        <td class="cdu-bg"><a href="https://www.tagesschau.de/inland/btw21/programmvergleich-rente-107.html">✅</a></td>
+        <td class="spd-bg"><a href="https://www.spd-wirtschaftsforum.de/presse/finanzen_kapitalmarkt_riesterrente-20201002-2/">~</a></td>
+        <td class="green-bg"><a href="https://www.gruene.de/themen/rente">~</a></td>
+        <td class="fdp-bg"><a href="https://www.fdp.de/position/rente-altersvorsorge">✅</a></td>
+        <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/altersvorsorge/">❌</a></td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Mittelschicht</th>
+    </tr>
+    <tr>
+        <th>Kernpunkte</th>
         <td class="cdu-bg">- Höhere Grenze für Mini-Jobs</td>
         <td class="spd-bg"></td>
         <td class="green-bg"></td>
@@ -659,15 +661,15 @@ abschaffen</a></td>
         <td class="linke-bg">- 1200 EUR/Monat Steuerfreibetrag</td>
     </tr>
     <tr>
-        <td>Mindestlohn[^21]<br/>Aktuell: 10,45 Euro/h</td>
+        <th>Mindestlohn[^21]<br/>Aktuell: 9,60 Euro/h<br/>(ab Juli 2022: 10,45 Euro/h)</th>
         <td class="cdu-bg">10,45 Euro/h</td>
         <td class="spd-bg">12,00 EUR/h</td>
         <td class="green-bg">12,00 EUR/h</td>
         <td class="fdp-bg">10,45 Euro/h</td>
         <td class="linke-bg">13,00 EUR/h</td>
     </tr>
-	<tr>
-        <td>Entlastung bei 40k €/Jahr (brutto)[^22]</td>
+    <tr>
+        <th>Entlastung bei 40k €/Jahr (brutto)[^22]</th>
         <td class="cdu-bg">920 €</td>
         <td class="spd-bg">460 €</td>
         <td class="green-bg">970 €</td>
@@ -675,7 +677,7 @@ abschaffen</a></td>
         <td class="linke-bg">2940 €</td>
     </tr>
     <tr>
-        <td><a href="https://www.waz.de/politik/hartz-4-reform-jobcenter-bundestagswahl-cdu-csu-gruene-spd-id232347739.html">Hartz IV</a></td>
+        <th><a href="https://www.waz.de/politik/hartz-4-reform-jobcenter-bundestagswahl-cdu-csu-gruene-spd-id232347739.html">Hartz IV</a></th>
         <td class="cdu-bg">-</td>
         <td class="spd-bg">Bürgergeld ersetzt Hartz IV</td>
         <td class="green-bg">Grundsicherung ersetzt Hartz IV</td>
@@ -683,39 +685,44 @@ abschaffen</a></td>
         <td class="linke-bg"><a href="https://www.die-linke.de/themen/soziale-sicherheit/">Mindestsicherung von 1200 EUR</a> ersetzt Hartz IV</td>
     </tr>
     <tr>
-        <td class="border-bottom">Bürgerversicherung</td>
-        <td class="cdu-bg border-bottom">❌</td>
-        <td class="spd-bg border-bottom">✅</td>
-        <td class="green-bg border-bottom">✅</td>
-        <td class="fdp-bg border-bottom">❌</td>
-        <td class="linke-bg border-bottom">✅</td>
+        <th>Bürgerversicherung</th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Staatshaushalt und Steuern</th>
     </tr>
     <tr>
-        <th>Staatshaushalt</th>
+        <th>Kernpunkte</th>
         <td class="cdu-bg">- Entlastung für hohe Einkommen</td>
         <td class="spd-bg">- 250.000 EUR: +3% Einkommensteuer</td>
         <td class="green-bg">- Anhebung des Freibetrags</td>
         <td class="fdp-bg">- Maximale Abgabenquote von 40%<br/>- Abschaffung der Gewerbesteuer<br/>- Privatisierung von Post und Telekom (bzw. Beteiligungen abgeben)</td>
         <td class="linke-bg">- Schuldenbremse streichen</td>
     </tr>
-	<tr>
-        <td>Vermögenssteuer</td>
+    <tr>
+        <th>Vermögenssteuer</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">ab 2 Mio EUR</td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg">ab 2 Mio EUR 10% - 30% über viele Jahre</td>
     </tr>
-	<tr>
-        <td>Spitzensteuersatz<br/>57.052 EUR/Jahr (brutto) bei 42%</td>
+    <tr>
+        <th>Spitzensteuersatz<br/>57.052 EUR/Jahr (brutto) bei 42%</th>
         <td class="cdu-bg">-</td>
         <td class="spd-bg">-</td>
         <td class="green-bg">ab 100.000 EUR/Jahr (brutto) auf 48%</td>
         <td class="fdp-bg">Spitzensteuersatz ab 90.000 EUR Einkommen auf 48%</td>
         <td class="linke-bg">ab 76.000 EUR/Jahr (brutto) auf 53%[^23]</td>
     </tr>
-	<tr>
-        <td>Erbschaftsteuer</td>
+    <tr>
+        <th>Erbschaftsteuer</th>
         <td class="cdu-bg">(keine Änderung)</td>
         <td class="spd-bg">Erbschaftsteuer erhöhen</td>
         <td class="green-bg">(keine Änderung)</td>
@@ -723,13 +730,18 @@ abschaffen</a></td>
         <td class="linke-bg">Freibetrag: 150.000 EUR - 300.000 EUR<br/>
                              Spitzensteuersatz: 60%[^24]</td>
     </tr>
-	<tr>
-        <td class="border-bottom"><a href="https://www.abgeordnetenwatch.de/bundestag/19/abstimmungen/abschaffung-des-solidaritaetszuschlags">Soli abschaffen</a></td>
-        <td class="cdu-bg border-bottom">✅</td>
-        <td class="spd-bg border-bottom">❌</td>
-        <td class="green-bg border-bottom">❌</td>
-        <td class="fdp-bg border-bottom">✅</td>
-        <td class="linke-bg border-bottom">❌</td>
+    <tr>
+        <th><a href="https://www.abgeordnetenwatch.de/bundestag/19/abstimmungen/abschaffung-des-solidaritaetszuschlags">Soli abschaffen</a></th>
+        <td class="cdu-bg">✅</td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg">❌</td>
+        <td class="fdp-bg">✅</td>
+        <td class="linke-bg">❌</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Korruption und Transparenz</th>
     </tr>
     <tr>
         <th>Korruption bekämpfen</th>
@@ -747,7 +759,7 @@ abschaffen</a></td>
         </td>
     </tr>
     <tr>
-        <td class=""><a href="https://www.bundestag.de/presse/hib/796052-796052">Legislative Fußspur</a></td>
+        <th><a href="https://www.bundestag.de/presse/hib/796052-796052">Legislative Fußspur</a></th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">✅</td>
         <td class="green-bg">✅</td>
@@ -755,7 +767,7 @@ abschaffen</a></td>
         <td class="linke-bg">✅</td>
     </tr>
     <tr>
-        <td class=""><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Parteispenden von Unternehmen/Verbänden verbieten</a>[^25]</td>
+        <th><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Parteispenden von Unternehmen/Verbänden verbieten</a>[^25]</th>
         <td class="cdu-bg"><a href="https://www.tagesschau.de/inland/parteien-spenden-101.html">❌</a></td>
         <td class="spd-bg">❌</td>
         <td class="green-bg">✅</td>
@@ -763,7 +775,7 @@ abschaffen</a></td>
         <td class="linke-bg">✅</td>
     </tr>
     <tr>
-        <td class=""><a href="https://www.bundestag.de/webarchiv/textarchiv/2010/28618246_kw06_de_parteispenden-200920">Parteispenden von natürlichen Personen begrenzen</a></td>
+        <th><a href="https://www.bundestag.de/webarchiv/textarchiv/2010/28618246_kw06_de_parteispenden-200920">Parteispenden von natürlichen Personen begrenzen</a></th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">~</td>
         <td class="green-bg">100.000 EUR</td>
@@ -771,23 +783,55 @@ abschaffen</a></td>
         <td class="linke-bg">25.000 EUR</td>
     </tr>
     <tr>
-        <td class="">Abgeordnetenbestechung: Schärfere Regeln was als Bestechung zählt</td>
+        <th>Abgeordnetenbestechung: Schärfere Regeln was als Bestechung zählt</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">❌</td>
         <td class="green-bg">✅</td>
         <td class="fdp-bg">?</td>
         <td class="linke-bg">✅</td>
     </tr>
-	<tr>
-		<td>Whistleblower-Schutz</td>
-		<td class="cdu-bg">❌</td>
-		<td class="spd-bg">❌</td>
-		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/rechtspolitik/eu-whistleblower-richtlinie-umfassend-umsetzen">✅</a></td>
-		<td class="fdp-bg"><a href="https://www.fdp.de/forderung/besserer-schutz-von-whistleblowern">✅</a></td>
-		<td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/whistleblowing/">✅</a></td>
-	</tr>
     <tr>
-        <td><a href="https://de.wikipedia.org/wiki/Liste_von_Korruptionsaff%C3%A4ren_um_Politiker_in_der_Bundesrepublik_Deutschland">Korruptionsskandale</a> der letzten 4 Jahre</td>
+        <th>Whistleblower-Schutz</th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/rechtspolitik/eu-whistleblower-richtlinie-umfassend-umsetzen">✅</a></td>
+        <td class="fdp-bg"><a href="https://www.fdp.de/forderung/besserer-schutz-von-whistleblowern">✅</a></td>
+        <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/whistleblowing/">✅</a></td>
+    </tr>
+    <tr>
+        <th>Unabhängige Prüfinstanz für Abgeordneten- und Lobbytransparenz[^25]</th>
+        <td class="cdu-bg">✅</td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <th>Effektives Lobbyregister[^25]</th>
+        <td class="cdu-bg">✅</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <th>Einkünfte und Ausgaben als Abgeordnete:r[^25]</th>
+        <td class="cdu-bg">✅</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <th>Lobbykontakte der Abgeordneten[^25]</th>
+        <td class="cdu-bg">~</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">❌</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <th><a href="https://de.wikipedia.org/wiki/Liste_von_Korruptionsaff%C3%A4ren_um_Politiker_in_der_Bundesrepublik_Deutschland">Korruptionsskandale</a> der letzten 4 Jahre</th>
         <td class="cdu-bg">
             <ol>
                 <li><a href="https://de.wikipedia.org/wiki/Maskenaff%C3%A4re">Maskenaffäre</a></li>
@@ -809,7 +853,7 @@ abschaffen</a></td>
         <td class="linke-bg">keine</td>
     </tr>
     <tr>
-        <td>Top-Spender<br/>(bis 200k EUR)</td>
+        <th>Top-Spender<br/>(bis 200k EUR)</th>
         <td class="cdu-bg">
             <a href="https://lobbypedia.de/wiki/CDU">2014-2018 (CDU)</a>:
             <ul>
@@ -850,8 +894,8 @@ abschaffen</a></td>
         <td class="linke-bg"><a href="https://lobbypedia.de/wiki/Die_Linke">keine über 200k</a></td>
     </tr>
     <tr>
-        <td class="border-bottom">"Erstaunlich" hohe <a href="https://de.wikipedia.org/wiki/Liste_der_Nebeneink%C3%BCnfte_der_Mitglieder_des_Bundestags_in_der_19._Wahlperiode">Nebeneinkünfte</a> (bis 100.000 EUR)</td>
-        <td class="cdu-bg border-bottom">
+        <th>"Erstaunlich" hohe <a href="https://de.wikipedia.org/wiki/Liste_der_Nebeneink%C3%BCnfte_der_Mitglieder_des_Bundestags_in_der_19._Wahlperiode">Nebeneinkünfte</a> (bis 100.000 EUR)</th>
+        <td class="cdu-bg">
             <ol>
                 <li>Sebastian Brehm (<a href="https://www.abgeordnetenwatch.de/profile/sebastian-brehm/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Steuerberater</a>): 1.383.000 EUR</li>
                 <li>Hans-Georg von der Marwitz (<a href="https://www.abgeordnetenwatch.de/profile/hans-georg-von-der-marwitz/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Landwirt</a>): 1.223.500 EUR</li>
@@ -870,7 +914,7 @@ abschaffen</a></td>
                 <li>Rüdiger Kruse: 147.000 EUR</li>
                 <li>Georg Nüßlein: 108.500 EUR</li>
             </ol></td>
-        <td class="spd-bg border-bottom">
+        <td class="spd-bg">
             <ol>
                 <li>Kirsten Lühmann: 228.000 EUR</li>
                 <li>Martin Burkert: 191.000 EUR</li>
@@ -880,8 +924,8 @@ abschaffen</a></td>
                 <li>Dietmar Nietan: 147.000 EUR</li>
             </ol>
         </td>
-        <td class="green-bg border-bottom">Keine</td>
-        <td class="fdp-bg border-bottom">
+        <td class="green-bg">Keine</td>
+        <td class="fdp-bg">
             <ol>
                 <li>Carl-Julius Cronenberg: 1.106.500 EUR</li>
                 <li>Judith Skudelny: 430.000 EUR</li>
@@ -893,10 +937,15 @@ abschaffen</a></td>
                 <li>Alexander Müller: 105.000 EUR</li>
             </ol>
         </td>
-        <td class="linke-bg border-bottom">Gregor Gysi: 342.000 EUR</td>
+        <td class="linke-bg">Gregor Gysi: 342.000 EUR</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <th colspan="6">Weitere Themen</th>
     </tr>
     <tr>
-        <td>Digitalisierung</td>
+        <th>Digitalisierung</th>
         <td class="cdu-bg">- Modernisierung der Verwaltung<br/>- Ministerium für digitale Transformation gründen</td>
         <td class="spd-bg">- 2030 vollständig digitalisierte Verwaltung<br/>- Sozialtarif für schnelles Internet<br/>- Schüler bekommen "digitales Endgerät"<br/>- Bildungscloud</td>
         <td class="green-bg">- Europäischer Cloud-Dienst<br/>- Zerschlagung von Unternehmen mit zu großer Marktmacht</td>
@@ -904,61 +953,30 @@ abschaffen</a></td>
         <td class="linke-bg">- Netzausbau verstaatlichen<br/>- Tablet / Notebook Ausleihe für Schüler<br/>- Datenschutz ausbauen<br/>- Online-Kartellrecht und Zerschlagung großer Internet-Firmen</td>
     </tr>
     <tr>
-        <td>Sonstiges</td>
+        <th>Sonstiges</th>
         <td class="cdu-bg">- Online-Unternehmensgründung</td>
         <td class="spd-bg">- Mehr Ärzte auf dem Land</td>
         <td class="green-bg"></td>
         <td class="fdp-bg">- Gemeinsame EU-Armee<br/>- EU-Außenminister<br/>- Bundesweit einheitliches Zentralabitur + Mittlere Reife</td>
         <td class="linke-bg">- Legalisierung aller Schwangerschaftsabbrüche</td>
     </tr>
-	<tr>
-		<td>Cannabis-Legalisierung</td>
-		<td class="cdu-bg">❌</td>
-		<td class="spd-bg">✅</td>
-		<td class="green-bg">✅</td>
-		<td class="fdp-bg">✅</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Unabhängige Prüfinstanz für Abgeordneten- und Lobbytransparenz[^25]</td>
-		<td class="cdu-bg">✅</td>
-		<td class="spd-bg">❌</td>
-		<td class="green-bg">✅</td>
-		<td class="fdp-bg">❌</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Effektives Lobbyregister[^25]</td>
-		<td class="cdu-bg">✅</td>
-		<td class="spd-bg">✅</td>
-		<td class="green-bg">✅</td>
-		<td class="fdp-bg">❌</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Einkünfte und Ausgaben als Abgeordnete:r[^25]</td>
-		<td class="cdu-bg">✅</td>
-		<td class="spd-bg">✅</td>
-		<td class="green-bg">✅</td>
-		<td class="fdp-bg">❌</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Lobbykontakte der Abgeordneten[^25]</td>
-		<td class="cdu-bg">~</td>
-		<td class="spd-bg">✅</td>
-		<td class="green-bg">❌</td>
-		<td class="fdp-bg">❌</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Drohnenmorde via Ramstein unterbinden[^27][^28]</td>
-		<td class="cdu-bg">❌</td>
-		<td class="spd-bg">❌</td>
-		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/sicherheitspolitik/ramstein-nicht-fuer-voelkerrechtswidrige-toetungen-nutzen">✅</a></td>
-		<td class="fdp-bg">?</td>
-		<td class="linke-bg"><a href="https://www.bundestag.de/dokumente/textarchiv/2020/kw03-de-ramstein-677340">✅</a></td>
-	</tr>
+    <tr>
+        <th>Cannabis-Legalisierung</th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">✅</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <th>Drohnenmorde via Ramstein unterbinden[^27][^28]</th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/sicherheitspolitik/ramstein-nicht-fuer-voelkerrechtswidrige-toetungen-nutzen">✅</a></td>
+        <td class="fdp-bg">?</td>
+        <td class="linke-bg"><a href="https://www.bundestag.de/dokumente/textarchiv/2020/kw03-de-ramstein-677340">✅</a></td>
+    </tr>
+    </tbody>
 </table>
 
 
@@ -1257,7 +1275,7 @@ Folgende Koalitionen könnten möglich sein:
     * Kenia-Koalition (CDU/CSU+SPD+Grüne): 69%
     * Deutschland-Koalition (CDU/CSU+SPD+FDP): 62%
 * Jamaika-Koalition (CDU/CSU+Grüne+FDP): 54%
-* SPD und Grüne:
+* SPD und Grüne: 46%
     * Rot-Rot-Grün / R2G (SPD+Linke+Grüne): 53%
     * Ampel-Koalition (SPD+Grüne+FDP): 58%
 
@@ -1272,7 +1290,7 @@ Die Wahl hat am 26. September 2021 stattgefunden ([Quelle](https://de.wikipedia.
 SPD 25,7%, CDU/CSU 24,1%, Grüne 14,8%, FDP 11,5%, AfD 10,3% und Die Linke 4,9%
 (die Linke zog über drei Direktmandate in den Bundestag ein). Daraus entstand die
 Ampelkoalition aus SPD, Grünen und FDP mit Olaf Scholz als Bundeskanzler. Sie ist
-damit eine der Koalitionsmöglichkeiten, die unten anhand der Umfragen diskutiert
+damit eine der Koalitionsmöglichkeiten, die oben anhand der Umfragen diskutiert
 werden.
 
 ## Siehe auch

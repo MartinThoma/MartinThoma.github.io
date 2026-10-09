@@ -46,12 +46,15 @@ Summenterm ist ein Synonym zu Implikat.
 $D$ heißt <strong>Maxterm</strong> von $y :\Leftrightarrow$ Ein Literal jeder Variable $x_i$ der Funktion $y$ kommt in $D$ genau einmal vor.</div>
 
 Beispiele:
-<table class="wikitable">
+<table>
+    <thead>
 <tr>
   <th>&nbsp;</th>
   <th>Minterm</th>
   <th>Maxterm</th>
 </tr>
+    </thead>
+    <tbody>
 <tr>
   <td>0</td>
   <td>$\bar a \bar b \bar c$</td>
@@ -92,6 +95,7 @@ Beispiele:
   <td>$a b c$</td>
   <td>$\bar a \lor \bar b \lor \bar c$</td>
 </tr>
+    </tbody>
 </table>
 
 <div class="definition">Ein boolescher Ausdruck der Form

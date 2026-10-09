@@ -9,10 +9,10 @@ category: Cyberculture
 tags: Google, Public Transportation, Politics
 featured_image: 2013/07/bus.png
 ---
-Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.
+Public transportation in Germany is much worse than it could be. I got quite angry today because of that and thought about ways to improve the situation.
 
 <figure class="ai-generated">
-    <a href="../images/2013/07/modes-of-transportation.jpg"><img src="../images/2013/07/modes-of-transportation.jpg" alt="Modes of transportation: Walking, Biking, Car, Bus, Train" width="819" height="512"></a>
+    <a href="../images/2013/07/modes-of-transportation.jpg"><img src="../images/2013/07/modes-of-transportation.jpg" alt="Modes of transportation: Walking, Biking, Car, Bus, Train" width="819" height="447"></a>
     <figcaption>Modes of transportation: Walking, Biking, Car, Bus, Train</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ I've bought two tickets to get from Karlsruhe to Augsburg (230 km) in about a mo
   <li>Most people basically choose one company: <a href="http://en.wikipedia.org/wiki/Deutsche_Bahn">Deutsche Bahn</a></li>
   <li>It's too expensive.</li>
   <li>Customer service of "Deutsche Bahn" is very bad.</li>
-  <li>Delays of at least 10 minutes always happen VERY often, delays of more than 30 minutes happen from time to time; I already had delay of more than 2 hours.</li>
+  <li>Delays of at least 10 minutes always happen VERY often, delays of more than 30 minutes happen from time to time; I already had a delay of more than 2 hours.</li>
 </ul>
 
 <h2>Alternative companies</h2>
@@ -39,7 +39,7 @@ After a law (&sect; 13 Abs. 2 of the <a href="http://de.wikipedia.org/wiki/Perso
   <li><a href="http://www.city2city.de/">City2City.de</a></li>
 </ul>
 
-But they are difficult to find and people maybe don't trust in them.
+But they are difficult to find and people may not trust them.
 
 <h2>Informing people</h2>
 <a href="https://www.google.com/intl/de/landing/transit/#dmy">Google Transit</a>, <a href="https://www.fahrtenfuchs.de/">FahrtenFuchs.de</a> and <a href="http://www.busliniensuche.de/">Busliniensuche.de</a> provide one possibility to inform people. But they all seem to have only a few bus companies.
@@ -48,9 +48,9 @@ Google Transit is interesting as they provide <a href="https://developers.google
 
 <h2>What could be done</h2>
 <ul>
-  <li>Contact bus companies and ask them if they want to provide transit information to the public in Google Transit Feed Format. You might want to hint them to <a href="http://maps.google.com/help/maps/mapcontent/transit/index.html">Google Transit Partner Program</a>.
+  <li>Contact bus companies and ask them if they want to provide transit information to the public in Google Transit Feed Format. You might want to point them to <a href="http://maps.google.com/help/maps/mapcontent/transit/index.html">Google Transit Partner Program</a>.
     <ul>
-      <li>I've contacted "meinfernbus.de" (Saturday, 06.07.2013). Lets see if they answer.</li>
+      <li>I've contacted "meinfernbus.de" (Saturday, 06.07.2013). Let's see if they answer.</li>
       <li>Contacted "KVV.de" (Saturday, 06.07.2013)</li>
       <li>Contacted "avv-augsburg.de" (Saturday, 06.07.2013)</li>
     </ul>
@@ -96,7 +96,7 @@ Google Maps nach Busverbindungen zwischen Karlsruhe und Augsburg gesucht,
 wo mir leider nur die Bahn angeboten wurde.
 
 Haben Sie schon von Google
-Transit<http://maps.google.com/help/maps/mapcontent/transit/index.html>gehört?
+Transit (<a href="http://maps.google.com/help/maps/mapcontent/transit/index.html">maps.google.com/help/…/transit/index.html</a>) gehört?
 Was halten Sie davon, an diesem Programm teilzunehmen?
 
 Mit freundlichen Grüßen,

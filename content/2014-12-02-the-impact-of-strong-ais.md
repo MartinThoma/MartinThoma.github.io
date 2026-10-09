@@ -147,7 +147,7 @@ It would be important to do so before anybody develops a strong AI.
 
 * [Transcendence](https://en.wikipedia.org/wiki/Transcendence_(2014_film)):
   The mind of one person gets transferred into a computer.
-* [I, Robot](https://en.wikipedia.org/wiki/I,_Robot): An AI gets developed and
+* [I, Robot](https://en.wikipedia.org/wiki/I,_Robot_(film)): An AI gets developed and
   very powerful humanoid robots get controlled by it.
 
 **Talks**

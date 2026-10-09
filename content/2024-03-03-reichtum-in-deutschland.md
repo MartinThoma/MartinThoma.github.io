@@ -32,8 +32,8 @@ Beispiel:
 * Kind 1 verdient 10€ / Monat brutto (Zeitung austragen) und erhält 100€ Kindergeld
 * Kind 2 verdient 0€ / Monat brutto und erhält 100€ Kindergeld
 
-Dann wäre das Haushaltseinkommen 8110€ / Monat brutto und das Haushaltseinkommen
-pro Person 2027,50€ / Monat brutto.
+Dann wäre das Haushaltseinkommen 8210€ / Monat brutto und das Haushaltseinkommen
+pro Person 2052,50€ / Monat brutto.
 
 ### Verfügbares Einkommen
 

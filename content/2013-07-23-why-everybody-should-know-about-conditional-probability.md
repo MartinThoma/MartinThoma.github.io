@@ -50,12 +50,15 @@ But $Pr[+ | \neg C] + Pr[- | \neg C]$ has to be 1 and $Pr[+ | C] + Pr[- | C]$ al
 
 So you can draw this table:
 
-<table class="wikitable" style="width:auto;">
+<table style="width:auto;">
+    <thead>
 <tr>
   <th>$Pr[\text{Testresult}|\text{Cancer}]$</th>
   <th>$C$</th>
   <th>$\neg C$</th>
 </tr>
+    </thead>
+    <tbody>
 <tr>
   <th>$+$</th>
   <td style="background-color:lime;">$0.9$</td>
@@ -66,6 +69,7 @@ So you can draw this table:
   <td style="background-color:red;">$0.1$</td>
   <td style="background-color:lime;">$0.8$</td>
 </tr>
+    </tbody>
 </table>
 
 You can see that the correct results are much more likely than the wrong ones.
@@ -79,12 +83,15 @@ Pr[-] &= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
 
 How likely are the combinations? (This time you don't know if you have cancer):
 
-<table class="wikitable" style="width:auto;">
+<table style="width:auto;">
+    <thead>
 <tr>
   <th>$Pr[\text{Testresult}, \text{Cancer}]$</th>
   <th>$C$</th>
   <th>$\neg C$</th>
 </tr>
+    </thead>
+    <tbody>
 <tr>
   <th>$+$</th>
   <td>$0.009$</td>
@@ -95,6 +102,7 @@ How likely are the combinations? (This time you don't know if you have cancer):
   <td>$0.001$</td>
   <td>$0.792$</td>
 </tr>
+    </tbody>
 </table>
 
 

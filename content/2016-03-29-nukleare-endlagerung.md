@@ -40,9 +40,9 @@ Atome mit einem Proton (Wasserstoff), 26&nbsp;Protonen (Eisen) oder eben
 haben mehr Neutronen als andere. So gibt es Uran mit 235&nbsp;Teilchen im Kern
 und Uran mit 238&nbsp;Teilchen im Kern.
 
-<div class="alert alert-info">Die Anzahl der Protonen definiert also welches
+<div class="alert alert-info">Die Anzahl der Protonen definiert also, welches
 <strong>Element</strong> (Eisen, Uran, Wasserstoff, ...) wir haben, die Anzahl
-der Protonen+Neutronen definiert welches <strong>Isotop</strong>
+der Protonen+Neutronen definiert, welches <strong>Isotop</strong>
 (<sup>235</sup>U, <sup>238</sup>U, <sup>1</sup>H, ...) wir haben.</div>
 
 Kernkraftwerke produzieren Energie, indem ein bestimmtes Uran-Isotop
@@ -57,7 +57,7 @@ Es gibt also leichtes Uran <sup>235</sup>U und schweres Uran <sup>238</sup>U.
 Nun muss man wissen, dass sich Elektronen und Protonen anziehen. Das ist
 ungefähr so wie mit verschiedenen Polen eines Magnets. Warum fallen sie also
 nicht in den Kern?<br/>
-Ganz einfach: Es gibt weitere Effekte (siehe [details](http://physics.stackexchange.com/q/20003/7197)).
+Ganz einfach: Es gibt weitere Effekte (siehe [Details](http://physics.stackexchange.com/q/20003/7197)).
 Man stelle sich z.B. Satelliten vor, die um die Erde kreisen. Sie sind gerade
 so schnell und haben gerade die richtige Entfernung, dass sie weder wegfliegen
 noch auf die Erde fallen.
@@ -77,13 +77,13 @@ Kern größer, aber die Kernkraft wirkt nur auf sehr kurze Entfernung. Das heiß
 je größer der Kern wird, desto stärker dominiert die elektrische Abstoßung der
 Protonen.
 
-Wenn nun z.B. ein Neutron mit hoher Geschwindigkeit auf den Kern trifft kann
+Wenn nun z.B. ein Neutron mit hoher Geschwindigkeit auf den Kern trifft, kann
 sich dieser spalten. Es bilden sich zwei neue, kleinere Atomkerne und - je nach
 Atom - werden weitere Neutronen abgestoßen.
 
 <figure>
-    <a href="../images/2016/03/Kernspaltung.gif"><img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg." width="320" height="223" loading="lazy"></a>
-    <figcaption>Man sieht wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg.<br/> Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
+    <a href="../images/2016/03/Kernspaltung.gif"><img src="../images/2016/03/Kernspaltung.gif" alt="Man sieht, wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg." width="320" height="223" loading="lazy"></a>
+    <figcaption>Man sieht, wie ein Neutron (blau) den Atomkern trifft. Dieser spaltet sich und drei weitere Neutronen fliegen weg.<br/> Bildquelle: <a href="https://commons.wikimedia.org/wiki/File:Kernspaltung.gif">Stefan-Xp</a></figcaption>
 </figure>
 
 Eine solche Spaltung kann man formal wie folgt darstellen:
@@ -105,14 +105,14 @@ zerfallen sein wird. Nach weiteren X Jahren wiederum die Hälfte usw.<br/>
 Dieses X ist für einen festen Isotop-Typ konstant. Teilweise ist es im Bereich
 weniger Sekundenbruchteile, und bei <sup>135</sup>Cs sind es beispielsweise
 2,3&nbsp;Mio. Jahre. Diese Zeit, in der statistisch gesehen die Hälfte der
-Atome in kleinere Atome zerfällt nennt man <strong>Halbwertszeit</strong>.
+Atome in kleinere Atome zerfällt, nennt man <strong>Halbwertszeit</strong>.
 
 Jedes Mal, wenn so ein Zerfall stattfindet, werden Energie bzw.
 sehr schnelle Teilchen frei. Man könnte das als eine Art Bombardierung der Umwelt
 mit sehr kleinen Teilchen sehen. Und bei den Spaltprodukten, dem Atommüll,
 dauert diese Bombardierung leider sehr lange an. Die Teilchen sind so klein,
 dass sie leicht eingeatmet werden können. Wenn sie dann im Inneren des Körpers
-zerfallen richten sie dort enormen Schaden an.
+zerfallen, richten sie dort enormen Schaden an.
 
 Es gibt tatsächlich nicht nur eine Art wie sie zerfallen können, sondern drei
 verschiedene. Bei der ersten, der Alpha-Strahlung, werden vergleichsweise große
@@ -133,14 +133,14 @@ Menschen wie möglich, lagern will.
 ## Endlager: Was müssen sie können?
 
 Da die Diskussion um die Endlagerung schon seit 1963 geführt wird, habe ich
-mich gefragt warum es eigentlich so schwer ist ein Endlager zu finden. Klar,
+mich gefragt, warum es eigentlich so schwer ist, ein Endlager zu finden. Klar,
 niemand will das Endlager in seiner Nachbarschaft haben. Aber das gilt ja auch
 für Zwischenlager. Irgendwo muss das Zeug halt stehen.
 
 Das Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit hat einen
 Anforderungskatalog für Endlagerstätten
 geschrieben.[^3]
-Liest man sich diesen durch, findet man schnell den Grund warum seit über
+Liest man sich diesen durch, findet man schnell den Grund, warum seit über
 50&nbsp;Jahren kein Endlager gefunden wurde:
 
 <blockquote cite="http://www.bmub.bund.de/fileadmin/bmu-import/files/pdfs/allgemein/application/pdf/sicherheitsanforderungen_endlagerung_bf.pdf">
@@ -172,11 +172,11 @@ Obwohl das auch mal anders lautete:
 </blockquote>
 
 Nun gibt es noch 4.6, der mich besonders stört. Das ist einfach unrealistisch.
-Natürlich wird man keinen Ort auf der Erde finden bei dem für mehrere Millionen
+Natürlich wird man keinen Ort auf der Erde finden, bei dem für mehrere Millionen
 Jahre davon auszugehen ist, dass dieser ohne Eingriffe und Wartungsarbeiten
 den Müll sicher wegschließt.[^5]
 Da es immer noch keine wirklich sichere Methode
-gibt Dinge ins All zu befördern (vgl. [Liste von Katastrophen der Raumfahrt](https://de.wikipedia.org/wiki/Liste_von_Katastrophen_der_Raumfahrt))
+gibt, Dinge ins All zu befördern (vgl. [Liste von Katastrophen der Raumfahrt](https://de.wikipedia.org/wiki/Liste_von_Katastrophen_der_Raumfahrt)),
 muss es aber auf der Erde sein. Daher sollte man diesen Punkt einfach
 streichen. Wir - die aktuelle Generation und alle folgenden Generationen -
 werden die Lagerung des Atommülls bezahlen müssen. Das beinhaltet Eingriffe und
@@ -185,12 +185,12 @@ Wartungsarbeiten der Lagerstätte.
 Soweit die schlechte Nachricht. Die gute Nachricht ist, dass man z.B.
 Lagerstätten suchen / bauen könnte, bei denen man sich nur sicher ist, dass sie
 für die nächsten z.B. 5&nbsp;Jahre sicher sind. Dann prüft man es erneut. Wenn
-man weiß, dass man die Lagerstätte regelmäßig prüfen muss kann man die
+man weiß, dass man die Lagerstätte regelmäßig prüfen muss, kann man die
 Lagerstätte so einrichten, dass diese Prüfung leicht ist. Man könnte
 Robotersysteme erstellen, welche eine Fernwartung erlauben. Es sollte auf jeden
 Fall redundante Systeme zur Bergung der Container geben. Die Systeme sollten
 robust gebaut werden. Wie man an den versagenden Robotern bei Fukushima
-sieht[^6] müssen
+sieht[^6], müssen
 die Systeme unbedingt vorher getestet werden.
 
 Ich könnte mir Schienen-Systeme für die Container vorstellen. Das sollte recht
@@ -207,7 +207,7 @@ Aber wie viel Atommüll haben wir eigentlich?
 
 ## Daten zum Atommüll
 
-Es ist erstaunlich wie schwer es ist dazu gute Aussagen zu finden. Hier ein
+Es ist erstaunlich, wie schwer es ist, dazu gute Aussagen zu finden. Hier ein
 paar:
 
 <blockquote cite="http://www.focus.de/wissen/technik/tid-20278/atommuell-wieviel-hochradioaktiver-muell-in-deutschland-lagert_aid_567043.html">
@@ -225,14 +225,14 @@ Wir haben also mindestens
 <div markdown="0">$$11 \text{ Jahre } \cdot 400 \frac{\text{Tonnen}}{\text{Jahr}} = 4400\text{ Tonnen}$$</div>
 
 an Atommüll. Hinzu kommen diese [Kokillen](https://de.wikipedia.org/wiki/Kokille) von
-vor 2005, von denen ich leider nicht weiß wie groß die sind.
+vor 2005, von denen ich leider nicht weiß, wie groß sie sind.
 
 Laut [kiefermedia.de](http://www.kiefermedia.de/fakten/atommuell) haben wir
 in Deutschland bis 2022 etwa 17&numsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&numsp;000&nbsp;Tonnen Atommüll geben.
 Laut [BUND](http://www.bund.net/themen_und_projekte/atomkraft/atommuell/) sind
 es 17&numsp;000&nbsp;Tonnen und 300&numsp;000&nbsp;m<sup>3</sup>.[^7]
 
-Laut [Statistischem Bundesamt](http://de.statista.com/statistik/daten/studie/167241/umfrage/jaehrlich-produzierte-menge-an-atommuell-in-ausgewaehlten-laendern/) sind in Deutschland alleine im
+Laut [Statista](http://de.statista.com/statistik/daten/studie/167241/umfrage/jaehrlich-produzierte-menge-an-atommuell-in-ausgewaehlten-laendern/) sind in Deutschland alleine im
 Jahr 2009 etwa 450&nbsp;Tonnen Atommüll angefallen. Diese 450&nbsp;Tonnen
 wurden in vielen Quellen als "Jährlich anfallender Atommüll" genannt. Als ob
 das jedes Jahr gleich wäre. Dann hätten wir heute keine ~17&numsp;000&nbsp;Tonnen
