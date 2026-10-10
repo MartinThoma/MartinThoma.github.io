@@ -17,6 +17,11 @@ komplett von zu Hause arbeiten. Über meinen Cousin habe ich mitbekommen, dass
 der Unterricht bei Weitem nicht so reibungsfrei umgestellt werden konnte.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/12/schule-online.jpg"><img src="../images/2020/12/schule-online.jpg" alt="Schülerin sieht sich zu Hause am Laptop eine Videolektion an, darüber schweben Symbole für Buch, Aufgaben, Chat und Quiz" width="1376" height="768"></a>
+    <figcaption>Eine Online-Schule kombiniert Videos, Aufgaben, Kommunikation und Tests.</figcaption>
+</figure>
+
 ## Was ist eine Online-Schule?
 
 Unter einer Online-Schule stelle ich mir eine Lehr- und Lernplattform vor.

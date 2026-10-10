@@ -30,7 +30,7 @@ added or images change.
 * Every count was cross-checked against the rendered HTML in `output/`.
 
 Totals: **0 articles** use stock photos (0 image files);
-**290 of 948 articles** have neither an image nor code.
+**279 of 948 articles** have neither an image nor code.
 
 ## (a) Articles with stock photos
 
@@ -62,21 +62,9 @@ Each is under 6 KB and carries a `<title>`, a `<desc>` and alt text.
 Longest first — the longer the article, the more a visual would help. "Other"
 lists visual structure the article already has; `—` means plain running text.
 
-### Over 1500 words (11)
+### Over 1500 words (0)
 
-| Date | Article | Words | Other |
-| ---- | ------- | ----: | ----- |
-| 2023-03-24 | [Wärmepumpen](content/2023-03-24-waermepumpen.md) | 2586 | table, video |
-| 2016-10-19 | [Computer Vision for Human-Computer Interaction](content/2016-10-19-cv-hci.md) | 2490 | table, math, video |
-| 2016-05-23 | [Informationsfusion](content/2016-05-23-informationsfusion.md) | 2346 | table, math, video |
-| 2023-02-11 | [Cost of Living](content/2023-02-11-cost-of-living-2023.md) | 2215 | table |
-| 2018-11-17 | [Nepal](content/2018-11-17-nepal.md) | 2096 | table, video |
-| 2020-12-29 | [Online-Schule](content/2020-12-29-schule-online.md) | 2027 | table, video |
-| 2015-11-15 | [Terror in Paris](content/2015-11-15-terror-in-paris.md) | 1929 | video |
-| 2024-12-27 | [365 Hauptgerichte](content/2024-12-27-365-main-dishes-gpt.md) | 1857 | — |
-| 2020-12-28 | [Full Disk Encryption 😇](content/2020-12-28-full-disk-encryption.md) | 1744 | video |
-| 2015-04-27 | [Mustererkennung - Klausur](content/2015-04-27-mustererkennung-klausur.md) | 1556 | table, math |
-| 2019-07-12 | [Homöopathie](content/2019-07-12-homoeopathie.md) | 1516 | table, video |
+**None left.**
 
 ### 700–1499 words (58)
 

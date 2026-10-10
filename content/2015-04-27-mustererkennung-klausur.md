@@ -11,6 +11,11 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2015/04/mustererkennung-klassifikation.jpg"><img src="../images/2015/04/mustererkennung-klassifikation.jpg" alt="Punktwolken aus roten Kreisen und blauen Dreiecken, getrennt durch eine gekrümmte Entscheidungsgrenze, daneben ein neuer unbekannter Punkt" width="1376" height="768"></a>
+    <figcaption>Klassifikation: Eine Entscheidungsgrenze trennt zwei Klassen im Merkmalsraum.</figcaption>
+</figure>
+
 ## Behandelter Stoff
 
 ### Vorlesung

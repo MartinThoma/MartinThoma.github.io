@@ -22,6 +22,11 @@ A lot of people died or were injured, one of the most important cities was
 affected, politicians say we are at war, on Facebook people show condolence.
 
 
+<figure class="ai-generated">
+    <a href="../images/2015/11/terror-in-paris.jpg"><img src="../images/2015/11/terror-in-paris.jpg" alt="Kerzen, Blumen und eine französische Flagge am Straßenrand einer Pariser Straße in der Dämmerung" width="1376" height="768"></a>
+    <figcaption>Candles and flowers in memory of the victims.</figcaption>
+</figure>
+
 ## Questions we need to ask
 
 * **The Terrorists**: Who were the terrorists? What was their story? How did

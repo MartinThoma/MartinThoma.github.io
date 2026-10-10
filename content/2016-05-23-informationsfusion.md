@@ -14,6 +14,11 @@ featured_image: logos/klausur.png
 In der Vorlesung 'Informationsfusion' ist der Kalman-Filter ein zentraler
 Inhalt.
 
+<figure class="ai-generated">
+    <a href="../images/2016/05/informationsfusion-sensoren.jpg"><img src="../images/2016/05/informationsfusion-sensoren.jpg" alt="Kamera, Radar, Mikrofon und Thermometer liefern Datenströme, die zu einem gemeinsamen Bild eines Autos zusammengeführt werden" width="1376" height="768"></a>
+    <figcaption>Informationsfusion: Mehrere Sensoren liefern Teilinformationen, die zu einem Gesamtbild verschmelzen.</figcaption>
+</figure>
+
 ## Behandelter Stoff
 
 ### Grundlagen

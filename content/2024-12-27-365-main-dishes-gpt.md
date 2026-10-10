@@ -21,6 +21,11 @@ und stattdessen neue Gerichte hinzufügen. Für Vorschläge bin ich offen.
 "frisch" sind
 unnötige Zusätze.
 
+<figure class="ai-generated">
+    <a href="../images/2024/12/365-hauptgerichte.jpg"><img src="../images/2024/12/365-hauptgerichte.jpg" alt="Tisch mit vielen verschiedenen Hauptgerichten von oben: Sushi, Lasagne, Tacos, Curry, Pizza, Burger, Risotto, Suppe und Wok-Gemüse" width="1376" height="768"></a>
+    <figcaption>Hauptgerichte aus aller Welt.</figcaption>
+</figure>
+
 1. Auberginen-Rollatini mit Cashew-Ricotta
 1. Blumenkohl-Fried-Rice
 1. Borschtsch mit Brot

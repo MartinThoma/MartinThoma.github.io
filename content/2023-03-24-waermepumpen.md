@@ -59,6 +59,11 @@ durch Verdichtung des Kältemittels. Die dadurch erzeugte Wärme wird dann über
 einen Wärmetauscher an das Heizsystem des Gebäudes übertragen. Dadurch wird die
 Raumtemperatur erhöht und das Gebäude beheizt.
 
+<figure class="ai-generated">
+    <a href="../images/2023/03/waermepumpe-haus.jpg"><img src="../images/2023/03/waermepumpe-haus.jpg" alt="Einfamilienhaus mit Luft-Wasser-Wärmepumpe an der Außenwand, Pfeile zeigen die Wärme von der Außenluft zu Heizkörpern und Fußbodenheizung" width="1376" height="768"></a>
+    <figcaption>Eine Luft-Wärmepumpe holt Wärme aus der Außenluft und gibt sie an Heizkörper und Fußbodenheizung ab.</figcaption>
+</figure>
+
 Im Sommer kann die Wärmepumpe auch zur Kühlung genutzt werden, indem sie die
 Wärmeenergie aus dem Gebäude entzieht und nach außen abführt.
 

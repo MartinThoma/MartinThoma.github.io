@@ -15,6 +15,11 @@ Homöopathie ist eine Gruppe von Behandlungsmethoden, die auf Vorstellungen von
 Samuel Hahnemann (ca. 1796) basieren.
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/07/homoeopathie-verduennung.jpg"><img src="../images/2019/07/homoeopathie-verduennung.jpg" alt="Fläschchen mit Globuli neben einem großen Wasserglas, in das ein einzelner Tropfen fällt" width="1376" height="768"></a>
+    <figcaption>Potenzierung bedeutet: ein Tropfen in sehr viel Wasser.</figcaption>
+</figure>
+
 ## Die Idee
 
 <dl>
