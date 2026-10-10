@@ -16,6 +16,11 @@ pay if I lost all my stuff at once (e.g. a fire or moving without my stuff)?
 I wanted to be able to answer those questions and started writing down stuff
 which I think I really need... turns out, it's a lot of stuff.
 
+<figure class="ai-generated">
+    <a href="../images/2019/11/cost-of-living.jpg"><img src="../images/2019/11/cost-of-living.jpg" alt="Everyday items such as kitchen utensils, clothes, food, a laptop and a backpack around a notebook with a price list and coins" width="1376" height="768"></a>
+    <figcaption>Everyday things and their prices.</figcaption>
+</figure>
+
 ## Legend
 
 * 🧊 Needs to be in the freezer
