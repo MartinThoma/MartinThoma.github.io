@@ -9,6 +9,11 @@ category: Mathematics
 tags: Mathematics, Linear Algebra
 featured_image: 2012/01/vector-space.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/07/matrix-commutative.jpg"><img src="../images/2012/07/matrix-commutative.jpg" alt="Two colorful 2x2 matrices give different products when multiplied in swapped order, a not-equal sign between them" width="1376" height="768"></a>
+    <figcaption>Matrix multiplication is generally not commutative.</figcaption>
+</figure>
+
 Matrix multiplication in general is not commutative. Here is an example:
 
 Let $A, B \in \mathbb{R}^{2 \times 2}$:

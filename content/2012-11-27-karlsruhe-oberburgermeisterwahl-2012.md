@@ -16,6 +16,11 @@ href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist
 seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder
 gewählt werden.
 
+<figure class="ai-generated">
+    <a href="../images/2012/11/karlsruhe-wahl.jpg"><img src="../images/2012/11/karlsruhe-wahl.jpg" alt="Wahlurne mit einem Stimmzettel vor einem Barockschloss, von dem fächerförmig Straßen ausgehen" width="1376" height="768"></a>
+    <figcaption>Oberbürgermeisterwahl in Karlsruhe.</figcaption>
+</figure>
+
 <h2>Die Kandidaten</h2>
 Der UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank dafür!).
 

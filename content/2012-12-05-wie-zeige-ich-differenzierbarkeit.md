@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Analysis
 featured_image: 2012/12/ableitung-definition.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/12/differenzierbarkeit.jpg"><img src="../images/2012/12/differenzierbarkeit.jpg" alt="Glatte Kurve mit Tangente in einem Punkt und mehreren Sekanten, die sich mit schrumpfendem Abstand der Tangente nähern" width="1376" height="768"></a>
+    <figcaption>Die Ableitung als Grenzwert der Sekantensteigungen.</figcaption>
+</figure>
+
 Weil das Thema so wichtig ist und man es doch recht leicht vergisst:
 
 <div class="definition">Sei $I \subseteq \mathbb{R}$ ein Intervall und $f:I \rightarrow \mathbb{R}$ eine Funktion.

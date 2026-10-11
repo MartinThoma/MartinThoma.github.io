@@ -8,6 +8,11 @@ date: 2012-02-11 17:25:36.000000000 +01:00
 category: German posts
 tags: Lecture Notes, Theoretical Computer Science, University, Computer Science
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/02/chomsky-normalform.jpg"><img src="../images/2012/02/chomsky-normalform.jpg" alt="Binärer Ableitungsbaum, in dem sich jeder innere Knoten in genau zwei Kinder teilt, daneben Schere und Schraubenschlüssel" width="1376" height="768"></a>
+    <figcaption>In der Chomsky-Normalform ist jeder Ableitungsbaum binär.</figcaption>
+</figure>
+
 <div class="warning">Dieser Artikel könnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
 
 Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem für kontextfreie Grammatiken löst, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.

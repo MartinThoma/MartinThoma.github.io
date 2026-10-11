@@ -9,6 +9,11 @@ category: The Web
 tags: OpenID, Security
 featured_image: 2011/10/OpenID.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2011/12/openid-autodiscovery.jpg"><img src="../images/2011/12/openid-autodiscovery.jpg" alt="Login form with a single input field, an arrow leads to a magnifying glass that finds a key and a login server in a network of servers" width="1376" height="768"></a>
+    <figcaption>Autodiscovery would make logging in even simpler.</figcaption>
+</figure>
+
 <a href="../5-web-technologies-which-should-be-used-more-often/#openid">OpenID</a> is a web technology that gives the users the possibility to use one website for authentication on another web service. The <em>OpenID Attribute Exchange</em> makes registration processes simpler, as the user can automatically allow the website to get some information like the e-mail address, the gender and the full name.
 
 The next step to an even simpler login process would be autodiscovery. This means there would be no need to do anything for logging in. You simply have to go to the website and be logged at your OpenID provider (e.g. Google). This is quite easily possible if the user was logged in before. You leave a cookie that gives you the information which OpenID he uses. So you simply don't let him logout. I don't know if it is a good idea to do so.

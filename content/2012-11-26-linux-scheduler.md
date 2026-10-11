@@ -9,6 +9,11 @@ category: German posts
 tags: Linux, OS, Operating Systems, Computer Science
 featured_image: 2012/11/scheduler.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/11/linux-scheduler.jpg"><img src="../images/2012/11/linux-scheduler.jpg" alt="Pinguin als Verkehrsregler vor Warteschlangen bunter Prozesse, die auf einen Prozessor warten" width="1376" height="768"></a>
+    <figcaption>Der Linux-Scheduler verteilt die Rechenzeit auf die Prozesse.</figcaption>
+</figure>
+
 <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung geändert.</div>
 
 <h2>Mailinglisten-Beitrag</h2>

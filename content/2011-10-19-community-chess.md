@@ -13,6 +13,11 @@ Community Chess is one of my projects. I can make something useful and play a bi
 This project has now an own URL:
 [community-chess.com](http://community-chess.com/) (Warning / 2026 Update: I no longer own this domain)
 
+<figure class="ai-generated">
+    <a href="../images/2011/10/community-chess.jpg"><img src="../images/2011/10/community-chess.jpg" alt="Chessboard with pieces connected by glowing lines to players around the globe, next to a laptop and chess clock" width="1376" height="768"></a>
+    <figcaption>Community chess: playing together online.</figcaption>
+</figure>
+
 It's a little bit crappy at the moment as I've just started studying, but I'll
 fix that.
 

@@ -11,6 +11,11 @@ featured_image: 2011/10/eulers-formula.png
 ---
 Die abzählende Kombinatorik beschäftigt sich mit der Bestimmung der Anzahl möglicher Anordnungen oder Auswahlen.
 
+<figure class="ai-generated">
+    <a href="../images/2011/10/kombinatorik.jpg"><img src="../images/2011/10/kombinatorik.jpg" alt="Sechs farbige Würfel werden mit Pfeilen umsortiert, daneben Spielwürfel und ein Kartenfächer" width="1376" height="768"></a>
+    <figcaption>Kombinatorik: Auf wie viele Arten kann man Dinge anordnen?</figcaption>
+</figure>
+
 <h2>Begriffe</h2>
 <h3>Permutation</h3>
 Eine Permutation ist eine Veränderung der Reihenfolge einer geordneten Anzahl von Objekten. <small>(Weil die Objekte in irgend einer Art geordnet sein müssen, damit sich eine Reihenfolge ändern kann, will ich diese Ansammlung nicht "Menge" nennen.)</small>

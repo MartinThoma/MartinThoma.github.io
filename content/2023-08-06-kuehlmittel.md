@@ -13,6 +13,11 @@ Ich überlege mir eine oder mehrere Split-Klimaanlagen (Luft-Luft-Wärmepumpen) 
 Heizen in den Übergangsmonaten September - November und März - Mai zu besorgen.
 Ein Kernattribut ist das Kühlmittel.
 
+<figure class="ai-generated">
+    <a href="../images/2023/08/kuehlmittel.jpg"><img src="../images/2023/08/kuehlmittel.jpg" alt="Split-Klimaanlage mit Innen- und Außengerät, Kältemittelkreislauf mit Molekülen, Schneeflocke, Flamme, Gasflasche und Blatt" width="1376" height="768"></a>
+    <figcaption>Das Kühlmittel einer Split-Klimaanlage.</figcaption>
+</figure>
+
 
 * **R32** (Difluormethan, CH2F2). Es wird z.B. im Kältebringer KB51, im Danyon
   DA-XA35QC, in der Daikin Perfera und in der Mitsubishi SRC20ZS verwendet. Es hat den Siedepunkt bei

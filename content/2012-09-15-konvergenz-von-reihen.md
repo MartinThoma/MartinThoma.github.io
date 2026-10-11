@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/09/konvergenz-reihen.jpg"><img src="../images/2012/09/konvergenz-reihen.jpg" alt="Treppe aus immer kleineren Stufen, die sich einer gestrichelten Grenzlinie von unten nähert" width="1376" height="768"></a>
+    <figcaption>Die Partialsummen einer konvergenten Reihe nähern sich ihrem Grenzwert.</figcaption>
+</figure>
+
 Die folgenden Definitionen sind wortwörtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript für Analysis I</a> bei Herrn Dr. Schmoeger übernommen worden.
 
 <h2>Dreiecksungleichung</h2>

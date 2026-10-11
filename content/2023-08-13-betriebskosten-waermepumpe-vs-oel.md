@@ -17,6 +17,11 @@ Strom kostet aktuell mindestens 0,34 €/kWh und Öl / Gas / Holz ist nicht gera
 günstiger.
 
 
+<figure class="ai-generated">
+    <a href="../images/2023/08/betriebskosten-waermepumpe-oel.jpg"><img src="../images/2023/08/betriebskosten-waermepumpe-oel.jpg" alt="Waage: links eine Wärmepumpe mit Stecker und Blatt, rechts ein Öltank mit Flamme und Rauch, darunter Münzstapel" width="1376" height="768"></a>
+    <figcaption>Betriebskosten im Vergleich: Wärmepumpe oder Ölheizung.</figcaption>
+</figure>
+
 ## Heizbedarf
 
 Angenommen, wir haben ein Haus der Energieeffizienzklasse C mit

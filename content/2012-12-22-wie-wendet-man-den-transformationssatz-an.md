@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Analysis
 featured_image: 2012/12/transformationssatz-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/12/transformationssatz.jpg"><img src="../images/2012/12/transformationssatz.jpg" alt="Kreisscheibe mit Gitter wird durch eine Abbildung auf ein Rechteck mit Polarkoordinaten-Gitter abgebildet, eine Lupe zeigt eine verzerrte Zelle" width="1376" height="768"></a>
+    <figcaption>Transformationssatz: Variablenwechsel bei Integralen, hier Polarkoordinaten.</figcaption>
+</figure>
+
 <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III Übung bei Herrn Bolleyer.</div>
 
 Sei $A \in \mathfrak{B}_d$ mit $A^0 \neq \emptyset$ und $\lambda_d (A \setminus A^0) = 0$ sowie $\phi \in C^1(U, \mathbb{R}^d)$ mit $U \subseteq \mathbb{R}^d$ offen und $A \subseteq U$. Weiter sei $\phi$ auf $A^0$ injektiv und $\det(\phi'(x)) \neq 0$ für $x \in A^0$. Sei $f \in \mathfrak{L}^1(\phi(A))$ oder $f \geq 0$ auf $A$ so gilt $\int_{\phi(A)} f(x) dy = \int_A f(\phi(x)) | \det(\phi'(x)) | dx$

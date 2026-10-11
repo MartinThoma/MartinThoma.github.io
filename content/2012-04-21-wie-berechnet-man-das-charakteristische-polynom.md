@@ -9,6 +9,11 @@ category: German posts
 tags: Wolfram|Alpha, Mathematics, Lecture Notes, Linear Algebra, University
 featured_image: 2012/04/determinante.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/04/charakteristisches-polynom.jpg"><img src="../images/2012/04/charakteristisches-polynom.jpg" alt="Matrix mit Determinantenstrichen, ein Pfeil führt zu einer Polynomkurve mit drei markierten Nullstellen" width="1376" height="768"></a>
+    <figcaption>Die Nullstellen des charakteristischen Polynoms sind die Eigenwerte.</figcaption>
+</figure>
+
 Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.
 
 <h2>Rechenregeln für Determinanten</h2>

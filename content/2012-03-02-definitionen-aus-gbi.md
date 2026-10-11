@@ -9,6 +9,11 @@ category: German posts
 tags: Lecture Notes, KIT, Theoretical Computer Science, GBI, University, Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/03/gbi-definitionen.jpg"><img src="../images/2012/03/gbi-definitionen.jpg" alt="Bunte Perlen verschiedener Formen als Wörter auf Schnüren, daneben ein Ableitungsbaum und ein Zustandsautomat" width="1376" height="768"></a>
+    <figcaption>Alphabete, Wörter, Sprachen und Grammatiken.</figcaption>
+</figure>
+
 <h2>Formale Sprachen</h2>
 A heißt Alphabet $:\Leftrightarrow$ A ist eine endliche, nicht leere Menge aus Zeichen.
 w heißt Wort aus $A^*  : \Leftrightarrow$ w ist eine endliche Aneinanderreihung von Zeichen aus A

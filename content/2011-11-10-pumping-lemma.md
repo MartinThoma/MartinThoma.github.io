@@ -11,6 +11,11 @@ featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, müsste gezählt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz dafür, dass es sich nicht um eine reguläre Sprache handelt.
 
+<figure class="ai-generated">
+    <a href="../images/2011/11/pumping-lemma.jpg"><img src="../images/2011/11/pumping-lemma.jpg" alt="Endlicher Automat mit einer Schleife, darunter eine Perlenkette, deren mittlerer Abschnitt mehrfach wiederholt wird" width="1376" height="768"></a>
+    <figcaption>Das Pumping-Lemma: Ein Mittelstück kann beliebig oft wiederholt werden.</figcaption>
+</figure>
+
 Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist ein notwendiges, aber kein hinreichendes Kriterium für reguläre Sprachen. Daraus folgt, dass eine nicht-reguläre Sprache eventuell durch das Lemma entlarvt werden kann. Allerdings muss nicht jede Sprache, die das Pumping-Lemma erfüllt, regulär sein.
 
 Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass die Behauptung falsch ist. Dann zeigt man, dass man durch die Annahme zu einem Widerspruch kommt.

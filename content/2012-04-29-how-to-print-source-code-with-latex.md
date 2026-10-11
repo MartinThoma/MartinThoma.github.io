@@ -443,7 +443,7 @@ All files can be found in <a href='../images/2012/04/LaTeX-Source-Code.zip'>LaTe
 <h2>See also</h2>
 <ul>
   <li>WikiBook: <a href="http://en.wikibooks.org/wiki/LaTeX/Packages/Listings">LaTeX/Packages/Listings</a></li>
-  <li><a href="ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/listings/listings.pdf">CTAN listings documentation</a></li>
+  <li><a href="https://mirrors.ctan.org/macros/latex/contrib/listings/listings.pdf">CTAN listings documentation</a></li>
   <li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/macros/latex/contrib/minted/minted.pdf">CTAN minted documentation</a></li>
 </ul>
 

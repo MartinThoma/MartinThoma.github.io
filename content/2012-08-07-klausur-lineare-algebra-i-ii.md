@@ -21,6 +21,11 @@ Ich kann als Tipp für die Klausur noch sagen:
 Wenn du eine Aufgabe (b) machst, überleg dir, ob dir die Ergebnisse aus (a) helfen können!
 In den LA-Klausuren, die ich bisher gesehen habe, hat die vorangehende Teilaufgabe sehr häufig eine Hilfestellung geboten.
 
+<figure class="ai-generated">
+    <a href="../images/2012/08/klausur-lineare-algebra.jpg"><img src="../images/2012/08/klausur-lineare-algebra.jpg" alt="Student am Schreibtisch mit Büchern, Kalender und Lernplan, dahinter eine Tafel mit Matrizen und Vektoren" width="1376" height="768"></a>
+    <figcaption>Klausurvorbereitung Lineare Algebra.</figcaption>
+</figure>
+
 ## Vorbereitung
 
 ### Lineare Algebra I

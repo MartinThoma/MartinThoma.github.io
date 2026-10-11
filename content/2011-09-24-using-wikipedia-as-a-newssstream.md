@@ -11,6 +11,11 @@ featured_image: 2011/09/Wikipedia-logo.png
 ---
 I am very interested in the development of Google+. As I am also quite active on Wikipedia (just take a look at my <a href="http://toolserver.org/~soxred93/pcount/index.php?name=MartinThoma&lang=de&wiki=wikipedia">edit counter</a>) I add all topics in which I am interested in to my personal watchlist. I added the RSS-Feed to my feed reader. So I get instantly a little pop-up as soon as the article changes. Great.
 
+<figure class="ai-generated">
+    <a href="../images/2011/09/wikipedia-newsstream.jpg"><img src="../images/2011/09/wikipedia-newsstream.jpg" alt="A flood of small edit notifications passing through a filter and resulting in a calm news feed with a few articles" width="1376" height="768"></a>
+    <figcaption>Filtering a flood of edits into a useful feed.</figcaption>
+</figure>
+
 ...
 
 if there wouldn't be so many reverts / minor edits. Most edits I get informed of are either bot-edits (The article is now available in Tiếng Việt! Fantastic!) or simply reverted after a few hours.

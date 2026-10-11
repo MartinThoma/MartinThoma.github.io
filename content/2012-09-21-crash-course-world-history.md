@@ -9,6 +9,11 @@ category: The Web
 tags: Video, Learning
 featured_image: 2012/09/world-history.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/09/crash-course-world-history.jpg"><img src="../images/2012/09/crash-course-world-history.jpg" alt="Timeline with symbols from agriculture, ziggurat, pyramids, temple column, Great Wall and sailing ship to castle, a video player below" width="1376" height="768"></a>
+    <figcaption>A crash course in world history.</figcaption>
+</figure>
+
 <h2>#32: Coal, Steam, and The Industrial Revolution</h2>
 <iframe width="512" height="288" src="//www.youtube.com/embed/zhL5DCizj5c" frameborder="0" allowfullscreen></iframe>
 

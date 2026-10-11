@@ -13,6 +13,11 @@ Ich habe einen Garten mit ca. 400m² und brauche einen Rasenmäher. Das sind mei
 Notizen bei der Suche.
 
 
+<figure class="ai-generated">
+    <a href="../images/2024/03/rasenmaeher.jpg"><img src="../images/2024/03/rasenmaeher.jpg" alt="Kleiner Garten mit gestreiftem Rasen, eine Person mäht mit einem Akku-Rasenmäher, am Schuppen hängt ein Kabelrasenmäher" width="1376" height="768"></a>
+    <figcaption>Akku oder Kabel: Welcher Rasenmäher passt zu 400 m²?</figcaption>
+</figure>
+
 ## Was ich nicht angeschaut habe
 
 Ich will keinen **Benzin-Rasenmäher**, weil der Garten nicht so groß ist und ich

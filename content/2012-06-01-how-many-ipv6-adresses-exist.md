@@ -8,6 +8,11 @@ date: 2012-06-01 18:43:22.000000000 +02:00
 category: The Web
 tags: Internet
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/06/ipv6-addresses.jpg"><img src="../images/2012/06/ipv6-addresses.jpg" alt="A tiny box of dots on the left and a gigantic galaxy-like cloud of dots filling the sky on the right, with a laptop and smartphones" width="1376" height="768"></a>
+    <figcaption>IPv4 is a tiny box compared to the ocean of IPv6 addresses.</figcaption>
+</figure>
+
 <h2>Some general information</h2>
 <iframe width="512" height="288" src="//www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>
 
@@ -24,7 +29,7 @@ $2^{128} = 340282366920938463463374607431768211456 \approx 3.4 \cdot 10^{38}$
 Quite a lot.
 
 <h2>Playing with numbers</h2>
-Imagine the world had 10 billion people ($10,000,000 = 10 \cdot 10^9 = 10^{10}$). Imagine everyone bought 6 smartphones, 5 computers, 1 car, 4 tablets, 4 car radios in every year. That would be 20 internet devices for every person every year. Now you could give every device a unique address for much, much more than billion billion years! The sun is going to get a <a href="http://en.wikipedia.org/wiki/Red_giant">red giant</a> in about 4 billion years, so this is nothing we have to worry about.
+Imagine the world had 10 billion people ($10{,}000{,}000{,}000 = 10 \cdot 10^9 = 10^{10}$). Imagine everyone bought 6 smartphones, 5 computers, 1 car, 4 tablets, 4 car radios in every year. That would be 20 internet devices for every person every year. Now you could give every device a unique address for much, much more than billion billion years! The sun is going to get a <a href="http://en.wikipedia.org/wiki/Red_giant">red giant</a> in about 4 billion years, so this is nothing we have to worry about.
 Calculation: $\frac{2^{128}}{10^{10} \cdot 20} \approx 1.7 \cdot 10^{34}$
 
 <h2>See also</h2>

@@ -11,6 +11,11 @@ featured_image: 2012/08/endliche-gruppe-thumb.png
 ---
 Endliche Gruppen haben ein paar interessante Eigenschaften. Unter anderem gibt es nur zwei Gruppen mit vier Elementen. Alle anderen Gruppen sind isomorph zu diesen Gruppen. Das zeige ich im Folgenden.
 
+<figure class="ai-generated">
+    <a href="../images/2012/08/endliche-gruppen.jpg"><img src="../images/2012/08/endliche-gruppen.jpg" alt="Links ein Quadrat mit Drehpfeilen für die zyklische Gruppe, rechts ein Rechteck mit zwei Spiegelachsen für die Kleinsche Vierergruppe" width="1376" height="768"></a>
+    <figcaption>Die beiden Gruppen mit vier Elementen: zyklisch (Drehungen) und Kleinsche Vierergruppe (Spiegelungen).</figcaption>
+</figure>
+
 <h2>Gruppen mit vier Elementen</h2>
 Es gibt genau zwei Gruppen mit vier Elementen. Das sind:
 $G_1 = (\mathbb{Z}/4\mathbb{Z}, +)$ und

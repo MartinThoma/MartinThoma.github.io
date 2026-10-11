@@ -9,6 +9,11 @@ category: German posts
 tags: Algorithms, Sorting, Big-O, Computer Science
 featured_image: 2012/07/insertion-sort-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/07/sortieralgorithmen.jpg"><img src="../images/2012/07/sortieralgorithmen.jpg" alt="Drei Stufen bunter Balken: zuerst durcheinander, dann teilweise sortiert mit Tauschpfeilen, zuletzt aufsteigend sortiert, daneben eine Stoppuhr" width="1376" height="768"></a>
+    <figcaption>Sortieralgorithmen bringen Elemente in eine Reihenfolge.</figcaption>
+</figure>
+
 Eine Übersicht über gängige Sortieralgorithmen:
 
 <h2>Vergleichsbasiert</h2>

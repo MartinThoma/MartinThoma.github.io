@@ -11,6 +11,11 @@ featured_image: 2012/06/moon.jpg
 ---
 Ich lese gerade das Buch 2025 von Frank Schätzing, in dem es um den Abbau des Isotops [³He](http://de.wikipedia.org/wiki/Helium-3#Kernfusion) geht. Es wird auch kurz erwähnt, dass es auf dem Mond keine Atmosphäre geben kann. Warum ist das so?
 
+<figure class="ai-generated">
+    <a href="../images/2012/06/mond-atmosphaere.jpg"><img src="../images/2012/06/mond-atmosphaere.jpg" alt="Mond mit Kratern, von dem winzige Gasteilchen ins All entweichen, im Hintergrund die Erde mit dichter Atmosphäre" width="1376" height="768"></a>
+    <figcaption>Der Mond kann seine Gasteilchen nicht halten.</figcaption>
+</figure>
+
 ## Die kurze Antwort
 
 Der Mond ist leicht. Er übt deshalb eine weitaus geringere Anziehungskraft aus als die Erde. Deshalb ist die Geschwindigkeit, die benötigt wird, um den Mond zu verlassen, auch um einiges niedriger als die Fluchtgeschwindigkeit der Erde. Gleichzeitig ist es auf dem Mond sehr heiß, die einzelnen Gas-Teilchen bewegen sich also sehr schnell. Das bedeutet, sie können den Mond verlassen.

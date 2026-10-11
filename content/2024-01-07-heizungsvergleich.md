@@ -22,6 +22,11 @@ Ich überlege mir gerade, welches Heizsystem ich nutzen will und wie ich den
 }
 </style>
 
+<figure class="ai-generated">
+    <a href="../images/2024/01/heizungsvergleich.jpg"><img src="../images/2024/01/heizungsvergleich.jpg" alt="Fünf Heizsysteme nebeneinander: Öltank mit Brenner, Luft-Wärmepumpe, Pelletofen, Gaskessel und Fernwärme-Anschluss, darüber ein Thermometer" width="1376" height="768"></a>
+    <figcaption>Heizsysteme im Vergleich.</figcaption>
+</figure>
+
 ## Brennstoffe
 
 <table>

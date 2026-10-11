@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Fibonacci, Puzzle
 featured_image: 2012/07/math-symbol-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/07/mathe-puzzle-verschleierung.jpg"><img src="../images/2012/07/mathe-puzzle-verschleierung.jpg" alt="Mit einem durchscheinenden Schleier verhüllte Tafel mit mathematischen Zeichen, eine Hand mit Lupe hebt eine Ecke an" width="1376" height="768"></a>
+    <figcaption>Verschleierung: Welche Struktur steckt hinter den seltsamen Symbolen?</figcaption>
+</figure>
+
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>
 
 Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verknüpfungen auf $\mathbb{R}$ und definiert durch:

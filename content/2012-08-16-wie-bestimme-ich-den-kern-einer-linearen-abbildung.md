@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Linear Algebra
 featured_image: 2012/03/Matrix-Inverses.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/kern-lineare-abbildung.jpg"><img src="../images/2012/08/kern-lineare-abbildung.jpg" alt="Eine Ebene links mit hervorgehobener Geraden, die durch die Abbildung auf einen einzigen Nullpunkt in der rechten Ebene gedrückt wird" width="1376" height="768"></a>
+    <figcaption>Der Kern wird auf den Nullvektor abgebildet.</figcaption>
+</figure>
+
 ## Definition
 
 Der Kern einer linearen Abbildung ist eine Menge von Vektoren. In diesem Artikel erkläre ich kurz und bündig, wie man den Kern einer linearen Abbildung bestimmt.

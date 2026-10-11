@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Lecture Notes, University
 featured_image: 2012/07/math-symbol-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2011/10/mengenoperationen.jpg"><img src="../images/2011/10/mengenoperationen.jpg" alt="Vier Venn-Diagramme: Vereinigung, Durchschnitt, Differenzmenge und Teilmenge" width="1376" height="768"></a>
+    <figcaption>Mengenoperationen als Venn-Diagramme.</figcaption>
+</figure>
+
 <h2>Begriffe und Bezeichnungen</h2>
 <h3>Mengen</h3>
 Es seien M und N Mengen.

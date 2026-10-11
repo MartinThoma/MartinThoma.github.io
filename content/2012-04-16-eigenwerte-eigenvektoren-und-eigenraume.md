@@ -9,6 +9,11 @@ category: German posts
 tags: Linear Algebra, Mathematics
 featured_image: 2012/01/vector-space.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/04/eigenvektoren.jpg"><img src="../images/2012/04/eigenvektoren.jpg" alt="Koordinatengitter, in dem zwei farbige Eigenvektoren bei der Abbildung nur gestreckt werden, während andere Vektoren ihre Richtung ändern" width="1376" height="768"></a>
+    <figcaption>Eigenvektoren behalten bei der Abbildung ihre Richtung.</figcaption>
+</figure>
+
 <strong>Eigenwerte</strong> sind Elemente des Körpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erfüllen:
 $\Phi(x) = \lambda x$ mit $x \in V$ und $x \neq 0$
 

@@ -18,6 +18,11 @@ sicherlich auch etwas Pflege. Sagen wir 1h/Jahr. Man spart sich also 11h/Jahr.
 Eine Stunde Rasenmähen wäre mir ca. 12€ wert. Ich gehe von einer Lebensdauer von
 8 Jahren aus. Der Roboter darf also nicht mehr als 1056€ kosten.
 
+<figure class="ai-generated">
+    <a href="../images/2023/10/rasenmaehroboter.jpg"><img src="../images/2023/10/rasenmaehroboter.jpg" alt="Rasenmähroboter auf einem Rasen mit Begrenzungsdraht, im Hintergrund eine Person im Liegestuhl" width="1376" height="768"></a>
+    <figcaption>Rasenmähroboter auf einem Rasen mit Begrenzungsdraht, im Hintergrund eine Person im Liegestuhl.</figcaption>
+</figure>
+
 ## Features
 
 * Diebstahlschutz: PIN eingeben, um zu starten

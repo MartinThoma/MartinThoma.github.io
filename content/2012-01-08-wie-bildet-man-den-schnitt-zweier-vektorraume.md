@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Linear Algebra
 featured_image: 2012/01/vector-space.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/01/vektorraum-schnitt.jpg"><img src="../images/2012/01/vektorraum-schnitt.jpg" alt="Zwei farbige Ebenen im Raum, die sich in einer Geraden schneiden, auf der ein Basisvektor eingezeichnet ist" width="1376" height="768"></a>
+    <figcaption>Der Schnitt zweier Untervektorräume ist wieder ein Untervektorraum.</figcaption>
+</figure>
+
 <h2>Angaben</h2>
 Gegeben sind zwei Untervektorräume des $\mathbb{R}^4$:
 $$U_1 := \left [\begin{pmatrix} 2 \\ 5 \\ 3 \\ 17 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ -1 \\ 1 \end{pmatrix} \right ]$$

@@ -8,6 +8,11 @@ date: 2012-11-08 13:18:09.000000000 +01:00
 category: German posts
 tags: Mathematics, Boolean Algebra, Algebra
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/11/boolesche-algebra.jpg"><img src="../images/2012/11/boolesche-algebra.jpg" alt="Logikgatter AND, OR und NOT, verbunden durch Leitungen, daneben ein Venn-Diagramm und ein Schalter" width="1376" height="768"></a>
+    <figcaption>Boolesche Algebra: Gatter, Mengen und Schalter.</figcaption>
+</figure>
+
 ## Definition
 Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher
 Algebren erarbeitet:

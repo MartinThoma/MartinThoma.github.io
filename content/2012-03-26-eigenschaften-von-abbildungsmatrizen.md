@@ -20,6 +20,11 @@ Eine Abbildungsmatrix beschreibt eine lineare Abbildung zwischen zwei endlichdim
 </div>
 Sei V ein n-dimensionaler $\mathbb{K}$-Vektorraum mit der Basis $B = \{b_1, b_2, ..., b_n\}$ und W ein m-dimensonaler $\mathbb{K}$-Vektorraum mit der Basis $C = \{c_1, c_2, ..., c_m\}$.
 
+<figure class="ai-generated">
+    <a href="../images/2012/03/abbildungsmatrix.jpg"><img src="../images/2012/03/abbildungsmatrix.jpg" alt="Koordinatensystem, in dem ein Einheitsquadrat durch eine Matrix in ein Parallelogramm abgebildet wird, mit Basisvektoren" width="1376" height="768"></a>
+    <figcaption>Eine Abbildungsmatrix beschreibt, wie sich die Basisvektoren verändern.</figcaption>
+</figure>
+
 <div class="definition">
 Sei $\Phi:V \rightarrow W$ eine lineare Abbildung.
 

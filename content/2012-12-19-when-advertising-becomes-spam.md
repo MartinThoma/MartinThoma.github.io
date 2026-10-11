@@ -11,6 +11,11 @@ featured_image: 2012/12/thalia-spam-thumb.png
 ---
 The Web is great. You can easily find and publish information. It is great for trading as you can search through millions of articles and hundreds of vendors to find the product that fits best to your needs and is as cheap as possible. But recently I get a lot of spam from companies I like (<a href="http://en.wikipedia.org/wiki/Amazon.com">Amazon</a>, <a href="http://en.wikipedia.org/wiki/PayPal">PayPal</a> and <a href="http://en.wikipedia.org/wiki/Thalia_(bookstore_chain)">Thalia</a>). I like to get some e-mails from those companies. But how can they provide relevant content instead of spam? When is it good advertising and when does advertising become spam?
 
+<figure class="ai-generated">
+    <a href="../images/2012/12/advertising-spam.jpg"><img src="../images/2012/12/advertising-spam.jpg" alt="Overflowing mailbox with a flood of envelopes, an annoyed person at a laptop with a full inbox and a magnifying glass over a tiny unsubscribe link" width="1376" height="768"></a>
+    <figcaption>When advertising becomes spam.</figcaption>
+</figure>
+
 ## Interval of E-mails
 As a rule of thumb, I would say more e-mails without user-interaction than once
 a month is spam. So it is perfectly fine if I buy ten products in one week to

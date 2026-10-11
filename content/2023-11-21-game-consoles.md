@@ -97,6 +97,11 @@ about selling it and getting an Xbox / PlayStation.
     </tr>
 </table>
 
+<figure class="ai-generated">
+    <a href="../images/2023/11/game-consoles.jpg"><img src="../images/2023/11/game-consoles.jpg" alt="Living room TV with three different game consoles and gamepads in front of it" width="1376" height="768" loading="lazy"></a>
+    <figcaption>Which game console should it be?</figcaption>
+</figure>
+
 ## Games
 
 Games are the core of each console. Different people like different stuff, so

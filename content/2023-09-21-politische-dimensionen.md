@@ -16,6 +16,11 @@ einordnen?
 
 Das werden wir jetzt klären.
 
+<figure class="ai-generated">
+    <a href="../images/2023/09/politische-dimensionen.jpg"><img src="../images/2023/09/politische-dimensionen.jpg" alt="Quadratisches Koordinatensystem mit zwei Achsen, in dessen Quadranten bunte Punkte für Parteien verteilt sind" width="1376" height="768"></a>
+    <figcaption>Politische Dimensionen: Wo stehen die Parteien?</figcaption>
+</figure>
+
 ## Linke und rechte Politik
 
 > Das Aufkommen der Unterscheidung „links“ – „rechts“ [...] wird auf den

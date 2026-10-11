@@ -13,6 +13,11 @@ Ich habe eine alte Ölheizung und überlege mir gerade, welche Alternativen es d
 gibt. Ich will sie so lange wie möglich laufen lassen und insbesondere das
 restliche Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
 
+<figure class="ai-generated">
+    <a href="../images/2023/12/oelheizung-alternativen.jpg"><img src="../images/2023/12/oelheizung-alternativen.jpg" alt="Keller mit alter Ölheizung und Öltank, Pfeile führen zu Wärmepumpe, Pelletofen, Solaranlage und Fernwärme" width="1376" height="768"></a>
+    <figcaption>Alternativen für die alte Ölheizung.</figcaption>
+</figure>
+
 ## Was nicht geht
 
 * [**Ölheizung**](https://de.wikipedia.org/wiki/%C3%96lheizung): Etwa 20000€ für eine neue Ölheizung (inklusive Abbau /

@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Linear Algebra, Matrix
 featured_image: 2012/03/Basiswechselmatrix.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/03/basiswechselmatrix.jpg"><img src="../images/2012/03/basiswechselmatrix.jpg" alt="Koordinatenebene mit Standardgitter und einem geneigten zweiten Gitter einer anderen Basis, ein Vektor in beiden Systemen, daneben zwei Matrizen mit Umrechnungspfeil" width="1376" height="768"></a>
+    <figcaption>Ein Vektor, zwei Basen: Die Basiswechselmatrix rechnet die Koordinaten um.</figcaption>
+</figure>
+
 Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.
 
 Angenommen man hat zwei Basen des <span markdown="0">$\mathbb{R}^2$</span>-Vektorraumes:

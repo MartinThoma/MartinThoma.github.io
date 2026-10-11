@@ -11,6 +11,11 @@ featured_image: 2011/10/eulers-formula.png
 ---
 Der Induktionsbeweis eignet sich häufig, wenn es um Aussagen über die Natürlichen Zahlen $\mathbb{N}$ geht, allerdings kann er auch für die ganzen Zahlen $\mathbb{Z}$ verwendet werden.
 
+<figure class="ai-generated">
+    <a href="../images/2011/11/induktionsbeweis-dominosteine.jpg"><img src="../images/2011/11/induktionsbeweis-dominosteine.jpg" alt="Eine Reihe Dominosteine, der erste fällt um und reißt die folgenden mit" width="1376" height="768"></a>
+    <figcaption>Induktion wie bei Dominosteinen: Fällt der erste und reißt jeder den nächsten mit, fallen alle.</figcaption>
+</figure>
+
 <h2>Prinzip</h2>
 Der Gedanke hinter dem Induktionsbeweis ist, dass man sehr leicht für ein einzelnes Element zeigen kann, dass eine Aussage gilt. Diese Aussage ist die Behauptung. Dann zeigt man allgemein, wenn die Aussage für eine Zahl gilt muss sie auch für die nächste Zahl gelten.
 

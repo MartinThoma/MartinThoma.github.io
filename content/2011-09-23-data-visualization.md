@@ -11,6 +11,11 @@ featured_image: 2011/09/Gapminder1.jpg
 ---
 The United States public debt increased from \$10.7 trillion in 2008 to \$14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 million people live in Mumbai.
 
+<figure class="ai-generated">
+    <a href="../images/2011/09/data-visualization.jpg"><img src="../images/2011/09/data-visualization.jpg" alt="A stack of number sheets turned into a colorful bubble chart with a time slider, a person with a lightbulb moment" width="1376" height="768"></a>
+    <figcaption>Data without context is worthless; visualization gives it meaning.</figcaption>
+</figure>
+
 Today it is incredibly easy to gain raw data, but without context they aren't worth anything. You have to know some different information of the same context with which you can compare the given information.
 
 If I told you that 24 petabytes equals approximately 1,600 years of a high quality video you can get a feeling for the information. This can be done even better if you use graphical elements.

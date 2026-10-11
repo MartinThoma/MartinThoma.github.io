@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Probability, Puzzle
 featured_image: 2012/08/blood.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/blutspende.jpg"><img src="../images/2012/08/blutspende.jpg" alt="Blutspende mit Blutbeutel und Spenderarm, daneben ein fallender Kurvenverlauf mit Bluttropfen und ein Messbecher" width="1376" height="768"></a>
+    <figcaption>Wie oft muss man spenden, bis das ursprüngliche Blut weitgehend ersetzt ist?</figcaption>
+</figure>
+
 <h2>Aufgabenstellung</h2>
 Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur nächsten Blutspende wird dieses Blut wieder neu gebildet.
 

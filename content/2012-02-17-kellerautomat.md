@@ -14,6 +14,11 @@ Laut Wikipedia verwendet die Gleitkommaeinheit einen PDA. Dazu habe ich allerdin
 
 Ein weiterer Einsatzzweck ist die Syntaxanalyse einer Tokenfolge. Das kann für Compiler oder Interpreter von Interesse sein.
 
+<figure class="ai-generated">
+    <a href="../images/2012/02/kellerautomat.jpg"><img src="../images/2012/02/kellerautomat.jpg" alt="Zustandsdiagramm aus Kreisen und Pfeilen mit einem Stapel Teller, auf den ein Teller gelegt und von dem einer genommen wird" width="1376" height="768"></a>
+    <figcaption>Ein Kellerautomat ist ein endlicher Automat mit einem Stapelspeicher.</figcaption>
+</figure>
+
 ## Definitionen
 
 Der **Kellerautomat** ist als 7-Tupel definiert:

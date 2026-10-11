@@ -9,6 +9,11 @@ category: German posts
 tags: Klausur, University, KIT, Analysis, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/klausur-analysis.jpg"><img src="../images/2012/08/klausur-analysis.jpg" alt="Aufgeschlagenes Heft mit Skizzen eines Funktionsgraphen mit Tangente, einer Fläche unter der Kurve und einer konvergenten Folge" width="1376" height="768"></a>
+    <figcaption>Klausurvorbereitung Analysis.</figcaption>
+</figure>
+
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur über Analysis schreiben werden.</div>
 
 <h2>Vorbereitung</h2>

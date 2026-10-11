@@ -9,6 +9,11 @@ category: German posts
 tags: Algorithms, Big-O, Computer Science
 featured_image: 2012/07/landau-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/07/landau-symbole.jpg"><img src="../images/2012/07/landau-symbole.jpg" alt="Diagramm mit einer Wachstumskurve, die zwischen einer unteren und einer oberen Schranke liegt, ab einer gestrichelten senkrechten Linie" width="1376" height="768"></a>
+    <figcaption>Landau-Symbole beschreiben das Wachstum von Funktionen durch Schranken.</figcaption>
+</figure>
+
 <h2>Definitionen</h2>
 \begin{align*}
   {\cal O}(g(n)) &:= \{f(n) | \exists_{c > 0} \exists_{n_0 > 0} \forall_{n \geq n_0}: f(n) < c \cdot g(n) \} \\

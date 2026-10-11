@@ -11,6 +11,11 @@ featured_image: 2012/09/partielle-integration.png
 ---
 Hier sind ein paar schöne Aufgaben und ausführliche Lösungsfindungsbeschreibungen zur Integralrechnung.
 
+<figure class="ai-generated">
+    <a href="../images/2012/09/integralrechnung.jpg"><img src="../images/2012/09/integralrechnung.jpg" alt="Funktionskurve mit schraffierter Fläche zwischen zwei senkrechten Grenzen, kleine Rechtecke, daneben Bleistift und Heft" width="1376" height="768"></a>
+    <figcaption>Das bestimmte Integral als Fläche unter einer Kurve.</figcaption>
+</figure>
+
 Diesen Artikel werde ich ergänzen, wenn ich weitere schöne Aufgaben finde.
 
 <h2>Aufgabe 1</h2>

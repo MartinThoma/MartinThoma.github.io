@@ -11,6 +11,11 @@ featured_image: 2011/10/eulers-formula.png
 ---
 In der Mathematik spielen Beweise eine zentrale Rolle. Es gibt verschiedene Beweisarten, aber im Folgenden möchte ich nur einen direkten Beweis führen. Dieses Beispiel wurde in der Übung zu Analysis I von Herrn Bolleyer behandelt.
 
+<figure class="ai-generated">
+    <a href="../images/2011/10/sauberer-beweis.jpg"><img src="../images/2011/10/sauberer-beweis.jpg" alt="Drei übereinander gestapelte farbige Blöcke für Voraussetzung, Behauptung und Beweis, am Ende ein schwarzes Quadrat, im Hintergrund eine Tafel" width="1376" height="768"></a>
+    <figcaption>Ein sauberer Beweis hat Voraussetzungen, Behauptung und Beweis.</figcaption>
+</figure>
+
 ## Gliederung
 
 Beweise kann man in drei Teile gliedern:

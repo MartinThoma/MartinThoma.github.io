@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/konvergenz-folgen.jpg"><img src="../images/2012/08/konvergenz-folgen.jpg" alt="Zahlengerade mit Punkten, die sich einem Grenzwert nähern, um den ein schmales Band liegt, in dem alle späteren Punkte liegen" width="1376" height="768"></a>
+    <figcaption>Eine Folge konvergiert, wenn fast alle Glieder in jeder Umgebung des Grenzwerts liegen.</figcaption>
+</figure>
+
 <div class="definition">Sei $(a_n)$ eine Folge.
 
 $(a_n)$ heißt <strong>konvergent</strong> $:\Leftrightarrow \exists_{a \in \mathbb{R}} \forall_{ \varepsilon > 0} \exists_{n_0 = n_0(\varepsilon) \in \mathbb{N}}: |a_n - a | < \varepsilon~~~\forall n \geq n_0$.

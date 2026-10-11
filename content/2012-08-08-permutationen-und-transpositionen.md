@@ -9,6 +9,11 @@ category: German posts
 tags: Linear Algebra, Mathematics
 featured_image: 2012/08/pi-thumbnail.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/permutationen.jpg"><img src="../images/2012/08/permutationen.jpg" alt="Drei farbige Kugeln, die durch gebogene Pfeile ihre Plätze tauschen, daneben ein Kreisdiagramm der Zyklen" width="1376" height="768"></a>
+    <figcaption>Permutationen vertauschen Objekte, Transpositionen tauschen genau zwei.</figcaption>
+</figure>
+
 <h2>Permutation</h2>
 <h3>Definition</h3>
 <div class="definition">Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M heißt <strong>Permutation</strong>. Die Menge $S_M$ der Permutationen von M ist eine Gruppe bezüglich der Verkettung $\circ$ von Abbildungen und heißt symmetrische Gruppe von M.</div>

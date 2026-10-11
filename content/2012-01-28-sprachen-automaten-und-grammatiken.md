@@ -17,6 +17,11 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
   <li>S: Das Startsymbol aus $\Sigma$.</li>
 </ul>
 
+<figure class="ai-generated">
+    <a href="../images/2012/01/chomsky-hierarchie.jpg"><img src="../images/2012/01/chomsky-hierarchie.jpg" alt="Vier ineinander liegende farbige Formen mit Symbolen für endlichen Automaten, Kellerautomaten und Turingmaschine" width="1376" height="768"></a>
+    <figcaption>Die Hierarchie der formalen Sprachen und ihrer Automaten.</figcaption>
+</figure>
+
 <table>
 <tr>
 <th rowspan="2">Typ</th>

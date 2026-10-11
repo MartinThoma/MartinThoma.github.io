@@ -10,6 +10,11 @@ tags: Mathematics, Analysis, Integral Calculus
 ---
 Integration durch Substitution ist eine elementare Methode zum Finden von Stammfunktionen von Integralen bzw. zum Berechnen von Integralen.
 
+<figure class="ai-generated">
+    <a href="../images/2012/09/integration-substitution.jpg"><img src="../images/2012/09/integration-substitution.jpg" alt="Zwei Koordinatensysteme mit einer Kurve und schraffierter Fläche, verbunden durch einen Pfeil, rechts dieselbe Fläche mit gedehnter Achse" width="1376" height="768"></a>
+    <figcaption>Substitution wechselt die Variable, die Fläche bleibt gleich.</figcaption>
+</figure>
+
 <h2>Unbestimmte Integrale</h2>
 <h3>Beispiel 1</h3>
 $\int e^{2x} dx = ?$

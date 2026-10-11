@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Algebra, University
 featured_image: 2012/08/pi-thumbnail.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/08/wohldefiniert.jpg"><img src="../images/2012/08/wohldefiniert.jpg" alt="Funktionsmaschine, in die zwei verschiedene Darstellungen desselben Bruchs als Tortenstücke laufen und die dasselbe Ergebnis liefert, mit Haken" width="1376" height="768"></a>
+    <figcaption>Wohldefiniert: Das Ergebnis hängt nicht vom Repräsentanten ab.</figcaption>
+</figure>
+
 Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabhängigkeit von den Repräsentanten. Wikipedia sagt dazu:
 
 <blockquote>Man kann in der Mathematik ein Objekt nicht nur durch eine Definitionsgleichung (explizit), sondern auch durch eine charakteristische Eigenschaft (implizit) definieren. Während eine explizite Definition immer zulässig ist, ist eine implizite Definition nur unter der Bedingung zulässig, dass es tatsächlich genau ein Objekt mit der angegebenen Eigenschaft gibt. Diese Bedingung nennt man die Wohldefiniertheit der impliziten Definition.</blockquote>

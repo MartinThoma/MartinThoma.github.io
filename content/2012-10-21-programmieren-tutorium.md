@@ -9,6 +9,11 @@ category: German posts
 tags: KIT, Java, University
 featured_image: 2011/10/KIT-Logo.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2012/10/programmieren-tutorium.jpg"><img src="../images/2012/10/programmieren-tutorium.jpg" alt="Überfüllter Hörsaal mit hunderten Studierenden mit Laptops, vorne ein Tutor mit Code-ähnlichen Blöcken auf der Leinwand" width="1376" height="768"></a>
+    <figcaption>Programmieren: 820 Studierende in der Vorlesung.</figcaption>
+</figure>
+
 <div class="info">Programmieren ist ein Modul am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT, die im WS 2012/2013 dieses Modul belegen und mein Tutorium besuchen. Er wird regelmäßig aktualisiert.</div>
 
 <h2>Vorlesung</h2>

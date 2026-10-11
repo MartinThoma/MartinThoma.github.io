@@ -11,6 +11,11 @@ featured_image: 2011/10/KIT-Logo.png
 ---
 Das KIT sieht sich gerne als Elite-Universität.<sup>[<a href="http://www.kit.edu/besuchen/pi_2012_11933.php">1</a>]</sup> Es werden Rankings in Vorlesungen zitiert und erst vor kurzem wurde von einigen Professoren in der Vorlesung der Verlust des Status der Elite-Universität betrauert.<sup>[<a href="http://bildungsklick.de/a/84162/hippler-elite-verlust-herber-rueckschlag-fuer-kit/">1</a>]</sup> Ich weiß nicht, was die Kriterien für eine Elite-Uni nach der Exzellenzinitiative sind, aber ich kann mir einige notwendige Voraussetzungen vorstellen, die für mich eine Elite-Uni ausmachen:
 
+<figure class="ai-generated">
+    <a href="../images/2012/10/buerokratie.jpg"><img src="../images/2012/10/buerokratie.jpg" alt="Student steht vor einem geschlossenen Schalter, umgeben von Papierstapeln und Stempeln" width="1376" height="768"></a>
+    <figcaption>Bürokratie: Öffnungszeiten, Formulare und Stempel.</figcaption>
+</figure>
+
 <ul>
 <li>Lehre
   <ul>

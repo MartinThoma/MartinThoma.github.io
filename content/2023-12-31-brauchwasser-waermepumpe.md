@@ -9,6 +9,11 @@ category: German posts
 tags: House, Money
 featured_image: logos/house.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2023/12/brauchwasser-waermepumpe.jpg"><img src="../images/2023/12/brauchwasser-waermepumpe.jpg" alt="Hoher Warmwasserspeicher mit aufgesetzter kleiner Wärmepumpe, Rohre zu Dusche und Wasserhahn mit Dampf, daneben ein Zeigerinstrument im grünen Bereich" width="1376" height="768"></a>
+    <figcaption>Eine Brauchwasser-Wärmepumpe erwärmt das Trinkwasser.</figcaption>
+</figure>
+
 ## Kriterien
 
 * Wasservolumen (in Liter): ca. 250L-300L?

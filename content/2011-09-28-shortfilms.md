@@ -11,6 +11,11 @@ featured_image: 2011/09/cat-piano.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>
 
+<figure class="ai-generated">
+    <a href="../images/2011/09/shortfilms.jpg"><img src="../images/2011/09/shortfilms.jpg" alt="Clapperboard, film strip and projector beam in front of a futuristic city, a running figure chased by searchlights" width="1376" height="768"></a>
+    <figcaption>Short films.</figcaption>
+</figure>
+
 <h2>Turbo</h2>
 <iframe src="http://player.vimeo.com/video/6932347?title=0&amp;byline=0&amp;portrait=0" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><p>TURBO is a high adrenaline short film in the tradition of The Karate Kid and Tron.  It tells the story of Hugo Park (<a href="http://en.wikipedia.org/wiki/Justin_Chon">Justin Chon</a>, Twilight) a troubled youth whose only outlet for angst is a 4D fighting video game called &ldquo;Super Turbo Arena&rdquo;.  When Pharaoh King (<a href="http://en.wikipedia.org/wiki/Jocko_Sims">Jocko Sims</a>, Crash the Series), the Michael Jordan of cyber-sports, announces a tournament to determine who will join his pro-team, Hugo sets his eyes on the prize.  But, Hugo isn't the only gamer who wants fame and glory.  If Hugo wants to win he's going to have to beat Shamus (David Lehre, Epic Movie), the all time Turbo champ at the local Pandemonium arcade, and Ruse Kapri, a feisty prep girl that knows how to win.  Realizing he can't win on his skill alone, Hugo turns to his brother Tobias a former kick-boxer whose last match left him wheel-chair ridden.  Together the two will mend old wounds and see if a washed up street fighter can teach a troubled teen how to become a virtual gladiator!</p>
 Here is the <a href="http://www.imdb.com/title/tt1448608/">imdb-entry</a>.

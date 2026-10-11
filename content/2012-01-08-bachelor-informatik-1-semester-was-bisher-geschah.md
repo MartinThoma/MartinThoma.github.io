@@ -11,6 +11,11 @@ featured_image: 2011/10/KIT-Logo.png
 ---
 Die erste Hälfte des Semesters ist nun vorbei und es wird Zeit zu wiederholen, was man wissen sollte. Eventuell ist diese Liste für ein paar Kommilitonen von nutzen. Wenn man gerade eines der Module macht, sollte man alles wissen, was in den Links steht. Naja, vielleicht nicht alles, aber man sollte auf jeden Fall die Begriffe im Schlaf definieren können. Die Links sind meist deutsche Wiki-Artikel, manchmal auch englische. Je nach dem, was ich besser fand.
 
+<figure class="ai-generated">
+    <a href="../images/2012/01/informatik-semester.jpg"><img src="../images/2012/01/informatik-semester.jpg" alt="Informatikstudent am Schreibtisch, umgeben von schwebenden Symbolen wie Venn-Diagramm, Baum, Funktionsgraph und Matrix" width="1376" height="768"></a>
+    <figcaption>Der Stoff des ersten Informatik-Semesters im Überblick.</figcaption>
+</figure>
+
 Einiges hätte ich bei vielen Modulen schreiben können, z.B. der Beweis durch Induktion. Ich habe mir dann einfach eines ausgesucht und es nur da hinein geschrieben. Das ist eh schon lang genug.
 
 <h2>1. Semester</h2>

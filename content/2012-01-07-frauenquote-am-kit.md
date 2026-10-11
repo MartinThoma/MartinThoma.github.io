@@ -12,6 +12,11 @@ featured_image: 2011/10/KIT-Logo.png
 
 *Hinweis: Dieser Artikel stammt aus 2012 und zeigt historische Daten zum Wintersemester 2011/2012. Die aktuellen Zahlen können abweichen.*
 
+<figure class="ai-generated">
+    <a href="../images/2012/01/frauenquote.jpg"><img src="../images/2012/01/frauenquote.jpg" alt="Universitätsgebäude mit einer Gruppe Studierender, etwa ein Viertel violett hervorgehoben, daneben ein Kreisdiagramm mit hervorgehobenem Viertel" width="1376" height="768"></a>
+    <figcaption>Frauenanteil unter den Studierenden am KIT im Wintersemester 2011/2012.</figcaption>
+</figure>
+
 Die Frauenquote am KIT wird oft genannt, allerdings hatte ich bisher nur grobe Zahlen. Nun habe ich eine [zuverlässige Quelle](http://www.kit.edu/downloads/Statistik_WS11.pdf) mit Zahlen zum WS 2011/2012. Das ist die Frauenquote:
 
 **Insgesamt:** 26,6% (unter Deutschen: 25,3%; unter Ausländern: 33,5%)

@@ -12,6 +12,11 @@ itemtype: http://schema.org/Review
 ---
 Vor ein paar Tagen ist mein <span itemprop="name">Acer Travelmate 5744Z</span>, das ich bei Amazon für <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">305,95</span> <span itemprop="priceCurrency">Euro</span></span> bekommen habe, angekommen. Ich habe es mit &bdquo;Linux&ldquo; als System gekauft. Wie sich herausstellte, ist MeeGo release 1.0 mit dem Kernel 2.6.37, installiert. Das System startet zwar in sensationellen 29 Sekunden, aber Ubuntu ist mir doch lieber.
 
+<figure class="ai-generated">
+    <a href="../images/2012/10/acer-travelmate.jpg"><img src="../images/2012/10/acer-travelmate.jpg" alt="Silberner Laptop mit Pinguin-Aufkleber, auf dem Bildschirm ein WLAN-Symbol mit Fragezeichen, daneben Symbole für Prozessor, Speicher, SD-Karte und Akku" width="1376" height="768"></a>
+    <figcaption>Ein Laptop mit Linux: Was funktioniert, was nicht?</figcaption>
+</figure>
+
 edit: *argh* - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/Gnome Classic/Cinnamon) bin ich nicht zufrieden. Windows 7 hat tatsächlich, ganz im Gegensatz zu allen Ubuntu-Arten, die Treiber CD benötigt. Naja.
 
 ## Technische Daten ##

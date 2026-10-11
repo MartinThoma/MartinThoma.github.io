@@ -11,6 +11,11 @@ featured_image: 2012/07/web-graph-thumb.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer gehört.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2013/01/web-engineering.jpg"><img src="../images/2013/01/web-engineering.jpg" alt="Browserfenster mit Wireframe, verbunden mit Server und Datenbank, Bauarbeiter mit Helmen errichten die Webseite wie ein Gebäude" width="1376" height="768"></a>
+    <figcaption>Web Engineering: Web-Projekte professionell bauen.</figcaption>
+</figure>
+
 <h2>Über die Vorlesung</h2>
 In der Vorlesung &bdquo;Web Engineering&ldquo; lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch über technische Aspekte geredet (siehe Part 1), aber es geht vor allem um Projektplanung und -management. Insbesondere wird hier nichts konkret entwickelt. Dafür gibt es vermutlich das Praktikum, das aber unabhängig von der Vorlesung ist.
 

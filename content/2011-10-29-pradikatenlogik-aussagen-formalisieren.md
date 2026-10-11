@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Lecture Notes, University
 featured_image: 2011/10/eulers-formula.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2011/10/pradikatenlogik.jpg"><img src="../images/2011/10/pradikatenlogik.jpg" alt="Links eine Menschengruppe, in der genau eine Person orange hervorgehoben ist, rechts dieselbe Gruppe, in der alle grün hervorgehoben sind" width="1376" height="768"></a>
+    <figcaption>Quantoren: "es existiert" und "für alle".</figcaption>
+</figure>
+
 Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.
 
 <h2>Allgemeines zur Prädikatenlogik</h2>
