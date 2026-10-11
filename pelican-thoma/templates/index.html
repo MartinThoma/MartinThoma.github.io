@@ -9,23 +9,20 @@
 {% from '_includes/_defaults.html' import LANDING_PAGE_ABOUT with context %}
 {% if LANDING_PAGE_ABOUT and LANDING_PAGE_ABOUT.title %}
 <meta property="og:title" content="{{ LANDING_PAGE_ABOUT.title|e }}"/>
-<meta name="twitter:title" content="{{ LANDING_PAGE_ABOUT.title|e }}">
 {% else %}
 <meta property="og:title" content="{{ SITENAME|striptags|e }}"/>
-<meta name="twitter:title" content="{{ SITENAME|striptags|e }}">
 {% endif %}
-<meta property="og:url" content="{{ SITEURL }}" />
+{% from '_includes/_defaults.html' import SITEURL_ABSOLUTE with context %}
+<meta property="og:url" content="{{ SITEURL_ABSOLUTE }}/" />
 {% from '_includes/_defaults.html' import SITE_DESCRIPTION with context %}
 {% if SITE_DESCRIPTION %}
 <meta property="og:description" content="{{SITE_DESCRIPTION|e}}" />
-<meta name="twitter:description" content="{{SITE_DESCRIPTION|e}}">
 {% endif %}
 <meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
 <meta property="og:article:author" content="{{ AUTHOR }}" />
 {% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
 {% if FEATURED_IMAGE %}
 <meta property="og:image" content="{{FEATURED_IMAGE}}" />
-<meta name="twitter:image" content="{{FEATURED_IMAGE}}" >
 {% endif %}
 {% endblock meta_tags_in_head %}
 

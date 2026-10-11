@@ -7,6 +7,8 @@ SITENAME = "Martin Thoma"
 SITESUBTITLE = "A blog about Code, Politics, and my life"
 SITE_DESCRIPTION = "Martin Thoma's blog about code, machine learning, the web, cyberculture and German politics."
 SITEURL = "https://martin-thoma.com"
+# canonical, og:url and og:image must be absolute, even with RELATIVE_URLS
+SITEURL_ABSOLUTE = SITEURL
 
 PATH = "content"
 
@@ -57,6 +59,8 @@ AUTHOR_URL = "author/{slug}/"
 AUTHOR_SAVE_AS = ""
 PAGE_URL = "pages/{slug}/"
 PAGE_SAVE_AS = "pages/{slug}/index.html"
+PAGE_LANG_URL = "pages/{slug}/"
+PAGE_LANG_SAVE_AS = "pages/{slug}/index.html"
 CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 TAG_URL = "tag/{slug}/"
@@ -80,6 +84,7 @@ PLUGINS = [
     "render_math_fixes",
     "footnotes_in_html",
     "clean_summary",
+    "social_image",
     "search_index",
     "toc",
     "sitemap",
@@ -119,6 +124,8 @@ STATIC_PATHS = [
     "extra/print.css",
     "extra/favicon.ico",
     "extra/opensearch.xml",
+    "extra/robots.txt",
+    "extra/google2946203151914bdb.html",
     "pdf",
     "anki",
     "audio",
@@ -132,6 +139,9 @@ EXTRA_PATH_METADATA = {
     "extra/print.css": {"path": "static/print.css"},
     "extra/favicon.ico": {"path": "favicon.ico"},
     "extra/opensearch.xml": {"path": "opensearch.xml"},
+    "extra/robots.txt": {"path": "robots.txt"},
+    # Google Search Console checks this file to keep the site verified
+    "extra/google2946203151914bdb.html": {"path": "google2946203151914bdb.html"},
 }
 OUTPUT_PATH = "/var/www/blog/"
 # SUMMARY_MAX_LENGTH = 0

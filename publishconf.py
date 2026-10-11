@@ -12,6 +12,9 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 SITEURL = "https://martin-thoma.com"
+# RELATIVE_URLS turns SITEURL into "..": templates use SITEURL_ABSOLUTE for
+# canonical links and og: tags, which crawlers only read as absolute URLs
+SITEURL_ABSOLUTE = SITEURL
 RELATIVE_URLS = True
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"

@@ -1,6 +1,7 @@
 {% macro smo_metadata(article) %}
+{% from '_includes/_defaults.html' import SITEURL_ABSOLUTE with context %}
 {# save_as, not url: drafts with an explicit save_as are published there #}
-{% set page_url = SITEURL ~ '/' ~ (article.save_as|replace('index.html', '')) %}
+{% set page_url = SITEURL_ABSOLUTE ~ '/' ~ (article.save_as|replace('index.html', '')) %}
 {% set full_title = article.title|striptags ~ (' - ' ~ article.subtitle|striptags if article.subtitle else '') %}
 <link rel="canonical" href="{{ page_url }}" />
 <meta property="og:title" content="{{ full_title|e }}"/>
@@ -14,16 +15,16 @@
 {% if article.locale_modified and article.modified %}
 <meta property="" content="{{ article.modified.isoformat() }}" />
 {% endif %}
-<meta name="twitter:title" content="{{ full_title|e }}">
-<meta name="twitter:description" content="{{article.summary|striptags|e}}">
-{% if article.featured_image %}
-<meta property="og:image" content="{{ SITEURL }}/images/{{ article.featured_image }}" />
-<meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.featured_image }}" >
+{% if article.og_image %}
+<meta property="og:image" content="{{ SITEURL_ABSOLUTE }}/{{ article.og_image }}" />
+<meta property="og:image:width" content="{{ article.og_image_width }}" />
+<meta property="og:image:height" content="{{ article.og_image_height }}" />
+{% elif article.featured_image %}
+<meta property="og:image" content="{{ SITEURL_ABSOLUTE }}/images/{{ article.featured_image }}" />
 {% else %}
 {% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
     {% if FEATURED_IMAGE %}
 <meta property="og:image" content="{{FEATURED_IMAGE}}" />
-<meta name="twitter:image" content="{{FEATURED_IMAGE}}" >
     {% endif %}
 {% endif %}
 {% endmacro %}

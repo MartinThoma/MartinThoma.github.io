@@ -54,9 +54,21 @@ pyenv shim that points to a different Python, call the real binary instead, e.g.
 The pre-commit hooks (`auto_fix_blog.py`, file size limit of 500 KB, whitespace) run on
 every commit.
 
-An article from Medium can be imported with
-`uv run python mediumexporter.py -H <medium-url> > content/YYYY-MM-DD-slug.md`; afterwards
-download its images into `images/<year>/<month>/` (see `AGENTS.md`).
+Articles from Medium are imported with `scripts/medium_export.py`. It writes
+`content/YYYY-MM-DD-slug.md` as a draft and downloads the images into
+`images/<year>/<month>/` (see `AGENTS.md`):
+
+```bash
+# which Medium articles are not on the blog yet (rewrites MEDIUM_EXPORT_TODO.md)
+uv run --group dev python scripts/medium_export.py list --from-export medium-export.zip
+# import them
+uv run --group dev python scripts/medium_export.py export --missing --from-export medium-export.zip
+```
+
+`medium-export.zip` is Medium's data export (Settings → Security and apps → Download
+your information). Without `--from-export` the script reads medium.com directly and
+needs your session cookies in `scripts/medium_credentials.py` (see
+`scripts/medium_credentials.example.py`; the file is in `.gitignore`).
 
 ## Publishing
 
