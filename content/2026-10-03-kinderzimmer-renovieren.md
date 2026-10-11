@@ -24,8 +24,20 @@ klappt und was nicht. Ich ergänze ihn, sobald es weitergeht.
     </figure>
 </div>
 
-TODO: Ausgangslage beschreiben: Wie groß ist der Raum, in welchem Zustand ist er,
-was muss raus (Küchenmöbel, Geräte, Leitungen)?
+Der Raum ist rund 2,94 m × 4,20 m groß, also gut 12 m², und unter dem geraden
+Teil der Decke rund 2,40 m hoch. Der Fliesenboden ist gut und bleibt. Seit den
+Fotos oben sind der Kühlschrank, die Oberschränke und die Dunstabzugshaube schon
+raus. Noch raus kommen:
+
+* der Fliesenspiegel der Küche (siehe
+  [Fliesenspiegel entfernen und verputzen](#fliesenspiegel-entfernen-und-verputzen)),
+* die abgehängte Holzdecke, am geraden Teil und an der Schräge. An ihre Stelle
+  kommt eine glatte, weiße Decke aus Gipskarton (siehe [Decke](#decke)),
+* der Elektroherd mit Kochfeld, die Arbeitsplatte und das Spülbecken.
+
+Danach bleiben der Herdanschluss und die Wasseranschlüsse der Spüle übrig. Den
+Herdanschluss klärt der Elektriker, die Wasseranschlüsse könnte der Waschtisch
+nutzen (siehe [Einrichtung](#einrichtung)).
 
 Ungefähr so soll das Zimmer am Ende aussehen:
 
@@ -134,10 +146,11 @@ Preise: brutto, Stand Oktober 2026, jeweils von der Produktseite, ohne Versand.
   Gipskarton kann daher nicht direkt auf die Sparren, es braucht eine
   Unterkonstruktion.
 * TODO: Sparrenhöhe im Dach.
-* TODO: Balkenabstand und Balkenhöhe der Holzbalkendecke auf dem Dachboden, und
-  ob sie begehbar bleiben soll.
-* Öffnungsmaß der Dachluke: ca. 70 × 120 cm. TODO: Genau nachmessen, dazu die
-  lichte Raumhöhe darunter.
+* TODO: Balkenabstand und Balkenhöhe der Holzbalkendecke auf dem Dachboden.
+  Begehbar bleiben muss der Dachboden nicht (siehe
+  [Mengen im Detail](#mengen-im-detail)).
+* Öffnungsmaß der Dachluke: ca. 70 × 120 cm, lichte Raumhöhe darunter ca. 2,40 m.
+  TODO: Öffnung genau nachmessen.
 * TODO: Tiefe der Eingangstreppe und Fläche der Garagenwand zum Haus (siehe
   [Garage](../garage/)).
 * TODO: Wo kommt die Lieferung hin, wo lagere ich sie trocken? Es sind rund
@@ -204,10 +217,30 @@ den Wert etwas. Das liegt deutlich unter der Nachrüstpflicht für die oberste
 Geschossdecke (0,24 W/(m²·K)) und unter dem, was Förderprogramme meist
 verlangen (0,14 W/(m²·K));
 beides vor einem Antrag nachprüfen. Die zweite Lage kommt quer zur ersten, damit
-die Stöße nicht übereinander liegen. Soll der Dachboden begehbar bleiben, brauche
-ich eine lastverteilende Schicht (OSB) oder eine begehbare Dämmung; bausep hat
-zum Beispiel „Top Loft WLG 035 begehbare Dachbodendämmung“ ab 14,40 €/m².
+die Stöße nicht übereinander liegen. Begehbar bleiben muss der Dachboden nicht,
+dafür ist der Spitzboden zu niedrig. Die Platten kommen daher direkt auf die
+vorhandenen Dielen, ohne OSB-Lage.
 Lagerplatz: 52 m² × 0,34 m ≈ 18 m³.
+
+Im Kinderzimmer sitzt die Dampfbremse unter den Balken (siehe [Decke](#decke)).
+Zwischen ihr und der Holzfaser liegen dann die Balkenfelder voll Luft und die
+Dielen. Das ist kein Problem: Die Luft liegt auf der warmen Seite der Dämmung,
+dort kondensiert nichts. Die Luft muss aber eingeschlossen sein. Ist ein
+Balkenfeld zum Spitzboden oder zur Abseite hin offen, sinkt kalte Luft auch ohne
+spürbaren Zug hinein, und warme steigt hinaus. Dann läuft kalte Luft unter der
+Dämmung durch, die Decke kühlt aus, und an kalten Stellen kann Schimmel
+entstehen.
+
+* TODO: Balkenfelder an den Enden schließen, vor allem dort, wo die Balkenlage
+  auf die Dachschräge trifft. Die Holzfaser muss dort lückenlos an die Dämmung
+  der Schräge anschließen.
+* Solange die Decke im Kinderzimmer offen ist, kann ich die Balkenfelder dort
+  auch von unten mit Dämmung füllen; dann gibt es keine Luftschicht.
+* TODO: Wo sitzt die Dampfbremse in den anderen Räumen im Obergeschoss? Bleiben
+  dort die alten Decken, kommt sie oben auf die Dielen, unter die Holzfaser. Wie
+  schließt sie dann an die Dampfbremse unter den Balken im Kinderzimmer an? Zwei
+  Bahnen übereinander mit dem Holz dazwischen sollte es nicht geben, sonst kann
+  Feuchte im Holz nicht austrocknen.
 
 **Dampfbremse.** Die Decke (52 m²) plus Überlappung und Wandanschluss sind rund
 58 m², also reicht eine Rolle. Die Folie hat einen sd-Wert über 100 m und ist
@@ -233,8 +266,9 @@ werden.
 
 **Unterkonstruktion.** Rechnung wie in [Decke abhängen](../decke-abhaengen/):
 CD-Profile mit 50 cm Achsabstand ergeben rechnerisch 2 m Profil je m² (dort
-steht 1 m/m², das stimmt bei diesem Abstand nicht). Das ergibt bei 129 m²
-(Kinderzimmer plus Dachflächen) 258 m, mit 10 % Verschnitt 284 m. Direktabhänger
+steht 1 m/m², das stimmt bei diesem Abstand nicht). Das ergibt bei 128 m²
+(Kinderzimmer plus Dachflächen) 256 m, mit 10 % Verschnitt 282 m, also 71
+Profile à 4 m. Direktabhänger
 setze ich konservativ mit 2 je m² an. Das ist der größte Posten der
 Unterkonstruktion. Direkt auf die Sparren schrauben geht nicht: Ihr Achsabstand
 schwankt zwischen 60 und 70 cm, ist also teils größer als 62,5 cm, und die
@@ -253,7 +287,7 @@ ich rechne mit 1 bis 1,5 kg/m²). Die Qualitätsstufen Q1 bis Q4 stehen in
 **Dachluke.** Die Dolle click-fix ist wärmegedämmt (U 0,49, Luftdichtheit
 Klasse 4, belastbar bis 150 kg) und gibt es mit Öffnungen von 110 × 60 bis
 140 × 70 cm bei lichter Raumhöhe bis 274 cm, also auch in 120 × 70 cm wie die
-vorhandene Öffnung. Der Lukenkasten ist aber nur 24 cm
+vorhandene Öffnung mit 2,40 m Raumhöhe darunter. Der Lukenkasten ist aber nur 24 cm
 hoch, die Dämmung später 34 cm: Der Kasten muss also aufgedoppelt und der
 Deckel zusätzlich gedämmt werden. Eine Alternative ist die
 [Wellhöfer Passivhaus-Bodentreppe](https://www.bausep.de/wellhoefer-passivhaus-bodentreppe-gutholz-3-tlg.html?361=676686)
@@ -297,7 +331,9 @@ Wie man eine Decke abhängt, beplankt und spachtelt, habe ich schon in
 was dieses Mal anders ist: die Dämmung der Schräge, die Dampfbremse und die
 LED-Beleuchtung.
 
-**Fläche:** 2,22 m × 3 m und 2,35 m × 3 m, zusammen also rund 13,7 m².
+**Fläche:** 2,22 m × 2,94 m und 2,35 m × 2,94 m, zusammen also rund 13,4 m².
+Hintereinander sind die beiden Flächen 4,57 m lang, mehr als der Raum (4,20 m):
+Die Schräge ist länger als der Boden darunter.
 
 TODO: Welche der beiden Flächen ist die Schräge, welche der gerade Teil?
 
@@ -326,7 +362,7 @@ luftdicht verklebt.
 | Unterkonstruktion (Profile, Abhänger, Schrauben) | siehe Einkaufsliste | siehe Einkaufsliste |
 | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 13 Stück | 68,12 € |
 
-Eine Einmannplatte hat 1,2 m². Für 13,7 m² sind das 12 Platten, mit etwa 10 %
+Eine Einmannplatte hat 1,2 m². Für 13,4 m² sind das 12 Platten, mit etwa 10 %
 Verschnitt 13.
 
 Offene Fragen:
@@ -373,8 +409,9 @@ beim Zuschnitt ohnehin ab.
 
 Offene Fragen:
 
-* TODO: Länge messen. 5 m sind zu kurz. Bilden die beiden Flächen zusammen eine
-  Decke von 3 m × 4,57 m, ist der Umfang rund 15 m.
+* TODO: Länge messen. 5 m sind zu kurz. Die Decke ist 2,94 m breit und über die
+  Schräge gemessen 4,57 m lang; ihr Rand ist also rund
+  2 × (2,94 m + 4,57 m) ≈ 15 m lang.
 * TODO: Variante A oder B? Bei B die Blende skizzieren (Höhe, Abstand zur Decke).
 * TODO: Leistung pro Meter laut Datenblatt prüfen. Jedes 5-m-Set hat sein eigenes
   Netzteil, damit wird das Licht am Ende nicht dunkler. Aufgeräumter wäre ein
@@ -398,7 +435,8 @@ Fenster hinausgeht.
 #### Fliesenspiegel entfernen und verputzen
 
 An einer Wand hängen noch die Küchenfliesen: von etwa 80 cm Höhe bis zur Decke,
-auf rund 4 m Länge. Bei 2,45 m Raumhöhe sind das 4 m × 1,65 m ≈ 6,6 m². Die
+auf rund 4 m Länge. Bei 2,40 m Raumhöhe sind das höchstens 4 m × 1,60 m =
+6,4 m²; unter der Schräge ist die Wand niedriger. Die
 Fliesen kommen weg, die Wand wird verputzt und dann gestrichen (siehe
 [Innenwände streichen](../innenwaende-streichen/)).
 
@@ -446,14 +484,14 @@ vor der Decke.
 **Material:**
 
 Putzdicke: Fliese und Kleber sind grob 15 mm. Rotband braucht laut Knauf etwa
-0,8 kg je m² und mm Putzdicke:[^5] 6,6 m² × 15 mm × 0,8 kg ≈ 79 kg.
+0,8 kg je m² und mm Putzdicke:[^5] 6,4 m² × 15 mm × 0,8 kg ≈ 77 kg.
 
 | Material | Menge | Preis |
 |----------|-------|-------|
 | [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 4 Säcke (3 rechnerisch, 1 Reserve für Ausbrüche) | 67,64 € |
 | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html), 0,2 bis 0,35 kg/m² | 1 Eimer | ab 37,85 € |
 | [Knauf Grundol Tiefengrund 10 Liter](https://www.bausep.de/knauf-grundol-tiefengrund-10-liter.html), 0,15 bis 0,25 l/m²; der Rest grundiert die Decke vor dem Streichen | 1 Kanister | ca. 52 € |
-| Schnellputzleiste 10 mm, verzinkt, 2,5 m (z. B. [Knauf Schnellputzleiste 10/20](https://knauf.com/de-DE/p/produkt/schnellputzleiste-10-20-11141_0022)), Baumarkt | 4 Stück, auf 1,65 m gekürzt | TODO |
+| Schnellputzleiste 10 mm, verzinkt, 2,5 m (z. B. [Knauf Schnellputzleiste 10/20](https://knauf.com/de-DE/p/produkt/schnellputzleiste-10-20-11141_0022)), Baumarkt | 4 Stück, auf höchstens 1,60 m gekürzt | TODO |
 | Eckschutzschiene für Außenecken (nur falls die Fläche an einer Außenecke endet) | TODO | TODO |
 | Bauschuttsäcke | TODO | TODO |
 
@@ -468,8 +506,10 @@ Glättkelle, Schwammbrett, Abdeckfolie.
 
 #### Boden
 
-TODO: Neuer Bodenbelag? Er kommt vor der Zimmertür (wegen der Bodendichtung)
-und um das [Trockenbau-Regal](#trockenbau-regal) herum.
+Der Fliesenboden ist gut und bleibt.
+
+TODO: Nach dem Ausbau der Küche prüfen, ob unter der Küchenzeile gefliest ist
+und ob dort Sockelfliesen fehlen.
 
 ### Zimmertür
 
@@ -501,8 +541,8 @@ Ich nehme Klasse 2; Klasse 3 nur, wenn der Aufpreis klein ist. Der Wert gilt
 für das komplette Element aus Türblatt, Zarge, Dichtungen und Bodendichtung,
 und nur, wenn es dicht eingebaut ist:
 
-* Die Bodendichtung braucht einen ebenen, fertigen Boden. Die Tür kommt also
-  nach dem neuen Bodenbelag, und ihre Höhe richtet sich nach dem fertigen Boden.
+* Die Bodendichtung braucht einen ebenen, fertigen Boden. Das ist hier der
+  Fliesenboden, der bleibt; nach ihm richtet sich die Höhe der Tür.
 * Die Fuge zwischen Zarge und Wand vollständig ausschäumen, sonst geht der
   Schall um die Zarge herum.
 * Die Zargendichtung muss umlaufend am Türblatt anliegen.
@@ -519,8 +559,8 @@ Offene Punkte:
 ### Trockenbau-Regal
 
 Ein eingebautes, raumhohes Regal aus Trockenbauprofilen, beplankt mit
-Gipskarton und mit LED-Beleuchtung: 1,0 m breit, 2,45 m hoch, 20 cm tief, mit 4
-Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
+Gipskarton und mit LED-Beleuchtung: 1,0 m breit, raumhoch (rund 2,40 m, genau
+nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
 [Einrichtung](#einrichtung)).
 
 * TODO: Skizze mit Türaufschlag, Regal und Kleiderschrank einfügen.
@@ -538,12 +578,13 @@ Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
   CW 50 als Querstreben (an beiden Enden und in der Mitte). Der Gipskarton
   spannt nur rund 20 cm von vorne nach hinten; eine Lage oben und eine unten
   reicht. Ein Boden ist 7,5 cm dick.
-* **Fachhöhe:** (2,45 m − 4 × 7,5 cm) / 5 = 43 cm lichte Höhe je Fach.
+* **Fachhöhe:** (2,40 m − 4 × 7,5 cm) / 5 = 42 cm lichte Höhe je Fach.
 * **Verbindung:** In jeder Wange sitzt auf Höhe jedes Bodens ein Riegel aus
   CW 50, daran wird der Boden verschraubt. Das hintere UW jedes Bodens wird
   zusätzlich an die Wand gedübelt, ebenso das hintere CW jeder Wange (alle 50 cm).
-* **Plattenstoß:** Die Platten sind 2 m lang; der Stoß der Wangen liegt also bei
-  2 m Höhe. Das ist auf Höhe des obersten Bodens, dort sitzt ein Riegel.
+* **Plattenstoß:** Die Platten sind 2 m lang. Der oberste Boden liegt bei
+  1,91 bis 1,98 m; ich kürze die Platten der Wangen auf 1,95 m, damit der Stoß
+  auf seinem Riegel liegt.
 * **Vorderkante:** Optional eine Dachlatte (30 × 50 mm) in das vordere UW jedes
   Bodens einlegen und verschrauben; das macht die 85 cm lange Kante steifer.
 * **Kanten:** Alle sichtbaren Außenkanten bekommen ein Alu-Eckprofil, das mit
@@ -551,9 +592,9 @@ Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
 * **Oben:** Die oberen UW-Stücke werden in die CD-Profile der neuen Decke
   geschraubt, nicht durch die Dampfbremse gedübelt. Beim Bau der Decke ein
   CD-Profil über jede Wange legen. Das Regal kommt also nach der Decke.
-* **Unten:** Trockenbauwände stehen üblicherweise auf dem Rohboden; ein
-  schwimmender Bodenbelag wird drumherum verlegt. TODO: Reihenfolge mit dem
-  neuen Boden klären.
+* **Unten:** Der Fliesenboden bleibt; die unteren UW-Stücke kommen mit
+  Dichtungsband direkt auf die Fliesen und werden durch sie hindurch gedübelt
+  (die Fliese ohne Schlag vorbohren).
 * **Licht:** Unter der Vorderkante jedes Bodens ein LED-Profil (siehe
   [Beleuchtung](#beleuchtung-led-streifen-am-deckenrand)).
 
@@ -562,7 +603,7 @@ Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
 | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) | 6 Stück: 4 senkrecht, 2 für 12 Querstreben und 8 Riegel à 20 cm (13 je Stange) | 29,80 € |
 | [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) | 2 Stück: 8 × 85 cm, aus den Resten 4 × 20 cm | 13,44 € |
 | [Gipskarton-Einmannplatte 12,5 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 6 Platten (2 für die Wangen, 2 für die Böden, 1 für Kleinteile und Stirnseiten, 1 Reserve) | 31,46 € |
-| [Alu-Eckprofil 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 8 Stück (4 × 2,45 m Wangenkanten, 8 × 85 cm Bodenkanten) | ca. 24 € |
+| [Alu-Eckprofil 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 8 Stück (4 × 2,40 m Wangenkanten, 8 × 85 cm Bodenkanten) | ca. 24 € |
 | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle (rund 9 m für das Regal) | 11,30 € |
 | Nageldübel 6 × 40 mm (Baumarkt) | ca. 30 Stück | TODO |
 | [Blechschrauben 3,5 × 9,5 mm](https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/) für CW in UW und die Riegel | 100 Stück | 8,20 € |
@@ -594,7 +635,7 @@ hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
 | Decke (Dämmung, Dampfbremse, Gipskarton) | TODO | TODO |
 | LED-Beleuchtung | ca. 59 € (B) oder 502 € (A), plus Streifen | TODO |
 | Dezentrale Lüftung | ca. 350 € | TODO |
-| Wände und Boden | ca. 160 € für den Putz, Boden TODO | TODO |
+| Wände und Boden | ca. 160 € für den Putz; der Boden bleibt | TODO |
 | Zimmertür | ca. 510 € plus Drücker und Versand | TODO |
 | Trockenbau-Regal | ca. 120 € plus Kleinteile | TODO |
 | Einrichtung | TODO | TODO |
