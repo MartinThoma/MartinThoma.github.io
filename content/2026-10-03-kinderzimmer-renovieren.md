@@ -14,20 +14,44 @@ Aus der Küche im Obergeschoss soll ein Kinderzimmer werden. In diesem Artikel
 halte ich fest, wie das Projekt verläuft: was ich plane, was ich kaufe, was
 klappt und was nicht. Ich ergänze ihn, sobald es weitergeht.
 
+<div class="gallery">
+    <figure>
+        <a href="../images/2026/10/kinderzimmer-vorher-kueche.jpg"><img src="../images/2026/10/kinderzimmer-vorher-kueche.jpg" alt="Küche unter der Dachschräge mit weißen Schränken, Herd, Kühlschrank und Fliesenspiegel" width="800" height="600"></a>
+        <figcaption>Vorher: die Küchenzeile unter der Dachschräge (Juli 2026)</figcaption>
+    </figure>
+    <figure>
+        <a href="../images/2026/10/kinderzimmer-vorher-raum.jpg"><img src="../images/2026/10/kinderzimmer-vorher-raum.jpg" alt="Raum mit weißen Wänden, Wandregal mit Büchern, zwei Hängeleuchten und Teppich auf dem Fliesenboden" width="800" height="600" loading="lazy"></a>
+        <figcaption>Vorher: die andere Seite des Raums mit Wandregal und Hängeleuchten (Juli 2026)</figcaption>
+    </figure>
+</div>
+
 TODO: Ausgangslage beschreiben: Wie groß ist der Raum, in welchem Zustand ist er,
-was muss raus (Küchenmöbel, Geräte, Leitungen)? Vorher-Fotos einfügen.
+was muss raus (Küchenmöbel, Geräte, Leitungen)?
+
+Ungefähr so soll das Zimmer am Ende aussehen:
+
+<div class="gallery">
+    <figure class="ai-generated">
+        <a href="../images/2026/10/kinderzimmer-ziel-dachschraege.jpg"><img src="../images/2026/10/kinderzimmer-ziel-dachschraege.jpg" alt="Visualisierung: Zimmer mit Dachschräge, Bett mit Schubladen, Waschtisch mit rundem Spiegel, Schreibtisch und LED-Lichtband entlang der Schräge" width="800" height="600" loading="lazy"></a>
+        <figcaption>Ziel für die Seite mit der Dachschräge: Bett, Waschtisch und Schreibtisch, indirektes Licht an der Schräge. Mit KI erstellt</figcaption>
+    </figure>
+    <figure class="ai-modified">
+        <a href="../images/2026/10/kinderzimmer-ziel-regal-schrank.jpg"><img src="../images/2026/10/kinderzimmer-ziel-regal-schrank.jpg" alt="Visualisierung: eingebautes weißes Regal mit beleuchteten Fächern neben der Tür, daneben ein viertüriger Einbauschrank, LED-Licht am Deckenrand" width="800" height="600" loading="lazy"></a>
+        <figcaption>Ziel für die Seite mit der Tür: Trockenbau-Regal mit LED-Licht und Kleiderschrank. Mit KI erstellt</figcaption>
+    </figure>
+</div>
 
 <div class="info">
-<strong>Stand: 03.10.2026 – Planungsphase</strong>
+<strong>Stand: 11.10.2026 – Planungsphase</strong>
 <ul>
   <li>🔄 Planung</li>
-  <li>⏳ Material bestellen</li>
+  <li>🔄 Material bestellen</li>
   <li>⏳ Rückbau und Vorbereitung</li>
   <li>⏳ Decke: Dämmung, Dampfbremse, Gipskarton, LED-Beleuchtung</li>
   <li>⏳ Dezentrale Lüftung</li>
   <li>⏳ Wände und Boden</li>
   <li>⏳ Zimmertür</li>
-  <li>⏳ Trockenbau-Schrank</li>
+  <li>⏳ Trockenbau-Regal</li>
   <li>⏳ Einrichtung</li>
   <li>⏳ Fazit</li>
 </ul>
@@ -41,7 +65,7 @@ was muss raus (Küchenmöbel, Geräte, Leitungen)? Vorher-Fotos einfügen.
 
 Die groben Bausteine stehen: eine neue, gedämmte Decke mit indirekter
 LED-Beleuchtung, eventuell eine dezentrale Lüftung, vermutlich eine neue Zimmertür und ein
-eingebauter Schrank aus Trockenbau. Die Details stehen unten im Abschnitt
+Trockenbauregal. Die Details stehen unten im Abschnitt
 [Der Plan](#der-plan).
 
 TODO: Neue Einträge hier chronologisch anfügen, jeweils mit Datum, was gemacht
@@ -147,13 +171,14 @@ Ein eingebauter Schrank aus Trockenbau mit LED-Beleuchtung.
 
 ### Einrichtung
 
-1. Schrank (TODO: zusätzlich zum Trockenbau-Schrank oder derselbe?)
+1. IKEA-Kleiderschrank neben dem Trockenbau-Regal, zum Beispiel PAX. 4 Korpusse mit je 50cm Breite und einer Tiefe von 58cm sollen es sein. Die Raumhöhe ist aktuell 2,40m, daher will ich erst nach dem Einbau der Decke entscheiden wie hoch die Korpusse sein sollen.[^7] Diese müssen dann an der Wand befestigt werden. Sie sollen weiße Türen haben, aber ob es Hochglanz oder matt wird, ob es Kassetten
+hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
 2. Bett oder Schlafsofa
 3. Waschtisch (TODO: Können die Wasseranschlüsse der Küche genutzt werden?)
 
 ### Sicherheit im Kinderzimmer
 
-* In Bayern braucht jedes Kinderzimmer mindestens einen Rauchwarnmelder.[^1]
+* In Bayern braucht jedes Kinderzimmer mindestens einen Rauchwarnmelder.[^8]
 * TODO: Steckdosen mit Kinderschutz, hohe Möbel an der Wand befestigen,
   emissionsarme Farbe und Materialien.
 
@@ -163,11 +188,11 @@ Ein eingebauter Schrank aus Trockenbau mit LED-Beleuchtung.
 | Posten | geplant | tatsächlich |
 |--------|--------:|------------:|
 | Decke (Dämmung, Dampfbremse, Gipskarton) | TODO | TODO |
-| LED-Beleuchtung | TODO | TODO |
+| LED-Beleuchtung | ca. 59 € (B) oder 502 € (A), plus Streifen | TODO |
 | Dezentrale Lüftung | ca. 350 € | TODO |
-| Wände und Boden | TODO | TODO |
-| Zimmertür | ca. 400 € | TODO |
-| Trockenbau-Schrank | TODO | TODO |
+| Wände und Boden | ca. 160 € für den Putz, Boden TODO | TODO |
+| Zimmertür | ca. 510 € plus Drücker und Versand | TODO |
+| Trockenbau-Regal | ca. 120 € plus Kleinteile | TODO |
 | Einrichtung | TODO | TODO |
 | **Summe** | TODO | TODO |
 
@@ -180,4 +205,11 @@ ich beim nächsten Mal anders machen? Nachher-Fotos.
 
 ## Einzelnachweise
 
-[^1]: [Art. 46 BayBO – Wohnungen](https://www.gesetze-bayern.de/Content/Document/BayBO-46) via Bayern.Recht, abgerufen am 03.10.2026.
+[^1]: [TRGS 521: Abbruch-, Sanierungs- und Instandhaltungsarbeiten mit alter Mineralwolle](https://www.bgbau.de/fileadmin/Gisbau/trgs521.pdf) via BG BAU, abgerufen am 11.10.2026.
+[^2]: [Anlieferung und Versand](https://www.bausep.de/services/anlieferung-und-versand/) und [Fragen & Antworten](https://www.bausep.de/services/haeufige-fragen/) via bausep.de, abgerufen am 10.10.2026.
+[^3]: [Steico flex WLS 036](https://www.bausep.de/steico-flex-wls-036-holzfaserdaemmung.html?361=675952) via bausep.de (Bemessungswert λ = 0,038 W/(m·K), Zulassung Z-23.15-1452), abgerufen am 10.10.2026.
+[^4]: Axel Mörer-Funk: [Asbest: Auch Fasern in Fliesenklebern und Spachtelmassen sind gefährlich](https://www.ingenieur.de/technik/fachbereiche/bau/asbest-auch-fasern-in-fliesenklebern-spachtelmassen-gefaehrlich/) via ingenieur.de, 19.06.2015.
+[^5]: Knauf: [Rotband Haftputzgips](https://knauf.com/de-AT/p/produkt/rotband-haftputzgips-7-50-mm-10001_0070) via knauf.com, abgerufen am 11.10.2026.
+[^6]: Garant: [Türenhandbuch, Schallschutz](https://tuerenhandbuch.garant.de/typo3conf/ext/cdt_cmos2/Resources/Public/cmos2/php/get.php?id=5724) via garant.de, abgerufen am 10.10.2026.
+[^7]: [Kaufhilfe PAX/KOMPLEMENT](https://www.ikea.com/de/de/files/pdf/38/5a/385a9205/bf_kaufhilfe_paxkomplement_07-2026_online.pdf) via IKEA, abgerufen am 10.10.2026.
+[^8]: [Art. 46 BayBO – Wohnungen](https://www.gesetze-bayern.de/Content/Document/BayBO-46) via Bayern.Recht, abgerufen am 03.10.2026.

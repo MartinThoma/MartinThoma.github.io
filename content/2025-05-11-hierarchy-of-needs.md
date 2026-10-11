@@ -23,18 +23,25 @@ building upon them.
     <figcaption>Illustration generated with Claude AI: Maslow's hierarchy of needs as a pyramid</figcaption>
 </figure>
 
-Let's examine which companies operate within each level of this hierarchy.
+Let's examine which companies operate within each level of this hierarchy. The
+five levels, from the bottom to the top, are:
+
+1. Physiological needs: water, food, warmth, shelter
+2. Safety needs: health, financial security, protection
+3. Love and belonging: family, friends, community
+4. Esteem: recognition and status
+5. Self-actualization: becoming the person one wants to be
 
 ## Physiological needs
 
 ### Water
 
 * **Tap Water**: Most drinking water is supplied as tap water by municipal
-         waterworks. However, bottled water is also available at a premium.
-         In Germany, tap water costs approximately 0.0025€/L while bottled water
-         starts at 0.20€/L—about 80 times more expensive. Municipal
-         waterworks also manage the sewage system and wastewater treatment,
-         providing more comprehensive water services per unit sold than bottled water companies.
+  waterworks. However, bottled water is also available at a premium.
+  In Germany, tap water costs approximately 0.0025€/L while bottled water
+  starts at 0.20€/L—about 80 times more expensive. Municipal
+  waterworks also manage the sewage system and wastewater treatment,
+  providing more comprehensive water services per unit sold than bottled water companies.
     * [SWM Munich](https://en.wikipedia.org/wiki/Stadtwerke_M%C3%BCnchen):
       11,604 employees, revenue of €7 billion (2024), providing water to 1.5
       million people. The service area likely extends beyond Munich to include
@@ -96,13 +103,70 @@ Renting apartments and houses:
 
 * [Vonovia](https://en.wikipedia.org/wiki/Vonovia)
 
+## Safety Needs
+
+Safety needs are primarily covered by public institutions like police, military, health insurance,
+and unemployment insurance.
+
+In the private sector, insurance companies provide additional coverage such as supplemental health
+insurance (e.g., travel insurance, dental insurance) and property insurance.
+
+Companies in this sector include:
+
+* [Allianz](https://en.wikipedia.org/wiki/Allianz)
+* [AXA](https://en.wikipedia.org/wiki/AXA)
+* [Generali](https://en.wikipedia.org/wiki/Assicurazioni_Generali)
+
+## Love and Belonging
+
 ### Communication
 
 If you have internet access, you don't need to send SMS or make traditional phone calls,
 as services like WhatsApp, Signal, and Telegram cover these needs. Therefore, we can focus on
 internet connectivity.
 
-## Transportation
+* **Internet access** (in Germany):
+    * [Deutsche Telekom](https://en.wikipedia.org/wiki/Deutsche_Telekom)
+    * [Vodafone](https://en.wikipedia.org/wiki/Vodafone)
+    * [Telefónica](https://en.wikipedia.org/wiki/Telef%C3%B3nica) (O2)
+    * [1&1](https://en.wikipedia.org/wiki/1%261)
+* **Messengers**:
+    * [Meta](https://en.wikipedia.org/wiki/Meta_Platforms) (WhatsApp)
+    * [Signal Foundation](https://en.wikipedia.org/wiki/Signal_Foundation) (Signal, a non-profit)
+    * [Telegram](https://en.wikipedia.org/wiki/Telegram_(software))
+
+### Social networks and dating
+
+* [Meta](https://en.wikipedia.org/wiki/Meta_Platforms) (Facebook, Instagram)
+* [Match Group](https://en.wikipedia.org/wiki/Match_Group) (Tinder, Hinge)
+
+## Esteem
+
+Luxury goods are bought for status as much as for their use.
+
+**Perfumes, Cosmetics and Fashion**:
+
+* [LVMH](https://en.wikipedia.org/wiki/LVMH)
+* [Kering](https://en.wikipedia.org/wiki/Kering) (Gucci, Saint Laurent)
+
+## Self-Actualization
+
+Learning new skills is the most obvious market at the top of the pyramid:
+
+* [Coursera](https://en.wikipedia.org/wiki/Coursera)
+* [Udemy](https://en.wikipedia.org/wiki/Udemy)
+* [Duolingo](https://en.wikipedia.org/wiki/Duolingo)
+
+In Germany, the public [Volkshochschulen](https://en.wikipedia.org/wiki/Volkshochschule)
+offer courses, too.
+
+## Beyond the Pyramid
+
+Some big markets don't fit into a single level. They serve several needs at
+once: a car brings you to work (food, housing), to friends (belonging) and can
+be a status symbol (esteem).
+
+### Transportation
 
 * **Public Transportation**:
     * [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn)
@@ -116,19 +180,7 @@ internet connectivity.
     * [Ford](https://en.wikipedia.org/wiki/Ford_Motor_Company)
     * [Tesla](https://en.wikipedia.org/wiki/Tesla,_Inc.)
 
-## Safety Needs
-
-Safety needs are primarily covered by public institutions like police, military, health insurance,
-and unemployment insurance.
-
-In the private sector, insurance companies provide additional coverage such as supplemental health
-insurance (e.g., travel insurance, dental insurance) and property insurance.
-
-Companies in this sector include:
-
-* [Allianz](https://en.wikipedia.org/wiki/Allianz)
-
-## Time-Saving and Convenience
+### Time-Saving and Convenience
 
 Household appliances that save time and effort:
 
@@ -136,7 +188,7 @@ Household appliances that save time and effort:
 * Washing machines
 * Vacuum cleaners
 
-## Entertainment
+### Entertainment
 
 * **Movies and Media**:
     * **Production**:
@@ -149,8 +201,13 @@ Household appliances that save time and effort:
         * [Disney+](https://en.wikipedia.org/wiki/Disney%2B)
         * [Amazon Prime Video](https://en.wikipedia.org/wiki/Amazon_Prime_Video)
 
-## Wellbeing and Luxury
+## Observations
 
-**Perfumes and Cosmetics**:
-
-* [LVMH](https://en.wikipedia.org/wiki/LVMH)
+* The lower the level, the more often the provider is public or regulated:
+  water comes from municipal waterworks, safety from the state. Further up,
+  private brands dominate.
+* The same companies show up on several levels: Nestlé sells water and food,
+  Stadtwerke München supplies water, electricity, public transport and
+  telecommunications, and Meta covers communication as well as social networks.
+* The same need can be served at very different prices: bottled water costs
+  about 80 times as much as tap water.

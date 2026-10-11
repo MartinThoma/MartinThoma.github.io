@@ -12,8 +12,13 @@ status: draft
 ---
 In the development of a bigger web service, you have several key components:
 
+* Models: The data and how it is stored (`models.py`)
 * Views: Display single things (`views.py`)
 * Routing: Map URLs to views (`urls.py`)
+* Templates: The HTML that gets filled with the data (`templates/`)
+
+Django names these parts a bit differently than the classic
+model–view–controller pattern:
 
 <table class="table">
     <tr>
@@ -38,8 +43,18 @@ In the development of a bigger web service, you have several key components:
     </tr>
 </table>
 
+This article is a compact version of the first parts of the
+[official tutorial](https://docs.djangoproject.com/en/stable/intro/tutorial01/):
+a small poll application.
+
 
 ## Project and App
+
+Install Django:
+
+```text
+$ pip install django
+```
 
 Create a project:
 
@@ -50,10 +65,15 @@ mysite
 ├── manage.py
 └── mysite
     ├── __init__.py
+    ├── asgi.py
     ├── settings.py
     ├── urls.py
     └── wsgi.py
 ```
+
+A *project* is the whole website with its settings. An *app* is one part of it
+with its own models, views and templates; a project can have many apps, and an
+app can be reused in other projects.
 
 Create an app:
 
@@ -64,20 +84,35 @@ $ tree .
 .
 ├── manage.py
 ├── mysite
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 └── polls
     ├── admin.py
     ├── apps.py
     ├── __init__.py
     ├── migrations
-    │   └── __init__.py
+    │   └── __init__.py
     ├── models.py
     ├── tests.py
     └── views.py
 
+```
+
+Register the app in `mysite/settings.py`:
+
+```python
+INSTALLED_APPS = [
+    "polls.apps.PollsConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
 ```
 
 Create DB:
@@ -104,6 +139,36 @@ Running migrations:
   Applying sessions.0001_initial... OK
 ```
 
+By default, Django uses an SQLite database in the file `db.sqlite3`; the
+`DATABASES` setting switches to PostgreSQL or MySQL.
+
+
+## Models
+
+Models are Python classes; Django creates the tables from them. In
+`polls/models.py`:
+
+```python
+from django.db import models
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField("date published")
+
+    def __str__(self):
+        return self.question_text
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.choice_text
+```
+
 Make migrations - files that tell Django that the model changed and how it
 changed:
 
@@ -111,10 +176,12 @@ changed:
 $ python manage.py makemigrations polls
 Migrations for 'polls':
   polls/migrations/0001_initial.py
-    - Create model Choice
     - Create model Question
-    - Add field question to choice
+    - Create model Choice
 ```
+
+`python manage.py migrate` applies them to the database. Commit the migration
+files: every developer and every server runs the same migrations.
 
 
 ## Views
@@ -129,14 +196,112 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 ```
 
-## ORM
+## Routing
+
+The app gets its own `polls/urls.py`:
+
+```python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+```
+
+and the project includes it in `mysite/urls.py`:
+
+```python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
+]
+```
+
+Start the development server and open
+`http://127.0.0.1:8000/polls/` in the browser:
 
 ```shell
+$ python manage.py runserver
+```
+
+
+## Templates
+
+Real pages are not built with string concatenation. Put the HTML into
+`polls/templates/polls/index.html`:
+
+```html
+<h1>Latest questions</h1>
+<ul>
+{% for question in latest_question_list %}
+    <li>{{ question.question_text }}</li>
+{% empty %}
+    <li>No polls are available.</li>
+{% endfor %}
+</ul>
+```
+
+and render it from the view:
+
+```python
+from django.shortcuts import render
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    return render(
+        request, "polls/index.html", {"latest_question_list": latest_question_list}
+    )
+```
+
+
+## ORM
+
+The models give you a query API, no SQL needed
+([docs](https://docs.djangoproject.com/en/stable/topics/db/queries/)):
+
+```text
 $ python manage.py shell
-In [2]: Question.objects.all()
-Out[2]: <QuerySet [<Question: What's new?>]
->>> Question.objects.filter(question_text__startswith='What')
-<QuerySet [<Question: What's up?>]>
+>>> from django.utils import timezone
+>>> from polls.models import Question
+>>> q = Question.objects.create(question_text="What's new?", pub_date=timezone.now())
+>>> Question.objects.all()
+<QuerySet [<Question: What's new?>]>
+>>> Question.objects.filter(question_text__startswith="What")
+<QuerySet [<Question: What's new?>]>
+>>> q.choice_set.create(choice_text="Not much", votes=0)
+<Choice: Not much>
+```
+
+Querysets are lazy: the database is only queried when you iterate over them or
+print them.
+
+
+## Admin
+
+Django comes with an admin interface for your models. Register them in
+`polls/admin.py`:
+
+```python
+from django.contrib import admin
+
+from .models import Choice, Question
+
+admin.site.register(Question)
+admin.site.register(Choice)
+```
+
+Create an admin (superuser) and log in at `http://127.0.0.1:8000/admin/`:
+
+```shell
+$ python manage.py createsuperuser
 ```
 
 
@@ -148,12 +313,13 @@ Interactive shell
 $ python manage.py shell
 ```
 
-Create an admin (superuser):
+Run the tests in all `tests.py` files:
 
 ```shell
-$ python manage.py createsuperuser
+$ python manage.py test
 ```
 
 ## See also
 
 * [developer.mozilla.org/en-US/…/Server-side/Django](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+* [Writing your first Django app](https://docs.djangoproject.com/en/stable/intro/tutorial01/), the official tutorial

@@ -18,10 +18,11 @@ contexts, I was confused. I didn't quite understand what it is and why
 people make such a fuss about it.
 
 Now, I think it is just a super simple idea which does not really deserve its
-own name. It's making pure functions: turning the implicit dependency on outside
-state into an explicit dependency on a parameter.
-
-
+own name. In its simplest form, it's turning the implicit dependency on outside
+state into an explicit dependency on a parameter. For functions, that makes them
+closer to pure functions. For objects, it means that a class doesn't create the
+services it needs (a database connection, an HTTP client, a clock), but gets
+them handed in.
 
 
 ## Examples
@@ -69,7 +70,7 @@ added.
 More details on this in [^1].
 
 
-### Query Builder
+### Database Connection
 
 ```python
 def execute_query(db, sql):
@@ -78,7 +79,42 @@ def execute_query(db, sql):
 ```
 
 Here, the dependency is the database object `db`. It is injected in the
-function.
+function. In a test, `db` can be an in-memory SQLite database instead of the
+production database.
+
+### Constructor Injection
+
+With classes, the dependencies are usually passed to the constructor:
+
+```python
+class InvoiceService:
+    def __init__(self, repository, mailer):
+        self.repository = repository
+        self.mailer = mailer
+
+    def send_reminders(self):
+        for invoice in self.repository.overdue_invoices():
+            self.mailer.send(invoice.customer_email, "Your invoice is overdue")
+```
+
+The class doesn't know whether `repository` talks to PostgreSQL or is a list in
+a test, and whether `mailer` sends emails or just records them. The code that
+creates the objects decides that, in one place:
+
+```python
+service = InvoiceService(PostgresRepository(db_url), SmtpMailer(smtp_host))
+```
+
+For the test, the fakes are a few lines:
+
+```python
+class FakeMailer:
+    def __init__(self):
+        self.sent = []
+
+    def send(self, to, text):
+        self.sent.append((to, text))
+```
 
 ### Pytest Fixtures
 
@@ -88,7 +124,7 @@ function.
 > where fixture functions take the role of the injector and test functions are
 > the consumers of fixture objects.
 
-Source: [Fixtures: a prime example of dependency injection](https://docs.pytest.org/en/stable/fixture.html#fixtures-a-prime-example-of-dependency-injection)
+Source: [Fixtures: a prime example of dependency injection](https://docs.pytest.org/en/stable/explanation/fixtures.html)
 
 
 ## Why is it used?
@@ -102,12 +138,16 @@ dependency injection compared to having global state are:
   need to mock. However, please note that the unit test with dependency
   injection does not test if the interface of the dependency changed. This
   means with dependency injection you might want to add an explicit interface
-  test (aka boundary test).
+  test (aka boundary test). See also the dependency injection section in
+  [Unit Testing in Python — Patching, Mocks and Dependency Injection](../unit-testing-patching/).
+* Clear dependencies: The signature shows what a function or class needs. Hidden
+  dependencies on global state are discovered only when something breaks.
 
 
 ## When not to use it
 
-You can apply dependency injection when some kind of global state is involved:
+You can apply dependency injection whenever some kind of global state is
+involved, even when it doesn't help:
 
 ```python
 from typing import Callable
@@ -138,7 +178,23 @@ implement the thing from scratch.
 
 See [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html) by Martin Fowler.
 
-Liskov substitution principle
+Dependency injection is one way to achieve inversion of control: the code that
+uses a dependency no longer decides which implementation it gets. In the Java
+world, frameworks like Spring do the wiring automatically with a *DI container*:
+you declare which classes exist, and the container creates them and passes them
+to each other. In Python, this is rarely needed: passing objects explicitly is
+easy, and modules are already singletons. There are libraries like
+[dependency-injector](https://python-dependency-injector.ets-labs.org/), and web
+frameworks have built-in variants, for example
+[FastAPI's `Depends`](https://fastapi.tiangolo.com/tutorial/dependencies/) and
+pytest's fixtures shown above.
+
+Injected dependencies only work well if the replacements really behave like the
+original: a fake mailer must accept the same calls and not raise different
+exceptions. That is the
+[Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
+With type hints and a `typing.Protocol`, a type checker can verify at least the
+interface.
 
 ## See also
 
@@ -147,7 +203,6 @@ Liskov substitution principle
     * bagrat: [What is a Pythonic way for Dependency Injection?](https://stackoverflow.com/q/31678827/562769), 2015
 * Yeray Díaz: [Import as an antipattern - Demystifying Dependency Injection in modern Python](https://www.youtube.com/watch?v=qkGxy4c64Jg) at PyCon UK, 2019. On YouTube (21 minutes).
 * Ilya Pekelny: [Inversion of Control — Python anti-pattern](https://medium.com/@pekelny/inversion-of-control-python-anti-pattern-eff3943f64f), 2018.
-* [quora.com/…/What-are-non-spring-examples-where-Io…](https://www.quora.com/unanswered/What-are-non-spring-examples-where-IoC-is-used-Python-examples-are-appreciated)
 
 
 ## Footnotes
