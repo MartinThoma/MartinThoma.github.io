@@ -20,6 +20,11 @@ Please note that ratings for products on Amazon might be a very similar
 situation. It might also be similar to the StumbleUpon rating.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/02/collaborative-filtering.jpg"><img src="../images/2016/02/collaborative-filtering.jpg" alt="Grid of users and movie posters with filled star ratings and glowing gaps predicted by arrows" width="1376" height="768"></a>
+    <figcaption>Collaborative filtering predicts the missing ratings.</figcaption>
+</figure>
+
 ## The Problem
 
 * **Much Data**: You have 17&thinsp;000 movies, 480&thinsp;000 users and

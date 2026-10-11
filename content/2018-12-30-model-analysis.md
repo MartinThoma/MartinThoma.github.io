@@ -39,6 +39,11 @@ If you're interested in the analysis of CNNs, have a look at my master's thesis:
 > [Analysis and Optimization of Convolutional Neural Network Architectures](https://arxiv.org/pdf/1707.09725.pdf)
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/model-analysis.jpg"><img src="../images/2018/12/model-analysis.jpg" alt="Glass box being inspected with a magnifying glass, next to a scatter plot with decision boundary and a bar chart of feature importance" width="1376" height="768"></a>
+    <figcaption>Techniques to look inside ML models.</figcaption>
+</figure>
+
 ## Decision boundaries
 
 Drawing this is only an option if you have 3 or fewer features. So not really

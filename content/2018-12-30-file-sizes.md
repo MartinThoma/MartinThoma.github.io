@@ -16,6 +16,11 @@ as you know the average file size. For that, however, I could not find a good
 answer in the first 3 Google results. Let's fix that.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/file-sizes.jpg"><img src="../images/2018/12/file-sizes.jpg" alt="Camera with a memory card being filled by image files, next to blocks for small, medium and large files" width="1376" height="768"></a>
+    <figcaption>How many photos fit on a memory card?</figcaption>
+</figure>
+
 ## Images
 
 ### JPG

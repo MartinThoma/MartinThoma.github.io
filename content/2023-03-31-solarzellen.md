@@ -10,6 +10,11 @@ tags: House, Money, Energy
 featured_image: logos/house.png
 status: draft
 ---
+<figure class="ai-generated">
+    <a href="../images/2023/03/solaranlagen.jpg"><img src="../images/2023/03/solaranlagen.jpg" alt="Hausdach mit Photovoltaik-Modulen und einem Solarthermie-Kollektor mit Warmwasserspeicher unter der Sonne" width="1408" height="768"></a>
+    <figcaption>Photovoltaik erzeugt Strom, Solarthermie erzeugt Wärme.</figcaption>
+</figure>
+
 ## Photovoltaik vs. Solarthermie
 
 Solaranlagen sind eine zunehmend beliebte Methode, um umweltfreundliche und

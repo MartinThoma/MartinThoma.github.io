@@ -14,6 +14,11 @@ stories about the US. I'm not sure how much of a problem those stories really
 are.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/06/us-problems.jpg"><img src="../images/2016/06/us-problems.jpg" alt="Scales of justice with a gavel, a surveillance camera and a red-white-blue ribbon with stars" width="1376" height="768"></a>
+    <figcaption>Some troubling stories about the US.</figcaption>
+</figure>
+
 ## Police, Agencies and Justice
 
 ### Faking Terrorism

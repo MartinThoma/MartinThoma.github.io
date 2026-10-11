@@ -9,6 +9,11 @@ category: German posts
 tags: House, Building, DIY
 featured_image: logos/house.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2023/12/innenputz.jpg"><img src="../images/2023/12/innenputz.jpg" alt="Handwerker verputzt eine Innenwand, daneben ein Wandschnitt mit Wassertropfen, die vom Lehmputz aufgenommen werden" width="1376" height="768"></a>
+    <figcaption>Innenputz: Feuchtigkeit, Schimmel und Brandschutz.</figcaption>
+</figure>
+
 <table>
     <thead>
         <tr>

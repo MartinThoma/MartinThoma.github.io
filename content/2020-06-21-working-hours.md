@@ -19,6 +19,11 @@ I have the impression that freelancers / freelancer wannabes sometimes
 romanticize it. People get excited about it but ignore important aspects.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/06/working-hours.jpg"><img src="../images/2020/06/working-hours.jpg" alt="Monthly calendar with weekends, vacation and sick days, next to a pie chart of billable hours, a laptop and an invoice" width="1376" height="768"></a>
+    <figcaption>How many hours can you really bill in a month?</figcaption>
+</figure>
+
 ## How much work does a month have?
 
 Let's check:

@@ -15,6 +15,11 @@ By default, I use [Vaude Farley Stretch Pants II (46/XS)](https://amzn.to/2Rgeui
 and I love them. They are super light. If it is raining cats and dogs, I use
 [Marmot Precip Full Zip (S/P)](https://amzn.to/2TfB73g).
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/trekking-trousers.jpg"><img src="../images/2018/12/trekking-trousers.jpg" alt="Light olive-green trekking trousers with zip pockets in front of a mountain landscape with prayer flags, next to a rain cloud and a sun" width="1376" height="768"></a>
+    <figcaption>Trekking trousers for Nepal.</figcaption>
+</figure>
+
 ## Features
 
 * Zip-Off: Make them shorter in case it is warm

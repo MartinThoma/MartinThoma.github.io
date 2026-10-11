@@ -5,8 +5,8 @@ slug: customer-segmentation
 lang: en
 author: Martin Thoma
 date: 2019-01-02 20:00
-category: My bits and bytes
-tags: Machine Learning, Clustering, AI
+category: Machine Learning
+tags: Machine Learning, Clustering, AI, Python
 featured_image: logos/ml.png
 status: draft
 ---
@@ -20,6 +20,11 @@ problem such that people can partially belong to multiple segments.
 It is helpful to give the segments names. For example, if you cluster by age
 and income, then the low-income+low-age group might be called "students".
 
+
+<figure class="ai-generated">
+    <a href="../images/2020/07/customer-segmentation.jpg"><img src="../images/2020/07/customer-segmentation.jpg" alt="Scatter plot of small customer icons in three colored clusters with ellipses, some gray outliers, a shopping cart and a price tag" width="1376" height="768"></a>
+    <figcaption>Customer segmentation groups customers with something in common.</figcaption>
+</figure>
 
 ## How it helps
 

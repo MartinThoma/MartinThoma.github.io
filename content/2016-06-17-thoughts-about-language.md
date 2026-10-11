@@ -17,6 +17,11 @@ concept or idea. In fact, even a tiny subset of natural languages might be
 enough to transport those ideas.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/06/language.jpg"><img src="../images/2016/06/language.jpg" alt="Two heads facing each other, colorful building blocks form a bridge from one to the other" width="1376" height="768"></a>
+    <figcaption>Language transports ideas from one brain to another.</figcaption>
+</figure>
+
 ## Basic components of a complete language
 
 A complete language is always specific for the species for which it is used as

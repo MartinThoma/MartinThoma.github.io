@@ -11,6 +11,11 @@ featured_image: logos/energy.png
 ---
 Have you heard of [GravityLight](https://www.indiegogo.com/projects/gravitylight-made-in-africa/x/7191655#/story)?
 
+<figure class="ai-generated">
+    <a href="../images/2015/05/gravitylight.jpg"><img src="../images/2015/05/gravitylight.jpg" alt="A weight on a cord slowly sinks down from a lamp and makes its LEDs light up, next to a crossed-out kerosene lamp" width="1376" height="768"></a>
+    <figcaption>A gravity-powered lamp replaces kerosene lamps.</figcaption>
+</figure>
+
 It is a gravity-powered lamp designed as an alternative for off-grid families
 who would otherwise use kerosene lamps. It is basically only a 12kg weight,
 lifted and put on the gravity light. When the weight goes down again it pulls a

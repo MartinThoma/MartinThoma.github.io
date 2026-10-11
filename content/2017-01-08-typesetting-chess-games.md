@@ -70,6 +70,6 @@ From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</
 
 ## See also
 <ul>
-  <li><a href="ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/macros/latex/contrib/chessboard/chessboard.pdf">Chessboard documentation</a></li>
-  <li><a href="ftp://ftp.tu-chemnitz.de/pub/tex/fonts/chess/skak/doc/skakdoc.pdf">Skak documentation</a> - <a href="ftp://ftp.mpi-sb.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/fonts/chess/skak/doc/refman.pdf">short reference</a></li>
+  <li><a href="https://mirrors.ctan.org/macros/latex/contrib/chessboard/chessboard.pdf">Chessboard documentation</a></li>
+  <li><a href="https://mirrors.ctan.org/fonts/chess/skak/doc/skakdoc.pdf">Skak documentation</a> - <a href="https://mirrors.ctan.org/fonts/chess/skak/doc/refman.pdf">short reference</a></li>
 </ul>

@@ -12,6 +12,11 @@ featured_image: logos/development.png
 Working remotely means working without a central office space. It means you
 decide where you work and you interact with your co-workers online.
 
+<figure class="ai-generated">
+    <a href="../images/2019/07/working-remotely.jpg"><img src="../images/2019/07/working-remotely.jpg" alt="Person working on a laptop with a lake view, video windows of colleagues and a globe floating around" width="1376" height="768"></a>
+    <figcaption>Working from anywhere, connected online.</figcaption>
+</figure>
+
 ## Manifesto
 
 There are many different ways to work remotely and to coordinate. The core part

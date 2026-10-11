@@ -21,6 +21,11 @@ statements to this particular platform. I mean any professional video streaming
 website. A very good alternative is Vimeo, for example.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/11/lectures-youtube.jpg"><img src="../images/2016/11/lectures-youtube.jpg" alt="A crowded lecture hall on the left, a student watching a lecture video on a laptop at home on the right" width="1376" height="768"></a>
+    <figcaption>Lecture hall or video at home?</figcaption>
+</figure>
+
 ## Reasons for providing online lectures
 
 

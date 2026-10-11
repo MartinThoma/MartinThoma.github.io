@@ -22,6 +22,11 @@ schneller sein. Naiv gerechnet bräuchten wir eine Durchschnittsgeschwindigkeit
 von 14,6% der Lichtgeschwindigkeit.
 
 
+<figure class="ai-generated">
+    <a href="../images/2024/12/zeitdilatation.jpg"><img src="../images/2024/12/zeitdilatation.jpg" alt="Raumschiff mit fast Lichtgeschwindigkeit und gedehnter Uhr, im Hintergrund die Erde mit einer normalen Uhr" width="1376" height="768"></a>
+    <figcaption>Zeitdilatation: Bei hoher Geschwindigkeit vergeht die Zeit langsamer.</figcaption>
+</figure>
+
 ## Relativistische Effekte
 Ab etwa 10% der Lichtgeschwindigkeit werden relativistische Effekte spürbar
 (der Lorentzfaktor liegt dann bei etwa 1,005).

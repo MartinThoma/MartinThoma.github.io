@@ -77,6 +77,11 @@ This mini-article is about displays, monitors, and the quality of your movies.
     </tr>
 </table>
 
+<figure class="ai-generated">
+    <a href="../images/2023/11/resolution.jpg"><img src="../images/2023/11/resolution.jpg" alt="Four screens of increasing size showing the same landscape from coarse pixels to sharp detail, a magnifying glass showing the pixel grid" width="1376" height="768" loading="lazy"></a>
+    <figcaption>More pixels, sharper picture.</figcaption>
+</figure>
+
 ## Size
 
 Screen resolution and screen size are two different things. If you combine them,

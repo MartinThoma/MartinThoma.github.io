@@ -16,6 +16,11 @@ well as from wood, but there are some differences I've just recently learned
 about. In this article, I want to collect them.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/03/house-building.jpg"><img src="../images/2020/03/house-building.jpg" alt="Four single-family houses side by side: brick house, wooden house, clay house and tiny house on wheels" width="1408" height="768"></a>
+    <figcaption>Brick, wood, clay and tiny houses: different ways to build.</figcaption>
+</figure>
+
 ## Brikawood
 
 Brikawood houses are built from Lego-like wooden bricks. No screws, no glue.

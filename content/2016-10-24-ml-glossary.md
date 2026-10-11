@@ -13,6 +13,11 @@ The following is a list of short explanations of different terms in machine
 learning. The aim is to keep things simple and brief, not to explain the terms
 in full detail.
 
+<figure class="ai-generated">
+    <a href="../images/2016/10/ml-glossary.jpg"><img src="../images/2016/10/ml-glossary.jpg" alt="Neural network of connected nodes next to an open dictionary and a magnifying glass over a scatter plot" width="1376" height="768"></a>
+    <figcaption>A glossary of machine learning terms.</figcaption>
+</figure>
+
 <dl>
     <dt><dfn id="active-learning">Active Learning</dfn></dt>
     <dd>The algorithm gives a pattern and asks for a label.</dd>

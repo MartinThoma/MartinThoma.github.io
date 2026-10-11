@@ -11,6 +11,11 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Echtzeitsysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2015/04/echtzeitsysteme-scheduling.jpg"><img src="../images/2015/04/echtzeitsysteme-scheduling.jpg" alt="Zeitachse mit farbigen Balken für Tasks, Pfeilen für Deadlines und einem Prozessor-Symbol" width="1376" height="768"></a>
+    <figcaption>Echtzeitsysteme: Tasks müssen ihre Deadlines einhalten.</figcaption>
+</figure>
+
 ## Behandelter Stoff
 
 ### Vorlesung

@@ -17,6 +17,11 @@ to reduce it. But I also don't want to throw it away, because I had to pay
 quite a bit of money for that stuff. For this reason, I'm using some platforms
 to sell it.
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/selling-stuff.jpg"><img src="../images/2019/12/selling-stuff.jpg" alt="Stack of DVDs and books in a box with price tags, next to a smartphone with an online listing and coins" width="1376" height="768"></a>
+    <figcaption>Selling stuff I do not need anymore.</figcaption>
+</figure>
+
 ## eBay
 
 eBay and <a href="http://ebay-kleinanzeigen.de">ebay-kleinanzeigen.de</a> are

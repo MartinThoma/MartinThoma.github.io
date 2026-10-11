@@ -43,6 +43,11 @@ Sommer wird dem Wasser Wärme zugeführt, sodass der Eisspeicher zum Kühlen
 verwendet werden kann. Im Winter kann die im Eisspeicher gespeicherte Wärme dann
 wieder zum Heizen abgezogen werden.
 
+<figure class="ai-generated">
+    <a href="../images/2023/03/eisspeicher.jpg"><img src="../images/2023/03/eisspeicher.jpg" alt="Schnitt durch das Erdreich neben einem Haus mit einem vergrabenen Wassertank voller Eis, Rohre führen zur Wärmepumpe im Haus" width="1376" height="768"></a>
+    <figcaption>Ein Eisspeicher liefert der Wärmepumpe Energie aus dem Phasenwechsel von Wasser zu Eis.</figcaption>
+</figure>
+
 ## Energiegehalt
 
 ### Wassermenge

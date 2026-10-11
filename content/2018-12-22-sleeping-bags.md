@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Sleeping Bags
 slug: sleeping-bags
+lang: en
 author: Martin Thoma
 date: 2018-12-22 20:00
 category: My bits and bytes
@@ -16,6 +16,11 @@ roughly a cylinder of height 33cm and diameter 18cm.
 
 I need a sleeping bag with a comfort temperature below 0°C.
 
+
+<figure class="ai-generated">
+    <a href="../images/2018/12/sleeping-bags.jpg"><img src="../images/2018/12/sleeping-bags.jpg" alt="Cozy sleeping bag in a tent entrance with a view of snowy mountains at night, a thermometer and a headlamp" width="1376" height="768"></a>
+    <figcaption>A sleeping bag for temperatures below freezing.</figcaption>
+</figure>
 
 ## Features
 

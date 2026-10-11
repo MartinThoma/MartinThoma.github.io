@@ -17,6 +17,11 @@ degree students in computer science. The rest of the article is in German
 (you might want to use <a href="https://translate.google.com/">Google Translate</a>).
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/08/kit-ideen.jpg"><img src="../images/2017/08/kit-ideen.jpg" alt="Universitätscampus mit Studierenden auf einer Wiese, über dem Hauptgebäude schwebt eine Glühbirne" width="1376" height="768"></a>
+    <figcaption>Ideen für eine bessere Lehre am KIT.</figcaption>
+</figure>
+
 ## Lehre
 
 ### Vorlesungs&shy;absprachen

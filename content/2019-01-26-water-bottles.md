@@ -26,6 +26,11 @@ Hence, I want a bottle with the following characteristics:
 * *Watertight*: I don't want to have a wet sleeping bag.
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/01/water-bottles.jpg"><img src="../images/2019/01/water-bottles.jpg" alt="Four water bottles on a rock: stainless steel, single-use plastic, collapsible flask and filter bottle, Himalayan mountains behind" width="1376" height="768"></a>
+    <figcaption>Water bottles for Nepal.</figcaption>
+</figure>
+
 ## Material
 
 * Glass: It's just too heavy. And it can break too easily.

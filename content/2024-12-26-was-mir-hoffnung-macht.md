@@ -13,6 +13,11 @@ Nachdem ich vor kurzem [Was mir Sorgen macht](../was-mir-sorgen-macht/)
 geschrieben habe, möchte ich heute über das schreiben, was mir Hoffnung macht.
 
 
+<figure class="ai-generated">
+    <a href="../images/2024/12/hoffnung.jpg"><img src="../images/2024/12/hoffnung.jpg" alt="Sonnenaufgang über grüner Landschaft mit Windrädern, Solardächern, Elektroauto und einem jungen Keimling im Vordergrund" width="1376" height="768"></a>
+    <figcaption>Was Hoffnung macht: erneuerbare Energien und Fortschritt.</figcaption>
+</figure>
+
 ## Klimawandel
 
 Wir sind nun endlich so weit, dass Endverbraucher einfach durch ihr Kaufverhalten

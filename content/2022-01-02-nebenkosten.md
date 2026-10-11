@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nebenkosten
-slug: Hausgeld
+slug: hausgeld
 lang: de
 author: Martin Thoma
 date: 2022-01-02 20:00
@@ -15,6 +15,11 @@ Umgangssprachlich werden diese auch als "zweite Miete" bezeichnet. In
 der Betriebskostenverordnung (BetrKV) sind sie als "die Kosten, die dem Eigentümer [...] durch das Eigentum [...] am Grundstück oder durch den bestimmungsmäßigen Gebrauch des Gebäudes, der Nebengebäude,
 Anlagen, Einrichtungen und des Grundstücks laufend entstehen" definiert.
 
+
+<figure class="ai-generated">
+    <a href="../images/2022/01/nebenkosten.jpg"><img src="../images/2022/01/nebenkosten.jpg" alt="Mehrfamilienhaus im Schnitt mit Symbolen für Heizung, Wasser, Müll, Treppenlicht, Aufzug und Garten, davor ein Mieter mit einer langen Rechnung" width="1376" height="768"></a>
+    <figcaption>Nebenkosten: die zweite Miete.</figcaption>
+</figure>
 
 ## Was ist umlagefähig?
 

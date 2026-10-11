@@ -22,6 +22,11 @@ I think about it in goals similar to [Maslow's hierarchy of needs](https://en.wi
 No matter what I do, I don't want to risk my apartment. I don't want to risk
 not having enough food and I don't want to risk that I can't afford my insurances.
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/financial-planning.jpg"><img src="../images/2019/12/financial-planning.jpg" alt="Pyramid of financial needs from basic needs at the bottom to retirement at the top, with coins and a piggy bank" width="1376" height="768"></a>
+    <figcaption>Financial goals build on each other, like Maslow's hierarchy of needs.</figcaption>
+</figure>
+
 ## Needs
 
 ### Basic Needs

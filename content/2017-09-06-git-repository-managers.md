@@ -17,6 +17,11 @@ personal projects since 2011 and only experienced one outage of about 1 hour
 or so. Besides that, it was reliable. And the support was good.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/09/git-repository-managers.jpg"><img src="../images/2017/09/git-repository-managers.jpg" alt="Git branching graph with commits on several branches, connected to a cloud server and a self-hosted server rack" width="1376" height="768"></a>
+    <figcaption>Git needs a place to host repositories.</figcaption>
+</figure>
+
 ## Git Basics
 
 Git is a decentralized version control system. This has interesting

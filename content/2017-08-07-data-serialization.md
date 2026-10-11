@@ -32,6 +32,11 @@ Properties that are interesting are:
 * **Read speed**
 * **Write speed**
 
+<figure class="ai-generated">
+    <a href="../images/2017/08/data-serialization.jpg"><img src="../images/2017/08/data-serialization.jpg" alt="An object tree in memory is converted into a flat file with a byte stream and restored from it" width="1376" height="768"></a>
+    <figcaption>Serialization turns objects into a storable format and back.</figcaption>
+</figure>
+
 ## Overview
 
 <table class="table">

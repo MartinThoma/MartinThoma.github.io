@@ -13,6 +13,11 @@ medium_url: https://medium.com/plain-and-simple/identification-vs-authentication
 Identification, authentication, and authorization are closely related, but not the same.
 > **Identification is about knowing who somebody is, even without their cooperation.**
 
+<figure class="ai-generated">
+    <a href="../images/2020/10/identification-authentication-authorization.jpg"><img src="../images/2020/10/identification-authentication-authorization.jpg" alt="Three panels: fingerprint and eye scanner, a PIN pad and a door with differently colored keys" width="1376" height="768"></a>
+    <figcaption>Identification, authentication and authorization are three different things.</figcaption>
+</figure>
+
 Surveillance systems, fingerprints, and DNA samples are the techniques that come to mind in the physical world. In the digital world, [device fingerprinting](https://en.wikipedia.org/wiki/Device_fingerprint) is used. It’s also possible to identify individuals by their way of writing or even how they play computer games (“User identification based on game-play activity patterns”).
 > **Authentication is about proving who I am.**
 

@@ -5,7 +5,7 @@ slug: db-read-phenomena
 lang: en
 author: Martin Thoma
 date: 2021-05-31 20:00
-category: Cyberculture
+category: Code
 tags: Database, SQL, Software Engineering
 featured_image: logos/star.png
 status: draft
@@ -13,6 +13,11 @@ status: draft
 We have seen phenomenal improvements in the hardware in the last 30 years. Moore observed that the number of transistors in a dense integrated circuit (IC) doubles roughly every two years, the CPU clock rate increased from 740 kHz in 1971 to 4.9 GHz in 2021, and the types of instructions CPUs can execute got more complex over time. But there are limits to increasing the clock rate and adding more complex instructions. Instead of doing that, CPU manufacturers added the possibility to execute more stuff concurrently. This comes with its own set of problems.
 
 To me, the most interesting ones are in the context of web services. And most prominently, they are interactions with a central database and are related to transaction isolation. In this article, you will learn what the 3 best-known read phenomena are and which transaction isolation levels fix them. Let's start!
+
+<figure class="ai-generated">
+    <a href="../images/2021/10/database-read-phenomena.jpg"><img src="../images/2021/10/database-read-phenomena.jpg" alt="Two lanes of colored transactions on a timeline with crossing arrows, a database in the middle and a ghost icon for phantom reads" width="1376" height="768"></a>
+    <figcaption>Concurrent transactions can read each other's changes.</figcaption>
+</figure>
 
 ## The Basics
 

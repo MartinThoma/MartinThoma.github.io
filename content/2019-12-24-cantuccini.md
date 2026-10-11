@@ -13,6 +13,11 @@ featured_image: logos/cooking.png
 It takes roughly 1 hour to prepare them plus 1 hour to let them rest.
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/cantuccini.jpg"><img src="../images/2019/12/cantuccini.jpg" alt="Baking tray with almond biscuits, next to a coffee cup, a glass of dessert wine and a bowl of almonds" width="1376" height="768"></a>
+    <figcaption>Cantuccini: Italian almond biscuits.</figcaption>
+</figure>
+
 ## Ingredients
 
 * 520&nbsp;g flour

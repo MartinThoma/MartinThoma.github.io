@@ -22,6 +22,11 @@ biologically and the equipment. This means not only being able to repair
 equipment, but also to produce all equipment by resources one can reach.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/05/space-colonies.jpg"><img src="../images/2020/05/space-colonies.jpg" alt="Rotating cylindrical space habitat in front of Earth, cut open to show fields, a lake and houses inside" width="1376" height="768"></a>
+    <figcaption>A self-sustaining space colony (O'Neill cylinder).</figcaption>
+</figure>
+
 ## Needs
 
 A self-sustaining colony needs to have air and water. It needs to be able to grow food.

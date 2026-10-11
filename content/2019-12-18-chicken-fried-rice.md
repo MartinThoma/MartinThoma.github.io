@@ -13,6 +13,11 @@ Chicken with fried rice is nice for getting rid of leftovers.
 
 It takes about 20 minutes to cook.
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/chicken-fried-rice.jpg"><img src="../images/2019/12/chicken-fried-rice.jpg" alt="Steaming wok with fried rice, chicken, egg, peas and carrots, next to chopsticks and a bowl of soy sauce" width="1376" height="768"></a>
+    <figcaption>Chicken fried rice.</figcaption>
+</figure>
+
 ## Ingredients
 
 * 400g&nbsp;chicken

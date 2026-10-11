@@ -21,6 +21,11 @@ Die Website der Stadtwerke ist überlastet, aber Twitter gibt Informationen:
 Auch auf Facebook gibts ein paar Informationen von den Stadtwerken
 ([Link](https://www.facebook.com/stadtwerkeka/)).
 
+<figure class="ai-generated">
+    <a href="../images/2016/02/wasserrohrbruch.jpg"><img src="../images/2016/02/wasserrohrbruch.jpg" alt="Städtische Straße mit geplatztem Wasserrohr und Wasserfontäne, Bautrupp mit Bagger, im Vordergrund ein Wasserhahn mit einem Tropfen" width="1376" height="768"></a>
+    <figcaption>Wasserrohrbruch: In der Oststadt ist das Wasser weg.</figcaption>
+</figure>
+
 ## Wer ist betroffen?
 
 Ich weiß es nicht. In der Oststadt auf jeden Fall, ich habe gehört, dass

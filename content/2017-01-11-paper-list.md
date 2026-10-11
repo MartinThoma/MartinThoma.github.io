@@ -14,6 +14,11 @@ which I can recommend to read. Most (all?) of them are about machine learning
 and neural networks.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/01/paper-list.jpg"><img src="../images/2017/01/paper-list.jpg" alt="Desk with a tall stack of research papers with bookmarks, glasses, a coffee cup and a lamp" width="1376" height="768"></a>
+    <figcaption>A reading list of machine learning papers.</figcaption>
+</figure>
+
 ## Reading List
 
 I am aware of the following papers and I want to read them ... when I have time:

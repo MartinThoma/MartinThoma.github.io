@@ -18,6 +18,11 @@ about. So instead of linking to exam preparation pages, I will link to
 Wikipedia or other sources to learn the topic.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/05/computer-science.jpg"><img src="../images/2020/05/computer-science.jpg" alt="Laptop surrounded by computer science icons such as growth curves, binary tree, sorting bars, graph, Turing tape, database and padlock" width="1376" height="768"></a>
+    <figcaption>Key ideas every computer scientist should know.</figcaption>
+</figure>
+
 ## Theory
 
 ### Big-O Notation

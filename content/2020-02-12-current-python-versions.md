@@ -17,6 +17,11 @@ For the second question, I like to never take an x.y.0 version. Let them get
 the patches out first.
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/02/python-versions.jpg"><img src="../images/2020/02/python-versions.jpg" alt="Timeline with snakes from an egg through young and adult to an old snake with a cane, calendar bars below" width="1376" height="768"></a>
+    <figcaption>The lifecycle of Python versions.</figcaption>
+</figure>
+
 ## Lifecycle of CPython
 
 I've asked which CPython versions get support right now on SO, and <a href="https://stackoverflow.com/q/60126561/562769">it got heavily downvoted</a>.

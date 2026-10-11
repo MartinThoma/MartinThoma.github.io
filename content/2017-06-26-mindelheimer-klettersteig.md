@@ -12,6 +12,11 @@ featured_image: logos/hiking.png
 I've never finished this one… might still be interesting for others.
 The rest is in German.
 
+<figure class="ai-generated">
+    <a href="../images/2017/06/mindelheimer-klettersteig.jpg"><img src="../images/2017/06/mindelheimer-klettersteig.jpg" alt="Schmaler Felsgrat in den Allgäuer Alpen mit Stahlseil, Eisenbügeln und Leiter, zwei Kletterer mit Helm, in der Ferne ein Gipfelkreuz" width="1376" height="768"></a>
+    <figcaption>Am Mindelheimer Klettersteig.</figcaption>
+</figure>
+
 ## Ausrüstung
 
 * Sicherheit:

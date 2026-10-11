@@ -15,6 +15,11 @@ others might be new to you. Let me know if I missed some that are important to
 you.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/05/python-packages.jpg"><img src="../images/2018/05/python-packages.jpg" alt="Friendly snake on a stack of colorful package boxes with data science icons" width="1376" height="768"></a>
+    <figcaption>Python packages for data science.</figcaption>
+</figure>
+
 ## Data Science
 
 ### Data Formats

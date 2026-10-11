@@ -31,6 +31,11 @@ their service, it reminded me that I wanted to write an article about why we
 cite in the first place.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/why-references.jpg"><img src="../images/2018/12/why-references.jpg" alt="Thesis with footnotes connected by threads to books and articles, next to a magnifying glass, a medal and a crossed-out copy icon" width="1376" height="768"></a>
+    <figcaption>References give credit and make claims verifiable.</figcaption>
+</figure>
+
 ## Reason #1: Giving Credit
 
 If you use the work of others, it is only fair to tell the reader that this was not

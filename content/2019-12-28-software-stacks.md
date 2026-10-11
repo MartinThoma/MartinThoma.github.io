@@ -14,6 +14,11 @@ They are sometimes also called <a href="https://en.wikipedia.org/wiki/Solution_s
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/software-stacks.jpg"><img src="../images/2019/12/software-stacks.jpg" alt="Tower of four colorful blocks for operating system, web server, database and programming language next to a smaller tower" width="1376" height="768"></a>
+    <figcaption>Software stacks combine components that work well together.</figcaption>
+</figure>
+
 ## LAMP
 
 What it is good for: Simple start for creating web services.

@@ -14,6 +14,11 @@ davon sind ca. 10 min reine Arbeitszeit.
 
 Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
 
+<figure class="ai-generated">
+    <a href="../images/2023/03/weissbrot.jpg"><img src="../images/2023/03/weissbrot.jpg" alt="Frisch gebackenes, teilweise aufgeschnittenes Weißbrot auf einem Holzbrett, daneben Mehl, Hefe und ein Ofen" width="1376" height="768"></a>
+    <figcaption>Selbstgebackenes Weißbrot.</figcaption>
+</figure>
+
 ## Zutaten
 
 <table>

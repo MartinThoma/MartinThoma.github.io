@@ -13,6 +13,11 @@ I was never really taught how to deal with the absolute value function, but
 I need it from time to time. So here are a few hints.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/02/absolute-value.jpg"><img src="../images/2017/02/absolute-value.jpg" alt="V-shaped graph of the absolute value function with a horizontal line crossing it at two highlighted points" width="1376" height="768"></a>
+    <figcaption>The shape of the absolute value function is a V.</figcaption>
+</figure>
+
 ## Solving Equations
 
 Let's say you want to solve the equation

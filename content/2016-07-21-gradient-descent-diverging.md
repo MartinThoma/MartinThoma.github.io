@@ -17,6 +17,11 @@ and start gradient descent at $x_0 = (6, 6)$ with learning rate $\eta = \frac{1}
 it diverges.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/07/gradient-descent-diverging.jpg"><img src="../images/2016/07/gradient-descent-diverging.jpg" alt="Contour lines of a bowl-shaped function with a zigzag path of arrows jumping with ever larger steps away from the minimum" width="1376" height="768"></a>
+    <figcaption>With a learning rate that is too large, gradient descent diverges.</figcaption>
+</figure>
+
 ## Gradient descent
 
 Gradient descent is an optimization rule which starts at a point $x_0$ and

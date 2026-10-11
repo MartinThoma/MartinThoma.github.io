@@ -14,6 +14,11 @@ this article is focused on how to get other currencies in Germany given that I
 have Euro.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/foreign-currencies.jpg"><img src="../images/2018/12/foreign-currencies.jpg" alt="Two stacks of banknotes and coins being exchanged with arrows, next to an ATM, a credit card and a globe with an airplane" width="1376" height="768"></a>
+    <figcaption>How to get foreign currencies.</figcaption>
+</figure>
+
 ## Electronically
 
 There are two ways to get foreign currencies if you are working with digital

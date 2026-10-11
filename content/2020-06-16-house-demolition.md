@@ -15,6 +15,11 @@ own house at some point and there are many options to get there. One of them
 is to buy an old house in a nice location, tear it down and build a new one.
 But how expensive is that and how does it work?
 
+<figure class="ai-generated">
+    <a href="../images/2020/06/house-demolition.jpg"><img src="../images/2020/06/house-demolition.jpg" alt="Excavator tearing down an old house, next to a container and a blueprint of a new house" width="1376" height="768"></a>
+    <figcaption>Tear down an old house and build a new one.</figcaption>
+</figure>
+
 ## How it works
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SzobjDoH_BE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

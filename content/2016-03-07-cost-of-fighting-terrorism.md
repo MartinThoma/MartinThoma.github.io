@@ -46,6 +46,11 @@ In 2013, American taxpayers spent 454 million US-Dollars on detention operations
 at Guantanamo Bay, which now holds 91 detainees ([source](https://www.aclu.org/infographic/wasted-opportunities-cost-detention-operations-guantanamo-bay)).
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/03/cost-of-fighting-terrorism.jpg"><img src="../images/2016/03/cost-of-fighting-terrorism.jpg" alt="Balance scale with coin stacks, a drone and a surveillance camera on one side and only a tiny shield on the other" width="1376" height="768"></a>
+    <figcaption>The costs of the war on terror versus what it achieved.</figcaption>
+</figure>
+
 ## Effectiveness
 
 We are spending much more than ever on fighting terrorism. We sacrificed a lot

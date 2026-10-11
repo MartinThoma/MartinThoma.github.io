@@ -84,6 +84,11 @@ Measures to increase security include:
   and
   [many more](https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools).
 
+<figure class="ai-generated">
+    <a href="../images/2020/09/safe-vs-secure.jpg"><img src="../images/2020/09/safe-vs-secure.jpg" alt="Left a helmet, seat belt and warning cone against accidents, right a padlock and shield protecting a computer from an attacker" width="1376" height="768" loading="lazy"></a>
+    <figcaption>Safety protects against accidents, security against attackers.</figcaption>
+</figure>
+
 ## TL;DR: Differences between Safety and Security
 
 <table class="table table-striped table-sm" style="width: 60%">

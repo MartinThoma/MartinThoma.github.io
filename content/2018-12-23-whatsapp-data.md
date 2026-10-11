@@ -14,6 +14,11 @@ especially when it is my own data. WhatsApp is one big personal data source
 which I couldn't analyze so far.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/whatsapp-data.jpg"><img src="../images/2018/12/whatsapp-data.jpg" alt="Smartphone with green chat bubbles exporting a file to a laptop with a bar chart, a word cloud and a calendar heatmap" width="1376" height="768"></a>
+    <figcaption>Analyzing my own chat data.</figcaption>
+</figure>
+
 ## Other Analyses
 
 I've seen WhatsApp data analysis on [r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/)

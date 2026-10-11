@@ -39,6 +39,11 @@ has box baffles ("Boxkammer") might make a difference.
 Some jackets can be packed really well, as the chest pocket doubles as a
 stuff sack.
 
+<figure class="ai-generated">
+    <a href="../images/2018/11/down-jackets.jpg"><img src="../images/2018/11/down-jackets.jpg" alt="Puffy down jacket with floating feathers in front of snowy mountains and prayer flags" width="1376" height="768"></a>
+    <figcaption>A down jacket as second layer for the cold.</figcaption>
+</figure>
+
 ## Features
 
 * Buttons to close: nice for ventilation and as an alternative in case the zipper breaks

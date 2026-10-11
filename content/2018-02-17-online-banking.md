@@ -17,6 +17,11 @@ I will expand this article when you add comments / screenshots for other banks.
 I am interested in N26 and BB Bank.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/02/online-banking.jpg"><img src="../images/2018/02/online-banking.jpg" alt="Smartphone with a banking app, a laptop with a statement, a bank icon, a debit card and a padlock" width="1376" height="768"></a>
+    <figcaption>Online banking on phone and laptop.</figcaption>
+</figure>
+
 ## Sparkasse
 
 Positive:

@@ -37,6 +37,11 @@ I will look at a couple of things for each framework:
 * **Google Trends**: What do people look for?
 * **Google ngrams**: What do people write?
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/web-frameworks.jpg"><img src="../images/2019/12/web-frameworks.jpg" alt="Developer at a crossroads with signposts pointing to different icons, a browser window on the horizon" width="1376" height="768"></a>
+    <figcaption>Which web framework should I choose?</figcaption>
+</figure>
+
 ## Enthusiasm
 
 

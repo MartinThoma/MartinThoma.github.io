@@ -17,6 +17,11 @@ To make the following simpler to write, let's say Steven wants Alice to buy
 stuff in shops while Alice usually uses Amazon.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/05/amazons-power.jpg"><img src="../images/2017/05/amazons-power.jpg" alt="Giant plain cardboard warehouse with conveyor arms towering over a street of small local shops, a delivery van and a drone in front" width="1376" height="768"></a>
+    <figcaption>Online retail versus small shops.</figcaption>
+</figure>
+
 ## Why Amazon replaces Retail Stores
 
 * **Price**: Alice mainly cares about the price. And in many cases, Amazon

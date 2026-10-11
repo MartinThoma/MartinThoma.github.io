@@ -12,6 +12,11 @@ featured_image: logos/house.png
 Es gibt ein paar Eckdaten, die den Wert eines Einfamilienhauses samt Grundstück
 bestimmen. Hier im Artikel gehe ich auf die wichtigsten ein.
 
+<figure class="ai-generated">
+    <a href="../images/2024/11/hauswert.jpg"><img src="../images/2024/11/hauswert.jpg" alt="Einfamilienhaus mit Garten, davor ein Gutachter mit Klemmbrett und Maßband, daneben Symbole für Grundstück, Energieeffizienz und Geld" width="1376" height="768"></a>
+    <figcaption>Was ein Einfamilienhaus wert ist, hängt von Grundstück, Lage, Energieeffizienz und Ausstattung ab.</figcaption>
+</figure>
+
 ## Fundamentale Daten
 
 * **Grundstücksfläche**: Die steht im Grundbuch.

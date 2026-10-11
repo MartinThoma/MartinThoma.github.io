@@ -13,6 +13,11 @@ Ab wann ist man reich? Wann ist man arm?
 
 Es gibt zwei Kriterien, nach denen man diese Frage beantworten kann: Einkommen und Vermögen.
 
+<figure class="ai-generated">
+    <a href="../images/2024/03/reichtum.jpg"><img src="../images/2024/03/reichtum.jpg" alt="Balkendiagramm der Vermögensverteilung: zehn Balken von sehr niedrig bis extrem hoch, auf dem höchsten eine Villa mit Yacht" width="1376" height="768"></a>
+    <figcaption>Reichtum ist ungleich verteilt.</figcaption>
+</figure>
+
 ## Die Vergleichsgruppe
 Dann muss man sich noch eine sinnvolle Vergleichsgruppe anschauen:
 

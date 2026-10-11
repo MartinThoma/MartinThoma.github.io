@@ -9,6 +9,11 @@ category: My bits and bytes
 tags: Devices, Hardware
 featured_image: logos/star.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2020/11/ebook-readers.jpg"><img src="../images/2020/11/ebook-readers.jpg" alt="Three e-readers on a beach towel and a bed, next to a stack of books, a battery icon and a water drop" width="1376" height="768"></a>
+    <figcaption>E-book readers.</figcaption>
+</figure>
+
 <table>
     <tr>
         <th></th>

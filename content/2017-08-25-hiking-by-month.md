@@ -21,6 +21,11 @@ The time varies by how fast you are and sometimes there are different versions
 of the same trek.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/08/hiking-by-month.jpg"><img src="../images/2017/08/hiking-by-month.jpg" alt="Mountain landscape in four seasons with spring meadow, summer lake, autumn forest and winter snow, a hiker on a trail through all of them" width="1376" height="768"></a>
+    <figcaption>Which trail is nice in which month?</figcaption>
+</figure>
+
 ## January
 
 * [Coyhaique](https://en.wikipedia.org/wiki/Coyhaique), Chile: [Cerro Castillo](https://de.wikivoyage.org/wiki/Villa_Cerro_Castillo) (4 days)

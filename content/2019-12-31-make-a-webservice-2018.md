@@ -15,6 +15,11 @@ a small overview.
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/make-a-webservice.jpg"><img src="../images/2019/12/make-a-webservice.jpg" alt="Layers of a web service from browser via application server and database to the cloud, next to a laptop with a rocket" width="1376" height="768"></a>
+    <figcaption>The building blocks of a small web service.</figcaption>
+</figure>
+
 ## Quick n' Dirty
 
 You can set up a first page in about 10 minutes, if you have a [DigitalOcean](https://m.do.co/c/b5dd0c5d61b9) account and the domain via namecheap:

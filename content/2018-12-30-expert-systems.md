@@ -31,6 +31,11 @@ expert system is the right approach for it.
 In the following, I try to structure some thoughts around it.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/expert-systems.jpg"><img src="../images/2018/12/expert-systems.jpg" alt="Futuristic scanning capsule with a patient, connected to a screen with a decision tree and a diagnosis card, a doctor watching" width="1376" height="768"></a>
+    <figcaption>Expert systems: from science fiction healing devices to rule-based diagnosis.</figcaption>
+</figure>
+
 ## Problem overview
 
 What we have:

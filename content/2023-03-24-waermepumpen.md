@@ -60,7 +60,7 @@ einen Wärmetauscher an das Heizsystem des Gebäudes übertragen. Dadurch wird d
 Raumtemperatur erhöht und das Gebäude beheizt.
 
 <figure class="ai-generated">
-    <a href="../images/2023/03/waermepumpe-haus.jpg"><img src="../images/2023/03/waermepumpe-haus.jpg" alt="Einfamilienhaus mit Luft-Wasser-Wärmepumpe an der Außenwand, Pfeile zeigen die Wärme von der Außenluft zu Heizkörpern und Fußbodenheizung" width="1376" height="768"></a>
+    <a href="../images/2023/03/waermepumpe-haus.jpg"><img src="../images/2023/03/waermepumpe-haus.jpg" alt="Einfamilienhaus mit Luft-Wasser-Wärmepumpe an der Außenwand, Pfeile zeigen die Wärme von der Außenluft zu Heizkörpern und Fußbodenheizung" width="1376" height="768" loading="lazy"></a>
     <figcaption>Eine Luft-Wärmepumpe holt Wärme aus der Außenluft und gibt sie an Heizkörper und Fußbodenheizung ab.</figcaption>
 </figure>
 

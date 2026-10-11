@@ -32,6 +32,11 @@ where $\gamma \in (0, 1)$ is a discounting factor which makes sure we don't get
 infinite rewards. $\gamma = 0.99$ is a typical choice.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/12/reinforcement-learning.jpg"><img src="../images/2016/12/reinforcement-learning.jpg" alt="Small robot in a grid maze with arrows to a glowing star as goal, next to a loop of state, action and reward" width="1376" height="768"></a>
+    <figcaption>Reinforcement learning: an agent learns by trial and reward.</figcaption>
+</figure>
+
 ## Applications
 
 This very general problem description can be applied in almost any scenario:

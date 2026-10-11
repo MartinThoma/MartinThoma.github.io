@@ -25,6 +25,11 @@ from being finished, I think it's important to start sharing ideas. A talk with
 my flatmate gave me many more ideas. Thank you, Thomas!
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/08/education-platform.jpg"><img src="../images/2018/08/education-platform.jpg" alt="Globe with glowing lines leading to children and adults around the world, an open book and a laptop in the middle" width="1376" height="768"></a>
+    <figcaption>An open education platform for everybody.</figcaption>
+</figure>
+
 ## Existing Education Platforms
 
 I usually try to see if the problem I want to solve already has a solution that

@@ -29,9 +29,16 @@ Key features to compare when evaluating action cameras:
 * Remote control functionality
 * Software ecosystem
 
+<figure class="ai-generated">
+    <a href="../images/2024/11/action-cams.jpg"><img src="../images/2024/11/action-cams.jpg" alt="Small action camera on a mount on the cycling helmet of a mountain biker, with accessories and a waterproof housing" width="1376" height="768"></a>
+    <figcaption>Action cameras are small, robust and made for sports.</figcaption>
+</figure>
+
 ## Products
 
-[AKASO Action Cam](https://www.amazon.de/AKASO-Einstellbarer-Unterwasserkamera-Fernbedienung-aktualisierte-B-EK7000-Pro/dp/B07K55FL73/): 72€
+Prices are from November 2024.
+
+[AKASO EK7000 Pro](https://www.amazon.de/AKASO-Einstellbarer-Unterwasserkamera-Fernbedienung-aktualisierte-B-EK7000-Pro/dp/B07K55FL73/): 72€
 
 * **Video**:
     * 4K @ 30fps
@@ -46,10 +53,14 @@ Key features to compare when evaluating action cameras:
 * **Storage**: Micro SD
 * **Durability**: Waterproof up to 40m
 * **Display**: 2" screen
-* **Portability**: 581g, 33 x 60 x 40mm (L x W x H)
+* **Portability**: about 61g with battery and memory card[^1], 33 x 60 x 40mm (L x W x H)
 * **Connectivity**: WiFi, USB
 
 [DJI Osmo Pocket 3](https://www.amazon.de/DJI-Vlogging-Kamera-3-Achsen-Stabilisierung-Scharfstellen-Objektverfolgung/dp/B0CG19QXWD/) ([specs](https://www.dji.com/de/osmo-pocket-3/specs)): €480
+
+Strictly speaking, this is not an action cam but a vlogging camera with a
+gimbal: it has a much bigger sensor and mechanical stabilization, but it is not
+waterproof and not made to be mounted on a helmet or handlebar.
 
 * **Video**:
     * 4K @ 120fps
@@ -88,3 +99,23 @@ Key features to compare when evaluating action cameras:
 * **Reviews**:
     * [Wired](https://www.wired.com/review/gopro-hero-12-black/), [Videomaker](https://www.videomaker.com/reviews/cameras/gopro-hero12-black-review-the-best-gopro-to-date/)
     * [CHIP review on YouTube](https://www.youtube.com/watch?v=I54XFCqpUHc)
+
+## Comparison
+
+| | AKASO EK7000 Pro | DJI Osmo Pocket 3 | GoPro HERO12 Black |
+| --- | ---: | ---: | ---: |
+| Price (Nov 2024) | €72 | €480 | €335 |
+| Max. video | 4K @ 30fps | 4K @ 120fps | 5.3K @ 60fps |
+| Stabilization | electronic | mechanical (3-axis gimbal) | electronic (HyperSmooth 6.0) |
+| Sensor | CMOS | 1" CMOS | 1/1.9" CMOS |
+| Weight | ~61g | 179g | 154g |
+| Waterproof | 40m (with housing) | no | 10m (without housing) |
+
+The GoPro is the only one that is waterproof without a housing. The AKASO costs a
+fifth of the GoPro, the Osmo Pocket 3 has by far the biggest sensor, which helps
+in low light.
+
+
+## Footnotes
+
+[^1]: [AKASO EK7000 Pro vs EK7000 4K Action Cameras – Detailed Comparison](https://havecamerawilltravel.com/action/akaso-ek7000-vs-ek7000-pro/) via Have Camera Will Travel, accessed 11.10.2026.

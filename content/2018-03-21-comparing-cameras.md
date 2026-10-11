@@ -14,6 +14,11 @@ about getting a new one. I have the impression that my camera quite often takes
 blurry images.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/03/comparing-cameras.jpg"><img src="../images/2018/03/comparing-cameras.jpg" alt="Compact camera, a blurry landscape photo on the left and the same sharp motif on the right with a magnifying glass above" width="1376" height="768"></a>
+    <figcaption>Why are my photos blurry?</figcaption>
+</figure>
+
 ## What is important to me
 
 * **Sharp images**

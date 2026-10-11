@@ -14,6 +14,11 @@ philosophy: Do one thing and do it well ([source](https://en.wikipedia.org/wiki/
 My colleagues at Netlight and Johannes helped me with some of them (thank you
 🙂).
 
+<figure class="ai-generated">
+    <a href="../images/2017/09/online-tools.jpg"><img src="../images/2017/09/online-tools.jpg" alt="Browser window with tiles for small tools such as code beautifier, diff, regex tester, converter, color picker and QR code" width="1376" height="768"></a>
+    <figcaption>Small web tools that do one thing well.</figcaption>
+</figure>
+
 
 <dl>
     <dt><a href="https://charcounter.com/en/">Charcounter</a> <span class="label label-default">Text</span></dt>

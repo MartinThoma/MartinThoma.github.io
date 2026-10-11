@@ -25,6 +25,11 @@ you have infinite possible targets for regression. Below, you can see a list
 of scoring functions.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/07/regression.jpg"><img src="../images/2018/07/regression.jpg" alt="Scatter plot with a regression line and residuals, next to a house icon with a price tag" width="1376" height="768"></a>
+    <figcaption>Regression: predicting a number such as a house price.</figcaption>
+</figure>
+
 ## Scoring functions
 
 In the following, $y$ is the ordered list of targets, $y^P$ is the list

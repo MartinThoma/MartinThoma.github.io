@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Trekking Poles
 slug: trekking-poles
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: My bits and bytes
@@ -15,6 +15,11 @@ poles.
 
 In the past, I mainly would have liked them for river crossings (e.g. GR-20).
 I finally decided not to take trekking poles. I did not regret that decision.
+
+<figure class="ai-generated">
+    <a href="../images/2018/12/trekking-poles.jpg"><img src="../images/2018/12/trekking-poles.jpg" alt="Hiker using two trekking poles to cross a mountain stream on stones, a pair of poles in the foreground" width="1376" height="768"></a>
+    <figcaption>Trekking poles help at river crossings.</figcaption>
+</figure>
 
 ## Features
 

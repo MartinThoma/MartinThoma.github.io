@@ -15,6 +15,11 @@ Suppose you have a text classification problem. For example, you want to
 classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/07/document-classification.jpg"><img src="../images/2017/07/document-classification.jpg" alt="Envelopes on a conveyor belt being sorted by a robot arm into three colored bins" width="1376" height="768"></a>
+    <figcaption>Classifying emails into three classes.</figcaption>
+</figure>
+
 ## Basic Setup
 
 Suppose **you have a corpus** of 1000 emails. You make a **stratified split**

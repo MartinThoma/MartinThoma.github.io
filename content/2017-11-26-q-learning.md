@@ -5,7 +5,7 @@ slug: q-learning
 lang: en
 author: Martin Thoma
 date: 2017-11-26 20:00
-category: Machine learning
+category: Machine Learning
 tags: Machine Learning, RL, Reinforcement Learning, AI
 featured_image: logos/ml.png
 ---

@@ -14,6 +14,11 @@ a little toy rocket. That made me think: How much fuel do you minimally need
 to get from Earth to the moon and how fast can it be?
 
 
+<figure class="ai-generated">
+    <a href="../images/2023/09/earth-to-moon.jpg"><img src="../images/2023/09/earth-to-moon.jpg" alt="Small rocket on a dotted trajectory from Earth to the Moon, with a fuel gauge, a stopwatch and a distance bar" width="1376" height="768"></a>
+    <figcaption>How much fuel and time does a trip from Earth to the Moon need?</figcaption>
+</figure>
+
 ## The Distance
 
 The distance between Earth and moon changes. When they are closest it is called

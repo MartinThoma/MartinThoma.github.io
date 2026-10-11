@@ -20,6 +20,11 @@ I planned the route as a 2-day route. One day to get to the starting point,
 the second day to take the route.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/12/alpspitze-klettersteig.jpg"><img src="../images/2016/12/alpspitze-klettersteig.jpg" alt="Climber with helmet and via ferrata set clipped to a steel cable on a steep rock face, a valley with a lake far below" width="1376" height="768"></a>
+    <figcaption>On the Alpspitze via ferrata.</figcaption>
+</figure>
+
 ## Equipment
 
 I'll put the German word in brackets, as I'm not totally sure about the best

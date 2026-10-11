@@ -21,6 +21,11 @@ Before we dive into those sub-problems, let me roughly describe how developing
 big software works.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/code-challenges-ml.jpg"><img src="../images/2018/12/code-challenges-ml.jpg" alt="Robot at a laptop writing code, next to an architecture blueprint and a test checklist with green checkmarks and one red cross" width="1376" height="768"></a>
+    <figcaption>Can machines write software? Code challenges for ML.</figcaption>
+</figure>
+
 ## Software Engineering 101
 
 You have an idea. Let's take one of the [projects I never realized](../projects-never-realized/): A book portal.

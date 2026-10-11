@@ -14,6 +14,11 @@ Data is one core element of machine learning. Hence, it is worth thinking about
 ways to store it. This post is inspired by some news of really big datasets being published ([source](https://www.reddit.com/r/MachineLearning/comments/6a97pt/n_new_massive_medical_image_dataset_coming_from/)).
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/ways-to-store-data.jpg"><img src="../images/2018/12/ways-to-store-data.jpg" alt="Different storage media such as hard disk, SSD, tape, cloud, database and filing cabinet around a data cube" width="1376" height="768"></a>
+    <figcaption>Ways to store data.</figcaption>
+</figure>
+
 ## Hardware
 
 This post is not about hardware. Well, not mainly. The only thing I would

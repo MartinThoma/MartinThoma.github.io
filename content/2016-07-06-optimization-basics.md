@@ -35,6 +35,11 @@ By convention, the standard form defines a **minimization problem**. A
 I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to find a solution $x \in \mathbb{N}^n$. I will only focus on continuous optimization problems.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/07/optimization.jpg"><img src="../images/2016/07/optimization.jpg" alt="Hilly surface on which a ball rolls step by step into the lowest valley, a thermometer and flame for simulated annealing" width="1376" height="768"></a>
+    <figcaption>Optimization: finding the lowest point of a landscape.</figcaption>
+</figure>
+
 ## Simulated Annealing
 
 Simulated Annealing is a heuristic optimization algorithm. It starts at a

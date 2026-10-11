@@ -23,7 +23,7 @@ affected, politicians say we are at war, on Facebook people show condolence.
 
 
 <figure class="ai-generated">
-    <a href="../images/2015/11/terror-in-paris.jpg"><img src="../images/2015/11/terror-in-paris.jpg" alt="Kerzen, Blumen und eine französische Flagge am Straßenrand einer Pariser Straße in der Dämmerung" width="1376" height="768"></a>
+    <a href="../images/2015/11/terror-in-paris.jpg"><img src="../images/2015/11/terror-in-paris.jpg" alt="Candles, flowers and a French flag at the edge of a Paris street at dusk" width="1376" height="768"></a>
     <figcaption>Candles and flowers in memory of the victims.</figcaption>
 </figure>
 

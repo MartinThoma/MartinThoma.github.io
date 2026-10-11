@@ -20,6 +20,11 @@ Ein paar Sachen vorab:
   bezahlt nicht selten für einen Markennamen. Und selbst unter ökonomischen
   Aspekten spielt die Lebensdauer und Reparierbarkeit natürlich eine große Rolle.
 
+<figure class="ai-generated">
+    <a href="../images/2023/03/effiziente-haushaltsgeraete.jpg"><img src="../images/2023/03/effiziente-haushaltsgeraete.jpg" alt="Geschirrspüler, Kühlschrank und LED-Lampe mit farbigen Effizienzskalen, daneben Taschenrechner und Münzstapel" width="1376" height="768"></a>
+    <figcaption>Wann lohnt sich ein effizienteres Haushaltsgerät?</figcaption>
+</figure>
+
 ## Spülmaschinen
 
 Ich gehe davon aus, dass wir etwa jeden zweiten Tag die Spülmaschine anmachen.

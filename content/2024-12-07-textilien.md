@@ -19,6 +19,11 @@ Reine Chemiefaser-Stoffe mag ich nicht, weil sie keine Feuchtigkeit aufnehmen
 und mir tatsächlich unangenehm glatt sind. Als Mischgewebe finde ich sie
 praktisch. Wer will schon Spannbettlaken, die sich nicht dehnen?
 
+<figure class="ai-generated">
+    <a href="../images/2024/12/textilien.jpg"><img src="../images/2024/12/textilien.jpg" alt="Gemachtes Bett mit Baumwollbettwäsche, daneben Stoffmuster, eine Lupe über einem Gewebe und ein Baumwollzweig" width="1376" height="768"></a>
+    <figcaption>Bettwäsche: Fasern, Gewebe und Veredelungen.</figcaption>
+</figure>
+
 ## Fasern
 
 Die kleinste Einheit eines textilen Produkts. Fasern sind dünne,

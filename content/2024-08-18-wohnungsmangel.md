@@ -16,6 +16,11 @@ haben, weil sie keine Wohnung gefunden haben. Oder wie viele Menschen mehr als
 33% ihres Netto-Einkommens für die Miete ausgeben. Oder in wie vielen Städten
 der Leerstand unter 3% liegt.
 
+<figure class="ai-generated">
+    <a href="../images/2024/08/wohnungsmangel.jpg"><img src="../images/2024/08/wohnungsmangel.jpg" alt="Mehrfamilienhaus am Abend, davor eine lange Schlange wartender Menschen mit Koffern, im Hintergrund ein Baukran" width="1376" height="768"></a>
+    <figcaption>Zu wenige Wohnungen: Viele suchen, zu wenig wird gebaut.</figcaption>
+</figure>
+
 ## Daten zum Wohnungsmangel
 
 

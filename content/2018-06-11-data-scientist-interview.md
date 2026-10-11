@@ -14,6 +14,11 @@ Data Scientist? Which questions should you be able to answer as a Data
 Scientist?
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/06/data-scientist-interview.jpg"><img src="../images/2018/06/data-scientist-interview.jpg" alt="Job interview at a table, the candidate has a laptop with charts, around them icons for statistics, code, math, neural networks and databases" width="1376" height="768"></a>
+    <figcaption>Which skills does a data scientist need?</figcaption>
+</figure>
+
 ## Skillset
 
 The following is a typical skillset I expect from a data scientist. It might be

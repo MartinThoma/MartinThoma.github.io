@@ -17,6 +17,11 @@ buy me a gift via Amazon, or [become a Medium member](https://martinthoma.medium
 for which I'll get a referral bonus as long as you are a member.
 
 
+<figure class="ai-generated">
+    <a href="../images/2016/03/support-me.jpg"><img src="../images/2016/03/support-me.jpg" alt="Coffee cup with heart-shaped steam, a donation jar with coins and a small server rack with a green light next to a laptop" width="1376" height="768"></a>
+    <figcaption>Keeping a blog online costs money.</figcaption>
+</figure>
+
 ## PayPal
 Support me [via PayPal](https://www.paypal.me/MartinThoma).
 

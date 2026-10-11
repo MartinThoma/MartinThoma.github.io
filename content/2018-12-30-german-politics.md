@@ -200,6 +200,11 @@ taken away: Homeopathy can only be sold with a 1% margin (or similar).</p>
 
 </div>
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/german-politics.jpg"><img src="../images/2018/12/german-politics.jpg" alt="Parliament building dome with black-red-gold ribbons and a ballot box next to it" width="1376" height="768" loading="lazy"></a>
+    <figcaption>Things I would like to change in Germany.</figcaption>
+</figure>
+
 ## Long-Term problems
 
 I guess some problems will always be an issue:

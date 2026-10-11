@@ -119,6 +119,11 @@ playlist.
 </table>
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/playlist-cleanup.jpg"><img src="../images/2019/12/playlist-cleanup.jpg" alt="A huge pile of video thumbnails being cleaned up and partly swept into the trash" width="1376" height="768" loading="lazy"></a>
+    <figcaption>Cleaning up a "watch later" playlist with almost 300 videos.</figcaption>
+</figure>
+
 ## Data Science and Engineering
 
 <table class="table">

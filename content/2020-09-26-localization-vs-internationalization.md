@@ -18,6 +18,11 @@ Localization is the process of adapting your software to a different language or
 
 Localization is often abbreviated as l10n. l10n includes translation, adjusting currencies ($, €, £, ¥, …), systems of measurement (metric vs imperial), and time zones. The language change might make a lot of other changes necessary. For example, it can very well be that the layout does not work any longer. It might mean that you need to get more data about the user because there are other ways to address the user.
 
+<figure class="ai-generated">
+    <a href="../images/2020/09/localization-internationalization.jpg"><img src="../images/2020/09/localization-internationalization.jpg" alt="Globe surrounded by speech bubbles, calendars, coins, time zone clocks and a power plug adapter" width="1376" height="768"></a>
+    <figcaption>Internationalization prepares software, localization adapts it to a region.</figcaption>
+</figure>
+
 ### Localization is not defined by the language
 
 You might be tempted to use the language as an identifier for the locale. That doesn’t work:

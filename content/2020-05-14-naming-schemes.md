@@ -12,6 +12,11 @@ featured_image: logos/python.png
 Naming styles are one of the trivial things in a style guide. Here are some of
 the names you might hear.
 
+<figure class="ai-generated">
+    <a href="../images/2020/05/naming-styles.jpg"><img src="../images/2020/05/naming-styles.jpg" alt="Four cards with a flat snake, a camel with humps, a kebab skewer and a loud megaphone for different naming styles" width="1376" height="768"></a>
+    <figcaption>snake, camel, kebab and screaming: naming styles.</figcaption>
+</figure>
+
 ## The Styles
 
 * `snake_case`

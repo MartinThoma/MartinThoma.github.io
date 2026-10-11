@@ -35,6 +35,11 @@ It often works like this:
    course, make sure the whole presentation is consistent and has a good flow.
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/11/presentations.jpg"><img src="../images/2019/11/presentations.jpg" alt="Presenter next to a screen showing a clean slide layout, an attentive audience in the foreground" width="1376" height="768"></a>
+    <figcaption>Good presentations have a clear message and clean slides.</figcaption>
+</figure>
+
 ## Topic and Key Messages
 
 You might be in a situation where you are free to talk about whatever you want.

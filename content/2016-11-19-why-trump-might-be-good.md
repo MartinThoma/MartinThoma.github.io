@@ -13,6 +13,11 @@ After Trump was elected president of the United States, a lot of people
 began writing as if the world is going to end. While I also fear many bad
 things that might happen, here are some things that might be good:
 
+<figure class="ai-generated">
+    <a href="../images/2016/11/silver-lining.jpg"><img src="../images/2016/11/silver-lining.jpg" alt="Dark clouds over a domed building with a bright sun breaking through and forming a silver lining" width="1376" height="768"></a>
+    <figcaption>Is there a silver lining?</figcaption>
+</figure>
+
 1. Some people got a lot of money from bets ([source](http://time.com/money/4565236/donald-trump-2016-election-win-gambling-bets/)).
 2. Trump thinks drone attacks are too expensive (about \$320&thinsp;000 according to [this source](https://www.quora.com/How-much-does-one-airstrike-cost/answer/Christopher-Troskosky)). However, he also wants to bomb the shit out of terrorists ([source](http://www.independent.co.uk/news/world/americas/donald-trump-drone-strikes-bombing-isis-pirates-no-rules-obama-deaths-a7423401.html)).
 3. Trump is against TTIP.

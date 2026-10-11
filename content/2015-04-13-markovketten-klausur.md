@@ -11,6 +11,11 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 gehört. Aufgrund des sehr guten Skripts wurde dieser Artikel nie richtig begonnen.</div>
 
+<figure class="ai-generated">
+    <a href="../images/2015/04/markovketten.jpg"><img src="../images/2015/04/markovketten.jpg" alt="Zustandsdiagramm einer Markov-Kette mit drei Zuständen und unterschiedlich dicken Übergangspfeilen, daneben Würfel" width="1376" height="768"></a>
+    <figcaption>Eine Markov-Kette springt zufällig zwischen Zuständen.</figcaption>
+</figure>
+
 ## Behandelter Stoff
 
 Es wäre toll, wenn ich von jeder Vorlesung einen Mitschrieb hochladen könnte.

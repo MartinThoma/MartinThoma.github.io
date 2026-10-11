@@ -14,6 +14,11 @@ While writing my thesis, I came across some rules / resources which I would
 like to share with you.
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/12/academic-writing.jpg"><img src="../images/2018/12/academic-writing.jpg" alt="Thesis with red corrections on a desk, next to a dictionary, laptop, books and a graduation cap on a coffee cup" width="1376" height="768"></a>
+    <figcaption>Writing a thesis.</figcaption>
+</figure>
+
 ## Tools
 
 * [Academic-Writing-Check](https://github.com/devd/Academic-Writing-Check)

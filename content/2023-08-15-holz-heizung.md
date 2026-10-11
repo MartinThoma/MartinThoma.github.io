@@ -12,6 +12,11 @@ featured_image: logos/house.png
 Ich habe einen Kachelofen im kürzlich erworbenen Eigenheim, aber absolut keine
 Erfahrung mit Heizungssystemen. Hier ein paar Zahlen.
 
+<figure class="ai-generated">
+    <a href="../images/2023/08/holzheizung.jpg"><img src="../images/2023/08/holzheizung.jpg" alt="Kachelofen mit Feuer hinter Glastür in einem Wohnzimmer, daneben gestapeltes Brennholz und ein Pelletsack" width="1376" height="768"></a>
+    <figcaption>Ein Kachelofen mit Scheitholz oder Pellets.</figcaption>
+</figure>
+
 <table>
     <thead>
     <tr>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Python Application
+title: Shipping Python Applications
 slug: python-applications
 lang: en
 author: Martin Thoma

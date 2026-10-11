@@ -12,6 +12,11 @@ featured_image: logos/cooking.png
 A typical German soup.
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/12/carrot-soup.jpg"><img src="../images/2019/12/carrot-soup.jpg" alt="Bowl of orange carrot soup, next to carrots, a potato, a cooking pot and a spoon" width="1376" height="768"></a>
+    <figcaption>Carrot soup.</figcaption>
+</figure>
+
 ## Ingredients
 
 For two people:

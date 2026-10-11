@@ -12,6 +12,11 @@ featured_image: logos/house.png
 Ich muss gerade viel streichen, daher hier ein paar Grundlagen.
 
 
+<figure class="ai-generated">
+    <a href="../images/2023/05/waende-streichen.jpg"><img src="../images/2023/05/waende-streichen.jpg" alt="Person streicht mit einer Farbrolle eine Wand, Abdeckband an der Leiste, Farbwanne, Eimer, Abdeckvlies und Leiter" width="1376" height="768"></a>
+    <figcaption>Innenwände streichen: Farbe, Werkzeug und Arbeitsschritte.</figcaption>
+</figure>
+
 ## Farbe
 
 Auf jedem Farbeimer steht:

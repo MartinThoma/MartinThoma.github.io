@@ -21,6 +21,11 @@ I will take write-math.com (handwritten symbol recognition) and Amazon book
 recommendations as examples.
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/06/ml-get-data.jpg"><img src="../images/2017/06/ml-get-data.jpg" alt="Funnel collecting data from smartphones, cameras, a survey, a game controller and a web page and feeding a neural network" width="1376" height="768"></a>
+    <figcaption>Where does the data for machine learning come from?</figcaption>
+</figure>
+
 ## Generate Data yourself
 
 Sometimes, it is possible to generate data yourself. This is what I did for

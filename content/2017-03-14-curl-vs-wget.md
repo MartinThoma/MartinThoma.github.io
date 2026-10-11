@@ -53,6 +53,11 @@ first 10 Google hits about their differences.
 </table>
 
 
+<figure class="ai-generated">
+    <a href="../images/2017/03/curl-vs-wget.jpg"><img src="../images/2017/03/curl-vs-wget.jpg" alt="Cloud with files and a laptop, between them two download pipes, one coiled and one straight, with files and progress bars passing through" width="1376" height="768" loading="lazy"></a>
+    <figcaption>curl and wget: two ways to download files.</figcaption>
+</figure>
+
 ## curl strengths
 
 * curl supports many more protocols and platforms (OS/400, TPF - never heard of them before)

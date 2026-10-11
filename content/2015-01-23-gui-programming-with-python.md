@@ -20,6 +20,11 @@ In this article, I want to share some of my thoughts about GUI development with
 Python as a beginner. I might update this in the future.
 
 
+<figure class="ai-generated">
+    <a href="../images/2015/01/gui-python.jpg"><img src="../images/2015/01/gui-python.jpg" alt="Application window with buttons, slider, checkboxes and a dropdown menu, next to a snake with a toolbox" width="1376" height="768"></a>
+    <figcaption>Building a GUI with Python.</figcaption>
+</figure>
+
 ## GUI toolkits
 
 > A widget toolkit, widget library, GUI toolkit, or UX library is a library or

@@ -23,7 +23,7 @@ This is called **F**ull **D**isk **E**ncryption, or **FDE** for short. Let’s
 talk about how it works, different implementations of it, and its weaknesses.
 
 <figure class="ai-generated">
-    <a href="../images/2020/12/full-disk-encryption.jpg"><img src="../images/2020/12/full-disk-encryption.jpg" alt="Laptop mit Vorhängeschloss und verschlüsselter Festplatte, eine fremde Hand wird von einem Schutzschild abgehalten" width="1376" height="768"></a>
+    <a href="../images/2020/12/full-disk-encryption.jpg"><img src="../images/2020/12/full-disk-encryption.jpg" alt="Laptop with a padlock and an encrypted disk, a stranger's hand blocked by a shield" width="1376" height="768"></a>
     <figcaption>Full disk encryption keeps the data unreadable for anyone who only has the disk.</figcaption>
 </figure>
 

@@ -14,6 +14,11 @@ statements pretty often when people want to say that Python is slow or that
 Python is not suited for large systems. In this article, I want to dispel those
 myths.
 
+<figure class="ai-generated">
+    <a href="../images/2020/05/python-interpreted.jpg"><img src="../images/2020/05/python-interpreted.jpg" alt="Friendly snake wrapped around a laptop, next to gears, lightning bolts, a rocket and several processor cores" width="1376" height="768"></a>
+    <figcaption>Python is interpreted, but not slow by default.</figcaption>
+</figure>
+
 ## Interpreted Language
 
 What does it mean to say Python "is" an interpreted language? If you mean that

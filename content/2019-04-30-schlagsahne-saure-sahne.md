@@ -21,6 +21,11 @@ umsonst den Kopf zerbrochen. Ich lasse mich aber auch gerne eines Besseren
 belehren 🙂
 
 
+<figure class="ai-generated">
+    <a href="../images/2019/04/schlagsahne-saure-sahne.jpg"><img src="../images/2019/04/schlagsahne-saure-sahne.jpg" alt="Zwei Schüsseln: links Schlagsahne mit Erdbeere, rechts saure Sahne mit Löffel und Ofenkartoffel mit Schnittlauch" width="1376" height="768"></a>
+    <figcaption>Schlagsahne oder saure Sahne?</figcaption>
+</figure>
+
 ## Schlagsahne
 
 [Schlagsahne](https://de.wikipedia.org/wiki/Schlagsahne) hat einen Fettgehalt

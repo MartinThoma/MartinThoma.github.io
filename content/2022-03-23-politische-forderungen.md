@@ -13,6 +13,11 @@ status: draft
 Hier sind ein paar politische Ideen, die ich gerne umgesetzt hätte.
 
 
+<figure class="ai-generated">
+    <a href="../images/2022/03/politische-forderungen.jpg"><img src="../images/2022/03/politische-forderungen.jpg" alt="Ein einziges Ladekabel verbindet Laptop, Smartphone, Tablet und Kopfhörer, daneben ein ordentlicher Stapel Formulare mit Haken" width="1376" height="768"></a>
+    <figcaption>Vereinfachung: ein Standard-Ladekabel für alles.</figcaption>
+</figure>
+
 ## Vereinfachung
 
 ### Standardisierung von Ladekabeln

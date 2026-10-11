@@ -52,6 +52,11 @@ added the laptop I had before when I wrote the 2012 matrix multiplication articl
 </table>
 
 
+<figure class="ai-generated">
+    <a href="../images/2020/02/matrix-multiplication.jpg"><img src="../images/2020/02/matrix-multiplication.jpg" alt="Two colorful matrices being multiplied, next to a stopwatch, a rocket and a Python snake" width="1376" height="768" loading="lazy"></a>
+    <figcaption>Matrix multiplication as a benchmark for speeding up Python.</figcaption>
+</figure>
+
 ## Python
 
 In the following table you can see the execution times for the different

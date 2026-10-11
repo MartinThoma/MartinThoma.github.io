@@ -18,6 +18,11 @@ Die Heizlast ist die Wärmemenge, die zur Aufrechterhaltung der Raumtemperatur
 nötig ist. Da ich wissen möchte, wie viel Leistung die Wärmepumpe(n) bringen sollen,
 muss ich mir vor allem die Extremwerte ansehen.
 
+<figure class="ai-generated">
+    <a href="../images/2023/08/heizlast.jpg"><img src="../images/2023/08/heizlast.jpg" alt="Schnitt durch ein Haus, rote Pfeile zeigen Wärmeverluste durch Wände, Dach und Fenster, außen Frost und Schneeflocken" width="1376" height="768"></a>
+    <figcaption>Die Heizlast: Wärmeverluste eines Hauses im Winter.</figcaption>
+</figure>
+
 ## Normaußentemperatur
 
 > Die Normaußentemperatur ist die tiefste Temperatur einer Kälteperiode, welche

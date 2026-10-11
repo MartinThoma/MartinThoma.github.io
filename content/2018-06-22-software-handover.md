@@ -15,6 +15,11 @@ You might simply get other tasks or even get another project.
 So, what should be done for a good handover?
 
 
+<figure class="ai-generated">
+    <a href="../images/2018/06/software-handover.jpg"><img src="../images/2018/06/software-handover.jpg" alt="A developer hands a glowing box of code and documentation to a colleague, a checklist in the background" width="1376" height="768"></a>
+    <figcaption>A good handover needs preparation and documentation.</figcaption>
+</figure>
+
 ## Preparation
 
 The first phase of the handover is preparation on your side. Make the project
