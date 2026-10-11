@@ -115,8 +115,9 @@ findings per article; remove an entry once it is fixed.
   * Images made by an AI tool (Claude, ChatGPT, Gemini, …) get `ai-generated`; a real
     photo that an AI tool changed gets `ai-modified`. The EU AI Act (Art. 50) requires the
     label only for deceptively real images; this blog marks every AI image except diagrams
-    (charts, flow and network diagrams, pyramids, maps with data). The caption names the
-    tool in every case, diagrams included.
+    (charts, flow and network diagrams, pyramids, maps with data). The caption does not
+    name the tool; the `ai-generated` class is enough. A photorealistic AI image ends its
+    caption with "Created with AI" (German articles: "Mit KI erstellt").
   * No WordPress classes (`wp-caption`, `aligncenter`, `size-*`, `img-thumbnail`).
   * `python scripts/normalize_images.py` converts old markup to this form; it is idempotent.
 * Several images in a grid (photo series, before/after comparisons, test cases) go into
