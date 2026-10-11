@@ -218,7 +218,7 @@ See also: [How to add a forced line break inside a table cell](http://tex.stacke
 ### Page-breaking tables
 
 If you want your tables to be able to break over pages, you have to use
-[`\usepackage{longtable}`](ftp://ftp.tex.ac.uk/tex-archive/macros/latex/required/tools/longtable.pdf) which has [an example](http://users.sdsc.edu/~ssmallen/latex/longtable.html).
+[`\usepackage{longtable}`](https://mirrors.ctan.org/macros/latex/required/tools/longtable.pdf) which has [an example](http://users.sdsc.edu/~ssmallen/latex/longtable.html).
 
 Another option is [supertabular](http://ctan.org/pkg/supertabular).
 

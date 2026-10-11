@@ -11,6 +11,11 @@ featured_image: 2013/08/algebra-thumb.jpg
 ---
 Today I've wondered how many homomorphisms are between the groups $(\mathbb{Z}/n\mathbb{Z},+)$ and $(\mathbb{Z}/m\mathbb{Z},+)$ with $m, n \geq 2$. Does it make a difference if I use + or $\cdot$ as operators?
 
+<figure class="ai-generated">
+    <a href="../images/2013/08/homomorphisms-zn-zm.jpg"><img src="../images/2013/08/homomorphisms-zn-zm.jpg" alt="Two circles of colored dots like clock faces, arrows map dots of the first circle to dots of the second" width="1376" height="768"></a>
+    <figcaption>Homomorphisms between two cyclic groups.</figcaption>
+</figure>
+
 Let $M := (\mathbb{Z}/m\mathbb{Z},+)$ and $N := (\mathbb{Z}/n\mathbb{Z},+)$ be groups and $\varphi: M \rightarrow N$ be a group homomorphism.
 Let $H := \{\varphi: M \rightarrow N\}$
 

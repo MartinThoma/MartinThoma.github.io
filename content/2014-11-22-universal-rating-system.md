@@ -17,6 +17,11 @@ could build a Universal Rating System (URS).
 Just as important as pure ratings are reviews.
 
 
+<figure class="ai-generated">
+    <a href="../images/2014/11/universal-rating-system.jpg"><img src="../images/2014/11/universal-rating-system.jpg" alt="Globe of connected products with star ratings and review cards around a central star" width="1376" height="768"></a>
+    <figcaption>A universal rating system for everything.</figcaption>
+</figure>
+
 ## What would a URS need?
 
 Directly necessary are:

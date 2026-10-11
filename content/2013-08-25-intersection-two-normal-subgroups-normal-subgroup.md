@@ -9,6 +9,11 @@ category: Mathematics
 tags: Mathematics, Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/08/normal-subgroups-intersection.jpg"><img src="../images/2013/08/normal-subgroups-intersection.jpg" alt="Large circle with two overlapping smaller circles, the overlap highlighted with an arrow staying inside it" width="1376" height="768"></a>
+    <figcaption>The intersection of two normal subgroups is again normal.</figcaption>
+</figure>
+
 Let $(G, \cdot)$ be a group and $X \lhd G$ and $Y \lhd G$ be two normal subgroups.
 
 I will show this in two steps:

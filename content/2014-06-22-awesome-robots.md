@@ -22,6 +22,11 @@ They are commonly used in physics, because you often have functions that have
 time as their argument. A simple example would be the growth of a population
 in biology (see [Differential Equations: some simple examples from Physclips](http://www.animations.physics.unsw.edu.au/jw/DifferentialEquations.htm)).
 
+<figure class="ai-generated">
+    <a href="../images/2014/06/awesome-robots.jpg"><img src="../images/2014/06/awesome-robots.jpg" alt="Four robots: a cube balancing on its corner, a drone balancing a pole, a robot arm playing table tennis and a climbing robot" width="1376" height="768"></a>
+    <figcaption>Robots that balance, fly, play table tennis and climb.</figcaption>
+</figure>
+
 ## Cubli
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/n_6p-1J551Y" frameborder="0" allowfullscreen></iframe>

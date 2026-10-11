@@ -24,6 +24,11 @@ notice when he doesn't.
 So One-on-One tutoring is something we want to get.
 
 
+<figure class="ai-generated">
+    <a href="../images/2014/09/one-on-one-tutoring.jpg"><img src="../images/2014/09/one-on-one-tutoring.jpg" alt="A tutor sitting next to a student at a small table, both looking at the same notebook" width="1376" height="768"></a>
+    <figcaption>One tutor, one student.</figcaption>
+</figure>
+
 ## The problem of One-on-One tutoring
 It would be expensive if it were done the way tutoring is currently done. In fact, I
 think it would be impossible, because you would not find that many tutors.

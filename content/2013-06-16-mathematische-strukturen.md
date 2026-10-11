@@ -11,6 +11,11 @@ featured_image: 2012/01/vector-space.png
 ---
 Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele können gerne in den Kommentaren genannt werden.
 
+<figure class="ai-generated">
+    <a href="../images/2013/06/mathematische-strukturen.jpg"><img src="../images/2013/06/mathematische-strukturen.jpg" alt="Ineinander geschachtelte farbige Formen als Hierarchie algebraischer Strukturen mit Plus-, Mal- und Nullsymbolen" width="1376" height="768"></a>
+    <figcaption>Mathematische Strukturen bauen aufeinander auf.</figcaption>
+</figure>
+
 <h2>Magma</h2>
 <div class="definition">Sei $M$ eine Menge und $*:M \times M \rightarrow M$ eine auf $M$ abgeschlossene Abbildung. Dann heißt $(M,*)$ ein <strong>Magma</strong>.</div>
 

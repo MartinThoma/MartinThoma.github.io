@@ -9,6 +9,11 @@ category: German posts
 tags: Klausur, University, KIT, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/04/numerik-klausur.jpg"><img src="../images/2013/04/numerik-klausur.jpg" alt="Große Matrix, die durch Gaußsches Eliminationsverfahren in Dreiecksform gebracht wird, daneben Taschenrechner und Bleistift" width="1376" height="768"></a>
+    <figcaption>Numerik: Gaußsches Eliminationsverfahren.</figcaption>
+</figure>
+
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Numerische Mathematik für die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Weiß im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>

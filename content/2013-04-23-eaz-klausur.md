@@ -9,6 +9,11 @@ category: German posts
 tags: Klausur, University, KIT, Mathematics
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/04/algebra-zahlentheorie.jpg"><img src="../images/2013/04/algebra-zahlentheorie.jpg" alt="Zifferblatt aus zwölf Punkten mit Sprungpfeil für Rechnen modulo n, daneben ein Zahlengitter mit hervorgehobenen Primzahlen und ein Dreieck mit Drehpfeilen" width="1376" height="768"></a>
+    <figcaption>Algebra und Zahlentheorie: modulares Rechnen, Primzahlen und Symmetrien.</figcaption>
+</figure>
+
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Kühnlein im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>

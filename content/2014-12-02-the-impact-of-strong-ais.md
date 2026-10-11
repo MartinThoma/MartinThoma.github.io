@@ -18,6 +18,11 @@ programs which try to find out what you were writing (see
 figure out who is in an image (face recognition) or what was spoken (automatic
 speech recognition).
 
+<figure class="ai-generated">
+    <a href="../images/2014/12/strong-ai.jpg"><img src="../images/2014/12/strong-ai.jpg" alt="Humanoid robot and human working side by side on laptops" width="1376" height="768"></a>
+    <figcaption>What changes when AIs become as capable as humans?</figcaption>
+</figure>
+
 ## Strong and Weak AIs
 Science fiction literature distinguishes two kinds of AIs: Weak AIs and strong
 AIs.

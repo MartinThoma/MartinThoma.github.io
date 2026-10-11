@@ -9,6 +9,11 @@ category: Mathematics
 tags: Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/08/stabilizer.jpg"><img src="../images/2013/08/stabilizer.jpg" alt="Circle of colored dots with arrows for the group action, a highlighted dot in the center with loop arrows" width="1376" height="768"></a>
+    <figcaption>The stabilizer fixes a point.</figcaption>
+</figure>
+
 <div class="definition">Let $(G, \cdot)$ be a group and $M$ a set. A <strong>group action</strong> is a function:
 $G \circ M \rightarrow M$
 that satisfies the following two conditions

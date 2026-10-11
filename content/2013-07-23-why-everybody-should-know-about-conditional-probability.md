@@ -11,6 +11,11 @@ featured_image: 2013/07/probability-tree.png
 ---
 Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.
 
+<figure class="ai-generated">
+    <a href="../images/2013/07/conditional-probability.jpg"><img src="../images/2013/07/conditional-probability.jpg" alt="Doctor with a positive test result, a crowd where only a few people are marked red, and a probability tree" width="1376" height="768"></a>
+    <figcaption>A positive test does not mean you are ill: conditional probability explains why.</figcaption>
+</figure>
+
 Suppose you go to the doctor to make a cancer test. The test is positive. That means you have cancer, right? Wrong!
 
 <h2>Basics</h2>

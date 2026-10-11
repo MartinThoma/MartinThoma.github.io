@@ -30,6 +30,11 @@ To put that into perspective: In 2005, you would probably have been in place
 
 Isn't that crazy?
 
+<figure class="ai-generated">
+    <a href="../images/2014/08/gpu-home.jpg"><img src="../images/2014/08/gpu-home.jpg" alt="Powerful graphics card with a glowing grid of cores next to a home PC, next to two bars: a very tall one and a tiny one" width="1376" height="768"></a>
+    <figcaption>A GPU made my neural net code 60 times faster.</figcaption>
+</figure>
+
 ## See also
 
 * [Titan Z Specification](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-titan-z/specifications)

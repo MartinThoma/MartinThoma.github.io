@@ -11,6 +11,11 @@ featured_image: 2013/04/cryptography-thumb.png
 ---
 In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst <span markdown="0">$\mathcal{P} \neq \mathcal{NP}$</span> beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.
 
+<figure class="ai-generated">
+    <a href="../images/2013/04/einwegfunktion.jpg"><img src="../images/2013/04/einwegfunktion.jpg" alt="Maschine, die geordnete Blöcke in ein Durcheinander verwandelt, mit Einbahn-Pfeil und durchgestrichenem Rückwärtspfeil" width="1376" height="768"></a>
+    <figcaption>Einwegfunktionen sind leicht zu berechnen, aber kaum umzukehren.</figcaption>
+</figure>
+
 <h2>Einwegfunktionen und <span markdown="0">$\mathcal{P} \neq \mathcal{NP}$</span></h2>
 <div class="definition">
 Sei <span markdown="0">$f:X \rightarrow Y$</span> eine Funktion.

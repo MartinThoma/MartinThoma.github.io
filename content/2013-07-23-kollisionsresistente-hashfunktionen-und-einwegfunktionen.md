@@ -9,6 +9,11 @@ category: German posts
 tags: Security, Hash
 featured_image: 2013/04/cryptography-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/07/hashfunktionen.jpg"><img src="../images/2013/07/hashfunktionen.jpg" alt="Trichterförmige Hash-Maschine, die Dokument, Foto und Musikdatei in einen kurzen Fingerabdruck fester Länge umwandelt, daneben ein durchgestrichenes Kollisionssymbol" width="1376" height="768"></a>
+    <figcaption>Hashfunktionen machen aus beliebigen Eingaben einen kurzen Fingerabdruck.</figcaption>
+</figure>
+
 <h2>Definitionen</h2>
 <div class="definition">
 Sei $f:X \rightarrow Y$ eine Funktion.

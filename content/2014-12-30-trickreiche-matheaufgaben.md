@@ -9,6 +9,11 @@ category: German posts
 tags: Mathematics, Puzzle, Algebra
 featured_image:
 ---
+<figure class="ai-generated">
+    <a href="../images/2014/12/trickreiche-matheaufgaben.jpg"><img src="../images/2014/12/trickreiche-matheaufgaben.jpg" alt="Ein Mann mit Ruderboot am Fluss, am Ufer Wolf, Ziege und Kohlkopf, über ihm eine Glühbirne" width="1408" height="768"></a>
+    <figcaption>Trickreiche Aufgaben: Manchmal hilft ein anderer Blickwinkel.</figcaption>
+</figure>
+
 <div class="info">This is a quick article I have had as a draft for quite a while.
 It might not be finished or have other problems, but I still want to share
 it.</div>

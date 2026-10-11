@@ -9,6 +9,11 @@ category: Code
 tags: Editor, Linux
 featured_image: 2012/01/vim-logo.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/04/colors-in-vim.jpg"><img src="../images/2013/04/colors-in-vim.jpg" alt="Dark terminal window of a text editor with colored line numbers and a highlighted line, next to a palette of 256 color squares" width="1376" height="768"></a>
+    <figcaption>Colors in the terminal: the 256-color palette.</figcaption>
+</figure>
+
 <h2>ANSI Color codes</h2>
 
 <table>

@@ -13,6 +13,11 @@ I've recently had a very interesting discussion with some friends. We talked
 about a lot of stuff and I don't want to go into detail about the topics we've
 discussed, but rather share some thoughts about discussions.
 
+<figure class="ai-generated">
+    <a href="../images/2014/05/discussions.jpg"><img src="../images/2014/05/discussions.jpg" alt="Four friends discussing at a table, colorful speech bubbles above them" width="1376" height="768"></a>
+    <figcaption>Small talk, debates and deep discussions: different types of conversations.</figcaption>
+</figure>
+
 ## Types of discussions
 
 There are many ways people talk to each other:

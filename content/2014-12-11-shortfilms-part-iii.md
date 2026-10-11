@@ -9,6 +9,11 @@ category: The Web
 tags: Video
 featured_image: logos/egghunt.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2014/12/shortfilms-part-3.jpg"><img src="../images/2014/12/shortfilms-part-3.jpg" alt="Film strip with small scenes: a raven, a robot archivist, a sprouting seed and rewind arrows, plus a clapperboard and popcorn" width="1376" height="768"></a>
+    <figcaption>More short films.</figcaption>
+</figure>
+
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>
 
 I've collected quite a few YouTube videos in my "watch later" list. Most of

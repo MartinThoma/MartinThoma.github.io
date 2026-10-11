@@ -11,6 +11,11 @@ featured_image: 2013/09/lena-testbild.png
 ---
 Let's say you have the following greyscale image:
 
+<figure class="ai-generated">
+    <a href="../images/2013/09/histogram-equalization.jpg"><img src="../images/2013/09/histogram-equalization.jpg" alt="Before and after: low-contrast gray image with a bunched histogram and a high-contrast version with an evenly spread histogram" width="1408" height="768"></a>
+    <figcaption>Histogram equalization spreads the gray values.</figcaption>
+</figure>
+
 $A = \begin{pmatrix}
 255 & 50 & 255\\
 0   & 50 & 50

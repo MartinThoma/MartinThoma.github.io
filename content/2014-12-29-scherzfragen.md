@@ -9,6 +9,11 @@ category: German posts
 tags: Funny, Joke
 featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2014/12/scherzfragen.jpg"><img src="../images/2014/12/scherzfragen.jpg" alt="Ein Elefant steigt in einen riesigen Kühlschrank, daneben wartet eine Giraffe, im Hintergrund ein Krokodilfluss" width="1376" height="768"></a>
+    <figcaption>Scherzfragen mit versteckten Antworten.</figcaption>
+</figure>
+
 <div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 
 Um die Antworten der folgenden Scherzfragen zu erhalten, müsst ihr einfach den schwarzen Text markieren.

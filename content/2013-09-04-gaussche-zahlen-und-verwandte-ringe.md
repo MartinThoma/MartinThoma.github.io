@@ -9,6 +9,11 @@ category: German posts
 tags: Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/09/gaussche-zahlen.jpg"><img src="../images/2013/09/gaussche-zahlen.jpg" alt="Komplexe Ebene mit regelmäßigem Gitter aus leuchtenden Punkten an ganzzahligen Stellen, ein Punkt ist hervorgehoben" width="1376" height="768"></a>
+    <figcaption>Die Gauß'schen Zahlen bilden ein Gitter in der komplexen Ebene.</figcaption>
+</figure>
+
 Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.
 Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.
 

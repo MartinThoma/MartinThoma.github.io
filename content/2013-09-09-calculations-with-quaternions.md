@@ -9,6 +9,11 @@ category: Mathematics
 tags: Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/09/quaternions.jpg"><img src="../images/2013/09/quaternions.jpg" alt="Cube rotating around a tilted axis in space, three colored coordinate axes and a four-part vector icon" width="1376" height="768"></a>
+    <figcaption>Quaternions describe rotations in 3D.</figcaption>
+</figure>
+
 <a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion $h$ can be written as a vector or in the form of $h = h_0 + ih_1 + j h_2 + kh_3$, where $i, j$ and $k$ are related to the $i$ in complex numbers. Accordingly $h_0$ is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.
 
 For $i, j$ and $k$ the following rules are applied:

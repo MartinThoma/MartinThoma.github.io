@@ -26,6 +26,11 @@ As algorithms don't cost anything except for development costs, it is certainly
 below 1 million dollars. In principle, everybody could come up with such
 algorithms.
 
+<figure class="ai-generated">
+    <a href="../images/2014/12/mathematics-future.jpg"><img src="../images/2014/12/mathematics-future.jpg" alt="Glowing globe in two hands, surrounded by icons for encryption, ideas, networks, optimization and a scale" width="1376" height="768"></a>
+    <figcaption>How mathematics could change our future.</figcaption>
+</figure>
+
 ## P vs NP
 
 The [P versus NP problem](https://en.wikipedia.org/wiki/P_versus_NP_problem) is

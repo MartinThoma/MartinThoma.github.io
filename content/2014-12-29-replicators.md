@@ -16,6 +16,11 @@ fiction like [interstellar arks](https://en.wikipedia.org/wiki/Interstellar_ark)
 and near-lightspeed travel. But one concept might be easier to realize:
 Self-replicating, autonomous machines.
 
+<figure class="ai-generated">
+    <a href="../images/2014/12/replicators.jpg"><img src="../images/2014/12/replicators.jpg" alt="Robotic space probe on an asteroid building a copy of itself, finished copies fly to distant stars" width="1376" height="768"></a>
+    <figcaption>Self-replicating machines could explore the galaxy.</figcaption>
+</figure>
+
 ## The Problem of Interstellar Arks
 
 Interstellar arks are spaceships of enormous size. They are big

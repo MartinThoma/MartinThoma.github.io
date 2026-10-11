@@ -9,6 +9,11 @@ category: German posts
 tags: Boolean Expression, Digitaltechnik, Boolean Algebra, KIT, University, Algebra, Mathematics
 featured_image: 2013/01/george-boole-thumbnail.jpg
 ---
+<figure class="ai-generated">
+    <a href="../images/2013/01/shannon-zerlegung.jpg"><img src="../images/2013/01/shannon-zerlegung.jpg" alt="Binärer Entscheidungsbaum mit Schalter-Symbolen an den Verzweigungen und zweifarbigen Blättern, an der Wurzel ein Logikgatter" width="1376" height="768"></a>
+    <figcaption>Die Shannon-Zerlegung entwickelt eine Funktion nach einer Variablen.</figcaption>
+</figure>
+
 Die Shannon-Zerlegung ist hilfreich, um die disjunktive bzw. konjunktive Form einer Funktion zu erhalten. Im Folgenden gibt es ein paar Beispiele, wie man das macht:
 
 <h2>Vorgehen</h2>

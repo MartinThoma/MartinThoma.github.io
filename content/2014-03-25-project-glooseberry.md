@@ -37,6 +37,11 @@ Foundation has started a [Crowdfunding Campaign](https://cloud.blender.org/goose
 * The campaign ends on April 19th, 2014.
 
 
+<figure class="ai-generated">
+    <a href="../images/2014/03/project-gooseberry.jpg"><img src="../images/2014/03/project-gooseberry.jpg" alt="Animation studio where developers and 3D artists work together, a cartoon character on a screen and a gooseberry mascot" width="1376" height="768"></a>
+    <figcaption>Developers and artists working in one room.</figcaption>
+</figure>
+
 ## Current campaign status
 You can see the current campaign status [here](http://gooseberry.blender.org/#stats).
 
