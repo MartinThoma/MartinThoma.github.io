@@ -33,11 +33,17 @@ raus. Noch raus kommen:
   [Fliesenspiegel entfernen und verputzen](#fliesenspiegel-entfernen-und-verputzen)),
 * die abgehängte Holzdecke, am geraden Teil und an der Schräge. An ihre Stelle
   kommt eine glatte, weiße Decke aus Gipskarton (siehe [Decke](#decke)),
-* der Elektroherd mit Kochfeld, die Arbeitsplatte und das Spülbecken.
+* der Elektroherd mit Kochfeld, die Arbeitsplatte, das Spülbecken und die
+  Unterschränke.
 
 Danach bleiben der Herdanschluss und die Wasseranschlüsse der Spüle übrig. Den
 Herdanschluss klärt der Elektriker, die Wasseranschlüsse könnte der Waschtisch
 nutzen (siehe [Einrichtung](#einrichtung)).
+
+<figure>
+    <a href="../images/2026/10/kinderzimmer-masse.svg"><img src="../images/2026/10/kinderzimmer-masse.svg" alt="Grundriss und Längsschnitt: Der Raum ist 2,94 m breit und 4,20 m lang. Die hinteren rund 1,9 m liegen unter der Schräge, die zum rund 1,15 m hohen Kniestock abfällt; der gerade Teil ist 2,40 m hoch. An der Wand gegenüber dem Kniestock sind ein Regal (0,90 m) und ein Schrank (2,00 × 0,58 m) geplant, es bleiben 4 cm Luft. Die Tür liegt in der Längswand neben dem Regal." width="820" height="498" loading="lazy"></a>
+    <figcaption>Grundriss und Längsschnitt. Die mit * markierten Werte sind berechnet oder geschätzt</figcaption>
+</figure>
 
 Ungefähr so soll das Zimmer am Ende aussehen:
 
@@ -190,7 +196,7 @@ Preise: brutto, Stand Oktober 2026, jeweils von der Produktseite, ohne Versand.
 | Spachteln | Papier-Fugendeckstreifen, 75 m (Preis im Shop prüfen, bei Globus 6,29 €) | 4 Rollen | ca. 25 € |
 | Trockenbau-Regal | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) (ab 1,91 €/m) | 6 Stück | 29,80 € |
 | Trockenbau-Regal | [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) (ab 1,68 €/m) | 2 Stück | 13,44 € |
-| Trockenbau-Regal | [Alu-Eckprofil für Gipskartonplatten 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 8 Stück | ca. 24 € |
+| Trockenbau-Regal | [Alu-Eckprofil für Gipskartonplatten 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 7 Stück | ca. 21 € |
 | Trockenbau-Regal, Decke | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle | 11,30 € |
 | Wand verputzen | [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 4 Säcke | 67,64 € |
 | Wand verputzen | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html) (Haftbrücke für glatte Untergründe, Gebindegröße im Shop prüfen) | 1 Eimer | ab 37,85 € |
@@ -559,10 +565,14 @@ Offene Punkte:
 ### Trockenbau-Regal
 
 Ein eingebautes, raumhohes Regal aus Trockenbauprofilen, beplankt mit
-Gipskarton und mit LED-Beleuchtung: 1,0 m breit, raumhoch (rund 2,40 m, genau
+Gipskarton und mit LED-Beleuchtung: 90 cm breit, raumhoch (rund 2,40 m, genau
 nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
 [Einrichtung](#einrichtung)).
 
+* Regal und Kleiderschrank teilen sich die rund 2,94 m breite Wand. Der
+  Schrank braucht 2,0 m, für das Regal bleiben 94 cm. Mit 90 cm bleiben 4 cm
+  Luft, weil Wände selten genau im Winkel stehen. TODO: Die Wand unten, in der
+  Mitte und oben messen und die Breite danach festlegen.
 * TODO: Skizze mit Türaufschlag, Regal und Kleiderschrank einfügen.
 * TODO: Türstopper so setzen, dass Türblatt und Klinke nicht gegen die
   Regalkanten schlagen. Steht das Regal an der Wand, an die die geöffnete Tür
@@ -573,8 +583,8 @@ nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinte
 
 * **Seitenwangen:** zwei kleine Ständerwände. Je zwei CW 50 senkrecht (vorne und
   an der Wand), unten und oben ein Stück UW 50, beidseitig 12,5 mm Gipskarton.
-  Eine Wange ist damit 7,5 cm dick, innen bleiben 85 cm Breite.
-* **Böden:** liegende Rahmen. Vorne und hinten UW 50 (85 cm), dazwischen drei
+  Eine Wange ist damit 7,5 cm dick, innen bleiben 75 cm Breite.
+* **Böden:** liegende Rahmen. Vorne und hinten UW 50 (75 cm), dazwischen drei
   CW 50 als Querstreben (an beiden Enden und in der Mitte). Der Gipskarton
   spannt nur rund 20 cm von vorne nach hinten; eine Lage oben und eine unten
   reicht. Ein Boden ist 7,5 cm dick.
@@ -586,7 +596,7 @@ nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinte
   1,91 bis 1,98 m; ich kürze die Platten der Wangen auf 1,95 m, damit der Stoß
   auf seinem Riegel liegt.
 * **Vorderkante:** Optional eine Dachlatte (30 × 50 mm) in das vordere UW jedes
-  Bodens einlegen und verschrauben; das macht die 85 cm lange Kante steifer.
+  Bodens einlegen und verschrauben; das macht die 75 cm lange Kante steifer.
 * **Kanten:** Alle sichtbaren Außenkanten bekommen ein Alu-Eckprofil, das mit
   eingespachtelt wird. Die Innenecken werden mit Fugendeckstreifen gespachtelt.
 * **Oben:** Die oberen UW-Stücke werden in die CD-Profile der neuen Decke
@@ -601,15 +611,15 @@ nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinte
 | Material | Menge | Preis |
 |----------|-------|-------|
 | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) | 6 Stück: 4 senkrecht, 2 für 12 Querstreben und 8 Riegel à 20 cm (13 je Stange) | 29,80 € |
-| [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) | 2 Stück: 8 × 85 cm, aus den Resten 4 × 20 cm | 13,44 € |
+| [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) | 2 Stück: 8 × 75 cm, aus den Resten 4 × 20 cm | 13,44 € |
 | [Gipskarton-Einmannplatte 12,5 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 6 Platten (2 für die Wangen, 2 für die Böden, 1 für Kleinteile und Stirnseiten, 1 Reserve) | 31,46 € |
-| [Alu-Eckprofil 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 8 Stück (4 × 2,40 m Wangenkanten, 8 × 85 cm Bodenkanten) | ca. 24 € |
+| [Alu-Eckprofil 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 7 Stück: 4 für die Wangenkanten (4 × 2,40 m), 3 für die Bodenkanten (8 × 75 cm, 3 je Profil) | ca. 21 € |
 | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle (rund 9 m für das Regal) | 11,30 € |
 | Nageldübel 6 × 40 mm (Baumarkt) | ca. 30 Stück | TODO |
 | [Blechschrauben 3,5 × 9,5 mm](https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/) für CW in UW und die Riegel | 100 Stück | 8,20 € |
 | Schnellbauschrauben 3,5 × 25 mm (aus der Sammelbestellung) | ca. 200 Stück | – |
 | Dachlatte 30 × 50 mm (optional) | 4 m | TODO |
-| **Summe** | | **ca. 120 € plus Kleinteile** |
+| **Summe** | | **ca. 115 € plus Kleinteile** |
 
 Die Teile von bausep stehen auch in der [Einkaufsliste](#einkaufsliste-sammelbestellung-bei-bausepde).
 Spachtelmasse und Fugendeckstreifen reichen aus der Sammelbestellung.
@@ -637,7 +647,7 @@ hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
 | Dezentrale Lüftung | ca. 350 € | TODO |
 | Wände und Boden | ca. 160 € für den Putz; der Boden bleibt | TODO |
 | Zimmertür | ca. 510 € plus Drücker und Versand | TODO |
-| Trockenbau-Regal | ca. 120 € plus Kleinteile | TODO |
+| Trockenbau-Regal | ca. 115 € plus Kleinteile | TODO |
 | Einrichtung | TODO | TODO |
 | **Summe** | TODO | TODO |
 
