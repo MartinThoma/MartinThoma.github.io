@@ -24,10 +24,16 @@ klappt und was nicht. Ich ergänze ihn, sobald es weitergeht.
     </figure>
 </div>
 
-Der Raum ist rund 2,94 m × 4,20 m groß, also gut 12 m², und unter dem geraden
-Teil der Decke rund 2,40 m hoch. Der Fliesenboden ist gut und bleibt. Seit den
-Fotos oben sind der Kühlschrank, die Oberschränke und die Dunstabzugshaube schon
-raus. Noch raus kommen:
+Der Raum ist 4,21 bis 4,22 m lang und 2,96 m breit, also rund 12,5 m². Unter
+dem geraden Teil der Decke ist er 2,39 bis 2,41 m hoch, gemessen bis zur alten
+Holzdecke. Die Schräge beginnt 2,21 m vor der Wand gegenüber dem Kniestock und
+fällt mit knapp 30° bis zum Kniestock ab, der rund 1,26 m hoch ist. In der
+Längswand gegenüber der Tür beginnt 0,99 m von der Schrankwand entfernt eine
+1,09 m breite Fensternische mit Heizkörper. Der Heizkörper steht etwa 3 cm aus
+der Nische vor; auch das Fensterbrett steht vor und ist etwas breiter als die
+Nische. Der Fliesenboden ist gut und bleibt. Seit den Fotos oben sind der
+Kühlschrank, die Oberschränke und die Dunstabzugshaube schon raus. Noch raus
+kommen:
 
 * der Fliesenspiegel der Küche (siehe
   [Fliesenspiegel entfernen und verputzen](#fliesenspiegel-entfernen-und-verputzen)),
@@ -41,8 +47,8 @@ Herdanschluss klärt der Elektriker, die Wasseranschlüsse könnte der Waschtisc
 nutzen (siehe [Einrichtung](#einrichtung)).
 
 <figure>
-    <a href="../images/2026/10/kinderzimmer-masse.svg"><img src="../images/2026/10/kinderzimmer-masse.svg" alt="Grundriss und Längsschnitt: Der Raum ist 2,94 m breit und 4,20 m lang. Die hinteren rund 1,9 m liegen unter der Schräge, die zum rund 1,15 m hohen Kniestock abfällt; der gerade Teil ist 2,40 m hoch. An der Wand gegenüber dem Kniestock sind ein Regal (0,90 m) und ein Schrank (2,00 × 0,58 m) geplant, es bleiben 4 cm Luft. Die Tür liegt in der Längswand neben dem Regal." width="820" height="498" loading="lazy"></a>
-    <figcaption>Grundriss und Längsschnitt. Die mit * markierten Werte sind berechnet oder geschätzt</figcaption>
+    <a href="../images/2026/10/kinderzimmer-masse.svg"><img src="../images/2026/10/kinderzimmer-masse.svg" alt="Grundriss und Längsschnitt: Der Raum ist 2,96 m breit und 4,21 bis 4,22 m lang. Die ersten 2,21 m von der Schrankwand aus ist die Decke gerade und 2,39 bis 2,41 m hoch, auf den letzten 2,00 m fällt die rund 2,30 m lange Schräge mit 29,5 Grad zum rund 1,26 m hohen Kniestock ab. In der Türwand beginnt die Zarge 0,29 m von der Schrankwand, der Durchgang ist 0,82 × 1,97 m. In der Fensterwand liegt 0,99 m von der Schrankwand eine 1,09 m breite Fensternische mit Heizkörper. An der Schrankwand sind ein Regal (0,90 m) und ein Schrank (2,00 × 0,58 m) geplant, es bleiben 5 bis 6 cm Luft. Die Fliesen an der Türwand beginnen auf 0,87 m Höhe, die Wasseranschlüsse liegen darunter, unter der Schräge." width="869" height="531" loading="lazy"></a>
+    <figcaption>Grundriss und Längsschnitt. Die mit * markierten Werte sind aus einem Messpunkt unter der Schräge berechnet</figcaption>
 </figure>
 
 Ungefähr so soll das Zimmer am Ende aussehen:
@@ -135,187 +141,45 @@ wurde, Fotos, Problemen und Zeitaufwand.
 
 ## Der Plan
 
-### Einkaufsliste: Sammelbestellung bei bausep.de
+### Einkaufsliste
 
-Ich bestelle alles, was ich für die nächsten Projekte brauche, in **einer**
-Bestellung bei [bausep.de](https://www.bausep.de/), um Versandkosten nur einmal
-zu zahlen. Die Versandkosten hängen laut Shop vom Warenwert und den gewählten
-Produkten ab und sinken meist mit steigendem Warenwert; den genauen Betrag zeigt
-erst der Warenkorb mit Postleitzahl.[^2] Ich lege daher alles in den Warenkorb,
-bevor ich bestelle.
+Das meiste Material bestelle ich zusammen mit anderen Projekten im Haus in einer
+Sammelbestellung bei [bausep.de](https://www.bausep.de/), um Versandkosten nur
+einmal zu zahlen. Für das Kinderzimmer sind das:
+
+| Bereich | Material | Menge | Preis |
+|---------|----------|-------|------:|
+| Decke | Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², Dicke nach Sparrenhöhe (TODO) | TODO |
+| Decke | [Dampfbremsfolie 200 µm, 2 m × 50 m](https://www.bausep.de/dampfbremsfolie-200-my-weiss-2-m-x-50-m.html) | 1 Rolle (100 m², reicht auch für die übrige Decke im Obergeschoss) | 120,85 € |
+| Decke | [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 1 Rolle | 16,48 € |
+| Decke | [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html), Kartusche 310 ml | 2 Kartuschen | 12,70 € |
+| Decke, Regal | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) (Staffelpreis der Sammelbestellung: 5,24 € je Platte) | 19 Platten (13 Decke, 6 Regal) | 99,56 € |
+| Decke | [CD-Profile 60 × 27 × 0,6 mm, 4000 mm](https://www.bausep.de/cd-profile-60-x-27-x-0-6-mm-mit-glatter-unterseite.html) (1,54 bis 2,09 €/m, je nach Seite) | 8 Stück (32 m) | 49 bis 67 € |
+| Decke | [Direktabhänger für CD-Profile 60/27, 125 mm](https://www.bausep.de/direktabhaenger-fuer-cd-profile-60-27-125-mm.html) (100 Stück je Paket) | 1 Paket | ca. 27 € |
+| Decke, Regal | Schnellbauschrauben (Karton à 1000 Stück) | 1 Karton | ca. 12 € |
+| Decke | [Rigips ProMix Plus](https://www.bausep.de/rigips-promix-plus-spachtelmasse.html), gebrauchsfertig, für die Fugen | 1 Eimer | ab 29,06 € |
+| Decke | [Knauf Multi-Finish 25 kg](https://www.bausep.de/knauf-multi-finish-gips-spachtelmasse-und-duennputz-25-kg.html) für die glatte Decke (Q4) | 1 Sack | 37,55 € |
+| Decke, Regal | Papier-Fugendeckstreifen, 75 m (Preis im Shop prüfen, bei Globus 6,29 €) | 1 Rolle | ca. 6 € |
+| Regal | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) (ab 1,91 €/m) | 6 Stück | 29,80 € |
+| Regal | [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) (ab 1,68 €/m) | 2 Stück | 13,44 € |
+| Regal | [Alu-Eckprofil für Gipskartonplatten 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 7 Stück | ca. 21 € |
+| Regal, Decke | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle | 11,30 € |
+| Wand | [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 3 Säcke | 50,73 € |
+| Wand | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html) (Haftbrücke für glatte Untergründe, Gebindegröße im Shop prüfen) | 1 Eimer | ab 37,85 € |
+| Wand, Decke | [Knauf Grundol Tiefengrund 10 Liter](https://www.bausep.de/knauf-grundol-tiefengrund-10-liter.html) | 1 Kanister | ca. 52 € |
+| **Summe** | | | **rund 625 bis 645 € plus Dämmung der Schräge** |
 
 Preise: brutto, Stand Oktober 2026, jeweils von der Produktseite, ohne Versand.
+Die Mengen stehen in den Abschnitten zu [Decke](#decke),
+[Fliesenspiegel](#fliesenspiegel-entfernen-und-verputzen) und
+[Trockenbau-Regal](#trockenbau-regal).
 
-#### Vorher messen (sonst bestelle ich falsch)
-
-* Sparrenabstand (Achsmaß): 60 bis 70 cm, also teils mehr als 62,5 cm. Der
-  Gipskarton kann daher nicht direkt auf die Sparren, es braucht eine
-  Unterkonstruktion.
-* TODO: Sparrenhöhe im Dach.
-* TODO: Balkenabstand und Balkenhöhe der Holzbalkendecke auf dem Dachboden.
-  Begehbar bleiben muss der Dachboden nicht (siehe
-  [Mengen im Detail](#mengen-im-detail)).
-* Öffnungsmaß der Dachluke: ca. 70 × 120 cm, lichte Raumhöhe darunter ca. 2,40 m.
-  TODO: Öffnung genau nachmessen.
-* TODO: Tiefe der Eingangstreppe und Fläche der Garagenwand zum Haus (siehe
-  [Garage](../garage/)).
-* TODO: Wo kommt die Lieferung hin, wo lagere ich sie trocken? Es sind rund
-  1,5 t Gipskarton und etwa 18 m³ Dämmstoff.
-
-#### Annahmen
-
-* **Dach:** Satteldach, Grundfläche 10 m × 10 m, 30°, Kniestock 80 cm. Jede
-  Dachseite überspannt waagerecht 5 m: Sparrenlänge
-  5 m / cos 30° ≈ 5,77 m, Fläche je Seite 5,77 m × 10 m ≈ 57,7 m²,
-  beide Seiten zusammen **rund 115 m²**. Das ist eine Obergrenze: Dachüberstand,
-  Wandstärke und die Dämmung machen die Innenfläche kleiner, Fenster und Kamin
-  zählen nicht mit.
-* **Nicht mitgezählt:** Kniestockwände (2 × 10 m × 0,8 m = 16 m²) und die
-  beiden Giebelwände (zusammen rund 29 m²). Sollen die auch verkleidet werden,
-  kommen rund 14 beziehungsweise 29 Platten dazu.
-* **Decke über dem Obergeschoss:** 10,56 m × 4,77 m = 50,37 m², gerundet 52 m².
-  Das Kinderzimmer liegt unter der Dachschräge: Seine Schräge ist ein Teil der
-  115 m², sein gerader Teil ein Teil dieser 52 m².
-
-#### Die Bestellung
-
-| Projekt | Material | Menge | Preis |
-|---------|----------|-------|------:|
-| Dachboden dämmen | [Steico Flex WLS 036, 140 mm](https://www.bausep.de/steico-flex-wls-036-holzfaserdaemmung.html?361=675952) (Paket 2,806 m², 16,30 €/m²) | 19 Pakete (53,3 m²) | 869,06 € |
-| Dachboden dämmen | Steico Flex WLS 036, 200 mm, zweite Lage quer (22,10 €/m², Paketgröße im Shop prüfen) | 52 m² | 1.149,20 € |
-| Luftdichtheit Decke | [Dampfbremsfolie 200 µm, 2 m × 50 m](https://www.bausep.de/dampfbremsfolie-200-my-weiss-2-m-x-50-m.html) | 1 Rolle (100 m²) | 120,85 € |
-| Luftdichtheit Decke | [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 3 Rollen | 49,44 € |
-| Luftdichtheit Decke | [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html), Kartusche 310 ml | 4 Kartuschen | 25,40 € |
-| Gipskarton | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) (Staffelpreis ab 70 m²: 4,37 €/m², also 5,24 € je Platte) | 125 Platten (13 Kinderzimmer, 6 Regal, 106 Dachflächen) | 655,50 € |
-| Unterkonstruktion | [CD-Profile 60 × 27 × 0,6 mm, 4000 mm](https://www.bausep.de/cd-profile-60-x-27-x-0-6-mm-mit-glatter-unterseite.html) (1,54 bis 2,09 €/m, je nach Seite) | 71 Stück (284 m) | 437 bis 594 € |
-| Unterkonstruktion | [Direktabhänger für CD-Profile 60/27, 125 mm](https://www.bausep.de/direktabhaenger-fuer-cd-profile-60-27-125-mm.html) (100 Stück je Paket) | 3 Pakete | ca. 80 € |
-| Unterkonstruktion | Schnellbauschrauben (Karton à 1000 Stück) | 2 Kartons | ca. 24 € |
-| Spachteln | [Rigips VARIO Fugenspachtel 25 kg](https://www.bausep.de/rigips-vario-fugenspachtel.html?361=676918) für die Dachflächen (Pulver) | 2 Säcke | 72,10 € |
-| Spachteln | [Rigips ProMix Plus](https://www.bausep.de/rigips-promix-plus-spachtelmasse.html), gebrauchsfertig, für die Fugen im Kinderzimmer | 1 Eimer | ab 29,06 € |
-| Spachteln | [Knauf Multi-Finish 25 kg](https://www.bausep.de/knauf-multi-finish-gips-spachtelmasse-und-duennputz-25-kg.html) für die glatte Kinderzimmerdecke (Q4) | 1 Sack | 37,55 € |
-| Spachteln | Papier-Fugendeckstreifen, 75 m (Preis im Shop prüfen, bei Globus 6,29 €) | 4 Rollen | ca. 25 € |
-| Trockenbau-Regal | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) (ab 1,91 €/m) | 6 Stück | 29,80 € |
-| Trockenbau-Regal | [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) (ab 1,68 €/m) | 2 Stück | 13,44 € |
-| Trockenbau-Regal | [Alu-Eckprofil für Gipskartonplatten 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 7 Stück | ca. 21 € |
-| Trockenbau-Regal, Decke | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle | 11,30 € |
-| Wand verputzen | [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 4 Säcke | 67,64 € |
-| Wand verputzen | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html) (Haftbrücke für glatte Untergründe, Gebindegröße im Shop prüfen) | 1 Eimer | ab 37,85 € |
-| Wand verputzen, Decke streichen | [Knauf Grundol Tiefengrund 10 Liter](https://www.bausep.de/knauf-grundol-tiefengrund-10-liter.html) | 1 Kanister | ca. 52 € |
-| Dachluke | [Dolle Bodentreppe click-fix](https://www.bausep.de/dolle-bodentreppe-click-fix.html) | 1 Stück | ab 439,90 € |
-| Eingangstreppe | [Jackodur KF 300 SF 035 XPS, 100 mm](https://www.bausep.de/jackodur-kf-300-sf-035-xps-perimeterdaemmung.html?361=675938) (Paket 3 m², 20,21 €/m²) | 1 bis 2 Pakete | 60,63 bis 121,26 € |
-| **Summe** | | | **rund 4.300 bis 4.550 €** |
-
-Nicht enthalten: Garagenwand (siehe [Garage](../garage/)), UD-Profile und Verbinder,
-Farbe (siehe [Decke abhängen](../decke-abhaengen/)), Paketbox,
-Kleinteile für das Regal (siehe [Trockenbau-Regal](#trockenbau-regal)) und
-Versand. Das LED-Material bestelle ich nicht bei bausep, sondern bei Amazon oder
-einem Baumarkt-Shop (siehe [Beleuchtung](#beleuchtung-led-streifen-am-deckenrand)).
-
-CW- und UW-Profile waren am 10.10.2026 auf bausep als „derzeit nicht lieferbar“
+Nicht enthalten: UD-Profile und Verbinder, Farbe (siehe
+[Decke abhängen](../decke-abhaengen/)), Putzschienen und Kleinteile für das Regal
+(aus dem Baumarkt), das LED-Material (siehe
+[Beleuchtung](#beleuchtung-led-streifen-am-deckenrand)) und Versand. CW- und
+UW-Profile waren am 10.10.2026 auf bausep als „derzeit nicht lieferbar“
 markiert. Vor der Bestellung prüfen; sonst kommen sie aus dem Baumarkt.
-
-#### Mengen im Detail
-
-**Holzfaser auf dem Dachboden.** 14 cm plus 20 cm sind 34 cm. Mit
-λ = 0,038 W/(m·K) (Bemessungswert laut Zulassung[^3]) ergibt das für die
-Dämmschicht allein U ≈ 0,038 / 0,34 ≈ 0,11 W/(m²·K). Die Holzbalken verschlechtern
-den Wert etwas. Das liegt deutlich unter der Nachrüstpflicht für die oberste
-Geschossdecke (0,24 W/(m²·K)) und unter dem, was Förderprogramme meist
-verlangen (0,14 W/(m²·K));
-beides vor einem Antrag nachprüfen. Die zweite Lage kommt quer zur ersten, damit
-die Stöße nicht übereinander liegen. Begehbar bleiben muss der Dachboden nicht,
-dafür ist der Spitzboden zu niedrig. Die Platten kommen daher direkt auf die
-vorhandenen Dielen, ohne OSB-Lage.
-Lagerplatz: 52 m² × 0,34 m ≈ 18 m³.
-
-Im Kinderzimmer sitzt die Dampfbremse unter den Balken (siehe [Decke](#decke)).
-Zwischen ihr und der Holzfaser liegen dann die Balkenfelder voll Luft und die
-Dielen. Das ist kein Problem: Die Luft liegt auf der warmen Seite der Dämmung,
-dort kondensiert nichts. Die Luft muss aber eingeschlossen sein. Ist ein
-Balkenfeld zum Spitzboden oder zur Abseite hin offen, sinkt kalte Luft auch ohne
-spürbaren Zug hinein, und warme steigt hinaus. Dann läuft kalte Luft unter der
-Dämmung durch, die Decke kühlt aus, und an kalten Stellen kann Schimmel
-entstehen.
-
-* TODO: Balkenfelder an den Enden schließen, vor allem dort, wo die Balkenlage
-  auf die Dachschräge trifft. Die Holzfaser muss dort lückenlos an die Dämmung
-  der Schräge anschließen.
-* Solange die Decke im Kinderzimmer offen ist, kann ich die Balkenfelder dort
-  auch von unten mit Dämmung füllen; dann gibt es keine Luftschicht.
-* TODO: Wo sitzt die Dampfbremse in den anderen Räumen im Obergeschoss? Bleiben
-  dort die alten Decken, kommt sie oben auf die Dielen, unter die Holzfaser. Wie
-  schließt sie dann an die Dampfbremse unter den Balken im Kinderzimmer an? Zwei
-  Bahnen übereinander mit dem Holz dazwischen sollte es nicht geben, sonst kann
-  Feuchte im Holz nicht austrocknen.
-
-**Dampfbremse.** Die Decke (52 m²) plus Überlappung und Wandanschluss sind rund
-58 m², also reicht eine Rolle. Die Folie hat einen sd-Wert über 100 m und ist
-nicht feuchtevariabel. Für eine Decke zum kalten Dachboden ist eine
-feuchtevariable Bahn fehlertoleranter; siehe die offene Frage unten.
-Klebeband: Stöße (alle 2 m) und Wandanschluss ergeben grob 60 m, bei
-25 m je Rolle sind das 3 Rollen. Auf der Produktseite stehen widersprüchliche
-Maße (25 m × 60 mm und 50 m × 25 mm); vor der Bestellung nachfragen. Dichtkleber:
-Umfang 2 × (10,56 m + 4,77 m) ≈ 31 m. Vom Isover Vario DoubleFit (10 m je
-Kartusche) bräuchte ich 4 Kartuschen zu 7,44 €; ich nehme den günstigeren
-Dichtkleber, es sei denn, die Folie gehört zum Isover-System.
-
-**Gipskarton.** Eine Platte hat 1,2 m² und wiegt rund 12 kg (10 kg/m²).
-125 Platten sind 150 m² und rund 1,5 t, das sind drei Paletten (60 Platten je
-Palette, auf der dritten liegen nur 5 Platten). Da die Dachfläche eine
-Obergrenze ist, lohnt es sich, nach dem Messen auf 120 Platten und damit zwei
-volle Paletten zu kommen. Die Lieferung kommt per Spedition frei Bordsteinkante; es muss jemand
-da sein, der zügig entlädt, und Gabelstapler habe ich nicht, also 2 bis 3 Helfer
-einplanen. Auf die Paletten gibt es Pfand (7 € je Gipskartonpalette).[^2] Ob
-die Platten Längskanten mit Abflachung haben, steht nicht auf der Produktseite;
-beim Support nachfragen. Die Querkanten sind Schnittkanten und müssen angefast
-werden.
-
-**Unterkonstruktion.** Rechnung wie in [Decke abhängen](../decke-abhaengen/):
-CD-Profile mit 50 cm Achsabstand ergeben rechnerisch 2 m Profil je m² (dort
-steht 1 m/m², das stimmt bei diesem Abstand nicht). Das ergibt bei 128 m²
-(Kinderzimmer plus Dachflächen) 256 m, mit 10 % Verschnitt 282 m, also 71
-Profile à 4 m. Direktabhänger
-setze ich konservativ mit 2 je m² an. Das ist der größte Posten der
-Unterkonstruktion. Direkt auf die Sparren schrauben geht nicht: Ihr Achsabstand
-schwankt zwischen 60 und 70 cm, ist also teils größer als 62,5 cm, und die
-Plattenstöße lägen nicht regelmäßig auf einem Sparren.
-
-**Spachteln.** Fugenlänge etwa 2,2 m je m² Platte (Längsfugen alle 0,6 m,
-Querfugen alle 2 m). Der Materialverbrauch für Fugen liegt laut ProMix-Seite bei
-etwa 350 g je m². Für 115 m² Dachflächen sind das rund 40 kg, also zwei
-25-kg-Säcke Pulver; das ist deutlich günstiger als gebrauchsfertige Masse
-(Pulver 36,05 € je 25 kg). Für die sichtbare Kinderzimmerdecke nehme ich die
-gebrauchsfertige Masse für die Fugen und danach Multi-Finish für Q3/Q4; der
-Verbrauch von Multi-Finish steht nicht im Shop (Herstellerangabe prüfen,
-ich rechne mit 1 bis 1,5 kg/m²). Die Qualitätsstufen Q1 bis Q4 stehen in
-[Decke abhängen](../decke-abhaengen/).
-
-**Dachluke.** Die Dolle click-fix ist wärmegedämmt (U 0,49, Luftdichtheit
-Klasse 4, belastbar bis 150 kg) und gibt es mit Öffnungen von 110 × 60 bis
-140 × 70 cm bei lichter Raumhöhe bis 274 cm, also auch in 120 × 70 cm wie die
-vorhandene Öffnung mit 2,40 m Raumhöhe darunter. Der Lukenkasten ist aber nur 24 cm
-hoch, die Dämmung später 34 cm: Der Kasten muss also aufgedoppelt und der
-Deckel zusätzlich gedämmt werden. Eine Alternative ist die
-[Wellhöfer Passivhaus-Bodentreppe](https://www.bausep.de/wellhoefer-passivhaus-bodentreppe-gutholz-3-tlg.html?361=676686)
-(120 × 70 cm, U 0,48). Behalte ich die vorhandene Luke, brauche ich nur
-Dichtband und die Aufdopplung.
-
-**XPS unter der Eingangstreppe.** Die Wandfläche ist 1,2 m × 2 m = 2,4 m²; ein
-Paket (4 Platten à 1250 × 600 mm, zusammen 3 m²) reicht dafür knapp. Kommen die
-abfallenden Seitenflächen dazu, sind es zwei Pakete. Alternativ gibt es die
-[URSA XPS D N-III-L](https://www.bausep.de/ursa-xps-d-n-iii-l-perimeterdaemmung-mit-stufenfalz.html?361=675938)
-für 61,80 € je Paket. XPS darf draußen nicht frei in der Sonne stehen; es
-braucht eine Verkleidung (Putz oder Platten). Die Paketbox mit Vorhängeschloss
-konstruiere ich danach.
-
-TODO: Aufbau der Paketbox festlegen (Rahmen, wetterfeste Verkleidung, Einwurfklappe,
-Boden gegen aufsteigende Feuchte).
-
-#### Garage
-
-Die Garagen-Projekte (Absturzsicherung am Dachboden, Wand zum Haus, Dach innen
-verkleiden) stehen in einem eigenen Artikel: [Garage](../garage/). Was es davon
-bei bausep gibt, kommt mit in diese Bestellung.
 
 ### Decke
 
@@ -324,9 +188,8 @@ Schräge und einem geraden Teil; beide werden mit Gipskarton neu beplankt.
 Gedämmt werden sie unterschiedlich:
 
 * **Gerader Teil:** Darüber liegt der Dachboden. Diesen Teil dämme ich von oben,
-  zusammen mit der ganzen Decke über dem Obergeschoss (siehe
-  [Einkaufsliste](#einkaufsliste-sammelbestellung-bei-bausepde)). Von unten kommt
-  hier keine Dämmung dazu.
+  zusammen mit der ganzen Decke über dem Obergeschoss. Von unten kommt hier
+  keine Dämmung dazu.
 * **Schräge:** Die alte Mineralwolle und die Folie kommen raus; sie sind dunkel
   verfärbt (siehe
   [Blick in die Dachschräge](#11-oktober-2026-blick-in-die-dachschrage)).
@@ -337,11 +200,16 @@ Wie man eine Decke abhängt, beplankt und spachtelt, habe ich schon in
 was dieses Mal anders ist: die Dämmung der Schräge, die Dampfbremse und die
 LED-Beleuchtung.
 
-**Fläche:** 2,22 m × 2,94 m und 2,35 m × 2,94 m, zusammen also rund 13,4 m².
-Hintereinander sind die beiden Flächen 4,57 m lang, mehr als der Raum (4,20 m):
+**Fläche:** Der gerade Teil reicht von der Schrankwand 2,21 m weit bis zum Knick
+(mit dem Kreuzlinienlaser gemessen). An den Kniestock komme ich wegen der
+Küchenzeile nicht gut heran; die Schräge habe ich daher aus einem zweiten Punkt
+berechnet: 3,30 m von der Schrankwand ist sie 1,78 m hoch. Zwischen Knick
+(2,39 m hoch) und diesem Punkt fällt sie um 0,61 m auf 1,08 m, das sind knapp
+30°. Bis zum Kniestock (waagerecht 2,00 m) ist sie damit rund 2,30 m lang, und
+der Kniestock ist rund 1,26 m hoch. Bei 2,96 m Breite sind das
+2,21 m × 2,96 m und 2,30 m × 2,96 m, zusammen also rund 13,4 m².
+Hintereinander sind die beiden Flächen 4,51 m lang, mehr als der Raum (4,21 m):
 Die Schräge ist länger als der Boden darunter.
-
-TODO: Welche der beiden Flächen ist die Schräge, welche der gerade Teil?
 
 **Aufbau** (von außen nach innen):
 
@@ -353,38 +221,71 @@ TODO: Welche der beiden Flächen ist die Schräge, welche der gerade Teil?
 | 4 | Unterkonstruktion | Unterkonstruktion |
 | 5 | Gipskarton, 12,5 mm | Gipskarton, 12,5 mm |
 
+<figure>
+    <a href="../images/2026/10/kinderzimmer-sparrenfelder.svg"><img src="../images/2026/10/kinderzimmer-sparrenfelder.svg" alt="Querschnitt durch die Schräge, Blick vom Raum: von links nach rechts Sparren 5 cm, Feld 20,5 cm, Sparren 7 cm, Feld 70 cm, Sparren 8 cm, Feld 68,5 cm, Sparren 8 cm, Feld 60 cm, Sparren 7 cm, Feld 31 cm, Sparren 4 cm, zusammen 2,89 m. Achsmaße der inneren Sparren 77,5, 76,5 und 67,5 cm. Die Sparrenhöhe ist mit 16 cm angenommen. Oben die Unterspannbahn, in den Feldern neue Holzfaserdämmung, darunter Dampfbremse, CD-Profil und Gipskarton." width="704" height="356" loading="lazy"></a>
+    <figcaption>Sparrenfelder der Schräge mit dem geplanten Aufbau. Die Sparrenhöhe von 16 cm ist angenommen und muss noch gemessen werden</figcaption>
+</figure>
+
 Die Dampfbremse sitzt in beiden Teilen raumseitig, also im Kinderzimmer hinter
 dem Gipskarton. Sie läuft ohne Unterbrechung von der Schräge über den Knick in
 den geraden Teil und wird an allen Stößen, Durchdringungen und an den Wänden
 luftdicht verklebt.
 
+Die Holzfaser für den geraden Teil liegt oben auf den Dielen des Dachbodens.
+Zwischen ihr und der Dampfbremse unter den Balken liegen dann die Dielen und
+die Balkenfelder. In denen liegt schon etwas Dämmung: An der Dachluke im
+Wohnhaus ist die Decke samt Holzdecke, Balken, Dämmung und Dielen rund 20,5 cm
+dick. Bleibt dort Luft, ist das kein Problem: Sie liegt auf der warmen Seite der
+neuen Dämmung, dort kondensiert nichts. Die Luft muss aber eingeschlossen sein. Ist ein
+Balkenfeld zum Spitzboden oder zur Abseite hin offen, sinkt kalte Luft auch ohne
+spürbaren Zug hinein, und warme steigt hinaus. Dann läuft kalte Luft unter der
+Dämmung durch, die Decke kühlt aus, und an kalten Stellen kann Schimmel
+entstehen.
+
+* TODO: Balkenfelder an den Enden schließen, vor allem dort, wo die Balkenlage
+  auf die Dachschräge trifft. Die Holzfaser muss dort lückenlos an die Dämmung
+  der Schräge anschließen.
+* TODO: Beim Abnehmen der Holzdecke prüfen, was in den Balkenfeldern liegt.
+* Solange die Decke im Kinderzimmer offen ist, kann ich die Balkenfelder dort
+  auch von unten mit Dämmung füllen; dann gibt es keine Luftschicht.
+
 | Material | Menge | Preis |
 |----------|-------|-------|
-| Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | TODO (Dicke nach Sparrenhöhe) | TODO |
+| Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², Dicke nach Sparrenhöhe (TODO) | TODO |
 | [Dampfbremsfolie 200 µm, 2 m × 50 m](https://www.bausep.de/dampfbremsfolie-200-my-weiss-2-m-x-50-m.html) | 1 Rolle (100 m²) | 120,85 € |
-| [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 3 Rollen | 49,44 € |
-| [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html) | 4 Kartuschen | 25,40 € |
+| [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 1 Rolle (25 m) für die Stöße | 16,48 € |
+| [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html) | 2 Kartuschen für den Wandanschluss (rund 15 m) | 12,70 € |
 | [Isover Vario DoubleFit Plus, Kartusche 310 ml](https://www.bausep.de/isover-vario-doublefit-plus-dichtstoff-kartusche-310-ml.html) | optional, nur wenn die Folie zum Isover-System gehört | 7,44 € je Kartusche |
-| Unterkonstruktion (Profile, Abhänger, Schrauben) | siehe Einkaufsliste | siehe Einkaufsliste |
+| Unterkonstruktion: CD-Profile 60 × 27 mm à 4 m, Direktabhänger, Schnellbauschrauben | 8 Profile, ca. 27 Direktabhänger | TODO |
 | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 13 Stück | 68,12 € |
 
 Eine Einmannplatte hat 1,2 m². Für 13,4 m² sind das 12 Platten, mit etwa 10 %
-Verschnitt 13.
+Verschnitt 13. CD-Profile mit 50 cm Achsabstand ergeben 2 m Profil je m²:
+13,4 m² × 2 m/m² ≈ 27 m, mit 10 % Verschnitt rund 30 m, also 8 Profile à 4 m.
+Direktabhänger rechne ich mit 2 je m², also rund 27 Stück.
 
 Offene Fragen:
 
-* TODO: Wie dick wird die Dämmung der Schräge? Sparrenhöhe messen und die
-  Dämmung in die Einkaufsliste aufnehmen; dort fehlt sie noch. Der
-  Sparrenabstand schwankt zwischen 60 und 70 cm (Achsmaß); klemmende Matten
-  schneidet man daher für jedes Feld einzeln etwas breiter zu als den lichten
-  Abstand zwischen den Sparren.
+* Die Schräge hat über die Raumbreite fünf Sparrenfelder mit 20,5, 70, 68,5,
+  60 und 31 cm lichter Weite, zusammen 2,50 m. Die Sparren sind 7 bis 8 cm
+  breit, die Achsmaße liegen bei 67,5 bis 77,5 cm. Bei 2,30 m Länge der Schräge
+  sind das 5,75 m² Dämmung, mit 10 % Verschnitt rund 6,3 m². Klemmende Matten
+  schneidet man für jedes Feld einzeln etwas breiter zu als die lichte Weite.
+* TODO: Wie dick wird die Dämmung der Schräge? Dafür die Sparrenhöhe messen
+  (die Zeichnung oben nimmt 16 cm an), sobald die alte Folie und Dämmung raus
+  sind, und die Dämmung mitbestellen; in der Sammelbestellung fehlt sie noch.
 * TODO: Wie ist das Dach außen aufgebaut (diffusionsoffene Unterspannbahn)?
   Davon hängt ab, ob eine normale Dampfbremsfolie reicht oder eine
   feuchtevariable Dampfbremse besser ist. Der Dichtstoff Isover Vario DoubleFit
   gehört eigentlich zum Vario-System; passt er zur gewählten Folie?
   Siehe auch [Dämmstoffe](../daemstoffe/).
+* TODO: Wie ist der Kniestock aufgebaut? Aus seinen Steckdosen zieht es kalt
+  (siehe [Strom und Wasser](#strom-und-wasser)); dahinter liegt vermutlich eine
+  kalte Abseite. Dann muss die Dämmung der Schräge lückenlos an eine gedämmte
+  Kniestockwand anschließen, und die Dampfbremse muss auch dort luftdicht sein.
 * TODO: Welche Unterkonstruktion? Direkt auf die Sparren geht nicht (Achsabstand
-  60 bis 70 cm). Mengen stehen in der Einkaufsliste; die Sparrenhöhe fehlt noch.
+  bis 77,5 cm). Die Mengen oben gelten für CD-Profile auf Direktabhängern; die
+  Sparrenhöhe fehlt noch.
 
 ### Beleuchtung: LED-Streifen am Deckenrand
 
@@ -415,9 +316,9 @@ beim Zuschnitt ohnehin ab.
 
 Offene Fragen:
 
-* TODO: Länge messen. 5 m sind zu kurz. Die Decke ist 2,94 m breit und über die
-  Schräge gemessen 4,57 m lang; ihr Rand ist also rund
-  2 × (2,94 m + 4,57 m) ≈ 15 m lang.
+* TODO: Länge messen. 5 m sind zu kurz. Die Decke ist 2,96 m breit und über die
+  Schräge gemessen 4,51 m lang; ihr Rand ist also rund
+  2 × (2,96 m + 4,51 m) ≈ 15 m lang.
 * TODO: Variante A oder B? Bei B die Blende skizzieren (Höhe, Abstand zur Decke).
 * TODO: Leistung pro Meter laut Datenblatt prüfen. Jedes 5-m-Set hat sein eigenes
   Netzteil, damit wird das Licht am Ende nicht dunkler. Aufgeräumter wäre ein
@@ -436,15 +337,60 @@ Fenster hinausgeht.
   selbst machen oder machen lassen?
 * TODO: Stromanschluss planen.
 
+### Strom und Wasser
+
+Die Küche hat einige Anschlüsse hinterlassen. Die Maße sind ungefähr, weil die
+Küchenzeile noch im Weg ist; „von der Tür“ heißt von der Zarge aus.
+
+**Wasser:** An der Türwand liegen nebeneinander Kaltwasser, Abfluss und
+Warmwasser, in dieser Reihenfolge vom Kniestock aus, auf rund 50 cm Höhe. Der
+erste Anschluss sitzt rund 75 cm vor dem Kniestock, alle drei zusammen nehmen
+rund 35 cm ein.
+
+**Steckdosen:**
+
+| Wand | Lage | Höhe |
+|------|------|------|
+| Türwand | direkt neben der Tür | unter dem Lichtschalter |
+| Türwand | rund 88 cm von der Tür | über 2 m |
+| Türwand | 2 Stück, rund 135 cm von der Tür, über der Arbeitsplatte | rund 90 cm |
+| Türwand | 2 Stück, rund 135 cm von der Tür, unter der Arbeitsplatte | 30 bis 40 cm |
+| Kniestock | 2 Stück, rund 107 cm von der Fensterwand, über der Arbeitsplatte | rund 90 cm |
+| Fensterwand | rund 160 cm vom Kniestock | rund 2,10 m |
+| Fensterwand | Blinddose | rund 30 cm |
+| Schrankwand | rund 35 cm von der Fensterwand | rund 30 cm |
+
+* Aus den Steckdosen am Kniestock zieht es leicht kalt. Dahinter liegt
+  vermutlich eine kalte Abseite, und die Wand ist dort nicht luftdicht (siehe
+  [Decke](#decke)). TODO: Diese Dosen luftdicht machen, zum Beispiel mit
+  luftdichten Unterputzdosen.
+* Die Steckdose an der Schrankwand liegt hinter dem Kleiderschrank. TODO:
+  Verlegen oder für Licht im Schrank nutzen.
+* Den Herdanschluss vermute ich an der Türwand, rund 100 cm von der Tür, hinter
+  dem Herd. TODO: Beim Ausbau prüfen. Welche Dosen bleiben, welche legt der
+  Elektriker still? Dazu kommen neue Anschlüsse für die LED-Netzteile, die
+  Lüftung und Steckdosen an Bett und Schreibtisch.
+
 ### Wände und Boden
 
 #### Fliesenspiegel entfernen und verputzen
 
-An einer Wand hängen noch die Küchenfliesen: von etwa 80 cm Höhe bis zur Decke,
-auf rund 4 m Länge. Bei 2,40 m Raumhöhe sind das höchstens 4 m × 1,60 m =
-6,4 m²; unter der Schräge ist die Wand niedriger. Die
-Fliesen kommen weg, die Wand wird verputzt und dann gestrichen (siehe
-[Innenwände streichen](../innenwaende-streichen/)).
+An zwei Wänden hängen noch die Küchenfliesen, jeweils ab 87 cm Höhe:
+
+* **Türwand:** von der Tür bis zum Kniestock, rund 2,96 m lang, bis zur Decke.
+  Unter dem geraden Teil sind das 1,53 m Höhe, unter der Schräge nimmt sie bis
+  auf 0,39 m ab. Zusammen rund 3,4 m².
+* **Kniestock:** über die ganze Breite von 2,96 m bis zum Beginn der Schräge,
+  also 0,39 m hoch. Das sind rund 1,2 m².
+
+Zusammen sind das rund 4,5 m². Die Fliesen kommen weg, die Wand wird verputzt
+und dann gestrichen (siehe [Innenwände streichen](../innenwaende-streichen/)).
+
+An der Fensterwand sitzt unter der Schräge eine Verkleidung, die wie Fliesen
+aussieht, vielleicht bedrucktes Styropor: ebenfalls ab 87 cm Höhe bis zur
+Decke, auf den letzten 1,63 m vor dem Kniestock, rund 1,4 m². TODO: Material
+prüfen. Ist es eine dünne Platte, kommt sie ab; dann Kleberreste abschleifen
+und die Wand spachteln statt verputzen.
 
 **Vorher:**
 
@@ -453,11 +399,12 @@ Fliesen kommen weg, die Wand wird verputzt und dann gestrichen (siehe
   danach verarbeitet.[^4] Man sieht es dem Material nicht an. Dann vor dem
   Abschlagen eine Probe des Klebers im Labor untersuchen lassen und bei einem
   positiven Befund nicht selbst abschlagen.
-* TODO: Steckdosen und Leitungen der Küche im Fliesenbereich: Welche bleiben,
-  welche werden stillgelegt (zum Beispiel ein Herdanschluss)? Das macht der
-  Elektriker. Bleibende Dosen müssen nach dem Verputzen bündig mit der neuen
+* TODO: Steckdosen und Leitungen der Küche im Fliesenbereich (siehe
+  [Strom und Wasser](#strom-und-wasser)): Welche bleiben, welche werden
+  stillgelegt (zum Beispiel ein Herdanschluss)? Das macht der Elektriker. Bleibende Dosen müssen nach dem Verputzen bündig mit der neuen
   Oberfläche abschließen; sonst Putzausgleichsringe einsetzen.
-* TODO: Kommt der Waschtisch an diese Wand (siehe [Einrichtung](#einrichtung))?
+* TODO: Kommt der Waschtisch an die Türwand, wo die Spüle war (siehe
+  [Einrichtung](#einrichtung))?
   Dann Wasseranschlüsse vor dem Verputzen festlegen und dort einen
   Spritzschutz einplanen.
 
@@ -490,20 +437,19 @@ vor der Decke.
 **Material:**
 
 Putzdicke: Fliese und Kleber sind grob 15 mm. Rotband braucht laut Knauf etwa
-0,8 kg je m² und mm Putzdicke:[^5] 6,4 m² × 15 mm × 0,8 kg ≈ 77 kg.
+0,8 kg je m² und mm Putzdicke:[^5] 4,5 m² × 15 mm × 0,8 kg ≈ 54 kg.
 
 | Material | Menge | Preis |
 |----------|-------|-------|
-| [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 4 Säcke (3 rechnerisch, 1 Reserve für Ausbrüche) | 67,64 € |
+| [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 3 Säcke (2 rechnerisch, 1 Reserve für Ausbrüche und die Fensterwand) | 50,73 € |
 | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html), 0,2 bis 0,35 kg/m² | 1 Eimer | ab 37,85 € |
 | [Knauf Grundol Tiefengrund 10 Liter](https://www.bausep.de/knauf-grundol-tiefengrund-10-liter.html), 0,15 bis 0,25 l/m²; der Rest grundiert die Decke vor dem Streichen | 1 Kanister | ca. 52 € |
-| Schnellputzleiste 10 mm, verzinkt, 2,5 m (z. B. [Knauf Schnellputzleiste 10/20](https://knauf.com/de-DE/p/produkt/schnellputzleiste-10-20-11141_0022)), Baumarkt | 4 Stück, auf höchstens 1,60 m gekürzt | TODO |
+| Schnellputzleiste 10 mm, verzinkt, 2,5 m (z. B. [Knauf Schnellputzleiste 10/20](https://knauf.com/de-DE/p/produkt/schnellputzleiste-10-20-11141_0022)), Baumarkt | 4 Stück für die Türwand, auf höchstens 1,53 m gekürzt; aus den Resten kurze Stücke für den Kniestock | TODO |
 | Eckschutzschiene für Außenecken (nur falls die Fläche an einer Außenecke endet) | TODO | TODO |
 | Bauschuttsäcke | TODO | TODO |
 
-Rotband, Betonkontakt und Tiefengrund stehen in der
-[Einkaufsliste](#einkaufsliste-sammelbestellung-bei-bausepde); bausep führt
-keine Putzschienen, die kommen aus dem Baumarkt. Rotband lässt sich glätten und
+Rotband, Betonkontakt und Tiefengrund kommen mit in die Sammelbestellung bei
+bausep; bausep führt keine Putzschienen, die kommen aus dem Baumarkt. Rotband lässt sich glätten und
 streichen; Multi-Finish aus der Sammelbestellung nehme ich nur zum Nacharbeiten.
 
 **Werkzeug:** Bohrhammer mit Fliesenmeißel, Fäustel und Flachmeißel,
@@ -555,11 +501,17 @@ und nur, wenn es dicht eingebaut ist:
 
 Offene Punkte:
 
-* TODO: Türöffnung und Wandstärke messen, Anschlagrichtung (DIN links oder
-  rechts) festlegen. Das [Trockenbau-Regal](#trockenbau-regal) steht hinter der
-  Tür, die Bänder sitzen also auf der Regalseite.
+* Die vorhandene Zarge hat einen lichten Durchgang von 819 × 1965 mm. Das ist die
+  Standardgröße: Zu einem Durchgang von 813 × 1966 mm gehören ein Türblatt von
+  860 × 1985 mm und eine Wandöffnung von 885 × 2005 mm.[^9] Die Wand ist rund
+  28 cm dick; die alte Zarge ist 31 cm breit und steht auf beiden Seiten etwa
+  15 mm über. TODO: Nach dem Ausbau der alten Zarge die Wandöffnung messen und
+  die Zargenbreite danach wählen.
+* Die Zargenbekleidung beginnt 286 mm vor der Schrankwand. Das
+  [Trockenbau-Regal](#trockenbau-regal) steht hinter der Tür, die Bänder sitzen
+  also auf der Regalseite. TODO: Anschlagrichtung (DIN links oder rechts) danach
+  festlegen.
 * TODO: Preis und Lieferzeit für Klasse 2 und 3 im Warenkorb vergleichen.
-  Passt die Zarge zur Wandstärke?
 * TODO: Drücker auswählen.
 
 ### Trockenbau-Regal
@@ -569,15 +521,16 @@ Gipskarton und mit LED-Beleuchtung: 90 cm breit, raumhoch (rund 2,40 m, genau
 nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinter der Tür, neben dem IKEA-Kleiderschrank (siehe
 [Einrichtung](#einrichtung)).
 
-* Regal und Kleiderschrank teilen sich die rund 2,94 m breite Wand. Der
-  Schrank braucht 2,0 m, für das Regal bleiben 94 cm. Mit 90 cm bleiben 4 cm
-  Luft, weil Wände selten genau im Winkel stehen. TODO: Die Wand unten, in der
-  Mitte und oben messen und die Breite danach festlegen.
-* TODO: Skizze mit Türaufschlag, Regal und Kleiderschrank einfügen.
+* Regal und Kleiderschrank teilen sich die Wand. Der Raum ist dort unten (über
+  der Sockelfliese) 2966 mm breit, auf 1,20 m Höhe 2964 mm und oben, unter der
+  alten Holzdecke, 2956 mm. Der Schrank braucht 2,00 m; an der engsten Stelle
+  bleiben für das Regal also 95 cm. Mit 90 cm Regalbreite bleiben 5 cm Luft.
+* Türaufschlag, Regal und Kleiderschrank zeigt der Grundriss oben.
 * TODO: Türstopper so setzen, dass Türblatt und Klinke nicht gegen die
   Regalkanten schlagen. Steht das Regal an der Wand, an die die geöffnete Tür
   klappt, geht die Tür um die Regaltiefe plus Klinke weniger weit auf.
-* TODO: Zwischen Regal und Türzarge Platz für die Zargenbekleidung lassen.
+* Die Zargenbekleidung der Tür beginnt 286 mm vor der Schrankwand. Das Regal ist
+  20 cm tief, bis zur Bekleidung bleiben also 8,6 cm.
 
 **Aufbau:**
 
@@ -621,15 +574,31 @@ nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinte
 | Dachlatte 30 × 50 mm (optional) | 4 m | TODO |
 | **Summe** | | **ca. 115 € plus Kleinteile** |
 
-Die Teile von bausep stehen auch in der [Einkaufsliste](#einkaufsliste-sammelbestellung-bei-bausepde).
+Die Teile von bausep kommen mit in die Sammelbestellung.
 Spachtelmasse und Fugendeckstreifen reichen aus der Sammelbestellung.
 
 ### Einrichtung
 
 1. IKEA-Kleiderschrank neben dem Trockenbau-Regal, zum Beispiel PAX. 4 Korpusse mit je 50cm Breite und einer Tiefe von 58cm sollen es sein. Die Raumhöhe ist aktuell 2,40m, daher will ich erst nach dem Einbau der Decke entscheiden wie hoch die Korpusse sein sollen.[^7] Diese müssen dann an der Wand befestigt werden. Sie sollen weiße Türen haben, aber ob es Hochglanz oder matt wird, ob es Kassetten
 hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
+
+    Rechts bleiben zwischen Schrank und Fensterwand rund 6 cm. Dort beginnt
+    0,96 m vor der Schrankwand das Fensterbrett: Es steht 35 mm vor die Wand, ist
+    3 cm dick, und seine Unterkante liegt 853 mm über dem Boden. Darunter steht
+    der Heizkörper 3 cm vor. Die rechte Schranktür reicht geöffnet bis 1,08 m von
+    der Schrankwand, also über das Fensterbrett. Hat sie ihre Bänder auf der
+    Wandseite, steht ihre Außenseite bei 90° etwa 6 cm vor der Wand, ein Griff mit
+    3 bis 4 cm Überstand also nur noch 2 bis 3 cm. Das Türblatt selbst kommt
+    vorbei, der Griff schlägt aber am Fensterbrett an, wenn er bis auf
+    0,85 bis 0,88 m herunterreicht. TODO: Griffe mit der Unterkante über 0,9 m
+    setzen oder die rechte Tür mit den Bändern links anschlagen.
+
 2. Bett oder Schlafsofa
-3. Waschtisch (TODO: Können die Wasseranschlüsse der Küche genutzt werden?)
+3. Waschtisch (TODO: Können die Wasseranschlüsse der Küche genutzt werden?) Sie
+   liegen an der Türwand rund 75 bis 110 cm vor dem Kniestock (siehe
+   [Strom und Wasser](#strom-und-wasser)). Dort ist die Schräge nur noch rund
+   1,7 bis 1,9 m hoch; für ein Kind reicht das, ein Erwachsener steht dort
+   gebückt.
 
 ### Sicherheit im Kinderzimmer
 
@@ -645,7 +614,7 @@ hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
 | Decke (Dämmung, Dampfbremse, Gipskarton) | TODO | TODO |
 | LED-Beleuchtung | ca. 59 € (B) oder 502 € (A), plus Streifen | TODO |
 | Dezentrale Lüftung | ca. 350 € | TODO |
-| Wände und Boden | ca. 160 € für den Putz; der Boden bleibt | TODO |
+| Wände und Boden | ca. 140 € für den Putz; der Boden bleibt | TODO |
 | Zimmertür | ca. 510 € plus Drücker und Versand | TODO |
 | Trockenbau-Regal | ca. 115 € plus Kleinteile | TODO |
 | Einrichtung | TODO | TODO |
@@ -660,10 +629,9 @@ ich beim nächsten Mal anders machen? Nachher-Fotos.
 
 ## Einzelnachweise
 
-[^2]: [Anlieferung und Versand](https://www.bausep.de/services/anlieferung-und-versand/) und [Fragen & Antworten](https://www.bausep.de/services/haeufige-fragen/) via bausep.de, abgerufen am 10.10.2026.
-[^3]: [Steico flex WLS 036](https://www.bausep.de/steico-flex-wls-036-holzfaserdaemmung.html?361=675952) via bausep.de (Bemessungswert λ = 0,038 W/(m·K), Zulassung Z-23.15-1452), abgerufen am 10.10.2026.
 [^4]: Axel Mörer-Funk: [Asbest: Auch Fasern in Fliesenklebern und Spachtelmassen sind gefährlich](https://www.ingenieur.de/technik/fachbereiche/bau/asbest-auch-fasern-in-fliesenklebern-spachtelmassen-gefaehrlich/) via ingenieur.de, 19.06.2015.
 [^5]: Knauf: [Rotband Haftputzgips](https://knauf.com/de-AT/p/produkt/rotband-haftputzgips-7-50-mm-10001_0070) via knauf.com, abgerufen am 11.10.2026.
 [^6]: Garant: [Türenhandbuch, Schallschutz](https://tuerenhandbuch.garant.de/typo3conf/ext/cdt_cmos2/Resources/Public/cmos2/php/get.php?id=5724) via garant.de, abgerufen am 10.10.2026.
 [^7]: [Kaufhilfe PAX/KOMPLEMENT](https://www.ikea.com/de/de/files/pdf/38/5a/385a9205/bf_kaufhilfe_paxkomplement_07-2026_online.pdf) via IKEA, abgerufen am 10.10.2026.
 [^8]: [Art. 46 BayBO – Wohnungen](https://www.gesetze-bayern.de/Content/Document/BayBO-46) via Bayern.Recht, abgerufen am 03.10.2026.
+[^9]: [Türen richtig planen – Normen und Maße](https://www.sanier.de/innentueren/tueren-richtig-planen-normen-und-maasse) via sanier.de, abgerufen am 12.10.2026.
