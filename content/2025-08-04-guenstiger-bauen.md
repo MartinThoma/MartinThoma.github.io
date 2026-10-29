@@ -253,6 +253,22 @@ Daumenregel. Diese sollte man immer mit mehreren regionalen Angeboten
 
 </div>
 
+### Kommunales Erbbaurecht
+
+Kommunales Erbbaurecht kann die Grundstückskosten erheblich senken, da der
+Erwerb des Bodens entfällt und stattdessen ein langfristiges Nutzungsrecht
+eingeräumt wird. Dies kann ähnlich wie eine Miete betrachtet werden, wobei die
+Kosten für das Grundstück über die Nutzungsdauer verteilt werden.
+
+
+### Typengenehmigungen
+
+Im Oktober 2025 hat das bayrische Bauministerium die erste Typengenehmigung für ein standardisiertes Wohngebäude erteilt.[^5]
+
+Damit kann man standardisierte Wohngebäude schneller und kostengünstiger
+genehmigen lassen, da die Typengenehmigung bereits die Einhaltung der
+baurechtlichen Vorschriften bestätigt.
+
 
 ## Bauherren-Entscheidungen
 
@@ -284,6 +300,21 @@ optimieren.
 
 * Aluverbundplatten im Badezimmer statt aufwendiger Fliesenlösungen
 
+### Schraubfundamente
+
+Das Fundament ist ein entscheidender Kostenfaktor beim Hausbau.
+Schraubfundamente bieten eine kostengünstige Alternative zu herkömmlichen
+Betonfundamenten, da sie schneller installiert werden können und weniger
+Material benötigen. Ich könnte mir auch vorstellen, dass diese nach einem
+Abriss wiederverwendet werden können, was zusätzliche Kosten spart.
+
+Allerdings funktionieren Schraubfundamente nur in der Leichtbauweise.
+
+Siehe auch:
+
+* [Familie baut Haus fast ohne Beton](https://www.swr.de/video/sendungen-a-z/room-tour/familie-baut-haus-fast-ohne-beton-100.html)
+* [Wie riesige Bodenschrauben die Baubranche revolutionieren sollen](https://www.handelsblatt.com/unternehmen/industrie/winkelmann-wie-riesige-bodenschrauben-die-baubranche-revolutionieren-sollen-/29334548.html)
+
 
 ### Weitere Maßnahmen
 
@@ -308,3 +339,4 @@ optimieren.
 [^2]: [§ 11 GrEStG: Steuersatz, Abrundung](https://www.gesetze-im-internet.de/grestg_1983/__11.html) via gesetze-im-internet.de, abgerufen am 12.04.2026.
 [^3]: [GNotKG (Gebührenrahmen für Gerichte und Notare)](https://www.gesetze-im-internet.de/gnotkg/) via gesetze-im-internet.de, abgerufen am 12.04.2026.
 [^4]: [§ 656c BGB](https://www.gesetze-im-internet.de/bgb/__656c.html) und [§ 656d BGB](https://www.gesetze-im-internet.de/bgb/__656d.html) via gesetze-im-internet.de, abgerufen am 12.04.2026.
+[^5]: [Erste Typengenehmigung für Wohngebäude](https://www.bayern.de/erste-typengenehmigung-fuer-wohngebaeude/) via Bayerisches Landesportal, 24.10.2025.

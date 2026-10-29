@@ -123,11 +123,22 @@ Für die Verfärbungen kommen vor allem zwei Ursachen in Frage:
 
 Am Wandanschluss ist die Folie nicht verklebt, sie liegt nur an der Wand an.
 Dort kann Raumluft hinter die Folie strömen, und mit ihr Staub und Feuchte. Das
-passt dazu, dass die Verfärbungen zur Wand hin am stärksten sind.
+passt dazu, dass die Verfärbungen zur Wand hin am stärksten sind. Auch die
+Nahaufnahme spricht eher für Staub: Die dunklen Stellen folgen dem Stoß zwischen
+zwei Dämmstücken und der Kante am Sparren, also den Wegen, auf denen Luft
+durchzieht. Das Holz ist hell und ohne Flecken.
 
 Was daraus folgt:
 
 * Die alte Dämmung und die Folie kommen raus (siehe [Decke](#decke)).
+* Das Haus ist von 1990, die Wolle also alte Mineralwolle: Was vor 1996 eingebaut
+  wurde, gilt als krebserzeugend und darf nach dem Ausbau nicht wieder eingebaut
+  werden.[^10] Beim Ausbau trage ich FFP2-Maske, Schutzbrille, Handschuhe und
+  einen Einwegoverall. Die Wolle nicht zerreißen, leicht anfeuchten und gleich in
+  reißfeste Säcke packen; die Tür bleibt zu. Danach mit einem Industriesauger der
+  Staubklasse H oder feucht reinigen, nicht fegen.
+* TODO: Klären, wo der Landkreis alte Mineralwolle annimmt; sie gehört nicht in
+  den Bauschutt.
 * TODO: Nach dem Ausbau Sparren und Unterspannbahn auf Feuchte, Schimmel und
   Verfärbungen prüfen. Ist das Holz feucht oder befallen, vor der neuen Dämmung
   einen Fachmann fragen.
@@ -149,11 +160,11 @@ einmal zu zahlen. Für das Kinderzimmer sind das:
 
 | Bereich | Material | Menge | Preis |
 |---------|----------|-------|------:|
-| Decke | Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², Dicke nach Sparrenhöhe (TODO) | TODO |
+| Decke | Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², bis 15,5 cm dick, je nach Dachaufbau (TODO) | TODO |
 | Decke | [Dampfbremsfolie 200 µm, 2 m × 50 m](https://www.bausep.de/dampfbremsfolie-200-my-weiss-2-m-x-50-m.html) | 1 Rolle (100 m², reicht auch für die übrige Decke im Obergeschoss) | 120,85 € |
 | Decke | [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 1 Rolle | 16,48 € |
 | Decke | [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html), Kartusche 310 ml | 2 Kartuschen | 12,70 € |
-| Decke, Regal | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) (Staffelpreis der Sammelbestellung: 5,24 € je Platte) | 19 Platten (13 Decke, 6 Regal) | 99,56 € |
+| Decke, Regal | [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) (4,66 €/m², also 5,59 € je Platte) | 19 Platten (13 Decke, 6 Regal) | 106,21 € |
 | Decke | [CD-Profile 60 × 27 × 0,6 mm, 4000 mm](https://www.bausep.de/cd-profile-60-x-27-x-0-6-mm-mit-glatter-unterseite.html) (1,54 bis 2,09 €/m, je nach Seite) | 8 Stück (32 m) | 49 bis 67 € |
 | Decke | [Direktabhänger für CD-Profile 60/27, 125 mm](https://www.bausep.de/direktabhaenger-fuer-cd-profile-60-27-125-mm.html) (100 Stück je Paket) | 1 Paket | ca. 27 € |
 | Decke, Regal | Schnellbauschrauben (Karton à 1000 Stück) | 1 Karton | ca. 12 € |
@@ -167,7 +178,7 @@ einmal zu zahlen. Für das Kinderzimmer sind das:
 | Wand | [Knauf Rotband Haftputz 30 kg](https://www.bausep.de/knauf-rotband-haftputz.html?361=676919) | 3 Säcke | 50,73 € |
 | Wand | [bausep Betonkontakt](https://www.bausep.de/bausep-betonkontakt.html) (Haftbrücke für glatte Untergründe, Gebindegröße im Shop prüfen) | 1 Eimer | ab 37,85 € |
 | Wand, Decke | [Knauf Grundol Tiefengrund 10 Liter](https://www.bausep.de/knauf-grundol-tiefengrund-10-liter.html) | 1 Kanister | ca. 52 € |
-| **Summe** | | | **rund 625 bis 645 € plus Dämmung der Schräge** |
+| **Summe** | | | **rund 635 bis 650 € plus Dämmung der Schräge** |
 
 Preise: brutto, Stand Oktober 2026, jeweils von der Produktseite, ohne Versand.
 Die Mengen stehen in den Abschnitten zu [Decke](#decke),
@@ -222,8 +233,8 @@ Die Schräge ist länger als der Boden darunter.
 | 5 | Gipskarton, 12,5 mm | Gipskarton, 12,5 mm |
 
 <figure>
-    <a href="../images/2026/10/kinderzimmer-sparrenfelder.svg"><img src="../images/2026/10/kinderzimmer-sparrenfelder.svg" alt="Querschnitt durch die Schräge, Blick vom Raum: von links nach rechts Sparren 5 cm, Feld 20,5 cm, Sparren 7 cm, Feld 70 cm, Sparren 8 cm, Feld 68,5 cm, Sparren 8 cm, Feld 60 cm, Sparren 7 cm, Feld 31 cm, Sparren 4 cm, zusammen 2,89 m. Achsmaße der inneren Sparren 77,5, 76,5 und 67,5 cm. Die Sparrenhöhe ist mit 16 cm angenommen. Oben die Unterspannbahn, in den Feldern neue Holzfaserdämmung, darunter Dampfbremse, CD-Profil und Gipskarton." width="704" height="356" loading="lazy"></a>
-    <figcaption>Sparrenfelder der Schräge mit dem geplanten Aufbau. Die Sparrenhöhe von 16 cm ist angenommen und muss noch gemessen werden</figcaption>
+    <a href="../images/2026/10/kinderzimmer-sparrenfelder.svg"><img src="../images/2026/10/kinderzimmer-sparrenfelder.svg" alt="Querschnitt durch die Schräge, Blick vom Raum: von links nach rechts Sparren 5 cm, Feld 20,5 cm, Sparren 7 cm, Feld 70 cm, Sparren 8 cm, Feld 68,5 cm, Sparren 8 cm, Feld 60 cm, Sparren 7 cm, Feld 31 cm, Sparren 4 cm, zusammen 2,89 m. Achsmaße der inneren Sparren 77,5, 76,5 und 67,5 cm. Die Felder sind bis zum ersten Widerstand 15,5 cm tief. Oben die Unterspannbahn, in den Feldern neue Holzfaserdämmung, darunter Dampfbremse, CD-Profil und Gipskarton." width="704" height="370" loading="lazy"></a>
+    <figcaption>Sparrenfelder der Schräge mit dem geplanten Aufbau</figcaption>
 </figure>
 
 Die Dampfbremse sitzt in beiden Teilen raumseitig, also im Kinderzimmer hinter
@@ -251,18 +262,21 @@ entstehen.
 
 | Material | Menge | Preis |
 |----------|-------|-------|
-| Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², Dicke nach Sparrenhöhe (TODO) | TODO |
+| Dämmung für die Schräge, z. B. [Holzfaser Flex WLS 036](https://www.bausep.de/guenstiger-holzfaser-flex-wls-036-daemmung.html?361=675946) | rund 6,3 m², bis 15,5 cm dick, je nach Dachaufbau (TODO) | TODO |
 | [Dampfbremsfolie 200 µm, 2 m × 50 m](https://www.bausep.de/dampfbremsfolie-200-my-weiss-2-m-x-50-m.html) | 1 Rolle (100 m²) | 120,85 € |
 | [Superglass Supersan Durchdringungs-Klebeband](https://www.bausep.de/superglass-supersan-durchdringungs-klebeband.html) | 1 Rolle (25 m) für die Stöße | 16,48 € |
 | [Superglass Dichtkleber](https://www.bausep.de/superglass-dichtkleber.html) | 2 Kartuschen für den Wandanschluss (rund 15 m) | 12,70 € |
 | [Isover Vario DoubleFit Plus, Kartusche 310 ml](https://www.bausep.de/isover-vario-doublefit-plus-dichtstoff-kartusche-310-ml.html) | optional, nur wenn die Folie zum Isover-System gehört | 7,44 € je Kartusche |
-| Unterkonstruktion: CD-Profile 60 × 27 mm à 4 m, Direktabhänger, Schnellbauschrauben | 8 Profile, ca. 27 Direktabhänger | TODO |
-| [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 13 Stück | 68,12 € |
+| Unterkonstruktion: CD-Profile 60 × 27 mm à 4 m, Direktabhänger, Schnellbauschrauben | 8 Profile, ca. 35 bis 45 Direktabhänger | TODO |
+| [Gipskarton-Einmannplatte 12,5 mm, 2000 × 600 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 13 Stück | 72,67 € |
 
 Eine Einmannplatte hat 1,2 m². Für 13,4 m² sind das 12 Platten, mit etwa 10 %
 Verschnitt 13. CD-Profile mit 50 cm Achsabstand ergeben 2 m Profil je m²:
 13,4 m² × 2 m/m² ≈ 27 m, mit 10 % Verschnitt rund 30 m, also 8 Profile à 4 m.
-Direktabhänger rechne ich mit 2 je m², also rund 27 Stück.
+Ein Direktabhänger sitzt an jeder Stelle, an der ein CD-Profil einen Balken oder
+Sparren kreuzt. Die Balken des geraden Teils liegen wie die Sparren 60 bis
+80 cm auseinander; das sind 2,5 bis 3,3 Abhänger je m², also rund 35 bis 45
+Stück.
 
 Offene Fragen:
 
@@ -271,9 +285,12 @@ Offene Fragen:
   breit, die Achsmaße liegen bei 67,5 bis 77,5 cm. Bei 2,30 m Länge der Schräge
   sind das 5,75 m² Dämmung, mit 10 % Verschnitt rund 6,3 m². Klemmende Matten
   schneidet man für jedes Feld einzeln etwas breiter zu als die lichte Weite.
-* TODO: Wie dick wird die Dämmung der Schräge? Dafür die Sparrenhöhe messen
-  (die Zeichnung oben nimmt 16 cm an), sobald die alte Folie und Dämmung raus
-  sind, und die Dämmung mitbestellen; in der Sammelbestellung fehlt sie noch.
+* Die Sparrenfelder sind rund 15,5 cm tief, gemessen durch einen Schlitz in der
+  Folie bis zum ersten Widerstand (Unterspannbahn oder Schalung). TODO: Wie
+  dick wird die Dämmung? Das hängt vom Dachaufbau ab (nächster Punkt): Darf sie
+  das Feld ganz füllen, passen zum Beispiel 140 mm, und es bleiben 1,5 cm Luft;
+  muss über der Dämmung eine Hinterlüftung frei bleiben, wird sie dünner. Die
+  Dämmung fehlt noch in der Sammelbestellung.
 * TODO: Wie ist das Dach außen aufgebaut (diffusionsoffene Unterspannbahn)?
   Davon hängt ab, ob eine normale Dampfbremsfolie reicht oder eine
   feuchtevariable Dampfbremse besser ist. Der Dichtstoff Isover Vario DoubleFit
@@ -565,14 +582,14 @@ nach dem Einbau der Decke messen), 20 cm tief, mit 4 Regalböden. Es steht hinte
 |----------|-------|-------|
 | [CW-Profile 50 × 50 × 0,6 mm, 2600 mm](https://www.bausep.de/cw-profile-50-x-50-x-0-6-mm.html) | 6 Stück: 4 senkrecht, 2 für 12 Querstreben und 8 Riegel à 20 cm (13 je Stange) | 29,80 € |
 | [UW-Profile 50 × 40 × 0,6 mm, 4000 mm](https://www.bausep.de/uw-profile-50-x-40-x-0-6-mm.html) | 2 Stück: 8 × 75 cm, aus den Resten 4 × 20 cm | 13,44 € |
-| [Gipskarton-Einmannplatte 12,5 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 6 Platten (2 für die Wangen, 2 für die Böden, 1 für Kleinteile und Stirnseiten, 1 Reserve) | 31,46 € |
+| [Gipskarton-Einmannplatte 12,5 mm](https://www.bausep.de/gipskarton-einmannplatte-12-5-mm-2000-x-600-mm.html) | 6 Platten (2 für die Wangen, 2 für die Böden, 1 für Kleinteile und Stirnseiten, 1 Reserve) | 33,54 € |
 | [Alu-Eckprofil 90°, 2,5 m](https://www.bausep.de/alu-eckprofil-fuer-gipskartonplatten-90.html?361=676828) | 7 Stück: 4 für die Wangenkanten (4 × 2,40 m), 3 für die Bodenkanten (8 × 75 cm, 3 je Profil) | ca. 21 € |
 | [Dichtungsband 50 mm, 30 m](https://bausep.de/dichtungsband-30-m-rolle-3-x-50-mm.html) | 1 Rolle (rund 9 m für das Regal) | 11,30 € |
 | Nageldübel 6 × 40 mm (Baumarkt) | ca. 30 Stück | TODO |
 | [Blechschrauben 3,5 × 9,5 mm](https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/) für CW in UW und die Riegel | 100 Stück | 8,20 € |
 | Schnellbauschrauben 3,5 × 25 mm (aus der Sammelbestellung) | ca. 200 Stück | – |
 | Dachlatte 30 × 50 mm (optional) | 4 m | TODO |
-| **Summe** | | **ca. 115 € plus Kleinteile** |
+| **Summe** | | **ca. 117 € plus Kleinteile** |
 
 Die Teile von bausep kommen mit in die Sammelbestellung.
 Spachtelmasse und Fugendeckstreifen reichen aus der Sammelbestellung.
@@ -616,7 +633,7 @@ hat oder nicht steht noch nicht fest. Es sollen lange goldene Griffe werden.
 | Dezentrale Lüftung | ca. 350 € | TODO |
 | Wände und Boden | ca. 140 € für den Putz; der Boden bleibt | TODO |
 | Zimmertür | ca. 510 € plus Drücker und Versand | TODO |
-| Trockenbau-Regal | ca. 115 € plus Kleinteile | TODO |
+| Trockenbau-Regal | ca. 117 € plus Kleinteile | TODO |
 | Einrichtung | TODO | TODO |
 | **Summe** | TODO | TODO |
 
@@ -635,3 +652,4 @@ ich beim nächsten Mal anders machen? Nachher-Fotos.
 [^7]: [Kaufhilfe PAX/KOMPLEMENT](https://www.ikea.com/de/de/files/pdf/38/5a/385a9205/bf_kaufhilfe_paxkomplement_07-2026_online.pdf) via IKEA, abgerufen am 10.10.2026.
 [^8]: [Art. 46 BayBO – Wohnungen](https://www.gesetze-bayern.de/Content/Document/BayBO-46) via Bayern.Recht, abgerufen am 03.10.2026.
 [^9]: [Türen richtig planen – Normen und Maße](https://www.sanier.de/innentueren/tueren-richtig-planen-normen-und-maasse) via sanier.de, abgerufen am 12.10.2026.
+[^10]: [TRGS 521: Abbruch-, Sanierungs- und Instandhaltungsarbeiten mit alter Mineralwolle](https://www.bgbau.de/fileadmin/Gisbau/trgs521.pdf) via bgbau.de, abgerufen am 13.10.2026.
