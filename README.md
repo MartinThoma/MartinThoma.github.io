@@ -2,7 +2,8 @@
 
 Source of [martin-thoma.com](https://martin-thoma.com/), a static blog built with
 [Pelican](https://getpelican.com/). The `pelican` branch holds the sources; `make github`
-publishes the generated site to the `master` branch (GitHub Pages).
+publishes the generated site to the `master` branch (GitHub Pages). Every deploy
+force-pushes `master` as a single commit without history; never commit to it by hand.
 
 | Path | Content |
 | ---- | ------- |
