@@ -136,7 +136,9 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
+# ghp-import --no-history only drops the local branch if origin/master is fetched, which it is not
 github: publish
+	git update-ref -d refs/heads/$(GITHUB_PAGES_BRANCH)
 	$(UV) run ghp-import --no-history --force --push -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 
 .PHONY: install maint html html-local help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
