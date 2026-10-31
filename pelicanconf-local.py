@@ -62,6 +62,8 @@ PAGE_URL = "pages/{slug}/"
 PAGE_SAVE_AS = "pages/{slug}/index.html"
 PAGE_LANG_URL = "pages/{slug}/"
 PAGE_LANG_SAVE_AS = "pages/{slug}/index.html"
+# Pages (only the privacy policy) are linked from the footer, not the header.
+DISPLAY_PAGES_ON_MENU = False
 CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 TAG_URL = "tag/{slug}/"
