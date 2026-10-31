@@ -35,12 +35,12 @@
     {% if loop.index0 < RECENT_ARTICLES_COUNT %}
     <article class="post-card">
         {% if article.featured_image %}
-        <a class="thumb" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true"><img loading="lazy" width="128" height="128" src="{{ SITEURL }}/images/{{ article.featured_image }}" alt=""></a>
+        <div class="thumb"><img loading="lazy" width="128" height="128" src="{{ SITEURL }}/images/{{ article.featured_image }}" alt=""></div>
         {% endif %}
         <div class="body">
-            <h3 class="title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></h3>
-            <p class="meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> · <a href="{{ SITEURL }}/categories/#{{ article.category.slug }}-ref">{{ article.category }}</a></p>
-            <p class="summary">{{ article.summary|striptags }} <a class="readmore" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title }}">Read more »</a></p>
+            <h3 class="title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></h3>
+            <p class="meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> · <a class="category-link" href="{{ SITEURL }}/categories/#{{ article.category.slug }}-ref">{{ article.category }}</a></p>
+            <p class="summary">{{ article.summary|striptags }}</p>
         </div>
     </article>
     {% endif %}
