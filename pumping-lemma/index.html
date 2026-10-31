@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache \(L..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Computer Science, Mathematics, Proof, Theoretical Computer Science, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/pumping-lemma/" />
+<meta property="og:title" content="Eine Sprache ist nicht regulär - Beweis mit dem Pumping-Lemma"/>
+<meta property="og:url" content="https://martin-thoma.com/pumping-lemma/" />
+<meta property="og:description" content="Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache \(L = \{a^i b^{2i} | i \in \mathbb{N}\}\) beschrieben wird, müsste gezählt werden, wie oft a vorkommt. a kann aber beliebig …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-11-10T16:05:33+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/10/deterministic-finite-state-machine-thumb.png" />
+
+        <title>Eine Sprache ist nicht regulär - Beweis mit dem Pumping-Lemma  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../pumping-lemma/">Eine Sprache ist nicht regulär - Beweis mit dem Pumping-Lemma</a></h1>
+    <p class="meta">
+<time datetime="2011-11-10T16:05:33+01:00">Nov 10, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+        <li><a href="../tags/#proof-ref">Proof
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#theoretical-computer-science-ref">Theoretical Computer Science
+            <span>10</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Regul&auml;re Sprachen k&ouml;nnen von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zust&auml;nden ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache <span class="math">\(L = \{a^i b^{2i} | i \in \mathbb{N}\}\)</span> beschrieben wird, m&uuml;sste gez&auml;hlt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz daf&uuml;r, dass es sich nicht um eine regul&auml;re Sprache handelt.</p>
+<figure class="ai-generated">
+<a href="../images/2011/11/pumping-lemma.jpg"><img alt="Endlicher Automat mit einer Schleife, darunter eine Perlenkette, deren mittlerer Abschnitt mehrfach wiederholt wird" height="768" src="../images/2011/11/pumping-lemma.jpg" width="1376"/></a>
+<figcaption>Das Pumping-Lemma: Ein Mittelst&uuml;ck kann beliebig oft wiederholt werden.</figcaption>
+</figure>
+<p>Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist ein notwendiges, aber kein hinreichendes Kriterium f&uuml;r regul&auml;re Sprachen. Daraus folgt, dass eine nicht-regul&auml;re Sprache eventuell durch das Lemma entlarvt werden kann. Allerdings muss nicht jede Sprache, die das Pumping-Lemma erf&uuml;llt, regul&auml;r sein.</p>
+<p>Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass die Behauptung falsch ist. Dann zeigt man, dass man durch die Annahme zu einem Widerspruch kommt.</p>
+<h2 id="beispiel">Beispiel</h2>
+<p><strong>Voraussetzung</strong>:</p>
+<p><span class="math">\(L_2 = \{a^i b^j c^k | i \lt j \lt k\}\)</span>.</p>
+<p><strong>Behauptung</strong>: <span class="math">\(L_2\)</span> ist nicht regul&auml;r.</p>
+<p><strong>Beweis</strong>: (durch Widerspruch)</p>
+<p><strong>Annahme</strong>: <span class="math">\(L_2\)</span> sei regul&auml;r.</p>
+<p>Aus dem Pumping-Lemma folgt:
+<span class="math">\(\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}:\)</span>
+<span class="math">\(\exists \text{ Darstellung } uvx = w \text{ mit } v \neq \varepsilon \land |uv| \leq n\)</span> f&uuml;r die gilt:</p>
+<p><span class="math">\(uv^i x \in L_2 \forall i \in \mathbb{N}_0\)</span></p>
+<p>In Worten: Wenn man ein Wort in L hat, dass mindestens so lang ist wie ein bestimmtes n, dann kann man dieses Wort in Teilworte u, v und x zerlegen. Bei dieser Zerlegung ist v niemals leer. Wenn man nun den Teil des Wortes, der in v steckt wiederholt, muss das Wort immer noch in <span class="math">\(L_2\)</span> sein.</p>
+<p>Sei <span class="math">\(n \in \mathbb{N}\)</span> die Konstante aus dem Pumping-Lemma.</p>
+<p>Betrachte nun <span class="math">\(w = a^n b^{n+1} c^{n+2}\)</span>. Offensichtlich gilt <span class="math">\(w \in L_2\)</span>. Da <span class="math">\(|uv| \leq n\)</span> muss in v mindestens ein a sein.</p>
+<p><span class="math">\(\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1\)</span>
+<span class="math">\(\Rightarrow uv^2x \notin L_2\)</span>
+<span class="math">\(\Rightarrow \text{Widerspruch}\)</span>
+<span class="math">\(\Rightarrow \text{Die Annahme war falsch.}\)</span>
+<span class="math">\(\Rightarrow L_2\)</span> ist nicht regul&auml;r.</p>
+<p><em>Bemerkung</em>: Eigentlich ist es ein Beweis durch Kontraposition. Man wei&szlig;, es gilt:</p>
+<p><span class="math">\(L \in {\cal L_3} \Rightarrow\)</span> L erf&uuml;llt das Pumping-Lemma.
+Daraus folgt:
+L erf&uuml;llt nicht das Pumping-Lemma <span class="math">\(\Rightarrow L \notin {\cal L_3}\)</span>.
+Um zu beweisen, dass L das Pumping-Lemma nicht erf&uuml;llt, benutzt man meist einen Widerspruchsbeweis wie oben.</p>
+<h2 id="material">Material</h2>
+<p>Ich habe mal ein paar <a href="../images/2011/11/odgen-pumping.zip">Beispiele f&uuml;r Ogdens Lemma und das Pumping-Lemma</a> gesammelt.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+    </body>
+</html>

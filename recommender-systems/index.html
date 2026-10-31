@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I recently became interested in recommender systems. You know, the thing on Amazon that tells you which products you might be interested in. Or the stuff on Spotify that gives you a song you might..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, AI, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/recommender-systems/" />
+<meta property="og:title" content="Recommender Systems"/>
+<meta property="og:url" content="https://martin-thoma.com/recommender-systems/" />
+<meta property="og:description" content="I recently became interested in recommender systems. You know, the thing on Amazon that tells you which products you might be interested in. Or the stuff on Spotify that gives you a song you might like. On YouTube the next videos shown[1]. On StumbleUpon, your next stumble. On a …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-10-07T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2019/05/youtube-feedback-1.png" />
+<meta property="og:image:width" content="1843" />
+<meta property="og:image:height" content="379" />
+
+        <title>Recommender Systems  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../recommender-systems/">Recommender Systems</a></h1>
+    <p class="meta">
+<time datetime="2018-10-07T20:00:00+02:00">Okt 7, 2018</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#more-collaborative-filtering" title="More Collaborative Filtering">More Collaborative Filtering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a><ul><li><a class="toc-href" href="#matrix-completion" title="Matrix Completion">Matrix Completion</a></li><li><a class="toc-href" href="#ranking" title="Ranking">Ranking</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li><li><a class="toc-href" href="#user-feedback" title="User Feedback">User Feedback</a></li></ul></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#matrix-factorization" title="Matrix Factorization">Matrix Factorization</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#other-resources" title="Other Resources">Other Resources</a></li><li><a class="toc-href" href="#papers" title="Papers">Papers</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup>. On StumbleUpon, your next stumble. On a news page, another article.</p>
+<h2 id="conceptual-approaches">Conceptual Approaches</h2>
+<p>There are three basic approaches:</p>
+<ul>
+<li>Product Similarity: You watched Saw I, Saw II and Saw III. All of them are
+  similar to Saw IV.</li>
+<li>User similarity: Users that liked Saw I, Saw II and Saw III usually also liked
+  Saw IV.</li>
+<li>Basket analysis: You bought eggs and sugar, maybe you want to buy milk as
+  well.</li>
+</ul>
+<p>Recommender systems based on product similarity are also called "content-based recommender systems".
+The New York Times article recommendation is an example of that.</p>
+<p>Recommender systems based on user similarity are also called "collaborative
+filtering". <a href="https://movielens.org/">movielens.org</a> is an example
+for that.</p>
+<p>Pandora is an example of content-based recommendation + collaborative filtering.</p>
+<h2 id="basic-content-based-recommendations">Basic Content-based Recommendations</h2>
+<p><a href="https://en.wikipedia.org/wiki/Edit_distance">Levenshtein's edit distance</a>
+applied on the product name is probably the simplest approach that has a
+minimal chance of some reasonable results.</p>
+<p>The next level in complexity are rules:</p>
+<ul>
+<li>Movies by a director you liked</li>
+<li>Movies with an actor you liked</li>
+<li>Count "links" (actors, directors, producers, ...) and rank by most links</li>
+</ul>
+<p>One more level of complexity is using clustering algorithms. One way is to turn
+a product into a vector and use a similarity measure (e.g. cosine similarity). If
+you have natural language descriptions, you can use tf-idf features and then use
+a similarity measure. You would then recommend the most similar products.</p>
+<dl>
+<dt>Cosine-Similarity</dt>
+<dd>Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$</dd>
+<dt>Centered Cosine Similarity</dt>
+<dd>Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.</dd>
+<dt>Jaccard Similarity</dt>
+<dd>Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their Jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a></dt>
+<dd>$$f(x, y) := \left ( \sum_{i=1}^n {|x_i - y_i|}^p \right )^{1/p}$$</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Mahalanobis_distance">Mahalanobis distance</a></dt>
+<dd>The Mahalanobis distance of an observation $\vec{x} = ( x_1, x_2, x_3, \dots, x_N )^T$ from a set of observations with mean $\vec{\mu} = ( \mu_1, \mu_2, \mu_3, \dots , \mu_N )^T$ and covariance matrix $S$ is defined as:
+    $$D_M(\vec{x}) = \sqrt{(\vec{x} - \vec{\mu})^T S^{-1} (\vec{x}-\vec{\mu})}$$</dd>
+</dl>
+<h2 id="user-based-collaborative-filtering">User-Based Collaborative Filtering</h2>
+<p>Users can have different scales on which they rate stuff:</p>
+<ul>
+<li>Binary: Like / Dislike (and "not seen")</li>
+<li>Ternary: Like / Neutral / Dislike (and "not seen")</li>
+<li>5 Stars</li>
+<li>100 points</li>
+</ul>
+<p>So you want to find the utility function <span class="math">\(u: C \times I \rightarrow R\)</span> where
+<span class="math">\(C\)</span> is the set of customers, <span class="math">\(I\)</span> is the set of items and <span class="math">\(R\)</span> is the <em>ordered</em>
+set of ratings. By a simple transformation, you can make it <span class="math">\(R = [0, 1]\)</span>.</p>
+<p>The utility function <span class="math">\(u\)</span> can be fully defined by a user-item rating matrix.
+Most elements of the matrix are not known, though.</p>
+<p>Based on the user-item rating matrix <span class="math">\(R\)</span>, you build up a user-user similarity matrix.</p>
+<p>You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).</p>
+<p>See also: <a href="../collaborative-filtering/">Collaborative Filtering</a></p>
+<p>In some sense, bestsellers are a special case of collaborative filtering:
+Simply recommending what got sold most.</p>
+<dl>
+<dt>Adjusted Cosine</dt>
+<dd>$$f(x, y) := \frac{\sum_i (x_i -\bar{x}) (y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$$
+    Applicable mostly to get a similar user based on ratings. The idea is that different people have different baselines from which they operate, e.g. in a 5 star rating you could always give 5 stars if nothing is wrong. Or always 3 stars and if there is something really good, give more.</dd>
+<dt>item-based pearson similarity</dt>
+<dd>$$f(x, y) := \frac{\sum_i (x_i - \bar{j})(y_i - \bar{j})}{\sqrt{\sum_i (x_i - \bar{j})^2} \sqrt{\sum_i (y_i - \bar{j})^2}}$$</dd>
+<dt>Spearman rank correlation</dt>
+<dd>Pearson similarity based on ranks (position in the recommendation), not ratings. Usually not used in practice.</dd>
+<dt>Mean Squared Difference Similarity</dt>
+<dd>$$MSD(x, y) := \frac{\sum_{i \in I_{x, y}} (x_i - y_i)^2}{|I_{x, y}|}$$
+        and the similarity:
+        $$MSDsim(x, y) := \frac{1}{MSD(x, y) + 1}$$</dd>
+<dt>Jaccard Similarity</dt>
+<dd>$$\frac{|A \cap B|}{|A \cup B|}$$</dd>
+</dl>
+<h2 id="basic-basket-analysis">Basic Basket Analysis</h2>
+<p>See <a href="../analysetechniken-grosser-datenbestaende/#association-rules">Association Rule Mining</a></p>
+<h2 id="more-collaborative-filtering">More Collaborative Filtering</h2>
+<p>There are many <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> (CF) approaches:</p>
+<dl>
+<dt>Item-based collaborative filtering</dt>
+<dd>"users who liked what you liked, also like..."<ol>
+<li>Build an item-item matrix determining relationships between pairs of items</li>
+<li>Infer the tastes of the current user by examining the matrix and matching that user's data</li>
+</ol><a href="https://en.wikipedia.org/wiki/Slope_One">Slope One</a> is an example</dd>
+<dt>Matrix Factorization</dt>
+<dd>Factorize the rating matrix $R$ into a user-embedding matrix $U$ and an item embedding matrix $V$ such that $R = U \times \Sigma \times V$.</dd>
+<dt>User-based collaborative filtering</dt>
+<dd><ol>
+<li>Look for users who share the same rating patterns with the active user (the user whom the prediction is for).</li>
+<li>Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user</li>
+</ol>
+<a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN</a> is one example.
+    </dd>
+</dl>
+<p>One line of work goes in the direction of matrix factorization with alternating
+least squares (ALS).<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">[2]</a></sup><sup>,</sup><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">[3]</a></sup> They have a training algorithm which has a time complexity
+of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <span class="math">\(M\)</span> is the number of users,
+<span class="math">\(N\)</span> is the number of items and <span class="math">\(K\)</span> is the dimension of the latent space.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>There are two conceptually very different ways to think about recommender systems<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">[4]</a></sup>:</p>
+<ul>
+<li>Matrix Completion: You have a matrix of user-item ratings. This matrix has
+  many NULL values. You want to fill them.</li>
+<li>Ranking: Recommend the top-k items for a given user.</li>
+</ul>
+<h3 id="matrix-completion">Matrix Completion</h3>
+<p>One way to evaluate if recommendation systems work is by the typical train-test split.</p>
+<p>Possible Metrics, where <span class="math">\(y\)</span> is the real value and <span class="math">\(p(x)\)</span> is the predicted value:</p>
+<dl>
+<dt>Mean Absolute Error (MAE)</dt>
+<dd>$\frac{1}{n} \sum_{i=1}^n |y_i - p(x_i)| \in [0, 1]$, where lower is better</dd>
+<dt>Root Mean Square Error (RMSE)</dt>
+<dd>$\sqrt{\frac{1}{n} \sum_{i=1}^n {(y_i - p(x_i))}^2} \in [0, \infty)$, where lower is better</dd>
+</dl>
+<h3 id="ranking">Ranking</h3>
+<p>The problem with those two ways is that low-rated items don't matter much. If
+95% of the users look at <span class="math">\(n\)</span> items, then you want the Top-<span class="math">\(n\)</span> recommendations
+to be (1) more relevant than the rest for the user and (2) the order of the
+top-<span class="math">\(n\)</span> elements to be correct.</p>
+<p>Metrics for top-n recommenders:</p>
+<dl>
+<dt>Precision@k</dt>
+<dd>$\frac{\text{recommended items @k that are relevant}}{k}$. This gives
+        you the portion of items that are relevant to your user.</dd>
+<dt>Recall@k</dt>
+<dd>$\frac{\text{recommended items @k that are relevant}}{\text{total relevant items}}$. If precision is high and recall is low, it might indicate that $k$ is just very small. If recall is high and precision is low, it might show that not so many items are relevant in comparison to the choice of $k$.</dd>
+<dt>Average Precision@k</dt>
+<dd>$\frac{1}{k}\sum_{i=1}^k \text{Precision@}i \cdot \text{rel}(i)$, where
+        $\text{rel}(i)$ is 1 if the item at rank $i$ is relevant, else 0. Unlike
+        plain Precision@k, it rewards putting relevant items earlier in the ranking.</dd>
+<dt>Hit Rate</dt>
+<dd>Number of hits in your $n$ recommendations, divided by the number of users</dd>
+<dt>Average Reciprocal Hit Rank (ARHR)</dt>
+<dd>$\frac{1}{|Users|} \sum_{i=1}^n \frac{1}{\text{rank}_i}$</dd>
+<dt>Cumulative Hit Rate (cHR)</dt>
+<dd>Throw away low-ranking stuff (hence you need a threshold)</dd>
+</dl>
+<h3 id="other">Other</h3>
+<p>Other quality indicators for a recommendation system:</p>
+<dl>
+<dt>Diversity</dt>
+<dd>How broad is the variety of items recommended to people?</dd>
+<dt>Novelty</dt>
+<dd>How many new/unfamiliar things get recommended to a user? The higher the novelty, the more likely the user will discover something new. If it is too high, the user doesn't trust the recommendation anymore.</dd>
+<dt>Churn</dt>
+<dd>How often do recommendations for a user change?</dd>
+<dt>Responsiveness</dt>
+<dd>How quickly are recommendations adjusted?</dd>
+</dl>
+<h3 id="user-feedback">User Feedback</h3>
+<p>Another way to evaluate is to ask the user:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2019/05/youtube-feedback-1.png"><img alt="YouTube asking for feedback" height="105" loading="lazy" src="../images/2019/05/youtube-feedback-1.png" width="512"/></a>
+<figcaption>YouTube Asking for feedback: 1 Star</figcaption>
+</figure>
+<figure>
+<a href="../images/2019/05/youtube-feedback-2.png"><img alt="YouTube asking for feedback" height="99" loading="lazy" src="../images/2019/05/youtube-feedback-2.png" width="512"/></a>
+<figcaption>YouTube Asking for feedback: 2 Star</figcaption>
+</figure>
+<figure>
+<a href="../images/2019/05/youtube-feedback-3.png"><img alt="YouTube asking for feedback" height="96" loading="lazy" src="../images/2019/05/youtube-feedback-3.png" width="512"/></a>
+<figcaption>YouTube Asking for feedback: 3 Star</figcaption>
+</figure>
+<figure>
+<a href="../images/2019/05/youtube-feedback-4.png"><img alt="YouTube asking for feedback" height="96" loading="lazy" src="../images/2019/05/youtube-feedback-4.png" width="512"/></a>
+<figcaption>YouTube Asking for feedback: 4 Star</figcaption>
+</figure>
+<figure>
+<a href="../images/2019/05/youtube-feedback-5.png"><img alt="YouTube asking for feedback" height="99" loading="lazy" src="../images/2019/05/youtube-feedback-5.png" width="512"/></a>
+<figcaption>YouTube Asking for feedback: 5 Star</figcaption>
+</figure>
+</div>
+<h2 id="typical-problems">Typical Problems</h2>
+<h3 id="cold-start-problem">Cold-Start Problem</h3>
+<p>The cold-start problem is central and only fixable by content-based
+recommendation. If there is a new product, not a single user has rated it. It
+is not possible by collaborative filtering to recommend it.</p>
+<h3 id="sparsity">Sparsity</h3>
+<p>You have so many items that two users have no item in common and two items usually
+don't have properties in common.</p>
+<h3 id="wrong-recommendation-mode">Wrong Recommendation Mode</h3>
+<ul>
+<li>You have bought the DVD "Lord of the Rings" and get the Blu-ray recommended.</li>
+<li>You have liked the normal version of a song and you get the
+  techno/rap/Christmas version recommended</li>
+</ul>
+<h3 id="the-bubble">The Bubble</h3>
+<ul>
+<li>You will never be recommended a movie where you didn't like the genre before.</li>
+</ul>
+<h3 id="surrogate-problem">Surrogate-Problem</h3>
+<p>Ultimately, we want to maximize user engagement. In order to achieve this, we
+define a surrogate (e.g. accuracy of predicting user ratings).</p>
+<p>The problem is that the choice of the surrogate matters a lot. A different
+surrogate might have way bigger impact on our real goal than an improvement in
+achieving the surrogate goal.</p>
+<h2 id="vocabulary">Vocabulary</h2>
+<dl>
+<dt>Top-N Recommendation</dt>
+<dd>Recommend N items</dd>
+<dt>mise en sc&egrave;ne</dt>
+<dd>The idea in content-based filtering for movies to extract properties
+        directly from the movie itself. It includes:
+        Average shot length, color variance, mean motion average across all the
+        frames, lighting, number of shots<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[5]</a></sup></dd>
+</dl>
+<h2 id="matrix-factorization">Matrix Factorization</h2>
+<p>Matrix Factorization is factorization in the same way as with natural numbers:
+Take a matrix <span class="math">\(R\)</span> and factorize it into <span class="math">\(U\)</span> and <span class="math">\(V\)</span> such that <span class="math">\(R = U \cdot V\)</span>. If
+the complete matrix <span class="math">\(R\)</span> is given, <span class="math">\(R\)</span> can be factorized with Singular Value
+Decomposition (SVD) or Probabilistic Latent Semantic Analysis (PLSA).</p>
+<p>Matrix Factorization is also one way to do collaborative filtering. It was done
+for the Netflix prize and is described in <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">[6]</a></sup> and <sup id="fnref:7"><a class="footnote-ref" href="#fn:7">[7]</a></sup>. A <a href="https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD">neat short description</a> is in
+SurpriseLib.</p>
+<p><strong>Input</strong>: The ratings of <span class="math">\(n\)</span> users for <span class="math">\(m\)</span> movies in a matrix <span class="math">\(R \in \mathbb{R}^{n \times m}\)</span>.</p>
+<p><strong>Algorithm</strong>: Singular value decomposition (SVD) takes <span class="math">\(R\)</span> and gives three matrices <span class="math">\(U \in \mathbb{R}^{n \times r}\)</span>, a descendingly sorted diagonal matrix <span class="math">\(\Sigma \in \mathbb{R}^{r \times r}\)</span> and <span class="math">\(V \in \mathbb{R}^{r \times m}\)</span>
+such that <span class="math">\(R = U \cdot \Sigma \cdot V\)</span>.</p>
+<p>The rows in <span class="math">\(U\)</span> represent the users. It's called the "latent space". Latent is
+math slang for "hidden" (see <a href="https://en.wikipedia.org/wiki/Latent_variable">latent variable</a>). This means we have a reasonable way to represent users.</p>
+<p>The rows in <span class="math">\(V\)</span> represent the movies in the latent space.</p>
+<p>You crop at some point of <span class="math">\(\Sigma\)</span> to the first <span class="math">\(k\)</span> singular features (with <span class="math">\(k &lt; r\)</span>).</p>
+<p>The problem is that many values of <span class="math">\(R\)</span> are missing. Simon Funk found a solution
+to that problem. Instead of imputing the values (filling the matrix), he re-formulated the problem
+to</p>
+<div class="math">$$\min_{u_i, v_i} \sum_{p_{ij}} \left ( p_{ij} - u_i \cdot v_j \right )^2 \text{ with } u_i \in \mathbb{R}^{1 \times r}, v_j \in \mathbb{R}^{r \times 1}$$</div>
+<p>This is a minimization problem that can be solved by gradient descent. As you
+only consider values <span class="math">\(p_{ij}\)</span> that are known, you don't have to invent the
+remaining ones.</p>
+<h2 id="code">Code</h2>
+<ul>
+<li>GitHub: <a href="https://github.com/topics/recommender-system?l=python">recommender-system</a></li>
+<li><a href="https://github.com/benfred/implicit">benfred/implicit</a></li>
+</ul>
+<h2 id="datasets">Datasets</h2>
+<ul>
+<li><a href="https://grouplens.org/datasets/movielens/100k/">MovieLens 100K Dataset</a></li>
+<li><a href="https://www.kaggle.com/neferfufi/lastfm">Last.fm dataset</a> / <a href="https://www.upf.edu/web/mtg/lastfm360k">Last.fm 360k</a> / <a href="https://gist.github.com/victorkohler/0931d181ef126e0740d8aac6933f13f4">Last.fm 1k</a></li>
+</ul>
+<h2 id="other-resources">Other Resources</h2>
+<ul>
+<li><a href="https://datascience.stackexchange.com/q/749/8820">Meaning of latent features?</a></li>
+<li>Simon Funk: <a href="https://sifter.org/~simon/journal/20061211.html">Netflix Update: Try This at Home</a></li>
+<li>Houtao Deng: <a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a">Recommender Systems in Practice</a>, 2019.</li>
+<li>Victor: <a href="https://medium.com/radon-dev/als-implicit-collaborative-filtering-5ed653ba39fe">ALS Implicit Collaborative Filtering</a>, 2017 - explains <sup id="fnref2:6"><a class="footnote-ref" href="#fn:6">[3]</a></sup> neatly.</li>
+<li>Implicit<ul>
+<li>Ben Frederickson: <a href="http://www.benfrederickson.com/fast-implicit-matrix-factorization/">Faster Implicit Matrix Factorization</a>, 12.12.2016.</li>
+<li>Ben Frederickson: <a href="http://www.benfrederickson.com/matrix-factorization/">Finding Similar Music using Matrix Factorization</a>, 02.10.2017.</li>
+</ul>
+</li>
+</ul>
+<p>Not read so far:</p>
+<ul>
+<li>Leskovec, Rajaraman, Ullman: <a href="https://www.youtube.com/watch?v=h9gpufJFF-0">Collaborative Filtering</a>. Lecture 43 of "Mining of Massive Datasets". Stanford University.</li>
+<li>Maher Malaeb: <a href="https://medium.com/@m_n_malaeb/the-easy-guide-for-building-python-collaborative-filtering-recommendation-system-in-2017-d2736d2e92a8">The easy guide for building python collaborative filtering recommendation system</a>, 2017.</li>
+<li><a href="https://surprise.readthedocs.io/en/stable/notation_standards.html#salakhutdinov2008a">surprise docs</a></li>
+<li><a href="https://gist.githubusercontent.com/mahermalaeb/3d03feb1bbada7e7e1438f86b1a8abb9/raw/781f21f7591d99f5197a83799594a02f524dd6e4/surprise_tutorial.py">surprise gist</a></li>
+<li>Houtao Deng: <a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a">Recommender Systems in Practice</a>, 2013</li>
+<li>Kaggle: <a href="https://www.kaggle.com/duykhanh99/tutorials-recommendation-system">Tutorials Recommendation System</a>, 2019.</li>
+</ul>
+<h2 id="papers">Papers</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:5">
+<p>Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: <a href="https://arxiv.org/pdf/1708.05024.pdf">Fast Matrix Factorization for Online Recommendation with Implicit Feedback</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:6">
+<p>Yifan Hu, Yehuda Koren, Chris Volinsky: <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>, 2008. (<a href="https://www.shortscience.org/paper?bibtexKey=koren:icdm08&amp;a=martinthoma">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 3 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:6" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:4">
+<p>C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:2">
+<p>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p>Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:7">
+<p>Robert M. Bell, Yehuda Koren and Chris Volinsky: <a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf">The BellKor solution to the Netflix Prize</a>, 2007.&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

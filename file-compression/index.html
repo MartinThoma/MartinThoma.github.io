@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I&#39;m currently creating a backup of my domain martin-thoma.de. It is pretty small, but the MySQL database behind it grew extremely as I stored every drawing from write-math.com in there. For this..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Backup, Speed, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/file-compression/" />
+<meta property="og:title" content="File Compression"/>
+<meta property="og:url" content="https://martin-thoma.com/file-compression/" />
+<meta property="og:description" content="I&#39;m currently creating a backup of my domain martin-thoma.de. It is pretty small, but the MySQL database behind it grew extremely as I stored every drawing from write-math.com in there. For this reason, I want to store that specific table in a compressed way. But which compression format …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-02-22T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/star.png" />
+
+        <title>File Compression  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../file-compression/">File Compression</a></h1>
+    <p class="meta">
+<time datetime="2020-02-22T20:00:00+01:00">Feb 22, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#backup-ref">Backup
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#speed-ref">Speed
+            <span>2</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#my-system" title="My System">My System</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#7z-benchmark" title="7z Benchmark">7z Benchmark</a></li><li><a class="toc-href" href="#compression-rates" title="Compression Rates">Compression Rates</a></li><li><a class="toc-href" href="#features" title="Features">Features</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I'm currently creating a backup of my domain <a href="http://www.martin-thoma.de/">martin-thoma.de</a>.
+It is pretty small, but the MySQL database behind it grew extremely as I stored
+every drawing from <a href="http://write-math.com/">write-math.com</a> in there.
+For this reason, I want to store that specific table in a compressed way. But
+which compression format is the best for which use case?</p>
+<p>This article is only about lossless compression. There are many more things
+to say about lossy compression.</p>
+<h2 id="my-system">My System</h2>
+<table class="table">
+<thead>
+<tr style="background-color:#cdcdcd">
+<th>&nbsp;</th>
+<th>ThinkPad T460p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.intel.com</a>)</td>
+<td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">RAM</td>
+<td>8 GB</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">Video Card</td>
+<td>Nvidia GeForce 940MX</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">System</td>
+<td>Ubuntu 18.04.3 LTS</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">Disk</td>
+<td>SAMSUNG MZ7LN512HCHP (<a href="https://www.notebookcheck.com/Test-Lenovo-ThinkPad-T460p-Core-i7-GeForce-940MX-Notebook.163310.0.html#c2263026">PM871 series</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Format</th>
+<th>(Un)compress</th>
+<th>Command</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZIP</td>
+<td>compress</td>
+<td><code>zip output.zip input.sql</code></td>
+<td>92s</td>
+</tr>
+<tr>
+<td>ZIP</td>
+<td>extract</td>
+<td><code><a href="https://linux.die.net/man/1/unzip">unzip</a> output.zip -d outputdir</code></td>
+<td>29s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code><a href="https://linux.die.net/man/1/gzip">gzip</a> -1 -k backup.sql</code></td>
+<td>51s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -2 -k backup.sql</code></td>
+<td style="background-color: #b1fcb1;">50s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -3 -k backup.sql</code></td>
+<td>54s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -4 -k backup.sql</code></td>
+<td>58s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -5 -k backup.sql</code></td>
+<td>65s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -6 -k backup.sql</code></td>
+<td>89s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -7 -k backup.sql</code></td>
+<td style="background-color: #ffbebe;">110s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -8 -k backup.sql</code></td>
+<td style="background-color: #ffbebe;">319s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>compress</td>
+<td><code>gzip -9 -k backup.sql</code></td>
+<td style="background-color: #ffbebe;">372s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>extract</td>
+<td><code>gzip -d backup.sql.gz</code> (-1 to -6)</td>
+<td>58s to 62s</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>extract</td>
+<td><code>gzip -d backup.sql.gz</code> (-7 to -9)</td>
+<td>49s to 50s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code><a href="https://linux.die.net/man/1/bzip2">bzip2</a> -1 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">287s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -2 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">285s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -3 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">294s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -4 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">301s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -5 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">363s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -6 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">356s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -7 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">364s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -8 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">407s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>compress</td>
+<td><code>bzip2 -9 -k -z backup.sql</code></td>
+<td style="background-color: #ffbebe;">369s</td>
+</tr>
+<tr>
+<td>bz2</td>
+<td>extract</td>
+<td><code>bzip2 -d backup.sql.bz2</code> (-1 to -9)</td>
+<td style="background-color: #ffbebe;">102s to 109s</td>
+</tr>
+<tr>
+<td>7z</td>
+<td>compress</td>
+<td><code>7z a backup.sql.7z backup.sql</code></td>
+<td style="background-color: #ffbebe;">466s</td>
+</tr>
+<tr>
+<td>7z</td>
+<td>extract</td>
+<td><code>7z e backup.sql.7z</code></td>
+<td>49s</td>
+</tr>
+<tr>
+<td>7z (ultra)</td>
+<td>compress</td>
+<td><code>7z a out.7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on backup.sql</code></td>
+<td style="background-color: red;">1562s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7z-benchmark">7z Benchmark</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>7z<span class="w"> </span>b
+
+<span class="m">7</span>-Zip<span class="w"> </span><span class="o">[</span><span class="m">64</span><span class="o">]</span><span class="w"> </span><span class="m">16</span>.02<span class="w"> </span>:<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">1999</span>-2016<span class="w"> </span>Igor<span class="w"> </span>Pavlov<span class="w"> </span>:<span class="w"> </span><span class="m">2016</span>-05-21
+p7zip<span class="w"> </span>Version<span class="w"> </span><span class="m">16</span>.02<span class="w"> </span><span class="o">(</span><span class="nv">locale</span><span class="o">=</span>en_US.UTF-8,Utf16<span class="o">=</span>on,HugeFiles<span class="o">=</span>on,64<span class="w"> </span>bits,8<span class="w"> </span>CPUs<span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i7-6700HQ<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.60GHz<span class="w"> </span><span class="o">(</span>506E3<span class="o">)</span>,ASM,AES-NI<span class="o">)</span>
+
+Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i7-6700HQ<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.60GHz<span class="w"> </span><span class="o">(</span>506E3<span class="o">)</span>
+CPU<span class="w"> </span>Freq:<span class="w">  </span><span class="m">1737</span><span class="w">  </span><span class="m">2731</span><span class="w">  </span><span class="m">3166</span><span class="w">  </span><span class="m">3349</span><span class="w">  </span><span class="m">3271</span><span class="w">  </span><span class="m">3108</span><span class="w">  </span><span class="m">3181</span><span class="w">  </span><span class="m">3202</span><span class="w">  </span><span class="m">3157</span>
+
+RAM<span class="w"> </span>size:<span class="w">    </span><span class="m">7404</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># CPU hardware threads:   8</span>
+RAM<span class="w"> </span>usage:<span class="w">   </span><span class="m">1765</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># Benchmark threads:      8</span>
+
+<span class="w">                       </span>Compressing<span class="w">  </span><span class="p">|</span><span class="w">                  </span>Decompressing
+Dict<span class="w">     </span>Speed<span class="w"> </span>Usage<span class="w">    </span>R/U<span class="w"> </span>Rating<span class="w">  </span><span class="p">|</span><span class="w">      </span>Speed<span class="w"> </span>Usage<span class="w">    </span>R/U<span class="w"> </span>Rating
+<span class="w">         </span>KiB/s<span class="w">     </span>%<span class="w">   </span>MIPS<span class="w">   </span>MIPS<span class="w">  </span><span class="p">|</span><span class="w">      </span>KiB/s<span class="w">     </span>%<span class="w">   </span>MIPS<span class="w">   </span>MIPS
+
+<span class="m">22</span>:<span class="w">      </span><span class="m">15592</span><span class="w">   </span><span class="m">618</span><span class="w">   </span><span class="m">2455</span><span class="w">  </span><span class="m">15168</span><span class="w">  </span><span class="p">|</span><span class="w">     </span><span class="m">175880</span><span class="w">   </span><span class="m">731</span><span class="w">   </span><span class="m">2053</span><span class="w">  </span><span class="m">15002</span>
+<span class="m">23</span>:<span class="w">      </span><span class="m">12156</span><span class="w">   </span><span class="m">632</span><span class="w">   </span><span class="m">1958</span><span class="w">  </span><span class="m">12386</span><span class="w">  </span><span class="p">|</span><span class="w">     </span><span class="m">171362</span><span class="w">   </span><span class="m">738</span><span class="w">   </span><span class="m">2008</span><span class="w">  </span><span class="m">14829</span>
+<span class="m">24</span>:<span class="w">      </span><span class="m">13697</span><span class="w">   </span><span class="m">643</span><span class="w">   </span><span class="m">2289</span><span class="w">  </span><span class="m">14727</span><span class="w">  </span><span class="p">|</span><span class="w">     </span><span class="m">164813</span><span class="w">   </span><span class="m">754</span><span class="w">   </span><span class="m">1918</span><span class="w">  </span><span class="m">14465</span>
+<span class="m">25</span>:<span class="w">      </span><span class="m">13105</span><span class="w">   </span><span class="m">654</span><span class="w">   </span><span class="m">2287</span><span class="w">  </span><span class="m">14964</span><span class="w">  </span><span class="p">|</span><span class="w">     </span><span class="m">151047</span><span class="w">   </span><span class="m">742</span><span class="w">   </span><span class="m">1812</span><span class="w">  </span><span class="m">13443</span>
+----------------------------------<span class="w">  </span><span class="p">|</span><span class="w"> </span>------------------------------
+Avr:<span class="w">             </span><span class="m">637</span><span class="w">   </span><span class="m">2247</span><span class="w">  </span><span class="m">14311</span><span class="w">  </span><span class="p">|</span><span class="w">              </span><span class="m">741</span><span class="w">   </span><span class="m">1948</span><span class="w">  </span><span class="m">14435</span>
+Tot:<span class="w">             </span><span class="m">689</span><span class="w">   </span><span class="m">2098</span><span class="w">  </span><span class="m">14373</span>
+</code></pre></div>
+<p>and</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>7z<span class="w"> </span>b<span class="w"> </span>-mm<span class="o">=</span><span class="se">\*</span><span class="w"> </span>-mmt<span class="o">=</span><span class="se">\*</span>
+
+<span class="m">7</span>-Zip<span class="w"> </span><span class="o">[</span><span class="m">64</span><span class="o">]</span><span class="w"> </span><span class="m">16</span>.02<span class="w"> </span>:<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">1999</span>-2016<span class="w"> </span>Igor<span class="w"> </span>Pavlov<span class="w"> </span>:<span class="w"> </span><span class="m">2016</span>-05-21
+p7zip<span class="w"> </span>Version<span class="w"> </span><span class="m">16</span>.02<span class="w"> </span><span class="o">(</span><span class="nv">locale</span><span class="o">=</span>en_US.UTF-8,Utf16<span class="o">=</span>on,HugeFiles<span class="o">=</span>on,64<span class="w"> </span>bits,8<span class="w"> </span>CPUs<span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i7-6700HQ<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.60GHz<span class="w"> </span><span class="o">(</span>506E3<span class="o">)</span>,ASM,AES-NI<span class="o">)</span>
+
+Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i7-6700HQ<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.60GHz<span class="w"> </span><span class="o">(</span>506E3<span class="o">)</span>
+CPU<span class="w"> </span>Freq:<span class="w">  </span><span class="m">2661</span><span class="w">  </span><span class="m">2917</span><span class="w">  </span><span class="m">3208</span><span class="w">  </span><span class="m">3272</span><span class="w">  </span><span class="m">3177</span><span class="w">  </span><span class="m">3302</span><span class="w">  </span><span class="m">3269</span><span class="w">  </span><span class="m">3246</span><span class="w">  </span><span class="m">3188</span>
+
+RAM<span class="w"> </span>size:<span class="w">    </span><span class="m">7404</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># CPU hardware threads:   8</span>
+RAM<span class="w"> </span>usage:<span class="w">    </span><span class="m">225</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># Benchmark threads:      1</span>
+
+
+Method<span class="w">           </span>Speed<span class="w"> </span>Usage<span class="w">    </span>R/U<span class="w"> </span>Rating<span class="w">   </span>E/U<span class="w"> </span>Effec
+<span class="w">                 </span>KiB/s<span class="w">     </span>%<span class="w">   </span>MIPS<span class="w">   </span>MIPS<span class="w">     </span>%<span class="w">     </span>%
+
+CPU<span class="w">                      </span><span class="m">100</span><span class="w">   </span><span class="m">3186</span><span class="w">   </span><span class="m">3186</span>
+CPU<span class="w">                      </span><span class="m">100</span><span class="w">   </span><span class="m">3180</span><span class="w">   </span><span class="m">3180</span>
+CPU<span class="w">                      </span><span class="m">100</span><span class="w">   </span><span class="m">3129</span><span class="w">   </span><span class="m">3129</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">100</span>
+
+LZMA:x1<span class="w">          </span><span class="m">11260</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4121</span><span class="w">   </span><span class="m">4116</span><span class="w">   </span><span class="m">132</span><span class="w">   </span><span class="m">132</span>
+<span class="w">                 </span><span class="m">33725</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2750</span><span class="w">   </span><span class="m">2746</span><span class="w">    </span><span class="m">88</span><span class="w">    </span><span class="m">88</span>
+LZMA:x5:mt1<span class="w">       </span><span class="m">2596</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3245</span><span class="w">   </span><span class="m">3244</span><span class="w">   </span><span class="m">104</span><span class="w">   </span><span class="m">104</span>
+<span class="w">                 </span><span class="m">32537</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2745</span><span class="w">   </span><span class="m">2744</span><span class="w">    </span><span class="m">88</span><span class="w">    </span><span class="m">88</span>
+LZMA:x5:mt2<span class="w">       </span><span class="m">5446</span><span class="w">   </span><span class="m">180</span><span class="w">   </span><span class="m">3780</span><span class="w">   </span><span class="m">6804</span><span class="w">   </span><span class="m">121</span><span class="w">   </span><span class="m">217</span>
+<span class="w">                 </span><span class="m">34839</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2939</span><span class="w">   </span><span class="m">2939</span><span class="w">    </span><span class="m">94</span><span class="w">    </span><span class="m">94</span>
+Deflate:x1<span class="w">       </span><span class="m">38939</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4944</span><span class="w">   </span><span class="m">4944</span><span class="w">   </span><span class="m">158</span><span class="w">   </span><span class="m">158</span>
+<span class="w">                </span><span class="m">112657</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3500</span><span class="w">   </span><span class="m">3500</span><span class="w">   </span><span class="m">112</span><span class="w">   </span><span class="m">112</span>
+Deflate:x5<span class="w">        </span><span class="m">8530</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3285</span><span class="w">   </span><span class="m">3284</span><span class="w">   </span><span class="m">105</span><span class="w">   </span><span class="m">105</span>
+<span class="w">                </span><span class="m">102640</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3189</span><span class="w">   </span><span class="m">3186</span><span class="w">   </span><span class="m">102</span><span class="w">   </span><span class="m">102</span>
+Deflate:x7<span class="w">        </span><span class="m">5016</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5558</span><span class="w">   </span><span class="m">5558</span><span class="w">   </span><span class="m">178</span><span class="w">   </span><span class="m">178</span>
+<span class="w">                </span><span class="m">121815</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3780</span><span class="w">   </span><span class="m">3780</span><span class="w">   </span><span class="m">121</span><span class="w">   </span><span class="m">121</span>
+Deflate64:x5<span class="w">     </span><span class="m">11477</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4961</span><span class="w">   </span><span class="m">4960</span><span class="w">   </span><span class="m">159</span><span class="w">   </span><span class="m">159</span>
+<span class="w">                </span><span class="m">118711</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3713</span><span class="w">   </span><span class="m">3713</span><span class="w">   </span><span class="m">119</span><span class="w">   </span><span class="m">119</span>
+BZip2:x1<span class="w">          </span><span class="m">6447</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3895</span><span class="w">   </span><span class="m">3895</span><span class="w">   </span><span class="m">125</span><span class="w">   </span><span class="m">125</span>
+<span class="w">                 </span><span class="m">30463</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3303</span><span class="w">   </span><span class="m">3302</span><span class="w">   </span><span class="m">106</span><span class="w">   </span><span class="m">106</span>
+BZip2:x5<span class="w">          </span><span class="m">5066</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4228</span><span class="w">   </span><span class="m">4228</span><span class="w">   </span><span class="m">135</span><span class="w">   </span><span class="m">135</span>
+<span class="w">                 </span><span class="m">15084</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2961</span><span class="w">   </span><span class="m">2961</span><span class="w">    </span><span class="m">95</span><span class="w">    </span><span class="m">95</span>
+BZip2:x5:mt2<span class="w">      </span><span class="m">9708</span><span class="w">   </span><span class="m">194</span><span class="w">   </span><span class="m">4167</span><span class="w">   </span><span class="m">8103</span><span class="w">   </span><span class="m">133</span><span class="w">   </span><span class="m">259</span>
+<span class="w">                 </span><span class="m">42347</span><span class="w">   </span><span class="m">160</span><span class="w">   </span><span class="m">5185</span><span class="w">   </span><span class="m">8311</span><span class="w">   </span><span class="m">166</span><span class="w">   </span><span class="m">266</span>
+BZip2:x7<span class="w">          </span><span class="m">1648</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4271</span><span class="w">   </span><span class="m">4271</span><span class="w">   </span><span class="m">137</span><span class="w">   </span><span class="m">137</span>
+<span class="w">                 </span><span class="m">27652</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5423</span><span class="w">   </span><span class="m">5423</span><span class="w">   </span><span class="m">173</span><span class="w">   </span><span class="m">173</span>
+PPMD:x1<span class="w">           </span><span class="m">4516</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4672</span><span class="w">   </span><span class="m">4671</span><span class="w">   </span><span class="m">149</span><span class="w">   </span><span class="m">149</span>
+<span class="w">                  </span><span class="m">4234</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4987</span><span class="w">   </span><span class="m">4987</span><span class="w">   </span><span class="m">159</span><span class="w">   </span><span class="m">159</span>
+PPMD:x5<span class="w">           </span><span class="m">3289</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5575</span><span class="w">   </span><span class="m">5574</span><span class="w">   </span><span class="m">178</span><span class="w">   </span><span class="m">178</span>
+<span class="w">                  </span><span class="m">3070</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5753</span><span class="w">   </span><span class="m">5753</span><span class="w">   </span><span class="m">184</span><span class="w">   </span><span class="m">184</span>
+Delta:4<span class="w">         </span><span class="m">863808</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5309</span><span class="w">   </span><span class="m">5307</span><span class="w">   </span><span class="m">170</span><span class="w">   </span><span class="m">170</span>
+<span class="w">                </span><span class="m">953462</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5858</span><span class="w">   </span><span class="m">5858</span><span class="w">   </span><span class="m">187</span><span class="w">   </span><span class="m">187</span>
+BCJ<span class="w">            </span><span class="m">1672730</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">6852</span><span class="w">   </span><span class="m">6852</span><span class="w">   </span><span class="m">219</span><span class="w">   </span><span class="m">219</span>
+<span class="w">               </span><span class="m">1654731</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">6778</span><span class="w">   </span><span class="m">6778</span><span class="w">   </span><span class="m">217</span><span class="w">   </span><span class="m">217</span>
+AES256CBC:1<span class="w">     </span><span class="m">201192</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4946</span><span class="w">   </span><span class="m">4945</span><span class="w">   </span><span class="m">158</span><span class="w">   </span><span class="m">158</span>
+<span class="w">                </span><span class="m">189151</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4650</span><span class="w">   </span><span class="m">4649</span><span class="w">   </span><span class="m">149</span><span class="w">   </span><span class="m">149</span>
+AES256CBC:2<span class="w">     </span><span class="m">854545</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">7002</span><span class="w">   </span><span class="m">7000</span><span class="w">   </span><span class="m">224</span><span class="w">   </span><span class="m">224</span>
+<span class="w">               </span><span class="m">3411324</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">6986</span><span class="w">   </span><span class="m">6986</span><span class="w">   </span><span class="m">223</span><span class="w">   </span><span class="m">223</span>
+CRC32:1<span class="w">         </span><span class="m">398309</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2901</span><span class="w">   </span><span class="m">2900</span><span class="w">    </span><span class="m">93</span><span class="w">    </span><span class="m">93</span>
+CRC32:4<span class="w">        </span><span class="m">1302032</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2907</span><span class="w">   </span><span class="m">2906</span><span class="w">    </span><span class="m">93</span><span class="w">    </span><span class="m">93</span>
+CRC32:8<span class="w">        </span><span class="m">2657729</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">3604</span><span class="w">   </span><span class="m">3604</span><span class="w">   </span><span class="m">115</span><span class="w">   </span><span class="m">115</span>
+CRC64<span class="w">          </span><span class="m">1196491</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">2451</span><span class="w">   </span><span class="m">2450</span><span class="w">    </span><span class="m">78</span><span class="w">    </span><span class="m">78</span>
+SHA256<span class="w">          </span><span class="m">201949</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">4121</span><span class="w">   </span><span class="m">4120</span><span class="w">   </span><span class="m">132</span><span class="w">   </span><span class="m">132</span>
+SHA1<span class="w">            </span><span class="m">553725</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">5190</span><span class="w">   </span><span class="m">5183</span><span class="w">   </span><span class="m">166</span><span class="w">   </span><span class="m">166</span>
+BLAKE2sp<span class="w">        </span><span class="m">325681</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">7167</span><span class="w">   </span><span class="m">7165</span><span class="w">   </span><span class="m">229</span><span class="w">   </span><span class="m">229</span>
+
+CPU<span class="w">                      </span><span class="m">100</span><span class="w">   </span><span class="m">3364</span><span class="w">   </span><span class="m">3363</span>
+------------------------------------------------------
+Tot:<span class="w">                     </span><span class="m">111</span><span class="w">   </span><span class="m">3690</span><span class="w">   </span><span class="m">4120</span><span class="w">   </span><span class="m">119</span><span class="w">   </span><span class="m">132</span>
+
+
+RAM<span class="w"> </span>usage:<span class="w">    </span><span class="m">901</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># Benchmark threads:      4</span>
+
+
+Method<span class="w">           </span>Speed<span class="w"> </span>Usage<span class="w">    </span>R/U<span class="w"> </span>Rating<span class="w">   </span>E/U<span class="w"> </span>Effec
+<span class="w">                 </span>KiB/s<span class="w">     </span>%<span class="w">   </span>MIPS<span class="w">   </span>MIPS<span class="w">     </span>%<span class="w">     </span>%
+
+CPU<span class="w">                      </span><span class="m">399</span><span class="w">   </span><span class="m">3084</span><span class="w">  </span><span class="m">12318</span>
+CPU<span class="w">                      </span><span class="m">400</span><span class="w">   </span><span class="m">3090</span><span class="w">  </span><span class="m">12353</span>
+CPU<span class="w">                      </span><span class="m">400</span><span class="w">   </span><span class="m">3090</span><span class="w">  </span><span class="m">12354</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">400</span>
+
+LZMA:x1<span class="w">          </span><span class="m">49593</span><span class="w">   </span><span class="m">397</span><span class="w">   </span><span class="m">4571</span><span class="w">  </span><span class="m">18130</span><span class="w">   </span><span class="m">148</span><span class="w">   </span><span class="m">587</span>
+<span class="w">                </span><span class="m">127780</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2607</span><span class="w">  </span><span class="m">10406</span><span class="w">    </span><span class="m">84</span><span class="w">   </span><span class="m">337</span>
+LZMA:x5:mt1<span class="w">      </span><span class="m">11043</span><span class="w">   </span><span class="m">396</span><span class="w">   </span><span class="m">3482</span><span class="w">  </span><span class="m">13796</span><span class="w">   </span><span class="m">113</span><span class="w">   </span><span class="m">447</span>
+<span class="w">                </span><span class="m">123224</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2602</span><span class="w">  </span><span class="m">10391</span><span class="w">    </span><span class="m">84</span><span class="w">   </span><span class="m">336</span>
+LZMA:x5:mt2<span class="w">      </span><span class="m">15408</span><span class="w">   </span><span class="m">694</span><span class="w">   </span><span class="m">2774</span><span class="w">  </span><span class="m">19250</span><span class="w">    </span><span class="m">90</span><span class="w">   </span><span class="m">623</span>
+<span class="w">                </span><span class="m">115385</span><span class="w">   </span><span class="m">394</span><span class="w">   </span><span class="m">2472</span><span class="w">   </span><span class="m">9730</span><span class="w">    </span><span class="m">80</span><span class="w">   </span><span class="m">315</span>
+Deflate:x1<span class="w">      </span><span class="m">127310</span><span class="w">   </span><span class="m">396</span><span class="w">   </span><span class="m">4079</span><span class="w">  </span><span class="m">16165</span><span class="w">   </span><span class="m">132</span><span class="w">   </span><span class="m">523</span>
+<span class="w">                </span><span class="m">377145</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2934</span><span class="w">  </span><span class="m">11718</span><span class="w">    </span><span class="m">95</span><span class="w">   </span><span class="m">379</span>
+Deflate:x5<span class="w">       </span><span class="m">39249</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">3791</span><span class="w">  </span><span class="m">15112</span><span class="w">   </span><span class="m">123</span><span class="w">   </span><span class="m">489</span>
+<span class="w">                </span><span class="m">371312</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2892</span><span class="w">  </span><span class="m">11527</span><span class="w">    </span><span class="m">94</span><span class="w">   </span><span class="m">373</span>
+Deflate:x7<span class="w">       </span><span class="m">15420</span><span class="w">   </span><span class="m">398</span><span class="w">   </span><span class="m">4291</span><span class="w">  </span><span class="m">17085</span><span class="w">   </span><span class="m">139</span><span class="w">   </span><span class="m">553</span>
+<span class="w">                </span><span class="m">370053</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2880</span><span class="w">  </span><span class="m">11483</span><span class="w">    </span><span class="m">93</span><span class="w">   </span><span class="m">372</span>
+Deflate64:x5<span class="w">     </span><span class="m">32242</span><span class="w">   </span><span class="m">388</span><span class="w">   </span><span class="m">3596</span><span class="w">  </span><span class="m">13933</span><span class="w">   </span><span class="m">116</span><span class="w">   </span><span class="m">451</span>
+<span class="w">                </span><span class="m">364650</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2855</span><span class="w">  </span><span class="m">11407</span><span class="w">    </span><span class="m">92</span><span class="w">   </span><span class="m">369</span>
+BZip2:x1<span class="w">         </span><span class="m">19452</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2949</span><span class="w">  </span><span class="m">11753</span><span class="w">    </span><span class="m">95</span><span class="w">   </span><span class="m">381</span>
+<span class="w">                </span><span class="m">101048</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2743</span><span class="w">  </span><span class="m">10955</span><span class="w">    </span><span class="m">89</span><span class="w">   </span><span class="m">355</span>
+BZip2:x5<span class="w">         </span><span class="m">15092</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">3150</span><span class="w">  </span><span class="m">12595</span><span class="w">   </span><span class="m">102</span><span class="w">   </span><span class="m">408</span>
+<span class="w">                 </span><span class="m">61031</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">2996</span><span class="w">  </span><span class="m">11979</span><span class="w">    </span><span class="m">97</span><span class="w">   </span><span class="m">388</span>
+BZip2:x5:mt2<span class="w">     </span><span class="m">16446</span><span class="w">   </span><span class="m">783</span><span class="w">   </span><span class="m">1754</span><span class="w">  </span><span class="m">13726</span><span class="w">    </span><span class="m">57</span><span class="w">   </span><span class="m">444</span>
+<span class="w">                 </span><span class="m">93754</span><span class="w">   </span><span class="m">727</span><span class="w">   </span><span class="m">2530</span><span class="w">  </span><span class="m">18402</span><span class="w">    </span><span class="m">82</span><span class="w">   </span><span class="m">596</span>
+BZip2:x7<span class="w">          </span><span class="m">4855</span><span class="w">   </span><span class="m">397</span><span class="w">   </span><span class="m">3166</span><span class="w">  </span><span class="m">12578</span><span class="w">   </span><span class="m">102</span><span class="w">   </span><span class="m">407</span>
+<span class="w">                 </span><span class="m">62094</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">3046</span><span class="w">  </span><span class="m">12177</span><span class="w">    </span><span class="m">99</span><span class="w">   </span><span class="m">394</span>
+PPMD:x1<span class="w">          </span><span class="m">14300</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">3701</span><span class="w">  </span><span class="m">14790</span><span class="w">   </span><span class="m">120</span><span class="w">   </span><span class="m">479</span>
+<span class="w">                 </span><span class="m">13009</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">3836</span><span class="w">  </span><span class="m">15320</span><span class="w">   </span><span class="m">124</span><span class="w">   </span><span class="m">496</span>
+PPMD:x5<span class="w">           </span><span class="m">9590</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">4075</span><span class="w">  </span><span class="m">16253</span><span class="w">   </span><span class="m">132</span><span class="w">   </span><span class="m">526</span>
+<span class="w">                  </span><span class="m">8516</span><span class="w">   </span><span class="m">394</span><span class="w">   </span><span class="m">4050</span><span class="w">  </span><span class="m">15960</span><span class="w">   </span><span class="m">131</span><span class="w">   </span><span class="m">517</span>
+Delta:4<span class="w">        </span><span class="m">2229140</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">3429</span><span class="w">  </span><span class="m">13696</span><span class="w">   </span><span class="m">111</span><span class="w">   </span><span class="m">443</span>
+<span class="w">               </span><span class="m">2407149</span><span class="w">   </span><span class="m">397</span><span class="w">   </span><span class="m">3727</span><span class="w">  </span><span class="m">14790</span><span class="w">   </span><span class="m">121</span><span class="w">   </span><span class="m">479</span>
+BCJ<span class="w">            </span><span class="m">4218363</span><span class="w">   </span><span class="m">398</span><span class="w">   </span><span class="m">4344</span><span class="w">  </span><span class="m">17278</span><span class="w">   </span><span class="m">141</span><span class="w">   </span><span class="m">559</span>
+<span class="w">               </span><span class="m">4682966</span><span class="w">   </span><span class="m">393</span><span class="w">   </span><span class="m">4880</span><span class="w">  </span><span class="m">19181</span><span class="w">   </span><span class="m">158</span><span class="w">   </span><span class="m">621</span>
+AES256CBC:1<span class="w">     </span><span class="m">516685</span><span class="w">   </span><span class="m">391</span><span class="w">   </span><span class="m">3250</span><span class="w">  </span><span class="m">12698</span><span class="w">   </span><span class="m">105</span><span class="w">   </span><span class="m">411</span>
+<span class="w">                </span><span class="m">488100</span><span class="w">   </span><span class="m">397</span><span class="w">   </span><span class="m">3018</span><span class="w">  </span><span class="m">11996</span><span class="w">    </span><span class="m">98</span><span class="w">   </span><span class="m">388</span>
+AES256CBC:2<span class="w">    </span><span class="m">2548047</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">5228</span><span class="w">  </span><span class="m">20874</span><span class="w">   </span><span class="m">169</span><span class="w">   </span><span class="m">676</span>
+<span class="w">               </span><span class="m">9436324</span><span class="w">   </span><span class="m">397</span><span class="w">   </span><span class="m">4874</span><span class="w">  </span><span class="m">19326</span><span class="w">   </span><span class="m">158</span><span class="w">   </span><span class="m">626</span>
+CRC32:1<span class="w">        </span><span class="m">1304042</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">2375</span><span class="w">   </span><span class="m">9493</span><span class="w">    </span><span class="m">77</span><span class="w">   </span><span class="m">307</span>
+CRC32:4<span class="w">        </span><span class="m">4019189</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">2246</span><span class="w">   </span><span class="m">8971</span><span class="w">    </span><span class="m">73</span><span class="w">   </span><span class="m">290</span>
+CRC32:8<span class="w">        </span><span class="m">7320978</span><span class="w">   </span><span class="m">400</span><span class="w">   </span><span class="m">2484</span><span class="w">   </span><span class="m">9927</span><span class="w">    </span><span class="m">80</span><span class="w">   </span><span class="m">321</span>
+CRC64<span class="w">          </span><span class="m">3549391</span><span class="w">   </span><span class="m">399</span><span class="w">   </span><span class="m">1824</span><span class="w">   </span><span class="m">7269</span><span class="w">    </span><span class="m">59</span><span class="w">   </span><span class="m">235</span>
+SHA256<span class="w">          </span><span class="m">505381</span><span class="w">   </span><span class="m">395</span><span class="w">   </span><span class="m">2607</span><span class="w">  </span><span class="m">10310</span><span class="w">    </span><span class="m">84</span><span class="w">   </span><span class="m">334</span>
+SHA1<span class="w">           </span><span class="m">1255910</span><span class="w">   </span><span class="m">380</span><span class="w">   </span><span class="m">3093</span><span class="w">  </span><span class="m">11755</span><span class="w">   </span><span class="m">100</span><span class="w">   </span><span class="m">381</span>
+BLAKE2sp<span class="w">        </span><span class="m">451934</span><span class="w">   </span><span class="m">377</span><span class="w">   </span><span class="m">2638</span><span class="w">   </span><span class="m">9943</span><span class="w">    </span><span class="m">85</span><span class="w">   </span><span class="m">322</span>
+
+CPU<span class="w">                      </span><span class="m">360</span><span class="w">   </span><span class="m">2275</span><span class="w">   </span><span class="m">8188</span>
+------------------------------------------------------
+Tot:<span class="w">                     </span><span class="m">440</span><span class="w">   </span><span class="m">3063</span><span class="w">  </span><span class="m">13276</span><span class="w">    </span><span class="m">98</span><span class="w">   </span><span class="m">430</span>
+
+
+RAM<span class="w"> </span>usage:<span class="w">   </span><span class="m">1802</span><span class="w"> </span>MB,<span class="w">  </span><span class="c1"># Benchmark threads:      8</span>
+
+
+Method<span class="w">           </span>Speed<span class="w"> </span>Usage<span class="w">    </span>R/U<span class="w"> </span>Rating<span class="w">   </span>E/U<span class="w"> </span>Effec
+<span class="w">                 </span>KiB/s<span class="w">     </span>%<span class="w">   </span>MIPS<span class="w">   </span>MIPS<span class="w">     </span>%<span class="w">     </span>%
+
+CPU<span class="w">                      </span><span class="m">596</span><span class="w">   </span><span class="m">2352</span><span class="w">  </span><span class="m">14024</span>
+CPU<span class="w">                      </span><span class="m">759</span><span class="w">   </span><span class="m">2489</span><span class="w">  </span><span class="m">18901</span>
+CPU<span class="w">                      </span><span class="m">727</span><span class="w">   </span><span class="m">2477</span><span class="w">  </span><span class="m">18016</span><span class="w">   </span><span class="m">110</span><span class="w">   </span><span class="m">800</span>
+
+LZMA:x1<span class="w">          </span><span class="m">20619</span><span class="w">   </span><span class="m">590</span><span class="w">   </span><span class="m">1277</span><span class="w">   </span><span class="m">7538</span><span class="w">    </span><span class="m">57</span><span class="w">   </span><span class="m">335</span>
+<span class="w">                </span><span class="m">110780</span><span class="w">   </span><span class="m">616</span><span class="w">   </span><span class="m">1466</span><span class="w">   </span><span class="m">9023</span><span class="w">    </span><span class="m">65</span><span class="w">   </span><span class="m">401</span>
+LZMA:x5:mt1<span class="w">       </span><span class="m">9602</span><span class="w">   </span><span class="m">633</span><span class="w">   </span><span class="m">1895</span><span class="w">  </span><span class="m">11997</span><span class="w">    </span><span class="m">84</span><span class="w">   </span><span class="m">533</span>
+<span class="w">                </span><span class="m">135560</span><span class="w">   </span><span class="m">734</span><span class="w">   </span><span class="m">1557</span><span class="w">  </span><span class="m">11432</span><span class="w">    </span><span class="m">69</span><span class="w">   </span><span class="m">508</span>
+LZMA:x5:mt2<span class="w">      </span><span class="m">10958</span><span class="w">   </span><span class="m">696</span><span class="w">   </span><span class="m">1968</span><span class="w">  </span><span class="m">13690</span><span class="w">    </span><span class="m">87</span><span class="w">   </span><span class="m">608</span>
+<span class="w">                </span><span class="m">114711</span><span class="w">   </span><span class="m">686</span><span class="w">   </span><span class="m">1411</span><span class="w">   </span><span class="m">9674</span><span class="w">    </span><span class="m">63</span><span class="w">   </span><span class="m">430</span>
+Deflate:x1<span class="w">      </span><span class="m">120232</span><span class="w">   </span><span class="m">707</span><span class="w">   </span><span class="m">2158</span><span class="w">  </span><span class="m">15267</span><span class="w">    </span><span class="m">96</span><span class="w">   </span><span class="m">678</span>
+<span class="w">                </span><span class="m">368073</span><span class="w">   </span><span class="m">728</span><span class="w">   </span><span class="m">1572</span><span class="w">  </span><span class="m">11437</span><span class="w">    </span><span class="m">70</span><span class="w">   </span><span class="m">508</span>
+Deflate:x5<span class="w">       </span><span class="m">39116</span><span class="w">   </span><span class="m">707</span><span class="w">   </span><span class="m">2131</span><span class="w">  </span><span class="m">15061</span><span class="w">    </span><span class="m">95</span><span class="w">   </span><span class="m">669</span>
+<span class="w">                </span><span class="m">391901</span><span class="w">   </span><span class="m">708</span><span class="w">   </span><span class="m">1719</span><span class="w">  </span><span class="m">12168</span><span class="w">    </span><span class="m">76</span><span class="w">   </span><span class="m">540</span>
+Deflate:x7<span class="w">       </span><span class="m">15543</span><span class="w">   </span><span class="m">736</span><span class="w">   </span><span class="m">2339</span><span class="w">  </span><span class="m">17222</span><span class="w">   </span><span class="m">104</span><span class="w">   </span><span class="m">765</span>
+<span class="w">                </span><span class="m">416000</span><span class="w">   </span><span class="m">756</span><span class="w">   </span><span class="m">1707</span><span class="w">  </span><span class="m">12910</span><span class="w">    </span><span class="m">76</span><span class="w">   </span><span class="m">573</span>
+Deflate64:x5<span class="w">     </span><span class="m">33348</span><span class="w">   </span><span class="m">703</span><span class="w">   </span><span class="m">2050</span><span class="w">  </span><span class="m">14411</span><span class="w">    </span><span class="m">91</span><span class="w">   </span><span class="m">640</span>
+<span class="w">                </span><span class="m">381221</span><span class="w">   </span><span class="m">742</span><span class="w">   </span><span class="m">1607</span><span class="w">  </span><span class="m">11926</span><span class="w">    </span><span class="m">71</span><span class="w">   </span><span class="m">530</span>
+BZip2:x1<span class="w">         </span><span class="m">19466</span><span class="w">   </span><span class="m">743</span><span class="w">   </span><span class="m">1583</span><span class="w">  </span><span class="m">11761</span><span class="w">    </span><span class="m">70</span><span class="w">   </span><span class="m">522</span>
+<span class="w">                </span><span class="m">107349</span><span class="w">   </span><span class="m">705</span><span class="w">   </span><span class="m">1650</span><span class="w">  </span><span class="m">11637</span><span class="w">    </span><span class="m">73</span><span class="w">   </span><span class="m">517</span>
+BZip2:x5<span class="w">         </span><span class="m">14640</span><span class="w">   </span><span class="m">757</span><span class="w">   </span><span class="m">1614</span><span class="w">  </span><span class="m">12219</span><span class="w">    </span><span class="m">72</span><span class="w">   </span><span class="m">543</span>
+<span class="w">                 </span><span class="m">77475</span><span class="w">   </span><span class="m">738</span><span class="w">   </span><span class="m">2061</span><span class="w">  </span><span class="m">15207</span><span class="w">    </span><span class="m">92</span><span class="w">   </span><span class="m">675</span>
+BZip2:x5:mt2<span class="w">     </span><span class="m">15561</span><span class="w">   </span><span class="m">731</span><span class="w">   </span><span class="m">1776</span><span class="w">  </span><span class="m">12987</span><span class="w">    </span><span class="m">79</span><span class="w">   </span><span class="m">577</span>
+<span class="w">                 </span><span class="m">80522</span><span class="w">   </span><span class="m">758</span><span class="w">   </span><span class="m">2085</span><span class="w">  </span><span class="m">15805</span><span class="w">    </span><span class="m">93</span><span class="w">   </span><span class="m">702</span>
+BZip2:x7<span class="w">          </span><span class="m">5127</span><span class="w">   </span><span class="m">775</span><span class="w">   </span><span class="m">1714</span><span class="w">  </span><span class="m">13284</span><span class="w">    </span><span class="m">76</span><span class="w">   </span><span class="m">590</span>
+<span class="w">                 </span><span class="m">69233</span><span class="w">   </span><span class="m">782</span><span class="w">   </span><span class="m">1737</span><span class="w">  </span><span class="m">13577</span><span class="w">    </span><span class="m">77</span><span class="w">   </span><span class="m">603</span>
+PPMD:x1<span class="w">          </span><span class="m">13343</span><span class="w">   </span><span class="m">739</span><span class="w">   </span><span class="m">1867</span><span class="w">  </span><span class="m">13800</span><span class="w">    </span><span class="m">83</span><span class="w">   </span><span class="m">613</span>
+<span class="w">                 </span><span class="m">11466</span><span class="w">   </span><span class="m">720</span><span class="w">   </span><span class="m">1876</span><span class="w">  </span><span class="m">13503</span><span class="w">    </span><span class="m">83</span><span class="w">   </span><span class="m">600</span>
+PPMD:x5<span class="w">           </span><span class="m">9060</span><span class="w">   </span><span class="m">740</span><span class="w">   </span><span class="m">2074</span><span class="w">  </span><span class="m">15355</span><span class="w">    </span><span class="m">92</span><span class="w">   </span><span class="m">682</span>
+<span class="w">                  </span><span class="m">5011</span><span class="w">   </span><span class="m">648</span><span class="w">   </span><span class="m">1449</span><span class="w">   </span><span class="m">9392</span><span class="w">    </span><span class="m">64</span><span class="w">   </span><span class="m">417</span>
+Delta:4<span class="w">        </span><span class="m">1425436</span><span class="w">   </span><span class="m">592</span><span class="w">   </span><span class="m">1478</span><span class="w">   </span><span class="m">8758</span><span class="w">    </span><span class="m">66</span><span class="w">   </span><span class="m">389</span>
+<span class="w">               </span><span class="m">1668622</span><span class="w">   </span><span class="m">575</span><span class="w">   </span><span class="m">1783</span><span class="w">  </span><span class="m">10252</span><span class="w">    </span><span class="m">79</span><span class="w">   </span><span class="m">455</span>
+BCJ<span class="w">            </span><span class="m">1763558</span><span class="w">   </span><span class="m">544</span><span class="w">   </span><span class="m">1328</span><span class="w">   </span><span class="m">7224</span><span class="w">    </span><span class="m">59</span><span class="w">   </span><span class="m">321</span>
+<span class="w">               </span><span class="m">2872698</span><span class="w">   </span><span class="m">569</span><span class="w">   </span><span class="m">2070</span><span class="w">  </span><span class="m">11767</span><span class="w">    </span><span class="m">92</span><span class="w">   </span><span class="m">522</span>
+AES256CBC:1<span class="w">     </span><span class="m">473162</span><span class="w">   </span><span class="m">723</span><span class="w">   </span><span class="m">1609</span><span class="w">  </span><span class="m">11628</span><span class="w">    </span><span class="m">71</span><span class="w">   </span><span class="m">516</span>
+<span class="w">                </span><span class="m">482136</span><span class="w">   </span><span class="m">744</span><span class="w">   </span><span class="m">1592</span><span class="w">  </span><span class="m">11849</span><span class="w">    </span><span class="m">71</span><span class="w">   </span><span class="m">526</span>
+AES256CBC:2<span class="w">    </span><span class="m">3391242</span><span class="w">   </span><span class="m">638</span><span class="w">   </span><span class="m">4356</span><span class="w">  </span><span class="m">27781</span><span class="w">   </span><span class="m">193</span><span class="w">  </span><span class="m">1234</span>
+<span class="w">               </span><span class="m">7308622</span><span class="w">   </span><span class="m">649</span><span class="w">   </span><span class="m">2307</span><span class="w">  </span><span class="m">14968</span><span class="w">   </span><span class="m">102</span><span class="w">   </span><span class="m">665</span>
+CRC32:1<span class="w">        </span><span class="m">2005570</span><span class="w">   </span><span class="m">744</span><span class="w">   </span><span class="m">1961</span><span class="w">  </span><span class="m">14601</span><span class="w">    </span><span class="m">87</span><span class="w">   </span><span class="m">648</span>
+CRC32:4<span class="w">        </span><span class="m">5340310</span><span class="w">   </span><span class="m">769</span><span class="w">   </span><span class="m">1550</span><span class="w">  </span><span class="m">11920</span><span class="w">    </span><span class="m">69</span><span class="w">   </span><span class="m">529</span>
+CRC32:8<span class="w">        </span><span class="m">8750400</span><span class="w">   </span><span class="m">749</span><span class="w">   </span><span class="m">1585</span><span class="w">  </span><span class="m">11866</span><span class="w">    </span><span class="m">70</span><span class="w">   </span><span class="m">527</span>
+CRC64<span class="w">          </span><span class="m">4884587</span><span class="w">   </span><span class="m">707</span><span class="w">   </span><span class="m">1416</span><span class="w">  </span><span class="m">10004</span><span class="w">    </span><span class="m">63</span><span class="w">   </span><span class="m">444</span>
+SHA256<span class="w">          </span><span class="m">469742</span><span class="w">   </span><span class="m">751</span><span class="w">   </span><span class="m">1277</span><span class="w">   </span><span class="m">9583</span><span class="w">    </span><span class="m">57</span><span class="w">   </span><span class="m">426</span>
+SHA1<span class="w">           </span><span class="m">1292792</span><span class="w">   </span><span class="m">725</span><span class="w">   </span><span class="m">1669</span><span class="w">  </span><span class="m">12101</span><span class="w">    </span><span class="m">74</span><span class="w">   </span><span class="m">537</span>
+BLAKE2sp<span class="w">        </span><span class="m">810867</span><span class="w">   </span><span class="m">764</span><span class="w">   </span><span class="m">2335</span><span class="w">  </span><span class="m">17839</span><span class="w">   </span><span class="m">104</span><span class="w">   </span><span class="m">792</span>
+
+CPU<span class="w">                      </span><span class="m">775</span><span class="w">   </span><span class="m">2390</span><span class="w">  </span><span class="m">18537</span>
+------------------------------------------------------
+Tot:<span class="w">                     </span><span class="m">696</span><span class="w">   </span><span class="m">1710</span><span class="w">  </span><span class="m">11921</span><span class="w">    </span><span class="m">76</span><span class="w">   </span><span class="m">529</span>
+</code></pre></div>
+<h2 id="compression-rates">Compression Rates</h2>
+<table class="table">
+<thead>
+<tr>
+<th>File</th>
+<th>File Size</th>
+<th>.zip</th>
+<th>.gz</th>
+<th>.bz2</th>
+<th>.7z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL DB dump</td>
+<td>3.5 GB</td>
+<td><span style="color: orange">634 MB</span></td>
+<td>1: 737 MB<br/>2: 729 MB<br/>3: 722 MB<br/>4: 654 MB<br/>5: 638 MB<br/><span style="color: orange">6: 634 MB</span><br/>7: 610 MB<br/>8: 606 MB<br/>9: 606 MB</td>
+<td>1: 534 MB<br/>2: 525 MB<br/>3: 521 MB<br/>4: 519 MB<br/>5: 518 MB<br/>6: 518 MB<br/>7: 518 MB<br/>8: 518 MB<br/>9: 518 MB</td>
+<td>default: 471 MB<br/>ultra: 398 MB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Format</th>
+<th>Archiving</th>
+<th>Compression</th>
+<th>Integrity Check</th>
+<th>Partial Extraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sevenzip.osdn.jp/chm/cmdline/">7z</a> (<a href="https://linux.die.net/man/1/7z">man</a>)</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+<td style="color: green;"><a href="https://unix.stackexchange.com/q/460615/4784">✔</a></td>
+</tr>
+<tr>
+<td>zip (<a href="https://linux.die.net/man/1/zip">man</a>)</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+<td style="color: green;"><a href="https://unix.stackexchange.com/a/197136/4784">✔</a></td>
+<td style="color: green;">✔</td>
+</tr>
+<tr>
+<td>tar (<a href="https://linux.die.net/man/1/tar">man</a>)</td>
+<td style="color: green;">✔</td>
+<td style="color: red;">&cross;</td>
+<td></td>
+<td style="color: green;"><a href="https://unix.stackexchange.com/a/35315/4784"></a></td>
+</tr>
+<tr>
+<td>gzip (<a href="https://linux.die.net/man/1/gzip">man</a>)</td>
+<td style="color: red;">&cross;</td>
+<td style="color: green;">✔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bzip2 (<a href="https://linux.die.net/man/1/bzip2">man</a>)</td>
+<td style="color: red;">&cross;</td>
+<td style="color: green;">✔</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Wikipedia:<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_archive_formats">List of archive formats</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_file_archivers">Comparison of file archivers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hutter_Prize">Hutter Prize</a></li>
+</ul>
+</li>
+<li>Martin Thoma: <a href="../data-backup-strategies/">Data Backup Strategies</a>, 2013.</li>
+<li>Jeff Atwood:<ul>
+<li><a href="https://blog.codinghorror.com/file-compression-in-the-multi-core-era/">File Compression in the Multi-Core Era</a>, 2009.</li>
+<li><a href="https://blog.codinghorror.com/dont-use-zip-use-rar/">Don't Use ZIP, Use RAR</a>, 2007.</li>
+<li><a href="https://blog.codinghorror.com/compression-and-cliffs/">Compression and Cliffs</a>, 2005.</li>
+</ul>
+</li>
+<li>Lossy compression:<ul>
+<li>Jeff Atwood: <a href="https://blog.codinghorror.com/a-comparison-of-jpeg-compression-levels-and-recompression/">A Comparison of JPEG Compression Levels and Recompression</a></li>
+<li>Jeff Atwood: <a href="https://blog.codinghorror.com/getting-the-most-out-of-png/">Getting the Most Out of PNG</a>, 2007.</li>
+</ul>
+</li>
+<li><a href="https://superuser.com/q/1305867/64857">What is the maximum size of a zip file on Windows 10 Pro 64-Bit?</a>, 2018</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

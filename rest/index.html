@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="REST is a software architectural style that defines a set of constraints to be used for creating web services. Most explanations of REST give too many details, such as the architectural..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="API, Web, Design, Architecture, Flask, Python, Web Development, The Web, " />
+
+<link rel="canonical" href="https://martin-thoma.com/rest/" />
+<meta property="og:title" content="REST"/>
+<meta property="og:url" content="https://martin-thoma.com/rest/" />
+<meta property="og:description" content="REST is a software architectural style that defines a set of constraints to be used for creating web services. Most explanations of REST give too many details, such as the architectural constraints. To get a glimpse of how REST works, this is not necessary. In this article, I try to …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-05-18T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/development.png" />
+
+        <title>REST  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../rest/">REST</a></h1>
+    <p class="meta">
+<time datetime="2019-05-18T20:00:00+02:00">Mai 18, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#api-ref">API
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#architecture-ref">Architecture
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#design-ref">Design
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#flask-ref">Flask
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+        <li><a href="../tags/#web-ref">Web
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#web-development-ref">Web Development
+            <span>37</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#naming-conventions" title="Naming Conventions">Naming Conventions</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#pimp-get" title="Pimp GET">Pimp GET</a><ul><li><a class="toc-href" href="#pagination" title="Pagination">Pagination</a></li><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li><li><a class="toc-href" href="#filtering" title="Filtering">Filtering</a></li></ul></li><li><a class="toc-href" href="#flask" title="Flask">Flask</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> is a
+software architectural style that defines a set of constraints to be used for
+creating web services.</p>
+<p>Most explanations of REST give too many details, such as <a href="https://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints">the architectural constraints</a>. To get a glimpse of how REST works, this is not necessary. In this article, I try to focus on the bare minimum.</p>
+<h2 id="http-methods">HTTP Methods</h2>
+<p><a href="https://developer.mozilla.org/de/docs/Web/HTTP/Methods">HTTP methods</a> were
+designed in 1991, whereas REST was designed in 2000. The following are
+explanations of HTTP methods in the REST context. The HTTP methods in REST map
+to CRUD, which is from 1983:</p>
+<table class="table">
+<thead>
+<tr>
+<th>HTTP</th>
+<th>CRUD</th>
+<th>SQL</th>
+<th>REST meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td rowspan="2">CREATE</td>
+<td rowspan="2">INSERT</td>
+<td>Create a new resource, but the server decides on the URI / ID.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Like POST, but the client decides on the URI / ID.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>READ</td>
+<td>SELECT</td>
+<td>Retrieve one or multiple resources. This MUST NOT change a resource!</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td rowspan="2">UPDATE</td>
+<td rowspan="2">UPDATE</td>
+<td>Replace a resource.</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Change parts of a resource.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>DELETE</td>
+<td>DELETE</td>
+<td>Delete one or multiple resources.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="overview">Overview</h2>
+<table class="table">
+<tr>
+<th>HTTP method</th>
+<th>Response Status Code</th>
+<th>Response Body (JSON or Empty)</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td rowspan="2">GET</td>
+<td>200</td>
+<td>The resource</td>
+<td>Found resource</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Empty or error description</td>
+<td>Resource not found</td>
+</tr>
+<tr>
+<td rowspan="3">POST</td>
+<td>201</td>
+<td>The created resource</td>
+<td>Resource created</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Empty or error description</td>
+<td>Invalid resource</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Empty or error description</td>
+<td>Resource already exists</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>201</td>
+<td>Empty? Description? Resource?</td>
+<td>Update resource</td>
+</tr>
+<tr>
+<td rowspan="2">PATCH</td>
+<td>200</td>
+<td>Empty? Description? Resource?</td>
+<td>Update resource</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Empty or error description</td>
+<td>Resource not found</td>
+</tr>
+<tr>
+<td rowspan="2">DELETE</td>
+<td>200</td>
+<td>Empty</td>
+<td>Resource deleted</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Empty</td>
+<td>Resource not found</td>
+</tr>
+</table>
+<h2 id="naming-conventions">Naming Conventions</h2>
+<table class="table">
+<thead>
+<tr>
+<th>#</th>
+<th>Rule</th>
+<th style="background-color: #ffc7c7;">Wrong</th>
+<th style="background-color: #c7ffc7;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Only Nouns</td>
+<td style="background-color: #ffc7c7;">getLessons</td>
+<td style="background-color: #c7ffc7;">lessons</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Only plural forms</td>
+<td style="background-color: #ffc7c7;">lesson</td>
+<td style="background-color: #c7ffc7;">lessons</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Use hyphens, not underscores</td>
+<td style="background-color: #ffc7c7;">room_number</td>
+<td style="background-color: #c7ffc7;">room-number</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Only lower-case letters</td>
+<td style="background-color: #ffc7c7;">Lessons</td>
+<td style="background-color: #c7ffc7;">lessons</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<p>Let's say we have an educational website <code>educate.me</code>. It has lessons:</p>
+<div class="highlight"><pre><span></span><code><span class="n">lesson</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"lesson_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"author_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"blob"</span><span class="p">,</span>
+    <span class="s2">"expected_age"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"creation_date"</span><span class="p">:</span> <span class="s2">"datetime"</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>You need a possibility to:</p>
+<ul>
+<li>list all existing lessons</li>
+<li>get a single lesson</li>
+<li>add a new lesson</li>
+<li>delete a lesson</li>
+</ul>
+<p>So your service then has the following URLs:</p>
+<ul>
+<li><code>GET educate.me/lessons</code>: List all lessons</li>
+<li><code>GET educate.me/lessons/id/42</code>: List the lesson with ID 42.</li>
+<li><code>POST educate.me/lessons</code>: Add a new lesson</li>
+<li><code>DELETE educate.me/lessons/id/42</code>: Delete the lesson with ID 42.</li>
+</ul>
+<h2 id="pimp-get">Pimp GET</h2>
+<p>You should provide filtering, sorting, field selection and pagination for
+collections.</p>
+<h3 id="pagination">Pagination</h3>
+<p>In the example above, <code>GET educate.me/lessons</code> could return
+something arbitrarily big. Instead, it should be limited to something reasonable
+like 20, 100 or 500 elements. Then the call gets a limit and an offset:
+<code>GET educate.me/lessons?offset=40&amp;limit=20</code>.</p>
+<p>With pagination, the order becomes important. You could sort by default by ID,
+but maybe you want to offer some sorting options.</p>
+<h3 id="sorting">Sorting</h3>
+<p>You can allow sorting options with the syntax
+<code>GET educate.me/lessons?sort=-creation_date,+lesson_id</code>.</p>
+<h3 id="filtering">Filtering</h3>
+<p>Most of the time, clients are not interested in all of the data. They are
+interested in a part of it.</p>
+<p>Some filtering options you might want to consider in the example above:</p>
+<ul>
+<li><code>?content=*euclid*</code></li>
+<li><code>?creation_date&lt;=2019-05-30</code></li>
+<li><code>?author_id=42&amp;content=*euclid*</code></li>
+</ul>
+<h2 id="flask">Flask</h2>
+<p>You can build REST APIs with <a href="https://flask-restx.readthedocs.io/en/latest/">Flask-RESTX</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Simple Flask/Swagger/REST-API example."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask_restx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">Api</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">"/doc"</span><span class="p">)</span>
+
+
+<span class="nd">@api</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/lessons"</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VersionAPI</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_all_lessons</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">add_posted_lesson</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://restfulapi.net/resource-naming/">REST Resource Naming Guide</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#the-web-ref">The Web</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

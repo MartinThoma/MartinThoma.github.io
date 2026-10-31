@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Bash is very useful when you want to know exactly what your scripts are doing. Unfortunately, it&#39;s almost always white text on a black background, without any emphasis. No bold text, nothing..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Command Line, Bash, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/colorize-your-scripts-output/" />
+<meta property="og:title" content="Colorize Your Script Output"/>
+<meta property="og:url" content="https://martin-thoma.com/colorize-your-scripts-output/" />
+<meta property="og:description" content="Bash is very useful when you want to know exactly what your scripts are doing. Unfortunately, it&#39;s almost always white text on a black background, without any emphasis. No bold text, nothing underlined, and no colors are used. You can change this standard behavior by adding color to your output …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-09-30T08:59:59+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
+
+        <title>Colorize Your Script Output  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../colorize-your-scripts-output/">Colorize Your Script Output</a></h1>
+    <p class="meta">
+<time datetime="2011-09-30T08:59:59+02:00">Sep 30, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#bash-ref">Bash
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#command-line-ref">Command Line
+            <span>12</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#a-quick-example" title="A Quick Example">A Quick Example</a></li><li><a class="toc-href" href="#the-sgr-attribute" title="The sgr Attribute">The sgr Attribute</a></li><li><a class="toc-href" href="#the-setaf-attribute" title="The setaf Attribute">The setaf Attribute</a></li><li><a class="toc-href" href="#miscellaneous-commands" title="Miscellaneous Commands">Miscellaneous Commands</a></li><li><a class="toc-href" href="#advanced-example" title="Advanced Example">Advanced Example</a></li><li><a class="toc-href" href="#colorize-cc-output" title="Colorize C/C++ Output">Colorize C/C++ Output</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Bash is very useful when you want to know exactly what your scripts are doing.
+Unfortunately, it's almost always white text on a black background, without any
+emphasis. No bold text, nothing underlined, and no colors are used.</p>
+<p>You can change this standard behavior by adding color to your output.</p>
+<p>Here's how you do it:</p>
+<p>The <code>tput</code> utility can initialize a terminal or query the terminfo database. If
+you want to know more about it, you can check the <a href="http://linux.die.net/man/1/tput">tput manual page</a>.</p>
+<h2 id="a-quick-example">A Quick Example</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Text color variables</span>
+<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="w">    </span><span class="c1"># Red</span>
+<span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>sgr0<span class="k">)</span><span class="w">     </span><span class="c1"># Reset your text</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
+</code></pre></div>
+<p>Simply copy this example line by line and you'll see the expected result.</p>
+<p>A shorter way would be:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
+</code></pre></div>
+<h2 id="the-sgr-attribute">The sgr Attribute</h2>
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="c1"># turn off standout; turn on underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># turn off standout; turn off underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="c1"># turn on standout; turn on underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># turn on standout; turn off underline</span>
+tput<span class="w"> </span>sgr0<span class="w">        </span><span class="c1"># short for sgr 0 0</span>
+</code></pre></div>
+<h2 id="the-setaf-attribute">The setaf Attribute</h2>
+<div class="highlight"><pre><span></span><code>setaf<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># Red</span>
+setaf<span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c1"># Green</span>
+setaf<span class="w"> </span><span class="m">3</span><span class="w">   </span><span class="c1"># Yellow</span>
+setaf<span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1"># Blue</span>
+setaf<span class="w"> </span><span class="m">5</span><span class="w">   </span><span class="c1"># Purple</span>
+setaf<span class="w"> </span><span class="m">6</span><span class="w">   </span><span class="c1"># Cyan</span>
+setaf<span class="w"> </span><span class="m">7</span><span class="w">   </span><span class="c1"># Gray</span>
+</code></pre></div>
+<h2 id="miscellaneous-commands">Miscellaneous Commands</h2>
+<p>Make your text bold:</p>
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>bold
+</code></pre></div>
+<p>Reset your style:</p>
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr0
+</code></pre></div>
+<h2 id="advanced-example">Advanced Example</h2>
+<p>Imagine you have a script that generates a lot of output. All messages are important, but some are more important than others. You definitely want to see all "[ERROR]" output, so you want to apply red and bold formatting to make it stand out.</p>
+<p>Here's how to make "[ERROR]" red and bold:</p>
+<div class="highlight"><pre><span></span><code><span class="sb">`</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="sb">``</span>tput<span class="w"> </span>bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput<span class="w"> </span>sgr0<span class="sb">`</span>
+</code></pre></div>
+<p>You can test it with:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
+</code></pre></div>
+<p>I've created a little Python script called <code>output.py</code> for testing purposes. It simply outputs a long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
+<p>The next task is to replace the [ERROR] messages. The tool of choice is <code>sed</code>. See the <a href="http://linux.die.net/man/1/sed">sed manual page</a> for more information. The basic usage is:</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">'s/search/replace/'</span>
+</code></pre></div>
+<p>So we pipe the output to sed:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
+</code></pre></div>
+<p>Now let's put it all together:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
+</code></pre></div>
+<p>Doesn't work? Let's analyze it. Instead of executing <code>tput setaf 1</code>, it gets
+printed directly. This means something we did prevented bash from executing our
+command. If you look carefully at the command, you might notice that I used
+single quotes (<code>'</code>) instead of double quotes (<code>"</code>). If you change this,
+everything works fine:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
+</code></pre></div>
+<h2 id="colorize-cc-output">Colorize C/C++ Output</h2>
+<p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[30m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[31m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"red"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[32m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"lime"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[33m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"yellow"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[35m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"gray"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[36m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[37m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"light gray"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[38m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[39m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[41m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"red background"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[1;34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"bold and blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[4m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"underlined"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[9m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"strike"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>\033</code> is the ASCII 27 ESC character. It must be followed by <code>[</code>. After that,
+you can write one or two numbers separated by <code>;</code>. Then you must write <code>m</code>. You
+can return to standard output with <code>\033[0m</code>.</p>
+<p>The numbers 30&ndash;37 change the color, and 4 provides a single underline.</p>
+<p>I believe these will also work for Java, but I haven't tested it.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

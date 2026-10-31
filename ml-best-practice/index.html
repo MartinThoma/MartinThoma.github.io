@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I did a couple of machine learning projects so far and there are some patterns in the projects which turned out to be good ideas. In this post, I would like to share those patterns with you. Know..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, AI, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/ml-best-practice/" />
+<meta property="og:title" content="Best practice for Machine Learning Projects"/>
+<meta property="og:url" content="https://martin-thoma.com/ml-best-practice/" />
+<meta property="og:description" content="I did a couple of machine learning projects so far and there are some patterns in the projects which turned out to be good ideas. In this post, I would like to share those patterns with you. Know your problem For me, a machine learning project really starts when you …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-11-15T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/ml.png" />
+
+        <title>Best practice for Machine Learning Projects  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../ml-best-practice/">Best practice for Machine Learning Projects</a></h1>
+    <p class="meta">
+<time datetime="2017-11-15T20:00:00+01:00">Nov 15, 2017</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#know-your-problem" title="Know your problem">Know your problem</a></li><li><a class="toc-href" href="#eda" title="EDA">EDA</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#configuration-files" title="Configuration files">Configuration files</a></li><li><a class="toc-href" href="#starting-small" title="Starting small">Starting small</a></li><li><a class="toc-href" href="#logging-to-files" title="Logging to files">Logging to files</a></li><li><a class="toc-href" href="#create-a-trivial-solution" title="Create a Trivial Solution">Create a Trivial Solution</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#make-it-reproducible" title="Make it reproducible">Make it reproducible</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I did a couple of machine learning projects so far and there are some patterns
+in the projects which turned out to be good ideas. In this post, I would like
+to share those patterns with you.</p>
+<h2 id="know-your-problem">Know your problem</h2>
+<p>For me, a machine learning project really starts when you have a well-defined
+problem, data, and a metric in which you want to measure your model's goodness.
+Just like Tom Mitchell defined Machine Learning:</p>
+<blockquote>
+<p>A computer program is said to learn from experience E with respect to some
+class of tasks T and performance measure P if its performance at tasks in T,
+as measured by P, improves with experience E.</p>
+</blockquote>
+<h2 id="eda">EDA</h2>
+<p>Exploratory Data Analysis should be the very first step. Know what your data
+looks like. Which errors can be expected to be in the data? How is it
+distributed?</p>
+<p>For CSV files, I wrote the <a href="../eda/">Exploratory Data Analysis</a>
+article. Usually, this starts with having a look at examples and making some
+graphs. EDA depends on what kind of data you have and which problem you want to
+solve. I will not go into detail in this post.</p>
+<h2 id="project-structure">Project structure</h2>
+<div class="highlight"><pre><span></span><code>.
+&boxvr;&boxh;&boxh; artifacts
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; train : Logfiles, trained models
+&boxv;&nbsp;&nbsp; &boxur;&boxh;&boxh; test  : Logfiles
+&boxvr;&boxh;&boxh; datasets : Data loading scripts
+&boxvr;&boxh;&boxh; experiments : Configuration files
+&boxvr;&boxh;&boxh; models : Scripts defining how the model looks like
+&boxvr;&boxh;&boxh; optimizers : Scripts defining the optimizeres
+&boxur;&boxh;&boxh; train : Script to run the training
+</code></pre></div>
+<p>The important part here is that you have an <code>experiments/</code> folder which
+contains configuration files. So your scripts should not contain any
+hyperparameters. All hyperparameters, including the complete model, should be
+set in the configuration.</p>
+<h2 id="configuration-files">Configuration files</h2>
+<p>An example from my master's thesis is <code>cifar10_opt.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dataset</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/cifar10_keras.py</span>
+<span class="nt">model</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../models/optimized.py</span>
+<span class="nt">optimizer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../optimizers/adam_keras.py</span>
+<span class="w">  </span><span class="nt">initial_lr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span>
+<span class="nt">train</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../train/train_keras.py</span>
+<span class="w">  </span><span class="nt">artifacts_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../artifacts/cifar10_opt/</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">data_augmentation</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">samplewise_center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">samplewise_std_normalization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">rotation_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">width_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">    </span><span class="nt">height_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">    </span><span class="nt">horizontal_flip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">vertical_flip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">zoom_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">shear_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">channel_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">featurewise_center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">zca_whitening</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">evaluate</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">augmentation_factor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="w">  </span><span class="nt">data_augmentation</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">samplewise_center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">samplewise_std_normalization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">rotation_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">width_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.15</span>
+<span class="w">    </span><span class="nt">height_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.15</span>
+<span class="w">    </span><span class="nt">horizontal_flip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">vertical_flip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">zoom_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">shear_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">channel_shift_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">featurewise_center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">zca_whitening</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+</code></pre></div>
+<p>I load it like this:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Run an experiment."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Example."""</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">)</span>
+
+    <span class="c1"># Print the configuration - just to make sure that you loaded what you</span>
+    <span class="c1"># wanted to load</span>
+    <span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+
+    <span class="c1"># Here is an example how you load modules of which you put the path in the</span>
+    <span class="c1"># configuration. Use this for configuring the model you use, for dataset</span>
+    <span class="c1"># loading, ...</span>
+    <span class="n">dpath</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"dataset"</span><span class="p">][</span><span class="s2">"script_path"</span><span class="p">]</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">dpath</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"dataset"</span><span class="p">][</span><span class="s2">"script_path"</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load a YAML configuration file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    yaml_filepath : str</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cfg : dict</span>
+<span class="sd">    """</span>
+    <span class="c1"># Read YAML experiment definition file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">make_paths_absolute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">),</span> <span class="n">cfg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cfg</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Make all values for keys ending with `_path` absolute to dir_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dir_ : str</span>
+<span class="sd">    cfg : dict</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cfg : dict</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cfg</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"_path"</span><span class="p">):</span>
+            <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> does not exist."</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">cfg</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get parser object."""</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-f"</span><span class="p">,</span>
+        <span class="s2">"--file"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"experiment definition file"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="starting-small">Starting small</h2>
+<p>Most machine learning tasks have a lot of computation. I'm speaking of many
+hours for the "real" task you want to solve. You will not be able to do so
+directly. You will make bugs. Maybe simple typos, maybe logical bugs, ...</p>
+<p>Create a small toy example where you know what the output should look like. Just
+to reduce the number of hours you waste by waiting for the script to finish /
+break.</p>
+<h2 id="logging-to-files">Logging to files</h2>
+<p>Even if your script is working, you can make other mistakes:</p>
+<ul>
+<li>You close the terminal accidentally.</li>
+<li>Your computer freezes.</li>
+<li>Your job is cancelled from the cluster by the admin, just a couple of minutes
+  before it would finish.</li>
+<li>Your model at some point diverges.</li>
+</ul>
+<p>For this reason, you should make sure that you log results to a file when you
+have really long running scripts. Store those files in the <code>artifacts/</code>
+directory.</p>
+<h2 id="create-a-trivial-solution">Create a Trivial Solution</h2>
+<p>Most machine learning projects have trivial, simple and advanced solutions. For
+example, instead of having a machine learning based approach you can usually
+craft algorithms the traditional way. You should know how good those trivial
+solutions are, because:</p>
+<ul>
+<li><strong>Baseline</strong>: They give you a baseline. A score with which you start and from
+  which you can evaluate if your more complex approaches are worth it.</li>
+<li><strong>Little effort</strong>: They are usually comparatively fast to implement. If you
+  see that the trivial solution is already very good, you might be able to stop
+  faster.</li>
+<li><strong>Robustness</strong>: They are robust against errors in the data. The trivial ones
+  because they don't use the data, the simple ones because they are usually too
+  restricted to overfit.</li>
+</ul>
+<p>Here are some examples:</p>
+<table class="table">
+<tr>
+<th>Problem</th>
+<th>Trivial</th>
+<th>Simple</th>
+<th>Advanced</th>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Rules, Predict the most common class</td>
+<td>Decision Tree</td>
+<td>Neural Networks, SVMs, Gradient Boosting</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>Rules, Predict the average</td>
+<td>Linear Regression</td>
+<td>Neural Networks, Gaussian Mixture Models, ...</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td>Rules</td>
+<td>k-Means</td>
+<td>DBSCAN, OPTICS, SOMs</td>
+</tr>
+<tr>
+<td>Recommendations</td>
+<td>Rules</td>
+<td></td>
+<td>RBMs, ...</td>
+</tr>
+<tr>
+<td><abbr title="Reinforcement Learning">RL</abbr></td>
+<td>Rules</td>
+<td></td>
+<td>DQN, DDQN, ... (see <a href="../rl-agents/">post</a>)</td>
+</tr>
+</table>
+<h2 id="evaluation">Evaluation</h2>
+<p>Make sure that you have as few scoring numbers as possible. Sequences / example
+output is not so easy to compare. You should be able to tell if you improved.
+Ideally, it would be a single normalized score which also has a meaning and
+a pre-defined threshold, e.g.</p>
+<ul>
+<li>Accuracy: Is in [0, 1] and you can probably say in advance how high you have
+  to get to be useful / when you can consider improvements marginal.</li>
+<li>Precision, Recall, <abbr title="Mean Squared Error">MSE</abbr></li>
+<li>Cross-Entropy</li>
+<li>...</li>
+</ul>
+<h2 id="make-it-reproducible">Make it reproducible</h2>
+<p>Set seeds for all random number generators. And log on which hardware / with
+which software version you executed your stuff.</p>
+<p>The reason for this is simply that you can prove you actually got the results
+you have. Or at least point to a reason why you can't get the results again.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

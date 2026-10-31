@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Getting reproducible results is important because of trust: Why should somebody else trust you, if you can&#39;t get the same results repeatedly? Why do you trust your results in the first place?..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, Research, AI, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/ml-reproducibility/" />
+<meta property="og:title" content="Reproducibility in Machine Learning"/>
+<meta property="og:url" content="https://martin-thoma.com/ml-reproducibility/" />
+<meta property="og:description" content="Getting reproducible results is important because of trust: Why should somebody else trust you, if you can&#39;t get the same results repeatedly? Why do you trust your results in the first place? People make errors. Making sure you can repeat what you did before eliminates possibilities for human error. Here …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-12-13T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/ml.png" />
+
+        <title>Reproducibility in Machine Learning  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../ml-reproducibility/">Reproducibility in Machine Learning</a></h1>
+    <p class="meta">
+<time datetime="2017-12-13T20:00:00+01:00">Dez 13, 2017</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+        <li><a href="../tags/#research-ref">Research
+            <span>3</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Getting reproducible results is important because of trust: Why should somebody
+else trust you, if you can't get the same results repeatedly? Why do you trust
+your results in the first place? People make errors. Making sure you can repeat
+what you did before eliminates possibilities for human error.</p>
+<p>Here are possible reasons why the results of machine learning projects are not
+always the same. They are roughly ordered from most likely/easiest to fix to
+most unlikely/hardest to fix. I also try to give a solution after the problem:</p>
+<ol>
+<li><strong>Human error</strong> - you misread a number / made a typo when you copied a result from one shell to the paper: Logging. Create a <code>2017-12-31-23-54-experiment-result.log</code> for every single experiment you run. Not manually,
+ but the experiment creates it. Yes, with the time stamp in the name, so you find it again easily. All following should be logged to that file for each single experiment.</li>
+<li><strong>Code</strong> changed: Version control (e.g. git)</li>
+<li><strong>Configuration file</strong> changed: Version control</li>
+<li><strong>Pseudorandom number</strong> changed: set seed for random / tensorflow / numpy (yes, you might have to set more than one seed)</li>
+<li><strong>Data loading</strong> differently / in a different order: Version control + seed (is the preprocessing really the same?)</li>
+<li><strong>Environment variables</strong> changed: Docker</li>
+<li><strong>Software (version)</strong> changed: Docker</li>
+<li><strong>Driver (version)</strong> changed: Logging</li>
+<li><strong>Hardware</strong> changed: Logging</li>
+<li><strong>Concurrency</strong>: The fact that <a href="https://en.wikipedia.org/wiki/Associative_property#Nonassociativity_of_floating_point_calculation">floating point multiplication is not associative</a> and different cores on a GPU might finish computations at different times</li>
+<li><strong>Hardware has errors</strong></li>
+</ol>
+<p>In any case, running the "same" thing multiple times might help to get a gut
+feeling for how different things are.</p>
+<h2 id="writing-a-paper">Writing a paper</h2>
+<p>If you write a paper, I think the following would be the best practice for reproducibility:</p>
+<ol>
+<li>Add a link to a <strong>repository</strong> (e.g. git) where all code is</li>
+<li>The code has to be <strong>containerized</strong> (e.g. Docker)</li>
+<li>If there is Python code and a <code>requirements.txt</code> you have to give the <strong>exact software version</strong>, not something like <code>tensorflow&gt;=1.0.0</code> but <code>tensorflow==1.2.3</code></li>
+<li>Add the <strong>git hash</strong> of the version you used for the experiments. It might be different hashes if you changed something in between.</li>
+<li>Always log information about <strong>drivers</strong> (e.g. <a href="https://stackoverflow.com/a/47781255/562769">like this for nVidia</a>) and <strong>hardware</strong>. Add this to the appendix of your paper. So in case of later changes one can at least check if there was a change which might cause numbers being different.</li>
+</ol>
+<p>For logging the versions, you might want to use something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># core modules</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_logstring</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Get important environment information that might influence experiments.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logstring : str</span>
+<span class="sd">    """</span>
+    <span class="n">logstring</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/cpuinfo"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">cpuinfo</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cpuinfo</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"model name"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"CPU: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+            <span class="k">break</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/driver/nvidia/version"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"GPU driver: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"VGA: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">find_vga</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">logstring</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_vga</span><span class="p">():</span>
+    <span class="n">vga</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+        <span class="s2">"lspci | grep -i 'vga\|3d\|2d'"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">"/bin/bash"</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">vga</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_logstring</span><span class="p">())</span>
+</code></pre></div>
+<p>which gives something like</p>
+<div class="highlight"><pre><span></span><code>CPU: model name    : Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
+GPU driver: NVRM version: NVIDIA UNIX x86_64 Kernel Module  384.90  Tue Sep 19 19:17:35 PDT 2017
+GCC version:  gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5)
+VGA: 00:02.0 VGA compatible controller: Intel Corporation Skylake Integrated Graphics (rev 06)
+02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+    </body>
+</html>

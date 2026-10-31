@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck \((a \cup (ab(b)^\text{*}ba))^\text{*}\) ist folgender: \(Q = \{S, q_1, q_2\}\) \(\Sigma = \{a, b\}\) \(\delta = \text{siehe..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Computer Science, Abstract Machine, Theoretical Computer Science, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" />
+<meta property="og:title" content="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem"/>
+<meta property="og:url" content="https://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" />
+<meta property="og:description" content="Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck \((a \cup (ab(b)^\text{*}ba))^\text{*}\) ist folgender: \(Q = \{S, q_1, q_2\}\) \(\Sigma = \{a, b\}\) \(\delta = \text{siehe Grafik}\) \(F = \{S\}\) \(NEA = \left( Q, \Sigma, \delta, S, F \right)\) Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-29T10:21:43+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/10/deterministic-finite-state-machine-thumb.png" />
+
+        <title>Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem</a></h1>
+    <p class="meta">
+<time datetime="2011-10-29T10:21:43+02:00">Okt 29, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#abstract-machine-ref">Abstract Machine
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#theoretical-computer-science-ref">Theoretical Computer Science
+            <span>10</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck <span class="math">\((a \cup (ab(b)^\text{*}ba))^\text{*}\)</span> ist folgender:
+<span class="math">\(Q = \{S, q_1, q_2\}\)</span>
+<span class="math">\(\Sigma = \{a, b\}\)</span>
+<span class="math">\(\delta = \text{siehe Grafik}\)</span>
+<span class="math">\(F = \{S\}\)</span>
+<span class="math">\(NEA = \left( Q, \Sigma, \delta, S, F \right)\)</span></p>
+<figure>
+<a href="../images/2011/10/myFiniteStateMachine1.png"><img alt="Nondeterministic finite-state machine" height="119" src="../images/2011/10/myFiniteStateMachine1.png" width="365"/></a>
+<figcaption>Nondeterministic finite-state machine</figcaption>
+</figure>
+<p>Will man daraus nun den endlichen Automaten konstruieren, l&auml;uft das im Prinzip &uuml;ber eine Potenzmengenkonstruktion.</p>
+<p>Zuerst definieren wir:
+<span class="math">\(\tilde{S} = E(S) = \{S\}\)</span></p>
+<p>Dann erstellen wir folgende Tabelle:</p>
+<table style="border:1px solid #000;">
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
+</table>
+<p>Dann &uuml;berpr&uuml;ft man, welche Zust&auml;nde erreicht werden k&ouml;nnen, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:</p>
+<table style="border:1px solid #000;">
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+<th style="border:1px solid #000;">{q1, S}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a</th>
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
+</table>
+<p>Nun geht man also jede Spalte, von links nach rechts durch. F&uuml;r jede Spalte wird jede Zeile, von oben nach unten, &uuml;berpr&uuml;ft. Mit jeder &Uuml;berpr&uuml;fung kann eine neue Zustandsmenge als Spalte hinzukommen.
+Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.</p>
+<p>Am Ende schaut die Tabelle wie folgt aus:</p>
+<table style="border:1px solid #000;">
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+<th style="border:1px solid #000;">{q1, S}</th>
+<th style="border:1px solid #000;">$\emptyset$</th>
+<th style="border:1px solid #000;">{q2}</th>
+<th style="border:1px solid #000;">{q1, q2}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a</th>
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{S}</td>
+</tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{q2}</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{q1, q2}</td>
+<td style="border:1px solid #000;">{q1, q2}</td>
+</tr>
+</table>
+<p><span class="math">\(\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}\)</span>
+<span class="math">\(\tilde{F} = \{\{S\}, \{q_1, S\}\}\)</span></p>
+<p>Die &Uuml;bergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
+<figure>
+<a href="../images/2011/10/deterministic-fsm.png"><img alt="Deterministic Finite State machine (create from a non-deterministic version)" height="196" loading="lazy" src="../images/2011/10/deterministic-fsm.png" width="390"/></a>
+<figcaption>Deterministic Finite State machine (create from a non-deterministic version)</figcaption>
+</figure>
+<h2 id="material">Material</h2>
+<p>Die .gv sieht so aus:</p>
+<div class="highlight"><pre><span></span><code>digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle, label="{S}"] S;
+    node [shape = doublecircle, label="{q1, S}"] q1S;
+
+    node [shape = circle, label="{q2}"] q2;
+    node [shape = circle, label="{q1, q2}"] q1q2;
+    node [shape = circle, label="{}"] T;
+
+    node [shape = point ]; qi
+    qi -&gt; S;
+
+    S   -&gt; q1S   [ label = "a" ];
+    S   -&gt; T     [ label = "b" ];
+
+    q1S -&gt; q1S   [ label = "a"];
+    q1S -&gt; q2    [ label = "b"];
+
+    q2  -&gt; T     [ label = "a"];
+    q2  -&gt; q1q2  [ label = "b"];
+
+    q1q2 -&gt; S    [ label = "a"];
+    q1q2 -&gt; q1q2 [ label = "b"];
+
+    T -&gt; T       [label = "a, b"];
+}
+</code></pre></div>
+<p>Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:</p>
+<div class="highlight"><pre><span></span><code>dot<span class="w"> </span>-Tpng<span class="w"> </span>graph.gv<span class="w"> </span>-o<span class="w"> </span>deterministic-fsm.png
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+    </body>
+</html>

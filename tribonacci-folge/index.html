@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Folgende Aufgabe gab es (sinngemäß) für das Modul „Programmieren“ im zweiten Übungsblatt 2012: Sei \((a_n)_{n \in \mathbb{N}}\) eine Folge und definiert durch: \(a_n := \begin{cases} 1 &amp;\text{,..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Programming, Java, Python, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/tribonacci-folge/" />
+<meta property="og:title" content="Tribonacci-Folge"/>
+<meta property="og:url" content="https://martin-thoma.com/tribonacci-folge/" />
+<meta property="og:description" content="Folgende Aufgabe gab es (sinngemäß) für das Modul „Programmieren“ im zweiten Übungsblatt 2012: Sei \((a_n)_{n \in \mathbb{N}}\) eine Folge und definiert durch: \(a_n := \begin{cases} 1 &amp;\text{, falls } n \in \{0,1,2\}\\ a_{n-1} + a_{n-2} + a_{n-3} &amp; \text{, falls } n \geq 3 \end{cases}\). Ich …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-11-19T20:52:00+01:00" />
+
+        <title>Tribonacci-Folge  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../tribonacci-folge/">Tribonacci-Folge</a></h1>
+    <p class="meta">
+<time datetime="2012-11-19T20:52:00+01:00">Nov 19, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#java-ref">Java
+            <span>40</span>
+</a></li>
+        <li><a href="../tags/#programming-ref">Programming
+            <span>76</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#handische-losung" title="H&auml;ndische L&ouml;sung">H&auml;ndische L&ouml;sung</a></li><li><a class="toc-href" href="#rekursive-losung" title="Rekursive L&ouml;sung">Rekursive L&ouml;sung</a></li><li><a class="toc-href" href="#bottom-up-ansatz" title="Bottom-Up Ansatz">Bottom-Up Ansatz</a></li><li><a class="toc-href" href="#fill-it" title="Fill it">Fill it</a></li><li><a class="toc-href" href="#wertetabelle" title="Wertetabelle">Wertetabelle</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Folgende Aufgabe gab es (sinngem&auml;&szlig;) f&uuml;r das Modul &bdquo;Programmieren&ldquo; im zweiten &Uuml;bungsblatt 2012:</p>
+<p>Sei <span class="math">\((a_n)_{n \in \mathbb{N}}\)</span> eine Folge und definiert durch:</p>
+<p><span class="math">\(a_n := \begin{cases}
+1 &amp;\text{, falls } n \in \{0,1,2\}\\
+a_{n-1} + a_{n-2} + a_{n-3} &amp; \text{, falls } n \geq 3
+\end{cases}\)</span>.</p>
+<p>Ich werde im Folgenden mal kurz m&ouml;gliche L&ouml;sungen in Python (und eine in Java) vorstellen. Python hat bei solchen Aufgaben den Vorteil, dass es viel kompakter ist und Ganzzahlen beliebig gro&szlig; werden k&ouml;nnen.</p>
+<h2 id="handische-losung">H&auml;ndische L&ouml;sung</h2>
+<p>Bevor man irgendwas programmiert, sollte man sicherstellen, dass man es testen kann. Was w&auml;ren also die ersten paar Folgenglieder?</p>
+<p><span class="math">\(a_0 = a_1 = a_2 = 1, a_3 = 3, a_4 = 5, a_5 = 9, a_6 = 17, a_7 = 31, a_8 = 57\)</span></p>
+<h2 id="rekursive-losung">Rekursive L&ouml;sung</h2>
+<p>Solche Aufgaben lassen sich h&auml;ufig sehr einfach rekursiv l&ouml;sen:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>Allerdings hat diese rekursive L&ouml;sung den riesigen Nachteil, dass viele Berechnungen redundant sind.
+Angenommen, wir wollen <code>tribonacci(5)</code> berechnen. Dann l&auml;uft folgendes ab:</p>
+<ol>
+<li>Aufruf <code>tribonacci(5)</code>
+<ol>
+<li>Aufruf <code>tribonacci(4)</code>
+<ol>
+<li>Aufruf <code>tribonacci(3)</code>
+<ol>
+<li>Aufruf <code>tribonacci(2)</code>
+<li>Aufruf <code>tribonacci(1)</code>
+<li>Aufruf <code>tribonacci(0)</code>
+</li></li></li></ol>
+</li>
+<li>Aufruf <code>tribonacci(2)</code></li>
+<li>Aufruf <code>tribonacci(1)</code></li>
+</ol>
+</li>
+<li>Aufruf <code>tribonacci(3)</code>
+<ol>
+<li>Aufruf <code>tribonacci(2)</code>
+<li>Aufruf <code>tribonacci(1)</code>
+<li>Aufruf <code>tribonacci(0)</code>
+</li></li></li></ol>
+</li>
+<li>Aufruf <code>tribonacci(2)</code>
+</li></ol>
+</li>
+</ol>
+<p>Man sieht deutlich, dass z.B. <code>tribonacci(3)</code> mehrfach berechnet werden muss.</p>
+<p>Wie kann man so was verbessern?</p>
+<h2 id="bottom-up-ansatz">Bottom-Up Ansatz</h2>
+<p>Wir ben&ouml;tigen f&uuml;r ein neues Folgenglied immer nur das vorhergehende. Das kann dann so aussehen:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tribonacciBottomUp</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">secondLast</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">thirdLast</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">last</span> <span class="o">+</span> <span class="n">secondLast</span> <span class="o">+</span> <span class="n">thirdLast</span>
+        <span class="n">thirdLast</span> <span class="o">=</span> <span class="n">secondLast</span>
+        <span class="n">secondLast</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">new</span>
+    <span class="k">return</span> <span class="n">last</span>
+</code></pre></div>
+<h2 id="fill-it">Fill it</h2>
+<p>Eine weitere M&ouml;glichkeit w&auml;re die Schw&auml;che des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.</p>
+<h2 id="wertetabelle">Wertetabelle</h2>
+<table>
+<tr><th>i</th><th>a_i</th></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td></tr>
+<tr><td>2</td><td>1</td></tr>
+<tr><td>3</td><td>3</td></tr>
+<tr><td>4</td><td>5</td></tr>
+<tr><td>5</td><td>9</td></tr>
+<tr><td>6</td><td>17</td></tr>
+<tr><td>7</td><td>31</td></tr>
+<tr><td>8</td><td>57</td></tr>
+<tr><td>9</td><td>105</td></tr>
+<tr><td>10</td><td>193</td></tr>
+<tr><td>11</td><td>355</td></tr>
+<tr><td>12</td><td>653</td></tr>
+<tr><td>13</td><td>1201</td></tr>
+<tr><td>14</td><td>2209</td></tr>
+<tr><td>15</td><td>4063</td></tr>
+<tr><td>16</td><td>7473</td></tr>
+<tr><td>17</td><td>13745</td></tr>
+<tr><td>18</td><td>25281</td></tr>
+<tr><td>19</td><td>46499</td></tr>
+<tr><td>20</td><td>85525</td></tr>
+<tr><td>21</td><td>157305</td></tr>
+<tr><td>22</td><td>289329</td></tr>
+<tr><td>23</td><td>532159</td></tr>
+<tr><td>24</td><td>978793</td></tr>
+<tr><td>25</td><td>1800281</td></tr>
+<tr><td>26</td><td>3311233</td></tr>
+<tr><td>27</td><td>6090307</td></tr>
+<tr><td>28</td><td>11201821</td></tr>
+<tr><td>29</td><td>20603361</td></tr>
+<tr><td>30</td><td>37895489</td></tr>
+<tr><td>31</td><td>69700671</td></tr>
+<tr><td>32</td><td>128199521</td></tr>
+<tr><td>33</td><td>235795681</td></tr>
+<tr><td>34</td><td>433695873</td></tr>
+<tr><td>35</td><td>797691075</td></tr>
+<tr><td>36</td><td>1467182629</td></tr>
+<tr><td>37</td><td>2698569577</td></tr>
+<tr><td>38</td><td>4963443281</td></tr>
+<tr><td>39</td><td>9129195487</td></tr>
+<tr><td>40</td><td>16791208345</td></tr>
+</table>
+<h2 id="java">Java</h2>
+<p>Java-Nutzer m&uuml;ssen sich dar&uuml;ber im klaren sein, dass alle Elemente, die gr&ouml;&szlig;er als 36 sind, die <code>int</code>-Grenzen sprengen. Eine L&ouml;sung f&uuml;r das &Uuml;bungsblatt k&ouml;nnte ungef&auml;hr so aussehen:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/** This class calculates numbers of the Tribonacci sequence. */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tribonacci</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Utility classes should not have a public or default</span>
+<span class="cm">     * constructor.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Tribonacci</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Calculate the n'th Element of the Tribonacci sequence (a_n).</span>
+<span class="cm">     * The sequence is defined as:</span>
+<span class="cm">     *   a_0 = a_1 = a_2 = a</span>
+<span class="cm">     *   a_n = a_(n-1) + a_(n-2) + a_(n-3)</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param n the element of the Tribonacci sequence you want to</span>
+<span class="cm">     *          calculate</span>
+<span class="cm">     * @return the value of the n'th element in the Tribonacci</span>
+<span class="cm">     *         sequence</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">calculateTribonacci</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">secondLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">thirdLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">newTri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondLast</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">thirdLast</span><span class="p">;</span>
+<span class="w">            </span><span class="n">thirdLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secondLast</span><span class="p">;</span>
+<span class="w">            </span><span class="n">secondLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="p">;</span>
+<span class="w">            </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTri</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">last</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Prints out the Tribonacci number a_36</span>
+<span class="cm">     * the (37th Tribonacci number)</span>
+<span class="cm">     * @param args the command line arguments</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">calculateTribonacci</span><span class="p">(</span><span class="mi">36</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

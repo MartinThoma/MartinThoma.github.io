@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Dia Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool. Take a look at these screenshots: LaTeX I only know MetaUML for..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="LaTeX, MetaUML, UML, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/how-to-create-uml-class-diagrams/" />
+<meta property="og:title" content="How to create UML class diagrams"/>
+<meta property="og:url" content="https://martin-thoma.com/how-to-create-uml-class-diagrams/" />
+<meta property="og:description" content="Dia Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool. Take a look at these screenshots: LaTeX I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different? Of course …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-05-06T20:38:01+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/05/UML-thumb.png" />
+
+        <title>How to create UML class diagrams  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../how-to-create-uml-class-diagrams/">How to create UML class diagrams</a></h1>
+    <p class="meta">
+<time datetime="2012-05-06T20:38:01+02:00">Mai 6, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#latex-ref">LaTeX
+            <span>29</span>
+</a></li>
+        <li><a href="../tags/#metauml-ref">MetaUML
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#uml-ref">UML
+            <span>2</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#dia" title="Dia">Dia</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a><ul><li><a class="toc-href" href="#metauml" title="MetaUML">MetaUML</a></li></ul></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <h2 id="dia">Dia</h2>
+<p>Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool.</p>
+<p>Take a look at these screenshots:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2012/05/dia-create-class.png"><img alt="Create a class for a class diagram in Dia" height="611" src="../images/2012/05/dia-create-class.png" width="231"/></a>
+<figcaption>Create a class for a class diagram in Dia</figcaption>
+</figure>
+<figure>
+<a href="../images/2012/05/dia-class-properties.png"><img alt="Edit class properties in Dia" height="589" loading="lazy" src="../images/2012/05/dia-class-properties.png" width="676"/></a>
+<figcaption>Edit class properties in Dia</figcaption>
+</figure>
+<figure>
+<a href="../images/2012/05/dia-association.png"><img alt="Customizing associations in Dia" height="447" loading="lazy" src="../images/2012/05/dia-association.png" width="454"/></a>
+<figcaption>Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
+</figure>
+<figure>
+<a href="../images/2012/05/Dia-ClassDiagram.png"><img alt="A quick example for a class diagram created with Dia" height="104" loading="lazy" src="../images/2012/05/Dia-ClassDiagram.png" width="519"/></a>
+<figcaption>A quick example for a class diagram created with Dia</figcaption>
+</figure>
+</div>
+<h2 id="latex">LaTeX</h2>
+<p>I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different?</p>
+<p>Of course, you can include a diagram created with Dia:</p>
+<ol>
+<li>Export the diagram as PNG (antialiased)</li>
+<li>Add something like that to your tex-file: \includegraphics[width=180mm]{myDiagramm.png}</li>
+</ol>
+<h3 id="metauml">MetaUML</h3>
+<p>A MetaUML class diagram looks like that in code (saved as myMetaDiagram.mp):</p>
+<div class="highlight"><pre><span></span><code>input metauml;
+beginfig(1);
+    Class.World("World")
+           ("-age: int",
+            "#ressources: List")
+           ("+sayHello(): void");
+
+    Class.NoHuman("Human")
+           ("-birthday: Date",
+            "-nickname: String",
+            "-secret: String")
+           ("+code(language: Language): Program");
+
+    leftToRight(50)(World, NoHuman);
+    drawObjects(World, NoHuman);
+
+    link(aggregation)(NoHuman.w -- World.e);
+    item(iAssoc)("1")(obj.n     = .2[World.e,NoHuman.w]);
+    item(iAssoc)("has &gt;")(obj.n = .5[World.e,NoHuman.w]);
+    item(iAssoc)("0..*")(obj.n  = .8[World.e,NoHuman.w]);
+
+endfig;
+end
+</code></pre></div>
+<p>You have to execute mpost before you can compile LaTeX. A working example is in this <a href="../images/2012/05/UML.zip">UML Archive</a>.</p>
+<p>It looks like that in your generated PDF file:</p>
+<figure>
+<a href="../images/2012/05/MetaUML-class-diagram.png"><img alt="MetaUML class diagram" height="161" loading="lazy" src="../images/2012/05/MetaUML-class-diagram.png" width="676"/></a>
+<figcaption>MetaUML class diagram</figcaption>
+</figure>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Class_diagram">Class diagram</a>, <a href="http://en.wikipedia.org/wiki/Dia_(software)">Dia</a></li>
+<li>Dia:  <a href="http://www.wspiegel.de/infogk12/oops/dia_einf.html#py16_2">Dia und UML</a></li>
+<li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/graphics/metapost/contrib/macros/metauml/doc/metauml_manual_0.2.5.pdf">MetaUML: Tutorial, Reference and Test Suite</a></li>
+<li>Freies Magazin, Mai 2012: <a href="http://www.freiesmagazin.de/freiesMagazin-2012-05">Astah &ndash; Kurzvorstellung des UML-Programms</a> (German)</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

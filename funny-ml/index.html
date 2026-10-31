@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Machine Learning brings awesome results, but sometimes it fails. And sometimes it fails in a funny way 😁 This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, Funny, AI, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/funny-ml/" />
+<meta property="og:title" content="Funny Machine Learning"/>
+<meta property="og:url" content="https://martin-thoma.com/funny-ml/" />
+<meta property="og:description" content="Machine Learning brings awesome results, but sometimes it fails. And sometimes it fails in a funny way 😁 This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/data-science.png" />
+
+        <title>Funny Machine Learning  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../funny-ml/">Funny Machine Learning</a></h1>
+    <p class="meta">
+<time datetime="2019-12-31T20:00:00+01:00">Dez 31, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#funny-ref">Funny
+            <span>19</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#item-to-item-recommendations" title="Item To Item Recommendations">Item To Item Recommendations</a></li><li><a class="toc-href" href="#clustering" title="Clustering">Clustering</a></li><li><a class="toc-href" href="#autocorrect" title="Autocorrect">Autocorrect</a></li><li><a class="toc-href" href="#sentence-completion" title="Sentence Completion">Sentence Completion</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Machine Learning brings awesome results, but sometimes it fails. And sometimes
+it fails in a funny way 😁</p>
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<h2 id="item-to-item-recommendations">Item To Item Recommendations</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Source</th>
+<th>Recommendation</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Hitler:_The_Rise_of_Evil">Hitler: The Rise Of Evil</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Being_Elmo:_A_Puppeteer%27s_Journey">Being Elmo: A Puppeteer's Journey</a></td>
+<td>Both are documentaries</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Fuck_(film)">F**k</a></td>
+<td><a href="https://en.wikipedia.org/wiki/In_the_Womb">In the Womb</a></td>
+<td>Both are documentaries</td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Death_Wish_3">Death Wish 3</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Bible_Collection">The Bible Collection</a> Vol.03 Moses </td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/The_Exorcist_(film)">The Exorcist</a></td>
+<td><a href="https://en.wikipedia.org/wiki/The_Last_Temptation_of_Christ">The Last Temptation of Christ</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Child%27s_Play_3">Child's Play 3</a></td>
+<td>Michael Jackson: The Life of a rockstar</td>
+<td>Probably using the free-text for creating the recommendation<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Children_of_Men">Children of Men</a></td>
+<td><a href="https://en.wikipedia.org/wiki/WALL-E">WALL-E</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Led Zeppelin + Enron + <a href="https://en.wikipedia.org/wiki/Downfall_(2004_film)">Downfall</a></td>
+<td><a href="https://en.wikipedia.org/wiki/The_Nazis:_A_Warning_from_History">The Nazis</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum Overdrive</td>
+<td>Holy Bible: King James Version</td>
+<td></td>
+</tr>
+<tr>
+<td>Dracula</td>
+<td>A Charlie Brown Christmas</td>
+<td></td>
+</tr>
+<tr>
+<td>The Killers</td>
+<td>The Looney Tunes Golden Collection: Vol. 5</td>
+<td></td>
+</tr>
+<tr>
+<td>The Exorcist</td>
+<td>Where The Red Fern Grows</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Butter_(1998_film)">Butter</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Toast_(film)">Toast</a></td>
+<td><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>Sesame Street</td>
+<td>Breaking Bad</td>
+<td><sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>My 600LB Life</td>
+<td>Discover Planet Ocean</td>
+<td><sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>My 600LB Life</td>
+<td>The Whale</td>
+<td><sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/9_(2009_animated_film)">9</a></td>
+<td><a href="https://en.wikipedia.org/wiki/8%C2%BD">8 1/2</a></td>
+<td>Titles are somewhat similar<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">[3]</a></sup></td>
+</tr>
+<tr>
+<td>Sofia the First</td>
+<td>The Human Centipede: First Sequence</td>
+<td><sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">[3]</a></sup></td>
+</tr>
+<tr>
+<td>Happy Feet</td>
+<td>Tappy Toes</td>
+<td><sup id="fnref3:3"><a class="footnote-ref" href="#fn:3">[3]</a></sup></td>
+</tr>
+</tbody>
+</table>
+<h2 id="clustering">Clustering</h2>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>Element</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Movies about Parenthood</td>
+<td><a href="https://en.wikipedia.org/wiki/Poltergeist_(1982_film)">Poltergeist</a></td>
+<td>Life is pleasant for the close-knit Freeling family until a host of otherworldly forces invades their peaceful suburban home.<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>African-American Fight the System Movies</td>
+<td><a href="https://de.wikipedia.org/wiki/Dr._Dolittle_2">Dr. Dolittle 2</a></td>
+<td>The actor is African-American<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup></td>
+</tr>
+<tr>
+<td>Violent Movies</td>
+<td>March of the Penguins</td>
+<td></td>
+</tr>
+<tr>
+<td>Strong Female Lead</td>
+<td>Justin Bieber: Never Say Never</td>
+<td><sup id="fnref6:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>Feel-good Movies</td>
+<td>The Cabin in the Woods</td>
+<td><sup id="fnref4:3"><a class="footnote-ref" href="#fn:3">[3]</a></sup></td>
+</tr>
+</tbody>
+</table>
+<h2 id="autocorrect">Autocorrect</h2>
+<table>
+<tr>
+<td>Dumb and Dumber</td>
+<td>Faith and Spirituality</td>
+<td><sup id="fnref7:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+</tr>
+</table>
+<h2 id="sentence-completion">Sentence Completion</h2>
+<p><a href="https://talktotransformer.com/">talktotransformer.com</a> gives so many possibilities to have fun 😄</p>
+<p>The following texts were generated by a language model. They are random continuations of the prompt and do not reflect my opinion or any facts.</p>
+<div class="highlight"><pre><span></span><code>&lt;b&gt;If you compare Nazis to Unicorns &lt;/b&gt; you will notice the big difference. Nazis are literally evil men who are trying to kill people, Unicorns are magical fairies who want to rescue the world from death. &lt;mark&gt;In many ways, Unicorns are evil too.&lt;/mark&gt; Unicorns (as humans call them) often fall in love and become involved in "love games" where the pair has to outsmart, out-shout, out-kill, out-kill, out-fight, out-kill, etc. until one of them "loses" and falls apart in the process. This is not unlike the "war between light and darkness" where one side tries to take over and stop a whole group of creatures from doing their job.
+This does not make the Unicorns evil or the Nazis evil or anything. It is merely how different our human cultures view this aspect of love.
+The concept that a man could love more than another man is one of the oldest things we have for ourselves. We have this idea that "love is more important than everything else" and we put so much effort into putting
+</code></pre></div>
+<p>and</p>
+<div class="highlight"><pre><span></span><code>&lt;b&gt;Trump thinks about Unicorns &lt;/b&gt; as if they're actual people, just like us.  He's aware, of course.  So he understands the psychological toll they must take on their owners, his superiors, his followers.  Because he is an intellectual.  And when you are an intellectual, as he is, your view of the world is limited to the intellectual world.  So he's a big-hairy, hairy-minded unicorn.  His view is limited to the unicorn world: the big, big one, where a unicorn goes through his adventures in full costume.
+But we Unicorns think of our lives as real things.  We are real, tangible, flesh and blood things that happen to us, like people you meet on a cross street. What about those who are non-human creatures by human standards?  We like them.  We want them.  We need them.  They're in our lives, too.  We want to be around them.  We want to feel like we,
+</code></pre></div>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="https://worldwideinterweb.com/funniest-netflix-suggestions-ever-25-photos/">worldwideinterweb.com/funniest-netflix-suggestion&hellip;</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.ranker.com/list/weird-netflix-photos/nathandavidson">ranker.com/&hellip;/nathandavidson</a>&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref5:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref6:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref7:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.funnyordie.com/2013/7/8/17702770/6-ridiculous-netflix-suggestions">funnyordie.com/&hellip;/6-ridiculous-netflix-suggestions</a>&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref3:3" title="Jump back to footnote 3 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref4:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

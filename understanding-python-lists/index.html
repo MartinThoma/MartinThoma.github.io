@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="This article is about Python lists. I want to show you some examples of unexpected behavior (for non-Python programmers) of lists in Python. Imagine you have the following Python source code:..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Data Structures, Computer Science, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/understanding-python-lists/" />
+<meta property="og:title" content="Understanding Python Lists"/>
+<meta property="og:url" content="https://martin-thoma.com/understanding-python-lists/" />
+<meta property="og:description" content="This article is about Python lists. I want to show you some examples of unexpected behavior (for non-Python programmers) of lists in Python. Imagine you have the following Python source code: #!/usr/bin/env python # -*- coding: utf-8 -*- import copy example1 = [[1, 5, 7], [3, 6], [], [8, 1, 6]] example2 = example1 …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-22T23:01:55+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/09/Python-Logo.png" />
+
+        <title>Understanding Python Lists  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../understanding-python-lists/">Understanding Python Lists</a></h1>
+    <p class="meta">
+<time datetime="2011-10-22T23:01:55+02:00">Okt 22, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#data-structures-ref">Data Structures
+            <span>9</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#explanation" title="Explanation">Explanation</a></li><li><a class="toc-href" href="#scoping-historical-note" title="Scoping (Historical Note)">Scoping (Historical Note)</a></li><li><a class="toc-href" href="#recursive-lists" title="Recursive Lists">Recursive Lists</a></li><li><a class="toc-href" href="#modern-python-alternatives" title="Modern Python Alternatives">Modern Python Alternatives</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>This article is about Python lists. I want to show you some examples of
+unexpected behavior (for non-Python programmers) of lists in Python.</p>
+<p>Imagine you have the following Python source code:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="n">example1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="n">example2</span> <span class="o">=</span> <span class="n">example1</span><span class="p">[:]</span>
+<span class="n">example3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">example1</span><span class="p">)</span>
+<span class="n">example4</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">example1</span><span class="p">)</span>
+
+<span class="n">example1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">example1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">example1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example4</span><span class="p">)</span>
+</code></pre></div>
+<p>What should the output look like? Think about it for a moment, then scroll down.</p>
+<details>
+<summary>Click to see the output</summary>
+<div class="highlight"><pre><span></span><code><span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]</span>,1<span class="o">]</span>
+<span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
+<span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
+<span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">3</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
+</code></pre></div>
+</details>
+<h2 id="explanation">Explanation</h2>
+<p>The reason for this behavior is how lists are handled in Python. The variable itself is basically only a pointer to the list. When you slice the list (<code>myList[:]</code>), you copy each value of the list into another list. If <code>myList</code> was a nested list, it contained pointers to the sublists. So, if you want to make a deep copy, you have to use the <code>copy</code> module.</p>
+<ul>
+<li><strong>example1</strong>: Original list, modified directly</li>
+<li><strong>example2</strong>: Shallow copy via slicing - shares references to inner lists</li>
+<li><strong>example3</strong>: Shallow copy via <code>list()</code> constructor - same as example2</li>
+<li><strong>example4</strong>: Deep copy - completely independent copy</li>
+</ul>
+<h2 id="scoping-historical-note">Scoping (Historical Note)</h2>
+<blockquote>
+<p><strong>Important</strong>: This behavior was changed in Python 3! In modern Python, list comprehensions have their own scope.</p>
+</blockquote>
+<p>phimuemue added this example in my old blog:</p>
+<p>In Python 2, there was an issue with scoping:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># yields 3 in Python 2, but 0 in Python 3</span>
+</code></pre></div>
+<p>In Python 2, Python didn't create a new variable for the list comprehension but used the outer <code>i</code>. This was fixed in Python 3, where list comprehensions have their own scope.</p>
+<h2 id="recursive-lists">Recursive Lists</h2>
+<p>Python allows you to create recursive data structures, which can lead to interesting output:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># Output: [1, 2, 3, [4, 5, 6]]</span>
+
+<span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># Output: [4, 5, 6, [1, 2, 3, [...]]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># Output: [1, 2, 3, [4, 5, 6, [...]]]</span>
+</code></pre></div>
+<p>The <code>[...]</code> represents the recursive reference to avoid infinite printing.</p>
+<h2 id="modern-python-alternatives">Modern Python Alternatives</h2>
+<p>For modern Python development, consider using:</p>
+<ul>
+<li><strong>List comprehensions</strong>: More Pythonic than traditional loops</li>
+<li><strong><code>copy.deepcopy()</code></strong>: For creating independent copies</li>
+<li><strong><code>collections.deque</code></strong>: For frequent append/pop operations</li>
+<li><strong>Type hints</strong>: For better code documentation</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

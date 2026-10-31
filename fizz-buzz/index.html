@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="When companies interview potential new software developers, they typically also have a programming interview to make sure that the candidate can actually write very simple programs. Fizz Buzz is a..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/fizz-buzz/" />
+<meta property="og:title" content="Programming Interviews: Fizz Buzz - An all-time programming classic for interviews"/>
+<meta property="og:url" content="https://martin-thoma.com/fizz-buzz/" />
+<meta property="og:description" content="When companies interview potential new software developers, they typically also have a programming interview to make sure that the candidate can actually write very simple programs. Fizz Buzz is a very simple classical example. The problem is easy to describe and the solution is easy as well. Problem Statement Write …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-03-09T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/star.png" />
+
+        <title>Programming Interviews: Fizz Buzz  - An all-time programming classic for interviews  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../fizz-buzz/">Programming Interviews: Fizz Buzz <small>An all-time programming classic for interviews</small></a></h1>
+    <p class="meta">
+<time datetime="2021-03-09T20:00:00+01:00">Mär 9, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#problem-statement" title="Problem Statement">Problem Statement</a></li><li><a class="toc-href" href="#solution" title="Solution">Solution</a></li><li><a class="toc-href" href="#unit-tests" title="Unit Tests">Unit Tests</a></li><li><a class="toc-href" href="#extensions" title="Extensions">Extensions</a></li><li><a class="toc-href" href="#typical-mistakes" title="Typical Mistakes">Typical Mistakes</a></li><li><a class="toc-href" href="#what-i-dont-learn-as-an-interviewer" title="What I (don&rsquo;t) learn as an Interviewer">What I (don&rsquo;t) learn as an Interviewer</a></li><li><a class="toc-href" href="#tldr-score-of-fizz-buzz-for-interviews" title="TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews">TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>When companies interview potential new software developers, they typically also have a programming interview to make sure that the candidate can actually write very simple programs. Fizz Buzz is a very simple classical example. The problem is easy to describe and the solution is easy as well.</p>
+<h2 id="problem-statement">Problem Statement</h2>
+<p>Write a function that takes an integer and returns a string. If the number is divisible by 3, return &ldquo;Fizz&rdquo;. If the number is divisible by 5, return &ldquo;Buzz&rdquo;. If the number is divisible by 15, return &ldquo;Fizz Buzz&rdquo;. If the number is divisible neither by 3 nor by 5, return the number itself.</p>
+<h2 id="solution">Solution</h2>
+<p>In Python, a solution looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"Fizz Buzz"</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"Fizz"</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"Buzz"</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="unit-tests">Unit Tests</h2>
+<p>Seeing which cases people test gives a good indicator of how used they are to testing at all. There are two groups of tests I want to see:</p>
+<ul>
+<li>Typical Cases</li>
+<li>Edge Cases</li>
+</ul>
+<p>In Python, you can use Pytest to run the following tests:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_5</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_15</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_number</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"2"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_edge_cases</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"-1"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+</code></pre></div>
+<h2 id="extensions">Extensions</h2>
+<p>As an interviewer, I like to have follow-up questions or extensions to interview questions. Just in case the candidate is good or knows the task already.</p>
+<p>FizzBuzz can be adjusted by changing the task from &ldquo;3, 5, and 15&rdquo; to &ldquo;a, b, and a&middot;b&rdquo;. Or adding 11 to the mix.</p>
+<h2 id="typical-mistakes">Typical Mistakes</h2>
+<p>A typical mistake is to check the properties in the order presented in the problem statement.</p>
+<p>Another typical mistake is trying to get smart by having fewer lines of code, but harder logic.</p>
+<h2 id="what-i-dont-learn-as-an-interviewer">What I (don&rsquo;t) learn as an Interviewer</h2>
+<p>Fizz Buzz is an indicator if people have any programming skills at all. If people don&rsquo;t manage to solve this relatively quickly, they cannot do anything.</p>
+<p>You can see if they have reasonable unit test cases and how they make their code extensible. In the best case, people might use property-based testing for it:
+<a href="../property-based-testing/"><strong>Property-Based Testing with Python</strong></a></p>
+<p>There are a lot of important skills and factlets you will not see with this:</p>
+<ul>
+<li><strong>Algorithms</strong>: What does the candidate know about data structures and algorithms? Do they have a good grasp of runtime and space complexity?</li>
+<li><strong>Application Architecture</strong>: How well can the candidate structure code into packages and sub-packages (or modules/submodules; terminology differs in different languages)? How well can they create reasonable classes and use common design patterns? Does the candidate know how to make the application (horizontally/vertically) scalable and where the limits are?</li>
+<li><strong>System Architecture</strong>: Which architectural components does the candidate have in their toolbelt? Which concrete product choices for the components do they know?</li>
+<li><strong>Dev Workflow</strong>: Is the candidate familiar with git, Jira, Scrum, retros, sprint planning/grooming? Have they heard of branching models like git flow / GitHub flow / GitLab flow? How would they handle incidents and urgent requests from the outside?</li>
+<li><strong>Cultural fit</strong>: What is the candidate's behavior if they don&rsquo;t know something? What will they do if they made a mistake? Do they rather like to make decisions or have somebody else decide? How do they communicate with the rest of the team? How do they communicate with other stakeholders?</li>
+</ul>
+<p>Not all of those topics might be relevant to your organization or the specific position.</p>
+<h2 id="tldr-score-of-fizz-buzz-for-interviews">TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews</h2>
+<p>Overall, I think Fizz Buzz is too <strong>well-known</strong> to lead to any interesting results. It is <strong>trivial to solve</strong> and leaves big knowledge gaps.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>Let me know if you have interview questions you would like me to explore in a similar style 🙂</p>
+<p>Topics that might be interesting around interviewing:</p>
+<ul>
+<li>Soft questions</li>
+<li>Take-home exercises</li>
+<li>Architectural questions</li>
+</ul>
+<p>There are some combinatoric/algorithmic questions for coding interviews:</p>
+<ul>
+<li>Fibonacci-Number</li>
+<li>Two Sum</li>
+</ul>
+<p>There are a couple of sequence-based questions:</p>
+<ul>
+<li>Find a missing number in a sequence of numbers</li>
+<li>Find a duplicate in a sequence of numbers</li>
+<li>Remove duplicates from a sequence of numbers</li>
+<li>Rotate an array</li>
+</ul>
+<p>There are also many string-based coding tasks:</p>
+<ul>
+<li>Reverse a string</li>
+<li>Check if a string is a palindrome</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

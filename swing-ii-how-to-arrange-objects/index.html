@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Without GUI Objects can be arranged with GridBagLayout and GridBagConstraints. This is an example: Code: import java.awt.GridBagConstraints; import java.awt.GridBagLayout; import java.awt.Insets;..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Programming, Java, Swing, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/swing-ii-how-to-arrange-objects/" />
+<meta property="og:title" content="Swing II: How to arrange Objects"/>
+<meta property="og:url" content="https://martin-thoma.com/swing-ii-how-to-arrange-objects/" />
+<meta property="og:description" content="Without GUI Objects can be arranged with GridBagLayout and GridBagConstraints. This is an example: Code: import java.awt.GridBagConstraints; import java.awt.GridBagLayout; import java.awt.Insets; import java.awt.MouseInfo; import java.awt.Point; import javax.swing.JButton; import javax.swing.JFrame; import javax.swing.JPanel; import javax.swing …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-07-21T17:00:44+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/07/java-thumb.png" />
+
+        <title>Swing II: How to arrange Objects  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../swing-ii-how-to-arrange-objects/">Swing II: How to arrange Objects</a></h1>
+    <p class="meta">
+<time datetime="2012-07-21T17:00:44+02:00">Jul 21, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#java-ref">Java
+            <span>40</span>
+</a></li>
+        <li><a href="../tags/#programming-ref">Programming
+            <span>76</span>
+</a></li>
+        <li><a href="../tags/#swing-ref">Swing
+            <span>2</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#without-gui" title="Without GUI">Without GUI</a></li><li><a class="toc-href" href="#google-windowbuilder" title="Google WindowBuilder">Google WindowBuilder</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#editing" title="Editing">Editing</a></li></ul></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <h2 id="without-gui">Without GUI</h2>
+<p>Objects can be arranged with <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagLayout.html">GridBagLayout</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagConstraints.html">GridBagConstraints</a>. This is an example:</p>
+<figure>
+<a href="../images/2012/07/java-swing-grid-bag.png"><img alt="GridBag example (Java Swing)" height="199" src="../images/2012/07/java-swing-grid-bag.png" width="198"/></a>
+</figure>
+<p>Code:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.GridBagConstraints</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.GridBagLayout</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.Insets</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.MouseInfo</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.Point</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.JButton</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.JTextField</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">test</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Open the window where the mouse pointer is</span>
+<span class="w">        </span><span class="n">Point</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MouseInfo</span><span class="p">.</span><span class="na">getPointerInfo</span><span class="p">().</span><span class="na">getLocation</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">location</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">location</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">JFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JFrame</span><span class="p">(</span><span class="s">"My title!"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JPanel</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JPanel</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GridBagLayout</span><span class="p">());</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">//set the size of the window to the maximum</span>
+<span class="w">        </span><span class="c1">//frame.setExtendedState(frame.getExtendedState() |</span>
+<span class="w">        </span><span class="c1">//                                    Frame.MAXIMIZED_BOTH);</span>
+
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"2"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"3"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"4"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"5"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"6"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"7"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"8"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">"9"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Insets</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Insets</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JTextField</span><span class="w"> </span><span class="n">tf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JTextField</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span>
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">cText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">cText</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cText</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cText</span><span class="p">.</span><span class="na">gridwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">.</span><span class="na">REMAINDER</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cText</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span><span class="n">cText</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c1</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c1</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c1</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button1</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c2</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c2</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c2</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button2</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c3</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c3</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c3</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button3</span><span class="p">,</span><span class="w"> </span><span class="n">c3</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c4</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c4</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c4</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button4</span><span class="p">,</span><span class="w"> </span><span class="n">c4</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c5</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c5</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c5</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button5</span><span class="p">,</span><span class="w"> </span><span class="n">c5</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c6</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c6</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c6</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button6</span><span class="p">,</span><span class="w"> </span><span class="n">c6</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c7</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c7</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c7</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button7</span><span class="p">,</span><span class="w"> </span><span class="n">c7</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c8</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c8</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c8</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button8</span><span class="p">,</span><span class="w"> </span><span class="n">c8</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">GridBagConstraints</span><span class="w"> </span><span class="n">c9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridBagConstraints</span><span class="p">();</span>
+<span class="w">        </span><span class="n">c9</span><span class="p">.</span><span class="na">gridx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c9</span><span class="p">.</span><span class="na">gridy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="n">c9</span><span class="p">.</span><span class="na">insets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button9</span><span class="p">,</span><span class="w"> </span><span class="n">c9</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="google-windowbuilder">Google WindowBuilder</h2>
+<p>Google offers a free Eclipse plugin called <a href="https://developers.google.com/java-dev-tools/wbpro/">WindowBuilder</a>:</p>
+<blockquote>WindowBuilder is a powerful and easy to use bi-directional Java GUI designer that makes it very easy to create Java GUI applications without spending a lot of time writing code to display simple forms.</blockquote>
+<h3 id="installation">Installation</h3>
+<p>They offer great <a href="https://developers.google.com/java-dev-tools/wbpro/installation/">installation instructions</a>!</p>
+<p>(The download takes a while. Time to make a cup of tea.)</p>
+<h3 id="editing">Editing</h3>
+<p>You have to open your project with the window builder:</p>
+<figure>
+<a href="../images/2012/07/eclipse-open-with-window-builder-285x300.png"><img alt="Open existing SWING-file with Window Builder" height="300" loading="lazy" src="../images/2012/07/eclipse-open-with-window-builder-285x300.png" width="285"/></a>
+<figcaption>Open existing SWING-file with Window Builder</figcaption>
+</figure>
+<p>The Window-Builder-View looks like this:</p>
+<figure>
+<a href="../images/2012/07/eclipse-window-builder-300x157.png"><img alt="Eclipse WindowBuilder View" height="157" loading="lazy" src="../images/2012/07/eclipse-window-builder-300x157.png" width="300"/></a>
+<figcaption>Eclipse WindowBuilder View</figcaption>
+</figure>
+<p>You can easily resize the window:</p>
+<figure>
+<a href="../images/2012/07/eclipse-window-builder-resize-258x300.png"><img alt="Resize a window with WindowBuilder" height="300" loading="lazy" src="../images/2012/07/eclipse-window-builder-resize-258x300.png" width="258"/></a>
+<figcaption>Resize a window with WindowBuilder</figcaption>
+</figure>
+<p>Positioning single components is also simple:</p>
+<figure>
+<a href="../images/2012/07/eclipse-window-builder-component.png"><img alt="Position a single component with WindowBuilder" height="273" loading="lazy" src="../images/2012/07/eclipse-window-builder-component.png" width="249"/></a>
+<figcaption>Position a single component with WindowBuilder</figcaption>
+</figure>
+<p>Adding a menu bar worked fine:</p>
+<figure>
+<a href="../images/2012/07/eclipse-window-builder-menu.png"><img alt="MenuBar added with WindowBuilder" height="231" loading="lazy" src="../images/2012/07/eclipse-window-builder-menu.png" width="227"/></a>
+<figcaption>MenuBar added with WindowBuilder</figcaption>
+</figure>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="http://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html">How to Use GridBagLayout</a></li>
+<li><a href="http://stackoverflow.com/q/1832432/562769">Which Swing layout(s) do you recommend?</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

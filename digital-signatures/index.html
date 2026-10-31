@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="We use signatures to show that we have read a contract and want to do our part of fulfilling it. They serve two purposes: Expressing an intent and being able to prove to the authorities that this..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Crypto, Security, Cyberculture, " />
+
+<link rel="canonical" href="https://martin-thoma.com/digital-signatures/" />
+<meta property="og:title" content="5 Applications of Digital Signatures - Learn what they are and how they are used"/>
+<meta property="og:url" content="https://martin-thoma.com/digital-signatures/" />
+<meta property="og:description" content="We use signatures to show that we have read a contract and want to do our part of fulfilling it. They serve two purposes: Expressing an intent and being able to prove to the authorities that this intent was expressed in case one of the parties does not follow the …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-04-18T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/04/digital-signatures-4.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="1060" />
+
+        <title>5 Applications of Digital Signatures  - Learn what they are and how they are used  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../digital-signatures/">5 Applications of Digital Signatures <small>Learn what they are and how they are used</small></a></h1>
+    <p class="meta">
+<time datetime="2021-04-18T20:00:00+02:00">Apr 18, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#crypto-ref">Crypto
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#why-handwritten-signatures-are-problematic" title="Why handwritten signatures are problematic">Why handwritten signatures are problematic</a><ul><li><a class="toc-href" href="#problem-1-connecting-the-signature-with-your-identity" title="Problem #1: Connecting the signature with your identity">Problem #1: Connecting the signature with your identity</a></li><li><a class="toc-href" href="#problem-2-accepting-valid-signatures" title="Problem #2: Accepting valid signatures">Problem #2: Accepting valid signatures</a></li><li><a class="toc-href" href="#problem-3-declining-invalid-signatures" title="Problem #3: Declining invalid signatures">Problem #3: Declining invalid signatures</a></li><li><a class="toc-href" href="#problem-4-protect-the-signed-document-from-tampering" title="Problem #4: Protect the signed document from tampering">Problem #4: Protect the signed document from tampering</a></li><li><a class="toc-href" href="#problem-5-repudiation" title="Problem #5: Repudiation">Problem #5: Repudiation</a></li></ul></li><li><a class="toc-href" href="#how-do-digital-signatures-work" title="How do digital signatures work?">How do digital signatures work?</a></li><li><a class="toc-href" href="#application-1-communication-e-mail-sms" title="Application #1: Communication (E-Mail, SMS)">Application #1: Communication (E-Mail, SMS)</a></li><li><a class="toc-href" href="#application-2-code-contributions" title="Application #2: Code Contributions">Application #2: Code Contributions</a></li><li><a class="toc-href" href="#application-3-software-updates" title="Application #3: Software Updates">Application #3: Software Updates</a></li><li><a class="toc-href" href="#application-4-digital-diplomas" title="Application #4: Digital Diplomas">Application #4: Digital Diplomas</a></li><li><a class="toc-href" href="#application-5-cryptocurrencies" title="Application #5: Cryptocurrencies">Application #5: Cryptocurrencies</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>We use signatures to show that we have read a contract and want to do our part
+of fulfilling it. They serve two purposes: Expressing an intent and being able
+to prove to the authorities that this intent was expressed in case one of the
+parties does not follow the contract. For example, if you sign a rental
+agreement, your landlord has proof that you wanted to pay the stated rent each
+month. And you have the proof that you actually can use the apartment.</p>
+<p>Let&rsquo;s learn about the problems of this approach and the digital equivalent!</p>
+<h2 id="why-handwritten-signatures-are-problematic">Why handwritten signatures are problematic</h2>
+<p>Let&rsquo;s first explore the issues of traditional signatures.</p>
+<h3 id="problem-1-connecting-the-signature-with-your-identity">Problem #1: Connecting the signature with your identity</h3>
+<p>Let&rsquo;s assume that you want to fool a landlord. You sign, but you use a different signature. To be able to tell that this is a fake signature, your landlord needs an identity document. The signature itself is not enough. And the identity document needs to have a signature on it!</p>
+<p>Now the landlord needs to check (1) if the identity document is valid and (2) if the signature is the same.</p>
+<h3 id="problem-2-accepting-valid-signatures">Problem #2: Accepting valid signatures</h3>
+<p>If you write your signature twice, it will look different. This is sometimes
+an issue if your identity document expires and you need a new one. If the
+issuing authority allows changes, then they need to track your changes.</p>
+<p>If you get sick, you might not be able to write that signature in the same way any longer.</p>
+<p>Another issue here is that you cannot just exchange the pencil and the medium
+on which you write. Even the table and the seat can influence what your
+handwriting looks like. Case in point: Signature pads when you accept packages
+and confirm that you have received them.</p>
+<h3 id="problem-3-declining-invalid-signatures">Problem #3: Declining invalid signatures</h3>
+<p>If somebody else knows your signature, they can probably create a very similar
+one after a few hours of practicing.</p>
+<h3 id="problem-4-protect-the-signed-document-from-tampering">Problem #4: Protect the signed document from tampering</h3>
+<p>If you have multiple pages where you sign only the last one: How do you
+prevent people from changing the first pages?</p>
+<h3 id="problem-5-repudiation">Problem #5: Repudiation</h3>
+<p>You might have signed a contract with a company, but realized a bit later that
+it was a bad decision. You changed your mind. So you just claim that you never
+signed it. If this is possible, it&rsquo;s bad. We want non-repudiation for
+contracts.</p>
+<h2 id="how-do-digital-signatures-work">How do digital signatures work?</h2>
+<p>Asymmetric cryptography is a set of algorithms that has the property that
+encryption and decryption do NOT use the same key!</p>
+<div class="highlight"><pre><span></span><code>Symmetric cryptography:
+  encrypt(plain text, key) = ciphertext
+  decrypt(ciphertext, key) = plain text
+
+Asymmetric cryptography:
+  encrypt(plain text, key A) = ciphertext
+  decrypt(ciphertext, key B) = plain text
+</code></pre></div>
+<p>This is amazing because it allows you to share key B publicly and the other
+one &mdash; key A &mdash; private. Then you can <strong>encrypt</strong> any text <strong>using your</strong>
+<strong>private key</strong> and people will know that the message was encrypted by you
+because the <strong>public key</strong>, key B, <strong>can decrypt it</strong>.</p>
+<p>Thus a digital signature is an asymmetrically encrypted file, where the
+decryption key is public. Everybody can decrypt it, but only the keyholder can
+encrypt a file such that the specific public key can decrypt it.</p>
+<p>The awesome part is that you can now prove clearly and securely that the
+holder of key A did sign the document. You just solved problems #2, #3, #4,
+and #5!</p>
+<p>Please note that <strong>problem #1 remains</strong>: You still need to make sure that the
+holder of key A is actually the person you think it is.</p>
+<p>There are several concrete algorithms that fit in this category. The RSA cryptosystem is for sure the best-known one, closely followed by DSA (see <a href="https://security.stackexchange.com/a/5100/3286">differences</a>). ECDSA is also pretty widespread.</p>
+<p>Please also note that if the file is signed by encrypting it with the private key, you actually need the public key to read it at all. This might not be desired. Instead, you can <a href="../3-applications-of-hash-functions/">calculate the shorter hash value</a> of the file and sign that hash value. The scheme is then:</p>
+<figure>
+<a href="../images/2021/04/digital-signatures-2.png"><img alt="Image by Martin Thoma" height="1546" loading="lazy" src="../images/2021/04/digital-signatures-2.png" width="2000"/></a>
+<figcaption>Image by Martin Thoma</figcaption>
+</figure>
+<h2 id="application-1-communication-e-mail-sms">Application #1: Communication (E-Mail, SMS)</h2>
+<p>When you write e-mails, you don&rsquo;t need to trust your email provider in terms
+of privacy and tampering. You can encrypt the mail with the recipient&rsquo;s public
+key and sign it on your side. This way the recipient knows for sure that there
+was no tampering and that the message comes from you. It could only happen
+that your provider does not deliver the message at all.</p>
+<h2 id="application-2-code-contributions">Application #2: Code Contributions</h2>
+<figure>
+<a href="../images/2021/04/digital-signatures-4.jpg"><img alt="Photo by Yancy Min on Unsplash" height="1060" loading="lazy" src="../images/2021/04/digital-signatures-4.jpg" width="1600"/></a>
+<figcaption>Photo by <a href="https://unsplash.com/@yancymin">Yancy Min</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p>Lots of code is written as open-source by plenty of individuals. They might be
+volunteers who just have fun coding or they might be paid for those
+contributions. The maintainers of the projects need to ensure that all
+contributions are helpful, but they might lack the time to check each and
+every contribution. They need to be able to trust some people. Typically the
+first ones get checked thoroughly, but with time you might even become a
+trusted contributor. People start to trust you. But they need to be sure that it&rsquo;s the
+same person. They need to be sure that your contribution was not changed. For
+this reason, you sign every contribution.</p>
+<h2 id="application-3-software-updates">Application #3: Software Updates</h2>
+<p>Think of your Smart TV / Alexa / FritzBox. All of those devices need updates.
+Let&rsquo;s say that you can plug a USB stick with the update file in the device. As
+the manufacturer, you want to make sure that the update was not changed. You
+want to guarantee that the device will continue to work. So you share the
+public key of the company within the device. When the device finds an update,
+it verifies that the company is the origin by checking the signature of the
+update.</p>
+<h2 id="application-4-digital-diplomas">Application #4: Digital Diplomas</h2>
+<figure>
+<a href="../images/2021/04/digital-signatures-6.jpg"><img alt="Photo by Marjan Blan | @marjanblan on Unsplash" height="1333" loading="lazy" src="../images/2021/04/digital-signatures-6.jpg" width="2000"/></a>
+<figcaption>Photo by <a href="https://unsplash.com/@marjan_blan">Marjan Blan | @marjanblan</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p>When you apply for a job, your potential new employer might want to see
+reference letters and your diploma. Especially since the coronavirus is raging
+around the world, those documents get handed in digitally. How do the
+employers check if the diploma is actually valid?</p>
+<p>A digital signature could help. You would need to have a digitally signed
+version of your diploma and be able to share the public key in a way that is
+trustworthy with your employer. For example, your university could simply put
+that key on their website. The future employer would then need to download
+your university's public key and run <code>gpg --verify</code> against your diploma.</p>
+<p>If you want to experiment with signing files, first install the GNU Privacy Guard (short: GnuPG, even shorter: GPG) and create your own gpg key:
+<a href="https://www.gnupg.org/documentation/guides.html"><strong>GnuPG - User guides</strong>
+<em>This page collects documents available as user guides for GnuPG. Thanks to the DocBook system, John Michael Ashley's&hellip;</em>www.gnupg.org</a></p>
+<p>Then you can run those commands:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a my-cv.pdf.gpg file - a signed version of my-cv.pdf:</span>
+gpg<span class="w"> </span>--sign<span class="w"> </span>my-cv.pdf
+
+<span class="c1"># Verify the signature:</span>
+gpg<span class="w"> </span>--verify<span class="w"> </span>my-cv.pdf.gpg
+<span class="c1"># Prints:</span>
+<span class="c1"># gpg: Signature made Fr 16 Apr 2021 19:22:38 CEST</span>
+<span class="c1"># gpg:                using RSA key</span>
+<span class="c1"># D1E632346B642680EF360D696901E782EF663EC4</span>
+<span class="c1"># gpg: Good signature from "Martin Thoma (Generated on</span>
+<span class="c1"># 2021-01-15 for private use) &lt;info@martin-thoma.de&gt;" [ultimate]</span>
+
+<span class="c1"># Get the contained document:</span>
+gpg<span class="w"> </span>--output<span class="w"> </span>original.pdf<span class="w"> </span>--decrypt<span class="w"> </span>my-cv.pdf.gpg
+</code></pre></div>
+<h2 id="application-5-cryptocurrencies">Application #5: Cryptocurrencies</h2>
+<figure>
+<a href="../images/2021/04/digital-signatures-7.jpg"><img alt="Photo by Dmitry Demidko on Unsplash" height="1333" loading="lazy" src="../images/2021/04/digital-signatures-7.jpg" width="2000"/></a>
+<figcaption>Photo by <a href="https://unsplash.com/@wildbook">Dmitry Demidko</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p>In order to prove that you are the holder of a Bitcoin, the system uses
+asymmetric cryptography. At the very beginning, somebody is guaranteed to be
+the valid owner of the coin. After that, the valid owner is defined to be the
+owner of a private key, matching to a given public key.</p>
+<p>Please note that digital signatures only prove the ownership at a specific
+point in time. They do not solve the problem that an owner might just spend
+the coin twice &mdash; the double-spending problem.</p>
+<p>&ldquo;Coin&rdquo; is actually a misnomer. See my article about UTXO for more details:</p>
+<p><a href="../utxo-model/"><strong>The UTXO model</strong>
+<em>A technical cornerstone of Bitcoin</em></a></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Digital signatures prove that the signed document was signed by the key holder.</li>
+<li>The keyholder is not necessarily the person you think it is &mdash; you still need to initially verify the identity.</li>
+<li>The public key has to be shared and obtained by the verifying party.</li>
+<li>The private key still has to be kept private and must not get lost.</li>
+<li>RSA, DSA, ECDSA are currently good algorithms for cryptographic signatures. Use a well-tested library to apply them &mdash; cryptography is hard and it&rsquo;s easy to get something wrong.</li>
+</ul>
+<p>I hope that this article has given you another tool for your software development toolbelt!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#cyberculture-ref">Cyberculture</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

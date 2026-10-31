@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Bash, Java, Multithreading, Computer Science, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/basic-multithreading-in-java/" />
+<meta property="og:title" content="Basic Multithreading in Java"/>
+<meta property="og:url" content="https://martin-thoma.com/basic-multithreading-in-java/" />
+<meta property="og:description" content="A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power. There are two ways to execute your code …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-02-04T00:44:11+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2013/02/multithreading.png" />
+
+        <title>Basic Multithreading in Java  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../basic-multithreading-in-java/">Basic Multithreading in Java</a></h1>
+    <p class="meta">
+<time datetime="2013-02-04T00:44:11+01:00">Feb 4, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#bash-ref">Bash
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#java-ref">Java
+            <span>40</span>
+</a></li>
+        <li><a href="../tags/#multithreading-ref">Multithreading
+            <span>3</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#java-basics-for-multithreading" title="Java Basics for Multithreading">Java Basics for Multithreading</a></li><li><a class="toc-href" href="#sum" title="Sum">Sum</a></li><li><a class="toc-href" href="#main" title="Main">Main</a></li><li><a class="toc-href" href="#race-conditions" title="Race Conditions">Race Conditions</a></li><li><a class="toc-href" href="#playing-with-bash" title="Playing with BASH">Playing with BASH</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.</p>
+<p>There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference?</p>
+<ul>
+<li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
+<li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
+</ul>
+<p>In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes with <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.</p>
+<h2 id="java-basics-for-multithreading">Java Basics for Multithreading</h2>
+<p>All important lessons you need to learn are covered in <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">Java Concurrency Tutorial</a>. If you're really interested in multithreading, you should read this.</p>
+<p>You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.</p>
+<p>Here is an example:</p>
+<h2 id="sum">Sum</h2>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Sum</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">UpperEnd</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">upperEnd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">UpperEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upperEnd</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">UpperEnd</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="main">Main</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BIG_NR</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">NR_THREADS</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">bigSum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"You should specify the number "</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"of threads and BIG_NR. Call me like this:\n"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"java -jar RaceCondition.jar 5 20000\n"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"This will create 5 Threads which try to count"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"up to 2000000.\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"-v will show status "</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"information "</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">NR_THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="n">BIG_NR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NR_THREADS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sum</span><span class="p">(</span><span class="n">BIG_NR</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Thread</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<span class="w">            </span><span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">            </span><span class="n">threads</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">threads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">thread</span><span class="p">.</span><span class="na">isAlive</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">running</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Remaining threads: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">running</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">running</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="p">);</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Call it like this:</p>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>Main<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2000</span>
+</code></pre></div>
+<h2 id="race-conditions">Race Conditions</h2>
+<p>When you execute the code above, the output will vary. Why is this the case?</p>
+<p>In short: The execution order is not defined and <code>RaceCondition.bigSum++</code> is not atomic.</p>
+<p>Let's imagine that you call this with two threads only:
+<code>java Main 2 2000</code></p>
+<p>Now you could get this execution order:</p>
+<ul>
+<li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
+<li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
+<li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
+<li>Thread 1: Finishes its execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
+</ul>
+<p>Ok, we can obviously get values in <span class="math">\([\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>.</p>
+<p>Can we get smaller values? Yes, we can!</p>
+<p>Execute:</p>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>Main<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">20000</span>
+</code></pre></div>
+<ul>
+<li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
+<li>Thread 2 loads <code>bigSum</code>. It's 0.</li>
+<li>Thread 3 - 50 execute completely.</li>
+<li>Thread 2 executes until it is at the latest <code>bigSum++</code>. The latest doesn't execute.</li>
+<li>Thread 1 increases the loaded value from 0 to 1 and writes 1 back</li>
+<li>Thread 2 loads <code>bigSum</code> = 1</li>
+<li>Thread 1 executes and finishes.</li>
+<li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
+</ul>
+<p>You can get all values in <span class="math">\([2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>!</p>
+<p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
+<h2 id="playing-with-bash">Playing with BASH</h2>
+<p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:</p>
+<ul>
+<li><code>$1</code>: The number of times you execute the program with a fixed number of THREADS</li>
+<li><code>$2</code>: The maximum number of THREADS you would like to use</li>
+<li><code>$3</code>: BIG_NR</li>
+</ul>
+<p>The script executes the program <code>$1 * $2</code> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occurred.</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>raceCondition.tmp
+touch<span class="w"> </span>raceCondition.tmp
+
+<span class="c1"># Up to $2 threads</span>
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">threads</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$2</span><span class="p">;</span><span class="w"> </span>threads++<span class="o">))</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span>c&lt;<span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span>c++<span class="w"> </span><span class="o">))</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="c1"># $threads threads, count up to $3 in each thread</span>
+<span class="w">        </span><span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java<span class="w"> </span>-jar<span class="w"> </span>RaceCondition.jar<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span><span class="nv">$3</span><span class="sb">`</span>
+<span class="w">        </span><span class="c1"># Normalize: thisExecutionSum / number of threads</span>
+<span class="w">        </span><span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk<span class="w"> </span>-vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span><span class="w"> </span>-vtotal<span class="o">=</span><span class="nv">$threads</span><span class="w"> </span><span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">$threads</span><span class="s2">"\t"</span><span class="nv">$normalizedSum</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>raceCondition.tmp
+<span class="w">    </span><span class="k">done</span>
+<span class="k">done</span>
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

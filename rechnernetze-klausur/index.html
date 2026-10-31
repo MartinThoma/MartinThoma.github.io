@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Einführung in Rechnernetze“ des Moduls „Kommunikation und Datenhaltung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Klausur, University, KIT, Internet, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/rechnernetze-klausur/" />
+<meta property="og:title" content="Rechnernetze-Klausur"/>
+<meta property="og:url" content="https://martin-thoma.com/rechnernetze-klausur/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Einführung in Rechnernetze“ des Moduls „Kommunikation und Datenhaltung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beigl im Sommersemester 2013 gehört. Behandelter Stoff 16.04.2013 Einleitung Kapitel 1 24.04.2013 E-Mail, DNS, dig, nslookup, Peer-to-Peer-Netzwerke …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-04-25T09:32:06+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/02/klausur-test-thumbnail.jpg" />
+
+        <title>Rechnernetze-Klausur  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../rechnernetze-klausur/">Rechnernetze-Klausur</a></h1>
+    <p class="meta">
+<time datetime="2013-04-25T09:32:06+02:00">Apr 25, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#internet-ref">Internet
+            <span>11</span>
+</a></li>
+        <li><a href="../tags/#kit-ref">KIT
+            <span>64</span>
+</a></li>
+        <li><a href="../tags/#klausur-ref">Klausur
+            <span>34</span>
+</a></li>
+        <li><a href="../tags/#university-ref">University
+            <span>85</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht-uber-dienstprimitive" title="&Uuml;bersicht &uuml;ber Dienstprimitive">&Uuml;bersicht &uuml;ber Dienstprimitive</a></li></ul></li><li><a class="toc-href" href="#fragen" title="Fragen">Fragen</a></li><li><a class="toc-href" href="#material" title="Material">Material</a></li><li><a class="toc-href" href="#aufbau-der-klausur" title="Aufbau der Klausur">Aufbau der Klausur</a></li><li><a class="toc-href" href="#ubungsbetrieb" title="&Uuml;bungsbetrieb">&Uuml;bungsbetrieb</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li><li><a class="toc-href" href="#nicht-vergessen" title="Nicht vergessen">Nicht vergessen</a></li><li><a class="toc-href" href="#ergebnisse" title="Ergebnisse">Ergebnisse</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Einf&uuml;hrung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 geh&ouml;rt.</div>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<table>
+<tr>
+<td>16.04.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Einleitung</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/01_Einfuehrung_Rechnernetze.pdf">Kapitel 1</a></td>
+</tr>
+<tr>
+<td>24.04.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">E-Mail, <span class="hint" title="hochgradig gecachtes hierarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalit&auml;t, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a>, Folie 18</td>
+</tr>
+<tr>
+<td>30.04.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="Service Data Unit">SDU</span>, <span class="hint" title="Protocol Data Unit">PDU</span>, ISO / OSI-Architektur</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a> bis wohin?</td>
+</tr>
+<tr>
+<td>21.05.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><a href="http://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung">CRC</a>, Generatorpolynome, <a href="../error-correcting-codes/">Vorw&auml;rtsfehlerkorrektur</a>, Sequenznummern, Quittung, Stop-and-wait</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">?</td>
+</tr>
+<tr>
+<td>28.05.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Protokollmechanismen und Verbindungen: Stop-and-wait; Go-Back-N <abbr title="Automatic Repeat Request">ARQ</abbr>, Flusskontrolle (Open Loop, Closed Loop); Kreditbasierte Flusskontrolle</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/04_Protokollmechanismen.pdf#page=36">Kapitel 4.5</a> - 4.8</td>
+</tr>
+<tr>
+<td>04.06.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">?</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/05_HDLC.pdf">Kapitel 5</a></td>
+</tr>
+<tr>
+<td>12.06.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">&Uuml;bungsblatt 2: <abbr title="Automatic Repeat Request">ARQ</abbr>: Best&auml;tigter Dienst (JA), Zuverl&auml;ssiger Dienst (JA, wenn...); Stop-and-Wait;</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">?</td>
+</tr>
+<tr>
+<td>18.06.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Paketvermittlung</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">7.2.2</td>
+</tr>
+<tr>
+<td>25.06.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird f&uuml;r jedes System erstellt; Hot-Potato; Potenzial des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-Detection; Distanz-Vektor-Routing; Link-State-Routing</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">7-44</td>
+</tr>
+<tr>
+<td>02.07.2013</td>
+<td rowspan="2" style="border-bottom:1px solid black;">IPv4 (Class A/B/C/D/E-Netze); <abbr title="Classless Inter-Domain Routing">CIDR</abbr>; Zuteilung von Adressen (<abbr title="Dynamic Host Configuration Protocol">DHCP</abbr>); Subnetze und Subnetz-Maskierung</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">7-44</td>
+</tr>
+</table>
+<p>Falls hier etwas fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.</p>
+<h3 id="ubersicht-uber-dienstprimitive">&Uuml;bersicht &uuml;ber Dienstprimitive</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Dienstleistung</th>
+<th>Grundtypen</th>
+<th>Parameter</th>
+</tr>
+<tr>
+<td>Physical (Ph)</td>
+<td>Connect (Con)</td>
+<td>Request (Req)</td>
+<td rowspan="7">Abh&auml;ngig vom Dienst</td>
+</tr>
+<tr>
+<td>Data Link (DL)</td>
+<td>Data (Dat)</td>
+<td>Indication (Ind)</td>
+</tr>
+<tr>
+<td>Network (N)</td>
+<td>Release (Rel)</td>
+<td>Response (Rsp)</td>
+</tr>
+<tr>
+<td>Transport (T)</td>
+<td>Abort (Abo)</td>
+<td>Confirmation (Cnf)</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>Provider Abort (PAbo)</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>Disconnect (Dis)</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h2 id="fragen">Fragen</h2>
+<details class="question">
+<summary>Welche Qualit&auml;tsparameter sind f&uuml;r Rechnernetze denkbar?</summary>
+<div class="answer">
+<ul>
+<li>Angemessenheit</li>
+<li>Technische Leistung (Antwortzeit, Datenrate)</li>
+<li>Zuverl&auml;ssigkeit</li>
+<li>Sicherheit</li>
+<li>Kosten</li>
+</ul>
+</div>
+</details>
+<h2 id="material">Material</h2>
+<ul>
+<li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">Vorlesungswebsite</a></li>
+<li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Forum/AllItems.aspx">Forum</a></li>
+<li><a href="../anki/Rechnernetze.apkg">Mein Anki-Deck</a></li>
+<li>Ein <a href="https://www.youtube.com/watch?v=0apqZ4jsGmI">Video &uuml;ber CRC</a></li>
+<li>Der Wikipedia-Artikel <a href="http://de.wikipedia.org/wiki/Routing">Routing</a> beinhaltet viele wichtige Informationen.</li>
+<li><a href="http://packetcrafter.wordpress.com/2011/02/13/tcp-flags-hackers-playground/">TCP flags: Hackers Playground</a></li>
+<li><a href="http://www.work-at-google.com/curriculum-vitae.html">Ren&eacute; Pickhardt</a> und weitere: <a href="https://en.wikiversity.org/wiki/Web_Science">Web Science MOOC</a> auf der Wikiversity.</li>
+</ul>
+<h2 id="aufbau-der-klausur">Aufbau der Klausur</h2>
+<p>H&auml;ufige Aufgabenstellungen sind:</p>
+<ul>
+<li>Berechnen einer Subnetzmaske bzw. ob eine IP-Adresse in einem gegebenen Subnetz enthalten ist</li>
+<li>CRC berechnen / &uuml;berpr&uuml;fen, ob CRC korrekt ist</li>
+<li>Distanz-Vektor-Algorithmus (Bellman-Ford) durchgehen</li>
+<li>Protokollablauf durchspielen</li>
+</ul>
+<h2 id="ubungsbetrieb">&Uuml;bungsbetrieb</h2>
+<p>&Uuml;bungsbl&auml;tter sind <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Forms/AllItems.aspx?RootFolder=%2fsites%2fvab%2f0x2E18BE2A290A424EB98916CA7A6FF3FD%2fVorlesungsunterlagen%2fUebung&amp;FolderCTID=&amp;View=%7bF9CB46E3-13F6-4910-9A2E-BF24D999D119%7d">hier</a>.</p>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p><strong>Datum</strong>: Donnerstag, den 1. August 2013 von 14:00 bis 15:00 Uhr<br/>
+<strong>Ort</strong>: Seit 28.07.2013 <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">online</a>:<br/></p>
+<table>
+<tr>
+<th>Ort</th>
+<th>von</th>
+<th>bis</th>
+</tr>
+<tr>
+<td>Audimax A (30.95, EG)</td>
+<td>Abdullah</td>
+<td>Galler</td>
+</tr>
+<tr>
+<td>Audimax B (30.95, EG)</td>
+<td>Gassenschmidt</td>
+<td>L&ouml;ffler</td>
+</tr>
+<tr>
+<td><strong>HSaF (50.35, EG)</strong></td>
+<td>Loose</td>
+<td>Tobias</td>
+</tr>
+<tr>
+<td>Neue Chemie (30.46, EG)</td>
+<td>Traub</td>
+<td>Zumkeller</td>
+</tr>
+</table>
+<p><strong>Einsicht</strong>: 17.09.2013<br/>
+<strong>Punkte</strong>: 30<br/>
+<strong>Bestehensgrenze</strong>: 13 Punkte<br/>
+<strong>Notenskala</strong>:<br/></p>
+<table>
+<tr>
+<th>Note</th>
+<th>von</th>
+<th>bis</th>
+<th>Bereichsgr&ouml;&szlig;e</th>
+</tr>
+<tr>
+<th>1,0</th>
+<td>30,00</td>
+<td>26,50</td>
+<td>3,5</td>
+</tr>
+<tr>
+<th>1,3</th>
+<td>26,25</td>
+<td>25,00</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>1,7</th>
+<td>24,75</td>
+<td>23,50</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>2,0</th>
+<td>23,25</td>
+<td>22,00</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>2,3</th>
+<td>21,75</td>
+<td>20,50</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>2,7</th>
+<td>20,25</td>
+<td>19,00</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>3,0</th>
+<td>18,75</td>
+<td>17,50</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>3,3</th>
+<td>17,25</td>
+<td>16,00</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>3,7</th>
+<td>15,75</td>
+<td>14,50</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>4,0</th>
+<td>14,25</td>
+<td>13,00</td>
+<td>1,25</td>
+</tr>
+<tr>
+<th>5,0</th>
+<td>12,75</td>
+<td>0,00</td>
+<td>12,75</td>
+</tr>
+</table>
+<p><strong>&Uuml;bungsschein</strong>: Nein<br/>
+<strong>Bonuspunkte</strong>: Nein</p>
+<h2 id="nicht-vergessen">Nicht vergessen</h2>
+<ul>
+<li>Studentenausweis</li>
+<li>Kugelschreiber</li>
+</ul>
+<h2 id="ergebnisse">Ergebnisse</h2>
+<p>Sind nun <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Ankuendigungen/DispForm.aspx?ID=11">online</a>. Hier ist die Statistik:</p>
+<figure>
+<a href="../images/2013/04/klausur-rechnernetze-2013-300x274.png"><img alt="Klausurergebnisse Rechnernetze 2013" height="274" loading="lazy" src="../images/2013/04/klausur-rechnernetze-2013-300x274.png" width="300"/></a>
+<figcaption>Klausurergebnisse Rechnernetze 2013</figcaption>
+</figure>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

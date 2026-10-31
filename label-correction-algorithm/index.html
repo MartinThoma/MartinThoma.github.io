@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="The label-correction algorithm is a generalization which includes very common graph search algorithms like breadth first search (BFS), depth first search (DFS), A*, Dijkstra&#39;s algorithm and Branch..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="AI, Algorithms, Programming, Python, Machine Learning, Branch-and-Bound, Computer Science, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/label-correction-algorithm/" />
+<meta property="og:title" content="Label Correction Algorithm"/>
+<meta property="og:url" content="https://martin-thoma.com/label-correction-algorithm/" />
+<meta property="og:description" content="The label-correction algorithm is a generalization which includes very common graph search algorithms like breadth first search (BFS), depth first search (DFS), A*, Dijkstra&#39;s algorithm and Branch and bound as special cases. Pseudocode Explanation: First if: The left hand side is a lower bound to get from start to v …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-01-25T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/ai.png" />
+
+        <title>Label Correction Algorithm  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../label-correction-algorithm/">Label Correction Algorithm</a></h1>
+    <p class="meta">
+<time datetime="2017-01-25T20:00:00+01:00">Jan 25, 2017</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#algorithms-ref">Algorithms
+            <span>22</span>
+</a></li>
+        <li><a href="../tags/#branch-and-bound-ref">Branch-and-Bound
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+        <li><a href="../tags/#programming-ref">Programming
+            <span>76</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#pseudocode" title="Pseudocode">Pseudocode</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>The label-correction algorithm is a generalization which includes very common
+graph search algorithms like breadth first search (BFS), depth first search (DFS),
+<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A*</a>,
+<a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a> and
+<a href="https://en.wikipedia.org/wiki/Branch_and_bound">Branch and bound</a> as special cases.</p>
+<h2 id="pseudocode">Pseudocode</h2>
+<figure>
+<a href="../images/2016/07/label-correction.png"><img alt="Pseudocode for the Label correction algorithm" height="457" src="../images/2016/07/label-correction.png" width="512"/></a>
+<figcaption>Pseudocode for the Label correction algorithm</figcaption>
+</figure>
+<p>Explanation:</p>
+<p>First <code>if</code>: The left hand side is a lower bound to get from start to
+<code>v</code>, to <code>c</code> and then to <code>t</code>. If this lower bound is not lower than
+either <code>u</code> or the distance to <code>c</code> directly, then it will not be part
+of the optimal solution.</p>
+<p>Special cases:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-first search</a>: K is a stack (LIFO list)</li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search</a>: K is a queue (FIFO list)</li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a>: K is a <a href="https://en.wikipedia.org/wiki/Priority_queue">priority queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A*</a>: K is a priority queue, <span class="math">\(h_j\)</span> is non-trivial</li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_and_bound">Branch and bound</a>: K is a priority queue, <span class="math">\(h_j\)</span> and <span class="math">\(m_j\)</span> are non-trivial</li>
+</ul>
+<h2 id="python">Python</h2>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Label Correction algorithm."""</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LIFO</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A LIFO storage."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">el</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""An undirected graph."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name2index</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index2name</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add a new node and return its index."""</span>
+        <span class="n">node_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"index-"</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'Node names beginning with "index-" may cause '</span> <span class="s2">"problems."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">"index-</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">node_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name2index</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index2name</span><span class="p">[</span><span class="n">node_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># Add weight from new node to other nodes and vice-versa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+        <span class="k">for</span> <span class="n">n1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">node_index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">n1</span> <span class="o">!=</span> <span class="n">node_index</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">n1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">))</span>
+
+        <span class="c1"># From the node to itself has distance 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">node_index</span><span class="p">][</span><span class="n">node_index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+
+        <span class="k">return</span> <span class="n">node_index</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_node_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get node index by name."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name2index</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_edge_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set edge weight by node names.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : str</span>
+<span class="sd">            First edge name</span>
+<span class="sd">        b : str</span>
+<span class="sd">            Second edge name</span>
+<span class="sd">        weight : number</span>
+<span class="sd">            New edge weight</span>
+<span class="sd">        """</span>
+        <span class="n">i1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">i2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">i1</span><span class="p">][</span><span class="n">i2</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">i2</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">label_correction</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Label correction algorithm for graph searches.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph :</span>
+<span class="sd">        Needs 'graph.childs' which returns a list of child indices for each</span>
+<span class="sd">        node, 'graph.edges[node1][node2]' which always returns an edge weight,</span>
+<span class="sd">    start_node : int</span>
+<span class="sd">        Index of start node as given by the graph node iterator</span>
+<span class="sd">    t : int</span>
+<span class="sd">        Index of target node as given by the graph node iterator</span>
+<span class="sd">    h : lower_heuristic, optional</span>
+<span class="sd">        Takes (graph, node1, node2) and returns a number which underestimates</span>
+<span class="sd">        the distance from node1 to node2. If this is not given, the trivial</span>
+<span class="sd">        distance 0 is chosen.</span>
+<span class="sd">    m : upper_heuristic, optional</span>
+<span class="sd">    K : list-like data structure, optional</span>
+<span class="sd">        Needs 'insert', 'pop'</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">h</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">K</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">LIFO</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">parents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">))</span>
+        <span class="n">parents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>  <span class="c1"># shortest distance from start_node to t</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"K=</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">u</span><span class="p">):</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">c</span><span class="p">]</span>
+                <span class="n">parents</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+                    <span class="n">K</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+                    <span class="n">u</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+    <span class="c1"># Reconstruct the path</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">named_path</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="o">!=</span> <span class="n">start_node</span><span class="p">:</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+        <span class="n">named_path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index2name</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>
+    <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+    <span class="n">named_path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index2name</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"shortest_distance"</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span> <span class="s2">"path"</span><span class="p">:</span> <span class="n">path</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"named_path"</span><span class="p">:</span> <span class="n">named_path</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sample_1</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""A simple search problem."""</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"E"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"D"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"D"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"E"</span><span class="p">,</span> <span class="s2">"J"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"G"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"H"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_edge_by_name</span><span class="p">(</span><span class="s2">"J"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="s2">"F"</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">label_correction</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">sample_1</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><a href="https://projecteuler.net/problem=18">Project Euler 18</a></li>
+<li><a href="https://www.hackerrank.com/challenges/pacman-dfs">hackerrank</a></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://github.com/MartinThoma/algorithms/tree/master/label-korrektur-algorithmus">My implementations on GitHub</a></li>
+<li><a href="http://www.idiotinside.com/2015/03/01/python-lists-as-fifo-lifo-queues-using-deque-collections/">Python Lists as FIFO, LIFO Queues Using Deque Collections</a></li>
+</ul>
+<p><br/></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

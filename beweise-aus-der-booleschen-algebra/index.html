@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Definition Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet: Sei \(B\) eine Menge und \(\sqcap: B \times B \rightarrow B\) sowie \(\sqcup: B \times B..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Mathematics, Boolean Algebra, Algebra, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/beweise-aus-der-booleschen-algebra/" />
+<meta property="og:title" content="Beweise aus der booleschen Algebra"/>
+<meta property="og:url" content="https://martin-thoma.com/beweise-aus-der-booleschen-algebra/" />
+<meta property="og:description" content="Definition Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet: Sei \(B\) eine Menge und \(\sqcap: B \times B \rightarrow B\) sowie \(\sqcup: B \times B \rightarrow B\) Verknüpfungen auf B. Weiter gelte: H1: Kommutativgesetze $\forall a,b \in B: a \sqcap b = b \sqcap a$ $\forall a …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-11-08T13:18:09+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/11/boolesche-algebra.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Beweise aus der booleschen Algebra  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../beweise-aus-der-booleschen-algebra/">Beweise aus der booleschen Algebra</a></h1>
+    <p class="meta">
+<time datetime="2012-11-08T13:18:09+01:00">Nov 8, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algebra-ref">Algebra
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#boolean-algebra-ref">Boolean Algebra
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#definition" title="Definition">Definition</a></li><li><a class="toc-href" href="#folgerungen" title="Folgerungen">Folgerungen</a><ul><li><a class="toc-href" href="#eindeutigkeit-des-nullelements" title="Eindeutigkeit des Nullelements">Eindeutigkeit des Nullelements</a></li><li><a class="toc-href" href="#eindeutigkeit-des-einselements" title="Eindeutigkeit des Einselements">Eindeutigkeit des Einselements</a></li><li><a class="toc-href" href="#eindeutigkeit-der-komplementaren-elemente" title="Eindeutigkeit der komplement&auml;ren Elemente">Eindeutigkeit der komplement&auml;ren Elemente</a></li><li><a class="toc-href" href="#nullelement-ungleich-einselement" title="Nullelement ungleich Einselement">Nullelement ungleich Einselement</a></li><li><a class="toc-href" href="#extremalgesetze" title="Extremalgesetze">Extremalgesetze</a></li><li><a class="toc-href" href="#absorptionsgesetz" title="Absorptionsgesetz">Absorptionsgesetz</a></li></ul></li><li><a class="toc-href" href="#korper" title="K&ouml;rper">K&ouml;rper</a></li><li><a class="toc-href" href="#boolesche-algebren-und-die-schaltalgebra" title="Boolesche Algebren und die Schaltalgebra">Boolesche Algebren und die Schaltalgebra</a></li><li><a class="toc-href" href="#quellen" title="Quellen">Quellen</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2012/11/boolesche-algebra.jpg"><img alt="Logikgatter AND, OR und NOT, verbunden durch Leitungen, daneben ein Venn-Diagramm und ein Schalter" height="768" src="../images/2012/11/boolesche-algebra.jpg" width="1376"/></a>
+<figcaption>Boolesche Algebra: Gatter, Mengen und Schalter.</figcaption>
+</figure>
+<h2 id="definition">Definition</h2>
+<p>Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher
+Algebren erarbeitet:</p>
+<p>Sei <span class="math">\(B\)</span> eine Menge und <span class="math">\(\sqcap: B \times B \rightarrow B\)</span> sowie
+<span class="math">\(\sqcup: B \times B \rightarrow B\)</span> Verkn&uuml;pfungen auf B.</p>
+<p>Weiter gelte:</p>
+<p><strong>H1: Kommutativgesetze</strong></p>
+<ul style="list-style-type:none;">
+<li>$\forall a,b \in B: a \sqcap b = b \sqcap a$</li>
+<li>$\forall a,b \in B: a \sqcup b = b \sqcup a$</li>
+</ul>
+<p><strong>H2: Distributivgesetze</strong></p>
+<ul style="list-style-type:none;">
+<li>$\forall a,b,c \in B: a \sqcap (b \sqcup c) = (a \sqcap b) \sqcup (a \sqcap c)$</li>
+<li>$\forall a,b,c \in B: a \sqcup (b \sqcap c) = (a \sqcup b) \sqcup (a \sqcap c)$</li>
+</ul>
+<p><strong>H3: Neutrale Elemente</strong></p>
+<ul style="list-style-type:none;">
+<li>$\exists e \in B \forall a \in B: a \sqcap e = a$ (e wird Einselement genannt)</li>
+<li>$\exists n \in B \forall a \in B: a \sqcup n = a$ (n wird Nullelement genannt)</li>
+</ul>
+<p><strong>H4: Komplement&auml;re Elemente</strong></p>
+<ul style="list-style-type:none;">
+<li>$\forall a \in B: \exists \bar a: a \sqcap \bar a = n \land a \sqcup \bar a = e$</li>
+</ul>
+<p>Dann wird <span class="math">\((B, \sqcap, \sqcup)\)</span> eine boolesche Algebra gennant.</p>
+<h2 id="folgerungen">Folgerungen</h2>
+<p>Sei im folgendem immer <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> eine boolesche
+Algebra mit dem Einselement &bdquo;1&ldquo; und dem Nullelement
+&bdquo;0&ldquo;.</p>
+<h3 id="eindeutigkeit-des-nullelements">Eindeutigkeit des Nullelements</h3>
+<p><u>Behauptung:</u> Es existiert genau ein Nullelement f&uuml;r <span class="math">\(\mathcal{B}\)</span>.<br/>
+<u>Beweis:</u> direkt</p>
+<p>Die Existenz von mindestens einem Nullelement wird durch H3 garantiert.</p>
+<p>Seien <span class="math">\(n_1, n_2\)</span> Nullelemente auf <span class="math">\(\mathcal{B}\)</span>. Dann gilt:</p>
+<div class="math">\begin{align}
+                           &amp; \forall a \in B: a \sqcup n_1 \stackrel{H3}{=} a\\
+\Rightarrow                &amp; n_2 \sqcup n_1 = n_2\\
+\stackrel{H3}{\Rightarrow} &amp; n_1 = n_2 \blacksquare
+\end{align}</div>
+<h3 id="eindeutigkeit-des-einselements">Eindeutigkeit des Einselements</h3>
+<p><u>Behauptung:</u> Es existiert genau ein Einselement f&uuml;r <span class="math">\(\mathcal{B}\)</span>.<br/>
+<u>Beweis:</u> direkt</p>
+<p>Die Existenz von mindestens einem Einselement wird durch H3 garantiert.</p>
+<p>Seien <span class="math">\(e_1, e_2\)</span> Einselemente auf <span class="math">\(\mathcal{B}\)</span>. Dann gilt:</p>
+<div class="math">\begin{align}
+                           &amp; \forall a \in B: a \sqcap e_1 \stackrel{H3}{=} a\\
+\Rightarrow                &amp; e_2 \sqcup e_1 = e_2\\
+\stackrel{H3}{\Rightarrow} &amp; e_1 = e_2 \blacksquare
+\end{align}</div>
+<h3 id="eindeutigkeit-der-komplementaren-elemente">Eindeutigkeit der komplement&auml;ren Elemente</h3>
+<p><u>Behauptung:</u> Die komplement&auml;ren Elemente bzgl. <span class="math">\(\sqcup\)</span> sind eindeutig<br/>
+<u>Beweis:</u> direkt<br/>
+Sei <span class="math">\(a \in B\)</span> beliebig und es gelte:<br/>
+<span class="math">\(a \sqcup \bar a_1 = 0\)</span> und <span class="math">\(a \sqcup \bar a_2 = 0\)</span> sowie<br/>
+<span class="math">\(a \sqcap \bar a_1 = 1\)</span> und <span class="math">\(a \sqcap \bar a_2 = 1\)</span></p>
+<p>Schritt 1<br/>
+Es gilt:</p>
+<div class="math">\begin{align}
+ \bar a_1 \sqcap (a \sqcup \bar a_2) &amp;\stackrel{H2}{=} (\bar a_1 \sqcap a) \sqcup (\bar a_1 \sqcap \bar a_2)\\
+\Leftrightarrow \bar a_1 \sqcap 1    &amp;= 0 \sqcup (\bar a_1 \sqcap \bar a_2)\\
+\Leftrightarrow \bar a_1             &amp;= \bar a_1 \sqcap \bar a_2
+\end{align}</div>
+<p>Schritt 2<br/>
+Au&szlig;erdem gilt:</p>
+<div class="math">\begin{align}
+\bar a_2 \sqcap (a \sqcup \bar a_1) &amp;\stackrel{H2}{=} (\bar a_2 \sqcap a) \sqcup (\bar a_2 \sqcap \bar a_1)\\
+\Leftrightarrow \bar a_2 \sqcap 1   &amp;= 0 \sqcup (\bar a_2 \sqcap \bar a_1)\\
+\Leftrightarrow \bar a_2            &amp;= (\bar a_2 \sqcap \bar a_1) \stackrel{H1}{=} \bar a_1 \sqcap \bar a_2
+\end{align}</div>
+<p>Aus den Ergebnissen von Schritt 1 und Schritt 2 folgt:
+<span class="math">\(\bar a_1 = \bar a_2\)</span>.</p>
+<p>Das bedeutet, zu jedem <span class="math">\(a \in B\)</span> existiert genau ein Komplement. <span class="math">\(\blacksquare\)</span></p>
+<h3 id="nullelement-ungleich-einselement">Nullelement ungleich Einselement</h3>
+<p><u>Behauptung:</u> <span class="math">\(0 \neq 1\)</span><br/>
+<u>Beweis:</u><br/>
+Wegen (H3) und (H4) gilt:</p>
+<ul>
+<li>$\exists 1 \in B \forall a \in B: a \sqcap 1 \stackrel{H1}{=} 1 \sqcap a = a$</li>
+<li>$\exists 0 \in B \forall a \in B: a \sqcup 0 \stackrel{H1}{=} 0 \sqcup a = a$</li>
+<li>$\forall a \in B: \exists \bar a \in B: a \sqcap \bar a \stackrel{H1}{=} 0$</li>
+<li>$\forall a \in B: \exists \bar a \in B: a \sqcup \bar a \stackrel{H1}{=} 1$</li>
+</ul>
+<p>Annahme: 1 = 0<br/>
+<span class="math">\(\Rightarrow \forall a \in B: \exists \bar a \in B = a \sqcap \bar a = a \sqcup \bar a = 0 = 1\)</span></p>
+<p>Hmmm ... irgendwie konnte man <span class="math">\((0 = 1) \Rightarrow (\sqcap = \sqcup)\)</span> zeigen
+... aber wie genau?</p>
+<h3 id="extremalgesetze">Extremalgesetze</h3>
+<p><span class="math">\(\forall a \in B: 1 \sqcup a = 1\)</span>
+<span class="math">\(\forall a \in B: 0 \sqcap a = 0\)</span></p>
+<p>Wie beweist man das?</p>
+<h3 id="absorptionsgesetz">Absorptionsgesetz</h3>
+<h4 id="version-1">Version 1</h4>
+<p><u>Voraussetzungen:</u> Sei <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> eine boolesche Algebra.<br/>
+<u>Behauptung:</u> <span class="math">\(\forall a, b \in B: a \sqcup (a \sqcap b) = a\)</span><br/>
+<u>Beweis:</u> direkt</p>
+<p><span class="math">\(a \sqcup (a \sqcap b) \stackrel{H3}{=} (a \sqcap 1) \sqcup (a \sqcap b) \stackrel{H3}{=} a \sqcap (1 \sqcup b) \stackrel{\text{Extremalgesetze}}{=} a \sqcap 1 \stackrel{H3}{=} a\)</span></p>
+<h4 id="version-2">Version 2</h4>
+<p><u>Voraussetzungen:</u> Sei <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> eine boolesche Algebra.<br/>
+<u>Behauptung:</u> <span class="math">\(\forall a, b \in B: a \sqcap (a \sqcup b) = a\)</span><br/>
+<u>Beweis:</u> Duale Aussage zu Version 1<br/></p>
+<h4 id="version-3">Version 3</h4>
+<p><u>Voraussetzungen:</u> Sei <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> eine boolesche Algebra.<br/>
+<u>Behauptung:</u> <span class="math">\(\forall a, b \in B: a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} a \sqcup b\)</span><br/>
+<u>Beweis:</u> direkt<br/>
+<span class="math">\(a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} (a \sqcup \bar a) \sqcap (a \sqcup b) \stackrel{H4}{=} 1 \sqcap (a \sqcup b) \stackrel{H3}{=} a \sqcup b \blacksquare\)</span></p>
+<h2 id="korper">K&ouml;rper</h2>
+<p>Ist jede Boolesche Algebra ein K&ouml;rper?</p>
+<p>Ein <a href="../mathematische-strukturen/">K&ouml;rper</a> ist eine Menge <span class="math">\(V\)</span> mit zwei Verkn&uuml;pfungen
+<span class="math">\(\oplus, \otimes\)</span>: <span class="math">\((V, \oplus, \otimes)\)</span>, f&uuml;r den gilt:</p>
+<ul>
+<li>$(K, \oplus)$ ist abelsche Gruppe mit neutralem Element 0</li>
+<li>$(K \setminus \{0\}, \otimes)$ ist abelsche Gruppe mit neutralem Element 1</li>
+<li>Es gelten die Distributivgesetze:
+    <ul>
+<li>$\forall a, b, c \in V: a\cdot (b+c) = a\cdot b+a\cdot c$</li>
+<li>$\forall a, b, c \in V: (a+b)\cdot c= a\cdot c+b\cdot c$</li>
+</ul>
+</li>
+</ul>
+<p>Es scheint relativ offensichtlich, dass jede boolesche Algebra ein K&ouml;rper
+ist. Allerdings muss man aufpassen. F&uuml;r die neutrale Elemente eines
+K&ouml;rpers <span class="math">\(K = (V, \oplus, \otimes)\)</span> muss gelten:</p>
+<ul>
+<li>$\forall a: 0 \oplus a = a$</li>
+<li>$\forall a: 1 \otimes a = a$</li>
+</ul>
+<p>F&uuml;r eine boolesche Algebra <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> muss gelten
+(H3):</p>
+<ul>
+<li>$\exists 1 \in B \forall a \in B: a \sqcap 1 = a$</li>
+<li>$\exists 0 \in B \forall a \in B: a \sqcup 0 = a$</li>
+</ul>
+<p>F&uuml;r die Inversen von <span class="math">\(K\)</span> muss gelten:</p>
+<ul>
+<li>$\forall a \exists \bar a: a \oplus \bar a = 0$</li>
+<li>$\forall a \exists \bar a: a \otimes \bar a = 1$</li>
+</ul>
+<p>F&uuml;r die Komplemente von <span class="math">\(\mathcal{B}\)</span> muss gelten:</p>
+<ul>
+<li>$\forall a \in B: \exists \bar a: a \sqcap \bar a = 0$</li>
+<li>$\forall a \in B: \exists \bar a: a \sqcup \bar a = 1$</li>
+</ul>
+<p>Das Komplement eines Elements verkn&uuml;pft mit <span class="math">\(\sqcap\)</span> ergibt also das
+neutrale Element von <span class="math">\(\sqcup\)</span>!</p>
+<p>Offensichtlich ist, dass die Schaltalgebra mit den Operatoren XOR und AND, also
+<span class="math">\((\{0,1\}, XOR, AND)\)</span> ein K&ouml;rper ist, da sie offensichtlich isomorph zu
+<span class="math">\(\mathbb{Z}/2\mathbb{Z}\)</span> ist.</p>
+<p><u>Behauptung:</u> Alle booleschen Algebren mit drei oder mehr Elementen sind keine K&ouml;rper<br/>
+<u>Beweis:</u> (<a href="http://de.wikipedia.org/wiki/Diskussion:Darstellungssatz_f%C3%BCr_Boolesche_Algebren#Beziehung zu K&ouml;rpern">danke an Chricho</a>)
+Sei <span class="math">\(\mathcal{B} = (B, \sqcap, \sqcup)\)</span> mit <span class="math">\(|B| \geq 3\)</span>. Sei <span class="math">\(a \in B\)</span> mit <span class="math">\(0 \neq a \neq 1\)</span>.
+<br/>
+Es gilt:<br/>
+<span class="math">\(\forall b \in B: a \land b \leq a \lneq 1 \Rightarrow a\)</span> hat kein Inverses <span class="math">\(\Rightarrow \mathcal{B}\)</span> ist kein K&ouml;rper <span class="math">\(\blacksquare\)</span></p>
+<h2 id="boolesche-algebren-und-die-schaltalgebra">Boolesche Algebren und die Schaltalgebra</h2>
+<p>Die wohl bekannteste boolesche Algebra ist die Schaltalgebra:
+<span class="math">\((\{0,1\}, \lor, \land, 0, 1)\)</span></p>
+<p>Allerdings ist nicht jede Boolesche Algebra eine Schaltalgebra!</p>
+<h2 id="quellen">Quellen</h2>
+<ul>
+<li>Skript &bdquo;Technische Informatik - Digitaltechnik und Entwurfsverfahren&ldquo; von Dr.-Ing. Tamim Asfour. S.33 - 37</li>
+<li><a href="http://ti.ira.uka.de/TI-1/Vorlesung/Vorlesung.php">Folien</a> von Dr.-Ing. Tamim Asfour</li>
+<li><a href="http://youtu.be/2G-MQPKylPA?t=38m12s">Vorlesung</a> von Dr.-Ing. Tamim Asfour</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

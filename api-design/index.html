@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Today, I gave API design a little bit of thought. Web APIs to be more specific. So here are some good practices I&#39;ve seen. Feel free to add more in the comments 😊 General Thoughts An API is..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="API, Web, Design, The Web, " />
+
+<link rel="canonical" href="https://martin-thoma.com/api-design/" />
+<meta property="og:title" content="API Design"/>
+<meta property="og:url" content="https://martin-thoma.com/api-design/" />
+<meta property="og:description" content="Today, I gave API design a little bit of thought. Web APIs to be more specific. So here are some good practices I&#39;ve seen. Feel free to add more in the comments 😊 General Thoughts An API is written because you want to make a public interface to your application. You …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-03-07T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/development.png" />
+
+        <title>API Design  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../api-design/">API Design</a></h1>
+    <p class="meta">
+<time datetime="2018-03-07T20:00:00+01:00">Mär 7, 2018</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#api-ref">API
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#design-ref">Design
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#web-ref">Web
+            <span>2</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#general-thoughts" title="General Thoughts">General Thoughts</a><ul><li><a class="toc-href" href="#character-sets" title="Character Sets">Character Sets</a></li><li><a class="toc-href" href="#monitoring" title="Monitoring">Monitoring</a></li><li><a class="toc-href" href="#server-time" title="Server Time">Server Time</a></li></ul></li><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#versioning" title="Versioning">Versioning</a></li><li><a class="toc-href" href="#list-returning-endpoints" title="List-returning Endpoints">List-returning Endpoints</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#errors" title="Errors">Errors</a></li><li><a class="toc-href" href="#security" title="Security">Security</a><ul><li><a class="toc-href" href="#https" title="HTTPS">HTTPS</a></li><li><a class="toc-href" href="#authentication" title="Authentication">Authentication</a></li><li><a class="toc-href" href="#input-validation" title="Input Validation">Input Validation</a></li></ul></li><li><a class="toc-href" href="#other-stuff" title="Other Stuff">Other Stuff</a><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#http-response-status-codes" title="HTTP Response Status codes">HTTP Response Status codes</a></li></ul></li><li><a class="toc-href" href="#graphql" title="GraphQL">GraphQL</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Today, I gave API design a little bit of thought. Web APIs to be more specific.
+So here are some good practices I've seen. Feel free to add more in the
+comments 😊</p>
+<h2 id="general-thoughts">General Thoughts</h2>
+<p>An API is written because you want to make a public interface to your
+application. You will not know who is using your service. For this reason, you
+have to keep things running for quite a while. Changes in an endpoint could
+potentially cause another service to crash. You want your stuff to be reliable,
+so think about that in advance.</p>
+<p>Oh, and JSON is likely the most common way to return information on the web.
+So make sure your responses are valid JSON and you include
+<code>Content-Type: application/json</code> in the header. Consequently, you can expect
+the payload to be valid JSON as well.</p>
+<h3 id="character-sets">Character Sets</h3>
+<p>Use UTF-8. Always. Everywhere.</p>
+<p>See also: <a href="https://softwareengineering.stackexchange.com/q/40063/25699">Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?</a></p>
+<h3 id="monitoring">Monitoring</h3>
+<p>You offer a service, so please make sure it is available. You could use services
+like <a href="https://www.runscope.com/api-monitoring">Runscope</a> which ping your
+endpoints regularly.</p>
+<p>To give your users a way to check if things look normal, you could create a
+status page. A popular choice is <a href="https://www.statuspage.io">statuspage.io</a>.
+Some examples of status pages:</p>
+<ul>
+<li><a href="http://status.aws.amazon.com">status.aws.amazon.com</a></li>
+<li><a href="https://status.github.com/messages">status.github.com</a></li>
+<li><a href="https://status.bitbucket.org">status.bitbucket.org</a></li>
+</ul>
+<h3 id="server-time">Server Time</h3>
+<p>Make sure your server time is not too far off. This makes comparing logs of
+different systems easier. And it could be that you use the system time directly
+or indirectly as an API output. You can use an <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP server</a>
+to sync the time.</p>
+<p>For manual checking:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ntpq<span class="w"> </span>-pn
+<span class="w">     </span>remote<span class="w">           </span>refid<span class="w">      </span>st<span class="w"> </span>t<span class="w"> </span>when<span class="w"> </span>poll<span class="w"> </span>reach<span class="w">   </span>delay<span class="w">   </span>offset<span class="w">  </span><span class="nv">jitter</span>
+<span class="o">==============================================================================</span>
+<span class="w"> </span><span class="m">0</span>.ubuntu.pool.n<span class="w"> </span>.POOL.<span class="w">          </span><span class="m">16</span><span class="w"> </span>p<span class="w">    </span>-<span class="w">   </span><span class="m">64</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span>.000<span class="w">    </span><span class="m">0</span>.000<span class="w">   </span><span class="m">0</span>.000
+<span class="w"> </span><span class="m">1</span>.ubuntu.pool.n<span class="w"> </span>.POOL.<span class="w">          </span><span class="m">16</span><span class="w"> </span>p<span class="w">    </span>-<span class="w">   </span><span class="m">64</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span>.000<span class="w">    </span><span class="m">0</span>.000<span class="w">   </span><span class="m">0</span>.000
+<span class="w"> </span><span class="m">2</span>.ubuntu.pool.n<span class="w"> </span>.POOL.<span class="w">          </span><span class="m">16</span><span class="w"> </span>p<span class="w">    </span>-<span class="w">   </span><span class="m">64</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span>.000<span class="w">    </span><span class="m">0</span>.000<span class="w">   </span><span class="m">0</span>.000
+<span class="w"> </span><span class="m">3</span>.ubuntu.pool.n<span class="w"> </span>.POOL.<span class="w">          </span><span class="m">16</span><span class="w"> </span>p<span class="w">    </span>-<span class="w">   </span><span class="m">64</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span>.000<span class="w">    </span><span class="m">0</span>.000<span class="w">   </span><span class="m">0</span>.000
+<span class="w"> </span>ntp.ubuntu.com<span class="w">  </span>.POOL.<span class="w">          </span><span class="m">16</span><span class="w"> </span>p<span class="w">    </span>-<span class="w">   </span><span class="m">64</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span>.000<span class="w">    </span><span class="m">0</span>.000<span class="w">   </span><span class="m">0</span>.000
++92.222.82.98<span class="w">    </span><span class="m">130</span>.149.17.8<span class="w">     </span><span class="m">2</span><span class="w"> </span>u<span class="w">   </span><span class="m">75</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">24</span>.430<span class="w">   </span>-0.043<span class="w">   </span><span class="m">1</span>.522
+*185.51.192.34<span class="w">   </span><span class="m">46</span>.243.26.34<span class="w">     </span><span class="m">2</span><span class="w"> </span>u<span class="w">   </span><span class="m">44</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">27</span>.447<span class="w">   </span>-0.319<span class="w">   </span><span class="m">1</span>.120
+-212.18.3.19<span class="w">     </span><span class="m">212</span>.18.1.106<span class="w">     </span><span class="m">2</span><span class="w"> </span>u<span class="w">   </span><span class="m">61</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">16</span>.443<span class="w">   </span>-0.317<span class="w">   </span><span class="m">1</span>.454
++88.159.1.196<span class="w">    </span><span class="m">193</span>.190.230.66<span class="w">   </span><span class="m">2</span><span class="w"> </span>u<span class="w">   </span><span class="m">47</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">29</span>.346<span class="w">    </span><span class="m">0</span>.564<span class="w">   </span><span class="m">1</span>.828
+-192.33.96.102<span class="w">   </span>.PPS.<span class="w">            </span><span class="m">1</span><span class="w"> </span>u<span class="w">  </span><span class="m">113</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">40</span>.525<span class="w">    </span><span class="m">3</span>.008<span class="w">   </span><span class="m">2</span>.11
+</code></pre></div>
+<h2 id="naming">Naming</h2>
+<p>Suppose we have an API which lets us create / delete / retrieve users. I
+would expect the following:</p>
+<ul>
+<li>GET <code>domain.io/api/users</code>: Returns a list of all users</li>
+<li>GET <code>domain.io/api/users/42</code>: Returns the user with ID 42</li>
+<li>POST <code>domain.io/api/users</code>: Creates a new user</li>
+<li>DELETE <code>domain.io/api/users/42</code>: Deletes the user with ID 42</li>
+</ul>
+<p>This kind of logic should be consistent through the complete API.</p>
+<p>For the field names, I suggest using <strong>camelCase</strong> as it is usually done with
+JSON.</p>
+<p>For the names, I suggest using <strong>plural forms</strong>. The main point is to be
+consistent.</p>
+<p>And, of course, there is the actual value of IDs. It might not be desirable
+that others can iterate through whatever has the ID in your system. UUID could
+be one alternative.</p>
+<h2 id="versioning">Versioning</h2>
+<p>Having a URL structure like <code>domain.io/api/v1/foobar</code> is really nice. This
+allows you to change some of the practices and be consistent. So you could
+follow some naming schemes for <code>/v1/*</code> and others for <code>/v2/*</code>. Or change the
+authentication.</p>
+<h2 id="list-returning-endpoints">List-returning Endpoints</h2>
+<p><strong>Please note</strong>: You might want to read <a href="https://blog.philipphauer.de/web-api-pagination-continuation-token/#offset-pagination">Web API Pagination with the 'Timestamp_Offset_Checksum' Continuation Token</a> - don't take the following as the best option for granted!</p>
+<p>Whenever you return lists, make them paginated. Add a <strong>default sorting</strong>
+and an <strong>offset parameter</strong>. You could also add an <strong>order</strong> and a <strong>limit</strong> parameter.</p>
+<p>The endpoint should return:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">"continue"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">FOOBAR</span><span class="p">}</span>
+</code></pre></div>
+<p>where the value of <code>continue</code> is the next index to continue. So in case you
+decide that a limit of 100 returned elements is enough / reasonable,
+the first query that has more than 100 elements would return the <code>continue</code> of
+100. A call with an <code>offset=142</code> would have a <code>"continue": 242</code> in the
+response, if there are at least 242 elements.</p>
+<p>It is done similarly in the <a href="https://www.mediawiki.org/wiki/API:Query">MediaWiki API</a>.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Add a <code>format</code> parameter to every <code>GET</code> query. If it is not specified, then
+you can return documentation and/or a formatted response.</p>
+<p>See <a href="https://en.wikipedia.org/w/api.php?action=query&amp;generator=allpages&amp;gaplimit=3&amp;gapfrom=Ba&amp;prop=links%7Ccategories&amp;format=jsonfm&amp;formatversion=2">MediaWiki as an example</a>.</p>
+<p>Also, you should be really careful about units:</p>
+<ul>
+<li><strong>Prices</strong>: Always document the currency. I suggest using cents so that you
+  can use integers and don't have to deal with floating point precision
+  problems.</li>
+<li><strong>Dates</strong>: There are timezones. I suggest using <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with
+  datetime as used for ECMA consistently: <code>YYYY-MM-DDTHH:mm:ss+00:00</code> (UTC), e.g. <code>2018-03-07T21:37:24+00:00</code>.</li>
+<li><strong>SI Units</strong>: Use <a href="https://en.wikipedia.org/wiki/International_System_of_Units">SI units</a> as a default. If you don't use them, make a big warning sign.</li>
+</ul>
+<h2 id="errors">Errors</h2>
+<p>Help your API users by making nice error messages. Something like:</p>
+<div class="highlight"><pre><span></span><code>HTTP Status 400
+
+{
+    "errors": [
+        {
+            "status": 400,
+            "error": "FIELDS_VALIDATION_ERROR",
+            "detail": "Invalid country 'German'.",
+            "fields": {
+                "country": "Invalid country. See ISO 3166 ALPHA-3 for valid values."
+            },
+            "code": 1337,
+            "links": {
+                "docs": "http://domain.io/docs",
+                "errors": "http://domain.io/docs/errors#1337"
+            }
+        }
+    ]
+}
+</code></pre></div>
+<h2 id="security">Security</h2>
+<h3 id="https">HTTPS</h3>
+<p>Use HTTPS.</p>
+<h3 id="authentication">Authentication</h3>
+<p>Give a concrete example of how one should authenticate. Most likely, there will
+be a token system. Be absolutely clear when the tokens expire.</p>
+<p>If losing the token could lead to people not being able to access your service
+for a while, make sure they know it! This could be the case if one account may
+only have one active token.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://stackoverflow.com/q/6556522/562769">Authentication versus Authorization</a></li>
+<li><a href="https://jwt.io/introduction/">Introduction to JSON Web Tokens</a></li>
+</ul>
+<h3 id="input-validation">Input Validation</h3>
+<p>Don't let user input go directly to the database / be part of the execution.</p>
+<p>See <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a></p>
+<h2 id="other-stuff">Other Stuff</h2>
+<p>There are a couple of other rules, but I'm not sure how important they actually
+are:</p>
+<h3 id="http-methods">HTTP Methods</h3>
+<p>Copied from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">developer.mozilla.org</a>:</p>
+<ul>
+<li><code>GET</code>: [...] Requests using GET should only retrieve data.</li>
+<li><code>POST</code>: The POST method is used to submit an entity to the specified
+  resource, often causing a change in state or side effects on the server</li>
+<li><code>PUT</code>: The PUT method replaces all current representations of the target
+  resource with the request payload.</li>
+<li><code>PATCH</code>: The PATCH method is used to apply partial modifications to a
+  resource.</li>
+<li><code>DELETE</code>: The DELETE method deletes the specified resource.</li>
+</ul>
+<h3 id="http-response-status-codes">HTTP Response Status codes</h3>
+<h4 id="success-2xx">Success: 2XX</h4>
+<ul>
+<li>200 OK: Successful GET, PUT, PATCH</li>
+<li>201 Created: Successful POST</li>
+<li>204 No Content: For successful DELETE</li>
+</ul>
+<h4 id="client-errors-4xx">Client Errors: 4XX</h4>
+<ul>
+<li>400 Bad Request: E.g. the parameters are invalid</li>
+<li>401 Unauthorized</li>
+<li>403 Forbidden: Authenticated, but the client may not access the endpoint</li>
+<li>404 Not Found</li>
+<li>410 Gone: For deprecation</li>
+</ul>
+<h4 id="server-errors-5xx">Server Errors: 5XX</h4>
+<ul>
+<li>500 Internal Server Error</li>
+<li>503 Service Unavailable: Maintenance</li>
+</ul>
+<h2 id="graphql">GraphQL</h2>
+<p>This article was mainly about REST-like APIs. <a href="http://graphql.org/learn/">GraphQL</a> is a data query language developed internally by Facebook which is an alternative to REST, see <a href="https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/">GraphQL vs REST</a>.</p>
+<p>My impression is that GraphQL is nice because you need less documentation. You
+buy that advantage with overhead in writing <a href="http://graphql.org/learn/execution/#root-fields-resolvers">the resolver</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://blog.philipphauer.de/restful-api-design-best-practices/">RESTful API Design. Best Practices in a Nutshell.</a></li>
+<li><a href="http://jsonapi.org/format/#status">jsonapi.org</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#the-web-ref">The Web</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

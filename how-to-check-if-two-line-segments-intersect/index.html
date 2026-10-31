@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="You have two line segments and you want to know if they intersect. I&#39;ll give you an algorithm how to do it. Test cases First of all, we should think about how lines can be arranged: Bounding boxes..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Java, Algorithms, Geometry, Computer Science, Mathematics, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" />
+<meta property="og:title" content="How to check if two line segments intersect"/>
+<meta property="og:url" content="https://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" />
+<meta property="og:description" content="You have two line segments and you want to know if they intersect. I&#39;ll give you an algorithm how to do it. Test cases First of all, we should think about how lines can be arranged: Bounding boxes You can draw boxes around line segments such that the edges of …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-02-21T12:19:05+01:00" />
+
+        <title>How to check if two line segments intersect  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../how-to-check-if-two-line-segments-intersect/">How to check if two line segments intersect</a></h1>
+    <p class="meta">
+<time datetime="2013-02-21T12:19:05+01:00">Feb 21, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algorithms-ref">Algorithms
+            <span>22</span>
+</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science
+            <span>55</span>
+</a></li>
+        <li><a href="../tags/#geometry-ref">Geometry
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#java-ref">Java
+            <span>40</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#test-cases" title="Test cases">Test cases</a></li><li><a class="toc-href" href="#bounding-boxes" title="Bounding boxes">Bounding boxes</a></li><li><a class="toc-href" href="#the-algorithm" title="The algorithm">The algorithm</a><ul><li><a class="toc-href" href="#cross-product" title="Cross product">Cross product</a></li></ul></li><li><a class="toc-href" href="#where-do-two-line-segments-intersect" title="Where do two line segments intersect?">Where do two line segments intersect?</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#addendum" title="Addendum">Addendum</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>You have two line segments and you want to know if they intersect. I'll give you an algorithm how to do it.</p>
+<h2 id="test-cases">Test cases</h2>
+<p>First of all, we should think about how lines can be arranged:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2013/02/line-segments-t1.png"><img alt="T1: One line is horizontal, one vertical and they cross" height="120" src="../images/2013/02/line-segments-t1.png" width="120"/></a>
+<figcaption>Testcase T1</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-t2.png"><img alt="T2: An endpoint of one line segment is on the other line segment" height="81" loading="lazy" src="../images/2013/02/line-segments-t2.png" width="120"/></a>
+<figcaption>Testcase T2</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-t3.png"><img alt="T3: Similar to T4, but with negative coordinates" height="120" loading="lazy" src="../images/2013/02/line-segments-t3.png" width="120"/></a>
+<figcaption>Testcase T3</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-t4.png"><img alt="T4: One line is horizontal, one vertical and an end point is on one line" height="121" loading="lazy" src="../images/2013/02/line-segments-t4.png" width="74"/></a>
+<figcaption>Testcase T4</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-t5.png"><img alt="T5: One line is on the other line" height="120" loading="lazy" src="../images/2013/02/line-segments-t5.png" width="120"/></a>
+<figcaption>Testcase T5</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-t6.png"><img alt="T6: Line segments are identical" height="91" loading="lazy" src="../images/2013/02/line-segments-t6.png" width="120"/></a>
+<figcaption>Testcase T6</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f1.png"><img alt="F1: In parallel, close together, one line is completely inside the bounding box of the other line" height="120" loading="lazy" src="../images/2013/02/line-segments-f1.png" width="120"/></a>
+<figcaption>Testcase F1</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f2.png"><img alt="F2: Both lines are parallel." height="116" loading="lazy" src="../images/2013/02/line-segments-f2.png" width="120"/></a>
+<figcaption>Testcase F2</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f3.png"><img alt="F3: Both lines are horizontal." height="120" loading="lazy" src="../images/2013/02/line-segments-f3.png" width="91"/></a>
+<figcaption>Testcase F3</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f4.png"><img alt="F4: One line is horizontal, one vertical. They don't cross." height="91" loading="lazy" src="../images/2013/02/line-segments-f4.png" width="120"/></a>
+<figcaption>Testcase F4</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f5.png"><img alt="F5: Both line segments are on one line, but they don't intersect" height="120" loading="lazy" src="../images/2013/02/line-segments-f5.png" width="120"/></a>
+<figcaption>Testcase F5</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f6.png"><img alt="F6: Both line segments are close together" height="120" loading="lazy" src="../images/2013/02/line-segments-f6.png" width="120"/></a>
+<figcaption>Testcase F6</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f7.png"><img alt="F7: Both lines are horizontal" height="74" loading="lazy" src="../images/2013/02/line-segments-f7.png" width="120"/></a>
+<figcaption>Testcase F7</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/02/line-segments-f8.png"><img alt="F8: Like F6" height="100" loading="lazy" src="../images/2013/02/line-segments-f8.png" width="120"/></a>
+<figcaption>Testcase F8</figcaption>
+</figure>
+</div>
+<h2 id="bounding-boxes">Bounding boxes</h2>
+<p>You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:</p>
+<figure>
+<a href="../images/2013/02/line-segments-bounding-box-250x300.png"><img alt="Two line segments with their bounding boxes" height="300" loading="lazy" src="../images/2013/02/line-segments-bounding-box-250x300.png" width="250"/></a>
+<figcaption>Two line segments with their bounding boxes</figcaption>
+</figure>
+<p>With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.</p>
+<p>It is much easier to check if two bounding boxes intersect. It's simply:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Check if bounding boxes do intersect. If one bounding box</span>
+<span class="cm"> * touches the other, they do intersect.</span>
+<span class="cm"> * @param a first bounding box</span>
+<span class="cm"> * @param b second bounding box</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if they intersect,</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.</p>
+<h2 id="the-algorithm">The algorithm</h2>
+<figure>
+<a href="../images/2013/02/flowchart.png"><img alt="Flowchart how to check if two lines intersect" height="228" loading="lazy" src="../images/2013/02/flowchart.png" width="500"/></a>
+<figcaption>Flowchart how to check if two lines intersect</figcaption>
+</figure>
+<p>Looks quite simple, doesn't it?</p>
+<h3 id="cross-product">Cross product</h3>
+<p>Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:</p>
+<p>You can define a cross product for points:</p>
+<div class="math">\begin{align}
+  \times_P&amp;: Point \times Point \rightarrow \mathbb{R}\\
+  \times_P(a, b) &amp;:= a.x \cdot b.y - b.x \cdot a.y;
+\end{align}</div>
+<p>This cross product has one nice characteristic:</p>
+<p><span class="math">\(a \times_P b = 0 \Leftrightarrow a\)</span> and <span class="math">\(b\)</span> are on one line through origin</p>
+<p>You can verify this. If you take two points on a line through origin, they have the same slope <span class="math">\(\frac{\Delta y}{\Delta x}\)</span>:</p>
+<div class="math">$$
+\begin{align}
+  0 &amp;= a \times_P b\\
+\Leftrightarrow 0 &amp;= a.x \cdot b.y - b.x \cdot a.y\\
+\Leftrightarrow b.x \cdot a.y &amp;= a.x \cdot b.y\\
+\Leftrightarrow \frac{a.y}{a.x} &amp;= \frac{b.y}{b.x}
+\end{align}
+$$</div>
+<p>Ok, now you can check if a point is on a line:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Checks if a Point is on a line</span>
+<span class="cm"> * @param a line (interpreted as line, although given as line</span>
+<span class="cm"> *                segment)</span>
+<span class="cm"> * @param b point</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt;</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPointOnLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Move the image, so that a.first is on (0|0)</span>
+<span class="w">    </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">aTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span>
+<span class="w">            </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">bTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span><span class="w"> </span><span class="n">bTmp</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">EPSILON</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Checks if a point is right of a line. If the point is on the</span>
+<span class="cm"> * line, it is not right of the line.</span>
+<span class="cm"> * @param a line segment interpreted as a line</span>
+<span class="cm"> * @param b the point</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if the point is right of the line,</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPointRightOfLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Move the image, so that a.first is on (0|0)</span>
+<span class="w">    </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">aTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span>
+<span class="w">            </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">bTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span><span class="w"> </span><span class="n">bTmp</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>When we have one line <span class="math">\(a\)</span> through the origin and one line segment <span class="math">\(b\)</span>, you can check if <span class="math">\(b\)</span> crosses <span class="math">\(a\)</span> by checking if the end points of <span class="math">\(b\)</span> are on different sides of <span class="math">\(a\)</span>:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Check if line segment first touches or crosses the line that is</span>
+<span class="cm"> * defined by line segment second.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param first line segment interpreted as line</span>
+<span class="cm"> * @param second line segment</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if line segment first touches or</span>
+<span class="cm"> *                           crosses line second,</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span>
+<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">)</span>
+<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span><span class="w"> </span><span class="o">^</span>
+<span class="w">                </span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now you have everything you need:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Check if line segments intersect</span>
+<span class="cm"> * @param a first line segment</span>
+<span class="cm"> * @param b second line segment</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">doLinesIntersect</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">box1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">box2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span><span class="w"> </span><span class="n">box2</span><span class="p">)</span>
+<span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.</p>
+<h2 id="where-do-two-line-segments-intersect">Where do two line segments intersect?</h2>
+<p>When you know that two line segments intersect, you can also calculate the intersection.
+The intersection could be a line or only a point.</p>
+<p>I did this with JavaScript:</p>
+<iframe height="600" src="../html5/line-segment-intersection/" width="800">
+<p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
+</iframe>
+<p>This is the code that checks for line segments:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/** You know that lines a and b have an intersection and now you</span>
+<span class="cm">    want to get it!</span>
+<span class="cm">*/</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">getIntersection</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* the intersection [(x1,y1), (x2, y2)]</span>
+<span class="cm">       it might be a line or a single point. If it is a line,</span>
+<span class="cm">       then x1 = x2 and y1 = y2.  */</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">x1</span><span class="p">,</span><span class="w"> </span><span class="nx">y1</span><span class="p">,</span><span class="w"> </span><span class="nx">x2</span><span class="p">,</span><span class="w"> </span><span class="nx">y2</span><span class="p">;</span>
+
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Case (A)</span>
+<span class="w">        </span><span class="c1">// As a is a perfect vertical line, it cannot be represented</span>
+<span class="w">        </span><span class="c1">// nicely in a mathematical way. But we directly know that</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="nx">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">        </span><span class="nx">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Case (AA): all x are the same!</span>
+<span class="w">            </span><span class="c1">// Normalize</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">"first"</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span><span class="w"> </span><span class="s2">"second"</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">"first"</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span><span class="w"> </span><span class="s2">"second"</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tmp</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// Now we know that the y-value of a["first"] is the</span>
+<span class="w">            </span><span class="c1">// lowest of all 4 y values</span>
+<span class="w">            </span><span class="c1">// this means, we are either in case (AAA):</span>
+<span class="w">            </span><span class="c1">//   a: x--------------x</span>
+<span class="w">            </span><span class="c1">//   b:    x---------------x</span>
+<span class="w">            </span><span class="c1">// or in case (AAB)</span>
+<span class="w">            </span><span class="c1">//   a: x--------------x</span>
+<span class="w">            </span><span class="c1">//   b:    x-------x</span>
+<span class="w">            </span><span class="c1">// in both cases:</span>
+<span class="w">            </span><span class="c1">// get the relevant y interval</span>
+<span class="w">            </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">];</span>
+<span class="w">            </span><span class="nx">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Case (AB)</span>
+<span class="w">            </span><span class="c1">// we can mathematically represent line b as</span>
+<span class="w">            </span><span class="c1">//     y = m*x + t &lt;=&gt; t = y - m*x</span>
+<span class="w">            </span><span class="c1">// m = (y1-y2)/(x1-x2)</span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+<span class="w">                </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+<span class="w">            </span><span class="nx">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">            </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">m</span><span class="o">*</span><span class="nx">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">t</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y1</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Case (B)</span>
+<span class="w">        </span><span class="c1">// essentially the same as Case (AB), but with</span>
+<span class="w">        </span><span class="c1">// a and b switched</span>
+<span class="w">        </span><span class="nx">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">        </span><span class="nx">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x1</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tmp</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+<span class="w">            </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+<span class="w">        </span><span class="nx">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">        </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">m</span><span class="o">*</span><span class="nx">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">t</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y1</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Case (C)</span>
+<span class="w">        </span><span class="c1">// Both lines can be represented mathematically</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">ma</span><span class="p">,</span><span class="w"> </span><span class="nx">mb</span><span class="p">,</span><span class="w"> </span><span class="nx">ta</span><span class="p">,</span><span class="w"> </span><span class="nx">tb</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+<span class="w">             </span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+<span class="w">        </span><span class="nx">mb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+<span class="w">             </span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+<span class="w">        </span><span class="nx">ta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">ma</span><span class="o">*</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">        </span><span class="nx">tb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">mb</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">mb</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Case (CA)</span>
+<span class="w">            </span><span class="c1">// both lines are in parallel. As we know that they</span>
+<span class="w">            </span><span class="c1">// intersect, the intersection could be a line</span>
+<span class="w">            </span><span class="c1">// when we rotated this, it would be the same situation</span>
+<span class="w">            </span><span class="c1">// as in case (AA)</span>
+
+<span class="w">            </span><span class="c1">// Normalize</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">"first"</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span><span class="w"> </span><span class="s2">"second"</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">"first"</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span><span class="w"> </span><span class="s2">"second"</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tmp</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// get the relevant x interval</span>
+<span class="w">            </span><span class="nx">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+<span class="w">            </span><span class="nx">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">],</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+<span class="w">            </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ma</span><span class="o">*</span><span class="nx">x1</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ma</span><span class="o">*</span><span class="nx">x2</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Case (CB): only a point as intersection:</span>
+<span class="w">            </span><span class="c1">// y = ma*x+ta</span>
+<span class="w">            </span><span class="c1">// y = mb*x+tb</span>
+<span class="w">            </span><span class="c1">// ma*x + ta = mb*x + tb</span>
+<span class="w">            </span><span class="c1">// (ma-mb)*x = tb - ta</span>
+<span class="w">            </span><span class="c1">// x = (tb - ta)/(ma-mb)</span>
+<span class="w">            </span><span class="nx">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">tb</span><span class="o">-</span><span class="nx">ta</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nx">ma</span><span class="o">-</span><span class="nx">mb</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ma</span><span class="o">*</span><span class="nx">x1</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x1</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="s2">"first"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x1</span><span class="p">,</span><span class="w"> </span><span class="s2">"y"</span><span class="o">:</span><span class="nx">y1</span><span class="p">},</span><span class="w"> </span><span class="s2">"second"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x2</span><span class="p">,</span><span class="w"> </span><span class="s2">"y"</span><span class="o">:</span><span class="nx">y2</span><span class="p">}};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="tldr">TL;DR</h2>
+<p>The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Geometry</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.000001</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Calculate the cross product of two points.</span>
+<span class="cm">     * @param a first point</span>
+<span class="cm">     * @param b second point</span>
+<span class="cm">     * @return the value of the cross product</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">crossProduct</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Check if bounding boxes do intersect. If one bounding box</span>
+<span class="cm">     * touches the other, they do intersect.</span>
+<span class="cm">     * @param a first bounding box</span>
+<span class="cm">     * @param b second bounding box</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if they intersect,</span>
+<span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span>
+<span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Checks if a Point is on a line</span>
+<span class="cm">     * @param a line (interpreted as line, although given as line</span>
+<span class="cm">     *                segment)</span>
+<span class="cm">     * @param b point</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise</span>
+<span class="cm">     *         &lt;code&gt;false&lt;/code&gt;</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPointOnLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Move the image, so that a.first is on (0|0)</span>
+<span class="w">        </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">aTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span>
+<span class="w">                </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Point</span><span class="w"> </span><span class="n">bTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span><span class="w"> </span><span class="n">bTmp</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">EPSILON</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Checks if a point is right of a line. If the point is on the</span>
+<span class="cm">     * line, it is not right of the line.</span>
+<span class="cm">     * @param a line segment interpreted as a line</span>
+<span class="cm">     * @param b the point</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if the point is right of the line,</span>
+<span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPointRightOfLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Move the image, so that a.first is on (0|0)</span>
+<span class="w">        </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">aTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span>
+<span class="w">                </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Point</span><span class="w"> </span><span class="n">bTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span><span class="w"> </span><span class="n">bTmp</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Check if line segment first touches or crosses the line that is</span>
+<span class="cm">     * defined by line segment second.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param first line segment interpreted as line</span>
+<span class="cm">     * @param second line segment</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if line segment first touches or</span>
+<span class="cm">     *                           crosses line second,</span>
+<span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+<span class="w">            </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span>
+<span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">)</span>
+<span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Check if line segments intersect</span>
+<span class="cm">     * @param a first line segment</span>
+<span class="cm">     * @param b second line segment</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,</span>
+<span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">doLinesIntersect</span><span class="p">(</span><span class="n">LineSegment</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">LineSegment</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">box1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Point</span><span class="o">[]</span><span class="w"> </span><span class="n">box2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span><span class="w"> </span><span class="n">box2</span><span class="p">)</span>
+<span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="addendum">Addendum</h2>
+<p>Some notes for me:</p>
+<ul>
+<li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
+<li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage ☹</li>
+<li>LaTeX is great. I've created all images with LaTeX and it was quite fast after I got the first one. Here is the <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/tikz/line-segments">LaTeX source</a>.</li>
+</ul>
+<p>edit:
+I now have a more modern system. So I was able to use EclEmma, which works fine. And I have 100% branch code coverage for this part of code ☺</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><code>mpu.geometry</code>: <a href="https://github.com/MartinThoma/mpu/blob/master/mpu/geometry.py">source</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

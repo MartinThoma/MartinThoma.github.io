@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I&#39;ve been using Ubuntu for many years now, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet...." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Cheat Sheet, Linux, Ubuntu, Hardware, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/getting-hardware-information-in-ubuntu/" />
+<meta property="og:title" content="Getting Hardware Information in Ubuntu"/>
+<meta property="og:url" content="https://martin-thoma.com/getting-hardware-information-in-ubuntu/" />
+<meta property="og:description" content="I&#39;ve been using Ubuntu for many years now, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet. I guess most commands will work in every Linux distribution, but I tried it …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-09-22T20:44:21+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/09/Ubuntu-Logo.png" />
+
+        <title>Getting Hardware Information in Ubuntu  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../getting-hardware-information-in-ubuntu/">Getting Hardware Information in Ubuntu</a></h1>
+    <p class="meta">
+<time datetime="2011-09-22T20:44:21+02:00">Sep 22, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#cheat-sheet-ref">Cheat Sheet
+            <span>5</span>
+</a></li>
+        <li><a href="../tags/#hardware-ref">Hardware
+            <span>29</span>
+</a></li>
+        <li><a href="../tags/#linux-ref">Linux
+            <span>35</span>
+</a></li>
+        <li><a href="../tags/#ubuntu-ref">Ubuntu
+            <span>8</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#cpu" title="CPU">CPU</a></li><li><a class="toc-href" href="#ram" title="RAM">RAM</a></li><li><a class="toc-href" href="#graphic-card" title="Graphic card">Graphic card</a></li><li><a class="toc-href" href="#audio-chipset" title="Audio Chipset">Audio Chipset</a></li><li><a class="toc-href" href="#network-chipset" title="Network Chipset">Network Chipset</a></li><li><a class="toc-href" href="#monitor" title="Monitor">Monitor</a></li><li><a class="toc-href" href="#hard-disk" title="Hard disk">Hard disk</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I've been using Ubuntu for many years now, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet.</p>
+<p>I guess most commands will work in every Linux distribution, but I tried it only in Ubuntu 10.04 LTS.</p>
+<p>Maybe you need to install some packages.</p>
+<p>If you know more commands, please post a comment!</p>
+<h2 id="cpu">CPU</h2>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/cpuinfo
+
+processor<span class="w">   </span>:<span class="w"> </span><span class="m">0</span>
+vendor_id<span class="w">   </span>:<span class="w"> </span>GenuineIntel
+cpu<span class="w"> </span>family<span class="w">  </span>:<span class="w"> </span><span class="m">6</span>
+model<span class="w">       </span>:<span class="w"> </span><span class="m">23</span>
+model<span class="w"> </span>name<span class="w">  </span>:<span class="w"> </span>Pentium<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Dual-Core<span class="w"> </span>CPU<span class="w">       </span>T4500<span class="w">  </span>@<span class="w"> </span><span class="m">2</span>.30GHz
+stepping<span class="w">    </span>:<span class="w"> </span><span class="m">10</span>
+cpu<span class="w"> </span>MHz<span class="w">     </span>:<span class="w"> </span><span class="m">1200</span>.000
+cache<span class="w"> </span>size<span class="w">  </span>:<span class="w"> </span><span class="m">1024</span><span class="w"> </span>KB
+physical<span class="w"> </span>id<span class="w"> </span>:<span class="w"> </span><span class="m">0</span>
+siblings<span class="w">    </span>:<span class="w"> </span><span class="m">2</span>
+core<span class="w"> </span>id<span class="w">     </span>:<span class="w"> </span><span class="m">0</span>
+cpu<span class="w"> </span>cores<span class="w">   </span>:<span class="w"> </span><span class="m">2</span>
+apicid<span class="w">      </span>:<span class="w"> </span><span class="m">0</span>
+initial<span class="w"> </span>apicid<span class="w">  </span>:<span class="w"> </span><span class="m">0</span>
+fdiv_bug<span class="w">    </span>:<span class="w"> </span>no
+hlt_bug<span class="w">     </span>:<span class="w"> </span>no
+f00f_bug<span class="w">    </span>:<span class="w"> </span>no
+coma_bug<span class="w">    </span>:<span class="w"> </span>no
+fpu<span class="w">     </span>:<span class="w"> </span>yes
+fpu_exception<span class="w">   </span>:<span class="w"> </span>yes
+cpuid<span class="w"> </span>level<span class="w"> </span>:<span class="w"> </span><span class="m">13</span>
+wp<span class="w">      </span>:<span class="w"> </span>yes
+flags<span class="w">       </span>:<span class="w"> </span>fpu<span class="w"> </span>vme<span class="w"> </span>de<span class="w"> </span>pse<span class="w"> </span>tsc<span class="w"> </span>msr<span class="w"> </span>pae<span class="w"> </span>mce<span class="w"> </span>cx8<span class="w"> </span>apic<span class="w"> </span>sep<span class="w"> </span>mtrr<span class="w"> </span>pge<span class="w"> </span>mca<span class="w"> </span>cmov<span class="w"> </span>pat<span class="w"> </span>pse36<span class="w"> </span>clflush<span class="w"> </span>dts<span class="w"> </span>acpi<span class="w"> </span>mmx<span class="w"> </span>fxsr<span class="w"> </span>sse<span class="w"> </span>sse2<span class="w"> </span>ss<span class="w"> </span>ht<span class="w"> </span>tm<span class="w"> </span>pbe<span class="w"> </span>nx<span class="w"> </span>lm<span class="w"> </span>constant_tsc<span class="w"> </span>arch_perfmon<span class="w"> </span>pebs<span class="w"> </span>bts<span class="w"> </span>aperfmperf<span class="w"> </span>pni<span class="w"> </span>dtes64<span class="w"> </span>monitor<span class="w"> </span>ds_cpl<span class="w"> </span>est<span class="w"> </span>tm2<span class="w"> </span>ssse3<span class="w"> </span>cx16<span class="w"> </span>xtpr<span class="w"> </span>pdcm<span class="w"> </span>xsave<span class="w"> </span>lahf_lm
+bogomips<span class="w">    </span>:<span class="w"> </span><span class="m">4588</span>.23
+clflush<span class="w"> </span>size<span class="w">    </span>:<span class="w"> </span><span class="m">64</span>
+cache_alignment<span class="w"> </span>:<span class="w"> </span><span class="m">64</span>
+address<span class="w"> </span>sizes<span class="w">   </span>:<span class="w"> </span><span class="m">36</span><span class="w"> </span>bits<span class="w"> </span>physical,<span class="w"> </span><span class="m">48</span><span class="w"> </span>bits<span class="w"> </span>virtual
+power<span class="w"> </span>management:
+
+processor<span class="w">   </span>:<span class="w"> </span><span class="m">1</span>
+vendor_id<span class="w">   </span>:<span class="w"> </span>GenuineIntel
+cpu<span class="w"> </span>family<span class="w">  </span>:<span class="w"> </span><span class="m">6</span>
+model<span class="w">       </span>:<span class="w"> </span><span class="m">23</span>
+model<span class="w"> </span>name<span class="w">  </span>:<span class="w"> </span>Pentium<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Dual-Core<span class="w"> </span>CPU<span class="w">       </span>T4500<span class="w">  </span>@<span class="w"> </span><span class="m">2</span>.30GHz
+stepping<span class="w">    </span>:<span class="w"> </span><span class="m">10</span>
+cpu<span class="w"> </span>MHz<span class="w">     </span>:<span class="w"> </span><span class="m">1200</span>.000
+cache<span class="w"> </span>size<span class="w">  </span>:<span class="w"> </span><span class="m">1024</span><span class="w"> </span>KB
+physical<span class="w"> </span>id<span class="w"> </span>:<span class="w"> </span><span class="m">0</span>
+siblings<span class="w">    </span>:<span class="w"> </span><span class="m">2</span>
+core<span class="w"> </span>id<span class="w">     </span>:<span class="w"> </span><span class="m">1</span>
+cpu<span class="w"> </span>cores<span class="w">   </span>:<span class="w"> </span><span class="m">2</span>
+apicid<span class="w">      </span>:<span class="w"> </span><span class="m">1</span>
+initial<span class="w"> </span>apicid<span class="w">  </span>:<span class="w"> </span><span class="m">1</span>
+fdiv_bug<span class="w">    </span>:<span class="w"> </span>no
+hlt_bug<span class="w">     </span>:<span class="w"> </span>no
+f00f_bug<span class="w">    </span>:<span class="w"> </span>no
+coma_bug<span class="w">    </span>:<span class="w"> </span>no
+fpu<span class="w">     </span>:<span class="w"> </span>yes
+fpu_exception<span class="w">   </span>:<span class="w"> </span>yes
+cpuid<span class="w"> </span>level<span class="w"> </span>:<span class="w"> </span><span class="m">13</span>
+wp<span class="w">      </span>:<span class="w"> </span>yes
+flags<span class="w">       </span>:<span class="w"> </span>fpu<span class="w"> </span>vme<span class="w"> </span>de<span class="w"> </span>pse<span class="w"> </span>tsc<span class="w"> </span>msr<span class="w"> </span>pae<span class="w"> </span>mce<span class="w"> </span>cx8<span class="w"> </span>apic<span class="w"> </span>sep<span class="w"> </span>mtrr<span class="w"> </span>pge<span class="w"> </span>mca<span class="w"> </span>cmov<span class="w"> </span>pat<span class="w"> </span>pse36<span class="w"> </span>clflush<span class="w"> </span>dts<span class="w"> </span>acpi<span class="w"> </span>mmx<span class="w"> </span>fxsr<span class="w"> </span>sse<span class="w"> </span>sse2<span class="w"> </span>ss<span class="w"> </span>ht<span class="w"> </span>tm<span class="w"> </span>pbe<span class="w"> </span>nx<span class="w"> </span>lm<span class="w"> </span>constant_tsc<span class="w"> </span>arch_perfmon<span class="w"> </span>pebs<span class="w"> </span>bts<span class="w"> </span>aperfmperf<span class="w"> </span>pni<span class="w"> </span>dtes64<span class="w"> </span>monitor<span class="w"> </span>ds_cpl<span class="w"> </span>est<span class="w"> </span>tm2<span class="w"> </span>ssse3<span class="w"> </span>cx16<span class="w"> </span>xtpr<span class="w"> </span>pdcm<span class="w"> </span>xsave<span class="w"> </span>lahf_lm
+bogomips<span class="w">    </span>:<span class="w"> </span><span class="m">4588</span>.44
+clflush<span class="w"> </span>size<span class="w">    </span>:<span class="w"> </span><span class="m">64</span>
+cache_alignment<span class="w"> </span>:<span class="w"> </span><span class="m">64</span>
+address<span class="w"> </span>sizes<span class="w">   </span>:<span class="w"> </span><span class="m">36</span><span class="w"> </span>bits<span class="w"> </span>physical,<span class="w"> </span><span class="m">48</span><span class="w"> </span>bits<span class="w"> </span>virtual
+power<span class="w"> </span>management:
+</code></pre></div>
+<h2 id="ram">RAM</h2>
+<div class="highlight"><pre><span></span><code>free
+
+<span class="w">             </span>total<span class="w">       </span>used<span class="w">       </span>free<span class="w">     </span>shared<span class="w">    </span>buffers<span class="w">     </span>cached
+Mem:<span class="w">       </span><span class="m">4047112</span><span class="w">    </span><span class="m">1712724</span><span class="w">    </span><span class="m">2334388</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">94328</span><span class="w">     </span><span class="m">744808</span>
+-/+<span class="w"> </span>buffers/cache:<span class="w">     </span><span class="m">873588</span><span class="w">    </span><span class="m">3173524</span>
+Swap:<span class="w">      </span><span class="m">8864760</span><span class="w">          </span><span class="m">0</span><span class="w">    </span><span class="m">8864760</span>
+</code></pre></div>
+<h2 id="graphic-card">Graphic card</h2>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>VGA
+
+<span class="m">00</span>:02.0<span class="w"> </span>VGA<span class="w"> </span>compatible<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Mobile<span class="w"> </span><span class="m">4</span><span class="w"> </span>Series<span class="w"> </span>Chipset<span class="w"> </span>Integrated<span class="w"> </span>Graphics<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">07</span><span class="o">)</span>
+</code></pre></div>
+<p>And some more details:</p>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span>-s<span class="w"> </span><span class="m">00</span>:02.0<span class="w"> </span>-v
+<span class="m">00</span>:02.0<span class="w"> </span>VGA<span class="w"> </span>compatible<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Mobile<span class="w"> </span><span class="m">4</span><span class="w"> </span>Series<span class="w"> </span>Chipset<span class="w"> </span>Integrated<span class="w"> </span>Graphics<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">07</span><span class="o">)</span>
+<span class="w">    </span>Subsystem:<span class="w"> </span>Acer<span class="w"> </span>Incorporated<span class="w"> </span><span class="o">[</span>ALI<span class="o">]</span><span class="w"> </span>Device<span class="w"> </span>048a
+<span class="w">    </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">29</span>
+<span class="w">    </span>Memory<span class="w"> </span>at<span class="w"> </span>d0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>non-prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>4M<span class="o">]</span>
+<span class="w">    </span>Memory<span class="w"> </span>at<span class="w"> </span>c0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>256M<span class="o">]</span>
+<span class="w">    </span>I/O<span class="w"> </span>ports<span class="w"> </span>at<span class="w"> </span><span class="m">4110</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span><span class="m">8</span><span class="o">]</span>
+<span class="w">    </span>Capabilities:<span class="w"> </span>&lt;access<span class="w"> </span>denied&gt;
+<span class="w">    </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>i915
+<span class="w">    </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>i915
+</code></pre></div>
+<h2 id="audio-chipset">Audio Chipset</h2>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Audio
+
+<span class="m">00</span>:1b.0<span class="w"> </span>Audio<span class="w"> </span>device:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>82801I<span class="w"> </span><span class="o">(</span>ICH9<span class="w"> </span>Family<span class="o">)</span><span class="w"> </span>HD<span class="w"> </span>Audio<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">03</span><span class="o">)</span>
+</code></pre></div>
+<p>And some more details:</p>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span>-s<span class="w"> </span><span class="m">00</span>:1b.0<span class="w"> </span>-v
+<span class="m">00</span>:1b.0<span class="w"> </span>Audio<span class="w"> </span>device:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>82801I<span class="w"> </span><span class="o">(</span>ICH9<span class="w"> </span>Family<span class="o">)</span><span class="w"> </span>HD<span class="w"> </span>Audio<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">03</span><span class="o">)</span>
+<span class="w">    </span>Subsystem:<span class="w"> </span>Acer<span class="w"> </span>Incorporated<span class="w"> </span><span class="o">[</span>ALI<span class="o">]</span><span class="w"> </span>Device<span class="w"> </span>048a
+<span class="w">    </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">22</span>
+<span class="w">    </span>Memory<span class="w"> </span>at<span class="w"> </span>d6700000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>non-prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>16K<span class="o">]</span>
+<span class="w">    </span>Capabilities:<span class="w"> </span>&lt;access<span class="w"> </span>denied&gt;
+<span class="w">    </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>HDA<span class="w"> </span>Intel
+<span class="w">    </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>snd-hda-intel
+</code></pre></div>
+<h2 id="network-chipset">Network Chipset</h2>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Network
+
+<span class="m">04</span>:00.0<span class="w"> </span>Network<span class="w"> </span>controller:<span class="w"> </span>Atheros<span class="w"> </span>Communications<span class="w"> </span>Inc.<span class="w"> </span>AR9287<span class="w"> </span>Wireless<span class="w"> </span>Network<span class="w"> </span>Adapter<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">01</span><span class="o">)</span>
+</code></pre></div>
+<p>Then get some more information:</p>
+<div class="highlight"><pre><span></span><code>lspci<span class="w"> </span>-s<span class="w"> </span><span class="m">04</span>:00<span class="w"> </span>-v
+<span class="m">04</span>:00.0<span class="w"> </span>Network<span class="w"> </span>controller:<span class="w"> </span>Atheros<span class="w"> </span>Communications<span class="w"> </span>Inc.<span class="w"> </span>AR9287<span class="w"> </span>Wireless<span class="w"> </span>Network<span class="w"> </span>Adapter<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">01</span><span class="o">)</span>
+<span class="w">    </span>Subsystem:<span class="w"> </span>Foxconn<span class="w"> </span>International,<span class="w"> </span>Inc.<span class="w"> </span>Device<span class="w"> </span>e034
+<span class="w">    </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">17</span>
+<span class="w">    </span>Memory<span class="w"> </span>at<span class="w"> </span>d4600000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>non-prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>64K<span class="o">]</span>
+<span class="w">    </span>Capabilities:<span class="w"> </span>&lt;access<span class="w"> </span>denied&gt;
+<span class="w">    </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>ath9k
+<span class="w">    </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>ath9k
+</code></pre></div>
+<h2 id="monitor">Monitor</h2>
+<p>The packages ddcprobe or xresprobe will help.</p>
+<h2 id="hard-disk">Hard disk</h2>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-H
+
+Dateisystem<span class="w">             </span>Gr&ouml;&szlig;e<span class="w">   </span>Benut<span class="w">  </span>Verf<span class="w"> </span>Ben%<span class="w"> </span>Eingeh&auml;ngt<span class="w"> </span>auf
+/dev/sda1<span class="w">              </span>307G<span class="w">    </span>28G<span class="w">   </span>264G<span class="w">  </span><span class="m">10</span>%<span class="w"> </span>/
+none<span class="w">                   </span><span class="m">2</span>,1G<span class="w">   </span>320k<span class="w">   </span><span class="m">2</span>,1G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/dev
+none<span class="w">                   </span><span class="m">2</span>,1G<span class="w">   </span>934k<span class="w">   </span><span class="m">2</span>,1G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/dev/shm
+none<span class="w">                   </span><span class="m">2</span>,1G<span class="w">   </span>209k<span class="w">   </span><span class="m">2</span>,1G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/var/run
+none<span class="w">                   </span><span class="m">2</span>,1G<span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">2</span>,1G<span class="w">   </span><span class="m">0</span>%<span class="w"> </span>/var/lock
+none<span class="w">                   </span><span class="m">2</span>,1G<span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">2</span>,1G<span class="w">   </span><span class="m">0</span>%<span class="w"> </span>/lib/init/rw
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

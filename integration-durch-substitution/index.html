@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Integration durch Substitution ist eine elementare Methode zum Finden von Stammfunktionen von Integralen bzw. zum Berechnen von Integralen. Unbestimmte Integrale Beispiel 1 \(\int e^{2x} dx = ?\)..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Mathematics, Analysis, Integral Calculus, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/integration-durch-substitution/" />
+<meta property="og:title" content="Integration durch Substitution"/>
+<meta property="og:url" content="https://martin-thoma.com/integration-durch-substitution/" />
+<meta property="og:description" content="Integration durch Substitution ist eine elementare Methode zum Finden von Stammfunktionen von Integralen bzw. zum Berechnen von Integralen. Unbestimmte Integrale Beispiel 1 \(\int e^{2x} dx = ?\) Substituiere \(u = 2x\) und \(u&#39;(x) = \frac{du}{dx} = 2 \Rightarrow dx = \frac{du}{2}\) Also: \begin{align} \int e^{2x} dx &amp;\stackrel{sub …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-09-16T11:32:43+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/09/integration-substitution.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Integration durch Substitution  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../integration-durch-substitution/">Integration durch Substitution</a></h1>
+    <p class="meta">
+<time datetime="2012-09-16T11:32:43+02:00">Sep 16, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#analysis-ref">Analysis
+            <span>10</span>
+</a></li>
+        <li><a href="../tags/#integral-calculus-ref">Integral Calculus
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#unbestimmte-integrale" title="Unbestimmte Integrale">Unbestimmte Integrale</a><ul><li><a class="toc-href" href="#beispiel-1" title="Beispiel 1">Beispiel 1</a></li><li><a class="toc-href" href="#beispiel-2" title="Beispiel 2">Beispiel 2</a></li></ul></li><li><a class="toc-href" href="#bestimmte-integrale" title="Bestimmte Integrale">Bestimmte Integrale</a><ul><li><a class="toc-href" href="#beispiel-1_1" title="Beispiel 1">Beispiel 1</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Integration durch Substitution ist eine elementare Methode zum Finden von Stammfunktionen von Integralen bzw. zum Berechnen von Integralen.</p>
+<figure class="ai-generated">
+<a href="../images/2012/09/integration-substitution.jpg"><img alt="Zwei Koordinatensysteme mit einer Kurve und schraffierter Fl&auml;che, verbunden durch einen Pfeil, rechts dieselbe Fl&auml;che mit gedehnter Achse" height="768" src="../images/2012/09/integration-substitution.jpg" width="1376"/></a>
+<figcaption>Substitution wechselt die Variable, die Fl&auml;che bleibt gleich.</figcaption>
+</figure>
+<h2 id="unbestimmte-integrale">Unbestimmte Integrale</h2>
+<h3 id="beispiel-1">Beispiel 1</h3>
+<p><span class="math">\(\int e^{2x} dx = ?\)</span></p>
+<p>Substituiere <span class="math">\(u = 2x\)</span> und <span class="math">\(u'(x) = \frac{du}{dx} = 2 \Rightarrow dx = \frac{du}{2}\)</span>
+Also:
+</p>
+<div class="math">\begin{align}
+\int e^{2x} dx &amp;\stackrel{sub}{=}\\
+&amp;= \int e^u \frac{du}{2}\\
+&amp;= \int \frac{1}{2} e^u du\\
+&amp;= \frac{1}{2} \int e^u du\\
+&amp;= \frac{1}{2} \int e^u du\\
+&amp;= \frac{1}{2} e^u + C \\
+&amp;\stackrel{resub}{=} \frac{1}{2} e^{2x} + C
+\end{align}</div>
+<h3 id="beispiel-2">Beispiel 2</h3>
+<p><span class="math">\(\int (x-1)^2 dx = ?\)</span></p>
+<p>Substituiere <span class="math">\(u = x-1\)</span> und <span class="math">\(u'(x) = \frac{ \;\mathrm{d}u}{dx} = 1 \Rightarrow dx =  \;\mathrm{d}u\)</span>
+Also:
+</p>
+<div class="math">\begin{align}
+\int (x-1)^2 dx &amp;\stackrel{sub}{=}\\
+&amp;= \int u^2 \;\mathrm{d}u\\
+&amp;= \frac{1}{3} u^3 + C\\
+&amp;\stackrel{resub}{=} \frac{1}{3} (x-1)^3 + C
+\end{align}</div>
+<h2 id="bestimmte-integrale">Bestimmte Integrale</h2>
+<p>Bei bestimmten Integralen muss man die Grenzen auch ersetzen.</p>
+<h3 id="beispiel-1_1">Beispiel 1</h3>
+<p>Dieses Beispiel stammt aus der Klausur &bdquo;Analysis I&ldquo; vom Herbst 2010.</p>
+<p>Berechne <span class="math">\(\int_1^4 e^{\sqrt{x}} dx\)</span>.</p>
+<p>Substituiere:
+</p>
+<div class="math">\begin{align}
+u  &amp;= \sqrt x\\
+\frac{\;\mathrm{d}u}{dx} &amp;= u' = \frac{1}{2\sqrt{x}}\\
+\Leftrightarrow dx &amp;= 2 \sqrt{x} \;\mathrm{d}u = 2 u \;\mathrm{d}u
+\end{align}</div>
+<p>.</p>
+<p>Es gilt:
+<span class="math">\(\int_1^4 e^{\sqrt{x}} dx = \int_1^2 e^u 2 u \;\mathrm{d}u = 2 \int_1^2 u \cdot e^u \;\mathrm{d}u\)</span>.</p>
+<p>Nun wird eine <a href="../partielle-integration/" title="Partielle Integration">partielle Integration</a> durchgef&uuml;hrt mit <span class="math">\(f'(u)=e^u\)</span> und <span class="math">\(g(u)=u\)</span>:</p>
+<div class="math">\begin{align}
+2 \int_1^2 u \cdot e^u \;\mathrm{d}u &amp;= 2 ([e^u \cdot u]_1^2 - \int_1^2 e^u du) \\
+&amp;= 2((e^2 \cdot 2 - e) - [e^u]_1^2)\\
+&amp;= 2 \cdot (2e^2 -e - (e^2 - e)) \\
+&amp;= 2 \cdot e^2
+\end{align}</div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

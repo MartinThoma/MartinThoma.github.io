@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 492" width="760" height="492" role="img" aria-labelledby="t d">
+  <title id="t">Software components of the security camera system and how they communicate</title>
+  <desc id="d">Three components run inside the home network, which works without an internet connection. The camera runs motion and face detection, privacy modes and zones, holds a security key and has microSD storage. The central server handles users, roles and two-factor authentication, keeps an append-only audit log, stores videos and device metadata, provides firmware updates and serves the web application. The user device, a phone or laptop, runs the web application in the browser. The camera sends alerts and video to the server; the server sends settings and firmware updates to the camera. This uses an open, encrypted protocol in which the camera authenticates with its key. The server sends video and alerts to the user device; the user device sends settings and commands to the server, over an open, encrypted protocol with user login and 2FA. For the initial setup the user device talks to the camera directly via Bluetooth. Optionally, the camera synchronizes its clock with a time server on the internet.</desc>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .ink   { fill: #e7ede9; }
+      .muted { fill: #9aa8a0; }
+      .acc   { fill: #4fc07d; }
+      .card  { fill: #1b1d22; stroke: #2e3036; }
+      .sunk  { fill: #16171b; stroke: #2e3036; }
+      .soft  { fill: #16261d; stroke: #4fc07d; }
+      .zone  { fill: none; stroke: #4fc07d; }
+      .line  { stroke: #9aa8a0; }
+      .mk    { fill: #9aa8a0; }
+    }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="mk" d="M0 0 L10 5 L0 10 z" fill="#5b6660"/>
+    </marker>
+  </defs>
+  <rect class="sunk" x="24" y="20" width="160" height="44" rx="10" fill="#ebebed" stroke="#d8d8de" stroke-width="1.5"/>
+  <text class="ink" x="104" y="47" fill="#1c2320" font-size="13.5" text-anchor="middle" font-weight="600">Time server</text>
+  <text class="muted" x="198" y="46" fill="#5b6660" font-size="12" text-anchor="start">on the internet — optional</text>
+  <rect class="zone" x="10" y="90" width="740" height="392" rx="16" fill="none" stroke="#1f7a45" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text class="acc" x="736" y="114" fill="#1f7a45" font-size="13" text-anchor="end" font-weight="600">Home network — works without internet</text>
+  <path class="line" d="M104 64 L104 128" fill="none" stroke="#5b6660" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  <text class="muted" x="114" y="112" fill="#5b6660" font-size="11.5" text-anchor="start">clock sync</text>
+  <rect class="card" x="24" y="132" width="160" height="250" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <text class="ink" x="104" y="160" fill="#1c2320" font-size="15" text-anchor="middle" font-weight="700">Camera</text>
+  <text class="muted" x="104" y="178" fill="#5b6660" font-size="12" text-anchor="middle">one or more</text>
+  <rect class="sunk" x="36" y="194" width="136" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="104" y="212.5" fill="#1c2320" font-size="12" text-anchor="middle">motion/face detection</text>
+  <rect class="sunk" x="36" y="230" width="136" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="104" y="248.5" fill="#1c2320" font-size="12" text-anchor="middle">privacy modes &amp; zones</text>
+  <rect class="sunk" x="36" y="266" width="136" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="104" y="284.5" fill="#1c2320" font-size="12" text-anchor="middle">security key</text>
+  <rect class="sunk" x="36" y="302" width="136" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="104" y="320.5" fill="#1c2320" font-size="12" text-anchor="middle">microSD storage</text>
+  <rect class="sunk" x="36" y="338" width="136" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="104" y="356.5" fill="#1c2320" font-size="12" text-anchor="middle">firmware (OTA)</text>
+  <rect class="card" x="294" y="132" width="180" height="250" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <text class="ink" x="384" y="160" fill="#1c2320" font-size="15" text-anchor="middle" font-weight="700">Central server</text>
+  <text class="muted" x="384" y="178" fill="#5b6660" font-size="12" text-anchor="middle">runs in the home network</text>
+  <rect class="sunk" x="306" y="194" width="156" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="384" y="212.5" fill="#1c2320" font-size="12" text-anchor="middle">users, roles, 2FA</text>
+  <rect class="sunk" x="306" y="230" width="156" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="384" y="248.5" fill="#1c2320" font-size="12" text-anchor="middle">append-only audit log</text>
+  <rect class="sunk" x="306" y="266" width="156" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="384" y="284.5" fill="#1c2320" font-size="12" text-anchor="middle">videos + metadata</text>
+  <rect class="sunk" x="306" y="302" width="156" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="384" y="320.5" fill="#1c2320" font-size="12" text-anchor="middle">firmware updates</text>
+  <rect class="soft" x="306" y="338" width="156" height="28" rx="14" fill="#e0efe6" stroke="#1f7a45" stroke-width="1.2"/>
+  <text class="ink" x="384" y="356.5" fill="#1c2320" font-size="12" text-anchor="middle">web application</text>
+  <rect class="card" x="584" y="132" width="152" height="250" rx="12" fill="#ffffff" stroke="#d8d8de" stroke-width="1.5"/>
+  <text class="ink" x="660" y="160" fill="#1c2320" font-size="15" text-anchor="middle" font-weight="700">User device</text>
+  <text class="muted" x="660" y="178" fill="#5b6660" font-size="12" text-anchor="middle">phone or laptop</text>
+  <rect class="soft" x="596" y="194" width="128" height="28" rx="14" fill="#e0efe6" stroke="#1f7a45" stroke-width="1.2"/>
+  <text class="ink" x="660" y="212.5" fill="#1c2320" font-size="12" text-anchor="middle">web app in browser</text>
+  <rect class="sunk" x="596" y="230" width="128" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="660" y="248.5" fill="#1c2320" font-size="12" text-anchor="middle">live view, playback</text>
+  <rect class="sunk" x="596" y="266" width="128" height="28" rx="14" fill="#ebebed" stroke="#d8d8de" stroke-width="1"/>
+  <text class="ink" x="660" y="284.5" fill="#1c2320" font-size="12" text-anchor="middle">alerts</text>
+  <text class="muted" x="660" y="314" fill="#5b6660" font-size="11.5" text-anchor="middle" font-style="italic">native app: later</text>
+  <path class="line" d="M188 214 L290 214" fill="none" stroke="#5b6660" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="ink" x="239" y="205" fill="#1c2320" font-size="11.5" text-anchor="middle">alerts, video</text>
+  <path class="line" d="M290 240 L188 240" fill="none" stroke="#5b6660" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="ink" x="239" y="258" fill="#1c2320" font-size="11.5" text-anchor="middle">settings,</text>
+  <text class="ink" x="239" y="273" fill="#1c2320" font-size="11.5" text-anchor="middle">firmware</text>
+  <text class="muted" x="239" y="314" fill="#5b6660" font-size="11" text-anchor="middle">open protocol</text>
+  <text class="muted" x="239" y="330" fill="#5b6660" font-size="11" text-anchor="middle">encrypted</text>
+  <text class="muted" x="239" y="346" fill="#5b6660" font-size="11" text-anchor="middle">camera key auth</text>
+  <path class="line" d="M478 214 L580 214" fill="none" stroke="#5b6660" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="ink" x="529" y="205" fill="#1c2320" font-size="11.5" text-anchor="middle">video, alerts</text>
+  <path class="line" d="M580 240 L478 240" fill="none" stroke="#5b6660" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="ink" x="529" y="258" fill="#1c2320" font-size="11.5" text-anchor="middle">settings,</text>
+  <text class="ink" x="529" y="273" fill="#1c2320" font-size="11.5" text-anchor="middle">commands</text>
+  <text class="muted" x="529" y="314" fill="#5b6660" font-size="11" text-anchor="middle">open protocol</text>
+  <text class="muted" x="529" y="330" fill="#5b6660" font-size="11" text-anchor="middle">encrypted</text>
+  <text class="muted" x="529" y="346" fill="#5b6660" font-size="11" text-anchor="middle">login + 2FA</text>
+  <path class="line" d="M660 382 L660 424 Q660 436 648 436 L116 436 Q104 436 104 424 L104 388" fill="none" stroke="#5b6660" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  <text class="muted" x="382" y="427" fill="#5b6660" font-size="12" text-anchor="middle">Bluetooth, only for the initial camera setup</text>
+  <rect class="soft" x="28" y="451" width="28" height="16" rx="8" fill="#e0efe6" stroke="#1f7a45" stroke-width="1.2"/>
+  <text class="muted" x="64" y="463.5" fill="#5b6660" font-size="12" text-anchor="start">the same web app: the server serves it, the browser runs it</text>
+</svg>

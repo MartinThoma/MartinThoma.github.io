@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Markov Chains are probabilistic processes which depend only on the previous state and not on the complete history. One common example is a very simple weather model: Either it is a rainy day (R)..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Probability, Mathematics, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/python-markov-chain-packages/" />
+<meta property="og:title" content="Python Markov Chain Packages"/>
+<meta property="og:url" content="https://martin-thoma.com/python-markov-chain-packages/" />
+<meta property="og:description" content="Markov Chains are probabilistic processes which depend only on the previous state and not on the complete history. One common example is a very simple weather model: Either it is a rainy day (R) or a sunny day (S). On sunny days you have a probability of 0.8 that …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-05-12T20:45:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2015/05/reproductin-rplot.png" />
+<meta property="og:image:width" content="643" />
+<meta property="og:image:height" content="494" />
+
+        <title>Python Markov Chain Packages  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../python-markov-chain-packages/">Python Markov Chain Packages</a></h1>
+    <p class="meta">
+<time datetime="2015-05-12T20:45:00+02:00">Mai 12, 2015</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+        <li><a href="../tags/#probability-ref">Probability
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#r-vs-python" title="R vs Python">R vs Python</a></li><li><a class="toc-href" href="#python-markov-packages" title="Python Markov Packages">Python Markov Packages</a><ul><li><a class="toc-href" href="#pymarkovchain" title="PyMarkovChain">PyMarkovChain</a></li><li><a class="toc-href" href="#pyemma" title="pyEMMA">pyEMMA</a></li><li><a class="toc-href" href="#markovequclasses" title="MarkovEquClasses">MarkovEquClasses</a></li><li><a class="toc-href" href="#pymarkov" title="PyMarkov">PyMarkov</a></li><li><a class="toc-href" href="#hidden-markov-models" title="Hidden Markov Models">Hidden Markov Models</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Markov Chains are probabilistic processes which depend only on the previous
+state and not on the complete history. One common example is a very simple
+weather model: Either it is a rainy day (R) or a sunny day (S). On sunny days
+you have a probability of 0.8 that the next day will be sunny, too. On rainy
+days you have a probability of 0.6 that the next day will be rainy, too.
+As you have only two possible weather conditions, the probability that it
+changes from sunny to rainy is 0.2 and vice versa it is 0.4.</p>
+<p>You can visualize this with a graph like this:</p>
+<figure>
+<a href="../images/2015/05/markov-chain-rain-sun.png"><img alt="Simple Markov chain weather model" height="237" src="../images/2015/05/markov-chain-rain-sun.png" width="500"/></a>
+<figcaption>Simple Markov chain weather model</figcaption>
+</figure>
+<p>I am taking <a href="../markovketten-klausur/">a course about Markov chains</a> this semester. Today, we've learned
+a bit about how to use <a href="../r-lang/">R</a> (a programming language) to do very basic tasks.</p>
+<h2 id="r-vs-python">R vs Python</h2>
+<p>The following will show some R code and then some Python code for the same
+basic tasks. As an example, I'll use reproduction. The states are
+<span class="math">\(S_1 = \{AA, AA\}\)</span>, <span class="math">\(S_2 = \{AA, Aa\}\)</span>, <span class="math">\(S_3 = \{AA, aa\}\)</span>, <span class="math">\(S_4=\{Aa,Aa\}\)</span>,
+<span class="math">\(S_5 = \{Aa, aa\}\)</span> and <span class="math">\(S_6 = \{aa, aa\}\)</span>.</p>
+<p>The idea is that each pair of parents gives birth to two children. The parents
+<span class="math">\(S_2 = \{AA, Aa\}\)</span> can give birth to {{AA, AA}, {AA, Aa}, {Aa, Aa}}.
+This results in the following state transition matrix.</p>
+<div class="math">$$\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1/4 &amp; 1/2 &amp; 0 &amp; 1/4 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+1/16 &amp; 1/4 &amp; 1/8 &amp; 1/4 &amp; 1/4 &amp; 1/16\\
+0 &amp; 0 &amp; 0 &amp; 1/4 &amp; 1/2 &amp; 1/4\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}$$</div>
+<p>The rows mean from which state you start, the columns are the states you can get
+to.</p>
+<p>Now, how would you define this matrix with R?</p>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+</code></pre></div>
+<p>And this is how you do it with Python: You first need to
+<a href="http://docs.scipy.org/doc/numpy/user/install.html">install numpy</a>. This is
+very easy with Linux (<code>sudo apt-get install python-numpy</code>), but I've heard
+it is not that easy with Windows systems.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">16</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>A common matrix operation is taking the <span class="math">\(n\)</span>-th power. This is how you do it
+with R: First, install the library "expm" by executing <code>install.packages("expm")</code>.
+Then</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">"expm"</span><span class="p">)</span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+<span class="n">Pn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="o">%^%</span><span class="n">n</span>
+</code></pre></div>
+<p>and this is the Python way:</p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Pn</span> <span class="o">=</span> <span class="n">P</span> <span class="o">**</span> <span class="n">n</span>
+</code></pre></div>
+<p>Visualizing data is a very important tool. For example, we want to know the
+probabilities for the current state for the next 20 steps when you started in
+<span class="math">\(S_3\)</span>.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">"expm"</span><span class="p">)</span>
+<span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span>
+<span class="w">             </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span>
+<span class="w">             </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span>
+<span class="w">             </span><span class="m">1</span><span class="o">/</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">16</span><span class="p">,</span>
+<span class="w">             </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span>
+<span class="w">             </span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">step</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">matplot</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">,</span>
+<span class="w">                     </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="n">step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">v</span><span class="w"> </span><span class="o">%*%</span><span class="w"> </span><span class="p">(</span><span class="n">P</span><span class="w"> </span><span class="o">%^%</span><span class="w"> </span><span class="n">step</span><span class="p">)})),</span>
+<span class="w">                     </span><span class="n">cex</span><span class="o">=</span><span class="m">0.7</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">ylab</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This gives the following plot:</p>
+<figure>
+<a href="../images/2015/05/reproductin-rplot.png"><img alt="State probabilities starting in S3 after 1..20 steps (plotted with R)" height="384" loading="lazy" src="../images/2015/05/reproductin-rplot.png" width="500"/></a>
+<figcaption>State probabilities starting in S3 after 1..20 steps (plotted with R)</figcaption>
+</figure>
+<p>The Python equivalent is</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">16</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Get the data</span>
+<span class="n">plot_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">P</span> <span class="o">**</span> <span class="n">step</span>
+    <span class="n">plot_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+
+<span class="c1"># Convert the data format</span>
+<span class="n">plot_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">plot_data</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Steps"</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Probability"</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"r+"</span><span class="p">]):</span>
+    <span class="p">(</span><span class="n">line</span><span class="p">,)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">shape</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"S</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">lines</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>The result looks like this</p>
+<figure>
+<a href="../images/2015/05/reproductin-python-plot.png"><img alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" height="356" loading="lazy" src="../images/2015/05/reproductin-python-plot.png" width="500"/></a>
+<figcaption>State probabilities starting in S3 after 1..20 steps (plotted with Python)</figcaption>
+</figure>
+<p>I've played around with the <a href="http://matplotlib.org/api/markers_api.html">matplotlib markers</a>
+to make sure all points are visible.</p>
+<h2 id="python-markov-packages">Python Markov Packages</h2>
+<p>There seem to be quite a few Python Markov chain packages:</p>
+<div class="highlight"><pre><span></span><code>$ pip search markov
+PyMarkovChain             - Simple markov chain implementation
+autocomplete              - tiny 'autocomplete' tool using a "hidden markov model"
+cobe                      - Markov chain based text generator library and chatbot
+twitter_markov            - Create markov chain ("_ebooks") accounts on Twitter
+markovgen                 - Another text generator based on Markov chains.
+pyEMMA                    - EMMA: Emma's Markov Model Algorithms
+pymc                      - Markov Chain Monte Carlo sampling toolkit.
+hmmus                     - Posterior decoding with a hidden Markov model
+marbl-python              - A Python implementation of the Marbl specification for normalized representations of Markov blankets in Bayesian networks.
+pymdptoolbox              - Markov Decision Process (MDP) Toolbox
+gibi                      - Generate random words based on Markov chains
+markovgenerator           - Markov text generator
+pythonic-porin            - Nanopore Data Analysis package. Provides tools for reading data,        performing event detection, segmentation, visualization, and
+                            analysis using        hidden Markov models, and other tools. Designed for the UCSC Nanopore Group.
+PyMarkovTextGenerator     - Random text generator base on Markov chains.
+MCREPOGEN                 - Markov Chain Repository Generator
+vokram                    - A toy Markov chain implementation.
+MarkovEquClasses          - Algorithms for exploring Markov equivalence classes: MCMC, size counting
+hmmlearn                  - Hidden Markov Models in Python with scikit-learn like API
+twarkov                   - Markov generator built for generating Tweets from timelines
+MCL_Markov_Cluster        - Markov Cluster algorithm implementation
+pyborg                    - Markov chain bot for irc which generates replies to messages
+pydodo                    - Markov chain generator
+mwordgen                  - MWordGen is a Markov statistics based word generator.
+Markov                    - Python library for Hidden Markov Models
+markovify                 - Use Markov chains to generate random semi-plausible sentences based on an existing text.
+treehmm                   - Variational Inference for tree-structured Hidden-Markov Models
+PyMarkov                  - Markov Chains made easy
+</code></pre></div>
+<p>However, most of them are for hidden Markov model training / evaluation.
+There seems to be no package which can visualize Markov chains just by taking
+the state transition matrix.</p>
+<p>There also seems to be no package which makes it easy to classify states
+as transient / recurrent, get the absorption time, ...</p>
+<p>If somebody is interested in that, we could make a little project for it ☺</p>
+<h3 id="pymarkovchain">PyMarkovChain</h3>
+<p>Source is on <a href="https://github.com/TehMillhouse/PyMarkovChain">github.com/TehMillhouse/PyMarkovChain</a>.
+It is less than 150 lines of code and probably has no functionality.</p>
+<p>I asked the author to remove the package from PyPI (see <a href="https://github.com/TehMillhouse/PyMarkovChain/issues/13">issue #13</a>).</p>
+<h3 id="pyemma">pyEMMA</h3>
+<p>I've found the <a href="http://www.pythonhosted.org/pyEMMA/">documentation</a> and the
+<a href="https://pypi.python.org/pypi/pyEMMA">project on PyPI</a>. The source is
+on <a href="https://github.com/markovmodel/PyEMMA">github.com/markovmodel/PyEMMA</a>.</p>
+<h3 id="markovequclasses">MarkovEquClasses</h3>
+<p><a href="https://pypi.python.org/pypi/MarkovEquClasses/1.0">PyPI</a></p>
+<h3 id="pymarkov">PyMarkov</h3>
+<p>It is only about 100 lines of very simple code. It seems to be another
+random sentence generator.
+See <a href="https://pypi.python.org/pypi/PyMarkov">PyPI</a>.</p>
+<h3 id="hidden-markov-models">Hidden Markov Models</h3>
+<p>The following might be interesting, but I didn't take a close look at them
+because I was looking for "normal" Markov models:</p>
+<ul>
+<li>hmmus</li>
+<li>hmmlearn</li>
+<li>Markov</li>
+<li>treehmm</li>
+</ul>
+<p>There are also quite a few other modules which seem to generate data with
+Markov chains.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

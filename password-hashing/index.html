@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Software gets hacked, data breaches happen, data is leaked. It’s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, AppSec, Password, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/password-hashing/" />
+<meta property="og:title" content="Password Hashing 😇"/>
+<meta property="og:url" content="https://martin-thoma.com/password-hashing/" />
+<meta property="og:description" content="Software gets hacked, data breaches happen, data is leaked. It’s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play. Defense in depth means we don’t rely on …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-10-19T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2020/10/password-hashing-2.jpg" />
+<meta property="og:image:width" content="1496" />
+<meta property="og:image:height" content="254" />
+
+        <title>Password Hashing 😇  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../password-hashing/">Password Hashing 😇</a></h1>
+    <p class="meta">
+<time datetime="2020-10-19T20:00:00+02:00">Okt 19, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec
+            <span>15</span>
+</a></li>
+        <li><a href="../tags/#password-ref">Password
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#what-is-hashing" title="What is Hashing?">What is Hashing?</a></li><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#salt-because-hashing-is-not-enough" title="Salt &mdash; because hashing is not enough">Salt &mdash; because hashing is not enough</a></li><li><a class="toc-href" href="#how-can-i-hash-passwords" title="How can I hash passwords?">How can I hash passwords?</a></li><li><a class="toc-href" href="#common-mistakes" title="Common Mistakes">Common Mistakes</a></li><li><a class="toc-href" href="#what-can-i-do-as-a-user" title="What can I do as a user?">What can I do as a user?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Software gets hacked, data breaches happen, data is leaked. It&rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.</p>
+<blockquote>
+<p><strong>Defense in depth means we don&rsquo;t rely on a single security mechanism, but have multiple layers of security instead.</strong></p>
+</blockquote>
+<p>Password hashing is a prime example of defense in depth. If our database is secure, we don&rsquo;t need password hashing. We hope it is the case and defend the database as well as possible, but we prepare for the worst case. We prepare for an attacker getting access to our users&rsquo; login credentials.</p>
+<p>A key idea of privacy comes into play: You don&rsquo;t have to worry about data you don&rsquo;t have. In the case of passwords, we don&rsquo;t store the passwords. Not even an encrypted version. We store a hashed version.</p>
+<p>This way, the effect is hopefully limited to our service. We need to tell the users that their accounts and data might have been exposed, but at least nobody will use the same username/password combination to log into their bank/Amazon/social media accounts.</p>
+<h2 id="what-is-hashing">What is Hashing?</h2>
+<p>Hashing is like cooking. Given the recipe (the hashing algorithm) and the ingredients (the password), you can always get the same result. Just given the result (the hash), it is virtually impossible to reverse the process (figure out the password).</p>
+<p>There are non-cryptographic hashing functions and cryptographic ones. Password hashing functions are additionally designed to be hard to compute. This means they take a lot of CPU power/time to apply. This is on purpose. If you need a few milliseconds to apply it on your (weak) server, the attacker hopefully also needs quite a while to apply it billions of times on huge dictionaries to crack the hashed passwords with brute force.</p>
+<h2 id="why-it-matters">Why it Matters</h2>
+<p>There are <a href="https://en.wikipedia.org/wiki/List_of_data_breaches">so many leaks</a> that it is hard to keep track of them.</p>
+<ul>
+<li><strong>2012</strong>: LinkedIn leaked 6.5 million passwords. The passwords had been hashed with SHA-1 and were not salted (<a href="https://arstechnica.com/information-technology/2012/06/8-million-leaked-passwords-connected-to-linkedin/">source</a>).</li>
+<li><strong>2013</strong>: Adobe leaked 130 million passwords (<a href="https://www.theguardian.com/technology/2013/nov/07/adobe-password-leak-can-check">source</a>). The passwords were encrypted, not hashed.</li>
+<li><strong>2016</strong>: The full data of the 2012 LinkedIn breach (about 117 million email/password hash pairs, weakly hashed) was published (<a href="https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack">source</a>)</li>
+<li><strong>2019</strong>: 1.2 million passwords got leaked via the porn site Luscious (<a href="https://www.forbes.com/sites/daveywinder/2019/08/20/popular-porn-site-breach-exposed-12-million-anonymous-user-profiles/#3c0cbe067039">source</a>)</li>
+<li><strong>2019</strong>: Facebook had hundreds of millions of passwords stored in plain text (<a href="https://about.fb.com/news/2019/03/keeping-passwords-secure/">source 1</a>, <a href="https://www.nytimes.com/2019/03/21/technology/personaltech/facebook-passwords.html">source 2</a>)</li>
+<li><strong>2019</strong>: Zynga leaked 170 million passwords (<a href="https://www.theguardian.com/games/2019/dec/19/170m-passwords-stolen-in-zynga-words-with-friends-hack-monitor-says">source</a>). Zynga used hashing and salting.</li>
+</ul>
+<p>You can see if you might have been affected by <a href="https://haveibeenpwned.com/">haveibeenpwned.com</a>.</p>
+<h2 id="salt-because-hashing-is-not-enough">Salt &mdash; because hashing is not enough</h2>
+<p>When credentials are leaked, it essentially is a big table with usernames and
+the (hopefully) hashed passwords. If the same algorithm is applied to all
+passwords without a salt, you can see which users have the same passwords. Extra information
+such as the user names, the usage of the platform, or other attacks such as
+phishing might lead to information about those passwords.</p>
+<p>To counter such password cracking attacks, a string is added to the password.
+This string is randomly generated for each user. The string is stored
+next to the hashed password. The only reason to have that string is to make
+the same plaintext password have different hash values.</p>
+<h2 id="how-can-i-hash-passwords">How can I hash passwords?</h2>
+<p>Computing a key from a password which then can be stored now got quite a bit
+more complex: We need the password, a hashing function, a random salt per user,
+and sometimes even a number of rounds to hash. There are a lot of possibilities
+to get it wrong. Also, what do you do to migrate from one hashing function to
+another? What do you do to increase the number of rounds as hardware becomes
+better?</p>
+<p>You for sure don&rsquo;t want to always force users to enter a new password. You want
+to be able to let users migrate over time.</p>
+<p>A key derivation function as implemented in Python's
+<a href="https://pypi.org/project/Werkzeug/">werkzeug</a> package with adjustable
+computational difficulty like <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> is
+your friend. It&rsquo;s a function that takes the password, the hashing function, the
+salt, the number of rounds. It returns the key. In most programming languages,
+you have two functions:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hash_function</span><span class="p">,</span> <span class="n">salt_length</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">key</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>As an example:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_password_hash</span> <span class="k">as</span> <span class="n">gen_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span> <span class="o">=</span> <span class="n">gen_key</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">,</span> <span class="s2">"pbkdf2:sha512:1000"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span>
+<span class="s1">'pbkdf2:sha512:1000$qc8Q9uqK$4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_password_hash</span> <span class="k">as</span> <span class="n">check_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"foobar"</span><span class="p">)</span>
+<span class="kc">True</span>
+</code></pre></div>
+<p>Please note that 1000 iterations are far too few today. The <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">OWASP Password Storage Cheat Sheet</a> recommends at least 210,000 iterations for PBKDF2-HMAC-SHA512, and Werkzeug uses scrypt by default nowadays.</p>
+<p>You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the dollar sign) is the 8 characters of the salt. Then comes the hash of the password with the given method and salt.</p>
+<p>There are other key derivation functions. Most notably <a href="https://en.wikipedia.org/wiki/Scrypt">scrypt</a>, which was not only designed to be demanding on the CPU but also requires a lot of memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it doesn&rsquo;t seem to be too widespread (<a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497">source</a>). Instead, you can create something similar on your own by using core Python functions such as <a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt">hashlib.scrypt</a>. <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a> (Argon2id) is the first choice of the OWASP Password Storage Cheat Sheet.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p>Let&rsquo;s make a checklist. If you are a developer, I hope you can checkmark those:</p>
+<ul>
+<li>☑ I don&rsquo;t store passwords in plain text.</li>
+<li>☑ I don&rsquo;t use encryption for passwords.</li>
+<li>☑ I don&rsquo;t use a non-cryptographic hashing function (e.g. CRC-32).</li>
+<li>☑ I don&rsquo;t use a weak cryptographic hashing function (e.g. MD5, SHA-1).</li>
+<li>☑ I use a different, randomly calculated salt for each user for calculating the hashes.</li>
+</ul>
+<p>As a user, I hope you can checkmark the following points:</p>
+<ul>
+<li>☑ I don&rsquo;t reuse passwords. Ever.</li>
+<li>☑ I don&rsquo;t share my passwords.</li>
+<li>☑ I don&rsquo;t use weak passwords.</li>
+<li>☑ I make sure I don&rsquo;t <a href="../leaking-secrets/">leak my secrets</a>.</li>
+<li>☑ I am aware of phishing. (If you are not &mdash; a blog post will follow 😀)</li>
+</ul>
+<p>As a developer, you can prevent some user mistakes with a password policy. For example, making it mandatory to have at least 8 characters and maybe running the password through a simple dictionary attack before you allow it. I wouldn&rsquo;t put password rules up, though. <a href="https://xkcd.com/936/">XKCD 936</a> explains why.</p>
+<figure>
+<a href="../images/2020/10/password-hashing-2.jpg"><img alt="Image by Oliver Widder (Geek and Poke)" height="254" loading="lazy" src="../images/2020/10/password-hashing-2.jpg" width="1496"/></a>
+<figcaption>Image by Oliver Widder (<a href="https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html">Geek and Poke</a>)</figcaption>
+</figure>
+<h2 id="what-can-i-do-as-a-user">What can I do as a user?</h2>
+<p>As a user, you should <strong>use different passwords for different services</strong>. The passwords should also not be weak (e.g. guessable). This combination makes it impossible for me to memorize all of them. I have only a handful of strong passwords I memorize. For the rest, I need to <strong>use a password manager</strong>. The password manager can then suggest strong passwords as well.</p>
+<p>A strong password has high entropy. This means:</p>
+<ul>
+<li>At least 8 characters. Let&rsquo;s rather be safe and have at least 10 characters.</li>
+<li>A rich character set (e.g. upper- and lower-case letters, digits, special characters)</li>
+<li>Is not a combination of only two or three words in a dictionary</li>
+</ul>
+<p>You can also <strong>change your passwords</strong> if you suspect that they have been compromised. Changing passwords regularly without a reason is no longer recommended: <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP 800-63B</a> advises to change passwords only when there is evidence of compromise.</p>
+<h2 id="see-also">See also</h2>
+<p>It feels like <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> / <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> made a video about all the security topics I want to write about 😄</p>
+<center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"></iframe></center>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <strong>Password Hashing</strong> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <a href="../credential-stuffing/">Credential Stuffing</a> 😈🐝</li>
+<li>Part 16: <a href="../multi-factor-authentication/">Multi-Factor Authentication</a> (MFA/2FA) 😇</li>
+<li>Part 17: <a href="../redos/">ReDoS</a> 😈</li>
+</ul>
+<p>The following articles are about to come:</p>
+<ul>
+<li>Part 18: Secure Messaging 😇</li>
+<li>Part 19: Cryptojacking 😈</li>
+<li>Part 20: Backups 😇</li>
+<li>Part 21: Cryptotrojans 😈</li>
+<li>Part 22: Single-Sign-On 😇</li>
+<li>Part 23: Clipboard Hijacking 😈</li>
+<li>Part 24: Certificates 😇</li>
+<li>Part 25: Race Condition Attacks in Blockchains 😈</li>
+<li>Part 26: Mobile Device Management (MDM) 😇</li>
+<li>Part 27: Server-Side Request Forgery (SSRF) 😈</li>
+<li>Part 28: Network Separation 😇</li>
+<li>Part 29: Social Engineering (including Phishing) 😈</li>
+<li>Part 30: Virtual Private Networks (VPNs) 😇</li>
+<li>Part 31: CSRF 😈</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

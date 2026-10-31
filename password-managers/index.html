@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I recently thought about good solutions for passwords in general. I had found one which was OK for me for a while, but more and more services get compromised. Try haveibeenpwned.com or Firefox..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, Password, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/password-managers/" />
+<meta property="og:title" content="Password Managers"/>
+<meta property="og:url" content="https://martin-thoma.com/password-managers/" />
+<meta property="og:description" content="I recently thought about good solutions for passwords in general. I had found one which was OK for me for a while, but more and more services get compromised. Try haveibeenpwned.com or Firefox Monitor to see if you are affected. One easy way to keep the damage small is …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-10-05T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2019/10/keepass.png" />
+<meta property="og:image:width" content="1158" />
+<meta property="og:image:height" content="779" />
+
+        <title>Password Managers  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../password-managers/">Password Managers</a></h1>
+    <p class="meta">
+<time datetime="2019-10-05T20:00:00+02:00">Okt 5, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#password-ref">Password
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#google-smart-lock" title="Google Smart Lock">Google Smart Lock</a></li><li><a class="toc-href" href="#lastpass" title="LastPass">LastPass</a><ul><li><a class="toc-href" href="#security" title="Security">Security</a></li></ul></li><li><a class="toc-href" href="#keepass" title="KeePass">KeePass</a></li><li><a class="toc-href" href="#keepassx" title="KeePassX">KeePassX</a></li><li><a class="toc-href" href="#keepassxc" title="KeePassXC">KeePassXC</a></li><li><a class="toc-href" href="#dashlane" title="Dashlane">Dashlane</a><ul><li><a class="toc-href" href="#security_1" title="Security">Security</a></li></ul></li><li><a class="toc-href" href="#1password" title="1Password">1Password</a><ul><li><a class="toc-href" href="#security_2" title="Security">Security</a></li></ul></li><li><a class="toc-href" href="#comparison" title="Comparison">Comparison</a><ul><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li><li><a class="toc-href" href="#usability" title="Usability">Usability</a></li><li><a class="toc-href" href="#long-term-support" title="Long-Term Support">Long-Term Support</a></li></ul></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I recently thought about good solutions for passwords
+in general. I had found one which was OK for me for a while, but more and more
+services get compromised. Try <a href="https://haveibeenpwned.com/">haveibeenpwned.com</a> or <a href="https://monitor.firefox.com/">Firefox Monitor</a> to see if you are affected. One easy way
+to keep the damage small is not to re-use passwords. It is impractical to remember
+strong passwords for every web service I use. I have to either use a password
+service or note things down.</p>
+<p>A good way of creating a single strong password is <a href="https://www.youtube.com/watch?v=Pe_3cFuSw1E">diceware</a>. Once you have this, you should create a new password for
+every single service and keep it in your password manager.</p>
+<p>This article focuses on what a good password manager is. I will judge them in
+three categories:</p>
+<ul>
+<li><strong>Security</strong>: Are the passwords locally encrypted strong enough? How many
+  incidents happened so far? Does it support <a href="../multi-factor-authentication/">2FA / MFA</a>?</li>
+<li><strong>Usability</strong>: Is it convenient to use? Is it available on Linux and Android?
+  Can I use it outside of the browser (e.g. if the password field is not
+  detected)? Does it have a UI for generating strong random passwords when
+  creating a new account?</li>
+<li><strong>Long-Term Support</strong>: Is this backed by a (bigger) company / a team of
+  developers? Is there vendor lock-in?</li>
+</ul>
+<h2 id="google-smart-lock">Google Smart Lock</h2>
+<p><a href="https://support.google.com/accounts/answer/6197437?hl=en&amp;visit_id=637048670466644275-4172869288&amp;rd=1">Google Smart Lock</a> is another password manager. If you use Google Chrome, chances are high that you are already using it.</p>
+<h2 id="lastpass">LastPass</h2>
+<p><a href="https://en.wikipedia.org/wiki/LastPass">LastPass</a> has been developed by LogMeIn
+since 2015. The initial release was in 2008.</p>
+<h3 id="security">Security</h3>
+<p>The Wikipedia page lists several security incidents and one security breach:</p>
+<ul>
+<li>2011: Network anomaly; unclear if anything actually happened.</li>
+<li>2015: LastPass account email addresses, password reminders, server per user
+  salts, and authentication hashes were compromised; however, encrypted user
+  vault data had not been affected.</li>
+<li>2016: Detectify and Google Security found an issue in URL parsing</li>
+<li>2016: Hardcoded Master Key in LastPass Password Manager (<a href="https://team-sik.org/sik-2016-022/">SIK-2016-022</a>)</li>
+<li>2016: Privacy, Data leakage in LastPass Browser Search (<a href="https://team-sik.org/sik-2016-023/">SIK-2016-023</a>)</li>
+<li>2016: Read Private Data (Stored Masterpassword) from LastPass Password Manager (<a href="https://team-sik.org/sik-2016-024/">SIK-2016-024</a>)</li>
+<li>2017: <a href="https://en.wikipedia.org/wiki/Tavis_Ormandy">Tavis Ormandy</a> (Google Security / Project Zero) found another issue in the browser extension</li>
+<li>2019: <a href="https://arstechnica.com/information-technology/2019/09/lastpass-fixes-bug-that-leaked-the-password-of-last-logged-in-account/">Password-exposing bug purged from LastPass extensions</a>, <a href="https://twitter.com/taviso/status/1173401754257375232">Tweet</a></li>
+</ul>
+<h2 id="keepass">KeePass</h2>
+<p><a href="https://en.wikipedia.org/wiki/KeePass">KeePass</a> is developed by Dominik Reichl.
+It is free and open source.</p>
+<figure>
+<a href="../images/2019/10/keepass.png"><img alt="Keepass 2.38 on Ubuntu 18.04" height="344" loading="lazy" src="../images/2019/10/keepass.png" width="512"/></a>
+<figcaption>Keepass 2.38 on Ubuntu 18.04</figcaption>
+</figure>
+<h2 id="keepassx">KeePassX</h2>
+<p><a href="https://en.wikipedia.org/wiki/KeePassX">KeePassX</a> started in 2006 as a port of KeePass to Linux. The <a href="https://github.com/keepassx/keepassx">code is on GitHub</a> and it has
+4063&nbsp;stars and 591&nbsp;forks. It's mostly C++.</p>
+<p>The last version was released in 2016, so about 3 years ago. <strong>KeePassX is not maintained</strong>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[1]</a></sup></p>
+<h2 id="keepassxc">KeePassXC</h2>
+<p><a href="https://en.wikipedia.org/wiki/KeePassXC">KeePassXC</a> is a fork of KeePassX.</p>
+<h2 id="dashlane">Dashlane</h2>
+<p><a href="https://en.wikipedia.org/wiki/Dashlane">Dashlane</a> was initially released in 2012.</p>
+<p>Dashlane supports secure file storage.</p>
+<h3 id="security_1">Security</h3>
+<ul>
+<li><a href="https://team-sik.org/sik-2016-028/">SIK-2016-028</a>: Read Private Data From App Folder in Dashlane Password Manager</li>
+<li><a href="https://team-sik.org/sik-2016-029/">SIK-2016-029</a>: Google Search Information Leakage in Dashlane Password Manager Browser</li>
+<li><a href="https://team-sik.org/sik-2016-030/">SIK-2016-030</a>: Residue Attack Extracting Masterpassword From Dashlane Password Manager</li>
+<li><a href="https://team-sik.org/sik-2016-031/">SIK-2016-031</a>: Subdomain Password Leakage in Internal Dashlane Password Manager Browser</li>
+</ul>
+<h2 id="1password">1Password</h2>
+<p><a href="https://en.wikipedia.org/wiki/1Password">1Password</a> was initially released in 2006 by <a href="https://www.linkedin.com/company/agilebits-inc/about/">AgileBits Inc</a>.</p>
+<h3 id="security_2">Security</h3>
+<ul>
+<li><a href="https://team-sik.org/sik-2016-038/">SIK-2016-038</a>: Subdomain Password Leakage in 1Password Internal Browser</li>
+<li><a href="https://team-sik.org/sik-2016-039/">SIK-2016-039</a>: Https downgrade to http URL by default in 1Password Internal Browser</li>
+<li><a href="https://team-sik.org/sik-2016-040/">SIK-2016-040</a>: Titles and URLs Not Encrypted in 1Password Database</li>
+<li><a href="https://team-sik.org/sik-2016-041/">SIK-2016-041</a>: Read Private Data From App Folder in 1Password Manager</li>
+<li><a href="https://team-sik.org/sik-2016-042/">SIK-2016-042</a>: Privacy Issue, Information Leaked to Vendor 1Password Manager</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<h3 id="functionality">Functionality</h3>
+<table class="table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th><a href="https://www.lastpass.com">LastPass</a></th>
+<th><a href="https://www.dashlane.com">Dashlane</a></th>
+<th><a href="https://1password.com">1Password</a></th>
+<th><a href="https://keepass.info/">KeePass</a></th>
+<th><a href="https://keepassxc.org/">KeePassXC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th title="The password can be stored in the cloud">Online</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by S&ouml;ren">&checkmark;</td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center">?</td>
+</tr>
+<tr>
+<th title="The password can be stored offline">Offline</th>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td class="text-center">?</td>
+</tr>
+<tr>
+<th title="Two-Factor Authentication">2FA</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://www.lastpass.com/de/products/multifactor-authentication">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/de/articles/202625042-Schutz-Ihres-Kontos-durch-Zwei-Faktor-Authentifizierung">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.1password.com/two-factor-authentication/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://www.heise.de/ratgeber/Zwei-Faktor-Authentifizierung-mit-dem-Passwortmanager-KeePass-4239579.html">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepassxc.org/project/" title="YubiKey">&checkmark;</a></td>
+</tr>
+<tr>
+<th title="Is a newly entered password automatically captured?">Password Capture</th>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by S&ouml;ren">&checkmark;</td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center"></td>
+</tr>
+<tr>
+<th title="Can the password manager direct you to the page where you can change your password?">Password Changes</th>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by S&ouml;ren">&checkmark;</td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center"></td>
+</tr>
+<tr>
+<th title="Does the password manager send a security alert in case of a breach?">Security Alerts</th>
+<td class="text-center" style="color: green;"><a href="https://support.logmeininc.com/lastpass/help/add-an-email-address-for-security-alerts-lp030007">&checkmark;</a></td>
+<td class="text-center" style="color: green;"><a href="https://support.dashlane.com/hc/de/articles/360000038180-Was-sind-Sicherheitswarnungen-und-Dark-Web-Warnungen-und-wie-soll-ich-darauf-reagieren-">&checkmark;</a></td>
+<td class="text-center" style="color: green;"><a href="https://watchtower.1password.com/">&checkmark;</a></td>
+<td class="text-center"><a href="https://keepass.info/help/kb/sec_issues.html">~</a></td>
+<td class="text-center" style="color: red;">&cross;</td>
+</tr>
+<tr>
+<th>Password Generator</th>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by S&ouml;ren">&checkmark;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;">&checkmark;</td>
+<td></td>
+</tr>
+<tr>
+<th title="This includes weak passwords and reused passwords">Insecure Password warnings</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://blog.lastpass.com/2013/03/lastpass-now-warns-you-when-youre-using-a-weak-or-duplicate-password.html/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/en-us/articles/202699411-How-to-use-Dashlane-to-find-out-how-secure-you-are">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://discussions.agilebits.com/discussion/95438/reused-password-warning">&checkmark;</a></td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center"></td>
+</tr>
+<tr>
+<th>Import</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.logmeininc.com/lastpass/help/import-passwords-from-other-sources-lp040003">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/de/sections/200961042-Daten-in-Dashlane-importieren">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.1password.com/import/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepass.info/help/base/importexport.html">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepass.info/help/base/importexport.html">&checkmark;</a></td>
+</tr>
+<tr>
+<th>Export</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.logmeininc.com/lastpass/help/export-your-passwords-and-secure-notes-lp040004">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/de/articles/202625252">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.1password.com/export/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepass.info/help/base/importexport.html">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepass.info/help/base/importexport.html">&checkmark;</a></td>
+</tr>
+<tr>
+<th>Secure File Storage</th>
+<td class="text-center"></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/en-us/articles/360001152965-How-to-use-Secure-File-Storage">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.1password.com/files/">&checkmark;</a></td>
+<td class="text-center"></td>
+<td class="text-center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="usability">Usability</h3>
+<table class="table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th><a href="https://www.lastpass.com">LastPass</a></th>
+<th><a href="https://www.dashlane.com">Dashlane</a></th>
+<th><a href="https://1password.com">1Password</a></th>
+<th><a href="https://keepass.info/">KeePass</a></th>
+<th><a href="https://keepassxc.org/">KeePassXC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Chrome Integration</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd?hl=de">4.6 🟊</a>, <span title="according to Jonathan: fugly and slow; acted up on bad internet connections; ">*</span></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://chrome.google.com/webstore/detail/dashlane-password-manager/fdjamakpfbbddfjaooikfcpapjohcfmg?hl=de">3.6 🟊</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk?hl=de">3.5 🟊</a></td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://chrome.google.com/webstore/detail/keepassxc-browser/oboonakemofpalcgghocfoadofidjkkk?hl=de">3.5 🟊</a></td>
+</tr>
+<tr>
+<th>Firefox Integration</th>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://addons.mozilla.org/de/firefox/addon/1password-x-password-manager/?src=search">4.2 🟊</a></td>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+</tr>
+<tr>
+<th>Android Application</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://play.google.com/store/apps/details?id=com.lastpass.lpandroid&amp;hl=de">4.4 🟊</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://play.google.com/store/apps/details?id=com.dashlane&amp;hl=de">4.6 🟊</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://play.google.com/store/apps/details?id=com.agilebits.onepassword&amp;hl=de">4.1 🟊</a></td>
+<td class="text-center"><a href="https://play.google.com/store/search?q=keepass&amp;c=apps&amp;hl=de">?</a></td>
+<td class="text-center"><a href="https://play.google.com/store/search?q=keepass&amp;c=apps&amp;hl=de">?</a></td>
+</tr>
+<tr>
+<th>iOS Application</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://apps.apple.com/de/app/lastpass-passwort-manager/id324613447">4.4 🟊</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://apps.apple.com/de/app/dashlane/id552383089?mt=12">4.6 🟊</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by my colleague Romeo"><a href="https://apps.apple.com/de/app/1password-password-manager/id568903335">4.3 🟊</a></td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+<td class="text-center" style="background-color: #ffaeae; color: red;">&cross;</td>
+</tr>
+<tr>
+<th>Windows</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://lastpass.com/misc_download2.php?tab=windows&amp;anchor=cr&amp;lang=de">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/de/articles/202637722-Dashlane-unter-Windows-installieren">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://1password.com/de/downloads/windows/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepass.info/download.html">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepassxc.org/download/#windows">&checkmark;</a></td>
+</tr>
+<tr>
+<th>Linux</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://lastpass.com/misc_download2.php?tab=windows&amp;anchor=cr&amp;lang=de">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://support.dashlane.com/hc/de/articles/115005432325-Ein-Dashlane-Konto-f%C3%BCr-Linux-und-Chromebook-anlegen">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://1password.com/de/downloads/linux/">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://packages.ubuntu.com/disco/keepass2">&checkmark;</a></td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://packages.ubuntu.com/disco/keepassxc">&checkmark;</a></td>
+</tr>
+<tr>
+<th>Mac</th>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://helpdesk.lastpass.com/de/mac-app/">&checkmark;</a></td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;" title="Confirmed by my colleague Romeo"><a href="https://1password.com/de/downloads/mac/">&checkmark;</a></td>
+<td class="text-center">?</td>
+<td class="text-center" style="background-color: #c0f4c0; color: green;"><a href="https://keepassxc.org/download/#mac">&checkmark;</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="long-term-support">Long-Term Support</h3>
+<table class="table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th><a href="https://www.lastpass.com">LastPass</a></th>
+<th><a href="https://www.dashlane.com">Dashlane</a></th>
+<th><a href="https://1password.com">1Password</a></th>
+<th><a href="https://keepass.info/">KeePass</a></th>
+<th><a href="https://keepassxc.org/">KeePassXC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Users</th>
+<td><a href="https://blog.lastpass.com/2018/07/celebrating-10-years-lastpass.html/">16.8&nbsp;million</a></td>
+<td><a href="https://www.dashlane.com/de/about">11&nbsp;million</a></td>
+<td><a href="https://www.quora.com/How-many-users-does-1Password-have/answer/Khad-Young">millions</a></td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<th>Companies</th>
+<td><a href="https://www.lastpass.com/de/pricing">58000</a></td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<th>Developer(s)</th>
+<td><a href="https://en.wikipedia.org/wiki/LogMeIn">LogMeIn</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Dashlane">Dashlane</a></td>
+<td><a href="https://www.linkedin.com/company/agilebits-inc/about/">AgileBits, Inc.</a></td>
+<td><a href="https://www.dominik-reichl.de/index.html">Dominik Reichl</a></td>
+<td><a href="https://en.wikipedia.org/wiki/KeePassXC">KeePassXC</a></td>
+</tr>
+<tr>
+<th>Employees</th>
+<td>2778</td>
+<td><a href="https://www.dashlane.com/de/about/team">181</a></td>
+<td><a href="https://1password.com/de/company/">155</a></td>
+<td>1</td>
+<td>6 / <a href="https://github.com/keepassxreboot/keepassxc">190</a></td>
+</tr>
+<tr>
+<th>Price</th>
+<td><a href="https://www.lastpass.com/de/pricing">2.67 EUR/month</a></td>
+<td><a href="https://www.dashlane.com/de/plans">3.33 EUR/month</a></td>
+<td><a href="https://1password.com/de/sign-up/">2.72 EUR/month</a></td>
+<td>free</td>
+<td>free</td>
+</tr>
+<tr>
+<th>Revenue</th>
+<td><a href="https://www.globenewswire.com/news-release/2018/02/15/1349176/0/en/LogMeIn-Announces-Fourth-Quarter-and-Fiscal-Year-2017-Results.html">\$1024M</a></td>
+<td><a href="https://www.owler.com/company/dashlane">\$21M</a><sup><a href="https://techcrunch.com/2019/04/12/password-manager-dashlane-closes-on-30m-adds-former-spotify-cmo-to-board/">1</a></sup></td>
+<td><a href="https://www.owler.com/company/1password">\$30M</a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Google Chrome's internal password manager + <a href="https://monitor.firefox.com/">Firefox Monitor</a> + <a href="https://passwordsgenerator.net/">passwordsgenerator.net</a> works quite fine.</li>
+<li>LastPass and 1Password look OK. A colleague used both on Mac and preferred 1Password.</li>
+<li>KeePass is free software, but the design doesn't look good and the
+  integrations might make it hard to use.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Keeper_(password_manager)">Keeper</a>: <a href="https://twitter.com/taviso/status/941710362717470720">Security incident</a></li>
+<li>Martin Monperrus: <a href="https://superuser.com/q/878902/64857">What's the difference between KeePass and KeePassX?</a>, February 2017.</li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_password_managers">List of password managers</a></li>
+<li><a href="https://keeweb.info/">KeeWeb</a></li>
+<li>Thomas Claburn: <a href="https://www.theregister.co.uk/2017/02/28/flaws_in_password_management_apps/">Security slip-ups in 1Password and other password managers 'extremely worrying'</a>, 2017.</li>
+<li>Mac: MacPass and <a href="https://en.wikipedia.org/wiki/Keychain_(software)">Keychain</a></li>
+<li><a href="https://www.passwordstore.org/">pass</a></li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:2">
+<p>Reddit: <a href="https://www.reddit.com/r/privacy/comments/6inegj/keepass_vs_keepassx/">KeePass vs KeePassX</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

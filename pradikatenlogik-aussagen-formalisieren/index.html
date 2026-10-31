@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden. Allgemeines zur Prädikatenlogik x sei im..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Mathematics, Lecture Notes, University, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/pradikatenlogik-aussagen-formalisieren/" />
+<meta property="og:title" content="Prädikatenlogik: Aussagen formalisieren"/>
+<meta property="og:url" content="https://martin-thoma.com/pradikatenlogik-aussagen-formalisieren/" />
+<meta property="og:description" content="Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden. Allgemeines zur Prädikatenlogik x sei im folgenden eine Aussage \(\neg x\): Die Negation der Aussage x \(\exists x\): Es existiert mindestens ein x (Quantor) \(\forall x …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-29T15:12:33+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/10/eulers-formula.png" />
+
+        <title>Prädikatenlogik: Aussagen formalisieren  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../pradikatenlogik-aussagen-formalisieren/">Prädikatenlogik: Aussagen formalisieren</a></h1>
+    <p class="meta">
+<time datetime="2011-10-29T15:12:33+02:00">Okt 29, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#lecture-notes-ref">Lecture Notes
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+        <li><a href="../tags/#university-ref">University
+            <span>85</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#allgemeines-zur-pradikatenlogik" title="Allgemeines zur Pr&auml;dikatenlogik">Allgemeines zur Pr&auml;dikatenlogik</a></li><li><a class="toc-href" href="#karlsruher-und-die-verkehrsmittel" title="Karlsruher und die Verkehrsmittel">Karlsruher und die Verkehrsmittel</a></li><li><a class="toc-href" href="#wochentliches-fernsehprogramm" title="W&ouml;chentliches Fernsehprogramm">W&ouml;chentliches Fernsehprogramm</a></li><li><a class="toc-href" href="#teilbarkeit" title="Teilbarkeit">Teilbarkeit</a></li><li><a class="toc-href" href="#weitere-materialien" title="Weitere Materialien">Weitere Materialien</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2011/10/pradikatenlogik.jpg"><img alt="Links eine Menschengruppe, in der genau eine Person orange hervorgehoben ist, rechts dieselbe Gruppe, in der alle gr&uuml;n hervorgehoben sind" height="768" src="../images/2011/10/pradikatenlogik.jpg" width="1376"/></a>
+<figcaption>Quantoren: "es existiert" und "f&uuml;r alle".</figcaption>
+</figure>
+<p>Es ist h&auml;ufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.</p>
+<h2 id="allgemeines-zur-pradikatenlogik">Allgemeines zur Pr&auml;dikatenlogik</h2>
+<p>x sei im folgenden eine Aussage
+<span class="math">\(\neg x\)</span>: Die Negation der Aussage x</p>
+<p><span class="math">\(\exists x\)</span>: Es existiert mindestens ein x (Quantor)
+<span class="math">\(\forall x\)</span>: Alle x (Quantor)</p>
+<p><span class="math">\(\land\)</span>: und (eine Verkn&uuml;pfung zweier Aussagen)
+<span class="math">\(\lor\)</span>: oder (eine Verkn&uuml;pfung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".</p>
+<p>Ich habe die Symbole bewusst in diesen Paragraphen angeordnet. Wird die Negation eines Ausdrucks gebildet, werden alle Symbole im Inneren durch das jeweils andere Symbol ersetzt. Beispielsweise wird das logische "und" zu einem "oder".</p>
+<p>Ein kleiner Nachtrag: Was macht man, wenn man sagen will, dass eine Aussage A f&uuml;r genau ein Element x einer Menge M gilt?
+<span class="math">\(\exists x \in M: A(x) \land \forall (y \in M, y \neq x): \neg A(y)\)</span></p>
+<h2 id="karlsruher-und-die-verkehrsmittel">Karlsruher und die Verkehrsmittel</h2>
+<p>Folgendes Beispiel hatte ich in einem Tutorium am KIT:</p>
+<blockquote>(i) Alle Karlsruher fahren mit dem Rad oder der Stra&szlig;enbahn.</blockquote>
+<p>Was ist das Gegenteil dieser Aussage? Folgendes w&auml;re denkbar:</p>
+<ol>
+<li>Kein Karlsruher f&auml;hrt mit dem Rad oder der Stra&szlig;enbahn.</li>
+<li>Kein Karlsruher f&auml;hrt mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Alle Karlsruher fahren mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Alle Karlsruher fahren nicht mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Es fahren nicht alle Karlsruher mit dem Rad oder der Stra&szlig;enbahn.</li>
+<li>Es fahren nicht alle Karlsruher mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>...</li>
+</ol>
+<p>Nun wurde mir beigebracht, dass folgendes eine "saubere" Formalisierung der ersten Aussage ist:</p>
+<p>Sei K die Menge aller Karlsruher.
+Sei F Aussageform auf K und definiert durch <span class="math">\(F(k) := \text{"k f&auml;hrt mit dem Fahrrad"} (k \in K)\)</span>
+Sei analog S Aussageform auf K mit <span class="math">\(S(k) := \text{"k f&auml;hrt mit der Stra&szlig;enbahn"}\)</span></p>
+<p>Dann lautet (i) formalisiert:
+<span class="math">\(\forall k \in K: F(k) \lor S(k)\)</span> <small>(sprich: "F&uuml;r alle k in K gilt: F von k oder S von k")</small></p>
+<p>Negiert:
+<span class="math">\(\exists k \in K: \neg F(k) \land \neg S(k)\)</span> <small>(sprich: "Es existiert mindestens ein k in K f&uuml;r das gilt: Es ist F von k nicht wahr und zugleich S von k nicht wahr.")</small></p>
+<p>&Uuml;bersetzt man das in einen sch&ouml;neren deutschen Satz kann man sagen:
+Mindestens ein Karlsruher f&auml;hrt weder mit dem Rad noch mit der Bahn.</p>
+<p>Wenn man das nun auf die oben angegebenen L&ouml;sungen bezieht, k&ouml;nnte es Aussage 5 oder 6 sein. Sinngem&auml;&szlig; muss es hei&szlig;en:
+Es fahren nicht alle Karlsruher entweder mit dem Rad, der Stra&szlig;enbahn oder beidem.
+Ich tendiere stark dazu, Satz 5 zu nehmen. Allerdings bin ich mir nicht sicher, ob mein Sprachgef&uuml;hl mich t&auml;uscht.</p>
+<h2 id="wochentliches-fernsehprogramm">W&ouml;chentliches Fernsehprogramm</h2>
+<p>Noch ein Beispiel aus meinem Tutorium:</p>
+<blockquote>(ii) Im Fernsehen l&auml;uft jede Woche "Die Simpsons", "Die Ludolfs" und "Telekolleg".</blockquote>
+<p>Sei W die Menge aller Wochen.
+Sei A Aussageform auf W.</p>
+<p>A(w) := In der Woche w l&auml;uft "Die Simpsons". <span class="math">\(w \in W\)</span>
+B(w) := In der Woche w l&auml;uft "Die Ludolfs". <span class="math">\(w \in W\)</span>
+C(w) := In der Woche w l&auml;uft "Telekolleg". <span class="math">\(w \in W\)</span></p>
+<p>Dann lautet (ii) formalisiert:
+<span class="math">\(\forall w \in W: A(w) \land B(w) \land C(w)\)</span></p>
+<p>Negiert:
+<span class="math">\(\exists w \in W: \neg A(w) \lor \neg B(w) \lor \neg C(w)\)</span></p>
+<h2 id="teilbarkeit">Teilbarkeit</h2>
+<p>Nun mal etwas eigenes:</p>
+<blockquote>(iii) Jede gerade Zahl ist durch zwei teilbar.</blockquote>
+<p>Sei M die Menge der geraden Zahlen.
+Dann lautet (iii) formalisiert:
+<span class="math">\(\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}\)</span></p>
+<h2 id="weitere-materialien">Weitere Materialien</h2>
+<ul>
+<li><a href="http://lrb.cs.uni-dortmund.de/~tick/Lehre/WS10/Logik/01-introw.pdf">Uni Dortmund</a>: 15 Seiten zum Formalisieren vom Aussagen</li>
+<li><a href="http://page.math.tu-berlin.de/~schmitt/lina0910/loesungen/loesung01.pdf">TU-Berlin</a> (Aufgabe 4 - " Jeder, der ein gutes Geh&ouml;r hat, kann richtig singen[...]")</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

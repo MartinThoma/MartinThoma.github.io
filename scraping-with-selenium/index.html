@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Selenium is a framework for testing web applications. And it is really good for scraping JavaScript heavy websites. The idea is that you get a real browser to execute everything. In contrast to..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Testing, Software Engineering, Cyberculture, " />
+
+<link rel="canonical" href="https://martin-thoma.com/scraping-with-selenium/" />
+<meta property="og:title" content="Scraping with Selenium"/>
+<meta property="og:url" content="https://martin-thoma.com/scraping-with-selenium/" />
+<meta property="og:description" content="Selenium is a framework for testing web applications. And it is really good for scraping JavaScript heavy websites. The idea is that you get a real browser to execute everything. In contrast to BeautifulSoup where you only fetch the content of a website. Installation pip install selenium chromedriver_installer Basic example …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-08-17T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2017/08/chrome-dev-tools.png" />
+<meta property="og:image:width" content="1423" />
+<meta property="og:image:height" content="1289" />
+
+        <title>Scraping with Selenium  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../scraping-with-selenium/">Scraping with Selenium</a></h1>
+    <p class="meta">
+<time datetime="2017-08-17T20:00:00+02:00">Aug 17, 2017</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#testing-ref">Testing
+            <span>10</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#basic-example" title="Basic example">Basic example</a></li><li><a class="toc-href" href="#basic-interaction" title="Basic interaction">Basic interaction</a></li><li><a class="toc-href" href="#headless-browser" title="Headless Browser">Headless Browser</a></li><li><a class="toc-href" href="#download-webpage" title="Download webpage">Download webpage</a></li><li><a class="toc-href" href="#waiting" title="Waiting">Waiting</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Selenium is a framework for testing web applications. And it is really good for
+scraping JavaScript heavy websites. The idea is that you get a real browser
+to execute everything. In contrast to BeautifulSoup where you only fetch the
+content of a website.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>chromedriver_installer
+</code></pre></div>
+<h2 id="basic-example">Basic example</h2>
+<p>When you execute the following example with Python it should open a Chromium
+browser window with the Wikipedia main page. Nothing too exciting.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""A very basic selenium example."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Open Wikipedia - and keep the browser open."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://en.wikipedia.org"</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># Keep the browser open for 60s</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_browser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get the browser (a "driver")."""</span>
+    <span class="c1"># find the path with 'which chromedriver'</span>
+    <span class="n">path_to_chromedriver</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"/home/moose/GitHub/algorithms/scraping/venv/bin/chromedriver"</span>
+    <span class="p">)</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">path_to_chromedriver</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">browser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="basic-interaction">Basic interaction</h2>
+<p>Ok, now we want to search on Wikipedia by filling out the search bar. So we
+need to inspect the website and get an identifier for the search bar. In
+Chrome, this is done with the <em>developer tools</em>. You can open them with
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> (for <em>inspect</em>):</p>
+<figure>
+<a href="../images/2017/08/chrome-dev-tools.png"><img alt="The inspection of the search bar with the Chrome Developer Tools reveals that it has the id 'searchInput'" height="464" src="../images/2017/08/chrome-dev-tools.png" width="512"/></a>
+<figcaption>Inspecting the search bar with the Chrome Developer Tools</figcaption>
+</figure>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""A very basic selenium example."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.common.keys</span><span class="w"> </span><span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Search for Selenium and click on the disambiugation link."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://en.wikipedia.org"</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">el</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">"searchInput"</span><span class="p">)</span>
+    <span class="n">el</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"Selenium"</span><span class="p">,</span> <span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Give you a chance to see the content</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">'//div[contains(@class, "hatnote")]'</span><span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">'.//a[starts-with(@href, "/wiki")]'</span><span class="p">)</span>
+    <span class="n">link</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_browser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get the browser (a "driver")."""</span>
+    <span class="c1"># find the path with 'which chromedriver'</span>
+    <span class="n">path_to_chromedriver</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"/home/moose/GitHub/algorithms/scraping/"</span> <span class="s2">"venv/bin/chromedriver"</span>
+    <span class="p">)</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">path_to_chromedriver</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">browser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>You know now:</p>
+<ul>
+<li>How to get elements by ID (<code>browser.find_element_by_id</code>)</li>
+<li>How to get elements by XPath (<code>browser.find_element_by_xpath(xpath)</code>)<ul>
+<li>Absolute starts with <code>//</code></li>
+<li>Relative starts with <code>.//</code></li>
+<li><code>[condition]</code> syntax</li>
+</ul>
+</li>
+<li>How to click on elements (<code>element.click()</code>)</li>
+</ul>
+<p>Also super helpful:</p>
+<ul>
+<li><code>.get_attribute("outerHTML")</code>: Show what you currently have</li>
+</ul>
+<h2 id="headless-browser">Headless Browser</h2>
+<p>A headless browser is one without a GUI. PhantomJS is one example.</p>
+<p>You can install it via apt, but that has problems (<a href="https://stackoverflow.com/q/36770303/562769">source</a>).
+You can install it via</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nodejs-legacy
+sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>phantomjs
+</code></pre></div>
+<p>but that might be a security risk. Your choice.</p>
+<p>Run it:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""A very basic selenium example."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Open Wikipedia - and keep the browser open."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://en.wikipedia.org"</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_browser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get the browser (a "driver")."""</span>
+    <span class="c1"># find the path with 'which chromedriver'</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">PhantomJS</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">browser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="download-webpage">Download webpage</h2>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Selenium example for downloading a webpage."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Download an opened PDF page."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://martin-thoma.com/pdf/cv-curriculum-vitae.pdf"</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Open a PDF page</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># Keep the browser open for 60s</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_browser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get the browser (a "driver")."""</span>
+    <span class="c1"># find the path with 'which chromedriver'</span>
+    <span class="n">path_to_chromedriver</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"/home/moose/GitHub/algorithms/scraping/"</span> <span class="s2">"venv/bin/chromedriver"</span>
+    <span class="p">)</span>
+    <span class="n">download_dir</span> <span class="o">=</span> <span class="s2">"/home/moose/selenium-download/"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Is directory: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">download_dir</span><span class="p">)))</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.chrome.options</span><span class="w"> </span><span class="kn">import</span> <span class="n">Options</span>
+
+    <span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+    <span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span>
+        <span class="s2">"prefs"</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">"plugins.plugins_list"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"enabled"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Chrome PDF Viewer"</span><span class="p">}],</span>
+            <span class="s2">"download"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"prompt_for_download"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">"default_directory"</span><span class="p">:</span> <span class="n">download_dir</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path_to_chromedriver</span><span class="p">,</span> <span class="n">chrome_options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">browser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>Credits: <a href="https://stackoverflow.com/q/45743028/562769">How can I download something with Selenium and Chrome?</a></p>
+<p>The following alternative (kind of) works:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Selenium example for downloading a webpage."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Download an opened PDF page."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://martin-thoma.com/pdf/cv-curriculum-vitae.pdf"</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Open a PDF page</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">download_link</span> <span class="o">=</span> <span class="n">url</span>  <span class="c1"># browser.current_url might be interesting, too</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Download link: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">download_link</span><span class="p">))</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">cookies</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">cookie</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span> <span class="n">cookie</span><span class="p">[</span><span class="s2">"value"</span><span class="p">])</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">download_link</span><span class="p">)</span>
+    <span class="c1"># write</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">"temp.pdf"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Written to </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_browser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get the browser (a "driver")."""</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">PhantomJS</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">browser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="waiting">Waiting</h2>
+<p>Sometimes, you need to wait for the page to load. <code>browser.get</code> blocks until
+the page is loaded, but what about <code>.click()</code>? What about JavaScript generated
+elements?</p>
+<p>See the <a href="http://selenium-python.readthedocs.io/waits.html">official documentation</a>
+for all wait methods.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="http://www.seleniumhq.org/">Official Website</a><ul>
+<li><a href="http://selenium-python.readthedocs.io/">Python documentation</a></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Selenium_(software)">Wikipedia</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/selenium">StackOverflow</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#cyberculture-ref">Cyberculture</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

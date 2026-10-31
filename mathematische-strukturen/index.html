@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele können gerne in den..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Mathematics, Algebra, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/mathematische-strukturen/" />
+<meta property="og:title" content="Mathematische Strukturen"/>
+<meta property="og:url" content="https://martin-thoma.com/mathematische-strukturen/" />
+<meta property="og:description" content="Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele können gerne in den Kommentaren genannt werden. Magma Sei $M$ eine Menge und $*:M \times M \rightarrow M$ eine auf $M$ abgeschlossene Abbildung. Dann heißt $(M,*)$ ein Magma …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-06-16T18:14:57+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/01/vector-space.png" />
+
+        <title>Mathematische Strukturen  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../mathematische-strukturen/">Mathematische Strukturen</a></h1>
+    <p class="meta">
+<time datetime="2013-06-16T18:14:57+02:00">Jun 16, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algebra-ref">Algebra
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#magma" title="Magma">Magma</a></li><li><a class="toc-href" href="#halbgruppe" title="Halbgruppe">Halbgruppe</a></li><li><a class="toc-href" href="#monoid" title="Monoid">Monoid</a></li><li><a class="toc-href" href="#gruppe" title="Gruppe">Gruppe</a></li><li><a class="toc-href" href="#ring" title="Ring">Ring</a></li><li><a class="toc-href" href="#korper" title="K&ouml;rper">K&ouml;rper</a></li><li><a class="toc-href" href="#modul" title="Modul">Modul</a></li><li><a class="toc-href" href="#vektorraum" title="Vektorraum">Vektorraum</a></li><li><a class="toc-href" href="#weitere" title="Weitere">Weitere</a><ul><li><a class="toc-href" href="#ideal" title="Ideal">Ideal</a></li><li><a class="toc-href" href="#algebra" title="Algebra">Algebra</a></li><li><a class="toc-href" href="#integritatsring" title="Integrit&auml;tsring">Integrit&auml;tsring</a></li><li><a class="toc-href" href="#hauptidealring" title="Hauptidealring">Hauptidealring</a></li><li><a class="toc-href" href="#quotientenkorper" title="Quotientenk&ouml;rper">Quotientenk&ouml;rper</a></li></ul></li><li><a class="toc-href" href="#hilfsbegriffe" title="Hilfsbegriffe">Hilfsbegriffe</a><ul><li><a class="toc-href" href="#ideal_1" title="Ideal">Ideal</a></li><li><a class="toc-href" href="#hauptideal" title="Hauptideal">Hauptideal</a></li><li><a class="toc-href" href="#primideal" title="Primideal">Primideal</a></li><li><a class="toc-href" href="#maximales-ideal" title="Maximales Ideal">Maximales Ideal</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele k&ouml;nnen gerne in den Kommentaren genannt werden.</p>
+<figure class="ai-generated">
+<a href="../images/2013/06/mathematische-strukturen.jpg"><img alt="Ineinander geschachtelte farbige Formen als Hierarchie algebraischer Strukturen mit Plus-, Mal- und Nullsymbolen" height="768" src="../images/2013/06/mathematische-strukturen.jpg" width="1376"/></a>
+<figcaption>Mathematische Strukturen bauen aufeinander auf.</figcaption>
+</figure>
+<h2 id="magma">Magma</h2>
+<div class="definition">Sei $M$ eine Menge und $*:M \times M \rightarrow M$ eine auf $M$ abgeschlossene Abbildung. Dann hei&szlig;t $(M,*)$ ein <strong>Magma</strong>.</div>
+<div class="definition">Sei $(M,*)$ ein Magma.
+$(M,*)$ hei&szlig;t <strong>kommutativ</strong> $:\Leftrightarrow \forall a, b \in M: a*b = b*a$.</div>
+<p>Ein Synonym zu &bdquo;kommutativ&ldquo; ist &bdquo;abelsch&ldquo;.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Jede Halbgruppe ist auch ein Magma.</li>
+<li>$(\mathbb{Z}, -)$ ist ein Magma, aber keine Halbgruppe:
+      $1-(1-1) = 1-0 = 1 \neq -1 = 0-1 = (1-1)-1$</li>
+<li>$(\mathbb{R} \setminus \{0\}, : )$ ist ein Magma, aber keine Halbgruppe:
+      $1 : (7:7)=1:1=1 \neq \frac{1}{49} = \frac{1}{7} : 7 = (1:7):7$</li>
+</ul>
+<p>Gegenbeispiele:</p>
+<ul>
+<li>$(\mathbb{N}, : )$ ist nicht abgeschlossen, also kein Magma.</li>
+<li>$(\mathbb{N}, - )$ ist nicht abgeschlossen, also kein Magma.</li>
+</ul>
+<h2 id="halbgruppe">Halbgruppe</h2>
+<div class="definition">Sei $(M, *)$ ein Magma.
+$(M, *)$ hei&szlig;t <strong>Halbgruppe</strong> $:\Leftrightarrow (M, *)$ ist assoziativ.</div>
+<p>Eine Verkn&uuml;pfung <span class="math">\(*\)</span> ist genau dann assoziativ auf einer Menge <span class="math">\(M\)</span>, wenn gilt:
+<span class="math">\(\forall a,b,c \in M: (a*b)*c = a*(b*c)\)</span></p>
+<p>Beispiele:</p>
+<ul>
+<li>Jedes Monoid ist auch eine Halbgruppe.</li>
+<li>$(\mathbb{N}_{\geq 1}, +)$ ist eine Halbgruppe, aber kein Monoid.</li>
+</ul>
+<h2 id="monoid">Monoid</h2>
+<div class="definition">Sei $(M, *)$ eine Halbgruppe.
+$(M, *)$ hei&szlig;t <strong>Monoid</strong> $:\Leftrightarrow (M, *)$ hat ein neutrales Element $e_M$</div>
+<p>Ein Element <span class="math">\(e_M \in M\)</span> hei&szlig;t genau dann neutral, wenn gilt:
+<span class="math">\(\forall a \in M: e_M * a = a * e_M = a\)</span></p>
+<p>Beispiele:</p>
+<ul>
+<li>Jede Gruppe ist auch ein Monoid.</li>
+<li>$(\mathbb{N}_{0}, +)$ ist mit 0 als Neutralelement ein Monoid, aber keine Gruppe.</li>
+<li>$(\mathbb{N}_{0}, \cdot)$ ist mit 1 als Neutralelement ein Monoid, aber keine Gruppe.</li>
+<li>$(\mathbb{Z}, \cdot)$ ist mit 1 als Neutralelement ein Monoid, aber keine Gruppe.</li>
+</ul>
+<h2 id="gruppe">Gruppe</h2>
+<div class="definition">Sei $(M, *)$ ein Monoid.
+$(M, *)$ hei&szlig;t <strong>Gruppe</strong> $:\Leftrightarrow \forall a \in M: \exists a^{-1} \in M: a * a^{-1} = a^{-1} * a = e_M$ </div>
+<p>Beispiele:</p>
+<ul>
+<li>Jeder Ring $(R, +, \cdot)$ beinhaltet eine Gruppe $(R, +)$.</li>
+<li>$(\mathbb{Q}, +)$</li>
+<li>$(\mathbb{R}, +)$</li>
+<li>$(\mathbb{Q} \setminus \{0\}, \cdot)$</li>
+<li>$(\mathbb{R} \setminus \{0\}, \cdot)$</li>
+</ul>
+<h2 id="ring">Ring</h2>
+<div class="definition">Sei $R$ eine Menge und $+:R \times R \rightarrow R$, $\cdot:R \times R \rightarrow R$ Verkn&uuml;pfungen darauf.
+
+$(R, +, \cdot)$ hei&szlig;t <strong>Ring</strong> $:\Leftrightarrow$
+<ul>
+<li>$(R,+)$ ist eine kommutative Gruppe (das Neutralelement hei&szlig;e 0),</li>
+<li>$(R,\cdot)$ ist eine Halbgruppe und</li>
+<li>die Distributivgesetze sind erf&uuml;llt.</li>
+</ul>
+</div>
+<p>Die Distributivgesetze lauten:</p>
+<p><span class="math">\(\forall a,b,c,d \in R: (a+b) \cdot c = ac + bc\)</span></p>
+<p>und</p>
+<p><span class="math">\(\forall a,b,c,d \in R: a \cdot (c+d) = ac + ad\)</span></p>
+<p>Au&szlig;erdem:</p>
+<div class="definition">Sei $(R,+,\cdot)$ ein Ring.
+$(R,+,\cdot)$ hei&szlig;t <strong>Ring mit Eins</strong> $:\Leftrightarrow (R, \cdot)$ ist Monoid.
+</div>
+<div class="definition">Sei $(R,+,\cdot)$ ein Ring.
+$(R,+,\cdot)$ hei&szlig;t <strong>kommutativer Ring</strong> $:\Leftrightarrow (R, \cdot)$ ist kommutativ.
+</div>
+<p>Beispiele:</p>
+<ul>
+<li>Jeder K&ouml;rper ist auch ein Ring.</li>
+<li>$(\mathbb{Z}, +, \cdot)$ ist ein kommutativer Ring mit Eins, aber kein K&ouml;rper. Es fehlen die Inversen bei der Multiplikation.</li>
+</ul>
+<h2 id="korper">K&ouml;rper</h2>
+<div class="definition">Sei $(K, +, \cdot)$ ein kommutativer Ring mit Eins.
+$(K, +, \cdot)$ hei&szlig;t <strong>K&ouml;rper</strong> $:\Leftrightarrow$
+<ul>
+<li>$(K,+)$ ist kommutativ.</li>
+<li>$(K \setminus \{0\}, \cdot)$ ist kommutative Gruppe.</li>
+</ul>
+</div>
+<p>Beispiele:</p>
+<ul>
+<li>$(\mathbb{Q}, +, \cdot)$</li>
+<li>$(\mathbb{R}, +, \cdot)$</li>
+<li>$(\mathbb{C}, +, \cdot)$</li>
+<li>$(\mathbb{Z} / p \mathbb{Z}, +, \cdot)$, wobei $p$ eine Primzahl ist</li>
+</ul>
+<h2 id="modul">Modul</h2>
+<div class="definition">Sei $(R, +_R, \cdot_R)$ ein Ring und $(M, +_M)$ eine kommutative Gruppe.
+
+Au&szlig;erdem sei
+
+$\cdot_V: R \times M \rightarrow M$
+
+eine Abbildung.
+
+$(M, R, \cdot_V)$ hei&szlig;t <strong>R-Modul</strong> $:\Leftrightarrow \forall \lambda, \mu \in R \; x,y \in M:$
+<ul>
+<li>$1_R \cdot x = x$</li>
+<li>$\lambda \cdot (\mu \cdot x) = (\lambda \cdot \mu) \cdot x$</li>
+<li>$(\lambda + \mu) \cdot x = \lambda \cdot x + \mu \cdot x$</li>
+<li>$\lambda \cdot (x+y) = \lambda \cdot x + \lambda \cdot y$</li>
+</ul>
+</div>
+<p>Beispiele:</p>
+<ul>
+<li>Jeder K-Vektorraum ist auch ein K-Modul.</li>
+<li>Das $\mathbb{Z}$-Modul $\mathbb{Z}/2 \mathbb{Z}$ ist ein Modul ohne Basis, also kein Vektorraum.</li>
+</ul>
+<h2 id="vektorraum">Vektorraum</h2>
+<div class="definition">Sei $(K, +_K, \cdot_K)$ ein K&ouml;rper und $(V,+_V)$ eine kommutative Gruppe.
+Au&szlig;erdem sei
+
+$\cdot_V: K \times V \rightarrow V$
+
+eine <strong>skalare Multiplikation</strong>.
+
+$(V, K, \cdot_V)$ hei&szlig;t <strong>$K$-Vektorraum</strong> $:\Leftrightarrow \forall \lambda, \mu \in K \; x,y \in V:$
+<ul>
+<li>$1_K \cdot x = x$</li>
+<li>$\lambda \cdot (\mu \cdot x) = (\lambda \cdot \mu) \cdot x$</li>
+<li>$(\lambda + \mu) \cdot x = \lambda \cdot x + \mu \cdot x$</li>
+<li>$\lambda \cdot (x+y) = \lambda \cdot x + \lambda \cdot y$</li>
+</ul>
+</div>
+<p>Beispiele:</p>
+<ul>
+<li>$(\mathbb{R}[X], \mathbb{R}, \cdot_V)$: Der Vektorraum der Polynome mit Koeffizienten aus $\mathbb{R}$.</li>
+</ul>
+<h2 id="weitere">Weitere</h2>
+<h3 id="ideal">Ideal</h3>
+<div class="definition">Ein Ideal in einem Ring $(R, +, \cdot)$ ist eine Teilmenge $I \subseteq R$, die bez&uuml;glich der Addition eine Untergruppe ist und die folgende Eigenschaft hat:
+
+$\forall x \in I, r \in R: xr \in I \text{ und } rx \in I$</div>
+<p>Beispiele:</p>
+<ul>
+<li>Kerne von Ringhomomorphismen sind immer Ideale. (Und Ideale sind Kerne von Ringhomomorphismen.)</li>
+</ul>
+<h3 id="algebra">Algebra</h3>
+<div class="definition">Es sei $R$ ein Ring. Eine $R$-Algebra ist ein Ring $A$ zusammen mit einem Ringhomomorphismus $\sigma: R \rightarrow A$, sodass gilt:
+
+$\forall r \in R, a \in A: \sigma(r) \cdot a = a \cdot \sigma(r)$</div>
+<p>Beispiele:</p>
+<ul>
+<li>Jeder Ring ist eine $\mathbb{Z}$-Algebra.</li>
+</ul>
+<h3 id="integritatsring">Integrit&auml;tsring</h3>
+<div class="definition">Es sei $R$ ein vom Null-Ring verschiedener Ring.
+
+$R$ hei&szlig;t Integrit&auml;tsring $:\Leftrightarrow R$ ist kommutativ und Nullteilerfrei.</div>
+<p>Beispiele:</p>
+<ul>
+<li>Zu dem Ring $(\mathbb{Z}, +, \cdot)$ ist $(\mathbb{Q}, +, \cdot)$ ein Quotientenk&ouml;rper.</li>
+</ul>
+<h3 id="hauptidealring">Hauptidealring</h3>
+<div class="definition">Es sei $R$ ein Integrit&auml;tsring.
+
+$R$ hei&szlig;t Hauptidealring $:\Leftrightarrow$ Jedes Ideal $I \subseteq R$ ist ein Hauptideal.</div>
+<h3 id="quotientenkorper">Quotientenk&ouml;rper</h3>
+<div class="definition">Es sei $R$ ein Integrit&auml;tsring. Der kleinste K&ouml;rper, in den $R$ eingebettet werden kann, wird der Quotientenk&ouml;rper des Integrit&auml;tsrings genannt.</div>
+<p>Beispiele:</p>
+<ul>
+<li>Jeder K&ouml;rper ist ein Integrit&auml;tsring.</li>
+<li>$(\mathbb{Z}, +, \cdot)$</li>
+</ul>
+<h2 id="hilfsbegriffe">Hilfsbegriffe</h2>
+<h3 id="ideal_1">Ideal</h3>
+<div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subseteq R$.
+
+$I$ hei&szlig;t Ideal $:\Leftrightarrow$
+<ol style="list-style-type:lower-roman">
+<li>$(I, +)$ ist eine Gruppe,</li>
+<li>$\forall r \in R \forall a \in I: r \cdot a \in I$ und</li>
+<li>$\forall r \in R \forall a \in I: a \cdot r \in I$.</li>
+</ol></div>
+<p>Beispiele:</p>
+<ul>
+<li>Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring $(\mathbb{Z}, +, \cdot)$.</li>
+</ul>
+<h3 id="hauptideal">Hauptideal</h3>
+<div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subseteq R$ ein Ideal.
+
+$I$ hei&szlig;t Hauptideal $:\Leftrightarrow I$ wird von einem Element erzeugt.</div>
+<p>Beispiele:</p>
+<ul>
+<li>$n\mathbb{Z}$</li>
+</ul>
+<h3 id="primideal">Primideal</h3>
+<div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subsetneq R$ ein Ideal.
+
+$I$ hei&szlig;t Primideal in $R :\Leftrightarrow \forall x, y \in R: xy \in I \Rightarrow x \in I \lor y \in I$</div>
+<p>Beispiele:</p>
+<ul>
+<li>$2\mathbb{Z}$ ist Primideal in $(\mathbb{Z}, +, \cdot)$</li>
+</ul>
+<h3 id="maximales-ideal">Maximales Ideal</h3>
+<div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subsetneq R$ ein Ideal.
+
+$I$ hei&szlig;t maximales Ideal in $R :\Leftrightarrow$ Es gibt kein Ideal $J$, f&uuml;r das gilt: $I \subsetneq J \subsetneq R$</div>
+<p>Beispiele:</p>
+<ul>
+<li>In $(\mathbb{Z},+,\cdot)$ ist jedes Primideal maximal.</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Handing over code to another person or another team is a pretty common task. You might simply get other tasks or even get another project. So, what should be done for a good handover? Preparation..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Software Engineering, Work, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/software-handover/" />
+<meta property="og:title" content="Software Handover"/>
+<meta property="og:url" content="https://martin-thoma.com/software-handover/" />
+<meta property="og:description" content="Handing over code to another person or another team is a pretty common task. You might simply get other tasks or even get another project. So, what should be done for a good handover? Preparation The first phase of the handover is preparation on your side. Make the project shine …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-06-22T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2018/06/software-handover.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Software Handover  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../software-handover/">Software Handover</a></h1>
+    <p class="meta">
+<time datetime="2018-06-22T20:00:00+02:00">Jun 22, 2018</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#work-ref">Work
+            <span>4</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#preparation" title="Preparation">Preparation</a><ul><li><a class="toc-href" href="#remove-outdated-code" title="Remove Outdated Code">Remove Outdated Code</a></li><li><a class="toc-href" href="#test-coverage" title="Test Coverage">Test Coverage</a></li><li><a class="toc-href" href="#issues" title="Issues">Issues</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li></ul></li><li><a class="toc-href" href="#code-walkthrough" title="Code Walkthrough">Code Walkthrough</a></li><li><a class="toc-href" href="#your-first-pr" title="Your first PR">Your first PR</a></li><li><a class="toc-href" href="#their-first-pr" title="Their first PR">Their first PR</a></li><li><a class="toc-href" href="#their-first-bugfix" title="Their first Bugfix">Their first Bugfix</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Handing over code to another person or another team is a pretty common task.
+You might simply get other tasks or even get another project.</p>
+<p>So, what should be done for a good handover?</p>
+<figure class="ai-generated">
+<a href="../images/2018/06/software-handover.jpg"><img alt="A developer hands a glowing box of code and documentation to a colleague, a checklist in the background" height="768" src="../images/2018/06/software-handover.jpg" width="1376"/></a>
+<figcaption>A good handover needs preparation and documentation.</figcaption>
+</figure>
+<h2 id="preparation">Preparation</h2>
+<p>The first phase of the handover is preparation on your side. Make the project
+shine in every aspect.</p>
+<h3 id="remove-outdated-code">Remove Outdated Code</h3>
+<p>I would think of it from the perspective of the person that gets the software.
+They might have to go through all code written so far. From their perspective,
+every piece of code that is not necessary just adds work. I claim that outdated
+code adds even more work than the useful code, as you first try to understand
+why it was written, which might be impossible as circumstances have changed.</p>
+<h3 id="test-coverage">Test Coverage</h3>
+<p>The better tests you have, the more comfortable the new developer will feel
+adjusting something. You should have a 100% module coverage (any file is
+touched by some test) and a high line and branch coverage.</p>
+<p>You might want to read about <a href="https://tox.readthedocs.io/en/latest/"><code>tox</code></a>,
+<a href="https://docs.python.org/3/library/unittest.html"><code>unittest</code></a> and
+<a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a>.</p>
+<h3 id="issues">Issues</h3>
+<p>Have a look at the open issues. Is it possible to understand them? Are some of
+them maybe already solved? Is the priority properly set?</p>
+<h3 id="documentation">Documentation</h3>
+<p>Make sure the documentation is recent. Documentation - especially on
+architecture - tends to get outdated.</p>
+<p>Make sure your documentation answers the following questions:</p>
+<ul>
+<li>What is the purpose of the project?</li>
+<li>How can I install it?</li>
+<li>What does the overall architecture look like (including systems you interact
+  with)?</li>
+</ul>
+<h2 id="code-walkthrough">Code Walkthrough</h2>
+<p>Go with the other developer(s) through a typical program execution. Ask them
+a couple of times if it is clear to them so far.</p>
+<h2 id="your-first-pr">Your first PR</h2>
+<p>Although people should read code responsibly, they likely also have other
+tasks. And, let's be honest, without a real task, reading other people's code is
+hard and boring. So make a Pull Request (PR) and let them review it.</p>
+<h2 id="their-first-pr">Their first PR</h2>
+<p>Give them a simple task to solve. Ask them to make a PR and review it.</p>
+<h2 id="their-first-bugfix">Their first Bugfix</h2>
+<p>When the developer(s) who took over the project fixed, on their own, the first bug that you
+were not aware of, then I'd say the handover is over and was
+successful.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

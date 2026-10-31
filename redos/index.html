@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, AppSec, RegEx, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/redos/" />
+<meta property="og:title" content="ReDoS — Denial of Service by RegEx 😈"/>
+<meta property="og:url" content="https://martin-thoma.com/redos/" />
+<meta property="og:description" content="Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically fast and sometimes a clean solution. However, in some cases, an attacker can craft input to a vulnerable …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2022-01-01T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/security.png" />
+
+        <title>ReDoS — Denial of Service by RegEx 😈  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../redos/">ReDoS — Denial of Service by RegEx 😈</a></h1>
+    <p class="meta">
+<time datetime="2022-01-01T20:00:00+01:00">Jan 1, 2022</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec
+            <span>15</span>
+</a></li>
+        <li><a href="../tags/#regex-ref">RegEx
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#an-introduction-to-pcre" title="An Introduction to PCRE">An Introduction to PCRE</a></li><li><a class="toc-href" href="#regex-engines" title="RegEx Engines">RegEx Engines</a></li><li><a class="toc-href" href="#how-does-a-redos-attack-work" title="How does a ReDoS Attack work?">How does a ReDoS Attack work?</a></li><li><a class="toc-href" href="#how-can-i-prevent-redos-attacks" title="How can I prevent ReDoS attacks?">How can I prevent ReDoS attacks?</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2022/03/redos-title.png"><img alt="A redos example" height="153" src="../images/2022/03/redos-title.png" width="512"/></a>
+<figcaption>A redos example</figcaption>
+</figure>
+<p>Regular expressions (RegEx) are a formal language to define simple patterns. They are commonly used to find interesting parts within a larger body of text or to validate data. They are typically fast and sometimes a clean solution. However, in some cases, an attacker can craft input to a vulnerable regular expression which causes the time to check the input for the regex to be way longer than expected.</p>
+<h2 id="why-you-should-care">Why you should care</h2>
+<p>I&rsquo;ve only found one example of a successful ReDoS &ldquo;attack&rdquo;. In 2016, 34 minutes of outage of Stack Overflow was caused by ReDoS (<a href="https://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016">source</a>).</p>
+<p><a href="https://en.wikipedia.org/wiki/ReDoS">Wikipedia</a> and <a href="https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS">OWASP</a> don&rsquo;t mention a single successful attack. I guess the reason for that is that RegEx is not used that often on the server-side 🤷&male;️ There are a <a href="https://nedbatchelder.com/text/python-parsers.html">lot of parsing tools</a> for Python, but I only vaguely remember using <a href="https://github.com/pyparsing/pyparsing">pyparsing</a> once.</p>
+<p>In many cases when you might want to use a regex, doing it completely correctly is just overkill. For example, <a href="https://stackoverflow.com/questions/201323/how-can-i-validate-an-email-address-using-a-regular-expression">email regexes</a>. Instead of jumping in that rabbit hole, you can just do some super basic checks, e.g. if the length is at least 3 and if there is exactly one @ symbol in there. Then you just send a confirmation email which verifies that the user actually has access to this email address.</p>
+<p>For URLs, you can typically just ping them. For HTML, you want to use an HTML parser. For many other cases, using split goes a long way.</p>
+<p>What I want to say: It might be that you don&rsquo;t need to worry as you might not use RegEx in most of your code. It&rsquo;s interesting nevertheless 😁</p>
+<h2 id="an-introduction-to-pcre">An Introduction to PCRE</h2>
+<p>Perl Compatible Regular Expressions (PCRE) are the most common style of regular expressions. They are a way to specify types of strings. They are way more specific than just wildcard pattern matching.</p>
+<p>For example, the following pattern matches first a single uppercase letter and then arbitrary many lowercase letters:</p>
+<div class="highlight"><pre><span></span><code>[A-Z][a-z]*
+</code></pre></div>
+<p>The characters within the square brackets [...] define the character class. In this case, all characters from A to Z. The * is a quantifier and means &ldquo;zero or more&rdquo;.</p>
+<h2 id="regex-engines">RegEx Engines</h2>
+<p>You&rsquo;ve seen in the previous section how regular expressions are written. Next you need to get a grasp of how it&rsquo;s checked if a regular expression matches a given text. That&rsquo;s done by a RegEx engine.</p>
+<p>The RegEx engine of Python uses <strong>recursive backtracking</strong>, which can have exponential asymptotic execution time (see <a href="https://eprints.whiterose.ac.uk/109809/1/jsre_journal_accepted_author_manuscript.pdf">Optimizing Unicode Regular Expression Evaluation with Previews</a>). There are engines like <a href="https://github.com/facebook/pyre2">pyre2</a> which use the <a href="https://swtch.com/~rsc/regexp/regexp1.html">Thompson NFA algorithm</a>. The only reason I see for using the backtracking algorithm are backreferences, e.g. when you want to check if a word is duplicated. You can recognize those by \1 or similar in the regex.</p>
+<p>The idea of recursive backtracking is to match the string step-by-step. It keeps a list of possibilities that could match and eliminates them step-by-step.</p>
+<h2 id="how-does-a-redos-attack-work">How does a ReDoS Attack work?</h2>
+<p>Think about the regular expression (a|a)+b as represented here:</p>
+<figure>
+<a href="../images/2022/03/regex-automaton.png"><img alt="Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com" height="295" loading="lazy" src="../images/2022/03/regex-automaton.png" width="512"/></a>
+<figcaption>Non-deterministic finite automaton (NFA) representation of the regex &ldquo;(a|a)+b&rdquo;. Created via regexper.com</figcaption>
+</figure>
+<p>Although both sides of the first group are identical &mdash; just &ldquo;a&rdquo; &mdash; the recursive backtracking algorithm will still keep track of both possible matches. Meaning with every &ldquo;a&rdquo; in the input, it doubles the possible paths to match. Meaning if you have 26 times a, there will be 2&sup2;⁶ = 67,108,864 paths to evaluate:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"**(a|a)+b**"</span><span class="p">)</span>
+<span class="n">evil_input</span> <span class="o">=</span> <span class="s2">"aaaaaaaaaaaaaaaaaaaaaaaaaa"</span>
+<span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">evil_input</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"💣🧨💥"</span><span class="p">)</span>
+</code></pre></div>
+<p>Executing this takes almost 7 seconds on my machine &mdash; impressively fast considering the number of possible options, but extremely slow if you remember that you can see at a single glance that this string cannot match.</p>
+<p>If you have a vulnerable regular expression &mdash; also called &ldquo;evil regex&rdquo; &mdash; and an input that causes the exponential matching time, the machine will take quite some CPU resources to evaluate the expression on the input. In the worst case, your service will become unavailable to the other users of that machine. The regular expression denial of service attack (ReDoS) was successful.</p>
+<h2 id="how-can-i-prevent-redos-attacks">How can I prevent ReDoS attacks?</h2>
+<p>If you don&rsquo;t use regular expressions and don&rsquo;t provide your users the option to use them, you&rsquo;re safe.</p>
+<p>If you use a regular expression engine which does not use backtracking, you should also be safe.</p>
+<p>Or if your regular expressions are not &ldquo;evil&rdquo; you also don&rsquo;t have this issue. However, recognizing evil regular expressions is hard:
+<a href="https://stackoverflow.com/q/12841970/562769"><strong>How can I recognize an evil regex?</strong>
+<em>Because computers do exactly what you tell them to do, even if it's not what you meant or is totally unreasonable. If&hellip;</em>stackoverflow.com</a>
+<a href="https://stackoverflow.com/questions/58345142/is-this-regex-vulnerable-to-redos-attacks/58347192#58347192"><strong>is this regex vulnerable to REDOS attacks</strong>
+<em>Testing on regex101.com shows that there are no combinations of inputs that create runaway checks - but your regex is&hellip;</em>stackoverflow.com</a></p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="../password-hashing/">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <a href="../credential-stuffing/">Credential Stuffing</a> 😈🐝</li>
+<li>Part 16: <a href="../multi-factor-authentication/">Multi-Factor Authentication</a> (MFA/2FA) 😇</li>
+<li>Part 17: <strong>ReDoS</strong> 😈</li>
+</ul>
+<p>The following articles are about to come:</p>
+<ul>
+<li>Part 18: Secure Messaging 😇</li>
+<li>Part 19: Cryptojacking 😈</li>
+<li>Part 20: Backups 😇</li>
+<li>Part 21: Cryptotrojans 😈</li>
+<li>Part 22: Single-Sign-On 😇</li>
+<li>Part 23: Clipboard Hijacking 😈</li>
+<li>Part 24: Certificates 😇</li>
+<li>Part 25: Race Condition Attacks in Blockchains 😈</li>
+<li>Part 26: Mobile Device Management (MDM) 😇</li>
+<li>Part 27: Server-Side Request Forgery (SSRF) 😈</li>
+<li>Part 28: Network Separation 😇</li>
+<li>Part 29: Social Engineering (including Phishing) 😈</li>
+<li>Part 30: Virtual Private Networks (VPNs) 😇</li>
+<li>Part 31: CSRF 😈</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

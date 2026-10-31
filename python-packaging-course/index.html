@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="The Python Environment is old. Python development started before the internet. Naturally, such a grown environment is messy: In this course, you will learn the details about Python packaging and..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Git, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/python-packaging-course/" />
+<meta property="og:title" content="Python Packaging Course"/>
+<meta property="og:url" content="https://martin-thoma.com/python-packaging-course/" />
+<meta property="og:description" content="The Python Environment is old. Python development started before the internet. Naturally, such a grown environment is messy: In this course, you will learn the details about Python packaging and how all of the tools relate. Application Types Library: Should be included in other code. It will never be executed …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-02-08T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/python.png" />
+
+        <title>Python Packaging Course  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../python-packaging-course/">Python Packaging Course</a></h1>
+    <p class="meta">
+<time datetime="2020-02-08T20:00:00+01:00">Feb 8, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#git-ref">Git
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#application-types" title="Application Types">Application Types</a></li><li><a class="toc-href" href="#development-environment" title="Development Environment">Development Environment</a></li><li><a class="toc-href" href="#starting-a-project" title="Starting a Project">Starting a Project</a><ul><li><a class="toc-href" href="#formatting" title="Formatting">Formatting</a></li><li><a class="toc-href" href="#unit-testing" title="Unit Testing">Unit Testing</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#versions" title="Versions">Versions</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li></ul></li><li><a class="toc-href" href="#setuptools-files" title="Setuptools Files">Setuptools Files</a><ul><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li><li><a class="toc-href" href="#setupcfg" title="setup.cfg">setup.cfg</a></li></ul></li><li><a class="toc-href" href="#creating-a-distribution" title="Creating a distribution">Creating a distribution</a></li><li><a class="toc-href" href="#share-the-package" title="Share the Package">Share the Package</a></li><li><a class="toc-href" href="#package-management-modules" title="Package Management Modules">Package Management Modules</a><ul><li><a class="toc-href" href="#distutils" title="distutils">distutils</a></li><li><a class="toc-href" href="#distribute" title="distribute">distribute</a></li><li><a class="toc-href" href="#setuptools" title="setuptools">setuptools</a></li></ul></li><li><a class="toc-href" href="#package-distribution-formats" title="Package Distribution Formats">Package Distribution Formats</a></li><li><a class="toc-href" href="#package-manager" title="Package manager">Package manager</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>The Python Environment is old. Python development started before the internet.
+Naturally, such a grown environment is messy:</p>
+<figure>
+<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" width="512"/></a>
+<figcaption>Python Environment</figcaption>
+</figure>
+<p>In this course, you will learn the details about Python packaging and how all
+of the tools relate.</p>
+<h2 id="application-types">Application Types</h2>
+<ul>
+<li>Library: Should be included in other code. It will never be executed
+  directly. It does NOT have an entry point.</li>
+<li>CLI Application: Command line applications are supposed to be executed in
+  their own environment. It receives input via the CLI, might access local
+  storage or make web requests. It could read environment variables. It should
+  be started, execute the tasks, and finish. It has an entry point.</li>
+<li>GUI Applications: Similar to command line applications, but with a GUI
+  instead of a CLI.</li>
+<li>Service: Similar to a command line application, but it never finishes. It
+  just runs in the background.</li>
+<li>Notebooks: Ad-hoc scripts which are primarily used for data analysis.</li>
+</ul>
+<h2 id="development-environment">Development Environment</h2>
+<p>I like the ZSH shell with the plugin <a href="https://github.com/ohmyzsh/ohmyzsh">Oh My ZSH</a>
+and <a href="https://www.sublimetext.com/">Sublime Text</a> as an editor with many
+different plugins; I've written down some of <a href="../sublime-text/">my Sublime Text plugins</a>.</p>
+<p>A common alternative to ZSH is <a href="https://fishshell.com/">Fish</a>. Common
+alternatives to Sublime Text are <a href="https://atom.io/">Atom</a> and <a href="https://code.visualstudio.com/">VS Code</a>.
+If you want more, <a href="https://www.jetbrains.com/de-de/pycharm/">PyCharm</a>.</p>
+<p>Make sure you have <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a>, <a href="https://pypi.org/project/pipenv/">pipenv</a>, <a href="https://cookiecutter.readthedocs.io/en/1.7.0/installation.html#install-cookiecutter">cookiecutter</a> and <a href="https://pre-commit.com/">pre-commit</a> installed.</p>
+<h2 id="starting-a-project">Starting a Project</h2>
+<p>Suppose you want to develop a new <code>awesome_project</code>. Then you create a folder
+and make it a git repository:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cookiecutter<span class="w"> </span>https://github.com/MartinThoma/cookiecutter-python-package
+full_name<span class="w"> </span><span class="o">[</span>Martin<span class="w"> </span>Thoma<span class="o">]</span>:
+email<span class="w"> </span><span class="o">[</span>info@martin-thoma.de<span class="o">]</span>:
+github_username<span class="w"> </span><span class="o">[</span>MartinThoma<span class="o">]</span>:
+project_name<span class="w"> </span><span class="o">[</span>Awesome<span class="w"> </span>Project<span class="o">]</span>:
+project_slug<span class="w"> </span><span class="o">[</span>awesome_project<span class="o">]</span>:
+project_short_description<span class="w"> </span><span class="o">[</span>Awesome<span class="w"> </span>Project<span class="w"> </span>lets<span class="w"> </span>you<span class="w"> </span>feel<span class="w"> </span>the<span class="w"> </span>pure<span class="w"> </span>awesomeness<span class="w"> </span>of<span class="w"> </span>awesome.<span class="o">]</span>:
+version<span class="w"> </span><span class="o">[</span><span class="m">0</span>.1.0<span class="o">]</span>:
+Select<span class="w"> </span>open_source_license:
+<span class="m">1</span><span class="w"> </span>-<span class="w"> </span>MIT<span class="w"> </span>license
+<span class="m">2</span><span class="w"> </span>-<span class="w"> </span>BSD<span class="w"> </span>license
+<span class="m">3</span><span class="w"> </span>-<span class="w"> </span>Not<span class="w"> </span>open<span class="w"> </span><span class="nb">source</span>
+Choose<span class="w"> </span>from<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>awesome_project
+$<span class="w"> </span>git<span class="w"> </span>init
+</code></pre></div>
+<p>To make sure that a failing hard drive causes only little loss of work and
+to allow collaboration, we add a remote. <a href="https://github.com/">GitHub</a>
+and <a href="https://about.gitlab.com/">GitLab</a> are excellent choices. Once you have created
+an empty repository there, add it as a remote locally:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:MartinThoma/awesome_project.git
+</code></pre></div>
+<p>Before starting development, it's a good idea to make sure that you don't get
+into trouble for having different versions of Python / packages.
+<a href="https://github.com/pypa/pipenv"><code>pipenv</code></a> is my tool of choice. At this point,
+using Python 3.8 is a good idea (<a href="https://devguide.python.org/#status-of-python-branches">current support status of Python versions</a>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize the virtual environment</span>
+$<span class="w"> </span>pipenv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.8
+
+<span class="c1"># Import the requirements</span>
+$<span class="w"> </span>pipenv<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Import the dev requirements</span>
+$<span class="w"> </span>pipenv<span class="w"> </span>install<span class="w"> </span>--dev<span class="w"> </span>--pre<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+
+<span class="c1"># Make sure the repository stays that nice</span>
+$<span class="w"> </span>pre-commit<span class="w"> </span>install
+</code></pre></div>
+<h3 id="formatting">Formatting</h3>
+<p>By the mentioned cookiecutter template, formatting is to a large extent already
+handled:</p>
+<ul>
+<li><a href="https://github.com/psf/black">black</a>: An opinionated formatter which respects PEP8 and implements a lot of <a href="https://flake8.pycqa.org/en/latest/">Flake8</a></li>
+<li><a href="https://github.com/timothycrosley/isort">isort</a>: Sort imports</li>
+</ul>
+<p>The only missing thing is a docstring style formatter. I like the
+<a href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc docstring format</a>
+a lot.</p>
+<p>If you want to know more about formatting, I recommend reading my
+<a href="../python-style-guide/">Python style guide</a>.</p>
+<h3 id="unit-testing">Unit Testing</h3>
+<p>Before you start testing your application, you should decide which Python version
+you want to support. An orientation should be which CPython versions currently
+receive security updates (see <a href="https://stackoverflow.com/q/60126561/562769">SO Question</a>).</p>
+<p>Python has multiple testing frameworks. Use <a href="https://docs.pytest.org/en/latest/">pytest</a>.
+It's extremely widespread, stable and super simple to use.</p>
+<p>The cookiecutter template installs a couple of useful plugins:</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-cov/"><code>pytest-cov</code></a>: Generate a test
+  coverage report. This helps you to identify sections where bugs cannot
+  possibly be caught by a unit test.</li>
+<li><a href="https://pypi.org/project/pytest-black/"><code>pytest-black</code></a>: Check if black was
+  applied.</li>
+<li><a href="https://pypi.org/project/pytest-flake8/"><code>pytest-flake8</code></a>: Another formatting test.</li>
+<li><a href="https://pypi.org/project/pytest-mccabe/"><code>pytest-mccabe</code></a>: Check if a
+  section of your code might be too complicated.</li>
+</ul>
+<p>You might also want to give <a href="https://pypi.org/project/mutmut/"><code>mutmut</code></a> a try.
+It could help you to discover which lines have been checked, but maybe not
+thoroughly enough.</p>
+<p>To run all of your tests, execute <code>tox</code>.</p>
+<h3 id="documentation">Documentation</h3>
+<p>If you develop a library, you need documentation. For the other application
+types not so much.</p>
+<p><a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> as a documentation generator
+and <a href="https://readthedocs.org/">readthedocs.org</a> as a hosting platform are the
+tools of choice.</p>
+<h3 id="security">Security</h3>
+<p>If you develop an application, you need to be sure to update your dependencies
+if vulnerabilities occur. The package <a href="https://pypi.org/project/bandit/"><code>bandit</code></a>
+and the services <a href="https://snyk.io/">snyk.io</a> / <a href="https://pyup.io/">pyup.io</a>
+can help you to detect those cases.</p>
+<h3 id="versions">Versions</h3>
+<p>It is good practice to make <code>[module].__version__</code> available. Of course, it
+should be the same as the version you see via <code>pip freeze</code>. And then it would
+be nice if the git commit would have a <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tag</a>.</p>
+<p>Of course, you can do all of that manually. If you want a tool, <a href="https://pypi.org/project/bumpversion/">bumpversion</a>
+is pretty widespread. However, it is not maintained. So some people use <a href="https://pypi.org/project/bump2version/">bump2version</a>.
+I'm not too sure if I would use that.</p>
+<h3 id="project-structure">Project Structure</h3>
+<div class="highlight"><pre><span></span><code>awesome-project  # (git root)
+&boxvr;&boxh;&boxh; awesome_project  # This is the package
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; cli.py
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; __init__.py  # Required until Python 3.3; I'd still add it
+&boxv;&nbsp;&nbsp; &boxur;&boxh;&boxh; _version.py
+&boxvr;&boxh;&boxh; README.md
+&boxvr;&boxh;&boxh; requirements-dev.txt
+&boxvr;&boxh;&boxh; requirements.txt
+&boxvr;&boxh;&boxh; setup.cfg
+&boxvr;&boxh;&boxh; setup.py
+&boxvr;&boxh;&boxh; tests
+&boxv;&nbsp;&nbsp; &boxur;&boxh;&boxh; test_awesome_project.py
+&boxur;&boxh;&boxh; tox.ini
+</code></pre></div>
+<h2 id="setuptools-files">Setuptools Files</h2>
+<p>If you have the described project structure, then packaging is not a big deal.</p>
+<h3 id="setuppy">setup.py</h3>
+<p>Make sure it has at least</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="setupcfg">setup.cfg</h3>
+<p>The <code>setup.cfg</code> is read by <code>setuptools.setup()</code>. It can contain a lot of things,
+but a minimal one would look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[metadata]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">awesome_project</span>
+
+<span class="na">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martin Thoma</span>
+<span class="na">author_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">info@martin-thoma.de</span>
+
+<span class="c1"># keep in sync with awesome_project/_version.py</span>
+<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1.0</span>
+
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Awesome Project lets you feel the pure awesomeness of awesome.</span>
+<span class="na">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file: README.md</span>
+<span class="na">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">text/markdown</span>
+
+<span class="na">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">MIT license</span>
+
+<span class="k">[options]</span>
+<span class="na">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">find:</span>
+<span class="na">python_requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&gt;= 3.0</span>
+</code></pre></div>
+<h2 id="creating-a-distribution">Creating a distribution</h2>
+<p>Create a source distribution file:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist
+</code></pre></div>
+<p>Create a wheel distribution:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
+</code></pre></div>
+<h2 id="share-the-package">Share the Package</h2>
+<p>After creating it, upload it to PyPI with <a href="https://pypi.org/project/twine/">twine</a>.</p>
+<p>To do so, first set up your <code>~/.pypirc</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[distutils]</span>
+<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="na">pypi</span>
+<span class="w">  </span><span class="na">pypitest</span>
+
+<span class="k">[pypi]</span>
+<span class="na">username</span><span class="o">:</span><span class="w"> </span><span class="s">YourUsername</span>
+<span class="na">password</span><span class="o">:</span><span class="w"> </span><span class="s">plaintext whatever you had</span>
+
+<span class="k">[pypitest]</span>
+<span class="na">repository</span><span class="o">:</span><span class="w"> </span><span class="s">https://test.pypi.org/legacy/</span>
+<span class="na">username</span><span class="o">:</span><span class="w"> </span><span class="s">YourUsername</span>
+<span class="na">password</span><span class="o">:</span><span class="w"> </span><span class="s">plaintext whatever you had</span>
+</code></pre></div>
+<p>Now you can upload the distributions you've built before:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>--repository<span class="w"> </span>pypitest<span class="w"> </span>dist/*
+
+<span class="c1"># Alternatively, if you want to sign it with GPG:</span>
+$<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>--repository<span class="w"> </span>pypitest<span class="w"> </span>-s<span class="w"> </span>dist/*
+</code></pre></div>
+<div class="info">There is <code>python setup.py upload</code> as well. It didn't use https for quite a while. While this changed, the de-facto standard is still twine. For <a href="https://pypi.org/project/twine/">reasons</a>.</div>
+<h2 id="package-management-modules">Package Management Modules</h2>
+<h3 id="distutils">distutils</h3>
+<p>Deprecated. Use setuptools.</p>
+<h3 id="distribute">distribute</h3>
+<p>Was a fork of setuptools which got merged back. Use setuptools.</p>
+<h3 id="setuptools">setuptools</h3>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Setuptools</a> is used in the <code>setup.py</code> and gives you a lot of commands:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>--help-commands
+Standard<span class="w"> </span>commands:
+<span class="w">  </span>build<span class="w">             </span>build<span class="w"> </span>everything<span class="w"> </span>needed<span class="w"> </span>to<span class="w"> </span>install
+<span class="w">  </span>build_py<span class="w">          </span><span class="s2">"build"</span><span class="w"> </span>pure<span class="w"> </span>Python<span class="w"> </span>modules<span class="w"> </span><span class="o">(</span>copy<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>directory<span class="o">)</span>
+<span class="w">  </span>build_ext<span class="w">         </span>build<span class="w"> </span>C/C++<span class="w"> </span>extensions<span class="w"> </span><span class="o">(</span>compile/link<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>directory<span class="o">)</span>
+<span class="w">  </span>build_clib<span class="w">        </span>build<span class="w"> </span>C/C++<span class="w"> </span>libraries<span class="w"> </span>used<span class="w"> </span>by<span class="w"> </span>Python<span class="w"> </span>extensions
+<span class="w">  </span>build_scripts<span class="w">     </span><span class="s2">"build"</span><span class="w"> </span>scripts<span class="w"> </span><span class="o">(</span>copy<span class="w"> </span>and<span class="w"> </span>fixup<span class="w"> </span><span class="c1">#! line)</span>
+<span class="w">  </span>clean<span class="w">             </span>clean<span class="w"> </span>up<span class="w"> </span>temporary<span class="w"> </span>files<span class="w"> </span>from<span class="w"> </span><span class="s1">'build'</span><span class="w"> </span><span class="nb">command</span>
+<span class="w">  </span>install<span class="w">           </span>install<span class="w"> </span>everything<span class="w"> </span>from<span class="w"> </span>build<span class="w"> </span>directory
+<span class="w">  </span>install_lib<span class="w">       </span>install<span class="w"> </span>all<span class="w"> </span>Python<span class="w"> </span>modules<span class="w"> </span><span class="o">(</span>extensions<span class="w"> </span>and<span class="w"> </span>pure<span class="w"> </span>Python<span class="o">)</span>
+<span class="w">  </span>install_headers<span class="w">   </span>install<span class="w"> </span>C/C++<span class="w"> </span>header<span class="w"> </span>files
+<span class="w">  </span>install_scripts<span class="w">   </span>install<span class="w"> </span>scripts<span class="w"> </span><span class="o">(</span>Python<span class="w"> </span>or<span class="w"> </span>otherwise<span class="o">)</span>
+<span class="w">  </span>install_data<span class="w">      </span>install<span class="w"> </span>data<span class="w"> </span>files
+<span class="w">  </span>sdist<span class="w">             </span>create<span class="w"> </span>a<span class="w"> </span><span class="nb">source</span><span class="w"> </span>distribution<span class="w"> </span><span class="o">(</span>tarball,<span class="w"> </span>zip<span class="w"> </span>file,<span class="w"> </span>etc.<span class="o">)</span>
+<span class="w">  </span>register<span class="w">          </span>register<span class="w"> </span>the<span class="w"> </span>distribution<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>Python<span class="w"> </span>package<span class="w"> </span>index
+<span class="w">  </span>bdist<span class="w">             </span>create<span class="w"> </span>a<span class="w"> </span>built<span class="w"> </span><span class="o">(</span>binary<span class="o">)</span><span class="w"> </span>distribution
+<span class="w">  </span>bdist_dumb<span class="w">        </span>create<span class="w"> </span>a<span class="w"> </span><span class="s2">"dumb"</span><span class="w"> </span>built<span class="w"> </span>distribution
+<span class="w">  </span>bdist_rpm<span class="w">         </span>create<span class="w"> </span>an<span class="w"> </span>RPM<span class="w"> </span>distribution
+<span class="w">  </span>bdist_wininst<span class="w">     </span>create<span class="w"> </span>an<span class="w"> </span>executable<span class="w"> </span>installer<span class="w"> </span><span class="k">for</span><span class="w"> </span>MS<span class="w"> </span>Windows
+<span class="w">  </span>check<span class="w">             </span>perform<span class="w"> </span>some<span class="w"> </span>checks<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>package
+<span class="w">  </span>upload<span class="w">            </span>upload<span class="w"> </span>binary<span class="w"> </span>package<span class="w"> </span>to<span class="w"> </span>PyPI
+
+Extra<span class="w"> </span>commands:
+<span class="w">  </span>bdist_wheel<span class="w">       </span>create<span class="w"> </span>a<span class="w"> </span>wheel<span class="w"> </span>distribution
+<span class="w">  </span><span class="nb">alias</span><span class="w">             </span>define<span class="w"> </span>a<span class="w"> </span>shortcut<span class="w"> </span>to<span class="w"> </span>invoke<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>commands
+<span class="w">  </span>bdist_egg<span class="w">         </span>create<span class="w"> </span>an<span class="w"> </span><span class="s2">"egg"</span><span class="w"> </span>distribution
+<span class="w">  </span>develop<span class="w">           </span>install<span class="w"> </span>package<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">'development mode'</span>
+<span class="w">  </span>dist_info<span class="w">         </span>create<span class="w"> </span>a<span class="w"> </span>.dist-info<span class="w"> </span>directory
+<span class="w">  </span>easy_install<span class="w">      </span>Find/get/install<span class="w"> </span>Python<span class="w"> </span>packages
+<span class="w">  </span>egg_info<span class="w">          </span>create<span class="w"> </span>a<span class="w"> </span>distribution<span class="err">'</span>s<span class="w"> </span>.egg-info<span class="w"> </span>directory
+<span class="w">  </span>install_egg_info<span class="w">  </span>Install<span class="w"> </span>an<span class="w"> </span>.egg-info<span class="w"> </span>directory<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>package
+<span class="w">  </span>rotate<span class="w">            </span>delete<span class="w"> </span>older<span class="w"> </span>distributions,<span class="w"> </span>keeping<span class="w"> </span>N<span class="w"> </span>newest<span class="w"> </span>files
+<span class="w">  </span>saveopts<span class="w">          </span>save<span class="w"> </span>supplied<span class="w"> </span>options<span class="w"> </span>to<span class="w"> </span>setup.cfg<span class="w"> </span>or<span class="w"> </span>other<span class="w"> </span>config<span class="w"> </span>file
+<span class="w">  </span>setopt<span class="w">            </span><span class="nb">set</span><span class="w"> </span>an<span class="w"> </span>option<span class="w"> </span><span class="k">in</span><span class="w"> </span>setup.cfg<span class="w"> </span>or<span class="w"> </span>another<span class="w"> </span>config<span class="w"> </span>file
+<span class="w">  </span><span class="nb">test</span><span class="w">              </span>run<span class="w"> </span>unit<span class="w"> </span>tests<span class="w"> </span>after<span class="w"> </span><span class="k">in</span>-place<span class="w"> </span>build<span class="w"> </span><span class="o">(</span>deprecated<span class="o">)</span>
+<span class="w">  </span>upload_docs<span class="w">       </span>Upload<span class="w"> </span>documentation<span class="w"> </span>to<span class="w"> </span>PyPI
+<span class="w">  </span>flake8<span class="w">            </span>Run<span class="w"> </span>Flake8<span class="w"> </span>on<span class="w"> </span>modules<span class="w"> </span>registered<span class="w"> </span><span class="k">in</span><span class="w"> </span>setup.py
+
+usage:<span class="w"> </span>setup.py<span class="w"> </span><span class="o">[</span>global_opts<span class="o">]</span><span class="w"> </span>cmd1<span class="w"> </span><span class="o">[</span>cmd1_opts<span class="o">]</span><span class="w"> </span><span class="o">[</span>cmd2<span class="w"> </span><span class="o">[</span>cmd2_opts<span class="o">]</span><span class="w"> </span>...<span class="o">]</span>
+<span class="w">   </span>or:<span class="w"> </span>setup.py<span class="w"> </span>--help<span class="w"> </span><span class="o">[</span>cmd1<span class="w"> </span>cmd2<span class="w"> </span>...<span class="o">]</span>
+<span class="w">   </span>or:<span class="w"> </span>setup.py<span class="w"> </span>--help-commands
+<span class="w">   </span>or:<span class="w"> </span>setup.py<span class="w"> </span>cmd<span class="w"> </span>--help
+</code></pre></div>
+<h2 id="package-distribution-formats">Package Distribution Formats</h2>
+<p>There are 3 common formats:</p>
+<ul>
+<li>Source distributions</li>
+<li>Egg</li>
+<li>Wheel</li>
+</ul>
+<p>Egg is outdated and can be replaced by either source distributions or wheel (<a href="https://packaging.python.org/discussions/wheel-vs-egg/">source</a>).</p>
+<h2 id="package-manager">Package manager</h2>
+<p>pip is short for 'pip installs packages'. Use it. Don't use <code>easy_install</code>.</p>
+<p>PIP commands are</p>
+<div class="highlight"><pre><span></span><code>  install       Install packages.
+  download      Download packages.
+  uninstall     Uninstall packages.
+  freeze        Output installed packages in requirements format.
+  list          List installed packages.
+  show          Show information about installed packages.
+  check         Verify installed packages have compatible dependencies.
+  config        Manage local and global configuration.
+  search        Search PyPI for packages.
+  wheel         Build wheels from your requirements.
+  hash          Compute hashes of package archives.
+  completion    A helper command used for command completion.
+  debug         Show information useful for debugging.
+  help          Show help for commands.
+</code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Alexander VanTol: <a href="https://realpython.com/pipenv-guide/">Pipenv: A Guide to the New Python Packaging Tool</a>,</li>
+<li>packaging.python.org:<ul>
+<li>Tutorial: <a href="https://packaging.python.org/tutorials/packaging-projects/">Packaging Python Projects</a></li>
+<li><a href="https://packaging.python.org/glossary/">Glossary</a></li>
+</ul>
+</li>
+<li>Knewton: <a href="https://medium.com/knerd/the-nine-circles-of-python-dependency-hell-481d53e3e025">The Nine Circles of Python Dependency Hell</a>, 2015</li>
+<li>Martin Thoma: <a href="https://stackoverflow.com/q/60084441/562769">How does Python / pip handle conflicting transitive dependencies?</a>, 2020</li>
+<li><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Building and Distributing Packages with Setuptools</a></li>
+<li><a href="https://tldrlegal.com/">Tl;DR Legal</a>: Compare licenses</li>
+<li>Conda<ul>
+<li><a href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs.html">Building conda packages from scratch</a></li>
+<li><a href="https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html#overview">Building conda packages with conda skeleton</a></li>
+<li>Martin Thoma: <a href="https://stackoverflow.com/q/59040271/562769">Is there a point in creating a conda package from an PyPI package?</a>, 2019.</li>
+</ul>
+</li>
+</ul>
+<p>Other Packaging stuff:</p>
+<ul>
+<li><a href="http://logix4u.net/component/content/article/27-tutorials/44-how-to-create-windows-executable-exe-from-python-script">How to create Windows executable (.exe) from Python script</a>: You need to work on a Windows system for this.</li>
+<li><a href="http://www.py2exe.org/">py2exe</a> - <a href="http://www.py2exe.org/index.cgi/Tutorial">Tutorial</a></li>
+<li><a href="http://stackoverflow.com/a/113014/562769">py2exe - generate single executable file</a></li>
+<li><a href="http://stackoverflow.com/q/17709813/562769">compiling .py into windows AND mac executables on Ubuntu</a></li>
+<li><a href="https://milkator.wordpress.com/2014/07/19/windows-executable-from-python-developing-in-ubuntu/">Windows .exe*cutable from Python developing in Ubuntu</a></li>
+<li><a href="http://stackoverflow.com/q/2950971/562769">Cross-compiling a Python script on Linux into a Windows executable</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

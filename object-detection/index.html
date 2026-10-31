@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Object detection is the following task: You have an image and you want axis-aligned bounding boxes around every instance of a pre-defined set of object classes. The set of object classes is finite..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, Computer Vision, AI, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/object-detection/" />
+<meta property="og:title" content="Object Detection"/>
+<meta property="og:url" content="https://martin-thoma.com/object-detection/" />
+<meta property="og:description" content="Object detection is the following task: You have an image and you want axis-aligned bounding boxes around every instance of a pre-defined set of object classes. The set of object classes is finite and typically not bigger than 1000. Here is an easy to use example Prerequisites Tensorflow CUDA CuDNN …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-03-19T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/ml.png" />
+
+        <title>Object Detection  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../object-detection/">Object Detection</a></h1>
+    <p class="meta">
+<time datetime="2017-03-19T20:00:00+01:00">Mär 19, 2017</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#computer-vision-ref">Computer Vision
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Object detection is the following task: You have an image and you want
+axis-aligned bounding boxes around every instance of a pre-defined set of
+object classes. The set of object classes is finite and typically not bigger
+than 1000.</p>
+<p>Here is an easy to use example</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="https://www.tensorflow.org/install/">Tensorflow</a><ul>
+<li><a href="http://askubuntu.com/q/799184/10425">CUDA</a></li>
+<li><a href="http://askubuntu.com/q/767269/10425">CuDNN</a></li>
+</ul>
+</li>
+<li><a href="https://keras.io/#installation">Keras</a></li>
+<li><a href="https://mega.nz/#F!7RowVLCL!q3cEVRK9jyOSB9el3SssIA"><code>weights_SSD300.hdf5</code></a> (103.2MB, MD5: <code>9ae4b93e679ea30134ce37e3096f34fa</code>)</li>
+<li><code>ssd.py</code> and <code>ssd_utils.py</code> from <a href="https://github.com/MartinThoma/algorithms/tree/master/ML/detection">github.com/MartinThoma/algorithms</a></li>
+</ul>
+<h2 id="code">Code</h2>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""</span>
+<span class="sd">Run object detection with VOC classes.</span>
+
+<span class="sd">This is just a minor modification of code from</span>
+<span class="sd">https://github.com/rykov8/ssd_keras</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.applications.imagenet_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">preprocess_input</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.misc</span><span class="w"> </span><span class="kn">import</span> <span class="n">imread</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ssd</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSD300</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ssd_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">BBoxUtility</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="n">plt_fname</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create a visualization of the found objects in img.</span>
+
+<span class="sd">    Paramters</span>
+<span class="sd">    ---------</span>
+<span class="sd">    img : numpy array</span>
+<span class="sd">        Original array</span>
+<span class="sd">    results : numpy array</span>
+<span class="sd">        Found objects</span>
+<span class="sd">    voc_classes : list of strings</span>
+<span class="sd">        Names of the classes in Pascal VOC.</span>
+<span class="sd">    plt_fname : string</span>
+<span class="sd">        Path where the visualization gets stored.</span>
+<span class="sd">    """</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="c1"># Parse the outputs.</span>
+    <span class="n">det_label</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">det_conf</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">det_xmin</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">det_ymin</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">det_xmax</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">det_ymax</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span>
+
+    <span class="c1"># Get detections with confidence higher than 0.6.</span>
+    <span class="n">top_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">conf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">det_conf</span><span class="p">)</span> <span class="k">if</span> <span class="n">conf</span> <span class="o">&gt;=</span> <span class="mf">0.6</span><span class="p">]</span>
+
+    <span class="n">top_conf</span> <span class="o">=</span> <span class="n">det_conf</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span>
+    <span class="n">top_label_indices</span> <span class="o">=</span> <span class="n">det_label</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">top_xmin</span> <span class="o">=</span> <span class="n">det_xmin</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span>
+    <span class="n">top_ymin</span> <span class="o">=</span> <span class="n">det_ymin</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span>
+    <span class="n">top_xmax</span> <span class="o">=</span> <span class="n">det_xmax</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span>
+    <span class="n">top_ymax</span> <span class="o">=</span> <span class="n">det_ymax</span><span class="p">[</span><span class="n">top_indices</span><span class="p">]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">hsv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+    <span class="n">currentAxis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">currentAxis</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">top_conf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">xmin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">top_xmin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">ymin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">top_ymin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">top_xmax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">ymax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">top_ymax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">top_conf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_label_indices</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">label_name</span> <span class="o">=</span> <span class="n">voc_classes</span><span class="p">[</span><span class="n">label</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">display_txt</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{:0.2f}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">),</span> <span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="n">currentAxis</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">currentAxis</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">display_txt</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">"facecolor"</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plt_fname</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Detect objects in images.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img_paths : list of strings</span>
+<span class="sd">    """</span>
+    <span class="c1"># Load the model</span>
+    <span class="n">voc_classes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"Aeroplane"</span><span class="p">,</span>
+        <span class="s2">"Bicycle"</span><span class="p">,</span>
+        <span class="s2">"Bird"</span><span class="p">,</span>
+        <span class="s2">"Boat"</span><span class="p">,</span>
+        <span class="s2">"Bottle"</span><span class="p">,</span>
+        <span class="s2">"Bus"</span><span class="p">,</span>
+        <span class="s2">"Car"</span><span class="p">,</span>
+        <span class="s2">"Cat"</span><span class="p">,</span>
+        <span class="s2">"Chair"</span><span class="p">,</span>
+        <span class="s2">"Cow"</span><span class="p">,</span>
+        <span class="s2">"Diningtable"</span><span class="p">,</span>
+        <span class="s2">"Dog"</span><span class="p">,</span>
+        <span class="s2">"Horse"</span><span class="p">,</span>
+        <span class="s2">"Motorbike"</span><span class="p">,</span>
+        <span class="s2">"Person"</span><span class="p">,</span>
+        <span class="s2">"Pottedplant"</span><span class="p">,</span>
+        <span class="s2">"Sheep"</span><span class="p">,</span>
+        <span class="s2">"Sofa"</span><span class="p">,</span>
+        <span class="s2">"Train"</span><span class="p">,</span>
+        <span class="s2">"Tvmonitor"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">voc_classes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">SSD300</span><span class="p">(</span><span class="n">input_shape</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">"weights_SSD300.hdf5"</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bbox_util</span> <span class="o">=</span> <span class="n">BBoxUtility</span><span class="p">(</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
+
+    <span class="c1"># Load the inputs</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="n">img_paths</span><span class="p">:</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">))</span>
+        <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+
+    <span class="c1"># Predict</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">bbox_util</span><span class="o">.</span><span class="n">detection_out</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+
+    <span class="c1"># Visualize</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+        <span class="n">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">-det.png"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_paths</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Get parser object."""</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Detect objects in image"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"IMAGE"</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"--folder"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"Detect objects in JPG images in folder"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FOLDER"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+        <span class="n">images</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">/*.jpg"</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="examples">Examples</h2>
+<div class="gallery">
+<figure>
+<a href="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png"><img alt="St Josep La Boqueria" height="370" loading="lazy" src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" width="500"/></a>
+<figcaption>St Josep La Boqueria</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/053-Sagrada-Familia-det.png"><img alt="Sagrada Familia" height="369" loading="lazy" src="../images/2017/03/053-Sagrada-Familia-det.png" width="494"/></a>
+<figcaption>Sagrada Familia</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/065-Barcelona-Cat-1-det.png"><img alt="Cat" height="369" loading="lazy" src="../images/2017/03/065-Barcelona-Cat-1-det.png" width="493"/></a>
+<figcaption>Cat</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/069-Barcelona-det.png"><img alt="Barcelona" height="369" loading="lazy" src="../images/2017/03/069-Barcelona-det.png" width="278"/></a>
+<figcaption>Barcelona</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/EmiMa-079-det.png"><img alt="EmiMa-079" height="331" loading="lazy" src="../images/2017/03/EmiMa-079-det.png" width="496"/></a>
+<figcaption>EmiMa-079</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/EmiMa-100-det.png"><img alt="EmiMa-100" height="331" loading="lazy" src="../images/2017/03/EmiMa-100-det.png" width="496"/></a>
+<figcaption>EmiMa-100</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/EmiMa-103-det.png"><img alt="EmiMa-103" height="331" loading="lazy" src="../images/2017/03/EmiMa-103-det.png" width="496"/></a>
+<figcaption>EmiMa-103</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/EmiMa-105-det.png"><img alt="EmiMa-105" height="331" loading="lazy" src="../images/2017/03/EmiMa-105-det.png" width="496"/></a>
+<figcaption>EmiMa-105</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png"><img alt="Ryck" height="348" loading="lazy" src="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png" width="501"/></a>
+<figcaption>Ryck</figcaption>
+</figure>
+<figure>
+<a href="../images/2017/03/Pittsburgh-13-det.png"><img alt="Pittsburgh" height="369" loading="lazy" src="../images/2017/03/Pittsburgh-13-det.png" width="493"/></a>
+<figcaption>Pittsburgh</figcaption>
+</figure>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The person detector is somewhat useful out-of-the-box, but for the rest you
+will need to adjust the algorithm. Having only the 20&nbsp;classes from Pascal
+VOC is not enough.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Dat Tran: <a href="https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32">Building a Real-Time Object Recognition App with Tensorflow and OpenCV</a>, 22.06.2017</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

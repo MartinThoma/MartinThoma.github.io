@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I&#39;ve just searched an image I have created some time ago. I knew that I&#39;ve put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Linux, Command Line, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/how-to-use-magic-rescue/" />
+<meta property="og:title" content="How to use magic rescue"/>
+<meta property="og:url" content="https://martin-thoma.com/how-to-use-magic-rescue/" />
+<meta property="og:description" content="I&#39;ve just searched an image I have created some time ago. I knew that I&#39;ve put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn&#39;t …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-12-17T13:02:47+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2011/12/PartitionManager.png" />
+
+        <title>How to use magic rescue  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../how-to-use-magic-rescue/">How to use magic rescue</a></h1>
+    <p class="meta">
+<time datetime="2011-12-17T13:02:47+01:00">Dez 17, 2011</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#command-line-ref">Command Line
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#linux-ref">Linux
+            <span>35</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#basic-usage" title="Basic usage">Basic usage</a></li><li><a class="toc-href" href="#where-is-my-usb-stick" title="Where is my USB-Stick?">Where is my USB-Stick?</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>magicrescue
+</code></pre></div>
+<h2 id="basic-usage">Basic usage</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>magicrescue
+Usage:<span class="w"> </span>magicrescue<span class="w"> </span><span class="o">[</span>-I<span class="w"> </span>FILE<span class="o">]</span><span class="w"> </span><span class="o">[</span>-M<span class="w"> </span>MODE<span class="o">]</span><span class="w"> </span><span class="o">[</span>-O<span class="w"> </span><span class="o">[</span>+-<span class="o">=][</span>0x<span class="o">]</span>OFFSET<span class="o">]</span><span class="w"> </span><span class="o">[</span>-b<span class="w"> </span>BLOCKSIZE<span class="o">]</span>
+<span class="w">    </span>-d<span class="w"> </span>OUTPUT_DIR<span class="w"> </span>-r<span class="w"> </span>RECIPE1<span class="w"> </span><span class="o">[</span>-r<span class="w"> </span>RECIPE2<span class="w"> </span><span class="o">[</span>...<span class="o">]]</span><span class="w"> </span>DEVICE1<span class="w"> </span><span class="o">[</span>DEVICE2<span class="w"> </span><span class="o">[</span>...<span class="o">]]</span>
+
+<span class="w">  </span>-b<span class="w">  </span>Only<span class="w"> </span>consider<span class="w"> </span>files<span class="w"> </span>starting<span class="w"> </span>at<span class="w"> </span>a<span class="w"> </span>multiple<span class="w"> </span>of<span class="w"> </span>BLOCKSIZE.
+<span class="w">  </span>-d<span class="w">  </span>Mandatory.<span class="w">  </span>Output<span class="w"> </span>directory<span class="w"> </span><span class="k">for</span><span class="w"> </span>found<span class="w"> </span>files.
+<span class="w">  </span>-r<span class="w">  </span>Mandatory.<span class="w">  </span>Recipe<span class="w"> </span>name,<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory.
+<span class="w">  </span>-I<span class="w">  </span>Read<span class="w"> </span>input<span class="w"> </span>file<span class="w"> </span>names<span class="w"> </span>from<span class="w"> </span>this<span class="w"> </span>file<span class="w"> </span><span class="o">(</span><span class="s2">"-"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>stdin<span class="o">)</span>
+<span class="w">  </span>-M<span class="w">  </span>Produce<span class="w"> </span>machine-readable<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>stdout.
+<span class="w">  </span>-O<span class="w">  </span>Resume<span class="w"> </span>from<span class="w"> </span>specified<span class="w"> </span>offset<span class="w"> </span><span class="o">(</span>hex<span class="w"> </span>or<span class="w"> </span>decimal<span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>device.
+</code></pre></div>
+<p>You need recipes to use Magic Rescue. These are the basic ones:</p>
+<div class="highlight"><pre><span></span><code>moose@pc07:/usr/share/magicrescue/recipes$<span class="w"> </span>ls
+avi<span class="w">        </span>flac<span class="w">      </span>gzip<span class="w">       </span>mp3-id3v1<span class="w">  </span>nikon-raw<span class="w">  </span>ppm
+canon-cr2<span class="w">  </span>gimp-xcf<span class="w">  </span>jpeg-exif<span class="w">  </span>mp3-id3v2<span class="w">  </span>perl<span class="w">       </span>zip
+elf<span class="w">        </span>gpl<span class="w">       </span>jpeg-jfif<span class="w">  </span>msoffice<span class="w">   </span>png
+</code></pre></div>
+<h2 id="where-is-my-usb-stick">Where is my USB-Stick?</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>fdisk<span class="w"> </span>-l
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>moose:
+
+Disk<span class="w"> </span>/dev/sda:<span class="w"> </span><span class="m">320</span>.1<span class="w"> </span>GB,<span class="w"> </span><span class="m">320072933376</span><span class="w"> </span>bytes
+<span class="m">255</span><span class="w"> </span>heads,<span class="w"> </span><span class="m">63</span><span class="w"> </span>sectors/track,<span class="w"> </span><span class="m">38913</span><span class="w"> </span>cylinders
+<span class="nv">Units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cylinders<span class="w"> </span>of<span class="w"> </span><span class="m">16065</span><span class="w"> </span>*<span class="w"> </span><span class="nv">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8225280</span><span class="w"> </span>bytes
+Sector<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>logical/physical<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+I/O<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>minimum/optimal<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+Disk<span class="w"> </span>identifier:<span class="w"> </span>0x00065e10
+
+<span class="w">   </span>Device<span class="w"> </span>Boot<span class="w">      </span>Start<span class="w">         </span>End<span class="w">      </span>Blocks<span class="w">   </span>Id<span class="w">  </span>System
+/dev/sda1<span class="w">   </span>*<span class="w">           </span><span class="m">1</span><span class="w">       </span><span class="m">37810</span><span class="w">   </span><span class="m">303704064</span><span class="w">   </span><span class="m">83</span><span class="w">  </span>Linux
+/dev/sda2<span class="w">           </span><span class="m">37810</span><span class="w">       </span><span class="m">38914</span><span class="w">     </span><span class="m">8864769</span><span class="w">    </span><span class="m">5</span><span class="w">  </span>Extended
+/dev/sda5<span class="w">           </span><span class="m">37810</span><span class="w">       </span><span class="m">38914</span><span class="w">     </span><span class="m">8864768</span><span class="w">   </span><span class="m">82</span><span class="w">  </span>Linux<span class="w"> </span>swap<span class="w"> </span>/<span class="w"> </span>Solaris
+
+Disk<span class="w"> </span>/dev/sdc:<span class="w"> </span><span class="m">2067</span><span class="w"> </span>MB,<span class="w"> </span><span class="m">2067267584</span><span class="w"> </span>bytes
+<span class="m">2</span><span class="w"> </span>heads,<span class="w"> </span><span class="m">63</span><span class="w"> </span>sectors/track,<span class="w"> </span><span class="m">32044</span><span class="w"> </span>cylinders
+<span class="nv">Units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cylinders<span class="w"> </span>of<span class="w"> </span><span class="m">126</span><span class="w"> </span>*<span class="w"> </span><span class="nv">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">64512</span><span class="w"> </span>bytes
+Sector<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>logical/physical<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+I/O<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>minimum/optimal<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+Disk<span class="w"> </span>identifier:<span class="w"> </span>0x005f4d47
+
+<span class="w">   </span>Device<span class="w"> </span>Boot<span class="w">      </span>Start<span class="w">         </span>End<span class="w">      </span>Blocks<span class="w">   </span>Id<span class="w">  </span>System
+/dev/sdc1<span class="w">   </span>*<span class="w">           </span><span class="m">1</span><span class="w">       </span><span class="m">32045</span><span class="w">     </span><span class="m">2018800</span><span class="w">    </span>b<span class="w">  </span>W95<span class="w"> </span>FAT32
+</code></pre></div>
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>magicrescue<span class="w"> </span>-r<span class="w"> </span>png<span class="w"> </span>-r<span class="w"> </span>jpeg-jfif<span class="w"> </span>-r<span class="w"> </span>gimp-xcf<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>jpeg-exif<span class="w"> </span>-d<span class="w"> </span>/home/moose/output/<span class="w"> </span>/dev/sdc1
+</code></pre></div>
+<p>Just got the image back ☺</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

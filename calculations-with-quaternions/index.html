@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Quaternions are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion \(h\) can be written as a vector or in the form of \(h = h_0 + ih_1..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Algebra, Mathematics, Mathematics, " />
+
+<link rel="canonical" href="https://martin-thoma.com/calculations-with-quaternions/" />
+<meta property="og:title" content="Calculations with quaternions"/>
+<meta property="og:url" content="https://martin-thoma.com/calculations-with-quaternions/" />
+<meta property="og:description" content="Quaternions are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion \(h\) can be written as a vector or in the form of \(h = h_0 + ih_1 + j h_2 + kh_3\), where \(i, j\) and \(k\) are related to the \(i\) in complex …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-09-09T14:45:17+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2013/08/algebra-thumb.jpg" />
+
+        <title>Calculations with quaternions  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../calculations-with-quaternions/">Calculations with quaternions</a></h1>
+    <p class="meta">
+<time datetime="2013-09-09T14:45:17+02:00">Sep 9, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algebra-ref">Algebra
+            <span>12</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#basic-rules" title="Basic rules">Basic rules</a></li><li><a class="toc-href" href="#multiplication" title="Multiplication">Multiplication</a><ul><li><a class="toc-href" href="#calculating-multiplicative-inverse" title="Calculating multiplicative inverse">Calculating multiplicative inverse</a></li></ul></li><li><a class="toc-href" href="#more" title="More">More</a><ul><li><a class="toc-href" href="#conjugate" title="Conjugate">Conjugate</a></li><li><a class="toc-href" href="#rotating-points" title="Rotating points">Rotating points</a></li><li><a class="toc-href" href="#rotation-matrix-to-quaternion" title="Rotation matrix to quaternion">Rotation matrix to quaternion</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2013/09/quaternions.jpg"><img alt="Cube rotating around a tilted axis in space, three colored coordinate axes and a four-part vector icon" height="768" src="../images/2013/09/quaternions.jpg" width="1376"/></a>
+<figcaption>Quaternions describe rotations in 3D.</figcaption>
+</figure>
+<p><a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaternion <span class="math">\(h\)</span> can be written as a vector or in the form of <span class="math">\(h = h_0 + ih_1 + j h_2 + kh_3\)</span>, where <span class="math">\(i, j\)</span> and <span class="math">\(k\)</span> are related to the <span class="math">\(i\)</span> in complex numbers. Accordingly <span class="math">\(h_0\)</span> is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.</p>
+<p>For <span class="math">\(i, j\)</span> and <span class="math">\(k\)</span> the following rules are applied:</p>
+<p><span class="math">\(i^2 = j^2 = k^2 = -1\)</span>
+and
+<span class="math">\(ijk=-1\)</span></p>
+<h2 id="basic-rules">Basic rules</h2>
+<p>From these rules follows:</p>
+<div class="math">\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp;= j\\ ik &amp;= -j \end{align}</div>
+<p>(<a href="http://math.stackexchange.com/q/487245/6876">proof</a>)</p>
+<h2 id="multiplication">Multiplication</h2>
+<p>Now, obviously quaternions multiplication is not commutative: <span class="math">\(ij = k \neq -k = ji\)</span></p>
+<p>But for numbers in <span class="math">\(\mathbb{R}\)</span>, it is commutative (<a href="http://math.stackexchange.com/q/488271/6876">proof</a>).</p>
+<p>The multiplication is:</p>
+<div class="math">\begin{align}
+x  y
+&amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
+&amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
+&amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
+&amp;+( x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0) \mathrm k
+\end{align}</div>
+<h3 id="calculating-multiplicative-inverse">Calculating multiplicative inverse</h3>
+<p>This means, when you're given an element <span class="math">\(x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k\)</span> its inverse <span class="math">\(y\)</span> can be calculated by solving the following linear system of equations:</p>
+<div class="math">\begin{align}
+x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\\
+x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\\
+x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\\
+x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
+\end{align}</div>
+<p>which can be written as:</p>
+<div class="math">$$\left(\begin{array}{cccc|c}
+    x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\\
+    x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\\
+    x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\\
+    x_3 &amp; -x_2 &amp;  x_1 &amp;  x_0 &amp; 0
+  \end{array}\right).$$</div>
+<p>According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is</p>
+<p><span class="math">\(y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}\)</span></p>
+<h2 id="more">More</h2>
+<h3 id="conjugate">Conjugate</h3>
+<p>Just like the complex conjugate is defined as</p>
+<p><span class="math">\(\overline{z} = a - ib\)</span> with <span class="math">\(z=a+ib\)</span></p>
+<p>the conjugate of quaternions is defined as</p>
+<p><span class="math">\(\bar x := x_0-x_1\mathrm i-x_2\mathrm j-x_3\mathrm k\)</span> with <span class="math">\(x=x_0+x_1\mathrm i+x_2\mathrm j+x_3\mathrm k\)</span></p>
+<h3 id="rotating-points">Rotating points</h3>
+<p>Quaternions can be used to rotate points. It works like this:</p>
+<p><span class="math">\(x' = q x \overline{q}\)</span></p>
+<p>Pretty simple, isn't it?</p>
+<p>For example, if you had the point (2,0,0) and you wanted to rotated it by <span class="math">\(q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)\)</span> you would transform (2,0,0) to (2i+0k+0j) and calculate</p>
+<div class="math">\begin{align}
+x' &amp;= q x \overline{q}\\
+&amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= (\sqrt{2} \mathrm i - \sqrt{2} \mathrm k) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= \mathrm i - \mathrm{ij} - \mathrm k + \mathrm{kj}\\
+&amp;= \mathrm{i - k -k - i}\\
+&amp;= -2 \mathrm k\\
+&amp;\Rightarrow x' = (0,0,-2)
+\end{align}</div>
+<h3 id="rotation-matrix-to-quaternion">Rotation matrix to quaternion</h3>
+<p>Let <span class="math">\(M\)</span> be a rotation matrix and <span class="math">\(m_{ij}\)</span> be an entry of this matrix.</p>
+<h4>General rule</h4>
+<div class="math">\begin{align}
+s &amp;= \frac{1}{2} \sqrt{1 + \sum_{i=1}^3 m_{ii}}\\
+x &amp;= \frac{m_{32} - m_{23}}{4s}\\
+y &amp;= \frac{m_{13} - m_{31}}{4s}\\
+z &amp;= \frac{m_{21} - m_{12}}{4s}
+\end{align}</div>
+<p>resulting in the quaternion <span class="math">\((s, x, y, z)\)</span>.</p>
+<h4>Special rule</h4>
+<p>A rotation matrix</p>
+<div class="math">$$R_y = \begin{pmatrix}
+\cos(\theta)  &amp; 0 &amp; \sin(\theta)\\
+0             &amp; 1 &amp; 0\\
+-\sin(\theta) &amp; 0 &amp; \cos(\theta)
+\end{pmatrix}$$</div>
+<p>can be transformed to a quaternion</p>
+<p><span class="math">\(q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))\)</span></p>
+<p>where <span class="math">\(\vec u\)</span> describes the axis you rotate by.</p>
+<p>In this case <span class="math">\(R_y\)</span> is the y-axis, so
+</p>
+<div class="math">$$\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$$</div>
+<p>.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#mathematics-ref">Mathematics</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

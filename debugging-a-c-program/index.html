@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn&#39;t even compile, but when it compiled and I got a runtime error, I basically read my..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="C, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/debugging-a-c-program/" />
+<meta property="og:title" content="Debugging a C program"/>
+<meta property="og:url" content="https://martin-thoma.com/debugging-a-c-program/" />
+<meta property="og:description" content="As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn&#39;t even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I didn&#39;t don&#39;t know any good online resource for C, so …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-11-30T17:00:15+01:00" />
+
+        <title>Debugging a C program  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../debugging-a-c-program/">Debugging a C program</a></h1>
+    <p class="meta">
+<time datetime="2012-11-30T17:00:15+01:00">Nov 30, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#c-ref">C
+            <span>15</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#compile-time-vs-runtime" title="Compile time vs. runtime">Compile time vs. runtime</a></li><li><a class="toc-href" href="#gdb" title="gdb">gdb</a></li><li><a class="toc-href" href="#valgrind" title="valgrind">valgrind</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn't even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don't know any good online resource for C, so I've always searched with Google for answers to questions that I couldn't properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?</p>
+<h2 id="compile-time-vs-runtime">Compile time vs. runtime</h2>
+<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.</p>
+<figure>
+<a href="../images/2012/11/c-workflow.png"><img alt="C workflow" height="229" src="../images/2012/11/c-workflow.png" width="512"/></a>
+<figcaption>C workflow</figcaption>
+</figure>
+<p>You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called "compile time errors". Others, like the access of an array-index that isn't in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.</p>
+<h2 id="gdb">gdb</h2>
+<p>If you want to find runtime errors, you should deactivate all optimization flags and add debugging symbols. A gcc call might look like this:</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>mySourceFile.c<span class="w"> </span>-g
+</code></pre></div>
+<p>This produces a binary file called "a.out".</p>
+<p>Now you should run gdb - GNU debug:</p>
+<div class="highlight"><pre><span></span><code>gdb<span class="w"> </span>./a.out
+</code></pre></div>
+<p>Within the command line program GNU debug you have to enter:</p>
+<div class="highlight"><pre><span></span><code>run<span class="w"> </span>./a.out
+</code></pre></div>
+<p>You should now be able to see the line in which the runtime-error occurs.</p>
+<h2 id="valgrind">valgrind</h2>
+<p>You might want to give valgrind a try.</p>
+<p><em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes</code> and run valgrind again.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

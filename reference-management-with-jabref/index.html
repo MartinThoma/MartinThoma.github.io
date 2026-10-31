@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Keeping track of papers, articles and books or, more generally, sources you can cite is a task you will have to tackle when you&#39;re writing your thesis. One way to store information is via BibTeX..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Science, LaTeX, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/reference-management-with-jabref/" />
+<meta property="og:title" content="Reference Management with JabRef"/>
+<meta property="og:url" content="https://martin-thoma.com/reference-management-with-jabref/" />
+<meta property="og:description" content="Keeping track of papers, articles and books or, more generally, sources you can cite is a task you will have to tackle when you&#39;re writing your thesis. One way to store information is via BibTeX files. BibTeX is reference management software that is used together with LaTeX. If you&#39;re new …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2014-06-15T20:51:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2014/06/jabref.png" />
+<meta property="og:image:width" content="1366" />
+<meta property="og:image:height" content="743" />
+
+        <title>Reference Management with JabRef  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../reference-management-with-jabref/">Reference Management with JabRef</a></h1>
+    <p class="meta">
+<time datetime="2014-06-15T20:51:00+02:00">Jun 15, 2014</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#latex-ref">LaTeX
+            <span>29</span>
+</a></li>
+        <li><a href="../tags/#science-ref">Science
+            <span>20</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#what-is-jabref" title="What is JabRef?">What is JabRef?</a></li><li><a class="toc-href" href="#how-can-i-get-it" title="How can I get it?">How can I get it?</a></li><li><a about="" class="toc-href" good="" href="#whats-good-about-jabref" jabref?'="" s="" title="What">What's good about JabRef?</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better?">What could be better?</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Keeping track of papers, articles and books or, more generally, sources you can
+cite is a task you will have to tackle when you're writing your thesis. One
+way to store information is via BibTeX files.</p>
+<p>BibTeX is reference management software that is used together with LaTeX.
+If you're new to BibTeX or <a href="../citations-with-latex/">references in LaTeX</a> in general, you could read the
+following articles:</p>
+<ul>
+<li><a href="http://tex.stackexchange.com/q/25701/5645">bibtex vs. biber and biblatex vs. natbib</a></li>
+<li><a href="http://tex.stackexchange.com/q/8411/5645">What is the difference between bibtex and biblatex?</a> - I keep forgetting that all the time.</li>
+</ul>
+<p>I've tried to create an <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/biblatex-mwe">MWE for biblatex</a>, but as I don't really know much about BibTeX it's probably not
+the best resource to start with.</p>
+<p>A longer <a href="https://github.com/MartinThoma/write-math/tree/master/bachelor-arbeit">working example of BibTeX</a>
+is my bachelor's thesis (work is still in (slow) progress).</p>
+<h2 id="what-is-jabref">What is JabRef?</h2>
+<p><a href="https://en.wikipedia.org/wiki/JabRef">JabRef</a> is reference management
+software that uses BibTeX as its native format. It looks like this:</p>
+<figure>
+<a href="../images/2014/06/jabref.png"><img alt="JabRef" height="272" src="../images/2014/06/jabref.png" width="500"/></a>
+<figcaption>JabRef</figcaption>
+</figure>
+<h2 id="how-can-i-get-it">How can I get it?</h2>
+<p>JabRef 2.10 beta is part of the Debian sources. Thus it can be installed with</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>jabref
+</code></pre></div>
+<p>The official development page is <a href="http://jabref.sourceforge.net/">jabref.sourceforge.net</a>.
+As it is written in Java, it can be installed on all (or at least most) systems
+where you have a JVM (thus: good news Windows / Mac users!).</p>
+<h2 id="whats-good-about-jabref">What's good about JabRef?</h2>
+<p>You can easily add the information where the PDF is located on your system and
+open the PDF directly via JabRef:</p>
+<figure>
+<a href="../images/2014/06/jabref-pdf.png"><img alt="Adding PDF with JabRef" height="209" loading="lazy" src="../images/2014/06/jabref-pdf.png" width="500"/></a>
+<figcaption>Adding PDF with JabRef</figcaption>
+</figure>
+<p>This is especially powerful with the search. As you can add quite a lot of
+information to the entries (such as the abstract and comments) and searching
+that is faster / easier than searching folders of PDFs, it's very convenient
+to use JabRef for opening your PDFs:</p>
+<figure>
+<a href="../images/2014/06/jabref-searching.png"><img alt="Searching with JabRef" height="238" loading="lazy" src="../images/2014/06/jabref-searching.png" width="500"/></a>
+<figcaption>Searching with JabRef</figcaption>
+</figure>
+<p>The preview also helps you to see how it might appear in your document:</p>
+<figure>
+<a href="../images/2014/06/jabref-preview.png"><img alt="JabRef preview" height="182" loading="lazy" src="../images/2014/06/jabref-preview.png" width="500"/></a>
+<figcaption>JabRef preview</figcaption>
+</figure>
+<p>Another nice feature is the autocompletion of author names and titles.</p>
+<h2 id="what-could-be-better">What could be better?</h2>
+<p>It would be neat if you could automatically upload your BibTeX file and use
+other people's BibTeX files to <strong>complete the information</strong> or to get informed of
+possible errors in your database.</p>
+<p>Additionally, a good <strong>PDF reader</strong> that is fast and allows annotations of which
+JabRef would be aware would be awesome.</p>
+<p><strong>Speed</strong> is quite often an issue with Java applications in my experience.
+It takes about 5 seconds to open my BibTeX file of about 37 references. After
+it has started, it's ok.</p>
+<p><strong>Shortcuts</strong> are important for tools that get used often, too. Although
+JabRef has some reasonable shortcuts like <kbd>Ctrl</kbd>+<kbd>i</kbd> for
+importing a BibTeX file and <kbd>Ctrl</kbd>+<kbd>s</kbd> for saving the current
+BibTeX file, I miss <kbd>Ctrl</kbd>+<kbd>f</kbd> for searching the database.</p>
+<p><strong>Importing</strong> other BibTeX files into the current BibTeX file is possible. But
+I would also like to "import" BibTeX data by copying and pasting a single dataset.</p>
+<h2 id="alternatives">Alternatives</h2>
+<p><a href="https://en.wikipedia.org/wiki/Mendeley">Mendeley</a> is a closed-source alternative
+with a built-in PDF reader. It seems to be fast and can complete information
+when the title is given.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

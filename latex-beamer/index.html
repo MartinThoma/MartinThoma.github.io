@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I really enjoy creating presentations with LaTeX. The reasons are: You can use versioning (GIT, SVN, ...) You can use your favorite editor! When you&#39;ve created an animation with TikZ, you can..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="LaTeX, Cyberculture, " />
+
+<link rel="canonical" href="https://martin-thoma.com/latex-beamer/" />
+<meta property="og:title" content="LaTeX Beamer"/>
+<meta property="og:url" content="https://martin-thoma.com/latex-beamer/" />
+<meta property="og:description" content="I really enjoy creating presentations with LaTeX. The reasons are: You can use versioning (GIT, SVN, ...) You can use your favorite editor! When you&#39;ve created an animation with TikZ, you can easily go one step back and go through it as fast as it is appropriate! Good separation …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-03-05T11:25:20+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/01/latex-logo.png" />
+
+        <title>LaTeX Beamer  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../latex-beamer/">LaTeX Beamer</a></h1>
+    <p class="meta">
+<time datetime="2013-03-05T11:25:20+01:00">Mär 5, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#latex-ref">LaTeX
+            <span>29</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#basics" title="Basics">Basics</a></li><li><a class="toc-href" href="#style" title="Style">Style</a></li><li><a class="toc-href" href="#sections-and-subsections" title="Sections and subsections">Sections and subsections</a></li><li><a class="toc-href" href="#reveal-information" title="Reveal information">Reveal information</a></li><li><a class="toc-href" href="#blocks" title="Blocks">Blocks</a></li><li><a class="toc-href" href="#images" title="Images">Images</a></li><li><a class="toc-href" href="#further-reading" title="Further reading">Further reading</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I really enjoy creating presentations with LaTeX. The reasons are:</p>
+<ul>
+<li>You can use versioning (GIT, SVN, ...)</li>
+<li>You can use your favorite editor!</li>
+<li>When you've created an animation with Ti<em>k</em>Z, you can easily go one step back and go through it as fast as it is appropriate!</li>
+<li>Good separation of presentation and content</li>
+<li>It compiles to PDF
+    <ul>
+<li>Everybody can open it</li>
+<li>It always looks the same (no moved elements or hidden bullet points)</li>
+</ul>
+</li>
+<li>You can use math mode ☺</li>
+<li>No need to buy anything. It's free and OpenSource.</li>
+<li>A big community (<a href="http://tex.stackexchange.com/questions/tagged/beamer">StackExchange</a> and <a href="http://www.latex-community.org/forum/viewforum.php?f=3">LateX-Community</a>) helps you, when you got questions.</li>
+</ul>
+<p>I'll now introduce you to the basics of LaTeX beamer presentations. If you only look for examples, please go to my <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations">GitHub LaTeX Repository</a>.</p>
+<h2 id="basics">Basics</h2>
+<p>This is a basic presentation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[english]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output</span>
+                            <span class="c">% of umlauts in pdf</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="k">\title</span><span class="nb">{</span>The title of your presentation<span class="nb">}</span>
+<span class="k">\subtitle</span><span class="nb">{</span>A subtitle<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>Martin Thoma<span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span>25. March 2013<span class="nb">}</span>
+<span class="k">\subject</span><span class="nb">{</span>Computer Science<span class="nb">}</span>
+
+<span class="k">\frame</span><span class="nb">{</span><span class="k">\titlepage</span><span class="nb">}</span>
+
+<span class="k">\section</span><span class="nb">{</span>Introduction<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>A subsection!<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>Slide title<span class="nb">}</span>
+    Slide content
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre></div>
+<h2 id="style">Style</h2>
+<p>If you want to create nice-looking presentations like <a href="../images/2013/03/tutorium-05.pdf">this one</a> or <a href="../images/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.</p>
+<p>The important commands for changing the appearance, that should get included just after documentclass, are:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usecolortheme</span><span class="nb">{</span>default<span class="nb">}</span>
+</code></pre></div>
+<p>When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen">KIT theme</a>.</p>
+<p>Here are some screenshots:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2013/03/English-Titlepage.png"><img alt="LaTeX Beamer: Example of a titlepage" height="90" loading="lazy" src="../images/2013/03/English-Titlepage.png" width="120"/></a>
+<figcaption>LaTeX Beamer: Example of a titlepage</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/03/programmieren-tutorium-titlepage.png"><img alt="LaTeX Beamer: Example of a titlepage" height="90" loading="lazy" src="../images/2013/03/programmieren-tutorium-titlepage.png" width="120"/></a>
+<figcaption>LaTeX Beamer: Example of a titlepage</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/03/latex-beamer-quelltext-minted.png"><img alt="LaTeX Beamer: Example of source code" height="90" loading="lazy" src="../images/2013/03/latex-beamer-quelltext-minted.png" width="120"/></a>
+<figcaption>LaTeX Beamer: Example of source code</figcaption>
+</figure>
+<figure>
+<a href="../images/2013/03/latex-beamer-uncover-list.png"><img alt="LaTeX Beamer: Example of a slide" height="90" loading="lazy" src="../images/2013/03/latex-beamer-uncover-list.png" width="120"/></a>
+<figcaption>LaTeX Beamer: Example of a slide</figcaption>
+</figure>
+</div>
+<h2 id="sections-and-subsections">Sections and subsections</h2>
+<p>Take a look at the slides I've included above. Do you notice the little bubbles at the bottom that indicate how many slides are left?</p>
+<p>You get the text over the bubbles with <code>\section{Your text}</code> and the bubbles with <code>frame</code>, but you need at least one <code>\subsection{bla}</code>! When you make more than one subsection, the frame-bubbles that belong to the same one get highlighted.</p>
+<h2 id="reveal-information">Reveal information</h2>
+<p>You might want to try those commands to hide and reveal information:</p>
+<ul>
+<li><code>\pause</code></li>
+<li><code>\uncover</code></li>
+<li><code>\visible</code></li>
+<li><code>\onslide</code> and <code>\only</code></li>
+</ul>
+<p>You can use it like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>Another title<span class="nb">}</span>
+    Some text<span class="k">\\</span>
+    <span class="k">\uncover</span>&lt;2-&gt;<span class="nb">{</span>Uncover me on slide 2 (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\visible</span>&lt;3-&gt;<span class="nb">{</span>visible from slide 3 on (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\only</span>&lt;4-&gt;<span class="nb">{</span>only from slide 4 (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\onslide</span>&lt;5-&gt;<span class="nb">{</span>on slide 5 and further (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\uncover</span>&lt;6&gt;<span class="nb">{</span>Uncover me on slide 6 <span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\visible</span>&lt;7&gt;<span class="nb">{</span>visible on 7<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\only</span>&lt;8&gt;<span class="nb">{</span>only on slide 8 <span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\alt</span>&lt;8&gt;<span class="nb">{</span>I am on slide 8<span class="k">\\</span><span class="nb">}{</span>I am not on slide 8<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\onslide</span>&lt;9&gt;<span class="nb">{</span>on slide 9<span class="k">\\</span><span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</code></pre></div>
+<p>Note that the numbers work like <code>\uncover&lt;n-m&gt;{ELEMENT}</code>. If no <code>m</code>
+is specified, ELEMENT is visible until end of this frame.</p>
+<p>When you have a list and you want to uncover it element by element,
+you can use this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>[&lt;+-&gt;]
+    <span class="k">\item</span> one
+    <span class="k">\item</span> two
+    <span class="k">\item</span> three
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</code></pre></div>
+<h2 id="blocks">Blocks</h2>
+<p>You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</code> inside your frame:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>exampleblock<span class="nb">}{</span>Test<span class="nb">}</span>
+  This is my text.
+<span class="k">\end</span><span class="nb">{</span>exampleblock<span class="nb">}</span>
+</code></pre></div>
+<p>It looks like this:</p>
+<figure>
+<a href="../images/2013/03/latex-beamer-block-300x117.png"><img alt="LaTeX Beamer blocks: block, exampleblock, alertblock" height="117" loading="lazy" src="../images/2013/03/latex-beamer-block-300x117.png" width="300"/></a>
+<figcaption>LaTeX Beamer blocks: block, exampleblock, alertblock</figcaption>
+</figure>
+<h2 id="images">Images</h2>
+<p>Quite often, you want to have one big image.</p>
+<p>You need <code>\usepackage{graphicx}</code> in your preamble.</p>
+<p>This is how you get the image it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>My frame title<span class="nb">}</span>
+    <span class="k">\includegraphics</span><span class="na">[width=\textwidth, height=0.8\textheight, keepaspectratio]</span><span class="nb">{</span>../relative/path/image.jpg<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</code></pre></div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="../sizes-in-latex/" title="Sizes in LaTeX">Sizes in LaTeX</a></li>
+<li><a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a></li>
+<li><a href="http://www.math.umbc.edu/~rouben/beamer/beamer_guide.pdf">UMBC Beamer guide</a></li>
+<li><code>texdoc beameruserguide</code> or <a href="http://www.tex.ac.uk/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf">online</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#cyberculture-ref">Cyberculture</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

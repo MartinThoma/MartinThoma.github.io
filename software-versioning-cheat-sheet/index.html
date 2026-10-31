@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="This Software Versioning Cheat Sheet has very basic information about the installation and usage of Subversion and Git. (The LaTeX Source Code is here.) If you&#39;re at the KIT and you have SWT, then..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Cheat Sheet, Version Control, Git, Software Engineering, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/software-versioning-cheat-sheet/" />
+<meta property="og:title" content="Software Versioning Cheat Sheet"/>
+<meta property="og:url" content="https://martin-thoma.com/software-versioning-cheat-sheet/" />
+<meta property="og:description" content="This Software Versioning Cheat Sheet has very basic information about the installation and usage of Subversion and Git. (The LaTeX Source Code is here.) If you&#39;re at the KIT and you have SWT, then you&#39;ll probably need this command: $ svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12 …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-04-18T07:00:59+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/04/svn-git-logo.png" />
+
+        <title>Software Versioning Cheat Sheet  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../software-versioning-cheat-sheet/">Software Versioning Cheat Sheet</a></h1>
+    <p class="meta">
+<time datetime="2012-04-18T07:00:59+02:00">Apr 18, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#cheat-sheet-ref">Cheat Sheet
+            <span>5</span>
+</a></li>
+        <li><a href="../tags/#git-ref">Git
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#version-control-ref">Version Control
+            <span>9</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#svn" title="SVN">SVN</a><ul><li><a class="toc-href" href="#updating-the-repository" title="Updating the repository">Updating the repository</a></li><li><a class="toc-href" href="#nice-diffs" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#compare-revisions" title="Compare revisions">Compare revisions</a></li></ul></li><li><a class="toc-href" href="#git" title="Git">Git</a><ul><li><a class="toc-href" href="#global-configuration" title="Global configuration">Global configuration</a></li><li><a class="toc-href" href="#nice-diffs_1" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#image-diffs" title="Image diffs">Image diffs</a></li><li><a class="toc-href" href="#github" title="GitHub">GitHub</a></li><li><a class="toc-href" href="#snippets" title="Snippets">Snippets</a></li></ul></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>This <a href="../images/2012/04/versioning-cheat-sheet.pdf">Software Versioning Cheat Sheet</a> has very basic information about the installation and usage of Subversion and Git. (The <a href="../images/2012/04/versioning-cheat-sheet.zip">LaTeX Source Code</a> is here.)</p>
+<p>If you're at the KIT and you have SWT, then you'll probably need this command:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>checkout<span class="w"> </span>https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/<span class="w"> </span>SWT/<span class="w"> </span>--username<span class="w"> </span>swt1
+</code></pre></div>
+<p>You will be asked for a password. I hope you remember it.</p>
+<h2 id="svn">SVN</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>co<span class="w"> </span>URL<span class="w"> </span>LocalTarget<span class="w"> </span>--username<span class="w"> </span>yourUserName
+</code></pre></div>
+<p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>up
+</code></pre></div>
+<p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>log<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span>
+</code></pre></div>
+<p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a></p>
+<h3 id="updating-the-repository">Updating the repository</h3>
+<p>You can update a SVN repository with this command:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>up<span class="w"> </span><span class="o">[</span>path<span class="o">]</span>
+</code></pre></div>
+<p>If you need to execute the command often, you might want to define an alias.
+aliases are shorthands for long commands in the bash. To create a permanent
+one, add the following line to your <code>~/.bashrc</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
+</code></pre></div>
+<p>Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".</p>
+<h3 id="nice-diffs">Nice diffs</h3>
+<p>You can modify your config file:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>gedit<span class="w"> </span>~/.subversion/config
+</code></pre></div>
+<p>and change <code>diff-cmd</code> to <code>meld</code>.</p>
+<h3 id="compare-revisions">Compare revisions</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>diff<span class="w"> </span>-r<span class="w"> </span><span class="m">63</span>:64
+</code></pre></div>
+<p>compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).</p>
+<h2 id="git">Git</h2>
+<h3 id="global-configuration">Global configuration</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Martin Thoma"</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>info@martin-thoma.de
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>color.ui<span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="nice-diffs_1">Nice diffs</h3>
+<p>If you want a GUI for <code>git diff</code>, then you should do the following:</p>
+<p>Install meld:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>meld
+</code></pre></div>
+<p>Go to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+meld<span class="w"> </span><span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$5</span><span class="s2">"</span>
+</code></pre></div>
+<p>Make it executable:</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>git-meld
+</code></pre></div>
+<p>Add it to your git configuration:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>diff.external<span class="w"> </span>git-meld
+</code></pre></div>
+<p>Enjoy this experience when entering <code>git diff</code>:</p>
+<figure>
+<a href="../images/2012/04/git-meld-300x129.png"><img alt="Using Meld with GIT" height="129" loading="lazy" src="../images/2012/04/git-meld-300x129.png" width="300"/></a>
+<figcaption>Using Meld with GIT</figcaption>
+</figure>
+<p>See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other solutions.</p>
+<h3 id="image-diffs">Image diffs</h3>
+<p>Aki Koskinen posted a nice article on how to make <a href="http://www.akikoskinen.info/image-diffs-with-git/">image diffs with git</a>. I only changed the diff program to <a href="https://gist.github.com/StanAngeloff/1716699">StanAngeloff's simple-imagediff.py
+</a> The most important steps are:</p>
+<p>Tell git what images are:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.attributesfile<span class="w"> </span><span class="s1">'~/.gitattributes'</span>
+$<span class="w"> </span>cat<span class="w"> </span>.gitattributes
+*.gif<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
+*.jpg<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
+*.png<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
+</code></pre></div>
+<p>Tell git how to deal with images in diffs:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>diff.image.command<span class="w"> </span><span class="s1">'simple-imagediff'</span>
+</code></pre></div>
+<p>Add <code>~/.local/bin/simple-imagediff</code> as an executable:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Simple Image Diffs</span>
+<span class="c1"># ==================</span>
+<span class="c1">#</span>
+<span class="c1"># How to Install</span>
+<span class="c1"># --------------</span>
+<span class="c1">#</span>
+<span class="c1"># Download the script somewhere on $PATH as 'simple-imagediff' with +x:</span>
+<span class="c1">#</span>
+<span class="c1"># $ cd ~/bin</span>
+<span class="c1"># $ wget -O simple-imagediff https://raw.github.com/gist/1716699/simple-imagediff.py</span>
+<span class="c1"># $ chmod +x simple-imagediff</span>
+<span class="c1">#</span>
+<span class="c1"># Prerequisites</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># The script should work out-of-the box on Ubuntu 11.10. On other OS'es you may</span>
+<span class="c1"># need to install PIL and Gtk3.</span>
+<span class="c1">#</span>
+<span class="c1"># Git Setup</span>
+<span class="c1"># ---------</span>
+<span class="c1">#</span>
+<span class="c1"># In ~/.gitconfig, add:</span>
+<span class="c1">#</span>
+<span class="c1"># [diff "image"]</span>
+<span class="c1">#   command = simple-imagediff</span>
+<span class="c1">#</span>
+<span class="c1"># In your project, create .gitattributes file and add (this enables the custom</span>
+<span class="c1"># diff tool above):</span>
+<span class="c1">#</span>
+<span class="c1"># *.gif diff=image</span>
+<span class="c1"># *.jpg diff=image</span>
+<span class="c1"># *.png diff=image</span>
+<span class="c1">#</span>
+<span class="c1"># Try It</span>
+<span class="c1"># ------</span>
+<span class="c1">#</span>
+<span class="c1"># $ git diff path/to/file.png</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: file.png must be versioned and the working copy must be different.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">Image</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">gi.repository</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gdk</span><span class="p">,</span> <span class="n">Gtk</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleImageDiffWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Simple Image Diff (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+        <span class="n">align</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Alignment</span><span class="p">()</span>
+        <span class="n">align</span><span class="o">.</span><span class="n">set_padding</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">homogeneous</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_image_box</span><span class="p">(</span><span class="n">left</span><span class="p">))</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_image_box</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+        <span class="n">align</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">align</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">WindowPosition</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_image_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_file</span><span class="p">):</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">set_from_file</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">"W: </span><span class="si">%d</span><span class="s2">px  |  H: </span><span class="si">%d</span><span class="s2">px"</span> <span class="o">%</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">pack_end</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">box</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_halt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"[ERROR] </span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">message</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;&lt;</span> <span class="n">code</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_verify_file_exists</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="n">_halt</span><span class="p">(</span><span class="s2">"The file '</span><span class="si">%s</span><span class="s2">' does not exists."</span> <span class="o">%</span> <span class="n">target</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">_halt</span><span class="p">(</span><span class="s2">"Not enough arguments."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_verify_file_exists</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">_verify_file_exists</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">SimpleImageDiffWindow</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+    <span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="github">GitHub</h3>
+<h4 id="preparation">Preparation</h4>
+<p>Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/.ssh
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-C<span class="w"> </span><span class="s2">"info@martin-thoma.de"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Martin Thoma"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>info@martin-thoma.de
+</code></pre></div>
+<h4 id="clone">Clone</h4>
+<p>Clone a GITHub repository:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:MartinThoma/matrix-multiplication.git
+</code></pre></div>
+<h3 id="snippets">Snippets</h3>
+<p>Reset a single file to the latest revision on the server:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>file/to/restore
+</code></pre></div>
+<p>Get the latest diff:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="w"> </span>@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+</code></pre></div>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="http://svnbook.red-bean.com/en/1.6/">Version Control with Subversion</a>: a great explanation how to use subversion, e.g. <a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.export.html">svn export</a></li>
+<li>StackOverflow: <a href="http://stackoverflow.com/questions/3233059/basic-subversion-question">Which files should be put under version control?</a></li>
+<li>GitHub:  <a href="http://help.github.com/remotes/">Remotes</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

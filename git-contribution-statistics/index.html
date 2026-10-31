@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I&#39;ve just received a letter that the SciPy community will write a &#34;scipy 1.0&#34; paper and is wondering who should be mentioned as an author. So they want to figure out who &#34;really&#34; contributed..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Version Control, Statistics, Software Engineering, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/git-contribution-statistics/" />
+<meta property="og:title" content="Git Contribution Statistics"/>
+<meta property="og:url" content="https://martin-thoma.com/git-contribution-statistics/" />
+<meta property="og:description" content="I&#39;ve just received a letter that the SciPy community will write a &#34;scipy 1.0&#34; paper and is wondering who should be mentioned as an author. So they want to figure out who &#34;really&#34; contributed something. While I think this should be a manual process (and maybe just anybody who …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/git.png" />
+
+        <title>Git Contribution Statistics  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../git-contribution-statistics/">Git Contribution Statistics</a></h1>
+    <p class="meta">
+<time datetime="2019-12-31T20:00:00+01:00">Dez 31, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#statistics-ref">Statistics
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#version-control-ref">Version Control
+            <span>9</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#commit-count" title="Commit Count">Commit Count</a></li><li><a class="toc-href" href="#git-stats" title="Git Stats">Git Stats</a></li><li><a class="toc-href" href="#git-fame" title="Git Fame">Git Fame</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I've just received a letter that the SciPy community will write a "scipy 1.0"
+paper and is wondering who should be mentioned as an author. So they want to
+figure out who "really" contributed something. While I think this should be a
+manual process (and maybe just anybody who added a line of code / documentation
+/ gave valuable feedback should be in the author list), I wondered how to do
+this automatically. So here are a few ways. To keep it short, I will only show the
+first ten.</p>
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<h2 id="commit-count">Commit Count</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>shortlog<span class="w"> </span>-s<span class="w"> </span>-n<span class="w"> </span>--all<span class="w"> </span>--no-merges
+<span class="w">  </span><span class="m">2183</span><span class="w">  </span>Pauli<span class="w"> </span>Virtanen
+<span class="w">  </span><span class="m">1565</span><span class="w">  </span>Ralf<span class="w"> </span>Gommers
+<span class="w">   </span><span class="m">976</span><span class="w">  </span>Travis<span class="w"> </span>Oliphant
+<span class="w">   </span><span class="m">893</span><span class="w">  </span>David<span class="w"> </span>Cournapeau
+<span class="w">   </span><span class="m">708</span><span class="w">  </span>Evgeni<span class="w"> </span>Burovski
+<span class="w">   </span><span class="m">705</span><span class="w">  </span>Warren<span class="w"> </span>Weckesser
+<span class="w">   </span><span class="m">506</span><span class="w">  </span>Pearu<span class="w"> </span>Peterson
+<span class="w">   </span><span class="m">484</span><span class="w">  </span>Alex<span class="w"> </span>Griffing
+<span class="w">   </span><span class="m">376</span><span class="w">  </span>Nathan<span class="w"> </span>Bell
+<span class="w">   </span><span class="m">363</span><span class="w">  </span>@endolith
+<span class="w">   </span>...
+</code></pre></div>
+<p>Add <code>-e</code> for e-mails.</p>
+<p>851 people in total. 13 people made more than 50% of the commits.</p>
+<p>It would be really nice to have a waffle chart showing those numbers. So maybe
+the top 10 with name / initials, everybody with more than 100 commits in one
+group, everybody with more than 50 commits in another, just one commit in one
+group and the rest in another group.</p>
+<h2 id="git-stats">Git Stats</h2>
+<p>Install it via <code>apt-get install gitstats</code> and execute <code>gitstats . out</code>. Then
+open <code>out/index.html</code> in a browser.</p>
+<p>General:</p>
+<div class="highlight"><pre><span></span><code>Project name: scipy
+Generated: 2019-06-19 19:00:08 (in 89 seconds)
+Generator: GitStats (version 2015.10.03), git version 2.17.1, gnuplot 5.2 patchlevel 2
+Report Period: 2001-02-01 09:32:30 to 2019-06-19 08:15:31
+Age: 6713 days, 4227 active days (62.97%)
+Total Files: 2545
+Total Lines of Code: 778151 (3208814 added, 2430663 removed)
+Total Commits: 21178 (average 5.0 commits per active day, 3.2 per all days)
+Authors: 850 (average 24.9 commits per author)
+</code></pre></div>
+<h2 id="git-fame">Git Fame</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-pip<span class="w"> </span>python-dev<span class="w"> </span>build-essential
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>git-fame
+$<span class="w"> </span>git<span class="w"> </span>fame
+</code></pre></div>
+<p>gives</p>
+<div class="highlight"><pre><span></span><code>Total commits: 21178
+Total ctimes: 22524
+Total files: 9415
+Total loc: 277469
+| Author                            |   loc |   coms |   fils |  distribution   |
+|:----------------------------------|------:|-------:|-------:|:----------------|
+| Pauli Virtanen                    | 74162 |   2897 |   1236 | 26.7/13.7/13.1  |
+| Abraham Escalante                 | 61316 |     94 |     27 | 22.1/ 0.4/ 0.3  |
+| Travis Oliphant                   | 36595 |    977 |    665 | 13.2/ 4.6/ 7.1  |
+| Andreas Kloeckner                 | 10942 |     12 |     48 | 3.9/ 0.1/ 0.5   |
+| nmarais                           |  9974 |      4 |     87 | 3.6/ 0.0/ 0.9   |
+| Ralf Gommers                      |  8543 |   2506 |    473 | 3.1/11.8/ 5.0   |
+| Eric Moore                        |  8146 |    157 |     66 | 2.9/ 0.7/ 0.7   |
+| Ian Henriksen                     |  4831 |     77 |     64 | 1.7/ 0.4/ 0.7   |
+| Warren Weckesser                  |  4665 |    760 |    383 | 1.7/ 3.6/ 4.1   |
+| Josh Wilson                       |  4568 |    302 |    155 | 1.6/ 1.4/ 1.6   |
+</code></pre></div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

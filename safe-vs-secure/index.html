@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="When I hear “safety” in the context of software development, I’m always reminded that I need to automate my backup solution. The potential harm most software developers have to deal with is..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Terminology, English, Security, DevOps, Software Engineering, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/safe-vs-secure/" />
+<meta property="og:title" content="Safe vs Secure"/>
+<meta property="og:url" content="https://martin-thoma.com/safe-vs-secure/" />
+<meta property="og:description" content="When I hear “safety” in the context of software development, I’m always reminded that I need to automate my backup solution. The potential harm most software developers have to deal with is luckily only data loss due to hardware failures. Safety is resilience against accidental harm to people, property …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-09-27T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2020/09/safe-vs-secure.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Safe vs Secure  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../safe-vs-secure/">Safe vs Secure</a></h1>
+    <p class="meta">
+<time datetime="2020-09-27T20:00:00+02:00">Sep 27, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#devops-ref">DevOps
+            <span>9</span>
+</a></li>
+        <li><a href="../tags/#english-ref">English
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>52</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#terminology-ref">Terminology
+            <span>3</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>When I hear &ldquo;safety&rdquo; in the context of software development, I&rsquo;m always
+reminded that I need to automate my backup solution. The potential harm most
+software developers have to deal with is luckily only data loss due to hardware
+failures.</p>
+<blockquote>
+<p><strong>Safety is resilience against accidental harm to people, property, or the environment.</strong></p>
+</blockquote>
+<p>Aspects of safety in software development and operations include:</p>
+<ul>
+<li><strong>Availability</strong>: A single server could be cut off from the internet by
+  construction workers, a hard drive could reach its end of life, a fire could
+  break out, an earthquake could hit the region.</li>
+<li><strong>Scalability</strong>: Web services might go down when they are too successful.
+  It&rsquo;s sometimes called the
+  &ldquo;<a href="https://en.wikipedia.org/wiki/Slashdot_effect">hug of death</a>&rdquo; when a huge
+  website links to a small one. Or just when you have a successful marketing
+  campaign.</li>
+<li><strong>Integrity</strong>: All ways to send data are prone to errors. Packet loss or
+  bit flips happen. We have error-correcting protocols to deal with that.</li>
+</ul>
+<p>Software can also be safety-critical, for example when you think about airbags.
+A defect there can put lives at risk
+(<a href="https://www.businessinsider.com/r-gm-recalls-43-million-vehicles-worldwide-for-software-defect-2016-9?r=DE&amp;IR=T">example</a>).
+Other examples of <strong>safety-critical software</strong> include traffic lights,
+life-support systems, software managing the electrical power grid, industrial
+software which is used in machines that produce medicine, pacemakers, and many
+more.</p>
+<p>When we are talking about security in software development, we are thinking
+about hackers. <a href="https://en.wikipedia.org/wiki/Security">Wikipedia</a> has a pretty
+nice explanation:</p>
+<blockquote>
+<p><strong>Security is resilience against harm caused by others.</strong></p>
+</blockquote>
+<p>Aspects of security in software development and operations include:</p>
+<ul>
+<li><strong>Accountability</strong>: You want to have a log of changes. This includes source
+  code. In the version control system git, you can even cryptographically sign
+  the changes so that others cannot tamper with your changes.</li>
+<li><strong>Availability</strong>: An attacker might run a
+  <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">Denial-of-Service attack</a> (DoS).</li>
+<li><strong>Confidentiality</strong>:
+  <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man-in-the-middle</a>
+  (MITM) attacks that apply packet sniffing come to my mind. Dharmil
+  Chhadva wrote <a href="https://levelup.gitconnected.com/man-in-the-middle-attack-mitm-part-2-packet-sniffer-82f0a121c58d">a nice
+  article</a>
+  about this topic.</li>
+<li><strong>Integrity</strong>: Think of a bank account. An attacker wants to increase the
+  money in one account.
+  <a href="https://www.wired.com/story/cryptojacking-took-over-internet/">Cryptojacking</a>
+  is an example where not the data but the software is affected.</li>
+</ul>
+<p>Measures to increase security include:</p>
+<ul>
+<li>Code Reviews and Unit Tests: Anything that improves overall code quality</li>
+<li>Software Composition Analysis (SCA), e.g. by
+  <a href="https://pypi.org/project/safety/">safety</a>,
+  <a href="https://www.veracode.com/products/software-composition-analysis">Veracode</a>,
+  <a href="https://www.whitesourcesoftware.com/how-to-choose-a-software-composition-analysis-solution/">WhiteSource</a>,
+  <a href="https://www.synopsys.com/software-integrity/security-testing/software-composition-analysis.html">Black Duck</a>,
+  and
+  <a href="https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools">many more</a>.</li>
+<li>Static Application Security Testing (SAST), e.g. by
+  <a href="https://pypi.org/project/bandit/">bandit</a>,
+  <a href="https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html">Coverity</a>,
+  and <a href="https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools">many
+  more</a>.</li>
+<li>Dynamic Application Security Testing (DAST), e.g. supported by
+  <a href="https://www.zaproxy.org/">OWASP ZAP</a>,
+  <a href="https://www.arachni-scanner.com/">Arachni Scanner</a>,
+  <a href="https://www.synopsys.com/software-integrity/application-security-testing-services/dynamic-analysis-dast.html">Synopsys</a>,
+  and
+  <a href="https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools">many more</a>.</li>
+</ul>
+<figure class="ai-generated">
+<a href="../images/2020/09/safe-vs-secure.jpg"><img alt="Left a helmet, seat belt and warning cone against accidents, right a padlock and shield protecting a computer from an attacker" height="768" loading="lazy" src="../images/2020/09/safe-vs-secure.jpg" width="1376"/></a>
+<figcaption>Safety protects against accidents, security against attackers.</figcaption>
+</figure>
+<h2 id="tldr-differences-between-safety-and-security">TL;DR: Differences between Safety and Security</h2>
+<table class="table table-striped table-sm" style="width: 60%">
+<tr>
+<th></th>
+<th>Safety</th>
+<th>Security</th>
+</tr>
+<tr>
+<td>What to fear</td>
+<td>Hazard</td>
+<td>Threat</td>
+</tr>
+<tr>
+<td>Cause is</td>
+<td>Accidental</td>
+<td>Malicious</td>
+</tr>
+<tr>
+<td>Measures are</td>
+<td>Backups, Redundancy</td>
+<td>SAST, DAST, SCA, HTTPS, ...</td>
+</tr>
+<tr>
+<td>When things go wrong, it's called a ...</td>
+<td>Failure</td>
+<td>Incident</td>
+</tr>
+<tr>
+<td>Roles</td>
+<td>Site Reliability Engineer</td>
+<td>AppSec Engineer, Penetration Tester</td>
+</tr>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/IEC_61508">IEC 61508</a>: &ldquo;Functional Safety of [&hellip;] Programmable Electronic Safety-related Systems&rdquo;.</li>
+<li><a href="https://ieeexplore.ieee.org/document/467427">IEEE Std 1228</a>: &ldquo;Standard for Software Safety Plans&rdquo;.</li>
+<li>OmniSecu: <a href="https://www.omnisecu.com/ccna-security/types-of-network-attacks.php">Types of Network Attacks against Confidentiality, Integrity and Availability</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+    </body>
+</html>

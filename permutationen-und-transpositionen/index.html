@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Permutation Definition Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M heißt Permutation. Die Menge $S_M$ der Permutationen von M ist eine Gruppe bezüglich der Verkettung..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Linear Algebra, Mathematics, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/permutationen-und-transpositionen/" />
+<meta property="og:title" content="Permutationen und Transpositionen"/>
+<meta property="og:url" content="https://martin-thoma.com/permutationen-und-transpositionen/" />
+<meta property="og:description" content="Permutation Definition Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M heißt Permutation. Die Menge $S_M$ der Permutationen von M ist eine Gruppe bezüglich der Verkettung $\circ$ von Abbildungen und heißt symmetrische Gruppe von M. Quelle: Skript von Herrn Prof. Dr. Leuzinger, KIT Allgemeines Es ist nun egal …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-08-08T10:36:06+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/08/pi-thumbnail.png" />
+
+        <title>Permutationen und Transpositionen  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../permutationen-und-transpositionen/">Permutationen und Transpositionen</a></h1>
+    <p class="meta">
+<time datetime="2012-08-08T10:36:06+02:00">Aug 8, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#linear-algebra-ref">Linear Algebra
+            <span>23</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Inhalt<span class="toc-hide" aria-hidden="true">Ausblenden</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#permutation" title="Permutation">Permutation</a><ul><li><a class="toc-href" href="#definition" title="Definition">Definition</a></li><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#anzahl-der-permutationen" title="Anzahl der Permutationen">Anzahl der Permutationen</a></li><li><a class="toc-href" href="#erzeugung-der-permutationen" title="Erzeugung der Permutationen">Erzeugung der Permutationen</a></li><li><a class="toc-href" href="#verkettung" title="Verkettung">Verkettung</a></li><li><a class="toc-href" href="#die-fehlstandszahl" title="Die Fehlstandszahl">Die Fehlstandszahl</a></li></ul></li><li><a class="toc-href" href="#transposition" title="Transposition">Transposition</a></li><li><a class="toc-href" href="#siehe-auch" title="Siehe auch">Siehe auch</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2012/08/permutationen.jpg"><img alt="Drei farbige Kugeln, die durch gebogene Pfeile ihre Pl&auml;tze tauschen, daneben ein Kreisdiagramm der Zyklen" height="768" src="../images/2012/08/permutationen.jpg" width="1376"/></a>
+<figcaption>Permutationen vertauschen Objekte, Transpositionen tauschen genau zwei.</figcaption>
+</figure>
+<h2 id="permutation">Permutation</h2>
+<h3 id="definition">Definition</h3>
+<div class="definition">Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M hei&szlig;t <strong>Permutation</strong>. Die Menge $S_M$ der Permutationen von M ist eine Gruppe bez&uuml;glich der Verkettung $\circ$ von Abbildungen und hei&szlig;t symmetrische Gruppe von M.</div>
+<p>Quelle: <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/LA.pdf">Skript</a> von Herrn Prof. Dr. Leuzinger, KIT</p>
+<h3 id="allgemeines">Allgemeines</h3>
+<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir <span class="math">\(S_m\)</span>.</p>
+<p>Ein einzelnes Element aus <span class="math">\(S_m\)</span> wird meist <span class="math">\(\pi\)</span> oder <span class="math">\(\sigma\)</span> genannt, also <span class="math">\(\pi \in S_m\)</span>. Da <span class="math">\(\pi\)</span> eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:</p>
+<div class="math">$$M = {1, ..., m}$$</div>
+<div class="math">$$\pi: M \rightarrow M$$</div>
+<div class="math">$$i \mapsto \pi(i)$$</div>
+<p>Kurz schreibt man auch:
+<span class="math">\(\pi =
+\begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; ... &amp; m\\
+           \pi(1) &amp; \pi(2) &amp; \pi(3) &amp; ... &amp; \pi(m)
+\end{pmatrix}\)</span></p>
+<h3 id="anzahl-der-permutationen">Anzahl der Permutationen</h3>
+<p>Wenn ich n Elemente habe, die ich auf n Pl&auml;tze verteilen muss: Wie viele unterschiedliche Zuordnungen von Elementen zu den Pl&auml;tzen gibt es?</p>
+<p>Die Antwort ist <span class="math">\(n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i\)</span>. F&uuml;r das erste Element sind <span class="math">\(n\)</span> Pl&auml;tze frei. Das Zweite kann nur noch auf <span class="math">\((n-1)\)</span> Pl&auml;tze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".</p>
+<h3 id="erzeugung-der-permutationen">Erzeugung der Permutationen</h3>
+<p>Angenommen, man muss in einem Test <span class="math">\(S_3\)</span> explizit angeben. Wie geht das?</p>
+<p>Nun, zuerst erzeugt man alle Permutationen. Daf&uuml;r rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also <span class="math">\(3 \cdot 2 \cdot 1 = 6\)</span> Permutationen:</p>
+<ol>
+<li>
+<hr/>
+</li>
+<li>
+<hr/>
+</li>
+<li>
+<hr/>
+</li>
+<li>
+<hr/>
+</li>
+<li>
+<hr/>
+</li>
+<li>
+<hr/>
+</li>
+</ol>
+<p>Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:</p>
+<ol>
+<li>1 _ _</li>
+<li>1 _ _</li>
+<li>_ 1 _</li>
+<li>_ 1 _</li>
+<li>_ _ 1</li>
+<li>_ _ 1</li>
+</ol>
+<table>
+<tr>
+<td>Nun zum zweiten Element, der 2. Wieder das gleiche Prinzip:</td>
+<td>Und nun nur noch das letzte Einf&uuml;llen:</td>
+</tr>
+<tr>
+<td>1. 1 2 _<br/>
+2. 1 _ 2<br/>
+3. 2 1 _<br/>
+4. _ 1 2<br/>
+5. 2 _ 1<br/>
+6. _ 2 1</td>
+<td>1. 1 2 3<br/>
+2. 1 3 2<br/>
+3. 2 1 3<br/>
+4. 3 1 2<br/>
+5. 2 3 1<br/>
+6. 3 2 1</td>
+</tr>
+</table>
+<p>Und nun noch als Menge in der mathematischen Schreibweise aufschreiben:</p>
+<div class="math">$$S_3 = \left \{
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3
+\end{pmatrix}}_{\pi_1},
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  1 &amp; 3 &amp; 2
+\end{pmatrix}}_{\pi_2},
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  2 &amp; 1 &amp; 3
+\end{pmatrix}}_{\pi_3},
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  3 &amp; 1 &amp; 2
+\end{pmatrix}}_{\pi_4},
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  2 &amp; 3 &amp; 1
+\end{pmatrix}}_{\pi_5},
+\underbrace{\begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  3 &amp; 2 &amp; 1
+\end{pmatrix}}_{\pi_6}
+\right \}$$</div>
+<h3 id="verkettung">Verkettung</h3>
+<p>Was passiert, wenn ich die Permuation <span class="math">\(\pi_2\)</span> mit der Permutation <span class="math">\(\pi_3\)</span> verkette? Also:
+<span class="math">\(\pi_x(i) = \pi_2(\pi_3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
+3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6\)</span>
+Aber:</p>
+<p><span class="math">\(\pi_y(i) = \pi_3(\pi_2(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
+2 &amp; 3 &amp; 1 \end{pmatrix} = \pi_5 \neq \pi_6\)</span></p>
+<p>Die Verkettung von Permutationen ist also nicht kommutativ!</p>
+<p>Es ergibt sich insgesamt folgende Verkn&uuml;fungstabelle (gelesen wird: Zeile zuerst, Spalte sp&auml;ter):</p>
+<table>
+<tr>
+<th style="border-right: 1px solid #000;border-bottom: 1px solid #000;">&nbsp;</th>
+<th style="border-bottom: 1px solid #000;">$\pi_1$</th>
+<th style="border-bottom: 1px solid #000;">$\pi_2$</th>
+<th style="border-bottom: 1px solid #000;">$\pi_3$</th>
+<th style="border-bottom: 1px solid #000;">$\pi_4$</th>
+<th style="border-bottom: 1px solid #000;">$\pi_5$</th>
+<th style="border-bottom: 1px solid #000;">$\pi_6$</th>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_1$</th>
+<td>$\pi_1$</td>
+<td>$\pi_2$</td>
+<td>$\pi_3$</td>
+<td>$\pi_4$</td>
+<td>$\pi_5$</td>
+<td>$\pi_6$</td>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_2$</th>
+<td>$\pi_2$</td>
+<td>$\pi_1$</td>
+<td>$\pi_5$</td>
+<td>$\pi_6$</td>
+<td>$\pi_3$</td>
+<td>$\pi_4$</td>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_3$</th>
+<td>$\pi_3$</td>
+<td>$\pi_4$</td>
+<td>$\pi_1$</td>
+<td>$\pi_2$</td>
+<td>$\pi_6$</td>
+<td>$\pi_5$</td>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_4$</th>
+<td>$\pi_4$</td>
+<td>$\pi_3$</td>
+<td>$\pi_6$</td>
+<td>$\pi_5$</td>
+<td>$\pi_1$</td>
+<td>$\pi_2$</td>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_5$</th>
+<td>$\pi_5$</td>
+<td>$\pi_6$</td>
+<td>$\pi_2$</td>
+<td>$\pi_1$</td>
+<td>$\pi_4$</td>
+<td>$\pi_3$</td>
+</tr>
+<tr>
+<th style="border-right: 1px solid #000;">$\pi_6$</th>
+<td>$\pi_6$</td>
+<td>$\pi_5$</td>
+<td>$\pi_4$</td>
+<td>$\pi_3$</td>
+<td>$\pi_2$</td>
+<td>$\pi_1$</td>
+</tr>
+</table>
+<p>Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder in <span class="math">\(S_3\)</span>. Durch die Verkn&uuml;pfung von Permutationen kommt also <em>immer</em> wieder eine Permutation heraus! Das bedeutet, <span class="math">\(S_3\)</span> ist unter dieser Verkn&uuml;pfung abgeschlossen.</p>
+<p>Man kann nun auch noch sehen, jedes Element aus <span class="math">\((S_3, \circ)\)</span> ein inverses hat, da in jeder Zeile ein mal <span class="math">\(\pi_1\)</span> vorkommt.</p>
+<p>Au&szlig;erdem ist <span class="math">\((S_3, \circ)\)</span> assoziativ.</p>
+<p>Kurz: <span class="math">\((S_3, \circ)\)</span> ist eine Gruppe, die jedoch nicht abelsch ist.</p>
+<p>Es wurde in der Vorlesung auch gezeigt, dass allgemein <span class="math">\((S_m, \circ)\)</span> eine Gruppe ist.</p>
+<h3 id="die-fehlstandszahl">Die Fehlstandszahl</h3>
+<div class="definition">Es sei $\pi \in S_m$ eine Permutation. Die <strong>Fehlstandszahl</strong> $F(\pi)$ von $\pi$ ist die (eindeutige) Anzahl der F&auml;lle, in denen f&uuml;r $i &lt; k$ gilt $\pi(i) &gt; \pi(k)$. Die Permutationen mit gerader Fehlstandszahl $F(\pi)$ hei&szlig;en gerade, die Permutationen mit ungerader Fehlstandszahl hei&szlig;en ungerade.</div>
+<h4>Beispiele</h4>
+<p><span class="math">\(\pi_1 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3
+\end{pmatrix}\)</span> hat die Fehlstandszahl 0.</p>
+<p><span class="math">\(\pi_2 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  1 &amp; 3 &amp; 2
+\end{pmatrix}\)</span> hat die Fehlstandszahl 1, da <span class="math">\(i = 2 &lt; 3 = k\)</span> gilt, aber <span class="math">\(\pi_2(2) = 3 &gt; 2 = \pi_2(3)\)</span>.</p>
+<p><span class="math">\(\pi_3 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  2 &amp; 1 &amp; 3
+\end{pmatrix}\)</span> hat die Fehlstandszahl 1.</p>
+<p><span class="math">\(\pi_4 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  3 &amp; 1 &amp; 2
+\end{pmatrix}\)</span> hat die Fehlstandszahl 2.</p>
+<p><span class="math">\(\pi_5 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  2 &amp; 3 &amp; 1
+\end{pmatrix}\)</span> hat die Fehlstandszahl 2.</p>
+<p><span class="math">\(\pi_6 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \\
+  3 &amp; 2 &amp; 1
+\end{pmatrix}\)</span> hat die Fehlstandszahl 2.</p>
+<h2 id="transposition">Transposition</h2>
+<div class="definition">Eine <strong>Transposition</strong> ist eine Permutation aus $S_m$, bei der zwei verschiedene,
+fest gew&auml;hlte Zahlen $i, k \in \{1, 2, ..., m\}$ vertauscht werden, w&auml;hrend alle anderen Zahlen fest bleiben.
+Man schreibt f&uuml;r diese Transposition auch kurz $(i~k)$.</div>
+<p>Transpositionen werden gerne mit <span class="math">\(\tau\)</span> abgek&uuml;rzt.</p>
+<p>Also: <span class="math">\(\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3)\)</span> sind Transpositionen.
+<span class="math">\(\pi_1, \pi_4, \pi_5\)</span> sind keine Transpositionen.</p>
+<p>Es gilt: <span class="math">\(\tau \circ \tau = id\)</span></p>
+<p>Wir haben in der Vorlesung gezeigt:</p>
+<div class="satz">Jede Permutation $\pi \in S_m, m \geq 2,$ l&auml;sst sich als Verkettung von Transpositionen darstellen.</div>
+<p>Beispiel:
+<span class="math">\(\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6)\)</span></p>
+<p>Gelesen wird das ganze von rechts nach links. Die Transposition <span class="math">\((5~6)\)</span> wird also zuerst angewendet. Wie bei Abbildungen die verkettet werden halt auch.</p>
+<p>Die Fehlstandszahl von <span class="math">\(\sigma\)</span> ist 13 und die Anzahl der Transpositionen ist ungerade.</p>
+<p>Interessanterweise gilt auch <span class="math">\(\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)\)</span>.
+Au&szlig;erdem kann man beliebig h&auml;ufig eine Transposition doppelt hinzuf&uuml;gen, da es ja die Identit&auml;t ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.</p>
+<h2 id="siehe-auch">Siehe auch</h2>
+<p>Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

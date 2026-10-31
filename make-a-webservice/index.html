@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="I started doing web-stuff again! There are a gazillion decisions to make when you create even a medium-sized web service. This article is intended to give a small overview. This is an article I..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Web Development, Web Services, Software Engineering, The Web, " />
+
+<link rel="canonical" href="https://martin-thoma.com/make-a-webservice/" />
+<meta property="og:title" content="Make a Webservice"/>
+<meta property="og:url" content="https://martin-thoma.com/make-a-webservice/" />
+<meta property="og:description" content="I started doing web-stuff again! There are a gazillion decisions to make when you create even a medium-sized web service. This article is intended to give a small overview. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2019/12/make-a-webservice.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Make a Webservice  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../make-a-webservice/">Make a Webservice</a></h1>
+    <p class="meta">
+<time datetime="2019-12-31T20:00:00+01:00">Dez 31, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#web-development-ref">Web Development
+            <span>37</span>
+</a></li>
+        <li><a href="../tags/#web-services-ref">Web Services
+            <span>4</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" dirty'="" href="#quick-n-dirty" title="Quick n">Quick n' Dirty</a></li><li><a class="toc-href" href="#flask-ecosystem" title="Flask Ecosystem">Flask Ecosystem</a></li><li><a class="toc-href" href="#databases" title="Databases">Databases</a></li><li><a class="toc-href" href="#front-end-framework" title="Front-End Framework">Front-End Framework</a></li><li><a class="toc-href" href="#wysiwyg-editors" title="WYSIWYG Editors">WYSIWYG Editors</a></li><li><a class="toc-href" href="#decisions" title="Decisions">Decisions</a></li><li><a class="toc-href" href="#favicon" title="Favicon">Favicon</a></li><li><a class="toc-href" href="#small-services" title="Small Services">Small Services</a></li><li><a class="toc-href" href="#e-mail" title="E-Mail">E-Mail</a></li><li><a class="toc-href" href="#image-upload" title="Image Upload">Image Upload</a></li><li><a class="toc-href" href="#social-stuff" title="Social Stuff">Social Stuff</a></li><li><a class="toc-href" href="#payment" title="Payment">Payment</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#more" title="More">More</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I started doing web-stuff again! There are a gazillion decisions to make when
+you create even a medium-sized web service. This article is intended to give
+a small overview.</p>
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<figure class="ai-generated">
+<a href="../images/2019/12/make-a-webservice.jpg"><img alt="Layers of a web service from browser via application server and database to the cloud, next to a laptop with a rocket" height="768" src="../images/2019/12/make-a-webservice.jpg" width="1376"/></a>
+<figcaption>The building blocks of a small web service.</figcaption>
+</figure>
+<h2 id="quick-n-dirty">Quick n' Dirty</h2>
+<p>You can set up a first page in about 10 minutes, if you have a <a href="https://m.do.co/c/b5dd0c5d61b9">DigitalOcean</a> account and the domain via namecheap:</p>
+<ol>
+<li>Create <a href="https://marketplace.digitalocean.com/apps/docker">Docker digital ocean droplet</a></li>
+<li>Add SSH-Key to machine</li>
+<li>Clone GitHub repository</li>
+<li>Create A-Record in namecheap (<a href="https://support.stackpath.com/hc/en-us/articles/360001079683-How-long-does-it-take-for-DNS-changes-to-be-reflected-">takes 24h</a>)</li>
+</ol>
+<h2 id="flask-ecosystem">Flask Ecosystem</h2>
+<ul>
+<li>Miguel Grinberg: <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure">The Flask Mega-Tutorial</a></li>
+<li><a href="https://flask-login.readthedocs.io/en/latest/">Flask-Login</a></li>
+<li>DB<ul>
+<li><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/">Flask-SQLAlchemy</a></li>
+<li><a href="https://flask-migrate.readthedocs.io/en/latest/">Flask-Migrate</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="databases">Databases</h2>
+<ul>
+<li><a href="https://blog.panoply.io/a-comparative-vmariadb-vs-mysql">MariaDB vs MySQL</a></li>
+</ul>
+<h2 id="front-end-framework">Front-End Framework</h2>
+<ul>
+<li><a href="https://getbootstrap.com/docs/">Bootstrap</a> (<a href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)">wiki</a>)</li>
+<li><a href="https://materializecss.com/">Materialize</a> (<a href="https://en.wikipedia.org/wiki/Material_Design">wiki</a>)</li>
+<li><a href="https://foundation.zurb.com/">Foundation</a> (<a href="https://en.wikipedia.org/wiki/Foundation_(framework)">wiki</a>)</li>
+<li><a href="https://semantic-ui.com/">Semantic UI</a></li>
+</ul>
+<h2 id="wysiwyg-editors">WYSIWYG Editors</h2>
+<p>I would like to have a WYSIWYG editor. It should support heading types,
+bold/italic/underline, tables, images, videos from YouTube, file upload and
+MathJax formulas.</p>
+<p>It would be nice if it supported storing / rendering directly from Markdown. If
+that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Editor</th>
+<th><a href="https://quilljs.com/">QuillJS</a></th>
+<th><a href="https://summernote.org/">Summernote</a></th>
+<th><a href="https://ckeditor.com/ckeditor-4/">CKEditor 4</a></th>
+<th><a href="https://alex-d.github.io/Trumbowyg/">Trumbowyg</a></th>
+<th><a href="https://imperavi.com/redactor/">Redactor</a></th>
+<th><a href="https://yabwe.github.io/medium-editor/">Medium</a></th>
+<th><a href="https://www.froala.com/">Froala</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Toolbar</th>
+<td><a href="https://quilljs.com/docs/modules/toolbar/#container">custom</a></td>
+<td><a href="https://summernote.org/deep-dive/">custom</a></td>
+<td><a href="https://ckeditor.com/docs/ckeditor4/latest/guide/dev_toolbar.html">custom</a></td>
+<td>?</td>
+<td><a href="https://imperavi.com/redactor/examples/buttons/change-buttons-in-the-toolbar/">custom</a></td>
+<td><a href="https://github.com/yabwe/medium-editor/issues/1133">?</a></td>
+<td><a href="https://www.froala.com/wysiwyg-editor/v1.2/docs/examples/custom-toolbar">custom</a></td>
+</tr>
+<tr>
+<th>Bold/Italic/Underline</th>
+<td>B+I+U</td>
+<td>B+U</td>
+<td>B+I</td>
+<td>B+I</td>
+<td>B+I</td>
+<td>B+I+U</td>
+<td>B+I+U</td>
+</tr>
+<tr>
+<th>Headings</th>
+<td>3</td>
+<td>6</td>
+<td>3</td>
+<td>4</td>
+<td style="background-color: #f2dede;">6</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<th>Tables</th>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #c9f8c9;">Good</td>
+<td>Ok</td>
+<td style="background-color: #f2dede;">Bad, via Plugin</td>
+<td>Ok</td>
+<td style="background-color: #c9f8c9;">Good, via plugin</td>
+<td style="background-color: #c9f8c9;">Good</td>
+</tr>
+<tr>
+<th>Lists</th>
+<td>ol+ul</td>
+<td>ol+ul</td>
+<td>ol+ul</td>
+<td>ol+ul</td>
+<td>ol+ul</td>
+<td style="background-color: #f2dede;">No</td>
+<td>ol+ul</td>
+</tr>
+<tr>
+<th>Links</th>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<th>File Upload</th>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #f2dede;">No</td>
+<td>Yes</td>
+<td style="background-color: #f2dede;">No</td>
+<td>Yes</td>
+<td style="background-color: #f2dede;">No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<th>Images</th>
+<td style="background-color: #f2dede;">Bad</td>
+<td style="background-color: #c9f8c9;">Good</td>
+<td style="background-color: #c9f8c9;">Good</td>
+<td style="background-color: #f2dede;">Bad</td>
+<td>Basic, nice</td>
+<td style="background-color: #f2dede;">Bad, via plugin</td>
+<td style="background-color: #c9f8c9;">Very Good</td>
+</tr>
+<tr>
+<th>Code</th>
+<td>Yes</td>
+<td>Bad, also <a href="https://epiksel.github.io/summernote-highlight/">via plugin</a></td>
+<td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/codesnippet.html">via Plugin</a></td>
+<td>via plugin</td>
+<td>Bad</td>
+<td style="background-color: #f2dede;">No</td>
+<td>Bad</td>
+</tr>
+<tr>
+<th>MathJax</th>
+<td>Bad</td>
+<td style="background-color: #c9f8c9;">Good, <a href="https://github.com/tylerecouture/summernote-math">via plugin</a></td>
+<td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/cke4/addon/mathjax">via plugin</a></td>
+<td style="background-color: #c9f8c9;">Basic, <a href="https://alex-d.github.io/Trumbowyg/demos/#plugins-mathml">via plugin</a></td>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #f2dede;"><a href="https://github.com/yabwe/medium-editor/issues/1500">No</a></td>
+<td style="background-color: #f2dede;">Questionable, <a href="https://www.froala.com/wysiwyg-editor/examples/wiris">via plugin</a></td>
+</tr>
+<tr>
+<th>(Y)ouTube / (V)imeo</th>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #c9f8c9;">Y+V</td>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #f2dede;">No</td>
+<td style="background-color: #f2dede;">No</td>
+<td>Bad, via plugin</td>
+<td style="background-color: #c9f8c9;">Yes</td>
+</tr>
+<tr>
+<th>Output</th>
+<td style="background-color: #f2dede;">JSON</td>
+<td>HTML</td>
+<td>HTML</td>
+<td>HTML</td>
+<td>HTML</td>
+<td>HTML</td>
+<td>HTML</td>
+</tr>
+<tr>
+<th>Community</th>
+<td><a href="https://stackoverflow.com/questions/tagged/quill">604 SO</a></td>
+<td><a href="https://stackoverflow.com/questions/tagged/summernote">716 SO</a></td>
+<td style="background-color: #c9f8c9;"><a href="https://stackoverflow.com/questions/tagged/ckeditor">8033 SO</a></td>
+<td style="background-color: #f2dede;"><a href="https://stackoverflow.com/questions/tagged/trumbowyg">38 SO</a></td>
+<td><a href="https://stackoverflow.com/questions/tagged/redactor">268 SO</a></td>
+<td style="background-color: #f2dede;"><a href="https://stackoverflow.com/questions/tagged/medium-editor">60 SO</a></td>
+<td><a href="https://stackoverflow.com/questions/tagged/froala">344 SO</a></td>
+</tr>
+<tr>
+<th>Dependencies</th>
+<td></td>
+<td>jQuery</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>License/Price</th>
+<td style="background-color: #c9f8c9;">BSD</td>
+<td style="background-color: #c9f8c9;">MIT</td>
+<td style="background-color: #c9f8c9;">GPLv2, LGPLv2.1</td>
+<td style="background-color: #c9f8c9;">MIT</td>
+<td>$199</td>
+<td style="background-color: #c9f8c9;">MIT</td>
+<td style="background-color: #f2dede;">$1199</td>
+</tr>
+</tbody>
+</table>
+<p>One should also mention that there are a couple of Markdown editors out there.
+Usually, you can only write Markdown and see a preview:</p>
+<ul>
+<li><a href="https://stackedit.io/">StackEdit</a></li>
+<li><a href="https://hackmd.io/">HackMD</a></li>
+<li><a href="https://simplemde.com/">SimpleMDE</a></li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="https://ory-editor.aeneas.io/">OryEditor</a>: Similar to Medium, but a lot more functionality</li>
+<li><a href="https://trix-editor.org/">Trix</a>: Another super basic editor. Looks nice.</li>
+<li><a href="https://www.tiny.cloud/">TinyMCE</a></li>
+</ul>
+<h2 id="decisions">Decisions</h2>
+<ul>
+<li>Display name, Username or Handle? (<a href="https://help.disqus.com/user-profile/what-is-the-difference-between-my-username-and-my-display-name">Disqus</a>, <a href="https://help.kik.com/hc/en-us/articles/115006041908-Username-vs-display-name">Kik</a>, <a href="https://community.spotify.com/t5/Social/Username-and-Displayed-name-are-different/td-p/4564880">Spotify</a>, <a href="https://help.twitch.tv/s/article/username-rename-and-recycling-policies?language=en_US">Twitch</a>)</li>
+<li>How many characters may a display name have? (e.g. <a href="https://meta.stackoverflow.com/questions/307118/maximum-size-for-display-names">30 on StackExchange</a>)</li>
+<li>Where are hard deletes allowed, where only soft deletes?</li>
+</ul>
+<h2 id="favicon">Favicon</h2>
+<ul>
+<li><a href="https://fontawesome.com/">Font Awesome</a> (<a href="https://fontawesome.com/icons?d=gallery">icon search</a>)</li>
+<li><a href="https://feathericons.com/">Feather Icons</a></li>
+<li><a href="https://favicon.io/favicon-generator/">favicon.io/favicon-generator</a></li>
+<li><a href="https://icons8.de/icons">icons8.de/icons</a></li>
+<li><a href="https://github.com/Automattic/gridicons">gridicons</a> (WordPress)</li>
+</ul>
+<h2 id="small-services">Small Services</h2>
+<ul>
+<li><a href="http://gravatar.com">Gravatar</a></li>
+</ul>
+<h2 id="e-mail">E-Mail</h2>
+<ul>
+<li><a href="https://pythonhosted.org/Flask-Mail/">Flask-Mail</a></li>
+<li>Mailgun, Mailchimp?</li>
+<li><a href="https://sendgrid.com/">SendGrid</a> (<a href="https://stackshare.io/sendgrid">users</a>)</li>
+<li>Mail-Server <a href="https://github.com/tomav/docker-mailserver">Docker <code>tvial/docker-mailserver:latest</code></a>: Requires 1 GB RAM</li>
+</ul>
+<h2 id="image-upload">Image Upload</h2>
+<ul>
+<li><a href="https://imgur.com/">Imgur</a>?</li>
+</ul>
+<h2 id="social-stuff">Social Stuff</h2>
+<p>There are two aspects of social service optimization: Making it easy to share
+stuff from your site and being active on that site. Or at least reachable.</p>
+<ul>
+<li>Twitter:<ul>
+<li>Is it worth creating an account?</li>
+<li><a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image.html">Twitter Card</a></li>
+</ul>
+</li>
+<li>Facebook:<ul>
+<li><a href="https://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol">Open Graph</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="payment">Payment</h2>
+<ul>
+<li>PayPal?</li>
+<li><a href="https://stripe.com">Stripe</a> (<a href="https://stackshare.io/stripe">users</a>)?</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<ul>
+<li>Google: <a href="https://developers.google.com/speed/pagespeed/insights/">Pagespeed Insights</a></li>
+<li>Google Analytics</li>
+<li><a href="https://gtmetrix.com/reports/enzado.com/oM61ID2t">gtmetrix.com</a>: 98% speed, 93% YSlow, 0.9s, 219kb, 11 Requests</li>
+<li><a href="https://www.thinkwithgoogle.com/intl/de-de/feature/testmysite">thinkwithgoogle.com: Test My Site</a>: 1.6s on a 4G network</li>
+<li><a href="https://ipv6-test.com/validate.php">IPv6</a></li>
+</ul>
+<h2 id="more">More</h2>
+<ul>
+<li>OpenID: <a href="https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1">developer.okta.com/blog/&hellip;/25/oidc-primer-part-1</a> and <a href="https://developer.okta.com/product/">developer.okta.com/product</a>, <a href="https://blog.codinghorror.com/openid-does-the-world-really-need-yet-another-username-and-password/">Coding Horror</a></li>
+<li><a href="https://blog.codinghorror.com/the-god-login/">Login design</a></li>
+<li>Bootstrap:<ul>
+<li><a href="https://startbootstrap.com/templates/">startbootstrap.com/templates</a></li>
+<li><a href="https://getbootstrap.com/docs/4.1/examples/">getbootstrap.com/docs/4.1/examples</a></li>
+<li><a href="https://getbootstrap.com/docs/4.1/examples/dashboard/">getbootstrap.com/docs/4.1/examples/dashboard</a></li>
+</ul>
+</li>
+<li>Stock Photos:<ul>
+<li><a href="https://www.pexels.com/photo/beach-blue-sky-idyllic-island-373394/">pexels.com/&hellip;/beach-blue-sky-idyllic-island-373394</a></li>
+<li><a href="https://blog.snappa.com/free-stock-photos/">blog.snappa.com/free-stock-photos</a></li>
+<li><a href="https://pixabay.com/de/">pixabay.com/de</a></li>
+<li><a href="https://www.foleon.com/blog/5-sites-for-free-stock-photos">foleon.com/blog/5-sites-for-free-stock-photos</a></li>
+<li><a href="https://www.canva.com/photos/free/">canva.com/photos/free</a></li>
+<li><a href="https://unsplash.com/free-stock-photos">unsplash.com/free-stock-photos</a></li>
+</ul>
+</li>
+<li>Flask-Admin for database management</li>
+<li>Flask-Assets for asset management</li>
+<li>Flask-Security for authentication</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#the-web-ref">The Web</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

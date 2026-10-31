@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel. Angenommen man hat zwei Basen des \(\mathbb{R}^2\)-Vektorraumes: $$B = \{\overbrace{\begin{pmatrix} 1 \\ 2..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Mathematics, Linear Algebra, Matrix, German posts, " />
+
+<link rel="canonical" href="https://martin-thoma.com/wie-bestimme-ich-die-basiswechselmatrix/" />
+<meta property="og:title" content="Wie bestimme ich die Basiswechselmatrix?"/>
+<meta property="og:url" content="https://martin-thoma.com/wie-bestimme-ich-die-basiswechselmatrix/" />
+<meta property="og:description" content="Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel. Angenommen man hat zwei Basen des \(\mathbb{R}^2\)-Vektorraumes: $$B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}$$ und $$\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-03-16T17:06:11+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/03/Basiswechselmatrix.png" />
+
+        <title>Wie bestimme ich die Basiswechselmatrix?  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../wie-bestimme-ich-die-basiswechselmatrix/">Wie bestimme ich die Basiswechselmatrix?</a></h1>
+    <p class="meta">
+<time datetime="2012-03-16T17:06:11+01:00">Mär 16, 2012</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#linear-algebra-ref">Linear Algebra
+            <span>23</span>
+</a></li>
+        <li><a href="../tags/#mathematics-ref">Mathematics
+            <span>95</span>
+</a></li>
+        <li><a href="../tags/#matrix-ref">Matrix
+            <span>9</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2012/03/basiswechselmatrix.jpg"><img alt="Koordinatenebene mit Standardgitter und einem geneigten zweiten Gitter einer anderen Basis, ein Vektor in beiden Systemen, daneben zwei Matrizen mit Umrechnungspfeil" height="768" src="../images/2012/03/basiswechselmatrix.jpg" width="1376"/></a>
+<figcaption>Ein Vektor, zwei Basen: Die Basiswechselmatrix rechnet die Koordinaten um.</figcaption>
+</figure>
+<p>Eine Basiswechselmatrix oder auch &Uuml;bergangsmatrix dient dem Basiswechsel.</p>
+<p>Angenommen man hat zwei Basen des <span markdown="0"><span class="math">\(\mathbb{R}^2\)</span></span>-Vektorraumes:</p>
+<div>$$B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}$$</div>
+<p>und</p>
+<div>$$\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}$$</div>
+<p>Sei nun </p>
+<div class="math">$$v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$</div>
+<p> ein Vektor zur Standardbasis.
+Da <span markdown="0"><span class="math">\(B\)</span></span> und <span markdown="0"><span class="math">\(\bar B\)</span></span> auch Basen des <span markdown="0"><span class="math">\(\mathbb{R}^2\)</span></span> sind, kann man v auch zu diesen Basen darstellen:</p>
+<div class="math">$$\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$$</div>
+<p> und
+</p>
+<div class="math">$$\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}$$</div>
+<p>Wie kann man nun diese neue Darstellung berechnen?
+Nun, wir bestimmen eine Matrix A f&uuml;r die gilt:
+<span markdown="0"><span class="math">\(A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2\)</span></span>. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgau&szlig;t":</p>
+<div class="math">$$\left( \begin{array}{c c | c c}
+  1 &amp; 2 &amp; 3 &amp;  8 \\
+  2 &amp; 3 &amp; 5 &amp; 13
+\end{array} \right)
+\rightsquigarrow
+\left( \begin{array}{c c | c c}
+  \frac{1}{3} &amp; \frac{2}{3} &amp; 1 &amp;  \frac{8}{3} \\
+        2     &amp; 3           &amp; 5 &amp; 13
+\end{array} \right)
+\rightsquigarrow \\
+\left( \begin{array}{c c | c c}
+  \frac{1}{3}   &amp; \frac{2}{3}    &amp; 1 &amp;  \frac{8}{3} \\
+  \frac{6-5}{3} &amp; \frac{9-10}{3} &amp; 0 &amp; \frac{39-8 \cdot 5}{3}
+\end{array} \right)
+\rightsquigarrow
+\left( \begin{array}{c c | c c}
+  \frac{1}{3}   &amp; \frac{2}{3}    &amp; 1 &amp;  \frac{8}{3} \\
+  \frac{1}{3}   &amp; -\frac{1}{3}   &amp; 0 &amp; -\frac{1}{3}
+\end{array} \right)
+\rightsquigarrow \\
+\left( \begin{array}{c c | c c}
+  \frac{9}{3}   &amp; -\frac{6}{3}   &amp; 1 &amp; 0 \\
+  \frac{1}{3}   &amp; -\frac{1}{3}   &amp; 0 &amp; -\frac{1}{3}
+\end{array} \right)
+\rightsquigarrow
+\left( \begin{array}{c c | c c}
+  3 &amp; -2 &amp; 1 &amp;  0 \\
+  -1 &amp; 1 &amp; 0 &amp;  1
+\end{array} \right)$$</div>
+<p>Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0"><span class="math">\(\bar B\)</span></span>, also (von | nach) und rechts wendet man Gau&szlig; an.</p>
+<p>Nun noch die Kontrolle, ob es stimmen kann:</p>
+<div>$$\underbrace{\begin{pmatrix} 3 &amp; -2 \\ -1 &amp; 1 \end{pmatrix}}_{A_{B \bar B}}
+\cdot
+\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}$$</div>
+<h2 id="siehe-auch">Siehe auch</h2>
+<ul>
+<li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Basiswechsel_(Vektorraum)">Basiswechsel (Vektorraum)</a>, <a href="http://de.wikipedia.org/wiki/Standardbasis">Standardbasis</a></li>
+<li><a href="../eigenschaften-von-abbildungsmatrizen/">Eigenschaften von Abbildungsmatrizen</a></li>
+<li>Skript von Prof. Dr. Leuzinger, ab S. 82</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#german-posts-ref">German posts</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="pfile is a binary file format that is used in ASR for storing feature vectors and their corresponding labels. This file format is sometimes also called ICSI feature file archive format. But this..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="ASR, Machine Learning, AI, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/what-are-pfiles/" />
+<meta property="og:title" content="What are pfiles?"/>
+<meta property="og:url" content="https://martin-thoma.com/what-are-pfiles/" />
+<meta property="og:description" content="pfile is a binary file format that is used in ASR for storing feature vectors and their corresponding labels. This file format is sometimes also called ICSI feature file archive format. But this file format can be used not only for ASR, but also for many other ML tasks. The …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2014-06-27T06:39:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/ai.png" />
+
+        <title>What are pfiles?  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../what-are-pfiles/">What are pfiles?</a></h1>
+    <p class="meta">
+<time datetime="2014-06-27T06:39:00+02:00">Jun 27, 2014</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#asr-ref">ASR
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#pfile_utils" title="pfile_utils">pfile_utils</a><ul><li><a class="toc-href" href="#pfile_create" title="pfile_create">pfile_create</a></li></ul></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>pfile is a binary file format that is used in
+<abbr title="Automatic Speech Recognition">ASR</abbr>
+for storing feature vectors and their corresponding labels.
+This file format is sometimes also called
+<abbr title="International Computer Science Institute">ICSI</abbr>
+feature file archive format. But this file format can be used not only for ASR,
+but also for many other <abbr title="Machine Learning">ML</abbr> tasks.</p>
+<blockquote>
+<p>The file consists of a fixed length ascii header followed by zero or more
+variable length binary sections. Each parameter in the header has a name and a
+list of zero or more value strings. The programmer's interface to pfiles (see
+param.h and pfile.h) allows each parameter value to be interpreted as integer,
+float, string, arrays, distributed vector, matrix, mapping tables, etc.</p>
+<p>Some special parameter names are associated with a section in the binary part
+of the pfile. The value strings for these parameters give the size and offset
+(from the end of the header) of the binary section.</p>
+<p>A binary section can be used as a one dimensional sequence of values, or as a
+sequence of fixed length rows in a two dimensional matrix.</p>
+<p>Some parameters are automatically added by the pfile command. For example,
+pfile_header is a parameter that contains the length and version number of
+the header.</p>
+</blockquote>
+<p>Source: <a href="http://old-site.clsp.jhu.edu/ws96/ris/man/pfile.doc">old-site.clsp.jhu.edu/ws96/ris/man/pfile.doc</a></p>
+<h2 id="pfile_utils">pfile_utils</h2>
+<p><code>pfile_utils</code> is a toolset to manage pfiles. It is part of the
+<a href="http://www1.icsi.berkeley.edu/~dpwe/projects/sprach/sprachcore.html">SPRACHcore software package</a>.
+The project is located at
+<a href="https://code.google.com/p/pfile-utilities">code.google.com/p/pfile-utilities</a>
+and seems to be in version 0.51 by now. The code is written in C++.</p>
+<p><code>pfile_info</code> gives general information about the file:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pfile_info<span class="w"> </span>all.pfile
+all.pfile
+<span class="m">9581</span><span class="w"> </span>sentences,<span class="w"> </span><span class="m">3158027</span><span class="w"> </span>frames,<span class="w"> </span><span class="m">1</span><span class="w"> </span>label<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span><span class="m">42</span><span class="w"> </span>features
+</code></pre></div>
+<h3 id="pfile_create">pfile_create</h3>
+<p>You can call pfile_create like this:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./pfile_create<span class="w"> </span>-i<span class="w"> </span>-<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>output.pfile
+<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span>
+<span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span>
+<span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span>
+<span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span>
+<span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="m">4</span>
+<span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+<span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1337</span><span class="w"> </span><span class="m">0</span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span>
+<span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+<p>You can end the input with <kbd>Ctrl</kbd> + <kbd>D</kbd>.</p>
+<p>The numbers are:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>sentence-nr<span class="o">]</span><span class="w"> </span><span class="o">[</span>frame-nr<span class="o">]</span><span class="w"> </span><span class="o">[</span>feature<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>feature<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="o">[</span>feature<span class="w"> </span>n<span class="o">]</span><span class="w"> </span><span class="o">[</span>label<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>label<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="o">[</span>label<span class="w"> </span>n<span class="o">]</span>
+</code></pre></div>
+<p>where the option <code>-f</code> defines the number of features and <code>-l</code> defines the number
+of labels. Please note that within one sentence, the number of frames has to be
+increasing by exactly one. One sentence can have an arbitrary number of
+frames, but as soon as you make another sentence, you need to increase this
+number by exactly one.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="http://www1.icsi.berkeley.edu/Speech/faq/ftrformats.html">ICSI Speech FAQ: 3.3 What are the feature data formats?</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

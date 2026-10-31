@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Really important parts of code reviews are almost impossible to automate: Architectural decisions and logical bugs. They are too customized to your codebase; too specific for the pull request...." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Flake8, Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/write-flake8-plugins/" />
+<meta property="og:title" content="How to write Flake8 plugins 😍"/>
+<meta property="og:url" content="https://martin-thoma.com/write-flake8-plugins/" />
+<meta property="og:description" content="Really important parts of code reviews are almost impossible to automate: Architectural decisions and logical bugs. They are too customized to your codebase; too specific for the pull request. However, many comments in code reviews are not like that. They are about simple style decisions, common minor mistakes, and misconceptions …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-09-25T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2020/09/write-flake8-plugins-2.jpg" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="341" />
+
+        <title>How to write Flake8 plugins 😍  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../write-flake8-plugins/">How to write Flake8 plugins 😍</a></h1>
+    <p class="meta">
+<time datetime="2020-09-25T20:00:00+02:00">Sep 25, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#flake8-ref">Flake8
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#about-flake8" title="About Flake8">About Flake8</a></li><li><a class="toc-href" href="#the-flake8-plugin-skeleton" title="The Flake8 Plugin Skeleton">The Flake8 Plugin Skeleton</a></li><li><a class="toc-href" href="#the-flake8-plugin-class" title="The Flake8 Plugin class">The Flake8 Plugin class</a></li><li><a ast'="" class="toc-href" href="#understanding-pythons-ast" s="" title="Understanding Python">Understanding Python's AST</a></li><li><a class="toc-href" href="#a-flake8-visitor-class" title="A Flake8 visitor class">A Flake8 visitor class</a></li><li><a class="toc-href" href="#testing-flake8-plugins" title="Testing Flake8 plugins">Testing Flake8 plugins</a></li><li><a class="toc-href" href="#complete-example" title="Complete example">Complete example</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Really important parts of code reviews are almost impossible to automate:
+Architectural decisions and logical bugs. They are too customized to your
+codebase; too specific for the pull request.</p>
+<p>However, many comments in code reviews are not like that. They are about simple
+style decisions, common minor mistakes, and misconceptions. They are valuable
+as well, but they distract the reviewer from the harder parts. The linting
+system Flake8 allows you to write plugins that automatically capture those
+simple things. You can execute them in your CI pipeline and thus never need to
+think about them again.</p>
+<p>In this article, you will learn how to create a Flake8 plugin. As an example,
+we will create a plugin which recognizes the pattern</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
+<span class="ow">not</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<p>and thus can suggest using the following instead:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Good</span>
+<span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+</code></pre></div>
+<figure>
+<a href="../images/2020/09/write-flake8-plugins-1.png"><img alt="Cartoon by Geek-and-Poke (Oliver Widder)" height="621" src="../images/2020/09/write-flake8-plugins-1.png" width="2000"/></a>
+<figcaption>Cartoon by <a href="http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices">Geek-and-Poke</a> (Oliver Widder)</figcaption>
+</figure>
+<h2 id="about-flake8">About Flake8</h2>
+<p>Flake8 is a linter which only checks rules. It does not change the code. Every rule has a message and a code. The built-in rule codes begin either with E (Error) or with W (Warning). After that, a 3-digit number follows:</p>
+<ul>
+<li>E101: indentation contains mixed spaces and tabs</li>
+<li>E111: indentation is not a multiple of four</li>
+<li>E112: expected an indented block</li>
+</ul>
+<p>One can select the rules which one wants to check on a prefix basis:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules beginning with "E1" and nothing else</span>
+flake8<span class="w"> </span>--select<span class="w"> </span>E1<span class="w"> </span>.
+</code></pre></div>
+<p>Alternatively, one can blacklist rules:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules except the ones beginning with E1 or W512</span>
+flake8<span class="w"> </span>--ignore<span class="w"> </span>E1,W512<span class="w"> </span>.
+</code></pre></div>
+<p>Plugins need a 3-character prefix. For my plugin <a href="https://pypi.org/project/flake8-simplify/0.1.0/">flake8-simplify</a>, I chose SIM as a prefix.</p>
+<blockquote>
+<p>The 3-character prefix should not start with E or W as people might want to completely block Flake8 W-rules.</p>
+</blockquote>
+<figure>
+<a href="../images/2020/09/write-flake8-plugins-2.jpg"><img alt="Comic by Geek and Poke (Oliver Widder)" height="341" loading="lazy" src="../images/2020/09/write-flake8-plugins-2.jpg" width="2000"/></a>
+<figcaption>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</figcaption>
+</figure>
+<h2 id="the-flake8-plugin-skeleton">The Flake8 Plugin Skeleton</h2>
+<p><a href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> is a command-line utility that allows you to create a project from scratch by using a template. Install it via:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter
+</code></pre></div>
+<p>To create your Flake8 plugin template, use:</p>
+<div class="highlight"><pre><span></span><code>cookiecutter<span class="w"> </span>https://github.com/MartinThoma/cookiecutter-flake8-plugin
+</code></pre></div>
+<h2 id="the-flake8-plugin-class">The Flake8 Plugin class</h2>
+<p>You need to create a plugin class like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>  <span class="c1"># pragma: no cover (&lt;PY38)</span>
+    <span class="c1"># Third party</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">importlib_metadata</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover (PY38+)</span>
+    <span class="c1"># Core Library</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.metadata</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">importlib_metadata</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Plugin</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="vm">__name__</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">importlib_metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">AST</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="n">visitor</span> <span class="o">=</span> <span class="n">Visitor</span><span class="p">()</span>
+        <span class="n">visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">visitor</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>You need to point to that class in the setup.cfg:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[options.entry_points]</span>
+<span class="na">flake8.extension</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">AWE</span><span class="o">=</span><span class="s">flake8_awesome:Plugin</span>
+</code></pre></div>
+<p>Just replace AWE with the 3-character code you want to have for your rules. We are, of course, not there yet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Python's AST.</p>
+<h2 id="understanding-pythons-ast">Understanding Python's AST</h2>
+<p>An <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST) is another representation of the code.</p>
+<p>Install <a href="https://pypi.org/project/astpretty/">astpretty</a> to understand what the AST looks like for a piece of code you&rsquo;re interested in:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>astpretty
+</code></pre></div>
+<p>Here is how you use it:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>astpretty<span class="w"> </span>--no-show-offsets<span class="w"> </span>/dev/stdin<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">"not a == b"</span>
+
+Module<span class="o">(</span>
+<span class="w">    </span><span class="nv">body</span><span class="o">=[</span>
+<span class="w">        </span>Expr<span class="o">(</span>
+<span class="w">            </span><span class="nv">value</span><span class="o">=</span>UnaryOp<span class="o">(</span>
+<span class="w">                </span><span class="nv">op</span><span class="o">=</span>Not<span class="o">()</span>,
+<span class="w">                </span><span class="nv">operand</span><span class="o">=</span>Compare<span class="o">(</span>
+<span class="w">                    </span><span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'a'</span>,<span class="w"> </span><span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
+<span class="w">                    </span><span class="nv">ops</span><span class="o">=[</span>Eq<span class="o">()]</span>,
+<span class="w">                    </span><span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'b'</span>,<span class="w"> </span><span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
+<span class="w">                </span><span class="o">)</span>,
+<span class="w">            </span><span class="o">)</span>,
+<span class="w">        </span><span class="o">)</span>,
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="nv">type_ignores</span><span class="o">=[]</span>,
+<span class="o">)</span>
+</code></pre></div>
+<p>Next, we need to recognize that pattern.</p>
+<h2 id="a-flake8-visitor-class">A Flake8 visitor class</h2>
+<p>The logic of the linter is in the visitor class. The visitor gets called for every node in the AST. It has various methods which are based on the operations you see within astpretty, e.g. <code>visit_UnaryOp</code>. This method receives an <code>ast.UnaryOp</code> with which you can do whatever you want. More often than not, this will not be of the pattern you need. In this example, you need to look for <code>op == Not()</code>, <code>operand == Compare</code>, and <code>ops == [Eq()]</code>.</p>
+<p>This is how it&rsquo;s done:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">DefaultDict</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">visit_UnaryOp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">+=</span> <span class="n">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""Get a list of all calls where a unary 'not' is used for an equality."""</span>
+    <span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Not</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Compare</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">errors</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="o">.</span><span class="n">ops</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="o">.</span><span class="n">ops</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ast</span><span class="o">.</span><span class="n">Eq</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">errors</span>
+    <span class="n">comparison</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">operand</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">astor</span><span class="o">.</span><span class="n">to_source</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">left</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">astor</span><span class="o">.</span><span class="n">to_source</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">comparators</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span> <span class="n">SIM201</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">errors</span>
+</code></pre></div>
+<p>I like <a href="https://pypi.org/project/astor/">astor</a>'s <code>to_source</code> to get a string back from the AST node, just like it was in the source code.</p>
+<h2 id="testing-flake8-plugins">Testing Flake8 plugins</h2>
+<p>A big shoutout to Anthony Sottile. Before his video (linked below), I had no clue how to test Flake8 plugins. Thank you ❤️</p>
+<p>It&rsquo;s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to <code>ast.parse</code> to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Core Library</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Set</span>
+
+<span class="c1"># First party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flake8_simplify</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_results</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Apply the plugin to the given code."""</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">Plugin</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">()}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_trivial_case</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Check the plugin's output for no code."""</span>
+    <span class="k">assert</span> <span class="n">_results</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
+</code></pre></div>
+<p>A non-trivial test looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_unary_not_equality</span><span class="p">():</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">_results</span><span class="p">(</span><span class="s2">"not a == b"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">ret</span> <span class="o">==</span> <span class="p">{(</span><span class="s2">"1:0 SIM201 Used 'not a == b' instead of 'a != b'"</span><span class="p">)}</span>
+</code></pre></div>
+<h2 id="complete-example">Complete example</h2>
+<p>This is part of <a href="https://github.com/MartinThoma/flake8-simplify/tree/0.2.0">flake8-simplify 0.2.0</a>. I&rsquo;ve pinned the version so that you can see the code in the simple form it has right now.</p>
+<p>Please make me proud and automate your reviews &mdash; make the following comic true for Flake8 plugins as well :-)</p>
+<figure>
+<a href="../images/2020/09/write-flake8-plugins-3.jpg"><img alt="Comic by geek-and-poke (Oliver Widder)" height="433" loading="lazy" src="../images/2020/09/write-flake8-plugins-3.jpg" width="754"/></a>
+<figcaption>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html">geek-and-poke</a> (Oliver Widder)</figcaption>
+</figure>
+<h2 id="see-also">See also</h2>
+<p>I can highly recommend the following video by Anthony Sottile (<a href="https://www.linkedin.com/in/anthony-sottile-940008b1/">LinkedIn</a>, <a href="https://github.com/asottile">GitHub</a>). He is the awesome guy who develops <a href="https://github.com/asottile/pyupgrade">pyupgrade</a>, <a href="https://github.com/asottile/blacken-docs">blacken-docs</a>, and <a href="https://github.com/asottile/astpretty">astpretty</a>:</p>
+<center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ot5Z4KQPBL8" width="560"></iframe></center>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m a software engineer who wants to improve unit tests. In this article, you will learn what mutation testing is and how..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, pytest, Testing, Software Engineering, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/mutation-testing/" />
+<meta property="og:title" content="Mutation Testing"/>
+<meta property="og:url" content="https://martin-thoma.com/mutation-testing/" />
+<meta property="og:description" content="We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m a software engineer who wants to improve unit tests. In this article, you will learn what mutation testing is and how it can help you to write better tests. The examples are …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-08-10T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2020/08/mutation-testing-1.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="544" />
+
+        <title>Mutation Testing  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../mutation-testing/">Mutation Testing</a></h1>
+    <p class="meta">
+<time datetime="2020-08-10T20:00:00+02:00">Aug 10, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#pytest-ref">pytest
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>75</span>
+</a></li>
+        <li><a href="../tags/#testing-ref">Testing
+            <span>10</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#why-do-we-need-mutation-testing" title="Why do we need mutation testing?">Why do we need mutation testing?</a></li><li><a class="toc-href" href="#which-mutation-testing-tools-are-there" title="Which mutation testing tools are there?">Which mutation testing tools are there?</a></li><li><a class="toc-href" href="#why-isnt-branch-and-line-coverage-enough" title="Why isn&rsquo;t branch and line coverage enough?">Why isn&rsquo;t branch and line coverage enough?</a></li><li><a class="toc-href" href="#create-the-mutants" title="Create the mutants!">Create the mutants!</a></li><li><a class="toc-href" href="#which-mutations-are-applied" title="Which mutations are applied?">Which mutations are applied?</a></li><li><a class="toc-href" href="#how-can-i-get-an-html-report-with-mutmut" title="How can I get an HTML report with mutmut?">How can I get an HTML report with mutmut?</a></li><li><a class="toc-href" href="#mutation-testing-for-machine-learning-systems" title="Mutation Testing for Machine Learning Systems">Mutation Testing for Machine Learning Systems</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2020/08/mutation-testing-1.jpg"><img alt="Based on the Monster Character set by macrovector" height="544" src="../images/2020/08/mutation-testing-1.jpg" width="1200"/></a>
+<figcaption>Based on the <a href="https://www.freepik.com/free-vector/monster-character-set_1538770.htm">Monster Character set</a> by <a href="https://www.freepik.com/macrovector">macrovector</a></figcaption>
+</figure>
+<p>We need to kill the mutants &mdash; no, I&rsquo;m not a villain from the X-Men comics. I&rsquo;m
+a software engineer who wants to improve unit tests.</p>
+<p>In this article, you will learn what mutation testing is and how it can help you
+to write better tests. The examples are for Python, but the concepts hold in
+general, and at the end I have a list of tools in other languages.</p>
+<h2 id="why-do-we-need-mutation-testing">Why do we need mutation testing?</h2>
+<p>Unit tests have the issue that it&rsquo;s unclear when your tests are good enough. Do
+you cover the important edge cases? How do you test the quality of your unit
+tests?</p>
+<p>Typical mistakes are slight confusions. Accessing <code>list[i]</code> instead of
+<code>list[i-1]</code>, letting the loop run for <code>i &lt; n</code> instead of <code>i &lt;= n</code>, initializing
+a variable with None instead of the empty string. There are a lot of those
+slight changes which are usually just called &ldquo;<strong>typos</strong>&rdquo; or &ldquo;<strong>off-by-one</strong>&rdquo;
+mistakes. When I make them, I often haven&rsquo;t thought about the part thoroughly
+enough.</p>
+<p><strong>Mutation testing tests your unit tests</strong>. The key idea is to apply those
+minor changes and run the unit tests that could fail. If a unit test fails, the
+mutant was killed. Which is what we want. It shows that this kind of off-by-one
+mistake cannot happen with our test suite. Of course, we assume that the unit
+tests themselves are correct or at worst incomplete. Hence, you can see a
+mutation test as an alternative to test coverage. In contrast to test coverage,
+the mutation testing toolkit can directly show you places and types of mistakes
+you would not cover right now.</p>
+<h2 id="which-mutation-testing-tools-are-there">Which mutation testing tools are there?</h2>
+<p>There are a couple of tools like cosmic-ray, but Anders Hovm&ouml;ller did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.</p>
+<p>To run the examples in this article, you have to install <a href="https://pypi.org/project/mutmut/">mutmut</a>:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mutmut
+</code></pre></div>
+<p>In other languages, you might want to try these:</p>
+<ul>
+<li>C / C++: <a href="https://github.com/mull-project/mull">mull</a></li>
+<li>Java: <a href="https://pitest.org/">PIT</a> (<a href="https://github.com/hcoles/pitest">GitHub</a>)</li>
+<li>JavaScript: <a href="https://github.com/stryker-mutator/stryker/tree/master">Stryker</a></li>
+<li>PHP: <a href="https://github.com/infection/infection">Infection</a> (formerly called humbug)</li>
+<li>Ruby: <a href="https://github.com/mbj/mutant">mutant</a></li>
+<li>Rust: <a href="https://github.com/llogiq/mutagen">mutagen</a></li>
+<li>Swift: <a href="https://github.com/muter-mutation-testing/muter">muter</a></li>
+</ul>
+<h2 id="why-isnt-branch-and-line-coverage-enough">Why isn&rsquo;t branch and line coverage enough?</h2>
+<p>It is pretty easy to get to a high line coverage by creating bad tests. For
+example, take this code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get the n-th Fibonacci number, starting with 0 and 1."""</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">b</span>  <span class="c1"># BUG! should be a!</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fibonacci</span><span class="p">():</span>
+    <span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>This smoke test already adds some value as it makes sure that things are not
+crashing for a single input. However, it would not find any logic bug. There is
+an assert statement missing. This pattern can quickly drive the line
+coverage up to 100%, but you are then still lacking good tests.</p>
+<p>A mutation test cannot be fooled as easily. It would mutate the code and, for
+example, initialize b with 0 instead of 1:</p>
+<div class="highlight"><pre><span></span><code>- a, b = 0, 1
++ a, b = 0, 0
+</code></pre></div>
+<p>The test would still succeed and thus the mutant would survive. Which means the
+mutation testing framework would complain that this line was not properly
+tested. In other words:</p>
+<p>Mutation testing provides another way to get a more rigid line coverage. It can
+still not guarantee that a tested line is correct, but it can show you
+potential bugs that your current test suite would not detect.</p>
+<h2 id="create-the-mutants">Create the mutants!</h2>
+<p>As always, I use my small <a href="https://github.com/MartinThoma/mpu">mpu</a> library as
+an example. At the moment, it has a 99% branch and 99% line coverage.</p>
+<div class="highlight"><pre><span></span><code>$ mutmut run
+
+- Mutation testing starting -
+
+These are the steps:
+1. A full test suite run will be made to make sure we
+   can run the tests successfully and we know how long
+   it takes (to detect infinite loops for example)
+2. Mutants will be generated and checked
+
+Results are stored in .mutmut-cache.
+Print found mutants with `mutmut results`.
+
+Legend for output:
+🎉 Killed mutants.   The goal is for everything to end up in this bucket.
+⏰ Timeout.          Test suite took 10 times as long as the baseline so were killed.
+🤔 Suspicious.       Tests took a long time, but not long enough to be fatal.
+🙁 Survived.         This means your tests needs to be expanded.
+🔇 Skipped.          Skipped.
+
+1. Running tests without mutations
+⠧ Running...Done
+
+2. Checking mutants
+⠸ 1818/1818  🎉 1303  ⏰ 1  🤔 6  🙁 508  🔇 0
+</code></pre></div>
+<p>This takes over 1.5 hours for mpu. mpu is a small project, with only about 2000
+lines of code:</p>
+<div class="highlight"><pre><span></span><code>Language     files          blank        comment        code
+---------------------------------------------------------------
+Python       22            681           1399           2046
+</code></pre></div>
+<p>One pytest run of the mpu example project takes roughly 9 seconds and the
+slowest 3 tests are:</p>
+<div class="highlight"><pre><span></span><code>1.03s call     tests/test_main.py::test_parallel_for
+0.80s call     tests/test_string.py::test_is_email
+0.41s call     tests/test_io.py::test_download_without_path
+</code></pre></div>
+<p>In the end, you will see how many mutants were successfully killed (🎉), how
+many received a timeout (⏰), and which ones survived (🙁). Especially the timeout
+ones are annoying as they make the mutmut runs slower, but the code and the
+tests might still be fine.</p>
+<h2 id="which-mutations-are-applied">Which mutations are applied?</h2>
+<p>mutmut 2.0 creates the following mutants (<a href="https://github.com/boxed/mutmut/blob/9fc568648ba81d193f986c25ab60cbee0660dd33/mutmut/__init__.py#L433-L446">source</a>):</p>
+<ul>
+<li><strong>Operator mutations</strong>: About 30 different patterns like replacing <code>+</code> with <code>-</code>, <code>*</code>
+  with <code>**</code>, and similar, but also <code>&gt;</code> with <code>&gt;=</code>.</li>
+<li><strong>Keyword mutations</strong>: Replacing <code>True</code> with <code>False</code>, <code>in</code> with <code>not in</code>, and similar.</li>
+<li><strong>Number mutations</strong>: You can write things like <code>0b100</code>, which is the same as 4,
+  <code>0o100</code>, which is 64, <code>0x100</code>, which is 256, <code>.12</code>, which is 0.12, and similar. The
+  number mutations try to capture mistakes in this area.</li>
+<li><strong>Name mutations</strong>: The name mutations capture <code>copy</code> vs <code>deepcopy</code> and <code>""</code> vs <code>None</code>.</li>
+<li><strong>Argument mutations</strong>: Replaces keyword arguments one by one from <code>dict(a=b)</code> to <code>dict(aXXX=b)</code>.</li>
+<li><strong>or_test and and_test</strong>: <code>and</code> &harr; <code>or</code></li>
+<li><strong>String mutation</strong>: Adding XX to the string.</li>
+</ul>
+<p>Those can be grouped into three very different kinds of mutations: <strong>value
+mutations</strong> (string mutation, number mutation), <strong>decision mutations</strong> (switch
+if-else blocks, e.g. the or_test / and_test and the keyword mutations), and
+<strong>statement mutations</strong> (removing or changing a line of code).</p>
+<p>The value mutations are most often false positives for me. I&rsquo;m not certain if I
+could write my code or my tests in another way to fix this. I&rsquo;ve briefly
+discussed it with the library author, but apparently he does not have the same
+issue. If you&rsquo;re interested in that discussion,
+see <a href="https://github.com/boxed/mutmut/issues/175">issue #175</a>.</p>
+<h2 id="how-can-i-get-an-html-report-with-mutmut">How can I get an HTML report with mutmut?</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mutmut<span class="w"> </span>html
+</code></pre></div>
+<p>gives you:</p>
+<figure>
+<a href="../images/2020/08/mutmut-html-report.png"><img alt="Index page of the mutmut HTML report" height="276" loading="lazy" src="../images/2020/08/mutmut-html-report.png" width="512"/></a>
+<figcaption>Index page of the mutmut HTML report</figcaption>
+</figure>
+<figure>
+<a href="../images/2020/08/mutmut-html-pd.png"><img alt="The complete pd.py report" height="327" loading="lazy" src="../images/2020/08/mutmut-html-pd.png" width="512"/></a>
+<figcaption>The complete pd.py report</figcaption>
+</figure>
+<p>As you can see, the index claims that 108 mutants survived and the HTML report
+only shows one. That one is also a false positive as a change in the logging
+message does not cause any issue.</p>
+<p>Alternatively, you can use the junit XML to generate a report:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>junit2html
+$<span class="w"> </span>mutmut<span class="w"> </span>junitxml<span class="w"> </span>&gt;<span class="w"> </span>mutmut-results.xml
+$<span class="w"> </span>junit2html<span class="w"> </span>mutmut-results.xml<span class="w"> </span>mutmut-report.html
+</code></pre></div>
+<p>The report shows this index page:</p>
+<figure>
+<a href="../images/2020/08/mutmut-report.png"><img alt="Test report generated from JUnit XML" height="315" loading="lazy" src="../images/2020/08/mutmut-report.png" width="512"/></a>
+<figcaption>Test report generated from JUnit XML</figcaption>
+</figure>
+<p>Clicking on one mutant, you get this:</p>
+<figure>
+<a href="../images/2020/08/mutmut-result-2.png"><img alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable &ldquo;countries&rdquo; anywhere in the tests" height="195" loading="lazy" src="../images/2020/08/mutmut-result-2.png" width="512"/></a>
+<figcaption>Mutant #3 was killed, but mutant #4 survived. I did not use the global variable &ldquo;countries&rdquo; anywhere in the tests</figcaption>
+</figure>
+<p>The issue with this generated HTML report is that it shows many results for a single line of code and no grouping. If the failures were grouped by file and if one could see the code in which lines with surviving mutants would be highlighted, it would be way more useful.</p>
+<h2 id="mutation-testing-for-machine-learning-systems">Mutation Testing for Machine Learning Systems</h2>
+<p>I&rsquo;ve searched for cool applications of machine learning to generate mutants in
+code, but I&rsquo;ve only found &ldquo;Machine Learning Approach in Mutation Testing&rdquo; from
+2012 (12 citations).</p>
+<p>I was hoping to find data-based code mutant generation techniques. For example,
+one could search for git commits which are bug fixes by examining the commit
+message. If the fix is rather short, this is a kind of mutation one could test
+for. Instead of generating all possible mutants, one could sample from the
+mutants in a way to first take the most promising ones; the ones that are most
+likely not perceived as a false positive.</p>
+<p>Other work was more focused on making machine learning systems more robust (<a href="https://arxiv.org/pdf/1805.05206.pdf">DeepMutation</a>, <a href="https://arxiv.org/pdf/1803.07519.pdf">DeepGauge</a>, an <a href="https://www.pre-crime.eu/techreps/TR-Precrime-2019-03.pdf">Evaluation</a>). I don&rsquo;t know this stream of work well enough to write about it. But it sounds similar to techniques I know:</p>
+<ul>
+<li>To overcome scarcity in training data, various <strong>data augmentation
+  techniques</strong> such as rotations, flips, or color adjustments are applied. You
+  can actually see those as mutations.</li>
+<li>Also, in the <strong>GAN</strong> setting where you have a generator and a discriminator,
+  you could argue that the generator produces mutants and the discriminator
+  should tell them apart.</li>
+<li>In order to force the network to <strong>learn more robust features</strong>, a technique
+  called dropout
+  (<a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dropout">Tensorflow</a>,
+  <a href="https://lasagne.readthedocs.io/en/latest/modules/layers/noise.html">Lasagne</a>) is
+  commonly used. You could say that a part of the input or the internal
+  representation is randomly mutated by setting it to zero.</li>
+</ul>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
+<ul>
+<li>Part 1: <a href="../unit-testing-basics/">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="../unit-testing-patching/">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="../test-flask-applications/">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <a href="../property-based-testing/">Property-based Testing</a></li>
+<li>Part 8: <strong>Mutation Testing</strong></li>
+<li>Part 9: <a href="../static-code-analysis/">Static Code Analysis: Linters, Type Checking, and Code Complexity</a></li>
+</ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

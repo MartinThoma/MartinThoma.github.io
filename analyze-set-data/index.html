@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Exploratory Data Analysis (EDA) is nice and easy if the entities you look at are of one of the typical levels of measurement (see below). But if one feature is a set, it becomes harder. In this..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="EDA, Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/analyze-set-data/" />
+<meta property="og:title" content="How to analyze Set Data"/>
+<meta property="og:url" content="https://martin-thoma.com/analyze-set-data/" />
+<meta property="og:description" content="Exploratory Data Analysis (EDA) is nice and easy if the entities you look at are of one of the typical levels of measurement (see below). But if one feature is a set, it becomes harder. In this post, I want to show a couple of possibilities. Level of measurement Typically …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-07-06T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2019/07/dblp-cmo.png" />
+<meta property="og:image:width" content="579" />
+<meta property="og:image:height" content="337" />
+
+        <title>How to analyze Set Data  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../analyze-set-data/">How to analyze Set Data</a></h1>
+    <p class="meta">
+<time datetime="2019-07-06T20:00:00+02:00">Jul 6, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#eda-ref">EDA
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#level-of-measurement" title="Level of measurement">Level of measurement</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a><ul><li><a class="toc-href" href="#dblp" title="dblp">dblp</a></li></ul></li><li><a class="toc-href" href="#movielens-20m" title="MovieLens 20M">MovieLens 20M</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p><a href="../eda/">Exploratory Data Analysis</a> (EDA) is nice and easy if the entities you look at
+are of one of the typical levels of measurement (see below). But if one feature
+is a set, it becomes harder. In this post, I want to show a couple of
+possibilities.</p>
+<h2 id="level-of-measurement">Level of measurement</h2>
+<p>Typically, features have one of these <a href="https://en.wikipedia.org/wiki/Level_of_measurement">levels of measurement</a>:</p>
+<table border="1">
+<tr>
+<th rowspan="3">&nbsp;</th>
+<th colspan="5">Scale</th>
+</tr>
+<tr>
+<th colspan="2">Qualitative (categorical)</th>
+<th colspan="3">Quantitative (metric)</th>
+</tr>
+<tr>
+<th>Nominal-</th>
+<th>Ordinal-</th>
+<th>Interval-</th>
+<th>Ratio-</th>
+<th>Absolute</th>
+</tr>
+<tr>
+<th>Empirical relations</th>
+<td>Equivalence</td>
+<td>Equivalence<br/>order</td>
+<td>Equivalence<br/>order<br/>emp. addition</td>
+<td>Equivalence<br/>order<br/>emp. addition<br/>emp. multiplication</td>
+<td>Equivalence<br/>order<br/>emp. addition<br/>emp. multiplication</td>
+</tr>
+<tr>
+<th>Allowed transformations</th>
+<td>m' = f(m)<br/>f bijective</td>
+<td>m' = f(m)<br/>f strictly monotonous</td>
+<td>m' = am+b<br/>with a&gt;0</td>
+<td>m' = am<br/>with a&gt;0</td>
+<td>m' = m</td>
+</tr>
+<tr>
+<th>Examples of this scale</th>
+<td>Telephone numbers, license plates, types, postal codes, gender</td>
+<td>Grades, degrees of hardness, wind force</td>
+<td>Temp. in &deg;C, &deg;F, calendar time, geographic height</td>
+<td>Mass, length, el. current</td>
+<td>Number of particles, number of errors</td>
+</tr>
+<tr>
+<th>Values of m</th>
+<td>numbers, names, symbols</td>
+<td>usually natural numbers</td>
+<td>usually real numbers</td>
+<td>usually real numbers &gt; 0</td>
+<td>usually natural numbers</td>
+</tr>
+</table>
+<h2 id="datasets">Datasets</h2>
+<h3 id="dblp">dblp</h3>
+<p><a href="https://en.wikipedia.org/wiki/DBLP">dblp</a> is a bibliography website which
+contains publication data from almost 2 million publications.</p>
+<p>Use <a href="https://github.com/IsaacChanghau/DBLPParser">DBLPParser</a> to create a CSV
+file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">progressbar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.visualize_cm</span>
+
+<span class="c1"># Load the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"articles.csv"</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"::"</span><span class="p">)</span>
+
+<span class="c1"># Analyze the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">]</span>
+<span class="n">author_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">authors</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Publications: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Unique elements: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">author_count</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Most common:"</span><span class="p">)</span>
+<span class="n">most_common</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">author_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">most_common</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+<span class="n">unique_authors</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">author_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">author</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">author1</span><span class="p">,</span> <span class="n">author2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">authorset</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">author1</span><span class="p">,</span> <span class="n">author2</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Edges were added"</span><span class="p">)</span>
+
+    <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
+    <span class="n">n2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">node</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">))])</span>
+    <span class="c1"># node to index</span>
+    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">n2i</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">n2i</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">mat</span><span class="p">[</span><span class="n">n2i</span><span class="p">[</span><span class="n">a</span><span class="p">]][</span><span class="n">n2i</span><span class="p">[</span><span class="n">b</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">n2i</span><span class="p">[</span><span class="n">b</span><span class="p">]][</span><span class="n">n2i</span><span class="p">[</span><span class="n">a</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">mat</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+
+
+<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Biggest clusters: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
+
+<span class="n">component_w_publications</span> <span class="o">=</span> <span class="p">[(</span><span class="n">author</span><span class="p">,</span> <span class="n">author_count</span><span class="p">[</span><span class="n">author</span><span class="p">])</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">component_w_publications</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+    <span class="n">component_w_publications</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">component_w_publications</span><span class="p">[:</span><span class="mi">1_00</span><span class="p">]]</span>
+<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="n">clana</span><span class="o">.</span><span class="n">visualize_cm</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
+    <span class="s2">"coauthors.json"</span><span class="p">,</span>
+    <span class="n">perm_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="n">steps</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
+    <span class="n">labels_file</span><span class="o">=</span><span class="s2">"labels.json"</span><span class="p">,</span>
+    <span class="n">zero_diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="s2">"cm-ordered.pdf"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">"coauthors.json"</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">"labels.json"</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<div class="highlight"><pre><span></span><code>* Publications: 2,054,474
+* Unique elements: 1,475,717
+* Most common
+    1181x H. Vincent Poor
+     789x Lajos Hanzo
+     767x Witold Pedrycz
+     747x Mohamed-Slim Alouini
+     615x Chin-Chen Chang 0001
+     607x Dacheng Tao
+     591x Victor C. M. Leung
+     570x Wei Zhang
+     562x Wei Li
+     554x Wei Wang
+* Biggest clusters (under first 10^6 publications): [761987, 52, 45, 44, 32, 31, 29, 28, 28, 28]
+</code></pre></div>
+<p>Then you can apply confusion matrix ordering to find authors who often work
+together (click on it to see a large version):</p>
+<figure>
+<a href="../pdf/dblp-1000-cmo.pdf"><img alt="Similar Authors found with CMO" height="298" loading="lazy" src="../images/2019/07/dblp-cmo.png" width="512"/></a>
+<figcaption>Similar Authors found with CMO</figcaption>
+</figure>
+<p>The CMO technique is described in</p>
+<blockquote>
+<p>Thoma, Martin. "Analysis and optimization of convolutional neural network architectures." <a href="https://arxiv.org/pdf/1707.09725.pdf">arXiv preprint arXiv:1707.09725</a> (2017). Chapter 5.2.</p>
+</blockquote>
+<h2 id="movielens-20m">MovieLens 20M</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">progressbar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.visualize_cm</span>
+
+<span class="c1"># Load the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"movies.csv"</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
+
+<span class="c1"># Analyze the data</span>
+<span class="n">list_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">valueset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">valueset</span><span class="p">]</span>
+<span class="n">value_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">list_values</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Movies: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Unique genres: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value_count</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Most common:"</span><span class="p">)</span>
+<span class="n">most_common</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">value_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">most_common</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+<span class="n">unique_genres</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">author</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">author1</span><span class="p">,</span> <span class="n">author2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">authorset</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">author1</span><span class="p">,</span> <span class="n">author2</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Edges were added"</span><span class="p">)</span>
+
+    <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
+    <span class="n">n2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">node</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">))])</span>
+    <span class="c1"># node to index</span>
+    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">n2i</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">n2i</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">mat</span><span class="p">[</span><span class="n">n2i</span><span class="p">[</span><span class="n">a</span><span class="p">]][</span><span class="n">n2i</span><span class="p">[</span><span class="n">b</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">n2i</span><span class="p">[</span><span class="n">b</span><span class="p">]][</span><span class="n">n2i</span><span class="p">[</span><span class="n">a</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">mat</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+
+
+<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"* Biggest clusters: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
+
+<span class="n">component_w_publications</span> <span class="o">=</span> <span class="p">[(</span><span class="n">author</span><span class="p">,</span> <span class="n">value_count</span><span class="p">[</span><span class="n">author</span><span class="p">])</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">component_w_publications</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+    <span class="n">component_w_publications</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">component_w_publications</span><span class="p">[:</span><span class="mi">1_00</span><span class="p">]]</span>
+<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">"genre-combinations.json"</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">"labels.json"</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">visualize_cm</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
+    <span class="s2">"genre-combinations.json"</span><span class="p">,</span>
+    <span class="n">perm_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="n">steps</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
+    <span class="n">labels_file</span><span class="o">=</span><span class="s2">"labels.json"</span><span class="p">,</span>
+    <span class="n">zero_diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="s2">"cm-genre-combinations.pdf"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<div class="highlight"><pre><span></span><code>* Movies: 27278
+* Unique genres: 20
+* Most common:
+    13344x Drama
+     8374x Comedy
+     4178x Thriller
+     4127x Romance
+     3520x Action
+     2939x Crime
+     2611x Horror
+     2471x Documentary
+     2329x Adventure
+     1743x Sci-Fi
+</code></pre></div>
+<p>CMO:</p>
+<figure>
+<a href="../images/2019/07/cmo-genre-combinations.png"><img alt="Genre-Combinations" height="395" loading="lazy" src="../images/2019/07/cmo-genre-combinations.png" width="512"/></a>
+<figcaption>Genre-Combinations</figcaption>
+</figure>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://datascience.stackexchange.com/q/55181/8820">What is the level of measurement / name of the scale of list-features?</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

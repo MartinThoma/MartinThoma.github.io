@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the number of users low (e.g. less than 100) and the number of features limited,..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Flask, Web Development, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/flask-chat-1/" />
+<meta property="og:title" content="Flask Chat - Part I"/>
+<meta property="og:url" content="https://martin-thoma.com/flask-chat-1/" />
+<meta property="og:description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the number of users low (e.g. less than 100) and the number of features limited, then it is actually pretty easy to create such a chat app. I&#39;ve created a small proof-of-concept …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-12-20T12:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/python.png" />
+
+        <title>Flask Chat - Part I  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../flask-chat-1/">Flask Chat - Part I</a></h1>
+    <p class="meta">
+<time datetime="2019-12-20T12:00:00+01:00">Dez 20, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#flask-ref">Flask
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+        <li><a href="../tags/#web-development-ref">Web Development
+            <span>37</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#architecture" title="Architecture">Architecture</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li><li><a class="toc-href" href="#how-it-works" title="How it works">How it works</a></li><li><a class="toc-href" href="#user-experience" title="User Experience">User Experience</a><ul><li><a class="toc-href" href="#general-theme" title="General Theme">General Theme</a></li><li><a class="toc-href" href="#new-messages" title="New Messages">New Messages</a></li></ul></li><li><a class="toc-href" href="#why-this-is-awful" title="Why this is awful">Why this is awful</a></li><li><a class="toc-href" href="#complete-project" title="Complete Project">Complete Project</a></li><li><a class="toc-href" href="#free-chat-servers" title="Free Chat Servers">Free Chat Servers</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Chat applications are everywhere nowadays. The two best-known ones are probably
+Slack and WhatsApp. If you keep the number of users low (e.g. less than 100)
+and the number of features limited, then it is actually pretty easy to create
+such a chat app.</p>
+<p>I've created a small proof-of-concept chat app with Flask and jQuery. It runs in
+the browser.</p>
+<h2 id="architecture">Architecture</h2>
+<p>We will keep it simple for this tutorial:</p>
+<figure>
+<a href="../images/2019/12/chat-flask.png"><img alt="Chat App" height="248" src="../images/2019/12/chat-flask.png" width="512"/></a>
+<figcaption>Chat App</figcaption>
+</figure>
+<p>We store the messages - and only that - in a single table in a SQLite database.
+We have an API which has one endpoint <code>messages</code> which allows you to
+<code>GET</code> messages (filtered by id) and to <code>POST</code> a new
+message.</p>
+<p>The backend is done with Flask.</p>
+<p>The front end is partially done with <a href="https://jinja.palletsprojects.com/en/2.10.x/">Jinja2</a> and partially with jQuery.</p>
+<h2 id="project-structure">Project Structure</h2>
+<p>The folder structure is typical for Flask applications:</p>
+<div class="highlight"><pre><span></span><code>.
+&boxvr;&boxh;&boxh; app
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; api.py
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; docs
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; __init__.py
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; main
+&boxv;&nbsp;&nbsp; &boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; __init__.py
+&boxv;&nbsp;&nbsp; &boxv;&nbsp;&nbsp; &boxur;&boxh;&boxh; routes.py
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; models.py
+&boxv;&nbsp;&nbsp; &boxvr;&boxh;&boxh; static
+&boxv;&nbsp;&nbsp; &boxur;&boxh;&boxh; templates
+&boxvr;&boxh;&boxh; Dockerfile
+&boxvr;&boxh;&boxh; migrations
+&boxvr;&boxh;&boxh; pyproject.toml
+&boxvr;&boxh;&boxh; README.md
+&boxvr;&boxh;&boxh; requirements.txt
+&boxvr;&boxh;&boxh; start.sh
+&boxur;&boxh;&boxh; wsgi.py
+</code></pre></div>
+<p>In the root directory, you have a <code>start.sh</code> which uses the
+<code>wsgi.py</code> to start a <a href="https://en.wikipedia.org/wiki/Gunicorn">gunicorn</a>
+server. The <code>pyproject.toml</code> gives some basic configuration.</p>
+<p>Within the <code>app</code> directory, there is a single <a href="https://flask.palletsprojects.com/en/1.0.x/blueprints/">blueprint</a> called "main". The <code>models.py</code>
+defines the <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/">sqlalchemy database models</a>, the <code>api.py</code> defines the REST API with <a href="https://flask-restx.readthedocs.io/en/stable/">Flask-RESTX</a>.</p>
+<p>The front end is in the templates directory.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>When a new user opens the website, they get a session variable with a unique
+identifier. They receive all messages which were ever written (yes, in a
+production system this is an awful idea) and they store the latest message ID
+they have seen.</p>
+<p>Locally, jQuery asks every 500ms for new messages. For this request, it gives
+the latest message it has seen. This means most of the time the server returns
+an empty response.</p>
+<p>When the client sends a new message, it is stored in the database.</p>
+<p>That's it.</p>
+<h2 id="user-experience">User Experience</h2>
+<h3 id="general-theme">General Theme</h3>
+<p>The key CSS classes you have are:</p>
+<ul>
+<li><code>message</code>: It can either be one you received or one you sent.</li>
+<li><code>conversation</code>: The block that contains the stream of messages.</li>
+</ul>
+<p>See <a href="https://codepen.io/swaibu/pen/QxJjwN">this codepen</a> for a nice theme
+by Rumbiiha Swaibu.</p>
+<h3 id="new-messages">New Messages</h3>
+<p>A key point that took me a bit to implement is to add the most recent messages
+at the bottom and keep scrolling with the most recent ones - but only if you
+didn't scroll up before.</p>
+<h2 id="why-this-is-awful">Why this is awful</h2>
+<p>Missing core functionality:</p>
+<ul>
+<li>Registration and Authentication: It is important who writes something. So
+  people want to know the sender. In the system above, it is super easy to
+  change the ID to somebody else's ID, or to have arbitrarily many IDs. It is hard to
+  know who writes something. This topic comes with a lot of other topics like
+  single sign-on (SSO), 2FA / MFA, password recovery...</li>
+<li>Formatting: Allow users to format messages (bold, italic, links, math mode, ...)</li>
+<li>Chatrooms: People want to have private conversations. Conversations split
+  by topic.</li>
+<li>Search: Once you have different rooms, you might want to search across rooms.</li>
+<li>Images</li>
+<li>File sharing</li>
+</ul>
+<p>Other missing functionality:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Voice_over_IP">Voice over IP</a> (calls) and <a href="https://en.wikipedia.org/wiki/Videotelephony">Videotelephony</a> (Video chat)</li>
+<li>Themes: Let users change the default looks</li>
+<li>Tenants: Besides chats / chatrooms, you might want to run the chat
+  application as a service for organizations. They have their own (separate)
+  users and chat rooms. Maybe have some possibilities for customization.</li>
+</ul>
+<p>Engineering:</p>
+<ul>
+<li>Scalability: If the database comes to its limits, you have to get a bigger
+  machine. Other databases like AWS DynamoDB might have better behaviour.</li>
+<li>Backups were not even mentioned</li>
+<li>Polling: Pinging the server twice per second is no big deal if you have few
+  users. But the more users you get, the worse this will become.</li>
+<li>Pagination: Getting all messages in the beginning is a really bad idea.</li>
+<li>Front Ends: You might want way more. For example, native apps for smartphones.</li>
+<li>Protocols: Adding support for <a href="https://en.wikipedia.org/wiki/XMPP">XMPP</a> to
+  allow usage of other clients
+  (<a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a> seems to be
+  outdated; <a href="https://en.wikipedia.org/wiki/Matrix_(protocol)">Matrix</a> could be an alternative according to <a href="https://www.kuketz-blog.de/messenger-matrix-das-xmpp-fuer-hobby-admins/">this German post</a>)</li>
+</ul>
+<h2 id="complete-project">Complete Project</h2>
+<p>If you want to get the complete project and look at the code, here you are:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MartinThoma/flask-chat.git
+$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v1.0
+</code></pre></div>
+<h2 id="free-chat-servers">Free Chat Servers</h2>
+<p>In case you want to look at more professional chat server projects:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>License</th>
+<th>Core Language</th>
+<th>XMPP</th>
+<th>LDAP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/RocketChat/Rocket.Chat">Rocket.Chat</a></td>
+<td class="text-center">MIT</td>
+<td class="text-center">JavaScript</td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/sdelements/lets-chat">Let's Chat</a></td>
+<td class="text-center">MIT</td>
+<td class="text-center">JavaScript</td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattermost/mattermost-server">Mattermost</a></td>
+<td class="text-center"><a href="https://github.com/mattermost/mattermost-server/blob/master/LICENSE.txt">MIT / GNU AGPL v.3.0</a></td>
+<td class="text-center">Go</td>
+<td class="text-center"><a href="https://github.com/42wim/matterbridge">not directly</a></td>
+<td class="text-center"><a href="https://docs.mattermost.com/deployment/sso-ldap.html"><span style="color:green;" title="Yes">✔️</span></a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/vector-im/riot-web">Riot.im</a></td>
+<td class="text-center">Apache v2</td>
+<td class="text-center">JavaScript</td>
+<td class="text-center">No, but matrix</td>
+<td class="text-center"><a href="https://github.com/matrix-org/matrix-synapse-ldap3">not directly</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Slack_Technologies">Slack Technologies</a>, 2019-12-17.</li>
+<li>Rumbiiha Swaibu: <a href="https://codepen.io/swaibu/pen/QxJjwN">WhatsApp in Pure CSS and JS</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

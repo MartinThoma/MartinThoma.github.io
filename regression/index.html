@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="A while ago, this link pointed to the content which is now in the Forecasting article. Regression is one of the core tasks in machine learning. In this task, you get some input and your target..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Machine Learning, Regression, AI, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/regression/" />
+<meta property="og:title" content="Regression"/>
+<meta property="og:url" content="https://martin-thoma.com/regression/" />
+<meta property="og:description" content="A while ago, this link pointed to the content which is now in the Forecasting article. Regression is one of the core tasks in machine learning. In this task, you get some input and your target variable is a single floating point number. For example, predicting the price of a …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-07-18T20:00:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2018/07/regression.jpg" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+
+        <title>Regression  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../regression/">Regression</a></h1>
+    <p class="meta">
+<time datetime="2018-07-18T20:00:00+02:00">Jul 18, 2018</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#ai-ref">AI
+            <span>104</span>
+</a></li>
+        <li><a href="../tags/#machine-learning-ref">Machine Learning
+            <span>94</span>
+</a></li>
+        <li><a href="../tags/#regression-ref">Regression
+            <span>3</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#scoring-functions" title="Scoring functions">Scoring functions</a></li><li><a class="toc-href" href="#regression-models" title="Regression Models">Regression Models</a><ul><li><a class="toc-href" href="#trivial-models" title="Trivial Models">Trivial Models</a></li><li><a class="toc-href" href="#linear-regression" title="Linear regression">Linear regression</a></li><li><a class="toc-href" href="#logistic-regression" title="Logistic regression">Logistic regression</a></li><li><a class="toc-href" href="#trees" title="Trees">Trees</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <div class="info">A while ago, this link pointed to the content which is now in the <a href="../forecasting/">Forecasting article</a>.</div>
+<p>Regression is one of the core tasks in machine learning. In this task, you get
+some input and your target variable is a single floating point number. For
+example, predicting the price of a house, estimating the <a href="http://www.u.arizona.edu/~kuchi/Courses/MAT167/Files/LH_LEC.0710.Models.Regression.pdf">age of the universe</a> or calculating the probability that an image shows a dog. The age of the universe
+example shows that regression is not only used in machine learning and the
+dog image example shows that regression and classification can be very similar.
+A <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>
+can be converted to a classifier by choosing a threshold value (e.g. 0.5).</p>
+<p>Big differences between regression and classification are the scoring functions
+and the targets. The targets in classification are just a few finite ones, while
+you have infinite possible targets for regression. Below, you can see a list
+of scoring functions.</p>
+<figure class="ai-generated">
+<a href="../images/2018/07/regression.jpg"><img alt="Scatter plot with a regression line and residuals, next to a house icon with a price tag" height="768" src="../images/2018/07/regression.jpg" width="1376"/></a>
+<figcaption>Regression: predicting a number such as a house price.</figcaption>
+</figure>
+<h2 id="scoring-functions">Scoring functions</h2>
+<p>In the following, <span class="math">\(y\)</span> is the ordered list of targets, <span class="math">\(y^P\)</span> is the list
+of predictions in the same order and <span class="math">\(\bar{y}\)</span> is the mean of <span class="math">\(y\)</span>.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Image</th>
+<th>X is better</th>
+<th>Definition and Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$</td>
+</tr>
+<tr>
+<td>$R^2$</td>
+<td>$(-\infty, 1]$</td>
+<td>higher</td>
+<td>$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
+</tr>
+<tr>
+<td>Explained Variance</td>
+<td>$(-\infty, 1]$</td>
+<td>higher</td>
+<td>$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$</td>
+</tr>
+</tbody>
+</table>
+<p>See also:</p>
+<ul>
+<li><a href="https://stats.stackexchange.com/q/32596/25741">What is the difference between &ldquo;coefficient of determination&rdquo; and &ldquo;mean squared error&rdquo;?</a></li>
+</ul>
+<h2 id="regression-models">Regression Models</h2>
+<h3 id="trivial-models">Trivial Models</h3>
+<p>There are some straightforward "models" for regression. They do learn, but
+they ignore the input completely:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Arithmetic_mean">Arithmetic mean</a>: <span class="math">\(\frac{1}{n}\sum_{i=1}^n {y_i}\)</span></li>
+<li><a href="https://en.wikipedia.org/wiki/Median">Median</a>: Sort all <span class="math">\(y_i\)</span> and take the value in the middle</li>
+<li>minimum and maximum</li>
+<li>q-Quantile: Sort the <span class="math">\(y_i\)</span> and take the first value after going through <span class="math">\(q \in [0, 1]\)</span> of the input. For <span class="math">\(q = 0.5\)</span>, this
+  is the median.</li>
+<li>Other "means" like the geometric mean</li>
+</ul>
+<h3 id="linear-regression">Linear regression</h3>
+<p><a href="https://en.wikipedia.org/wiki/Linear_regression">Linear regression</a>
+tries to fit a line to the input by minimizing the squared distance
+between the input points and the line. This usually gives pretty good results.</p>
+<p>The model looks like this:</p>
+<div class="math">$$\hat{y}(x) = \sum_{i=1}^n b_i \cdot x_i \text{ with }b_i \in \mathbb{R}$$</div>
+<p>If one defines <span class="math">\(X \in \mathbb{R}^{m \times n}\)</span> (one row per sample), one can also write it in a vectorized form:</p>
+<div class="math">$$\hat{y}(X) = X \cdot \beta \text{ with }\beta \in \mathbb{R}^n$$</div>
+<p>It can be "learned" (calculated) with</p>
+<div class="math">$$\beta = {(X^T X)}^{-1} X^T y$$</div>
+<h4 id="example-fitting-a-line-with-least-squares">Example: Fitting a line with least squares</h4>
+<p>To see where such a formula comes from, look at the simplest case. Suppose you
+have <span class="math">\(n\)</span> 2D data points <span class="math">\((x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\)</span> and you
+want the line <span class="math">\(y = a \cdot x + b\)</span> that fits those data points best.</p>
+<p>Now we have to think about what "fits best" means. The least squares method
+finds <span class="math">\(a\)</span> and <span class="math">\(b\)</span> that minimize the sum of squared errors
+<span class="math">\(f: \mathbb{R}^2 \rightarrow \mathbb{R}\)</span> with</p>
+<div class="math">$$f(a, b) := \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2$$</div>
+<p>Let's say <span class="math">\(a\)</span> was constant. Then <span class="math">\(f\)</span> is a quadratic function in <span class="math">\(b\)</span>, and we
+find its minimum where the derivative is zero:</p>
+<div class="math">$$\begin{align}
+f(a,b) &amp;= \sum_{i=1}^n \left ((a \cdot x_i + b) - y_i \right )^2\\
+ &amp;= \sum_{i=1}^n ((a x_i +b)^2 - 2 (a x_i+b) y_i + y_i^2)\\
+ &amp;= \sum_{i=1}^n ((a x_i)^2 + 2 a x_i b + b^2 -2 (a x_i+b) y_i + y_i^2)\\
+\frac{\partial f(a,b)}{\partial b} &amp;= \sum_{i=1}^n (2a x_i +2b - 2y_i)\\
+ 0 &amp;\stackrel{!}{=} 2  \sum_{i=1}^n (a x_i +b - y_i)\\
+\Leftrightarrow 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i + n \cdot b - \sum_{i=1}^n y_i\\
+\Leftrightarrow b &amp;\stackrel{!}{=} \frac{\sum_{i=1}^n y_i -a \sum_{i=1}^n x_i}{n}\\
+\Leftrightarrow b &amp;\stackrel{!}{=} \bar y -a \bar x
+\end{align}$$</div>
+<p>where <span class="math">\((\bar x, \bar y)\)</span> is the center of all points. So the best line always
+goes through the center of the points. Let's do the same with <span class="math">\(a\)</span> and insert
+<span class="math">\(b = \bar y - a \bar x\)</span> and <span class="math">\(\sum_{i=1}^n x_i = n \bar x\)</span>:</p>
+<div class="math">$$\begin{align}
+\frac{\partial f(a,b)}{\partial a} &amp;= \sum_{i=1}^n (2a x_i^2 +2 x_i b - 2 x_i y_i)\\
+ 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow 0 &amp;\stackrel{!}{=} a \sum_{i=1}^n x_i^2 + (\bar y - a \bar x) \cdot n \bar x - \sum_{i=1}^n x_i y_i\\
+\Leftrightarrow a &amp;\stackrel{!}{=} \frac{\sum_{i=1}^n x_i y_i - n \bar x \bar y}{\sum_{i=1}^n x_i^2 - n \bar x^2}
+ = \frac{\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n (x_i - \bar x)^2}
+\end{align}$$</div>
+<p>This only works if not all <span class="math">\(x_i\)</span> are equal; otherwise the denominator is zero
+and every line through the center is equally good. As <span class="math">\(f\)</span> is a sum of squares,
+this point is a minimum and not a maximum. It is the same result as the
+matrix formula above with</p>
+<div class="math">$$X = \begin{pmatrix}x_1 &amp; 1\\ \vdots &amp; \vdots\\ x_n &amp; 1\end{pmatrix} \text{ and } \beta = \begin{pmatrix}a\\ b\end{pmatrix}$$</div>
+<h3 id="logistic-regression">Logistic regression</h3>
+<p><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic regression</a>
+tries to fit the logistic function <span class="math">\(y(x) = \frac{1}{1+e^{-x}}\)</span> to the input.
+This function is nice as it is within <span class="math">\([0, 1]\)</span> and thus can be used to
+represent a probability.</p>
+<h3 id="trees">Trees</h3>
+<p>You can also use trees for regression. One idea of how to do that is by
+"bucketing" observations and applying one of the trivial models to each bucket.
+Such models can only predict values between what they observed before.</p>
+<p>See also:</p>
+<ul>
+<li><a href="http://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html">sklearn</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Bucketing users into two groups is a key part of A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Data Science, Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/bucketing-in-ab-testing/" />
+<meta property="og:title" content="Bucketing in A/B-Testing"/>
+<meta property="og:url" content="https://martin-thoma.com/bucketing-in-ab-testing/" />
+<meta property="og:description" content="Bucketing users into two groups is a key part of A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket consistently. First, we need a user identifier. Database Solution We want to …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-11-28T20:00:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2019/11/1000-random-numbers-java.png" />
+<meta property="og:image:width" content="1000" />
+<meta property="og:image:height" content="1000" />
+
+        <title>Bucketing in A/B-Testing  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../bucketing-in-ab-testing/">Bucketing in A/B-Testing</a></h1>
+    <p class="meta">
+<time datetime="2019-11-28T20:00:00+01:00">Nov 28, 2019</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#data-science-ref">Data Science
+            <span>14</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>181</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Bucketing users into two groups is a key part of A/B testing. We need to randomly
+assign users to a bucket. And in practice, we need to make sure a user is
+assigned to the same bucket consistently.</p>
+<p>First, we need a user identifier.</p>
+<h2 id="database-solution">Database Solution</h2>
+<p>We want to store a variation per user in a database. Hence, we need a <a href="../key-value-stores/">key-value store</a> with the user-identifier as key and
+the variation as value.</p>
+<p>The code then is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_variation</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># Some initialization / connection with a key_value_store</span>
+    <span class="n">variation</span> <span class="o">=</span> <span class="n">key_value_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">variation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># The user_id was not in the key_value_store</span>
+        <span class="n">variation</span> <span class="o">=</span> <span class="n">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="p">{</span><span class="s2">"A"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">variation</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : int</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
+</code></pre></div>
+<p>In case the <code>user_id</code> is not an integer, you have two ways to assign one:</p>
+<ol>
+<li>Have another table mapping the strings to the numbers, counting up from 0.</li>
+<li>Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion).
+   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">[1]</a></sup></li>
+</ol>
+<h2 id="seeding-solution">Seeding Solution</h2>
+<p>The above solution is nice because it is absolutely clear how it works. It is
+not so nice that you need to access a database.</p>
+<p>Instead, you can play around with the seed of the random number generator. This
+makes the database call obsolete. By seeding we can guarantee the output of
+the random number generator while still having (pseudo) random numbers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : int</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
+</code></pre></div>
+<p>Please note that this has another nice property: If you change the distribution
+slightly, then as many users as possible keep what they have.</p>
+<p>A potential problematic property: Always the same users get to be in the "A"
+variant. So if you always choose the names "current" vs. "new", then some users
+will always end up in A/B&nbsp;tests. This is not good as the new variant might be
+brittle or have flaws.</p>
+<p>Instead, we can give the test a unique name and thus do:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mmh3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assign_user_to_variant</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : str</span>
+<span class="sd">    test_name : str</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">mmh3</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">user_id</span> <span class="o">+</span> <span class="n">test_name</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
+</code></pre></div>
+<h2 id="random-number-generators">Random Number Generators</h2>
+<p>We might want to generate the variations across multiple systems. Most of the
+code above is trivial to execute in any programming language. However, the
+output of <code>random.seed(0); random.random()</code> might differ between programming
+languages or even versions of a programming language. The reason is
+differences in the random number generators.</p>
+<p>A Pseudo-Random Number Generator (RNG) is a key component for the described
+solution. The following is a list of common RNGs:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Seed</th>
+<th>Neighboring Seeds</th>
+<th>Used By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ccffcc">Different results</td>
+<td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ffd3d3">Similar results</td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center">?</td>
+<td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">[3]</a></sup></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">[4]</a></sup></td>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Xorshift">xorshift128+</a></td>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
+<td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Xoroshiro128%2B">Xoroshiro128+</a></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ccffcc">Different results</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Counter-based_random_number_generator_(CBRNG)">Threefry / Philox</a></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ccffcc">Different results</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>I cannot properly judge the statistical quality of those, but I recommend
+reading <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[5]</a></sup> and <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">[2]</a></sup>. More generators are listed on Wikipedia<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">[6]</a></sup> and
+in the Python package randomgen<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">[7]</a></sup>.</p>
+<p>However, I tried <a href="https://pypi.org/project/java-random/"><code>java-random</code></a> and
+visualized the results (<a href="https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py">code</a>).
+What you see is 1000 generated random numbers per seed. The column is the seed, the rows
+are 1000 consecutive random numbers. Clearly, the numpy and the Python version
+look better:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Java</th>
+<th>Python</th>
+<th>Numpy (PCG64)</th>
+</tr>
+</thead>
+<tr>
+<td><a href="../images/2019/11/1000-random-numbers-java.png"><img alt="Java Pseudo-Random Number Generator" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-java.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-python.png"><img alt="Python Pseudo-Random Number Generator" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-python.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img alt="Numpy Pseudo-Random Number Generator" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-numpy.png" width="300"/></a></td>
+</tr>
+<tr>
+<td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
+<td colspan="2">This is what it should look like - no pattern to be seen.</td>
+</tr>
+<tr>
+<th>MT19937</th>
+<th>Philox</th>
+<th>Xoroshiro128</th>
+</tr>
+<tr>
+<td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img alt="MT19937 PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-MT19937.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img alt="Philox PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-Philox.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img alt="Xoroshiro128 PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" width="300"/></a></td>
+</tr>
+<tr>
+<th>SFC64</th>
+<th>Xorshift1024</th>
+<th>ThreeFry</th>
+</tr>
+<tr>
+<td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img alt="SFC64 PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-SFC64.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img alt="Xorshift1024 PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-Xorshift1024.png" width="300"/></a></td>
+<td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img alt="ThreeFry PRNG" height="300" loading="lazy" src="../images/2019/11/1000-random-numbers-ThreeFry.png" width="300"/></a></td>
+</tr>
+</table>
+<p>Security in the sense of predictability of the sequence is also an important
+property in many contexts. In the context of A/B-Testing, however, it does not
+matter. State size is also interesting.</p>
+<p>PHP and Go either don't state at all, or at least don't clearly state, what the
+default random number generator is.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>Bucketing is easy as long as you have one system (OS and Programming language /
+library) where you execute the bucketing. Once you have more, you need to take
+care of how <code>random.random()</code> actually works. For A/B testing in
+general, see <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">[8]</a></sup>.</p>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:4">
+<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:2">
+<p>Melissa E. O'Neill: <a href="https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a>, 2014.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/">Bit Generators</a>&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:1">
+<p><a href="http://www.pcg-random.org/">Random Number Generator Overview</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:8">
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">List of random number generators</a>&nbsp;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:7">
+<p>PyPI: <a href="https://pypi.org/project/randomgen/">randomgen</a>&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:5">
+<p>Dario Gieselaar: <a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 8 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>
