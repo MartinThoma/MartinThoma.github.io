@@ -154,6 +154,52 @@ Diese TODO-Liste dokumentiert die systematische Verbesserung aller Artikel im Bl
 - **Konsistenz-Checks:** Einheitlichkeit der Formatierung
 - **Peer-Review:** Externe Überprüfung (optional)
 
+### 8. 📈 Reichweite und SEO
+**Priorität:** Hoch
+**Status:** ⏳ Teilweise erledigt (Analyse vom 11.10.2026)
+
+**Bereits erledigt (11.10.2026):**
+- [x] `canonical`, `og:url`, `og:image` und `twitter:image` sind absolute URLs
+  (`SITEURL_ABSOLUTE`); vorher machte `RELATIVE_URLS = True` sie relativ, und
+  Vorschauen beim Teilen hatten kein Bild.
+- [x] `robots.txt` (mit Sitemap-Zeile) und die Google-Verifizierungsdatei liegen in
+  `content/extra/` und werden mit veröffentlicht. Nach dem nächsten Deploy in der
+  Search Console prüfen, ob die Seite verifiziert ist.
+
+**Technik:**
+- [x] **Vorschaubilder:** `plugins/social_image.py` nimmt das erste passende Bild des
+  Artikels als `og:image` (mindestens 400×200, ohne Transparenz) und stellt `twitter:card`
+  auf `summary_large_image`. Danach nutzen noch 219 Artikel das Logo (kein passendes Bild).
+- [x] **Interne Verlinkung:** Keine automatischen „Related Posts“. Artikel werden nur
+  explizit im Text verlinkt (`[Text](../slug/)`).
+- [ ] **Strukturierte Daten:** JSON-LD `BlogPosting` (Titel, Autor, Datum, Bild) im
+  Artikel-Template ergänzen.
+
+**Messen:**
+- [x] Cloudflare Web Analytics ist aktiv (ohne Cookies); die Datenschutzerklärung steht
+  in `content/pages/privacy.md` (`/pages/privacy/`).
+- [ ] Google Search Console: Verifizierung prüfen, Sitemap einreichen. Danach anhand der
+  Suchbegriffe und Besucherzahlen priorisieren.
+
+**Leserbindung:**
+- [ ] Newsletter: Das Mailchimp-Formular im Theme ist nicht konfiguriert
+  (`MAILCHIMP_FORM_ACTION`). RSS-zu-E-Mail-Dienst oder Newsletter-Tool anbinden.
+- [ ] Neue Artikel automatisch auf Bluesky posten.
+
+**Inhalte:**
+- [ ] **Rhythmus:** 2011–2020 im Schnitt rund 80 Artikel pro Jahr, 2021: 28,
+  2022: 1, seit 2023: 21–28 pro Jahr. Einen festen Rhythmus festlegen.
+- [ ] **Kurze Artikel:** 183 veröffentlichte Artikel haben weniger als 150 Wörter.
+  Zusammenlegen, ausbauen oder auf `noindex` setzen.
+- [ ] **Medium-Duplikate:** 72 Artikel haben ein `medium_url`. Auf Medium den
+  Canonical-Link auf den Blog setzen (falls Medium das noch anbietet), damit Google den
+  Blog als Original wertet. Die 58 noch fehlenden Medium-Artikel stehen in
+  `MEDIUM_EXPORT_TODO.md`.
+- [ ] **Übersichtsseiten:** Hub-Seiten für Serien und Themen (Energiewende,
+  Python-Testing, Klausuren), die alle zugehörigen Artikel verlinken.
+- [ ] **Aktualisieren:** Mit den Search-Console-Daten die meistbesuchten älteren
+  Technik-Artikel zuerst auf den aktuellen Stand bringen.
+
 ## 📊 Fortschritt
 
 ### Statistiken
