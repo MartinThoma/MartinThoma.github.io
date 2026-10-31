@@ -4,15 +4,20 @@ title: Database Read Phenomena
 slug: db-read-phenomena
 lang: en
 author: Martin Thoma
-date: 2021-05-31 20:00
+date: 2026-11-02 20:00
 category: Code
 tags: Database, SQL, Software Engineering
 featured_image: logos/star.png
 status: draft
 ---
-We have seen phenomenal improvements in the hardware in the last 30 years. Moore observed that the number of transistors in a dense integrated circuit (IC) doubles roughly every two years, the CPU clock rate increased from 740 kHz in 1971 to 4.9 GHz in 2021, and the types of instructions CPUs can execute got more complex over time. But there are limits to increasing the clock rate and adding more complex instructions. Instead of doing that, CPU manufacturers added the possibility to execute more stuff concurrently. This comes with its own set of problems.
+A web service rarely answers one call at a time. While one user transfers money,
+another one looks at their balance, and a nightly job sums up all accounts. These
+calls run concurrently, and they all work on the same central database. This comes
+with its own set of problems: one call can see the half-finished work of another one.
 
-To me, the most interesting ones are in the context of web services. And most prominently, they are interactions with a central database and are related to transaction isolation. In this article, you will learn what the 3 best-known read phenomena are and which transaction isolation levels fix them. Let's start!
+The database protects against this with transaction isolation. In this article, you
+will learn what the 3 best-known read phenomena are and which transaction isolation
+levels fix them. Let's start!
 
 <figure class="ai-generated">
     <a href="../images/2021/10/database-read-phenomena.jpg"><img src="../images/2021/10/database-read-phenomena.jpg" alt="Two lanes of colored transactions on a timeline with crossing arrows, a database in the middle and a ghost icon for phantom reads" width="1376" height="768"></a>
@@ -55,6 +60,11 @@ SELECT balance FROM accounts WHERE id = 1;       -- sees 200
 ROLLBACK;                                        -- 200 never existed
 ```
 
+<figure>
+    <a href="../images/2026/11/db-dirty-read.svg"><img src="../images/2026/11/db-dirty-read.svg" alt="Timeline of a dirty read: T2 sets the balance from 100 to 200 without committing, T1 reads 200, then T2 rolls back and the balance is 100 again" width="772" height="338" loading="lazy"></a>
+    <figcaption>Dirty read: T1 reads a value that T2 never commits</figcaption>
+</figure>
+
 T1 now works with a value that was never part of the database. If it uses it
 for a decision ("the customer can afford this"), the decision is wrong.
 
@@ -75,6 +85,11 @@ COMMIT;
 -- T1
 SELECT balance FROM accounts WHERE id = 1;  -- 50
 ```
+
+<figure>
+    <a href="../images/2026/11/db-non-repeatable-read.svg"><img src="../images/2026/11/db-non-repeatable-read.svg" alt="Timeline of a non-repeatable read: T1 reads the balance 100, T2 sets it to 50 and commits, T1 reads the same row again and gets 50" width="772" height="366" loading="lazy"></a>
+    <figcaption>Non-repeatable read: the same row has two values within one transaction</figcaption>
+</figure>
 
 Each read on its own is correct, but T1 doesn't see a single, consistent state.
 A report that sums up values in several queries can end up with numbers that
@@ -98,6 +113,11 @@ COMMIT;
 SELECT COUNT(*) FROM accounts WHERE balance > 1000;  -- 4
 ```
 
+<figure>
+    <a href="../images/2026/11/db-phantom-read.svg"><img src="../images/2026/11/db-phantom-read.svg" alt="Timeline of a phantom read: T1 counts 3 accounts with a balance over 1000, T2 inserts account 42 with 5000 and commits, T1 counts again and gets 4" width="772" height="382" loading="lazy"></a>
+    <figcaption>Phantom read: a new row matches T1's query</figcaption>
+</figure>
+
 The difference to the non-repeatable read: no row that T1 has seen was changed.
 Locking the rows T1 has read doesn't help, because the new row didn't exist when
 T1 read.
@@ -115,19 +135,19 @@ The SQL standard defines four isolation levels by the phenomena they prevent:
         <th>Phantom Read</th>
     </tr>
     <tr>
-        <td>READ_UNCOMMITTED</td>
+        <td>READ UNCOMMITTED</td>
         <td style="text-align: center;">💩</td>
         <td style="text-align: center;">💩</td>
         <td style="text-align: center;">💩</td>
     </tr>
     <tr>
-        <td>READ_COMMITTED</td>
+        <td>READ COMMITTED</td>
         <td style="text-align: center;">✅</td>
         <td style="text-align: center;">💩</td>
         <td style="text-align: center;">💩</td>
     </tr>
     <tr>
-        <td>REPEATABLE_READ</td>
+        <td>REPEATABLE READ</td>
         <td style="text-align: center;">✅</td>
         <td style="text-align: center;">✅</td>
         <td style="text-align: center;">💩</td>
@@ -139,6 +159,8 @@ The SQL standard defines four isolation levels by the phenomena they prevent:
         <td style="text-align: center;">✅</td>
     </tr>
 </table>
+
+✅ means the level prevents the phenomenon, 💩 means it can happen.
 
 You set it per transaction:
 
