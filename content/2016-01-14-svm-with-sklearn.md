@@ -135,7 +135,9 @@ def main():
     # Get classifier
     from sklearn.svm import SVC
 
-    clf = SVC(probability=False, kernel="rbf", C=2.8, gamma=0.0073)  # cache_size=200,
+    clf = SVC(
+        probability=False, kernel="rbf", C=2.8, gamma=0.0073
+    )  # cache_size=200,
 
     print("Start fitting. This may take a while")
 
@@ -160,9 +162,13 @@ def analyze(clf, data):
 
     predicted = clf.predict(data["test"]["X"])
     print(
-        "Confusion matrix:\n%s" % metrics.confusion_matrix(data["test"]["y"], predicted)
+        "Confusion matrix:\n%s"
+        % metrics.confusion_matrix(data["test"]["y"], predicted)
     )
-    print("Accuracy: %0.4f" % metrics.accuracy_score(data["test"]["y"], predicted))
+    print(
+        "Accuracy: %0.4f"
+        % metrics.accuracy_score(data["test"]["y"], predicted)
+    )
 
     # Print example
     try_id = 1
@@ -170,7 +176,8 @@ def analyze(clf, data):
     print("out: %s" % out)
     size = int(len(data["test"]["X"][try_id]) ** (0.5))
     view_image(
-        data["test"]["X"][try_id].reshape((size, size)), data["test"]["y"][try_id]
+        data["test"]["X"][try_id].reshape((size, size)),
+        data["test"]["y"][try_id],
     )
 
 

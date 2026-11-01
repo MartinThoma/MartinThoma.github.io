@@ -120,14 +120,17 @@ class Triangle:
         self.c = c
 
     def get_area(self) -> float:
-        """Get area of this triangle.
-           >>> Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).get_area()
-           50.0
-           >>> Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).get_area()
-           100.0
+        """
+        Get area of this triangle.
+        >>> Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).get_area()
+        50.0
+        >>> Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).get_area()
+        100.0
         """
         a, b, c = self.a, self.b, self.c
-        return abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2
+        return (
+            abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2
+        )
 
     def is_inside(self, p: Point) -> bool:
         """Check if p is inside this triangle."""

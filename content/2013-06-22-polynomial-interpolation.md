@@ -57,7 +57,7 @@ You might want to take a look at my article about <a href="../solving-linear-equ
 
 
 def pprintGaus(A):
-    """ Pretty print a n&times;n matrix with a result vector n&times;1. """
+    """Pretty print a n&times;n matrix with a result vector n&times;1."""
     n = len(A)
     for i in range(0, n):
         line = ""
@@ -70,7 +70,7 @@ def pprintGaus(A):
 
 
 def pprintPolynomial(A):
-    """ Pretty print a polynomial. """
+    """Pretty print a polynomial."""
     line = ""
     for i in range(len(x) - 1, -1, -1):
         if x[i] != 0:
@@ -87,8 +87,10 @@ def pprintPolynomial(A):
 
 
 def gauss(A):
-    """ Solve a linear sysem of equations given by a n&times;n matrix
-        with a result vector n&times;1. """
+    """
+    Solve a linear sysem of equations given by a n&times;n matrix
+    with a result vector n&times;1.
+    """
     n = len(A)
 
     for i in range(0, n):
@@ -125,14 +127,16 @@ def gauss(A):
 
 
 def setGauss(points):
-    """ Create a system of equations for gaussian elimination from
-        a set of points. """
+    """
+    Create a system of equations for gaussian elimination from
+    a set of points.
+    """
     n = len(points) - 1
     A = [[0 for i in range(n + 2)] for j in range(n + 1)]
     for i in range(n + 1):
         x = points[i]["x"]
         for j in range(n + 1):
-            A[i][j] = x ** j
+            A[i][j] = x**j
         A[i][n + 1] = points[i]["y"]
     return A
 
@@ -212,7 +216,10 @@ def lagrangeInterpolation(points):
             if j == i:
                 continue
             Li["polynomial"].append(
-                {"sub": points[j]["x"], "divisor": points[i]["x"] - points[j]["x"]}
+                {
+                    "sub": points[j]["x"],
+                    "divisor": points[i]["x"] - points[j]["x"],
+                }
             )
         p.append(Li)
     return p

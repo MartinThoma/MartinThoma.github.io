@@ -46,7 +46,6 @@ Special cases:
 
 """Label Correction algorithm."""
 
-
 import logging
 import sys
 
@@ -78,7 +77,9 @@ class Graph(object):
         """Add a new node and return its index."""
         node_index = len(self.nodes)
         if name.startswith("index-"):
-            logging.warning('Node names beginning with "index-" may cause ' "problems.")
+            logging.warning(
+                'Node names beginning with "index-" may cause problems.'
+            )
         if name is None:
             name = "index-%i" % node_index
         self.nodes.append(node_index)
@@ -180,7 +181,11 @@ def label_correction(graph, start_node, t, h=None, m=None, K=None):
         current = parents[current]
     path.append(current)
     named_path.append(graph.index2name[current])
-    return {"shortest_distance": u, "path": path[::-1], "named_path": named_path[::-1]}
+    return {
+        "shortest_distance": u,
+        "path": path[::-1],
+        "named_path": named_path[::-1],
+    }
 
 
 def sample_1():

@@ -62,7 +62,7 @@ def create_app():
     @app.route("/square")
     def square():
         number = int(request.args.get("number", 0))
-        return str(number ** 2)
+        return str(number**2)
 
     return app
 

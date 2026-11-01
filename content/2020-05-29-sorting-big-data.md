@@ -187,7 +187,9 @@ def merge_files(filepath1: str, filepath2: str, outpath: str) -> int:
 
     See https://docs.python.org/2/library/heapq.html#heapq.merge
     """
-    with open(outpath, "w") as fout, open(filepath1) as f1, open(filepath2) as f2:
+    with open(outpath, "w") as fout, open(filepath1) as f1, open(
+        filepath2
+    ) as f2:
         for line in heapq.merge(f1, f2):
             fout.write(line)
 ```
@@ -313,7 +315,9 @@ print("Sort")
 ddf_sorted = ddf.set_index(0)
 
 print("Write")
-fut = ddf_sorted.to_csv(output_file, compute=False, single_file=True, header=None)
+fut = ddf_sorted.to_csv(
+    output_file, compute=False, single_file=True, header=None
+)
 dask.compute(fut)
 print("Stop")
 ```
@@ -348,7 +352,7 @@ def main(big_filepath: str):
 
     if True:
         t0 = time.time()
-        create_db(big_filepath, db_filepath, batch_size=10 ** 7)
+        create_db(big_filepath, db_filepath, batch_size=10**7)
         t1 = time.time()
         print(f"create_db finished in {t1 - t0}")
     if True:
@@ -358,7 +362,7 @@ def main(big_filepath: str):
         print(f"sorting and writing with sqlite finished in {t1 - t0}")
 
 
-def create_db(big_filepath: str, db_filepath: str, batch_size: int = 10 ** 6):
+def create_db(big_filepath: str, db_filepath: str, batch_size: int = 10**6):
     con = sqlite3.connect(db_filepath)
 
     # Create the table

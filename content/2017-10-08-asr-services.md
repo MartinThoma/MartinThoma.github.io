@@ -485,7 +485,9 @@ It can only be used for commercial purposes, so I can't try it right now.
 The command is
 
 ```python
-r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+r.recognize_google_cloud(
+    audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS
+)
 ```
 
 

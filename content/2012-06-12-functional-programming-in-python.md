@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Functional Programming in Python
 slug: functional-programming-in-python
+lang: en
 author: Martin Thoma
 date: 2012-06-12 17:00:09.000000000 +02:00
 category: Code
@@ -122,7 +122,7 @@ r = [13, 2, 7, 11, 11]
 Task: What is the sum of digits of $2^n, n \in \mathbb{N}$?
 ```python
 sumOfDigits = lambda exp: reduce(
-    lambda x, y: x + y, map(lambda x: int(x), str(2 ** exp))
+    lambda x, y: x + y, map(lambda x: int(x), str(2**exp))
 )
 print(sumOfDigits(2))
 print(sumOfDigits(3))
@@ -139,7 +139,9 @@ Task: Encode and decode a string in the following way: Split Words by spaces. Ev
 # Thanks to lebenf: http://stackoverflow.com/a/3226719/562769
 chunks = lambda l, n: [l[x : x + n] for x in range(0, len(l), n)]
 
-decodeWord = lambda s: "".join(map(lambda x: chr(int(x, 16) + 64), chunks(s, 2)))
+decodeWord = lambda s: "".join(
+    map(lambda x: chr(int(x, 16) + 64), chunks(s, 2))
+)
 decode = lambda s: " ".join(map(decodeWord, s.split(" ")))
 encodeWord = lambda p: "".join(map(lambda x: "%.2X" % (ord(x) - 64), p))
 encode = lambda p: " ".join(map(encodeWord, p.split(" ")))

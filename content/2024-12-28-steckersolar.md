@@ -88,7 +88,20 @@ monate = [
     "Nov",
     "Dez",
 ]
-ertraege = [21, 26, 60, 80, 80, 84.17, 74.52, 86.64, 60.85, 34.61, 15.79, 10.27]
+ertraege = [
+    21,
+    26,
+    60,
+    80,
+    80,
+    84.17,
+    74.52,
+    86.64,
+    60.85,
+    34.61,
+    15.79,
+    10.27,
+]
 sonnenstunden = [
     108.5,
     134.4,
@@ -115,7 +128,9 @@ fig, ax1 = plt.subplots(figsize=(10, 6))
 sns.barplot(x="Monat", y="Ertrag (kWh)", data=data, ax=ax1)
 ax1.set_ylabel("Ertrag (kWh)", fontsize=12)
 ax1.set_xlabel("Monate", fontsize=12)
-ax1.set_title("Monatliche Erträge und Sonnenstunden der Solaranlage", fontsize=16)
+ax1.set_title(
+    "Monatliche Erträge und Sonnenstunden der Solaranlage", fontsize=16
+)
 
 # Zweite y-Achse: Sonnenstunden
 ax2 = ax1.twinx()

@@ -108,7 +108,7 @@ def line2intlist(line):
 
 
 def isSolvable(starDict):
-    """ Is it possible to solve this one? """
+    """Is it possible to solve this one?"""
     intList = []
     for index in starDict:
         wasInFor = True

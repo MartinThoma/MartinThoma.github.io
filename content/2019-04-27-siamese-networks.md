@@ -109,15 +109,18 @@ def main():
     points = generate_data(n_points=n_points, n_dim=n_dim)
     print(points[:n_reference_points])
     distances = get_distances(points, n_reference_points)
-    train_points, test_points, train_distances, test_distances = train_test_split(
-        points, distances
+    train_points, test_points, train_distances, test_distances = (
+        train_test_split(points, distances)
     )
     distances_p1s, distances_p2s, pair_distances = get_train_data(
         train_points, train_distances
     )
 
     model.fit(
-        [distances_p1s, distances_p2s], pair_distances, batch_size=128, epochs=100
+        [distances_p1s, distances_p2s],
+        pair_distances,
+        batch_size=128,
+        epochs=100,
     )
     predicted_points = nn.predict(test_distances)
     error = measure_error(test_points, predicted_points)
@@ -219,7 +222,11 @@ def get_train_data(points, distances):
         distances_p1.append(p1_dist)
         distances_p2.append(p2_dist)
         pair_distances.append(euclidean(points[pi1], points[pi2]))
-    return np.array(distances_p1), np.array(distances_p2), np.array(pair_distances)
+    return (
+        np.array(distances_p1),
+        np.array(distances_p2),
+        np.array(pair_distances),
+    )
 
 
 def measure_error(real_points, predicted_points):
@@ -229,7 +236,9 @@ def measure_error(real_points, predicted_points):
     This does not punish the points being shifted / rotated.
     """
     real_distances = np.tril(euclidean_distances(real_points), 0).reshape(-1)
-    pred_point_distances = np.tril(euclidean_distances(predicted_points)).reshape(-1)
+    pred_point_distances = np.tril(
+        euclidean_distances(predicted_points)
+    ).reshape(-1)
     diff = sum(((real_distances - pred_point_distances) ** 2) ** 0.5)
     return diff / len(real_points)
 

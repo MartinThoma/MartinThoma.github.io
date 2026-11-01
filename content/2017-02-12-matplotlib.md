@@ -44,11 +44,11 @@ for m in Line2D.markers:
     except TypeError:
         pass
 
-f1 = lambda xs: [x ** 2 for x in xs]
-f2 = lambda xs: [x ** 3 for x in xs]
+f1 = lambda xs: [x**2 for x in xs]
+f2 = lambda xs: [x**3 for x in xs]
 f3 = lambda xs: np.sin(xs)
 f4 = lambda xs: np.log(xs)
-f5 = lambda xs: [x ** 0.5 for x in xs]
+f5 = lambda xs: [x**0.5 for x in xs]
 f6 = lambda xs: [x for x in xs]
 f7 = lambda xs: [x + 1 for x in xs]
 functions = [f1, f2, f3, f4, f5, f6, f7]

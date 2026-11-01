@@ -252,7 +252,9 @@ for i in range(iters):
 t1 = time.time()
 print("Looping %d times took" % iters, t1 - t0, "seconds")
 print("Result is", r)
-if numpy.any([isinstance(x.op, T.Elemwise) for x in f.maker.fgraph.toposort()]):
+if numpy.any(
+    [isinstance(x.op, T.Elemwise) for x in f.maker.fgraph.toposort()]
+):
     print("Used the cpu")
 else:
     print("Used the gpu")

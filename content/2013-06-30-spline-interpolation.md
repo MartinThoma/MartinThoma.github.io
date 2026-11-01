@@ -121,8 +121,10 @@ def niceCubicPolynomial(p):
 
 
 def getSpline(points):
-    """ points should be a list of maps,
-        where each map represents a point and has "x" and "y" """
+    """
+    points should be a list of maps,
+    where each map represents a point and has "x" and "y"
+    """
     import numpy, scipy.linalg
 
     # sort points by x value

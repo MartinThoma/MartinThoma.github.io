@@ -361,7 +361,9 @@ def load_data(config={}):
     xs["train"] = vectorizer.fit_transform(docs["train"]).toarray()
     xs["test"] = vectorizer.transform(docs["test"]).toarray()
     ys = {"train": [], "test": []}
-    ys["train"] = mlb.fit_transform([reuters.categories(doc_id) for doc_id in train])
+    ys["train"] = mlb.fit_transform(
+        [reuters.categories(doc_id) for doc_id in train]
+    )
     ys["test"] = mlb.transform([reuters.categories(doc_id) for doc_id in test])
     data = {
         "x_train": xs["train"],

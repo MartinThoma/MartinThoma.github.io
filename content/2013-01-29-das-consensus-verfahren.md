@@ -48,7 +48,12 @@ def initDatastructure(terme):
     dictList = []
     for nr, term in enumerate(terme):
         dictList.append(
-            {"number": nr + 1, "gebildet": "", "term": term, "gestrichen": False}
+            {
+                "number": nr + 1,
+                "gebildet": "",
+                "term": term,
+                "gestrichen": False,
+            }
         )
     return dictList
 
@@ -90,7 +95,9 @@ def getConsensus(item1, item2):
     for i in range(len(term1)):
         if term1[i] == term2[i]:
             consensus += term1[i]
-        elif (term1[i] != term2[i]) and (term1[i] != "-") and (term2[i] != "-"):
+        elif (
+            (term1[i] != term2[i]) and (term1[i] != "-") and (term2[i] != "-")
+        ):
             consensus += "-"
         elif (term1[i] != term2[i]) and (term1[i] != "-"):
             consensus += term1[i]
@@ -109,7 +116,9 @@ def isIncludedIn(bigger, smaller):
 
 def consensusIsIncludedIn(dictList, consensus):
     for element in dictList:
-        if element["gestrichen"] == False and isIncludedIn(element["term"], consensus):
+        if element["gestrichen"] == False and isIncludedIn(
+            element["term"], consensus
+        ):
             return element["number"]
     return False
 
@@ -151,7 +160,9 @@ def consensus(terme):
         for pointer1 in range(pointer2 - 1, -1, -1):
             if dictList[pointer1]["gestrichen"] != False:
                 continue
-            elif not hasComplementaryDigit(dictList[pointer1], dictList[pointer2]):
+            elif not hasComplementaryDigit(
+                dictList[pointer1], dictList[pointer2]
+            ):
                 continue
             elif not hasConsensus(dictList[pointer1], dictList[pointer2]):
                 continue

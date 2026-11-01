@@ -52,7 +52,13 @@ def generate_data(n=400):
             minX, maxX = min(minX, x), max(maxX, x)
             minY, maxY = min(minY, y), max(maxY, y)
             alldata.addSample(features, [klass])
-    return {"minX": minX, "maxX": maxX, "minY": minY, "maxY": maxY, "d": alldata}
+    return {
+        "minX": minX,
+        "maxX": maxX,
+        "minY": minY,
+        "maxY": maxY,
+        "d": alldata,
+    }
 
 
 def generate_data2(n=400):
@@ -69,7 +75,13 @@ def generate_data2(n=400):
         x = normalvariate(7, 0.5)
         y = normalvariate(1, 0.1)
         alldata.addSample((x, y), (1,))
-    return {"minX": minX, "maxX": maxX, "minY": minY, "maxY": maxY, "d": alldata}
+    return {
+        "minX": minX,
+        "maxX": maxX,
+        "minY": minY,
+        "maxY": maxY,
+        "d": alldata,
+    }
 
 
 def perceptron(hidden_neurons=5, weightdecay=0.01, momentum=0.1):
@@ -92,7 +104,9 @@ def perceptron(hidden_neurons=5, weightdecay=0.01, momentum=0.1):
     tstdata._convertToOneOfMany()  # http://stackoverflow.com/q/8154674/562769
 
     print("Number of training patterns: %i" % len(trndata))
-    print("Input and output dimensions: %i, %i" % (trndata.indim, trndata.outdim))
+    print(
+        "Input and output dimensions: %i, %i" % (trndata.indim, trndata.outdim)
+    )
     print("Hidden neurons: %i" % HIDDEN_NEURONS)
     print("First sample (input, target, class):")
     print(trndata["input"][0], trndata["target"][0], trndata["class"][0])
@@ -102,7 +116,11 @@ def perceptron(hidden_neurons=5, weightdecay=0.01, momentum=0.1):
     )
 
     trainer = BackpropTrainer(
-        fnn, dataset=trndata, momentum=MOMENTUM, verbose=True, weightdecay=WEIGHTDECAY
+        fnn,
+        dataset=trndata,
+        momentum=MOMENTUM,
+        verbose=True,
+        weightdecay=WEIGHTDECAY,
     )
 
     # Visualization
@@ -170,7 +188,12 @@ if __name__ == "__main__":
         help="weightdecay",
     )
     parser.add_argument(
-        "-m", metavar="M", type=float, dest="momentum", default=0.1, help="momentum"
+        "-m",
+        metavar="M",
+        type=float,
+        dest="momentum",
+        default=0.1,
+        help="momentum",
     )
     args = parser.parse_args()
 

@@ -36,13 +36,13 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
 
 def ExtendedEuclideanAlgorithm(a, b):
     """
-		Calculates gcd(a,b) and a linear combination such that
-		gcd(a,b) = a*x + b*y
+    Calculates gcd(a,b) and a linear combination such that
+    gcd(a,b) = a*x + b*y
 
-		As a side effect:
-		If gcd(a,b) = 1 = a*x + b*y
-		Then x is multiplicative inverse of a modulo b.
-	"""
+    As a side effect:
+    If gcd(a,b) = 1 = a*x + b*y
+    Then x is multiplicative inverse of a modulo b.
+    """
     aO, bO = a, b
 
     x = lasty = 0
@@ -58,11 +58,11 @@ def ExtendedEuclideanAlgorithm(a, b):
 
 def solveLinearCongruenceEquations(rests, modulos):
     """
-	Solve a system of linear congruences.
+    Solve a system of linear congruences.
 
-	>>> solveLinearCongruenceEquations([4, 12, 14], [19, 37, 43])
-	{'congruence class': 22804, 'modulo': 30229}
-	"""
+    >>> solveLinearCongruenceEquations([4, 12, 14], [19, 37, 43])
+    {'congruence class': 22804, 'modulo': 30229}
+    """
     assert len(rests) == len(modulos)
     x = 0
     M = reduce(lambda x, y: x * y, modulos)

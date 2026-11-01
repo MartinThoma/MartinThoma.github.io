@@ -145,7 +145,7 @@ class BaselineRecommender(BaseEstimator):
         self.strategy = strategy
         if constant is not None and strategy != "constant":
             raise RuntimeError(
-                "constant is only meaningful in the constant " "strategy."
+                "constant is only meaningful in the constant strategy."
             )
         self.constant = constant
 
@@ -153,13 +153,21 @@ class BaselineRecommender(BaseEstimator):
         """Fit the recommender on movielens data."""
         df = df_x.join(df_y)
         self.median_by_user = (
-            df.groupby(by="userId").aggregate({"rating": "median"})["rating"].to_dict()
+            df.groupby(by="userId")
+            .aggregate({"rating": "median"})["rating"]
+            .to_dict()
         )
         self.median_by_movie = (
-            df.groupby(by="movieId").aggregate({"rating": "median"})["rating"].to_dict()
+            df.groupby(by="movieId")
+            .aggregate({"rating": "median"})["rating"]
+            .to_dict()
         )
-        self.avg_movie = sum(self.median_by_movie.values()) / len(self.median_by_movie)
-        self.avg_user = sum(self.median_by_user.values()) / len(self.median_by_user)
+        self.avg_movie = sum(self.median_by_movie.values()) / len(
+            self.median_by_movie
+        )
+        self.avg_user = sum(self.median_by_user.values()) / len(
+            self.median_by_user
+        )
 
     def predict(self, df_x):
         """Fit ratings for user/movie combinations."""
@@ -197,7 +205,9 @@ def evaluate(true_ratings, predicted_ratings, func="mae"):
         mae = absolute_errors / len(true_ratings)
         val = mae
     elif func == "mse":
-        sq_errors = sum((a - b) ** 2 for a, b in zip(true_ratings, predicted_ratings))
+        sq_errors = sum(
+            (a - b) ** 2 for a, b in zip(true_ratings, predicted_ratings)
+        )
         val = sq_errors / len(true_ratings)
     return val
 

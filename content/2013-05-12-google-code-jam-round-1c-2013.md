@@ -89,14 +89,14 @@ origin.
 def calculateSteps(x, y):
     s = 0
     dist = abs(x) + abs(y)
-    while (s ** 2 + s) / 2 < dist or ((s ** 2 + s) / 2) % 2 != dist % 2:
+    while (s**2 + s) / 2 < dist or ((s**2 + s) / 2) % 2 != dist % 2:
         s += 1
     return s
 
 
 def solve(x, y):
-    """ starting at (0|0) and going i steps,
-        how can you reach (x|y)? """
+    """starting at (0|0) and going i steps,
+    how can you reach (x|y)?"""
     s = calculateSteps(x, y)
 
     solution = ""
@@ -145,8 +145,10 @@ def prepareTribes(tribes):
             tribeStack.append(
                 {
                     "day": tribe["di"] + attackNumber * tribe["delta_di"],
-                    "west": 2 * (tribe["wi"] + attackNumber * tribe["delta_pi"]),
-                    "east": 2 * (tribe["ei"] + attackNumber * tribe["delta_pi"]),
+                    "west": 2
+                    * (tribe["wi"] + attackNumber * tribe["delta_pi"]),
+                    "east": 2
+                    * (tribe["ei"] + attackNumber * tribe["delta_pi"]),
                     "height": tribe["si"] + attackNumber * tribe["delta_si"],
                 }
             )
@@ -192,7 +194,9 @@ if __name__ == "__main__":
         N = input()  # Number of tribes attacking the wall
         tribes = []
         for tribe in range(N):
-            di, ni, wi, ei, si, delta_di, delta_pi, delta_si = raw_input().split(" ")
+            di, ni, wi, ei, si, delta_di, delta_pi, delta_si = (
+                raw_input().split(" ")
+            )
             tribes.append(
                 {
                     "di": int(di),  # the day of the tribe's first attack

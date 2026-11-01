@@ -36,14 +36,14 @@ class Location(object):
     def set_latitude(self, latitude):
         if not (-90 <= latitude <= 90):
             raise ValueError(
-                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+                f"latitude was {latitude}, but has to be in [-90, 90]"
             )
         self.latitude = latitude
 
     def set_longitude(self, longitude):
         if not (-180 <= longitude <= 180):
             raise ValueError(
-                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+                f"longitude was {longitude}, but has to be in [-180, 180]"
             )
         self.longitude = longitude
 ```
@@ -80,14 +80,14 @@ class Location(object):
     def set_latitude(self, latitude):
         if not (-90 <= latitude <= 90):
             raise ValueError(
-                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+                f"latitude was {latitude}, but has to be in [-90, 90]"
             )
         self._latitude = latitude
 
     def set_longitude(self, longitude):
         if not (-180 <= longitude <= 180):
             raise ValueError(
-                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+                f"longitude was {longitude}, but has to be in [-180, 180]"
             )
         self._longitude = longitude
 
@@ -187,7 +187,7 @@ class Location(object):
     def latitude(self, latitude):
         if not (-90 <= latitude <= 90):
             raise ValueError(
-                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+                f"latitude was {latitude}, but has to be in [-90, 90]"
             )
         self._latitude = latitude
 
@@ -195,7 +195,7 @@ class Location(object):
     def longitude(self, longitude):
         if not (-180 <= longitude <= 180):
             raise ValueError(
-                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+                f"longitude was {longitude}, but has to be in [-180, 180]"
             )
         self._longitude = longitude
 

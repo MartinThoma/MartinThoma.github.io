@@ -41,7 +41,11 @@ def rename(rename, starts=None, ends=None, test=False):
     Only files which end with `ends` and start with `starts` are renamed to
     `rename-[Number]`.
     """
-    files = [f for f in os.listdir(".") if os.path.isfile(f) and not f.endswith(".py")]
+    files = [
+        f
+        for f in os.listdir(".")
+        if os.path.isfile(f) and not f.endswith(".py")
+    ]
     # Sort files by last modification / creation
     files.sort(key=lambda x: os.stat(x).st_ctime)  # st_ctime or st_mtime
     files.sort(key=lambda x: get_date_taken(x))
@@ -69,7 +73,12 @@ def get_parser():
         description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
-        "-n", "--name", dest="name", help="new name", required=True, metavar="NAME"
+        "-n",
+        "--name",
+        dest="name",
+        help="new name",
+        required=True,
+        metavar="NAME",
     )
     parser.add_argument(
         "-s",
@@ -93,7 +102,7 @@ def get_parser():
         action="store_true",
         dest="test",
         default=False,
-        help="don't change anything, just show what would be " "done",
+        help="don't change anything, just show what would be done",
     )
     return parser
 

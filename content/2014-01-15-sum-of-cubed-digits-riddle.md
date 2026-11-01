@@ -35,12 +35,12 @@ possible number space to only 2917 numbers, it doesn't really matter.
 
 def find_sum_of_cubes():
     """Returns all numbers N with the following property
-        N = \sum_{k=0}^n a_k \cdot 10^k = \sum a_k^3
+    N = \sum_{k=0}^n a_k \cdot 10^k = \sum a_k^3
     """
 
     def has_sum_of_cubes_property(n):
         digits = map(int, list(str(n)))
-        return sum(map(lambda n: n ** 3, digits)) == n
+        return sum(map(lambda n: n**3, digits)) == n
 
     return list(filter(has_sum_of_cubes_property, range(2917)))
 

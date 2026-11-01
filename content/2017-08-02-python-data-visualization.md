@@ -73,7 +73,7 @@ from mayavi import mlab
 import numpy
 
 x, y = numpy.mgrid[-3:3:100j, -3:3:100j]
-z = numpy.sin(x ** 2 + y ** 2)
+z = numpy.sin(x**2 + y**2)
 mlab.surf(x, y, z)
 ```
 

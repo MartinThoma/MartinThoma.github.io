@@ -71,12 +71,10 @@ salt, the number of rounds. It returns the key. In most programming languages,
 you have two functions:
 
 ```python
-def generate_key(password, hash_function, salt_length) -> key:
-    ...
+def generate_key(password, hash_function, salt_length) -> key: ...
 
 
-def check_key(password, key) -> bool:
-    ...
+def check_key(password, key) -> bool: ...
 ```
 
 As an example:

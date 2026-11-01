@@ -313,7 +313,9 @@ def db_connection(f):
         # https://martin-thoma.com/sql-connection-strings/
         user = os.environ["DB_USER"]
         password = os.environ["DB_PASSWORD"]
-        engine = create_engine(f"mysql+pymysql://{user}:{password}@localhost/books")
+        engine = create_engine(
+            f"mysql+pymysql://{user}:{password}@localhost/books"
+        )
         Session = sessionmaker(bind=engine)
         session = Session()
         try:
@@ -363,8 +365,12 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column("users", sa.Column("confirmed_on", sa.DateTime(), nullable=True))
-    op.add_column("users", sa.Column("registered_on", sa.DateTime(), nullable=False))
+    op.add_column(
+        "users", sa.Column("confirmed_on", sa.DateTime(), nullable=True)
+    )
+    op.add_column(
+        "users", sa.Column("registered_on", sa.DateTime(), nullable=False)
+    )
     op.add_column(
         "users",
         sa.Column(
@@ -379,7 +385,8 @@ def upgrade():
 
 def downgrade():
     op.add_column(
-        "users", sa.Column("email_confirmed_at", mysql.DATETIME(), nullable=True),
+        "users",
+        sa.Column("email_confirmed_at", mysql.DATETIME(), nullable=True),
     )
     op.drop_column("users", "status")
     op.drop_column("users", "registered_on")

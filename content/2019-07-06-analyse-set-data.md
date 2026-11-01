@@ -96,7 +96,9 @@ df["author"] = df["author"].str.split("::")
 
 # Analyze the data
 df = df[~df["author"].isna()]
-authors = [author for authorset in df["author"].tolist() for author in authorset]
+authors = [
+    author for authorset in df["author"].tolist() for author in authorset
+]
 author_count = Counter(authors)
 
 print("* Publications: {}".format(len(df)))
@@ -121,7 +123,9 @@ def get_biggest_clusters(edges, n=10):
 
     print("Edges were added")
 
-    components = [c for c in sorted(nx.connected_components(G), key=len, reverse=True)]
+    components = [
+        c for c in sorted(nx.connected_components(G), key=len, reverse=True)
+    ]
     return components[:n]
 
 
@@ -142,7 +146,9 @@ def create_matrix(nodes, edges):
 components = get_biggest_clusters(df["author"])
 print("* Biggest clusters: {}".format([len(el) for el in components]))
 
-component_w_publications = [(author, author_count[author]) for author in components[0]]
+component_w_publications = [
+    (author, author_count[author]) for author in components[0]
+]
 component_w_publications = sorted(
     component_w_publications, key=lambda n: n[1], reverse=True
 )
@@ -211,7 +217,9 @@ df = pd.read_csv("movies.csv")
 df["genres"] = df["genres"].str.split("|")
 
 # Analyze the data
-list_values = [value for valueset in df["genres"].tolist() for value in valueset]
+list_values = [
+    value for valueset in df["genres"].tolist() for value in valueset
+]
 value_count = Counter(list_values)
 
 print("* Movies: {}".format(len(df)))
@@ -236,7 +244,9 @@ def get_biggest_clusters(edges, n=10):
 
     print("Edges were added")
 
-    components = [c for c in sorted(nx.connected_components(G), key=len, reverse=True)]
+    components = [
+        c for c in sorted(nx.connected_components(G), key=len, reverse=True)
+    ]
     return components[:n]
 
 
@@ -257,7 +267,9 @@ def create_matrix(nodes, edges):
 components = get_biggest_clusters(df["genres"])
 print("* Biggest clusters: {}".format([len(el) for el in components]))
 
-component_w_publications = [(author, value_count[author]) for author in components[0]]
+component_w_publications = [
+    (author, value_count[author]) for author in components[0]
+]
 component_w_publications = sorted(
     component_w_publications, key=lambda n: n[1], reverse=True
 )

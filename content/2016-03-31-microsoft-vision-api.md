@@ -40,7 +40,10 @@ try:
 
     conn = httplib.HTTPSConnection("api.projectoxford.ai")
     conn.request(
-        "POST", "/vision/v1/analyses?%s" % params, "{'Url': '%s'}" % image_url, headers
+        "POST",
+        "/vision/v1/analyses?%s" % params,
+        "{'Url': '%s'}" % image_url,
+        headers,
     )
     response = conn.getresponse()
     data = response.read()

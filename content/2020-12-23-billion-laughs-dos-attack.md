@@ -88,11 +88,11 @@ def limit(resource_type, limit):
 
 
 def dangerous_call():
-    [i ** 2 for i in range(10 ** 5)]
+    [i**2 for i in range(10**5)]
 
 
 try:
-    with limit(resource.RLIMIT_AS, 2 ** 24):
+    with limit(resource.RLIMIT_AS, 2**24):
         dangerous_call()
 except MemoryError:
     print("Your call consumed too much memory!")

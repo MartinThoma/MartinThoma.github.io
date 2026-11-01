@@ -158,7 +158,11 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="less script")
     parser.add_argument(
-        "-f", "--file", dest="filename", help="write report to FILE", metavar="FILE"
+        "-f",
+        "--file",
+        dest="filename",
+        help="write report to FILE",
+        metavar="FILE",
     )
     parser.add_argument(
         "-n", dest="n", default=10, type=int, help="how many lines get printed"

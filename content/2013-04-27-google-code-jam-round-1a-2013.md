@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Google Code Jam &ndash; Round 1A 2013
 slug: google-code-jam-round-1a-2013
+lang: en
 author: Martin Thoma
 date: 2013-04-27 07:15:17.000000000 +02:00
 category: Code
@@ -165,7 +165,9 @@ def solve(N, M, products, productToBuildungs):
                 return candidates
 
     for p in products:
-        pos = filter(lambda b: canBeIn(b, candidates, N), productToBuildungs[p][1])
+        pos = filter(
+            lambda b: canBeIn(b, candidates, N), productToBuildungs[p][1]
+        )
         if len(pos) == 1:
             candidates = merge(candidates, pos[0])
 
@@ -199,6 +201,12 @@ if __name__ == "__main__":
                     productToBuildungs[s][1].append(list(product))
 
         for r in range(R):
-            products = [int(el) for el in raw_input().split(" ") if int(el) != 1]
-            print("".join(map(str, sorted(solve(N, M, products, productToBuildungs)))))
+            products = [
+                int(el) for el in raw_input().split(" ") if int(el) != 1
+            ]
+            print(
+                "".join(
+                    map(str, sorted(solve(N, M, products, productToBuildungs)))
+                )
+            )
 ```

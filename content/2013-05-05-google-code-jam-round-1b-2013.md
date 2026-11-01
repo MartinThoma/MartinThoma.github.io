@@ -49,7 +49,7 @@ def stepsNeededForNext(A, motes):
     m = min(motes)
     steps = 0
     if m >= 1 and A == 1:
-        return 10 ** 12
+        return 10**12
     while A <= m:
         A += A - 1
         steps += 1
@@ -141,7 +141,7 @@ def solve(N, x, y):
     xTmp = x + y  # let target slide down
 
     n = xTmp - 1
-    baseDiamands = (n ** 2 + n) / 2
+    baseDiamands = (n**2 + n) / 2
 
     # are there enough diamonds left after you've build the basis?
     rest = N - baseDiamands
@@ -163,7 +163,7 @@ def solve(N, x, y):
     for k in range(hitsNeeded, rest + 1):
         prob += binomial(rest, k)
 
-    return prob / 2 ** rest
+    return prob / 2**rest
 
 
 if __name__ == "__main__":

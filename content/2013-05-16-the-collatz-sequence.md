@@ -90,7 +90,9 @@ def createPng(dotfile, base, program):
     print("Execute command: %s" % command)
     os.system(command)
 
-    command = "inkscape " + base + ".svg" + " -w 512 --export-png=" + base + ".png"
+    command = (
+        "inkscape " + base + ".svg" + " -w 512 --export-png=" + base + ".png"
+    )
     print("Execute command: %s" % command)
     os.system(command)
 
@@ -98,7 +100,9 @@ def createPng(dotfile, base, program):
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Graph for small Collatz sequences")
+    parser = argparse.ArgumentParser(
+        description="Graph for small Collatz sequences"
+    )
     parser.add_argument(
         "-f",
         "--file",

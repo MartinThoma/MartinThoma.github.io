@@ -292,7 +292,9 @@ def train_agent(cfg, env, agent):
             action = agent.act(observation_previous)
             observation, reward, is_done, _ = env.step(action)
             cum_reward += reward
-            agent.remember(observation_previous, action, reward, observation, is_done)
+            agent.remember(
+                observation_previous, action, reward, observation, is_done
+            )
             observation_previous = observation
         if episode % cfg["training"]["print_score"] == 0 and episode > 0:
             agent.save(cfg["serialize_path"])

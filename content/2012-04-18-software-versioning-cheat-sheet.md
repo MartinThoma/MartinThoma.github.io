@@ -198,7 +198,9 @@ from gi.repository import Gdk, Gtk
 
 class SimpleImageDiffWindow(Gtk.Window):
     def __init__(self, left, right):
-        Gtk.Window.__init__(self, title="Simple Image Diff (%s, %s)" % (left, right))
+        Gtk.Window.__init__(
+            self, title="Simple Image Diff (%s, %s)" % (left, right)
+        )
         self.set_default_size(640, 480)
         align = Gtk.Alignment()
         align.set_padding(10, 10, 10, 10)
@@ -215,7 +217,9 @@ class SimpleImageDiffWindow(Gtk.Window):
         frame = Gtk.Frame()
         image = Gtk.Image()
         image.set_from_file(image_file)
-        title = Gtk.Label(label="W: %dpx  |  H: %dpx" % Image.open(image_file).size)
+        title = Gtk.Label(
+            label="W: %dpx  |  H: %dpx" % Image.open(image_file).size
+        )
         frame.add(image)
         box.pack_start(frame, True, True, 0)
         box.pack_end(title, False, False, 10)

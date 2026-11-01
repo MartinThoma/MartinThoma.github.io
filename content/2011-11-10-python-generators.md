@@ -21,8 +21,10 @@ Imagine you wanted to display n Fibonacci numbers. This could be your normal app
 
 
 def fibonacci(n):
-    """ Build and return a list of the first
-        n >= 2 Fibonacci numbers """
+    """
+    Build and return a list of the first
+    n >= 2 Fibonacci numbers.
+    """
 
     fibList = [1, 1]
     while len(fibList) < n:
@@ -43,7 +45,7 @@ The disadvantage of this approach is that you have to keep every element of the 
 
 
 def fib(n):
-    """ Calculate the n-th fibonacci number. """
+    """Calculate the n-th fibonacci number."""
     if n == 0:
         return 0
     elif n == 1:
@@ -65,7 +67,7 @@ A generator could look like this:
 
 
 def fibGenerator():
-    """ A python fibonacci generator """
+    """A python fibonacci generator"""
     a, b = 1, 1
     while 1:
         yield a

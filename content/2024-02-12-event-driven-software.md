@@ -127,6 +127,7 @@ The next part we want to improve is the **locality of the code**. Meaning that o
 ```python
 from pathlib import Path
 
+
 # events.py
 class Event:
     def __init__(self, name):
@@ -142,6 +143,7 @@ class Event:
 
 
 current_path_changed = Event("current_path_changed")
+
 
 # Remaining code:
 class FileExplorer:
@@ -189,7 +191,9 @@ class DetailsView:
 
     def refresh(self):
         """Show the files from the root.current_path."""
-        print(f"Refreshing details view with files from {self.root.current_path}")
+        print(
+            f"Refreshing details view with files from {self.root.current_path}"
+        )
 
 
 # Example usage:

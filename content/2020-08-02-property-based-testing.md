@@ -73,7 +73,7 @@ def factorize(number: int) -> List[int]:
     # Now we only need to check odd numbers
     # up to the square root of the number
     i = 3
-    while i <= int(math.ceil(number ** 0.5)) + 1:
+    while i <= int(math.ceil(number**0.5)) + 1:
         while number % i == 0:
             factors.append(i)
             number = number // i
@@ -84,7 +84,7 @@ def factorize(number: int) -> List[int]:
 You might feel a bit uneasy about the condition in
 
 ```python
-while i <= int(math.ceil(number ** 0.5)) + 1:
+while i <= int(math.ceil(number**0.5)) + 1:
     ...
 ```
 
@@ -141,7 +141,7 @@ from hypothesis import given
 from factorize import factorize
 
 
-@given(s.integers(min_value=-(10 ** 6), max_value=10 ** 6))
+@given(s.integers(min_value=-(10**6), max_value=10**6))
 def test_factorize_multiplication_property(n):
     """The product of the integers returned by factorize(n) needs to be n."""
     factors = factorize(n)

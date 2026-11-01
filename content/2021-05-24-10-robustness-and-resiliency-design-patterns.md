@@ -79,7 +79,7 @@ you might want to consider **capped exponential backoff**:
 ```python
 max_sleep = 300  # seconds
 base_sleep = 2  # seconds
-sleep_time = min(max_sleep, base_sleep ** attempts)
+sleep_time = min(max_sleep, base_sleep**attempts)
 ```
 
 In order to prevent multiple services essentially hitting at the same time,
@@ -90,7 +90,7 @@ max_sleep = 300  # seconds
 base_sleep = 2  # seconds
 jitter = random.uniform(0, 5)  # seconds
 
-sleep_time = min(max_sleep, base_sleep ** attempts) + jitter
+sleep_time = min(max_sleep, base_sleep**attempts) + jitter
 ```
 
 ## 3. Timeout and other Resource Limitations

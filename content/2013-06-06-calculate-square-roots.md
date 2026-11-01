@@ -101,7 +101,11 @@ if __name__ == "__main__":
         required=True,
     )
     parser.add_argument(
-        "-a", metavar="A", type=int, required=True, help="calculate squre root of a"
+        "-a",
+        metavar="A",
+        type=int,
+        required=True,
+        help="calculate squre root of a",
     )
     parser.add_argument(
         "-n", metavar="N", type=int, required=True, help="maximum n iterations"

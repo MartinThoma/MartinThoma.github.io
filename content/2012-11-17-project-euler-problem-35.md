@@ -44,7 +44,7 @@ First, this is the way the sieve of Eratosthenes works:
 For example, this implementation is not good:
 ```python
 def getPrimesBelowN(n=1000000):
-    """ Sieve of Eratosthenes """
+    """Sieve of Eratosthenes"""
     from math import ceil
 
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
@@ -64,7 +64,7 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 How could this get improved? Here is a better solution:
 ```python
 def getPrimesBelowN(n=1000000):
-    """ Sieve of Eratosthenes """
+    """Sieve of Eratosthenes"""
     from math import ceil
 
     roundUp = lambda n, prime: int(ceil(float(n) / prime))

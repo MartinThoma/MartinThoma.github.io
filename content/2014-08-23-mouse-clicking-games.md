@@ -65,13 +65,25 @@ if __name__ == "__main__":
         type=int,
     )
     parser.add_argument(
-        "-x", dest="x", help="x coordinate where to click", default=711, type=int
+        "-x",
+        dest="x",
+        help="x coordinate where to click",
+        default=711,
+        type=int,
     )
     parser.add_argument(
-        "-y", dest="y", help="y coordinate where to click", default=467, type=int
+        "-y",
+        dest="y",
+        help="y coordinate where to click",
+        default=467,
+        type=int,
     )
     parser.add_argument(
-        "--delay", dest="delay", help="delay between clicks", default=0.01, type=float
+        "--delay",
+        dest="delay",
+        help="delay between clicks",
+        default=0.01,
+        type=float,
     )
     args = parser.parse_args()
     main(args.clicks, args.twiggle, args.x, args.y, args.delay)

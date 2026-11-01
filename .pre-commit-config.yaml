@@ -31,10 +31,10 @@ repos:
         exclude: polyglot.py$
         files: '^content/.*\.md$'
 
-  # Python code formatting
-  - repo: https://github.com/asottile/blacken-docs
-    rev: v1.10.0
+  # Python code formatting (formats ```python blocks in Markdown)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.3
     hooks:
-      - id: blacken-docs
-        additional_dependencies: [black==19.10b0]
-        args: [-t, py38]
+      - id: ruff-format
+        files: '^content/.*\.md$'
+        args: [--target-version, py38, --line-length, "79"]

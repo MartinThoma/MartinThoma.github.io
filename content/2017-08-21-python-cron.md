@@ -174,7 +174,9 @@ def job_runner(csv_filepath, line_nr, jobs):
         last_modified_website = get_last_modified(url)
         if last_modified_website != last_modified_seen:
             # Update file
-            update_file(csv_filepath, line_nr, last_modified_website, os.getpid())
+            update_file(
+                csv_filepath, line_nr, last_modified_website, os.getpid()
+            )
             last_modified_seen = last_modified_website
             # notify
             sendmessage(

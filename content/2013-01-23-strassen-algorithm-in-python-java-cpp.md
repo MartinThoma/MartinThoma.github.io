@@ -110,7 +110,7 @@ def subtract(A, B):
 
 def strassenR(A, B):
     """
-        Implementation of the strassen algorithm.
+    Implementation of the strassen algorithm.
     """
     n = len(A)
 

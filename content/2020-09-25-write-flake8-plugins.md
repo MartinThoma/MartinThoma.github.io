@@ -183,14 +183,20 @@ class Visitor(ast.NodeVisitor):
 def _get_not_equal_calls(node: ast.UnaryOp) -> List[Tuple[int, int, str]]:
     """Get a list of all calls where a unary 'not' is used for an equality."""
     errors: List[Tuple[int, int, str]] = []
-    if not isinstance(node.op, ast.Not) or not isinstance(node.operand, ast.Compare):
+    if not isinstance(node.op, ast.Not) or not isinstance(
+        node.operand, ast.Compare
+    ):
         return errors
-    if len(node.operand.ops) != 1 or not isinstance(node.operand.ops[0], ast.Eq):
+    if len(node.operand.ops) != 1 or not isinstance(
+        node.operand.ops[0], ast.Eq
+    ):
         return errors
     comparison = node.operand
     left = astor.to_source(comparison.left).strip()
     right = astor.to_source(comparison.comparators[0]).strip()
-    errors.append((node.lineno, node.col_offset, SIM201.format(left=left, right=right)))
+    errors.append(
+        (node.lineno, node.col_offset, SIM201.format(left=left, right=right))
+    )
 
     return errors
 ```

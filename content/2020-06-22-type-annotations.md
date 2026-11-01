@@ -32,8 +32,9 @@ for i in range(10):
 So you can simply use the pattern:
 
 ```python
-def some_function(param_name: typename) -> return_type_name:
-    ...  # whatever the function does
+def some_function(
+    param_name: typename,
+) -> return_type_name: ...  # whatever the function does
 ```
 
 Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use CPython, PyPy, or something more exotic.
@@ -153,13 +154,11 @@ from typing import overload
 
 
 @overload
-def upcase(s: str) -> str:
-    ...
+def upcase(s: str) -> str: ...
 
 
 @overload
-def upcase(s: bytes) -> bytes:
-    ...
+def upcase(s: bytes) -> bytes: ...
 
 
 def upcase(s):
@@ -188,8 +187,7 @@ from typing import Protocol
 
 
 class SupportsClose(Protocol):
-    def close(self) -> None:
-        ...
+    def close(self) -> None: ...
 
 
 def finish_it(obj: SupportsClose):
@@ -239,8 +237,7 @@ However, you might want to disable type checking for single lines:
 Stub files end in `.pyi`. If mypy finds a `.py` file and a `.pyi` file, it only loads the `.pyi` file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis `...`:
 
 ```python
-def fib_list(n: int) -> List[int]:
-    ...
+def fib_list(n: int) -> List[int]: ...
 ```
 
 ## pyright, pyre, pytype

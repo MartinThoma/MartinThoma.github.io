@@ -155,9 +155,9 @@ def fib(n):
 
 
 def moivreBinet(n):
-    phi = (5 ** 0.5 + 1) / 2
+    phi = (5**0.5 + 1) / 2
     psi = 1 - phi
-    return int((phi ** n - psi ** n) / (phi - psi))
+    return int((phi**n - psi**n) / (phi - psi))
 
 
 from itertools import count

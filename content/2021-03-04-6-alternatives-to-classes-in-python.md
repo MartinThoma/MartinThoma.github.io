@@ -50,7 +50,9 @@ class Position:
     def latitude(self, latitude: float) -> None:
         """Setter for latitude."""
         if not (Position.MIN_LATITUDE <= latitude <= Position.MAX_LATITUDE):
-            raise ValueError(f"latitude was {latitude}, but has to be in [-90, 90]")
+            raise ValueError(
+                f"latitude was {latitude}, but has to be in [-90, 90]"
+            )
         self._latitude = latitude
 
     @property
@@ -62,7 +64,9 @@ class Position:
     def longitude(self, longitude: float) -> None:
         """Setter for longitude."""
         if not (Position.MIN_LONGITUDE <= longitude <= Position.MAX_LONGITUDE):
-            raise ValueError(f"longitude was {longitude}, but has to be in [-180, 180]")
+            raise ValueError(
+                f"longitude was {longitude}, but has to be in [-180, 180]"
+            )
         self._longitude = longitude
 
 
@@ -94,7 +98,8 @@ pos2 = (42.1238762, 9.1649964, None)
 
 
 def get_distance(
-    p1: Tuple[float, float, Optional[str]], p2: Tuple[float, float, Optional[str]]
+    p1: Tuple[float, float, Optional[str]],
+    p2: Tuple[float, float, Optional[str]],
 ) -> float:
     pass
 ```
@@ -110,7 +115,11 @@ Dictionaries are a native data type and probably the most common way to throw da
 ```python
 from typing import Any, Dict
 
-pos1 = {"longitude": 49.0127913, "latitude": 8.4231381, "address": "Parkstraße 17"}
+pos1 = {
+    "longitude": 49.0127913,
+    "latitude": 8.4231381,
+    "address": "Parkstraße 17",
+}
 pos2 = {"longitude": 42.1238762, "latitude": 9.1649964, "address": None}
 
 
@@ -279,7 +288,9 @@ class Position:
     def latitude(self, latitude: float) -> None:
         """Setter for latitude."""
         if not (-90 <= latitude <= 90):
-            raise ValueError(f"latitude was {latitude}, but has to be in [-90, 90]")
+            raise ValueError(
+                f"latitude was {latitude}, but has to be in [-90, 90]"
+            )
         self._latitude = latitude
 
     @property
@@ -291,7 +302,9 @@ class Position:
     def longitude(self, longitude: float) -> None:
         """Setter for longitude."""
         if not (-180 <= longitude <= 180):
-            raise ValueError(f"longitude was {longitude}, but has to be in [-180, 180]")
+            raise ValueError(
+                f"longitude was {longitude}, but has to be in [-180, 180]"
+            )
         self._longitude = longitude
 ```
 

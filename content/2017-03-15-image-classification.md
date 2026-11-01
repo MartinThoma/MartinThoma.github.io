@@ -48,6 +48,7 @@ subsequent uses and applies it to the data.
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """ResNet50 model for Keras."""
+
 from __future__ import print_function
 
 import numpy as np
@@ -132,7 +133,9 @@ def decode_predictions(preds, top=5):
         )
     if CLASS_INDEX is None:
         fpath = get_file(
-            "imagenet_class_index.json", CLASS_INDEX_PATH, cache_subdir="models"
+            "imagenet_class_index.json",
+            CLASS_INDEX_PATH,
+            cache_subdir="models",
         )
         CLASS_INDEX = json.load(open(fpath))
     results = []

@@ -100,7 +100,7 @@ def get_browser():
     """Get the browser (a "driver")."""
     # find the path with 'which chromedriver'
     path_to_chromedriver = (
-        "/home/moose/GitHub/algorithms/scraping/" "venv/bin/chromedriver"
+        "/home/moose/GitHub/algorithms/scraping/venv/bin/chromedriver"
     )
     browser = webdriver.Chrome(executable_path=path_to_chromedriver)
     return browser
@@ -194,7 +194,7 @@ def get_browser():
     """Get the browser (a "driver")."""
     # find the path with 'which chromedriver'
     path_to_chromedriver = (
-        "/home/moose/GitHub/algorithms/scraping/" "venv/bin/chromedriver"
+        "/home/moose/GitHub/algorithms/scraping/venv/bin/chromedriver"
     )
     download_dir = "/home/moose/selenium-download/"
     print("Is directory: {}".format(os.path.isdir(download_dir)))
@@ -205,7 +205,9 @@ def get_browser():
     chrome_options.add_experimental_option(
         "prefs",
         {
-            "plugins.plugins_list": [{"enabled": False, "name": "Chrome PDF Viewer"}],
+            "plugins.plugins_list": [
+                {"enabled": False, "name": "Chrome PDF Viewer"}
+            ],
             "download": {
                 "prompt_for_download": False,
                 "default_directory": download_dir,
@@ -213,7 +215,9 @@ def get_browser():
         },
     )
 
-    browser = webdriver.Chrome(path_to_chromedriver, chrome_options=chrome_options)
+    browser = webdriver.Chrome(
+        path_to_chromedriver, chrome_options=chrome_options
+    )
     return browser
 
 

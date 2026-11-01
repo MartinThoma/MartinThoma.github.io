@@ -176,7 +176,8 @@ def analyze_classifier(sess, i, w1, b1, w2, b2, XOR_X, XOR_T):
     """Visualize the classification."""
     print("\nEpoch %i" % i)
     print(
-        "Hypothesis %s" % sess.run(hypothesis, feed_dict={input_: XOR_X, target: XOR_T})
+        "Hypothesis %s"
+        % sess.run(hypothesis, feed_dict={input_: XOR_X, target: XOR_T})
     )
     print("w1=%s" % sess.run(w1))
     print("b1=%s" % sess.run(b1))
@@ -227,7 +228,8 @@ w1 = tf.Variable(
     tf.random_uniform([2, nb_hidden_nodes], -1, 1, seed=0), name="Weights1"
 )
 w2 = tf.Variable(
-    tf.random_uniform([nb_hidden_nodes, nb_classes], -1, 1, seed=0), name="Weights2"
+    tf.random_uniform([nb_hidden_nodes, nb_classes], -1, 1, seed=0),
+    name="Weights2",
 )
 b1 = tf.Variable(tf.zeros([nb_hidden_nodes]), name="Biases1")
 b2 = tf.Variable(tf.zeros([nb_classes]), name="Biases2")

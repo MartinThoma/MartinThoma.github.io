@@ -20,7 +20,7 @@ First, we create two dataframes:
 import pandas as pd
 
 countries = ["Germany", "France", "Indonesia"]
-inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6, 255.5 * 10 ** 6]
+inhabitants = [82.5 * 10**6, 66.9 * 10**6, 255.5 * 10**6]
 capitals = ["Berlin", "Paris", "Jakarta"]
 
 df1 = pd.DataFrame(

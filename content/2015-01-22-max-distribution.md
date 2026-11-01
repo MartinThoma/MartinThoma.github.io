@@ -30,7 +30,9 @@ def main():
     numbers_a = numpy.random.uniform(size=samples)
     numbers_b = numpy.random.uniform(size=samples)
     numbers_c = numpy.random.uniform(size=samples)
-    numbers_max = [max(a, b, c) for a, b, c in zip(numbers_a, numbers_b, numbers_c)]
+    numbers_max = [
+        max(a, b, c) for a, b, c in zip(numbers_a, numbers_b, numbers_c)
+    ]
 
     # Plot data
     plt.hist(numbers_max)

@@ -24,7 +24,9 @@ We have to get a check, if a number is pandigital. It could look like this:
 
 ```python
 def isPandigitalString(string):
-    """ Check if string contains a pandigital number. """
+    """
+    Check if string contains a pandigital number.
+    """
     digits = len(string)
 
     if digits >= 10:

@@ -31,7 +31,9 @@ def factorize(n):
 
     p = 2
     while True:
-        while n % p == 0 and n > 0:  # while we can divide by smaller number, do so
+        while (
+            n % p == 0 and n > 0
+        ):  # while we can divide by smaller number, do so
             factors.append(p)
             n = n / p
         p += 1  # p is not necessary prime, but n%p == 0 only for prime numbers
@@ -44,28 +46,28 @@ def factorize(n):
 
 def calculateLegendre(a, p):
     """
-	Calculate the legendre symbol (a, p) with p is prime.
-	The result is either -1, 0 or 1
+    Calculate the legendre symbol (a, p) with p is prime.
+    The result is either -1, 0 or 1
 
-	>>> calculateLegendre(3, 29)
-	-1
-	>>> calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114
-	-1
-	>>> calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114
-	1
-	>>> calculateLegendre(2, 31)
-	1
-	>>> calculateLegendre(5, 31)
-	1
-	>>> calculateLegendre(150, 1009) # http://math.stackexchange.com/q/221223/6876
-	1
-	>>> calculateLegendre(25, 1009) # http://math.stackexchange.com/q/221223/6876
-	1
-	>>> calculateLegendre(2, 1009) # http://math.stackexchange.com/q/221223/6876
-	1
-	>>> calculateLegendre(3, 1009) # http://math.stackexchange.com/q/221223/6876
-	1
-	"""
+    >>> calculateLegendre(3, 29)
+    -1
+    >>> calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114
+    -1
+    >>> calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114
+    1
+    >>> calculateLegendre(2, 31)
+    1
+    >>> calculateLegendre(5, 31)
+    1
+    >>> calculateLegendre(150, 1009) # http://math.stackexchange.com/q/221223/6876
+    1
+    >>> calculateLegendre(25, 1009) # http://math.stackexchange.com/q/221223/6876
+    1
+    >>> calculateLegendre(2, 1009) # http://math.stackexchange.com/q/221223/6876
+    1
+    >>> calculateLegendre(3, 1009) # http://math.stackexchange.com/q/221223/6876
+    1
+    """
     if a >= p or a < 0:
         return calculateLegendre(a % p, p)
     elif a == 0 or a == 1:

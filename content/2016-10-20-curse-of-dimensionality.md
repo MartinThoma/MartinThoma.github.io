@@ -143,7 +143,9 @@ if __name__ == "__main__":
     doctest.testmod()
     for n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000]:
         angles = get_angles(n)
-        print("{:>5} dim: {:0.4f} avg angle".format(n, sum(angles) / len(angles)))
+        print(
+            "{:>5} dim: {:0.4f} avg angle".format(n, sum(angles) / len(angles))
+        )
         sns.distplot(angles, kde=False, rug=False)
         sns.plt.show()
 ```
@@ -219,7 +221,7 @@ def random_points_dist(n):
 def beta(n):
     """Calculate the average distance of 2 points in [0, 1]^n."""
     sum_ = 0.0
-    count_ = 10 ** 6
+    count_ = 10**6
     less_one = 0
     max_d = 0
     for _ in range(count_):
@@ -234,7 +236,10 @@ def beta(n):
 for n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000]:
     avg_dist, pr, max_d = beta(n)
     tmp = "beta(n=%i) = %0.4f; " % (n, avg_dist)
-    print("%s Pr(d(p1, p2) < 1) = %0.4f; alpha(n=%i, 2) = %0.4f" % (tmp, pr, n, max_d))
+    print(
+        "%s Pr(d(p1, p2) < 1) = %0.4f; alpha(n=%i, 2) = %0.4f"
+        % (tmp, pr, n, max_d)
+    )
 ```
 
 One can easily see that points get spaced much farther away on average the higher

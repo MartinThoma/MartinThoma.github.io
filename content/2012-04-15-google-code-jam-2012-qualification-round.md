@@ -24,7 +24,9 @@ This one was easy. It's a <a href="http://en.wikipedia.org/wiki/Simple_substitut
 
 
 def decode(
-    ciphertext, key="ynficwlbkuomxsevzpdrjgthaq", alphabet="abcdefghijklmnopqrstuvwxyz"
+    ciphertext,
+    key="ynficwlbkuomxsevzpdrjgthaq",
+    alphabet="abcdefghijklmnopqrstuvwxyz",
 ):
     dic = {}
     for i in range(0, len(key)):
@@ -168,7 +170,7 @@ def rot(num, rot):
 
 
 def getRotList(num):
-    """ Only return bigger rotated ones """
+    """Only return bigger rotated ones"""
     rotList = [num]
     for i in range(1, len(str(num))):
         tmp = rot(num, i)
@@ -244,7 +246,11 @@ def seeReflection(x, v, m, d):
     vx = v[1]
     dist = 0
     while dist <= d + precision:
-        if abs(cur_x - x[1]) < precision and abs(cur_y - x[0]) < precision and dist > 0:
+        if (
+            abs(cur_x - x[1]) < precision
+            and abs(cur_y - x[0]) < precision
+            and dist > 0
+        ):
             return True
 
         if vy == 0:
@@ -310,7 +316,10 @@ def seeReflection(x, v, m, d):
             roundx = round(cur_x)
             ybounce = False
             xbounce = False
-            if abs(cur_y - roundy) < precision and abs(cur_x - roundx) < precision:
+            if (
+                abs(cur_y - roundy) < precision
+                and abs(cur_x - roundx) < precision
+            ):
                 # Case we're at a corner
                 neighbors = []
                 intx = int(roundx)

@@ -27,10 +27,11 @@ Eine Python-Implementierung sieht so aus:
 # -*- coding: utf-8 -*-
 
 
-def getSD(A):
-    """ @param A: eine quadratische, reelle, positiv definite Matrix
-        @return: Die Matrizen S und D, für die gilt:
-                 A = S * D * S^T
+def get_sd(A):
+    """
+    param A: eine quadratische, reelle, positiv definite Matrix
+    @return: Die Matrizen S und D, für die gilt:
+             A = S * D * S^T
     """
     n = len(A)
     S = [[0 for j in range(n)] for i in range(n)]
@@ -95,7 +96,9 @@ def getL(A):
     for k in range(n):
         L[k][k] = (A[k][k] - sum([L[k][i] ** 2 for i in range(k)])) ** 0.5
         for i in range(k + 1, n):
-            L[i][k] = (A[i][k] - sum([L[i][j] * L[k][j] for j in range(k)])) / L[k][k]
+            L[i][k] = (
+                A[i][k] - sum([L[i][j] * L[k][j] for j in range(k)])
+            ) / L[k][k]
     return L
 ```
 

@@ -107,7 +107,9 @@ maybe only to 1250. And in the end it has to be strictly better.
 How does that look in code?
 
 ```python
-def optimize_simulated_annealing(c, steps=1000, temperature=1000, cooling_factor=0.995):
+def optimize_simulated_annealing(
+    c, steps=1000, temperature=1000, cooling_factor=0.995
+):
     # initialize
     best_permutation = [i for i in range(len(c))]
     best_score = calculate_score(best_permutation)

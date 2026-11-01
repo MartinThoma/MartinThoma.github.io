@@ -37,7 +37,9 @@ def get_variation(user_id: int) -> str:
     return variation
 
 
-def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -> str:
+def assign_user_to_variant(
+    user_id: int, distribution: Dict[str, float]
+) -> str:
     """
     Assign the user_id to a variant.
 
@@ -82,7 +84,9 @@ import random
 from typing import Dict
 
 
-def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -> str:
+def assign_user_to_variant(
+    user_id: int, distribution: Dict[str, float]
+) -> str:
     """
     Assign the user_id to a variant.
 

@@ -122,7 +122,7 @@ def getPrimeFactors(n):
         return fact
 
     check = 3
-    rootn = n ** 0.5
+    rootn = n**0.5
     while n != 1:
         while n % check == 0:
             fact.append(check)

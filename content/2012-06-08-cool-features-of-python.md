@@ -46,7 +46,7 @@ public class test {
 
 **Python**: (was much faster in both computation and programming time!)
 ```python
-big = 2 ** 100000
+big = 2**100000
 sumOfDigits = 0
 for digit in str(big):
     sumOfDigits += int(digit)

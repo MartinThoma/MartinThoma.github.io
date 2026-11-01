@@ -162,7 +162,9 @@ def main(img_paths):
 
     # Visualize
     for i, img in enumerate(images):
-        create_overlay(img, results[i], voc_classes, "{}-det.png".format(img_paths[i]))
+        create_overlay(
+            img, results[i], voc_classes, "{}-det.png".format(img_paths[i])
+        )
 
 
 def get_parser():
@@ -173,7 +175,11 @@ def get_parser():
         description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
-        "-f", "--file", dest="filename", help="Detect objects in image", metavar="IMAGE"
+        "-f",
+        "--file",
+        dest="filename",
+        help="Detect objects in image",
+        metavar="IMAGE",
     )
     parser.add_argument(
         "--folder",

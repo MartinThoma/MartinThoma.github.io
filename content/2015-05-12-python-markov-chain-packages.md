@@ -89,7 +89,7 @@ and this is the Python way:
 
 ```python
 n = 5
-Pn = P ** n
+Pn = P**n
 ```
 
 Visualizing data is a very important tool. For example, we want to know the
@@ -144,7 +144,7 @@ v = np.matrix([[0, 0, 1, 0, 0, 0]])
 # Get the data
 plot_data = []
 for step in range(20):
-    result = v * P ** step
+    result = v * P**step
     plot_data.append(np.array(result).flatten())
 
 # Convert the data format

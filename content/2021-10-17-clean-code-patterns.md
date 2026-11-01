@@ -31,7 +31,9 @@ is hard to understand and you need a comment for it, try giving it a name.
 ```python
 # Bad
 if not (
-    string.startswith('"""') and string.endswith('"""') and '"' not in string[3:-3]
+    string.startswith('"""')
+    and string.endswith('"""')
+    and '"' not in string[3:-3]
 ):
     return string
 

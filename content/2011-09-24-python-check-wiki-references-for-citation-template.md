@@ -85,12 +85,13 @@ parser.add_option(
 
 
 def load(lemma, language="en", format="xml"):
-    """ Get the Wikipedia Source Text (not the HTML source code)
+    """
+    Get the Wikipedia Source Text (not the HTML source code)
 
-        format:xml,json, ...
-        language:en, de, ...
+    format:xml,json, ...
+    language:en, de, ...
 
-        Returns None if page doesn't exist
+    Returns None if page doesn't exist
     """
     lemma = lemma.replace(" ", "_")
     url = (
@@ -125,7 +126,7 @@ import re
 
 
 def getRef(page):
-    """ Get all references without templates """
+    """Get all references without templates"""
     pattern = "(<ref>\[.+?</ref>)"
     prog = re.compile(pattern)
     m = re.findall(pattern, page)
@@ -140,7 +141,7 @@ from datetime import date
 
 
 def rlinput(prompt, prefill=""):
-    """ Prompt the user for input, but prefill it. """
+    """Prompt the user for input, but prefill it."""
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
         return raw_input(prompt)
@@ -149,8 +150,10 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatting for each reference and ask
-        the user to confirm or edit the formatting of the reference. """
+    """
+    Try to guess the right formatting for each reference and ask
+    the user to confirm or edit the formatting of the reference.
+    """
 
     urlPattern = "http.+? "
     urlPatternCompiled = re.compile(urlPattern)
@@ -230,12 +233,13 @@ parser.add_option(
 
 
 def load(lemma, language="en", format="xml"):
-    """ Get the Wikipedia Source Text (not the HTML source code)
+    """
+    Get the Wikipedia Source Text (not the HTML source code)
 
-        format:xml,json, ...
-        language:en, de, ...
+    format:xml,json, ...
+    language:en, de, ...
 
-        Returns None if page doesn't exist
+    Returns None if page doesn't exist
     """
     lemma = lemma.replace(" ", "_")
     url = (
@@ -264,7 +268,7 @@ def load(lemma, language="en", format="xml"):
 
 
 def getRef(page):
-    """ Get all references without templates """
+    """Get all references without templates"""
     pattern = "(<ref>\[.+?</ref>)"
     prog = re.compile(pattern)
     m = re.findall(prog, page)
@@ -272,7 +276,7 @@ def getRef(page):
 
 
 def rlinput(prompt, prefill=""):
-    """ Prompt the user for input, but prefill it. """
+    """Prompt the user for input, but prefill it."""
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
         return raw_input(prompt)
@@ -281,8 +285,10 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatting for each reference and ask
-        the user to confirm or edit the formatting of the reference. """
+    """
+    Try to guess the right formatting for each reference and ask
+    the user to confirm or edit the formatting of the reference.
+    """
 
     urlPattern = "http.+? "
     urlPatternCompiled = re.compile(urlPattern)

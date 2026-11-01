@@ -77,14 +77,16 @@ def derive_key(sentence: str) -> str:
 
 def encrypt(plain_text: str, key: str) -> str:
     mapping = {
-        plain_char: cipher_char for plain_char, cipher_char in zip(key, alphabet)
+        plain_char: cipher_char
+        for plain_char, cipher_char in zip(key, alphabet)
     }
     return "".join(mapping[plain_char] for plain_char in plain_text)
 
 
 def decrypt(cipher_text: str, key: str) -> str:
     mapping = {
-        cipher_char: plain_char for plain_char, cipher_char in zip(key, alphabet)
+        cipher_char: plain_char
+        for plain_char, cipher_char in zip(key, alphabet)
     }
     return "".join(mapping[cipher_char] for cipher_char in cipher_text)
 

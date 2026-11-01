@@ -120,7 +120,9 @@ def main():
     x_test = np.atleast_2d(np.linspace(-5, 5, 1000)).T
 
     # Define the Regression Modell and fit it
-    gp = gaussian_process.GaussianProcess(theta0=1e-2, thetaL=1e-4, thetaU=1e-3)
+    gp = gaussian_process.GaussianProcess(
+        theta0=1e-2, thetaL=1e-4, thetaU=1e-3
+    )
     gp.fit(x_train, y_train)
 
     # Evaluate the result
@@ -137,7 +139,7 @@ def f(x):
 
     noise = [np.random.normal(loc=0.0, scale=1.0) for _ in range(len(list(x)))]
     noise = np.atleast_2d(noise).T
-    return x ** 2 + noise
+    return x**2 + noise
     # Totally fails for that one:
     # y = []
     # for el in x:
@@ -161,7 +163,9 @@ def plot_graph(x, x_train, y_pred, mse, function_tex):
     pl.plot(x, y_pred, "b-", label="Prediction")
     pl.fill(
         np.concatenate([x, x[::-1]]),
-        np.concatenate([y_pred - 1.9600 * sigma, (y_pred + 1.9600 * sigma)[::-1]]),
+        np.concatenate(
+            [y_pred - 1.9600 * sigma, (y_pred + 1.9600 * sigma)[::-1]]
+        ),
         alpha=0.5,
         fc="b",
         ec="None",

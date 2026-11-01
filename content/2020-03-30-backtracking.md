@@ -140,7 +140,10 @@ def all_n_queens_solutions(n: int) -> List[Tuple[int, ...]]:
     [(1, 3, 0, 2), (2, 0, 3, 1)]
     """
     solutions = []
-    solution_queue: List[Tuple[int, ...]] = [()]  # contains valid partial solutions
+
+    # contains valid partial solutions
+    solution_queue: List[Tuple[int, ...]] = [()]
+
     while solution_queue:
         solution = solution_queue.pop(0)
         if len(solution) < n:
@@ -375,7 +378,10 @@ class SudokuBoard:
         return True
 
     def is_solved(self) -> bool:
-        return all(el != 0 for row in self.board for el in row) and self.is_valid()
+        return (
+            all(el != 0 for row in self.board for el in row)
+            and self.is_valid()
+        )
 
     def get_first_zero_position(self) -> Optional[Tuple[int, int]]:
         for row_index, row in enumerate(self.board):
@@ -393,7 +399,9 @@ def is_valid_sudoku_set(numbers: Iterable) -> bool:
             if count > 1:
                 return False
         else:
-            raise RuntimeError(f"Value '{digit}' found, but expected int in [0, 9]")
+            raise RuntimeError(
+                f"Value '{digit}' found, but expected int in [0, 9]"
+            )
     return True
 
 

@@ -74,7 +74,7 @@ from numpy import zeros, uint8, float32
 
 def get_labeled_data(imagefile, labelfile):
     """Read input-vector (image) and target class (label, 0-9) and return
-       it as list of tuples.
+    it as list of tuples.
     """
     # Open the images with gzip in read binary mode
     images = gzip.open(imagefile, "rb")
@@ -287,7 +287,7 @@ def get_labeled_data(imagefile, labelfile, picklename):
 
         if number_of_images != N:
             raise Exception(
-                "The number of labels did not match " "the number of images."
+                "The number of labels did not match the number of images."
             )
 
         # Get the data
@@ -399,7 +399,12 @@ if __name__ == "__main__":
         help="weightdecay",
     )
     parser.add_argument(
-        "-m", metavar="M", type=float, dest="momentum", default=0.1, help="momentum"
+        "-m",
+        metavar="M",
+        type=float,
+        dest="momentum",
+        default=0.1,
+        help="momentum",
     )
     parser.add_argument(
         "-l",

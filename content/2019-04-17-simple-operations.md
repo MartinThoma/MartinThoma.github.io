@@ -178,9 +178,9 @@ durations = np.array(
 )
 print(
     "min: {min:5.1f}μs, mean: {mean:5.1f}μs, max: {max:6.1f}μs".format(
-        min=min(durations) * 10 ** 6,
-        mean=np.mean(durations) * 10 ** 6,
-        max=max(durations) * 10 ** 6,
+        min=min(durations) * 10**6,
+        mean=np.mean(durations) * 10**6,
+        max=max(durations) * 10**6,
     )
 )
 ```

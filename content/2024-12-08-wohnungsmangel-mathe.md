@@ -321,7 +321,12 @@ def get_data(
     gezahlt = 0
     gezahlte_zinsen = 0
 
-    data = [immobilienpreis, eigenkapital * immobilienpreis, zinssatz, monatliche_rate]
+    data = [
+        immobilienpreis,
+        eigenkapital * immobilienpreis,
+        zinssatz,
+        monatliche_rate,
+    ]
 
     for year in range(50):
         for _month in range(12):
@@ -352,7 +357,7 @@ def print_data(data: list[float]):
     print("<tr>")
     print(f"    <td>{data[0]:,.0f}€</td>".replace(",", "."))
     print(f"    <td>{data[1]:,.0f}€</td>".replace(",", "."))
-    print(f"    <td>{data[2]*100:,.2f}%</td>")
+    print(f"    <td>{data[2] * 100:,.2f}%</td>")
     print(f"    <td>{data[3]:,.0f}€</td>".replace(",", "."))  # Rate
     print(f"    <td>{data[3] / 0.33:,.0f}€</td>".replace(",", "."))  # Rate
     print(f"    <td>{data[4]:,.0f}€</td>".replace(",", "."))

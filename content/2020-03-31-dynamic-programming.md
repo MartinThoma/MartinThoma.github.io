@@ -132,7 +132,9 @@ from itertools import chain, combinations
 
 def longest_increasing_subsequence(numbers):
     lis = max(
-        (len(subseq), subseq) for subseq in powerset(numbers) if is_increasing(subseq)
+        (len(subseq), subseq)
+        for subseq in powerset(numbers)
+        if is_increasing(subseq)
     )
     return lis[1]
 
@@ -270,7 +272,11 @@ def edit_distance(w1: str, w2: str) -> int:
             if w1[i - 1] == w2[j - 1]:
                 d[i][j] = d[i - 1][j - 1]
             else:
-                options = [d[i - 1][j - 1] + 1, d[i][j - 1] + 1, d[i - 1][j] + 1]
+                options = [
+                    d[i - 1][j - 1] + 1,
+                    d[i][j - 1] + 1,
+                    d[i - 1][j] + 1,
+                ]
                 d[i][j] = min(options)
     return d[m][n]
 ```
@@ -414,7 +420,9 @@ def solve_knapsack(items: List[Tuple[int, int]], max_weight: int) -> int:
                 c[item_index][remaining_weight] = not_adding
             else:
                 # Yes we can!
-                adding_it = item[1] + c[item_index - 1][remaining_weight - item[0]]
+                adding_it = (
+                    item[1] + c[item_index - 1][remaining_weight - item[0]]
+                )
                 c[item_index][remaining_weight] = max(not_adding, adding_it)
     return c[len(items) - 1][max_weight]
 ```

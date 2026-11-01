@@ -99,7 +99,9 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-user = session.query(User).filter_by(name="foo").filter_by(password="bar").first()
+user = (
+    session.query(User).filter_by(name="foo").filter_by(password="bar").first()
+)
 ```
 
 Here we pass the name and password parameters to the ORM (SQLAlchemy). It takes care of sanitizing the name and the password.
