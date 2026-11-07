@@ -111,10 +111,15 @@ If you want to see more actors, have a look at the [Smart Home Device Types](htt
 
 ## Rules — Tie Sensors and Actors together
 
-<figure>
-    <a href="../images/2021/11/the-ultimate-smart-home-starter-guide-4.png"><img src="../images/2021/11/the-ultimate-smart-home-starter-guide-4.png" alt="Examples of smart home rules as trigger, condition and action: sun rises → turn lights off; sun sets and somebody is at home → turn lights on; vacation mode started → turn heater off" width="800" height="342" loading="lazy"></a>
-    <figcaption>Image by Martin Thoma</figcaption>
-</figure>
+<table>
+    <caption>Examples of smart home rules</caption>
+    <thead><tr><th>Trigger</th><th>Condition</th><th>Action</th></tr></thead>
+    <tbody>
+        <tr><td>Sun rises</td><td></td><td>Turn lights off</td></tr>
+        <tr><td>Sun sets</td><td>Somebody is at home</td><td>Turn lights on</td></tr>
+        <tr><td>Vacation mode started</td><td></td><td>Turn heater off</td></tr>
+    </tbody>
+</table>
 
 Now that you have a couple of sensors and actors, you want to combine them with **rules**. Those are called **automations** or **scripts** in some software. In several apps you can read “Tap-to-run” for scripts which are executed by tapping on a button. In contrast, automations have a non-manual trigger.
 

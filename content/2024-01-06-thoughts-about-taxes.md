@@ -24,7 +24,7 @@ The question is how we get the money.
 Assuming that we have to get it through taxes, I was thinking about which taxes we have, if they are helpful, and how high they should be. Let’s have a look at the main taxes of 2022:
 
 <figure>
-    <a href="../images/2024/01/thoughts-about-taxes-2.png"><img src="../images/2024/01/thoughts-about-taxes-2.png" alt="Taxes in Germany in Billion EUR (2022)" width="800" height="364" loading="lazy"></a>
+    <a href="../images/2024/01/thoughts-about-taxes-2-treemap.png"><img src="../images/2024/01/thoughts-about-taxes-2-treemap.png" alt="Taxes in Germany in Billion EUR (2022)" width="800" height="364" loading="lazy"></a>
     <figcaption>Taxes in Germany in Billion EUR (2022)</figcaption>
 </figure>
 

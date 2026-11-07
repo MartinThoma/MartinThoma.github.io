@@ -82,10 +82,19 @@ Hence I would suggest 4 months with 167 days per month. The last month would be 
 
 A more reasonable division could be done if there are seasons on Mars. Seasons are defined by the [climate on Mars](https://en.wikipedia.org/wiki/Astronomy_on_Mars#Seasons). Interesting, there are seasons!
 
-<figure>
-    <a href="../images/2024/07/timekeeping-on-mars-5.png"><img src="../images/2024/07/timekeeping-on-mars-5.png" alt="Table from Wikipedia (climate on Mars)" width="800" height="557" loading="lazy"></a>
-    <figcaption>Table from Wikipedia (<a href="https://en.wikipedia.org/wiki/Astronomy_on_Mars#Seasons">climate on Mars</a>)</figcaption>
-</figure>
+<table>
+    <caption>Length of the seasons on Mars (beginning of each season = solstice or equinox). Source: <a href="https://en.wikipedia.org/wiki/Astronomy_on_Mars#Seasons">Wikipedia, Astronomy on Mars</a></caption>
+    <thead>
+        <tr><th rowspan="2">Season</th><th>Sols (on Mars)</th><th>Days (on Earth)</th></tr>
+        <tr><th colspan="2">(as % of the year)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Northern spring, southern autumn</td><td>193.30 (29%)</td><td>92.764 (25.4%)</td></tr>
+        <tr><td>Northern summer, southern winter</td><td>178.64 (27%)</td><td>93.647 (25.6%)</td></tr>
+        <tr><td>Northern autumn, southern spring</td><td>142.70 (21%)</td><td>89.836 (24.6%)</td></tr>
+        <tr><td>Northern winter, southern summer</td><td>153.95 (23%)</td><td>88.997 (24.4%)</td></tr>
+    </tbody>
+</table>
 
 Now we want to find roughly equal-length months that fit well into the seasons. Let’s focus on the northern hemisphere to keep it short.
 

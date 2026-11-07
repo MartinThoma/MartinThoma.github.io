@@ -70,11 +70,6 @@ Let’s say car manufacturers came to the conclusion that they need to increase 
 
 Think of this as traffic congestion.
 
-<figure>
-    <a href="../images/2022/01/the-causes-of-supply-shortages-in-2021-5.jpg"><img src="../images/2022/01/the-causes-of-supply-shortages-in-2021-5.jpg" alt="Image by ليبي صح from Wikipedia Commons" width="800" height="600" loading="lazy"></a>
-    <figcaption>Image by <a href="https://commons.wikimedia.org/wiki/User:%D9%84%D9%8A%D8%A8%D9%8A_%D8%B5%D8%AD">ليبي صح</a> from <a href="https://commons.wikimedia.org/wiki/File:Traffic_congestion_in_Al_Bayda,_Libya_..jpg">Wikipedia Commons</a></figcaption>
-</figure>
-
 Imagine such a traffic congestion. Maybe there was an accident. Cars had to wait for two hours because the road was completely blocked. It might be several hours after the last car in the congestion can move after the first one moved. This is because there is a tiny delay between being able to move and actually stepping on the gas.
 
 There is the same issue with supply and demand. Smart factory owners might see that the demand will go up again, but they need supplies. Those supplies need to get produced and shipped. And there we get to the next issue.
