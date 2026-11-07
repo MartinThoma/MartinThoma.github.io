@@ -79,7 +79,7 @@ Other examples where averaging of numbers does not work:
 
 ### #3 Who will do the work?
 
-<figure>
+<figure class="ai-generated">
     <a href="../images/2024/09/why-story-points-are-a-bad-idea-for-measuring-developer-productivity-5.jpg"><img src="../images/2024/09/why-story-points-are-a-bad-idea-for-measuring-developer-productivity-5.jpg" alt="Comic drawing of a student sleeping on his books at a desk while a woman next to him works at a computer" width="800" height="800" loading="lazy"></a>
 </figure>
 
@@ -87,7 +87,7 @@ Teams typically have an idea who will work on what when estimating. That is impo
 
 ### #4 The Coastline Paradox: How to Game the System 😉
 
-<figure>
+<figure class="ai-generated">
     <a href="../images/2024/09/why-story-points-are-a-bad-idea-for-measuring-developer-productivity-6.jpg"><img src="../images/2024/09/why-story-points-are-a-bad-idea-for-measuring-developer-productivity-6.jpg" alt="Comic drawing of an island coastline with many small islands, seen from above" width="800" height="800" loading="lazy"></a>
 </figure>
 

@@ -12,7 +12,7 @@ summary: Highly individual and self-paced
 medium_url: https://medium.com/@martinthoma/my-vision-for-our-education-system-8243eac63625
 status: draft
 ---
-<figure>
+<figure class="ai-generated">
     <a href="../images/2025/01/my-vision-for-our-education-system-1.jpg"><img src="../images/2025/01/my-vision-for-our-education-system-1.jpg" alt="Comic drawing of a boy eating cereal while learning math at a computer" width="800" height="800"></a>
 </figure>
 
