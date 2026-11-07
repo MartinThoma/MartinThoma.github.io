@@ -1322,7 +1322,7 @@ werden.
 [^15]: [Abgeordnete in Zahlen: Frauen und Männer](https://www.bundestag.de/abgeordnete/biografien/mdb_zahlen_19/frauen_maenner-529508) via Deutscher Bundestag, 12.10.2017.
 [^16]: [Klimaschutz durch Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf) via Umweltbundesamt, 15.06.2020.
 [^17]: David Böcking: [VW-Chef Müllers Überraschungsangriff auf die Dieselsubvention](https://www.spiegel.de/wirtschaft/unternehmen/subventionen-fuer-diesel-das-steckt-hinter-den-forderungen-von-vw-chef-mueller-a-1182815.html) via Der Spiegel, 11.12.2017.
-[^18]: Martin Thoma: [Why Hydrogen Cars will die](https://martinthoma.medium.com/why-hydrogen-cars-will-die-38efd117e7bc) via Medium, 2021.
+[^18]: Martin Thoma: [Why Hydrogen Cars will die](../why-hydrogen-cars-will-die/), 28.04.2021.
 [^19]: Andreas Schmitz (Der Akku Doktor): [Die Zerstörung der Wasserstoffstrategie](https://www.youtube.com/watch?v=VLdFn9wjqvw) via YouTube, 23.09.2021.
 [^20]: Robert W. Howarth, Mark Z. Jacobson: [How green is blue hydrogen?](https://onlinelibrary.wiley.com/doi/full/10.1002/ese3.956) via Energy Science & Engineering, 12.08.2021.
 [^21]: Birgit Harprath: [Umstrittener Mindestlohn: Die Konzepte der Parteien](https://www.br.de/nachrichten/wirtschaft/umstrittener-mindestlohn-die-konzepte-der-parteien,Sh6YBa0) via BR24, 26.08.2021.

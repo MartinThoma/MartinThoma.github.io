@@ -62,7 +62,7 @@ PAGE_URL = "pages/{slug}/"
 PAGE_SAVE_AS = "pages/{slug}/index.html"
 PAGE_LANG_URL = "pages/{slug}/"
 PAGE_LANG_SAVE_AS = "pages/{slug}/index.html"
-# Pages (only the privacy policy) are linked from the footer, not the header.
+# Pages (privacy policy and imprint) are linked from the footer, not the header.
 DISPLAY_PAGES_ON_MENU = False
 CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
@@ -89,6 +89,7 @@ PLUGINS = [
     "clean_summary",
     "social_image",
     "search_index",
+    "series_list",
     "toc",
     "sitemap",
     "pelican_alias",
@@ -129,6 +130,7 @@ STATIC_PATHS = [
     "extra/opensearch.xml",
     "extra/robots.txt",
     "extra/google2946203151914bdb.html",
+    "extra/imprint.html",
     "pdf",
     "anki",
     "audio",
@@ -145,6 +147,8 @@ EXTRA_PATH_METADATA = {
     "extra/robots.txt": {"path": "robots.txt"},
     # Google Search Console checks this file to keep the site verified
     "extra/google2946203151914bdb.html": {"path": "google2946203151914bdb.html"},
+    # The old imprint article lived at /imprint/; it redirects to the Impressum page
+    "extra/imprint.html": {"path": "imprint/index.html"},
 }
 OUTPUT_PATH = "/var/www/blog/"
 # SUMMARY_MAX_LENGTH = 0

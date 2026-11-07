@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2013-01-11 17:15:56.000000000 +01:00
 category: German posts
 tags: OS, Operating Systems, Computer Science
+featured_image: logos/monitor.png
 ---
 <div class="info">Dies ist eine Zusammenfassung von mir zu den Themen Caches, Adressierung und TLB. Ich habe insbesondere bei dem letzten Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de).</div>
 

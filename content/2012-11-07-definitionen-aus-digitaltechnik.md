@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-11-07 13:33:53.000000000 +01:00
 category: German posts
 tags: Digitaltechnik, KIT, University
+featured_image: logos/kit.png
 ---
 <figure class="ai-generated">
     <a href="../images/2012/11/digitaltechnik.jpg"><img src="../images/2012/11/digitaltechnik.jpg" alt="Karnaugh-Diagramm mit farbig umrandeten Gruppen von Einsen, daneben eine Schaltung aus UND- und ODER-Gattern" width="1376" height="768"></a>

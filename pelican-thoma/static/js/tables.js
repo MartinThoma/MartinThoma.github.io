@@ -203,7 +203,7 @@
     }
 
     var candidates = [].filter.call(document.querySelectorAll('.article-content table'), function (table) {
-        return !table.classList.contains('transparent');
+        return !table.classList.contains('transparent') && !table.classList.contains('bar-chart');
     });
     function update() {
         // Measure all tables first, then change them, so the page lays out only once.

@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-04-04 16:57:06.000000000 +02:00
 category: German posts
 tags: Mathematics, Algebra, University
+featured_image: logos/mathematics.png
 ---
 <figure class="ai-generated">
     <a href="../images/2012/04/komplexes-inverses.jpg"><img src="../images/2012/04/komplexes-inverses.jpg" alt="Komplexe Zahlenebene mit Einheitskreis, einem Punkt und seinem am Kreis gespiegelten Inversen" width="1376" height="768"></a>

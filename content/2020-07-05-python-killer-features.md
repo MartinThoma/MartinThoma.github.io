@@ -144,3 +144,71 @@ Dictionary Union:
 >>> b | a
 {'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'bar', 42: 1337}
 ```
+
+## Python 3.10
+
+[PEP 619](https://www.python.org/dev/peps/pep-0619/) is the release schedule of Python 3.10, which was released in October 2021.
+
+We got [better error messages](https://docs.python.org/3.10/whatsnew/3.10.html#better-error-messages-in-the-parser) ([PEP 626](https://www.python.org/dev/peps/pep-0626/)) which is awesome! We also got [improvements for type annotations](https://docs.python.org/3.10/whatsnew/3.10.html#new-features-related-to-type-annotations) 🎉
+
+The elephant in the room is structural pattern matching ([PEP 634](https://www.python.org/dev/peps/pep-0634/), [PEP 635](https://www.python.org/dev/peps/pep-0635/), [PEP 636](https://www.python.org/dev/peps/pep-0636/)). The following example is taken from PEP 636:
+
+```python
+# Before structural pattern matching
+command = input("What are you doing next? ")
+command_parts = command.split()
+if len(command_parts) == 1:
+    if command_parts[0] == "quit":
+        print("Goodbye!")
+        quit_game()
+    elif command_parts[0] == "look":
+        current_room.describe()
+elif len(command_parts) == 2:
+    if command_parts[0] == "get":
+        obj = command_parts[1]
+        character.get(obj, current_room)
+    elif command_parts[0] == "go":
+        direction = command_parts[1]
+        current_room = current_room.neighbor(direction)
+```
+
+```python
+# With structural pattern matching
+command = input("What are you doing next? ")
+match command.split():
+    case ["quit"]:
+        print("Goodbye!")
+        quit_game()
+    case ["look"]:
+        current_room.describe()
+    case ["get", obj]:
+        character.get(obj, current_room)
+    case ["go", direction]:
+        current_room = current_room.neighbor(direction)
+```
+
+## Python 3.11
+
+* [PEP 673](https://www.python.org/dev/peps/pep-0673/): The `Self` type 😍
+
+## Python 3.12
+
+[PEP 693](https://peps.python.org/pep-0693/) contains the release schedule and the [What’s New](https://docs.python.org/3/whatsnew/3.12.html) page shows:
+
+* [PEP 701](https://docs.python.org/3/whatsnew/3.12.html#whatsnew312-pep701): f-strings can now contain the quotes they were created with.
+
+## Python 3.13
+
+[PEP 719](https://peps.python.org/pep-0719/) contains the release schedule and the [What’s New](https://docs.python.org/3.13/whatsnew/3.13.html) page shows:
+
+* A new interactive interpreter with multi-line editing and colored output
+* [PEP 703](https://peps.python.org/pep-0703/): An experimental free-threaded build without the GIL
+* [PEP 744](https://peps.python.org/pep-0744/): An experimental JIT compiler
+
+## Python 3.14
+
+[PEP 745](https://peps.python.org/pep-0745/) contains the release schedule and the [What’s New](https://docs.python.org/3.14/whatsnew/3.14.html) page shows:
+
+* [PEP 750](https://peps.python.org/pep-0750/): Template strings (t-strings)
+* [PEP 649](https://peps.python.org/pep-0649/): Deferred evaluation of annotations
+* [PEP 779](https://peps.python.org/pep-0779/): The free-threaded build is officially supported

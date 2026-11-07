@@ -12,7 +12,7 @@ subtitle: Let’s do it in an agile way
 medium_url: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
 ---
 <figure>
-    <a href="../images/2021/02/shift-left-1.png"><img src="../images/2021/02/shift-left-1.png" alt="Image by Martin Thoma" width="1410" height="663"></a>
+    <a href="../images/2021/02/shift-left-1.png"><img src="../images/2021/02/shift-left-1.png" alt="The software development process as a path: concepts, editor, commit, CI pipeline, peer review, DEV environment, QA and PROD environment" width="1410" height="663"></a>
     <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
@@ -68,8 +68,7 @@ techniques:
 * **Database schema diagrams**: Showing the tables of a relational database
   tells me a lot about how a system works. When I create smaller web services,
   I typically create a database schema diagram with the “Designer” feature of
-  phpMyAdmin — even if I don’t use MySQL. I just like the designer 😅 Please
-  let me know if you have an easier tool for that.
+  phpMyAdmin — even if I don’t use MySQL. I just like the designer 😅
 
 Now, how does this prevent you from making mistakes?
 
@@ -88,7 +87,7 @@ mistakes obvious.
 ## Implementation Phase: Your Editor
 
 <figure>
-    <a href="../images/2021/02/shift-left-3.png"><img src="../images/2021/02/shift-left-3.png" alt="Image by Martin Thoma" width="1073" height="226" loading="lazy"></a>
+    <a href="../images/2021/02/shift-left-3.png"><img src="../images/2021/02/shift-left-3.png" alt="VS Code with Pylance marking os.isfile as an error: “isfile” is not a known member of module" width="1073" height="226" loading="lazy"></a>
     <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
@@ -106,7 +105,7 @@ I absolutely love Visual Studio Code for Python development:
 But there are many other excellent editors for Python like
 [PyCharm](../pycharm/)
 or [Sublime
-Text](https://py.plainenglish.io/python-editors-in-review-sublime-text-b71956c32375).
+Text](../python-editors-in-review-sublime-text/).
 Some people also have strong opinions on vim/emacs and they certainly can
 support you in exactly the same way.
 
@@ -115,7 +114,7 @@ that you have one that works well for you. And hopefully captures the types of
 mistakes you typically make.
 
 <figure>
-    <a href="../images/2021/02/shift-left-4.png"><img src="../images/2021/02/shift-left-4.png" alt="Image by Martin Thoma" width="1703" height="808" loading="lazy"></a>
+    <a href="../images/2021/02/shift-left-4.png"><img src="../images/2021/02/shift-left-4.png" alt="Terminal output of git commit with pre-commit hooks: most checks passed, mypy failed with one error" width="1703" height="808" loading="lazy"></a>
     <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 
@@ -161,7 +160,7 @@ request) does exactly one thing and contains some context why it is proposed.
 On GitHub, it looks [like this](https://github.com/OpenShot/openshot-qt/pull/3738):
 
 <figure>
-    <a href="../images/2021/02/shift-left-5.png"><img src="../images/2021/02/shift-left-5.png" alt="Image by Martin Thoma" width="1483" height="992" loading="lazy"></a>
+    <a href="../images/2021/02/shift-left-5.png"><img src="../images/2021/02/shift-left-5.png" alt="A merged GitHub pull request “STY: Simplify the code” in OpenShot with a review comment that approves the changes" width="1483" height="992" loading="lazy"></a>
     <figcaption>Image by Martin Thoma</figcaption>
 </figure>
 

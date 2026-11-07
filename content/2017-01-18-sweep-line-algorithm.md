@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2013-10-19 11:54:51
 category: Code
 tags: Algorithms, Geometry, Java
-featured_image:
+featured_image: logos/mathematics.png
 ---
 Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.
 

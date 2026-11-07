@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-06-01 18:43:22.000000000 +02:00
 category: The Web
 tags: Internet
+featured_image: logos/internet.png
 ---
 <figure class="ai-generated">
     <a href="../images/2012/06/ipv6-addresses.jpg"><img src="../images/2012/06/ipv6-addresses.jpg" alt="A tiny box of dots on the left and a gigantic galaxy-like cloud of dots filling the sky on the right, with a laptop and smartphones" width="1376" height="768"></a>

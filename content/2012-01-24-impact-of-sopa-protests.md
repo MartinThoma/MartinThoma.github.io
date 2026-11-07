@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-01-24 08:06:41.000000000 +01:00
 category: The Web
 tags: SOPA, Internet, Politics
+featured_image: logos/internet.png
 ---
 It seems as if the <a href="../sopa-protests/">SOPA protests</a> were quite effective. 162 million visitors of Wikipedia saw the message. <a href="http://www.facebook.com/zuck/posts/10100210345757211">Zuckerberg's Facebook post</a> got half a million Likes. Thousands of bloggers downloaded protest plugins which blacked out their blog.
 

@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-02-16 15:51:04.000000000 +01:00
 category: German posts
 tags: Theoretical Computer Science, Computer Science
+featured_image: logos/klausur.png
 ---
 Komplexitätsklassen werden in der Theoretischen Informatik verwendet um den Ressourcenbedarf von Algorithmen bzw. Problemen einzuordnen. Meist betrachtet man die Laufzeit- und die Speicherplatzkomplexität, aber es wäre prinzipiell auch vorstellbar, dass man andere Kriterien nutzt. Ich werde in diesem Artikel mal kurz die in der Vorlesung behandelten Klassen vorstellen.
 

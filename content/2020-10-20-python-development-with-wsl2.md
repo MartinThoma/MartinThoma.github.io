@@ -12,7 +12,7 @@ medium_url: https://medium.com/python-in-plain-english/a-beginners-guide-to-pyth
 ---
 The Python programming language is used for [web development](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), [data analysis](https://www.udacity.com/course/intro-to-data-analysis--ud170), [machine learning](https://www.udacity.com/course/intro-to-machine-learning--ud120), [statistics](https://towardsdatascience.com/hypothesis-testing-in-machine-learning-using-python-a0dc89e169ce), [web scraping](../scraping-with-selenium/), and so much more. There are tons of tutorials which, ironically, make it pretty hard to recommend one. However, there is also a lack of support for Windows.
 
-Let’s get the very first step done: Install it on Windows. You could [use Python through Anaconda](https://medium.com/python-in-plain-english/how-to-start-python-development-on-windows-10-anaconda-edition-cc91c2d57a1d), but in this article, we will use it on Windows with WSL. This prepares you to follow one of the many tutorials to start your Python career.
+Let’s get the very first step done: Install it on Windows. You could [use Python through Anaconda](../how-to-start-python-development-on-windows-10-anaconda-edition/), but in this article, we will use it on Windows with WSL. This prepares you to follow one of the many tutorials to start your Python career.
 
 ## What is WSL?
 
@@ -71,7 +71,7 @@ $ sudo apt-get update; sudo apt-get install --no-install-recommends make build-e
 Close all terminals and open one again. Now the command `pyenv` should show you the help:
 
 <figure>
-    <a href="../images/2020/10/python-development-with-wsl2-2.png"><img src="../images/2020/10/python-development-with-wsl2-2.png" alt="Screenshot by Martin Thoma" width="925" height="720" loading="lazy"></a>
+    <a href="../images/2020/10/python-development-with-wsl2-2.png"><img src="../images/2020/10/python-development-with-wsl2-2.png" alt="Output of the pyenv command in the Windows Terminal: the list of pyenv subcommands such as install, global, local and versions" width="925" height="720" loading="lazy"></a>
     <figcaption>Screenshot by Martin Thoma</figcaption>
 </figure>
 
@@ -114,3 +114,5 @@ If you have some programming background, there is also the [Python Jumpstart by 
 ## Acknowledgment
 
 A big THANK YOU to my colleague [Marcus Windmark](https://www.linkedin.com/in/marcuswindmark/) who helped me to get started with Python on Windows 🤗
+
+<!-- series: python-for-beginners -->

@@ -47,7 +47,7 @@ Imagine you want to change your flight by calling the airline. Which questions d
 
 It’s a similar story with insurance and doctors. If you can provide enough knowledge about a person, you can just call them and ask for the information. In most cases, the person asking is actually authorized to get the information. However, not always.
 
-Luckily, I cannot think of any [incentive](https://martinthoma.medium.com/incentives-of-malware-creators-62319053caf9) for attackers to abuse this weak authentication — except wanting to harm you personally. Let me know what I missed!
+Luckily, I cannot think of any [incentive](../incentives-of-malware-creators/) for attackers to abuse this weak authentication — except wanting to harm you personally.
 
 ## Something you have
 
@@ -197,43 +197,4 @@ site is useless for the real one. That is why the US Cybersecurity and
 Infrastructure Security Agency (CISA) advised organizations in October 2022 to
 move to phishing-resistant MFA.
 
-## More in this series
-
-In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
-
-* Part 1: [SQL Injections](../sql-injections/) 😈🐝
-* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
-* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
-* Part 4: [Password Hashing](../password-hashing/) 😇
-* Part 5: [ZIP Bombs](../zip-bombs/) 😈
-* Part 6: [CAPTCHA](../captcha/) 😇
-* Part 7: [Email Spoofing](../email-spoofing/) 😈
-* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
-* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
-* Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
-* Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
-* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
-* Part 14: [Docker Security](../docker-security/) 😇
-* Part 15: [Credential Stuffing](../credential-stuffing/) 😈🐝
-* Part 16: **Multi-Factor Authentication** (MFA/2FA) 😇
-* Part 17: [ReDoS](../redos/) 😈
-
-The following articles are about to come:
-
-* Part 18: Secure Messaging 😇
-* Part 19: Cryptojacking 😈
-* Part 20: Backups 😇
-* Part 21: Cryptotrojans 😈
-* Part 22: Single-Sign-On 😇
-* Part 23: Clipboard Hijacking 😈
-* Part 24: Certificates 😇
-* Part 25: Race Condition Attacks in Blockchains 😈
-* Part 26: Mobile Device Management (MDM) 😇
-* Part 27: Server-Side Request Forgery (SSRF) 😈
-* Part 28: Network Separation 😇
-* Part 29: Social Engineering (including Phishing) 😈
-* Part 30: Virtual Private Networks (VPNs) 😇
-* Part 31: CSRF 😈
-
-Let me know if you are interested in more articles around AppSec / InfoSec!
+<!-- series: appsec -->

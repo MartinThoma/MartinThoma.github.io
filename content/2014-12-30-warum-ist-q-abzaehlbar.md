@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-12-30 21:27
 category: German posts
 tags: Analysis, Mathematics
-featured_image:
+featured_image: logos/mathematics.png
 ---
 <div class="info">This is a quick article I have had as a draft for quite a while.
 It might not be finished or have other problems, but I still want to share

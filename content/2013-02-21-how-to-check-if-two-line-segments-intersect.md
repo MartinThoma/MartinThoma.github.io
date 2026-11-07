@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2013-02-21 12:19:05.000000000 +01:00
 category: Code
 tags: Java, Algorithms, Geometry, Computer Science, Mathematics
+featured_image: logos/mathematics.png
 ---
 You have two line segments and you want to know if they intersect. I'll give you an algorithm how to do it.
 

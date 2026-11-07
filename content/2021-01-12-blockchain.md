@@ -262,26 +262,5 @@ Bosch created an awesome introductory video:
 And also 3Blue1Brown:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/bBC-nXj3Ng4" frameborder="0" allowfullscreen></iframe></center>
-> # Join Coinmonks [Telegram group](https://t.me/joinchat/EPmjKpNYwRMsBI4p) and learn about crypto trading and investing
 
-## More in this series
-
-This article is part of my series about Blockchain:
-
-* Part 1: **An Introduction to Blockchain**
-* Part 2: [The 3 Applications of Hash Functions](../3-applications-of-hash-functions/)
-* Part 3: [Merkle Trees](../merkle-trees/)
-
-Topics I will consider next:
-
-* Merkle Patricia Tries
-* Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important
-* Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.
-* Smart contracts: What they are and how they work; e.g. with Ethereum as an example
-* [Initial Coin Offering](https://en.wikipedia.org/wiki/Initial_coin_offering) (ICO)
-* Bitcoin's consensus algorithm
-* Bitcoin and the network: How do people connect?
-* Bitcoin Wallets
-* Peer-To-Peer Stuff: How Gossip Protocols work
-
-Let me know what you’re interested in!
+<!-- series: blockchain -->

@@ -370,43 +370,4 @@ Steven Gordon summarized parts of the terminology really well:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" frameborder="0" allowfullscreen></iframe></center>
 
-## More in this series
-
-In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
-
-* Part 1: [SQL Injections](../sql-injections/) 😈🐝
-* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
-* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
-* Part 4: [Password Hashing](../password-hashing/) 😇
-* Part 5: [ZIP Bombs](../zip-bombs/) 😈
-* Part 6: [CAPTCHA](../captcha/) 😇
-* Part 7: [Email Spoofing](../email-spoofing/) 😈
-* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
-* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
-* Part 10: **Effective Access Control** 😇
-* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
-* Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
-* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
-* Part 14: [Docker Security](../docker-security/) 😇
-* Part 15: [Credential Stuffing](../credential-stuffing/) 😈🐝
-* Part 16: [Multi-Factor Authentication](../multi-factor-authentication/) (MFA/2FA) 😇
-* Part 17: [ReDoS](../redos/) 😈
-
-The following articles are about to come:
-
-* Part 18: Secure Messaging 😇
-* Part 19: Cryptojacking 😈
-* Part 20: Backups 😇
-* Part 21: Cryptotrojans 😈
-* Part 22: Single-Sign-On 😇
-* Part 23: Clipboard Hijacking 😈
-* Part 24: Certificates 😇
-* Part 25: Race Condition Attacks in Blockchains 😈
-* Part 26: Mobile Device Management (MDM) 😇
-* Part 27: Server-Side Request Forgery (SSRF) 😈
-* Part 28: Network Separation 😇
-* Part 29: Social Engineering (including Phishing) 😈
-* Part 30: Virtual Private Networks (VPNs) 😇
-* Part 31: CSRF 😈
-
-Let me know if you are interested in more articles around AppSec / InfoSec!
+<!-- series: appsec -->

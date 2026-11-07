@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2013-03-04 22:29:42.000000000 +01:00
 category: Cyberculture
 tags: Linux, Security, gedit, Bugs
+featured_image: logos/shell.png
 ---
 <h2>RWX</h2>
 <h3>Files</h3>

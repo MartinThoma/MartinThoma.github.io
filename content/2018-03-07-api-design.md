@@ -233,6 +233,77 @@ HTTP Status 400
 }
 ```
 
+There is a standard for this: Problem Details for HTTP APIs
+([RFC 9457](https://www.rfc-editor.org/rfc/rfc9457)) with the media type
+`application/problem+json` and the fields `type`, `title`, `status`, `detail`
+and `instance`. Unless you have a reason to do otherwise, use it. The example
+above as Problem Details:
+
+```text
+HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json
+
+{
+    "type": "https://example.com/problems/validation-error",
+    "title": "Your request is not valid.",
+    "status": 400,
+    "detail": "The request contains 1 invalid field.",
+    "instance": "urn:uuid:3f6c2a7e-8a4d-4f1b-9c2e-5d1a0b7e4c21",
+    "errors": [
+        {
+            "detail": "Invalid country 'German'. See ISO 3166 ALPHA-3 for valid values.",
+            "pointer": "#/country"
+        }
+    ]
+}
+```
+
+* `type` is a URI that identifies the kind of problem. Ideally it is a page in
+  your documentation that explains the error and how to fix it.
+* `title` is a short summary of that kind of problem. It is the same every time
+  this problem occurs.
+* `status` repeats the HTTP status code.
+* `detail` explains this particular occurrence.
+* `instance` identifies this particular occurrence, e.g. with a unique ID. If a
+  user sends it to your support, you find the matching log entry.
+* You may add your own fields. `errors` with a
+  [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901) to every invalid field
+  is the pattern the RFC itself uses as an example.
+
+[Django REST framework](https://www.django-rest-framework.org/api-guide/exceptions/)
+uses a simpler format by default. A validation error (400) maps every field to a
+list of messages; errors that don't belong to a single field go to
+`non_field_errors`:
+
+```text
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Vary: Accept
+Allow: POST, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 85
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
+{"email":["This field is required."],"country":["\"German\" is not a valid choice."]}
+```
+
+This is the complete response of Django 6.1 with Django REST framework 3.18 to a
+`POST /api/users` with `{"name": "Martin", "country": "German"}`: `email` is
+missing and `country` must be one of `DEU`, `FRA` or `USA`. `Content-Type`, `Vary`
+and `Allow` come from Django REST framework, the other headers from the default
+security middleware of a new Django project.
+
+All other errors have a single `detail` field, e.g.
+`{"detail": "Authentication credentials were not provided."}` or
+`{"detail": "Not found."}`. With a custom exception handler
+(`EXCEPTION_HANDLER` setting), Django REST framework can return Problem Details
+instead.
+
+Never put stack traces or other internal details into error messages. Log them on
+the server.
+
 
 ## Security
 

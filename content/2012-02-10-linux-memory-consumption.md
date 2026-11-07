@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-02-10 21:04:45.000000000 +01:00
 category: Code
 tags: Linux, Command Line
+featured_image: logos/shell.png
 ---
 <h2>free</h2>
 If you want to check your memory consumption on a Linux machine, you can use free.

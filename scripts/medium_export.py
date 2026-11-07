@@ -21,6 +21,8 @@ Usage:
     uv run python scripts/medium_export.py export https://martinthoma.medium.com/some-post-0123456789ab
 
 ``list`` prints the posts that are not on the blog yet and rewrites MEDIUM_EXPORT_TODO.md.
+Replies to other people's stories are skipped: Medium's export stores them as posts, too,
+but only articles start with a title paragraph (``graf--title``).
 ``export`` never overwrites an existing article.
 """
 
@@ -111,6 +113,7 @@ class Post:
     tags: list[str] = field(default_factory=list)
     blocks: list[Block] = field(default_factory=list)
     is_draft: bool = False
+    is_response: bool = False  # a reply to someone else's story, not an article
 
 
 # --------------------------------------------------------------------------- helpers
@@ -475,6 +478,8 @@ def post_from_export_html(file_name: str, page: str, index: BlogIndex | None = N
         is_draft=file_name.startswith("draft_"),
     )
     body = soup.find("section", attrs={"data-field": "body"}) or soup
+    # Medium stores replies to other stories as posts, too; only articles start with a title
+    post.is_response = body.find(class_="graf--title") is None
     for graf in body.find_all(class_=re.compile(r"^(graf|section-divider)$")):
         classes = graf.get("class", [])
         if "section-divider" in classes:
@@ -554,6 +559,16 @@ def download_image(block: Block, target_stem: Path) -> tuple[str, int, int]:
     return path.name, block.width, block.height
 
 
+def caption_html(text: str) -> str:
+    """Inline Markdown of a caption (links, bold, italics, escapes) as HTML."""
+    text = re.sub(
+        r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: f'<a href="{html.escape(m.group(2), quote=True)}">{m.group(1)}</a>', text
+    )
+    text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
+    text = re.sub(r"(?<![*\w])\*([^*\n]+)\*(?![*\w])", r"<em>\1</em>", text)
+    return re.sub(r"\\([_*\[\]()#])", r"\1", text)
+
+
 def render(post: Post, slug: str, download: bool = True) -> str:
     while post.blocks and post.blocks[-1].kind == "hr":
         post.blocks.pop()
@@ -579,7 +594,7 @@ def render(post: Post, slug: str, download: bool = True) -> str:
             marker = "*" if block.kind == "ul" else "1."
             lines += [f"{marker} {item}" for item in block.items] + [""]
         elif block.kind == "hr":
-            lines += ["---" if lines else "", ""]
+            pass  # Medium's section dividers: the headings already separate the sections
         elif block.kind == "card":
             lines += [f"[{block.text}]({block.href})", ""]
         elif block.kind == "embed":
@@ -611,8 +626,8 @@ def render(post: Post, slug: str, download: bool = True) -> str:
                 "<figure>",
                 f'    <a href="{src}"><img src="{src}" alt="{alt}"{size}{lazy}></a>',
             ]
-            if block.text:
-                figure.append(f"    <figcaption>{block.text}</figcaption>")
+            if block.text:  # Markdown is not rendered inside <figure>, so the caption is HTML
+                figure.append(f"    <figcaption>{caption_html(block.text)}</figcaption>")
             lines += figure + ["</figure>", ""]
     body = re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip() + "\n"
 
@@ -685,7 +700,7 @@ def write_todo(missing: list[Post], source: str) -> None:
 def load_posts(args: argparse.Namespace, index: BlogIndex) -> list[Post]:
     if args.from_export:
         posts = [post_from_export_html(name, page, index) for name, page in read_export(Path(args.from_export))]
-        return [p for p in posts if not p.is_draft and p.url]
+        return [p for p in posts if not p.is_draft and not p.is_response and p.url]
     return MediumClient().list_posts()
 
 

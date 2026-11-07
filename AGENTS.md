@@ -76,9 +76,14 @@ findings per article; remove an entry once it is fixed.
 
 * Link to other articles of this blog with relative links: `[text](../slug/)`.
   Not with `https://martin-thoma.com/slug/` and not with the Medium URL.
-* Series (AppSec, unit testing, blockchain) end with an identical
-  `## More in this series` section in every part. The current part is bold instead
-  of a link; the outlook text is the same in all parts.
+* Series end with an identical `## More in this series` section in every part. The
+  current part is bold instead of a link; the outlook text is the same in all parts.
+  The AppSec and blockchain series generate it: the article ends with
+  `<!-- series: appsec -->` (or `blockchain`), and the parts are listed once in
+  `series/<name>.yaml` (`plugins/series_list.py`). Published parts are numbered and
+  linked, drafts and ideas appear under the outlook without a link. A new part only
+  needs the marker and one line in the YAML file. The unit testing series still has
+  the section written out in every part.
 * Never show a bare URL as plain text: every URL in the text is a link. Prefer a
   descriptive link text; otherwise use the URL without scheme and `www.`
   (`[logotournament.com](http://logotournament.com/)`).
@@ -93,6 +98,10 @@ findings per article; remove an entry once it is fixed.
 
 ## Images
 
+* An image must help to understand the article: a screenshot of the game, website or
+  application the article is about, a diagram or chart of the mechanism, or a comic
+  scene with people (see `IMAGES.md`). No generic decorative title images (a topic icon
+  plus loosely related objects, background blobs): no image is better than that.
 * Store images locally in `images/<year>/<month>/`; never hotlink Medium's CDN.
   Downloaded Medium images are named `<slug>-<n>.<ext>`.
 * Use `<figure>`, not Markdown `![]()`. Canonical form (CSS in `pelican-thoma/static/css/thoma.css`):
@@ -126,6 +135,12 @@ findings per article; remove an entry once it is fixed.
   nothing but blank lines between them are a gallery, and a figure right next to a gallery
   joins it (`normalize_images.py` does both). Galleries directly after each other stay
   separate: they are rows of one collection (e.g. one row per category).
+* Screenshots whose text must be read (search suggestions, wide UI strips) do not fit the
+  4:3 thumbnails: put them into `<div class="gallery stack">`, which shows them one below
+  the other at full width, with `width`/`height` set to the pixel size.
+  `normalize_images.py` leaves stacked galleries alone.
+* A screenshot too small to read (an old 400 px upload, no larger original) gets its text
+  in the figcaption, not an upscaled copy.
 * A click on any figure opens the lightbox (`pelican-thoma/static/js/lightbox.js`): it shows
   the `<a href>` file with the figcaption. Left/right (buttons, arrow keys, swipe) page through
   the figures of the gallery; the up/down keys jump to the first figure of the previous/next
@@ -147,6 +162,32 @@ findings per article; remove an entry once it is fixed.
   is narrow enough) and a "Maximieren" button; a table that is only long gets a header row
   that sticks below the site header. For this the header row must be a `<thead>` or a first
   row of `<th>` cells. Layout tables get `class="transparent"` and are left alone.
+
+## Charts
+
+* Bar charts are HTML tables, not images: `pelican-thoma/static/js/charts.js` turns a
+  `<table class="bar-chart">` (first column labels, second column values) into a
+  horizontal bar chart with tooltips and a "Table" button. Without JavaScript (feeds,
+  print) the table is shown. The script is only loaded on pages that contain a chart.
+
+  ```html
+  <figure class="chart">
+  <table class="bar-chart" data-unit="charging stations">
+      <caption>What the chart shows</caption>
+      <thead><tr><th>Charging power</th><th>Number of charging stations</th></tr></thead>
+      <tbody>
+          <tr><td>22 kW</td><td>4170</td></tr>
+          <tr class="highlight"><td>44 kW</td><td>8630</td></tr>
+      </tbody>
+  </table>
+  <figcaption>Caption with the source</figcaption>
+  </figure>
+  ```
+
+  Options on the table: `data-unit` (tooltips, screen readers), `data-sort="desc"`,
+  `data-approx` (values shown as "≈ 870"), `data-total` (total for the shares if it is
+  not the sum of the rows), `data-no-share`. Rows with `class="highlight"` stay in the
+  accent color, the others are muted. The second header cell is the axis title.
 
 ## Math
 

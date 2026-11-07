@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2013-10-01 23:41:37.000000000 +02:00
 category: Cyberculture
 tags: Idea, Software Engineering
+featured_image: logos/lightbulb.png
 ---
 The following is a collection of ideas for projects I had, but never realized.
 I would really love to do them, but they seem to be a little bit too time

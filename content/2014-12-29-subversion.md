@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-12-29 20:57
 category: Code
 tags: Cheat Sheet, Version Control, Software Engineering
-featured_image:
+featured_image: logos/development.png
 ---
 <div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 

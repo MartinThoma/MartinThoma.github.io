@@ -118,6 +118,20 @@ And the public key of input 1:
 
 The same goes for input 2.
 
+However, this is quite different from [the raw JSON transaction](https://blockchain.info/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09?format=json):
+
+<figure>
+    <a href="../images/2021/02/utxo-model-4.png"><img src="../images/2021/02/utxo-model-4.png" alt="Screenshot of the raw JSON transaction with the fields ver, block height, relayed by, weight, inputs and outputs" width="800" height="994" loading="lazy"></a>
+    <figcaption>Screenshot of the raw JSON transaction</figcaption>
+</figure>
+
+I will come to the inputs and outputs, but let’s first discuss the remaining attributes:
+
+* **Ver** is the version of the transaction format. I couldn’t find a good source for that, but in general, it’s a good idea and common practice to version protocols and exchange formats.
+* **Block height** was added with [BIP 34](https://en.bitcoin.it/wiki/BIP_0034) and is essentially the block number in the current blockchain.
+* **Relayed by**, according to sheinix’s article [Understanding some Bitcoin Metrics](https://medium.com/coinmonks/understanding-some-bitcoin-metrics-ac51f28a4145) “indicates the mining pool that has solved the Proof of Work”. I don’t understand what this is good for.
+* **Weight** is a concept I’ve first seen with Segwit. Please have a look at [this video](https://youtu.be/f3CFUbeehc8?t=442) by 99Bitcoin for details. The weight is similar to the size of the transaction.
+
 ## Inputs and Outputs
 
 It sounds crazy but imagine real coins. In a transaction with real coins, the

@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-02-11 17:25:36.000000000 +01:00
 category: German posts
 tags: Lecture Notes, Theoretical Computer Science, University, Computer Science
+featured_image: logos/klausur.png
 ---
 <figure class="ai-generated">
     <a href="../images/2012/02/chomsky-normalform.jpg"><img src="../images/2012/02/chomsky-normalform.jpg" alt="Binärer Ableitungsbaum, in dem sich jeder innere Knoten in genau zwei Kinder teilt, daneben Schere und Schraubenschlüssel" width="1376" height="768"></a>

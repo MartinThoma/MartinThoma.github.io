@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-10-22 12:00:44.000000000 +02:00
 category: Code
 tags: Programming, Java, Puzzle
+featured_image: logos/java.png
 ---
 What is the output of the following script?
 

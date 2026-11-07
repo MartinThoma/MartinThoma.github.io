@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00
 category: German posts
 tags: Programming, Java, Python
+featured_image: logos/mathematics.png
 ---
 Folgende Aufgabe gab es (sinngemäß) für das Modul &bdquo;Programmieren&ldquo; im zweiten Übungsblatt 2012:
 

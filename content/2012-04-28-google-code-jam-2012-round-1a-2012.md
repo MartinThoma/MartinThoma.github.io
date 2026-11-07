@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-04-28 06:11:22.000000000 +02:00
 category: Code
 tags: Programming, Python, Google, Google Code Jam, Competition
+featured_image: logos/python.png
 ---
 3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.
 

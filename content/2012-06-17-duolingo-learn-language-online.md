@@ -7,6 +7,7 @@ author: Martin Thoma
 date: 2012-06-17 12:02:19.000000000 +02:00
 category: The Web
 tags: Learning, Language, Education
+featured_image: logos/education.png
 ---
 <a href="http://duolingo.com/">Duolingo</a> is a great online portal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
 

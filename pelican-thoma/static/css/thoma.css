@@ -424,6 +424,68 @@ table.transparent > * > tr > td { padding: 0.5rem; }
 .table-btn svg { width: 1rem; height: 1rem; flex: none; }
 .table-placeholder { margin: 0 0 1.25rem; }
 
+/* Bar charts (charts.js): a <table class="bar-chart"> becomes a horizontal bar chart.
+   Labels and bars share one grid (subgrid), so every bar starts at the same baseline. */
+figure.chart { text-align: left; margin: 1.75rem 0; }
+table.bar-chart.chart-enhanced:not(.chart-table-visible) { display: none; }
+.bar-chart-view { position: relative; font-size: 0.9rem; color: var(--ink); }
+.bar-chart-view[hidden] { display: none; }
+.chart-plot {
+  display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+  column-gap: 0.75rem; row-gap: 4px;
+}
+.chart-row, .chart-axis {
+  display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center;
+}
+.chart-row { border-radius: var(--r-xs); outline: none; cursor: default; }
+.chart-row:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+.chart-label { max-width: 14rem; text-align: right; line-height: 1.2; color: var(--ink-muted); }
+.chart-row.active .chart-label { color: var(--ink); }
+.chart-track {
+  position: relative; height: 28px;
+  /* recessive gridlines at the axis ticks */
+  background: repeating-linear-gradient(to right, var(--hairline) 0 1px, transparent 1px var(--grid-step));
+}
+.chart-bar {
+  position: absolute; left: 0; top: 5px; height: 18px; width: var(--w); /* (28px track - 18px bar) / 2 */
+  background: var(--accent); border-radius: 0 var(--r-xs) var(--r-xs) 0; /* rounded data end only */
+  transform-origin: left center; /* grows from the baseline */
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.15s;
+}
+.chart-bar.muted { background: color-mix(in srgb, var(--accent) 38%, var(--surface)); }
+.chart-row.active .chart-bar { filter: brightness(1.12) saturate(1.1); }
+.chart-value {
+  position: absolute; left: calc(var(--w) + 0.4rem); top: 50%; transform: translateY(-50%);
+  padding: 0 0.2rem; border-radius: var(--r-xs); background: var(--paper); /* gridlines stop at the label */
+  font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink);
+  transition: opacity 0.3s 0.45s;
+}
+.chart-value.inside { left: auto; right: calc(100% - var(--w) + 0.4rem); color: var(--on-accent); background: none; }
+.bar-chart-view.pending .chart-bar { transform: scaleX(0); }
+.bar-chart-view.pending .chart-value { opacity: 0; }
+.chart-ticks { position: relative; height: 1.6rem; font-size: 0.78rem; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.chart-ticks span { position: absolute; top: 0.3rem; transform: translateX(-50%); white-space: nowrap; }
+.chart-ticks span:first-child { transform: none; }
+.chart-ticks span:last-child { transform: translateX(-100%); }
+.chart-ticks.sparse span:nth-child(even) { visibility: hidden; }
+.chart-axis-title { grid-column: 2; text-align: center; font-size: 0.8rem; color: var(--ink-muted); }
+.chart-tooltip {
+  position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 0.1rem;
+  padding: 0.45rem 0.7rem; transform: translate(-50%, calc(-100% - 6px));
+  font-size: 0.82rem; line-height: 1.3; white-space: nowrap; color: var(--surface); background: var(--ink);
+  border-radius: var(--r-sm); box-shadow: var(--shadow); pointer-events: none;
+  opacity: 0; transition: opacity 0.12s;
+}
+.chart-tooltip.visible { opacity: 1; }
+.chart-tooltip strong { font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+.chart-tooltip .muted-text { opacity: 0.75; }
+@media (max-width: 600px) { .chart-label { max-width: 8rem; font-size: 0.82rem; } }
+@media (prefers-reduced-motion: reduce) { .chart-bar, .chart-value { transition: none; } }
+@media print {
+  .bar-chart-view, .chart-tools { display: none !important; }
+  table.bar-chart.chart-enhanced { display: table !important; }
+}
+
 .table-dialog {
   width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0;
   border: 0; background: var(--paper); color: var(--ink);
@@ -516,6 +578,12 @@ figcaption { font-size: 0.85rem; color: var(--ink-muted); margin-top: 0.35rem; }
   .gallery figure > a:hover img { transform: translateY(-2px) scale(1.03); box-shadow: var(--shadow-lift); }
 }
 .gallery figcaption { margin-top: 0.55rem; line-height: 1.35; text-wrap: pretty; }
+/* Stacked gallery: screenshots of text (wide strips) stay readable at full width, one
+   below the other; the lightbox still pages through them as one gallery. */
+.gallery.stack { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.gallery.stack figure { max-width: 100%; }
+.gallery.stack figure > a { display: inline-block; aspect-ratio: auto; background: none; }
+.gallery.stack img { position: static; inset: auto; max-width: 100%; max-height: none; }
 
 /* Lightbox (lightbox.js): one <dialog> for all figures. It keeps a dark palette in both
    themes, because photos and screenshots read best on near-black. */

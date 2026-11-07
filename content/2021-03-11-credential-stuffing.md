@@ -41,7 +41,7 @@ That’s it. It’s really trivial. Credential stuffing does not target you pers
 
 As a user, there are two perfect defense measures:
 
-1. **Strong Passwords**: Good passwords might look different than you think. But [it’s easy to generate memorizable strong passwords](https://medium.com/geekculture/what-is-a-secure-password-97263aeedea9).
+1. **Strong Passwords**: Good passwords might look different than you think. But [it’s easy to generate memorizable strong passwords](../what-is-a-secure-password/).
 2. **Unique Passwords**: Don’t share passwords among services. Never.
 
 To fulfill both in a convenient way, you should use a password manager. A third point that helps is to use multi-factor authentication (MFA). Having at least a second factor (2FA) goes a long way. However, the attacker most likely learns which passwords are correct and can work on breaking the second factor, e.g. by SIM swapping.
@@ -54,48 +54,9 @@ As a service provider, the defenses are not perfect and more complicated:
 * **Single-Sign-On (SSO)**: Letting another service handle the authentication side-steps all of those hassles. One variant which is well-known is “social login”. That is simply SSO by big social websites like Facebook, Twitter, Github, or LinkedIn.
 * **Check users' passwords for breaches**: [haveibeenpawned](https://haveibeenpwned.com/Passwords) allows you to check if credential combinations are in a breach.
 
-There are also some specific points to make the life of bot-developers harder, e.g. requiring JavaScript, blocking headless browsers, or blocking traffic from AWS. [Jarrod Overson](https://medium.com/u/a19804ea02f3) has written a very nice article about this:
+There are also some specific points to make the life of bot-developers harder, e.g. requiring JavaScript, blocking headless browsers, or blocking traffic from AWS. Jarrod Overson has written a very nice article about this:
 
 [**10 Tips To Stop Credential Stuffing Attacks**
 *10 steps you should take before buying an anti-automation service (+ 1 bonus tip).*jsoverson.medium.com](https://jsoverson.medium.com/10-tips-to-stop-credential-stuffing-attacks-db249cac6428)
 
-## More in this series
-
-In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
-
-* Part 1: [SQL Injections](../sql-injections/) 😈🐝
-* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
-* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
-* Part 4: [Password Hashing](../password-hashing/) 😇
-* Part 5: [ZIP Bombs](../zip-bombs/) 😈
-* Part 6: [CAPTCHA](../captcha/) 😇
-* Part 7: [Email Spoofing](../email-spoofing/) 😈
-* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
-* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
-* Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
-* Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
-* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
-* Part 14: [Docker Security](../docker-security/) 😇
-* Part 15: **Credential Stuffing** 😈🐝
-* Part 16: [Multi-Factor Authentication](../multi-factor-authentication/) (MFA/2FA) 😇
-* Part 17: [ReDoS](../redos/) 😈
-
-The following articles are about to come:
-
-* Part 18: Secure Messaging 😇
-* Part 19: Cryptojacking 😈
-* Part 20: Backups 😇
-* Part 21: Cryptotrojans 😈
-* Part 22: Single-Sign-On 😇
-* Part 23: Clipboard Hijacking 😈
-* Part 24: Certificates 😇
-* Part 25: Race Condition Attacks in Blockchains 😈
-* Part 26: Mobile Device Management (MDM) 😇
-* Part 27: Server-Side Request Forgery (SSRF) 😈
-* Part 28: Network Separation 😇
-* Part 29: Social Engineering (including Phishing) 😈
-* Part 30: Virtual Private Networks (VPNs) 😇
-* Part 31: CSRF 😈
-
-Let me know if you are interested in more articles around AppSec / InfoSec!
+<!-- series: appsec -->

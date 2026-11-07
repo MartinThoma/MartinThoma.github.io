@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-12-30 21:30
 category: German posts
 tags: Mathematics, Puzzle, Algebra
-featured_image:
+featured_image: logos/mathematics.png
 ---
 <figure class="ai-generated">
     <a href="../images/2014/12/trickreiche-matheaufgaben.jpg"><img src="../images/2014/12/trickreiche-matheaufgaben.jpg" alt="Ein Mann mit Ruderboot am Fluss, am Ufer Wolf, Ziege und Kohlkopf, über ihm eine Glühbirne" width="1408" height="768"></a>
