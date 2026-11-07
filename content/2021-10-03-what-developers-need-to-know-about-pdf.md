@@ -11,11 +11,6 @@ featured_image: logos/pdf.png
 summary: Standards, functions, usage, terminology
 medium_url: https://medium.com/@martinthoma/what-developers-need-to-know-about-pdf-ca7f267785d
 ---
-<figure>
-    <a href="../images/2021/10/what-developers-need-to-know-about-pdf-1.jpg"><img src="../images/2021/10/what-developers-need-to-know-about-pdf-1.jpg" alt="PDF is sometimes called “digital paper”. That is only true sometimes. Photo by Annie Spratt on Unsplash" width="800" height="534"></a>
-    <figcaption>PDF is sometimes called “digital paper”. That is only true sometimes. Photo by <a href="https://unsplash.com/@anniespratt">Annie Spratt</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
-</figure>
-
 PDF is a file format that was created to print in exactly the same way everywhere. It was not intended to be a format for data exchange. Nowadays, it is used in all organizations. You can create presentations with it, you can save documents like your thesis, you can create bills and forms.
 
 Throughout my career, I had the dubious pleasure of reading PDF files multiple times. In this article, I’ll share some learnings with you. Let’s go!

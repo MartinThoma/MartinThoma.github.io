@@ -12,10 +12,6 @@ summary: What distributions, packages, and modules are in Python
 medium_url: https://medium.com/@martinthoma/python-terminology-distribution-vs-package-vs-module-52feb40b4b97
 status: draft
 ---
-<figure>
-    <a href="../images/2023/01/python-terminology-distribution-vs-package-vs-module-1.jpg"><img src="../images/2023/01/python-terminology-distribution-vs-package-vs-module-1.jpg" alt="Scrabble tiles on a wooden table forming the crossing words PACKAGE, PYTHON, DISTRIBUTION and MODULE" width="800" height="406"></a>
-</figure>
-
 A Python **distribution** is an archive file that contains one or more Python packages. The distribution file is what the end-user will download and install. Typically, it contains just one package.
 
 There are two common types of distributions: Source distributions and the wheel binary format.

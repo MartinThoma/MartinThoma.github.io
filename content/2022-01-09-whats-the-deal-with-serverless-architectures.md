@@ -12,11 +12,6 @@ summary: The technologies and ideas behind the buzzword
 medium_url: https://medium.com/@martinthoma/whats-the-deal-with-serverless-architectures-33a75472f659
 status: draft
 ---
-<figure>
-    <a href="../images/2022/01/whats-the-deal-with-serverless-architectures-1.jpg"><img src="../images/2022/01/whats-the-deal-with-serverless-architectures-1.jpg" alt="A server room. Photo by Taylor Vick on Unsplash" width="800" height="450"></a>
-    <figcaption>A server room. Photo by <a href="https://unsplash.com/@tvick">Taylor Vick</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
-</figure>
-
 Software needs hardware to run on. For a long time, this meant that you have to buy hardware, ensure that the network connection keeps working, worry about power outages and device errors, and make sure the temperature is fine. You need to buy new machines when you get more customers, you need to deal with load balancing. You need to **maintain** your machines.
 
 You deal with the issue of **under-provisioning** (not having enough machines) and **over-provisioning** (having more machines than you need).

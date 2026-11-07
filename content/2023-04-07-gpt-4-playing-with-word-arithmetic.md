@@ -12,10 +12,6 @@ summary: King − Man + Woman = Queen: how well GPT-4 does word arithmetic
 medium_url: https://medium.com/@martinthoma/gpt-4-playing-with-word-arithmetic-db9316d2332d
 status: draft
 ---
-<figure class="ai-generated">
-    <a href="../images/2023/04/gpt-4-playing-with-word-arithmetic-1.jpg"><img src="../images/2023/04/gpt-4-playing-with-word-arithmetic-1.jpg" alt="Futuristic circuit board background with the text “GPT-4 word vectors”" width="800" height="348"></a>
-</figure>
-
 The field of Natural Language Processing (NLP) has seen significant advancements over the years, with language models like OpenAI’s GPT-4 exhibiting remarkable capabilities in understanding and generating human language. One example of this is “word arithmetic” that has first been shown in [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781) (2013):
 
 > King — Man + Woman = Queen
