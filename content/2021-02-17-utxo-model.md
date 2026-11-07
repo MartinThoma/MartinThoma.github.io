@@ -149,3 +149,5 @@ addresses and a bunch of output Bitcoin addresses.
 
 Everybody can verify which address has how many Bitcoins in it by getting the
 whole blockchain. It is possible to track every bitcoin since the beginning.
+
+<!-- series: blockchain -->
