@@ -158,6 +158,10 @@ END ASC
 This way, the attacker can get the password hash of the admin user. Character by
 character. Just by looking at how the sorting changes.
 
+## Thank you!
+
+To my colleague Mats at Netlight who found an error in one of the code snippets and let me know about it 🤗
+
 ## See also
 
 I love [Tom Scott](https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)) and [Computerphile](https://www.youtube.com/user/Computerphile), and they made a video about the topic!

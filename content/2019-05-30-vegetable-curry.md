@@ -8,6 +8,7 @@ date: 2019-05-30 20:00
 category: My bits and bytes
 tags: Cooking, Recipe
 featured_image: logos/cooking.png
+medium_url: https://medium.com/@martinthoma/vegetable-curry-d4eb16e5bffb
 ---
 [Curry](https://en.wikipedia.org/wiki/Curry) is a dish found in many Asian
 countries. It's always spicy, but not necessarily in the hot-spicy sense. There are

@@ -19,6 +19,12 @@ If you know other languages, you could create a script for these. I focus on Pyt
 
 I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="../matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.
 
+<figure>
+    <a href="../images/2013/01/strassen-blocks.svg"><img src="../images/2013/01/strassen-blocks.svg" alt="The matrices A, B and C are each split into four blocks; the seven products M1 to M7 of block sums are combined into the four blocks of C" width="680" height="420"></a>
+    <figcaption>Strassen splits A and B into four blocks each. It needs only seven block multiplications M₁ to M₇ instead of eight; the blocks of C are sums of them.</figcaption>
+</figure>
+
+
 If you post a solution, please consider these restrictions:
 <ul>
     <li><strong>Input</strong>:

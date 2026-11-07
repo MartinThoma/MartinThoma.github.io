@@ -156,5 +156,4 @@ incentives for tutors:
 
 
 I am not sure if there is any incentive which is strong enough to support
-another student for one semester. Do you have an idea? Please share it in the
-comments!
+another student for one semester.

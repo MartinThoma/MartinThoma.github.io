@@ -108,5 +108,3 @@ mit $r_{xy} = \frac{\frac{1}{n-1} \sum \limits_{j=1}^n (x_i - \overline x)(y_j -
 gilt $b^* = r_{xy} \cdot \frac{s_y}{s_x}$
 
 Irgendwas war noch mit der <a href="http://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung">Cauchy-Schwarz Ungleichung</a>.
-
-Falls jemand Anmerkungen hat, mehr mitgeschrieben hat oder einfach Fragen aufkommen: Postet doch einen Kommentar!

@@ -15,8 +15,6 @@ I guess most commands will work in every Linux distribution, but I tried it only
 
 Maybe you need to install some packages.
 
-If you know more commands, please post a comment!
-
 <h2>CPU</h2>
 ```bash
 cat /proc/cpuinfo

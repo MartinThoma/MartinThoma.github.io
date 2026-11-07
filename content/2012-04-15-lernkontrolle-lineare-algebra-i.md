@@ -13,8 +13,6 @@ Hier sind ein paar <a href='../images/2012/04/lernkontrolle-lineare-algebra.pdf'
 
 Bei ein paar Fragen, bin ich mir nicht sicher wie die Antwort lautet. Ich habs immer dazu geschrieben.
 
-Wenn ihr Fehler findet, hinterlasst bitte einfach hier einen Kommentar. Ich verbessere es dann. Wenn ihr gute Beispiele / Gegenbeispiele oder sogar weitere Fragen habt, könnt ihr das auch gerne in den Kommentaren schreiben.
-
 <h2>Material und Quellen</h2>
 Einige Fragen (und dazugehörige Antworten) sind so, oder so ähnlich, in folgendem Buch zu finden, das ich sehr weiterempfehlen kann:
 

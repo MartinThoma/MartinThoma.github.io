@@ -82,6 +82,14 @@ But I have written a piece of pseudocode to make it even easier to code this alg
 </figure>
 
 
+For the reference "what a bright day" and the hypothesis "what the bright sunny day",
+the matrix and the cheapest path through it look like this:
+
+<figure>
+    <a href="../images/2013/11/wer-levenshtein-matrix.svg"><img src="../images/2013/11/wer-levenshtein-matrix.svg" alt="Levenshtein matrix for REF 'what a bright day' and HYP 'what the bright sunny day'; the highlighted path has one substitution (a → the) and one insertion (sunny)" width="632" height="448" loading="lazy"></a>
+    <figcaption>Each cell holds the number of errors for two prefixes. Following the path back from the bottom-right cell gives the alignment: one substitution and one insertion, so WER = 2/4 = 50%.</figcaption>
+</figure>
+
 <h2>Python</h2>
 ```python
 #!/usr/bin/env python

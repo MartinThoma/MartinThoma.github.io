@@ -11,6 +11,7 @@ tags: Blog
 save_as: author/martin-thoma/index.html
 context: about
 description: Profile page of Martin Thoma
+status: hidden
 ---
 <div class="vcard">
 <figure class="figure-right">

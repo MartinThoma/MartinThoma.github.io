@@ -105,5 +105,3 @@ Wenn jetzt, nach Beginn der Vorlesungszeit, noch keine Matrikelnummer vorhanden 
 Eine einfache FAQ-Liste auf der Seite des Studienbüros könnte schon helfen.
 
 So, jetzt habe ich einige Stunden mit Bürokratie, Organisation und diesem Bericht darüber verbracht und etwas Frust abgebaut. Zeit, die ich in mein Studium hätte stecken können. Vielleicht liest es ja jemand, der etwas ändern kann.
-
-Habt ihr ähnliche Geschichten mit dem Studienbüro erlebt? Habt ihr Verbesserungsvorschläge? Dann hinterlasst doch einfach einen Kommentar.

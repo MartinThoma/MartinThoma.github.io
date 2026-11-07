@@ -9,6 +9,11 @@ category: Code
 tags: PHP, Benchmark, Web Development
 featured_image: 2011/09/PHP-logo.png
 ---
+<figure>
+    <a href="../images/2011/09/benchmarking-php-ab-percentiles.svg"><img src="../images/2011/09/benchmarking-php-ab-percentiles.svg" alt="Chart of ab response times: the curve stays flat around 1.1 ms up to the 90 % mark and rises steeply in the last percent to 7.2 ms; the median is 1.13 ms, the 95 % mark 1.5 ms, the mean time per request 1.16 ms" width="960" height="540"></a>
+    <figcaption>What ab measures (schematic): most requests take about the same time, a few are much slower. The mean "Time per request" hides this tail; ab's percentile table shows it.</figcaption>
+</figure>
+
 I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in.
 
 If you like to view some more, go to <a href="http://www.phpbench.com/" rel="nofollow">www.phpbench.com</a>.

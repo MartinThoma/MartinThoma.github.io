@@ -216,6 +216,13 @@ if __name__ == "__main__":
 ```
 
 
+`sample_1()` builds the following graph and searches the shortest path from A to F:
+
+<figure>
+    <a href="../images/2017/01/label-correction-sample-graph.svg"><img src="../images/2017/01/label-correction-sample-graph.svg" alt="Undirected tree with the nodes A to M, all edges with weight 1; the shortest path from the start A to the target F goes over C" width="560" height="360" loading="lazy"></a>
+    <figcaption>The graph of <code>sample_1()</code>. All edges have the weight 1; the shortest path A–C–F has length 2.</figcaption>
+</figure>
+
 ## Examples
 
 * [Project Euler 18](https://projecteuler.net/problem=18)

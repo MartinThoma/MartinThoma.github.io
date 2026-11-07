@@ -64,6 +64,12 @@ $t - \mu$ steps into the loop. Going $\mu$ more steps brings it to position $t$,
 which is a multiple of $\lambda$: exactly the start of the loop. The pointer
 from the head needs the same $\mu$ steps to get there.
 
+<figure>
+    <a href="../images/2020/05/floyd-tortoise-hare.svg"><img src="../images/2020/05/floyd-tortoise-hare.svg" alt="Linked list with a tail of 3 nodes leading into a loop of 6 nodes; tortoise and hare meet at node 6, the loop starts at node 3" width="720" height="330" loading="lazy"></a>
+    <figcaption>A list with μ = 3 and λ = 6. Tortoise and hare meet at node 6 after t = 6 steps. From there and from the head, μ = 3 more steps lead to the loop start.</figcaption>
+</figure>
+
+
 This is pretty nice as it needs $\mathcal{O}(1)$ additional space and has a
 time complexity of $\mathcal{O}(n)$. The obvious alternative, storing all
 visited nodes in a set, needs $\mathcal{O}(n)$ additional space.
@@ -89,7 +95,7 @@ the loop starts.
 For example, the list `[1, 2, 3, 4, 2]` represents the graph below:
 
 <figure>
-    <a href="../images/2020/05/singly-linked-list.svg"><img src="../images/2020/05/singly-linked-list.svg" alt="Graph represented by the list [1,2,3,4,2]" width="512" height="197"></a>
+    <a href="../images/2020/05/singly-linked-list.svg"><img src="../images/2020/05/singly-linked-list.svg" alt="Graph represented by the list [1,2,3,4,2]" width="512" height="197" loading="lazy"></a>
     <figcaption>Graph represented by the list [1,2,3,4,2]</figcaption>
 </figure>
 

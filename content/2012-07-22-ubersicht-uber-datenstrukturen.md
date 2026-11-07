@@ -32,6 +32,12 @@ In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/V
 <blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer großen Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen üblicherweise konstanten Zeitaufwand bei Einfüge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a>
 
+<figure>
+    <a href="../images/2012/07/hashtabelle-verkettung.svg"><img src="../images/2012/07/hashtabelle-verkettung.svg" alt="Hashtabelle mit 7 Slots: die Schlüssel 15, 8 und 22 landen in Slot 1 und bilden eine verkettete Liste, 4 und 11 in Slot 4, 30 in Slot 2" width="600" height="348" loading="lazy"></a>
+    <figcaption>Hashtabelle mit m = 7 Slots und h(k) = k mod 7. Schlüssel mit gleichem Hashwert werden in einer Liste verkettet.</figcaption>
+</figure>
+
+
 Hashtabellen werden hier benutzt:
 <ul>
   <li>Python 3.2.3: Modules/_pickle.c</li>
@@ -326,6 +332,12 @@ Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.
 
 <h2>Warteschlangen</h2>
 Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks heißt es PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.
+
+<figure>
+    <a href="../images/2012/07/warteschlange.svg"><img src="../images/2012/07/warteschlange.svg" alt="Warteschlange mit den Elementen A bis E: ENQUEUE fügt F am Ende an, DEQUEUE entnimmt A am Anfang" width="600" height="170" loading="lazy"></a>
+    <figcaption>ENQUEUE fügt am Ende an, DEQUEUE entnimmt am Anfang: First In – First Out.</figcaption>
+</figure>
+
 
 <table>
 <tr>

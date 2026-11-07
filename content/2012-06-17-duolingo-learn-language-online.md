@@ -60,5 +60,3 @@ Now some screenshots to give you a feeling what Duolingo offers:
         <figcaption>Level mastered ☺</figcaption>
     </figure>
 </div>
-
-I have 3 invitations left. If you like to test Duolingo, simply post a comment with your email-address. The first three will get the invitations.

@@ -18,6 +18,12 @@ Think about how you divide with pen and paper. How do you recognize that you hav
 
 You look at the rest. If you've seen the rest before, you are just about to get into the cycle.
 
+<figure>
+    <a href="../images/2012/08/project-euler-26-long-division.svg"><img src="../images/2012/08/project-euler-26-long-division.svg" alt="Long division of 1 by 7: the remainders 1, 3, 2, 6, 4, 5 form a cycle, so the digits 142857 repeat" width="680" height="380"></a>
+    <figcaption>Long division of 1/7. Once the remainder 1 shows up again, the digits 142857 repeat.</figcaption>
+</figure>
+
+
 <h2>My solution</h2>
 This brute force solution finds the solution instantly.
 

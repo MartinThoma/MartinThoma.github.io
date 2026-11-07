@@ -157,6 +157,13 @@ There cannot be any asymptotically better solution. For space complexity, it
 is obvious. For time complexity, one can see that one needs to look at least
 at each element.
 
+Here is how `current_sum` and `max_sum` develop for the second example:
+
+<figure>
+    <a href="../images/2020/05/kadane.svg"><img src="../images/2020/05/kadane.svg" alt="Bar chart of the array 9, -5, -5, -2, 1, 2, -1, 4, 5, 0, 1 with the maximum subarray from index 4 to 10 highlighted (sum 12), and a table of current_sum and max_sum after each element" width="660" height="400" loading="lazy"></a>
+    <figcaption>Kadane's algorithm on [9, -5, -5, -2, 1, 2, -1, 4, 5, 0, 1]. At index 4, <code>current_sum</code> starts over because 1 is bigger than -2 + 1. The best subarray has the sum 12.</figcaption>
+</figure>
+
 
 ## Things to Learn
 

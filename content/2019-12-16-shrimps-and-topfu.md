@@ -8,6 +8,7 @@ date: 2019-12-16 20:00
 category: My bits and bytes
 tags: Cooking, Recipe
 featured_image: logos/cooking.png
+medium_url: https://medium.com/@martinthoma/shrimps-and-tofu-dfa3c503d3b0
 ---
 A nice dish which takes about 30 minutes to cook.
 

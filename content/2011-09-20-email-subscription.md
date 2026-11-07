@@ -9,6 +9,7 @@ category: My bits and bytes
 tags: Email, Blog
 featured_image: logos/star.png
 disable_comments: true
+status: hidden
 ---
 The subscription is done via [Authory](https://authory.com/MartinThoma):
 

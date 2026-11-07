@@ -75,7 +75,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </tr>
 </table>
 
-Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen.
+Falls hier etwas fehlt, könnt ihr mich gerne per Mail (info@martin-thoma.de) darauf aufmerksam machen.
 
 <h3>Folien</h3>
 <h4>01: Einführung</h4>

@@ -47,5 +47,3 @@ You can see the current campaign status [here](http://gooseberry.blender.org/#st
 
 By now (25th of March, 13:37) 809 people have supported this campaign and
 65,780 Euro have been pledged.
-
-Let me know in the comments if you supported the campaign: [support now](https://cloud.blender.org/gooseberry/pledge).

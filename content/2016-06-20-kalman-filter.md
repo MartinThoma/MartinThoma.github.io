@@ -28,6 +28,12 @@ minimizes the mean squared error of the estimated state parameters. So in
 this case it is not only the best linear filter, but the best filter. The name
 "filter" is used because the Kalman filter removes (filters) the noise.
 
+<figure>
+    <a href="../images/2016/06/kalman-filter-1d.svg"><img src="../images/2016/06/kalman-filter-1d.svg" alt="Line chart over 50 time steps: noisy measurements scatter around the true position, the Kalman filter estimate follows the true position closely" width="640" height="400"></a>
+    <figcaption>A simulated example: the Kalman filter estimate follows the true position much more closely than the noisy measurements.</figcaption>
+</figure>
+
+
 
 ## Step-by-step
 

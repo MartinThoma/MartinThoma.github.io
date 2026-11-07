@@ -37,7 +37,7 @@ Another issue that could occur is when you **leave your computer unlocked** whil
 
 **Replay attacks** take a valid request and duplicate it. If the second factor uses the current time, those attacks can also be prevented. MFA should not be the planned way to prevent replay attacks, but they could make a vulnerability harder to use.
 
-MFA also makes **phishing** more difficult, especially when it’s time-based. Your website's users might get ticked into telling attackers their passwords and maybe even giving them a single one-time password, but they will for sure not send their phones or other devices to the attackers. Well … hopefully 😅
+MFA also makes **phishing** more difficult, especially when it’s time-based. Your website's users might get ticked into telling attackers their passwords and maybe even giving them a single one-time password, but they will for sure not send their phones or other devices to the attackers. Well … hopefully 😅 Only some methods stop phishing completely, though: see [Which methods resist phishing?](#which-methods-resist-phishing)
 
 ## Something you know
 
@@ -146,7 +146,56 @@ In contrast, biometric information can be great for identification if humans mak
 
 Behavior-based recognition is pretty amazing. Imagine you would have to play a game of Super Mario before you can transfer big amounts of money. Even if you wanted to give this information to an attacker, you couldn't. I have seen something similar to this at university, but the game was boring and you had to play for quite a while.
 
-Please leave a comment if you know of any other MFA methods!
+## Other MFA methods
+
+Besides the methods above, these are common:
+
+* **Push notifications**: The service sends a request to an app on your phone,
+  e.g. the Microsoft Authenticator or Duo, and you tap "Approve". That is
+  convenient, but it invites *MFA fatigue* attacks: an attacker who knows the
+  password sends request after request until the victim taps "Approve" to make
+  it stop. This is how Uber was breached in September 2022
+  ([MFA fatigue attack](https://en.wikipedia.org/wiki/Multi-factor_authentication_fatigue_attack)).
+  The countermeasure is *number matching*: the login screen shows a number that
+  you have to type into the app.
+* **HMAC-based one-time passwords (HOTP)**: The predecessor of TOTP
+  ([RFC 4226](https://www.rfc-editor.org/rfc/rfc4226)). Instead of the time, a
+  counter goes into the calculation, and it increases with every password. Some
+  hardware tokens with a button and a small display work like this.
+* **TAN generators and banking apps**: German banks replaced the TAN lists with
+  [chipTAN, photoTAN and pushTAN](https://en.wikipedia.org/wiki/Transaction_authentication_number).
+  With chipTAN, you put your bank card into a small TAN generator. It reads the
+  transaction from the screen (a flickering code or a QR code) and shows you the
+  recipient and the amount before it computes the TAN. So you see what you
+  confirm, even if malware changed the transaction on your computer. The EU
+  payment directive PSD2 requires this link between the TAN and the transaction
+  ("dynamic linking").
+* **Passkeys**: Passkeys use the same FIDO2 / WebAuthn technology as security
+  keys, but the private key is stored on your phone or in your password manager
+  and synchronized between your devices. You unlock it with your fingerprint,
+  your face or the device PIN. So one passkey combines "something you have" with
+  "something you are" or "something you know", and it can replace the password
+  completely. Apple, Google and Microsoft support passkeys since 2022.
+* **Recovery codes**: Not a method of its own, but every service with MFA needs
+  them. When you set up MFA, you get a list of one-time codes for the case that
+  you lose your phone or security key. Print them and store them safely,
+  otherwise a lost device locks you out.
+* **Context ("somewhere you are")**: Many services check where and how you log
+  in: the IP address, the location, a known device, the usual time. If something
+  looks unusual, they ask for an additional factor. Such *risk-based* or
+  *adaptive* authentication is not a factor by itself, because attackers can fake
+  these signals. But it lets services ask for a second factor when it matters.
+
+### Which methods resist phishing?
+
+Codes that you type in (SMS, TOTP, HOTP, TANs) and push approvals can be phished:
+a fake login page forwards everything you enter to the real site in real time.
+Tools like [Evilginx](https://github.com/kgretzky/evilginx2) automate this. Only
+FIDO2 / WebAuthn, i.e. security keys and passkeys, resist phishing: the browser
+binds the signature to the domain of the real site, so a response for the fake
+site is useless for the real one. That is why the US Cybersecurity and
+Infrastructure Security Agency (CISA) advised organizations in October 2022 to
+move to phishing-resistant MFA.
 
 ## More in this series
 

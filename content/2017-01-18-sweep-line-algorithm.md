@@ -118,3 +118,8 @@ I don't care about order. I have to do every check. So when I have $n$ elements 
 
 <h2>Sweep-Line algorithm</h2>
 The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only an x-coordinate!) goes over a new line segment, it adds this to a data structure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.
+
+<figure>
+    <a href="../images/2017/01/sweep-line.svg"><img src="../images/2017/01/sweep-line.svg" alt="Six line segments a to f and a vertical sweep line; the segments b, c and d cross it and are active, intersections left of it are already found" width="660" height="400" loading="lazy"></a>
+    <figcaption>The sweep line stops at every end point (the dots on the x-axis). The segments it crosses are active; only they need to be checked against each other.</figcaption>
+</figure>

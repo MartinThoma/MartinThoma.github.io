@@ -102,6 +102,15 @@ A queen threatens another queen if it is…
 * … in the same column
 * … in the same diagonal
 
+The animation shows depth-first backtracking on a 4×4 board. It places one
+queen per row and tries the columns from left to right. When a row has no free
+column left, it removes the last queen and moves it to its next column:
+
+<figure>
+    <a href="../images/2020/03/n-queens-backtracking.gif"><img src="../images/2020/03/n-queens-backtracking.gif" alt="Animation of backtracking for the 4-queens puzzle: queens are placed row by row, attacked squares are rejected, dead ends lead to removing the previous queen, until the solution (1, 3, 0, 2) is found. A search tree next to the board grows with each placed queen; abandoned branches turn grey." width="760" height="520" loading="lazy"></a>
+    <figcaption>Backtracking for 4 queens. Right: the search tree of valid partial solutions; grey branches were abandoned.</figcaption>
+</figure>
+
 If you say that the first coordinate x is the row and the second one, y, is the
 column, then you can easily determine if they threaten each other:
 

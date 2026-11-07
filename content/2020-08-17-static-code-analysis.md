@@ -189,6 +189,28 @@ Here are some of the interesting flake8 plugins:
 
 An alternative to parts of Flake8 is [prospector](https://pypi.org/project/prospector/). It combines tools, but it is way less commonly used and thus not as flexible as Flake8.
 
+## Pylint
+
+`pylint` is one of the most wide-spread linters in Python. The features of pylint for sure overlaps with Flake8, but there is one feature I love: Checking for code duplication ❤
+
+```text
+$ pylint --disable=all --enable=duplicate-code .
+************* Module mpu.datastructures.trie.base
+mpu/datastructures/trie/base.py:1:0: R0801: Similar lines in 2 files
+==mpu.datastructures.trie.char_trie:85
+==mpu.datastructures.trie.string_trie:138
+            string += child.print(_indent=_indent + 1)
+        return string
+def __str__(self):
+        return f"TrieNode(value='{self._value}', nb_children='{len(self.children)}')"
+__repr__ = __str__
+EMPTY_NODE = TrieNode(value="", is_word=False, count=0, freeze=True)
+class Trie(AbstractTrie):
+    def __init__(self, container=None):
+        if container is None:
+            container = [] (duplicate-code)
+```
+
 ## Flake8: Security and Bugs
 
 * [flake8-bandit](https://pypi.org/project/flake8-bandit/): Security Testing

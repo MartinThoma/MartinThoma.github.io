@@ -9,6 +9,11 @@ category: Code
 tags: Cheat Sheet, Linux, Ubuntu, Command Line, PDF, Python
 featured_image: 2011/09/Gnome-Terminal.png
 ---
+<figure class="ai-generated">
+    <a href="../images/2011/09/file-conversion-title-image.jpg"><img src="../images/2011/09/file-conversion-title-image.jpg" alt="Hands typing on a laptop; the terminal runs ffmpeg, pandoc and convert, arrows lead from MP4, DOCX, PNG and WAV files to MP3, PDF, JPG and FLAC" width="1408" height="768"></a>
+    <figcaption>Converting files on the Linux command line.</figcaption>
+</figure>
+
 The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS.
 
 I guess they will also work with other systems, as the programs are available for them.

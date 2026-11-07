@@ -15,7 +15,7 @@ Studiums einen Abschlussbericht schreiben.
 Damit sich andere Stipendiaten nicht auch jedes Mal die Vorlage erstellen
 müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr
 Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
-(info@martin-thoma.de) oder einen Kommentar hinterlassen.
+(info@martin-thoma.de).
 
 ## Vorlage
 

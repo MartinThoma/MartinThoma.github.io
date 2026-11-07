@@ -45,6 +45,12 @@ f(n) \in \omega(g(n))   &\Leftrightarrow \lim \frac{g(n)}{f(n)} = 0
 ${\cal O}(1) \subsetneq {\cal O}(\log n) \subsetneq {\cal O}(n) \subsetneq {\cal O}(n^{2.1}) \subsetneq {\cal O}(n^{2.2}) \subsetneq {\cal O}(n^{100}) \subsetneq {\cal O}(n!) \subsetneq {\cal O}(2^n)$
 ${\cal O}(2^n) \subsetneq {\cal O}(2^{2n}) \subsetneq {\cal O}(3^n) \subsetneq {\cal O}(n^n) \subsetneq {\cal O}(n^{(n^2)}) \subsetneq$
 
+<figure>
+    <a href="../images/2012/07/landau-wachstum.svg"><img src="../images/2012/07/landau-wachstum.svg" alt="Diagramm der Funktionen log₂ n, n, n·log₂ n, n² und 2ⁿ für n von 1 bis 20: 2ⁿ und n² verlassen das Diagramm schnell, log₂ n bleibt flach" width="640" height="420" loading="lazy"></a>
+    <figcaption>Wachstum typischer Laufzeiten. Für kleine n liegen die Kurven nah beieinander; ab n = 4 wächst 2ⁿ schneller als n².</figcaption>
+</figure>
+
+
 <h2>Beispiele</h2>
 Im Folgenden gelte immer:
 $f: \mathbb{N} \rightarrow \mathbb{R^+}$ und $g:\mathbb{N} \rightarrow \mathbb{R^+}$

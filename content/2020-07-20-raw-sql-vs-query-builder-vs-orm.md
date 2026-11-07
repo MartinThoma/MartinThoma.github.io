@@ -8,7 +8,7 @@ date: 2020-05-17 20:00
 category: Code
 tags: SQL, SQLAlchemy, Python, Database
 featured_image: logos/db.png
-medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
+medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275
 ---
 <figure>
     <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" width="512" height="148"></a>

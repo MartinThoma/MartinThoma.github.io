@@ -70,6 +70,19 @@ If you want to use quotes for strings, I would also use `"` like JSON does. You
 still need to remember `"no"`, but at least the file looks a bit more familiar
 to YAML beginners.
 
+There are more examples that are similarly dangerous as
+[Tom Ritchford](https://medium.com/u/23f9fb348b29)
+[pointed out](https://tomswirly.medium.com/yaml-is-an-extremely-bad-choice-for-any-configuration-file-because-its-wildly-unpredictable-d37969d20fef):
+
+* `013` is mapped to 11 as the leading zero triggers the octal notation.
+* `4:30` is mapped to 270. [Max Werner Kaul-Gothe](https://medium.com/u/12cd77f48917)
+  and [Niklas Baumstark](https://medium.com/u/ba50a90ce293) informed me why: YAML 1.1
+  reads numbers with colons in base 60 (sexagesimal), like a duration in minutes
+  and seconds: `4*60 + 30 = 270`. Interestingly, this pattern still “works” with
+  `1:1:1:1:1:1:1:1:4:30`.
+
+YAML 1.2 dropped both rules, but PyYAML still implements YAML 1.1.
+
 ## Long Strings
 
 ```yaml

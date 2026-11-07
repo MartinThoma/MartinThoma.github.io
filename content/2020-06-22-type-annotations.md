@@ -44,7 +44,6 @@ Having type annotations is nice, but you need to check them! The Python runtimes
     <figcaption>mypy logo</figcaption>
 </figure>
 
-
 ## Type Checking with mypy
 
 Install mypy via `pip install mypy` and run it:
@@ -131,6 +130,32 @@ The type `typing.List` actually represents `list`. A `typing.Sequence` is “an 
 
 Similarly to the example List vs Sequence, `typing.Dict` is meant mainly to represent a `dict`, whereas `typing.Mapping` is more general. [Stacksonstacks](https://stackoverflow.com/a/52487800/562769) gives a good answer.
 
+## typing: TypedDict
+
+TypedDict was introduced in [PEP-589](https://www.python.org/dev/peps/pep-0589/) and provides the possibility to denote which keys a dictionary should have and which type the values for those keys have. The example in the PEP shows this well:
+
+```python
+from typing import TypedDict
+```
+
+```python
+class Movie(TypedDict):
+    name: str
+    year: int
+```
+
+```python
+movie: Movie = {"name": "Blade Runner", "year": 1982}
+```
+
+By default, it must have all of the keys. You can make the keys optional by setting the [totality](https://www.python.org/dev/peps/pep-0589/#totality): `class Movie(TypedDict, total=False)`
+
+## Many more Types
+
+The `typing` module knows many more types and they are sometimes a bit confusing to distinguish. For example, what is the difference between a List, a Sequence, and an Iterable? Have a look in the documentation of `collections`.
+
+There is also the `types` module which contains the `ModuleType` and the `TracebackType`[ ](https://docs.python.org/3/library/types.html#types.TracebackType).
+
 ## Custom Types: Not all Strings are Created Equal
 
 Not all strings contain the same type of content. They can represent a `user_id`, a `user_name`, a `password_hash`, …
@@ -143,6 +168,21 @@ Don’t worry, [typing.NewType](https://docs.python.org/3/library/typing.html#ne
 from typing import NewType
 
 UserId = NewType("UserId", str)
+```
+
+## typing.TypeVar: Define Generics in Python
+
+You can define a type variable with [TypeVar ](https://docs.python.org/3/library/typing.html#typing.TypeVar)like this:
+
+```python
+T = TypeVar("T")  # Can be anything
+A = TypeVar("A", str, bytes)  # Must be str or bytes
+```
+
+It looks similar to NewType but is very different. NewType is used to create a meaningful alias for a given type. TypeVar is used to specify a generic, e.g. in the following example the two variables `x` and `y` are guaranteed to be of the same type, but it could be any type:
+
+```python
+def is_smaller(x: T, y: T): ...
 ```
 
 ## typing.overload

@@ -60,7 +60,3 @@ A friend of mine just shared this photo:
     <a href="../images/2011/10/geek-twins.jpg"><img src="../images/2011/10/geek-twins.jpg" alt="Twins: Copy and Paste" width="320" height="238" loading="lazy"></a>
     <figcaption>Twins: Copy and Paste. Thanks to Ren&eacute; for sharing</figcaption>
 </figure>
-
-
-
-Do you have more images or perhaps stories of geeky parents? Please let me know in a comment!

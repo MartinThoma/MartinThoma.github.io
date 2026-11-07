@@ -10,8 +10,7 @@ tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 There is plenty of material online for learning machine learning. I like to
-share some links in this post to what I know. Feel free to add comments with
-other material.
+share some links in this post to what I know.
 
 ## Stanford: Deep Learning for Natural Language Processing
 

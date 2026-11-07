@@ -13,7 +13,6 @@ Online banking is something I have to do. I have to have a bank account for my
 salary, to pay my rent and to pay Amazon orders. Once a year, I need the
 documents for my tax declaration.
 
-I will expand this article when you add comments / screenshots for other banks.
 I am interested in N26 and BB Bank.
 
 

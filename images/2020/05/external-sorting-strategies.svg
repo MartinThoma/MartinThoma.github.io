@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="t d">
+<title id="t">Two ways to sort a file that does not fit into memory</title>
+<desc id="d">Top: merge sort splits the file into chunks of arbitrary numbers, sorts each chunk in memory and then has to merge the sorted chunks. Bottom: radix sort splits the file by the prefix of the numbers, sorts each chunk in memory and then only pastes the chunks together in prefix order.</desc>
+<style>
+text{font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif}.mono,.mono tspan{font-family:ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace}
+.f-ink{fill:#1c2320}.s-ink{stroke:#1c2320}
+.f-muted{fill:#5b6660}.s-muted{stroke:#5b6660}
+.f-faint{fill:#9aa39e}.s-faint{stroke:#9aa39e}
+.f-hair{fill:#d4d7da}.s-hair{stroke:#d4d7da}
+.f-sunk{fill:#ebebed}.s-sunk{stroke:#ebebed}
+.f-bg{fill:#ffffff}.s-bg{stroke:#ffffff}
+.f-acc{fill:#1f7a45}.s-acc{stroke:#1f7a45}
+.f-soft{fill:#e0efe6}.s-soft{stroke:#e0efe6}
+.f-warn{fill:#b35c00}.s-warn{stroke:#b35c00}
+.f-softwarn{fill:#fbe9d7}.s-softwarn{stroke:#fbe9d7}
+.f-bad{fill:#b3261e}.s-bad{stroke:#b3261e}
+.f-softbad{fill:#f8dedc}.s-softbad{stroke:#f8dedc}
+.f-blue{fill:#2a78d6}.s-blue{stroke:#2a78d6}
+.f-softblue{fill:#dbe8f8}.s-softblue{stroke:#dbe8f8}
+.f-c1{fill:#2a78d6}.s-c1{stroke:#2a78d6}
+.f-c2{fill:#eb6834}.s-c2{stroke:#eb6834}
+.f-c3{fill:#1baf7a}.s-c3{stroke:#1baf7a}
+.f-c4{fill:#eda100}.s-c4{stroke:#eda100}
+.f-c5{fill:#e87ba4}.s-c5{stroke:#e87ba4}
+@media (prefers-color-scheme: dark){
+.f-ink{fill:#e7ede9}.s-ink{stroke:#e7ede9}
+.f-muted{fill:#9aa8a0}.s-muted{stroke:#9aa8a0}
+.f-faint{fill:#6b756f}.s-faint{stroke:#6b756f}
+.f-hair{fill:#3a3d44}.s-hair{stroke:#3a3d44}
+.f-sunk{fill:#26282e}.s-sunk{stroke:#26282e}
+.f-bg{fill:#1b1d22}.s-bg{stroke:#1b1d22}
+.f-acc{fill:#4fc07d}.s-acc{stroke:#4fc07d}
+.f-soft{fill:#1f3d2b}.s-soft{stroke:#1f3d2b}
+.f-warn{fill:#f0a050}.s-warn{stroke:#f0a050}
+.f-softwarn{fill:#4a3420}.s-softwarn{stroke:#4a3420}
+.f-bad{fill:#f07a70}.s-bad{stroke:#f07a70}
+.f-softbad{fill:#4a2422}.s-softbad{stroke:#4a2422}
+.f-blue{fill:#3987e5}.s-blue{stroke:#3987e5}
+.f-softblue{fill:#1d3150}.s-softblue{stroke:#1d3150}
+.f-c1{fill:#3987e5}.s-c1{stroke:#3987e5}
+.f-c2{fill:#d95926}.s-c2{stroke:#d95926}
+.f-c3{fill:#199e70}.s-c3{stroke:#199e70}
+.f-c4{fill:#c98500}.s-c4{stroke:#c98500}
+.f-c5{fill:#d55181}.s-c5{stroke:#d55181}
+}
+</style>
+<defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-ink" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-muted" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-acc" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-warn" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-bad" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-blue" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+<text x="140" y="20" class="f-muted" font-size="14" dominant-baseline="central" text-anchor="middle" font-weight="600" >1. Chunking</text>
+<text x="318" y="20" class="f-muted" font-size="14" dominant-baseline="central" text-anchor="middle" font-weight="600" >2. Sort each chunk</text>
+<text x="578" y="20" class="f-muted" font-size="14" dominant-baseline="central" text-anchor="middle" font-weight="600" >3. Combine</text>
+<text x="20" y="52" class="f-ink" font-size="15" dominant-baseline="central" font-weight="700" >Merge sort</text>
+<rect x="70" y="70" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="86" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >71 13 98</text>
+<line x1="216" y1="86" x2="242" y2="86" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="70" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="86" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >13 71 98</text>
+<rect x="70" y="112" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="128" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >24 86 35</text>
+<line x1="216" y1="128" x2="242" y2="128" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="112" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="128" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >24 35 86</text>
+<rect x="70" y="154" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="170" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >57 42 19</text>
+<line x1="216" y1="170" x2="242" y2="170" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="154" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="170" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >19 42 57</text>
+<text x="427" y="200" class="f-warn" font-size="13" dominant-baseline="central" text-anchor="middle" >k-way merge</text>
+<path d="M394 86 C428 86 426 128 458 128" class="s-warn" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M394 128 C428 128 426 128 458 128" class="s-warn" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M394 170 C428 170 426 128 458 128" class="s-warn" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<line x1="456" y1="128" x2="462" y2="128" class="s-warn" stroke-width="1.8" stroke-linecap="round" marker-end="url(#m-warn)" />
+<rect x="466" y="112" width="224" height="32" rx="4" class="f-softwarn s-warn" stroke-width="1.5" />
+<text x="578" y="128" class="f-ink mono" font-size="13" dominant-baseline="central" text-anchor="middle" >13 19 24 35 42 57 71 86 98</text>
+<text x="20" y="232" class="f-ink" font-size="15" dominant-baseline="central" font-weight="700" >Radix sort</text>
+<rect x="70" y="250" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="266" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >19 13</text>
+<line x1="216" y1="266" x2="242" y2="266" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="250" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="266" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >13 19</text>
+<text x="62" y="266" class="f-muted mono" font-size="12" dominant-baseline="central" text-anchor="end" >1x</text>
+<rect x="70" y="292" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="308" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >42 24 35</text>
+<line x1="216" y1="308" x2="242" y2="308" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="292" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="308" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >24 35 42</text>
+<text x="62" y="308" class="f-muted mono" font-size="12" dominant-baseline="central" text-anchor="end" >2x–4x</text>
+<rect x="70" y="334" width="140" height="32" rx="4" class="f-sunk s-muted" stroke-width="1.2" />
+<text x="140" y="350" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >98 57 86 71</text>
+<line x1="216" y1="350" x2="242" y2="350" class="s-muted" stroke-width="1.5" stroke-linecap="round" marker-end="url(#m-muted)" />
+<rect x="248" y="334" width="140" height="32" rx="4" class="f-soft s-acc" stroke-width="1.2" />
+<text x="318" y="350" class="f-ink mono" font-size="14" dominant-baseline="central" text-anchor="middle" >57 71 86 98</text>
+<text x="62" y="350" class="f-muted mono" font-size="12" dominant-baseline="central" text-anchor="end" >5x–9x</text>
+<text x="427" y="380" class="f-acc" font-size="13" dominant-baseline="central" text-anchor="middle" >paste together</text>
+<rect x="466" y="246" width="224" height="124" rx="4" class="f-soft s-acc" stroke-width="1.5" />
+<line x1="394" y1="266" x2="462" y2="266" class="s-acc" stroke-width="1.8" stroke-linecap="round" marker-end="url(#m-acc)" />
+<text x="480" y="266" class="f-ink mono" font-size="14" dominant-baseline="central" >13 19</text>
+<line x1="394" y1="308" x2="462" y2="308" class="s-acc" stroke-width="1.8" stroke-linecap="round" marker-end="url(#m-acc)" />
+<text x="480" y="308" class="f-ink mono" font-size="14" dominant-baseline="central" >24 35 42</text>
+<line x1="394" y1="350" x2="462" y2="350" class="s-acc" stroke-width="1.8" stroke-linecap="round" marker-end="url(#m-acc)" />
+<text x="480" y="350" class="f-ink mono" font-size="14" dominant-baseline="central" >57 71 86 98</text>
+</svg>

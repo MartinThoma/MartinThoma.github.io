@@ -7,26 +7,34 @@ author: Martin Thoma
 date: 2011-09-21 21:45:47.000000000 +02:00
 category: Cyberculture
 tags: Funny
-featured_image: 2011/09/Google-Translator-Spielzeugladen-300x72.png
+featured_image: 2011/09/Google-Translator-Spielzeugladen.png
 ---
 Online translation programs are getting better and they are great if you want to get a vague idea of the content of a Chinese website. Nevertheless, you should know that the translations are not good enough by now:
+
+<figure>
+    <a href="../images/2011/09/Google-Translator-Spielzeugladen.png"><img src="../images/2011/09/Google-Translator-Spielzeugladen.png" alt="Google Translate translates the German word &quot;Spielzeugladen&quot; into English as &quot;Sex Toys&quot;" width="721" height="175"></a>
+    <figcaption>German → English: „Spielzeugladen“ becomes “Sex Toys”.</figcaption>
+</figure>
 
 "Spielzeugladen" is German and means "toy store"
 
 <figure>
-    <a href="../images/2011/09/Google-Translator-Dirty-Picture.png"><img src="../images/2011/09/Google-Translator-Dirty-Picture.png" alt="Google Translate turns &quot;Take a dirty picture for me.&quot; into French and back into &quot;Take a picture for me slut&quot;" width="400" height="160"></a>
+    <a href="../images/2011/09/Google-Translator-Dirty-Picture.png"><img src="../images/2011/09/Google-Translator-Dirty-Picture.png" alt="Google Translate turns &quot;Take a dirty picture for me.&quot; into French and back into &quot;Take a picture for me slut&quot;" width="400" height="160" loading="lazy"></a>
+    <figcaption>English → French → English: “Take a dirty picture for me.” becomes “Prenez une photo coquine pour moi.” and then “Take a picture for me slut”.</figcaption>
 </figure>
 
 Note the missing point.
 
 <figure>
     <a href="../images/2011/09/Google-Translator-Was-hast-du-an.png"><img src="../images/2011/09/Google-Translator-Was-hast-du-an.png" alt="Google Translate turns &quot;Was hast du an?&quot; into Spanish and back into &quot;What did you do?&quot;" width="400" height="193" loading="lazy"></a>
+    <figcaption>German → Spanish → English: „Was hast du an?“ becomes “What did you do?”.</figcaption>
 </figure>
 
 "Was hast du an?" means "What do you wear?"
 
 <figure>
     <a href="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png"><img src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" alt="Google Translate turns &quot;Will Justin Bieber ever hit puberty&quot; into Vietnamese and back into &quot;Justin Bieber will never reach puberty&quot;" width="400" height="168" loading="lazy"></a>
+    <figcaption>English → Vietnamese → English: “Will Justin Bieber ever hit puberty” becomes “Justin Bieber will never reach puberty”.</figcaption>
 </figure>
 
 Did you know the Beatbox?

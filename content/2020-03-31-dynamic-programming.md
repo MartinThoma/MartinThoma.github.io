@@ -40,6 +40,12 @@ In order to prevent this, you can memoize it. That means you store the
 parameters of a function call and its result. Once you see these parameters
 again, you can directly return the result without recalculating the function.
 
+<figure>
+    <a href="../images/2020/03/fibonacci-call-tree.svg"><img src="../images/2020/03/fibonacci-call-tree.svg" alt="Call tree of the recursive Fibonacci function for f(5) with 15 calls; with memoization only f(5) to f(0) are computed once, three calls come from the cache and the subtrees below them are never called" width="660" height="380" loading="lazy"></a>
+    <figcaption>The 15 calls of the naive recursion for f(5). With memoization, each value is computed once; the orange calls return a stored result and the grey subtrees are never called.</figcaption>
+</figure>
+
+
 In Python, you can use the [`functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache)
 decorator for that. See the Fibonacci example below for a concrete example.
 
@@ -280,6 +286,11 @@ def edit_distance(w1: str, w2: str) -> int:
                 d[i][j] = min(options)
     return d[m][n]
 ```
+
+<figure>
+    <a href="../images/2020/03/edit-distance-matrix.svg"><img src="../images/2020/03/edit-distance-matrix.svg" alt="Edit distance matrix for kitten and sitting; the highlighted path substitutes k by s and e by i and inserts g, so the edit distance is 3" width="577" height="510" loading="lazy"></a>
+    <figcaption>The matrix d for "kitten" and "sitting". The path back from the bottom-right cell shows the cheapest edits: two substitutions and one insertion.</figcaption>
+</figure>
 
 A 16-minute video explanation is given by [Back To Back SWE](https://www.youtube.com/watch?v=MiqoA-yF-0M).
 

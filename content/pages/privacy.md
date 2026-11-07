@@ -5,7 +5,7 @@ lang: de
 author: Martin Thoma
 date: 2026-10-11
 ---
-Diese Datenschutzerklärung gilt für die Website martin-thoma.com. Das [Impressum](https://www.martin-thoma.de/impressum.htm) steht auf martin-thoma.de.
+Diese Datenschutzerklärung gilt für die Website martin-thoma.com. Das [Impressum](../impressum/) steht ebenfalls auf dieser Website.
 
 ## Verantwortlicher
 

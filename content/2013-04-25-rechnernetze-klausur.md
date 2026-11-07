@@ -97,7 +97,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </tr>
 </table>
 
-Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier etwas fehlt, könnt ihr mich gerne per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
 <h3>Übersicht über Dienstprimitive</h3>
 <table>

@@ -82,7 +82,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 </tr>
 </table>
 
-Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier was fehlt, könnt ihr mich gerne per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
 
 ## SQL

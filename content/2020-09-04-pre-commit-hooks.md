@@ -290,6 +290,3 @@ same steps locally. Especially for linting, it’s an enormous time-saver to
 quickly run black over the code instead of committing, waiting for the CI/CD
 pipeline, finding an error, fixing that error locally, pushing, and waiting
 again for the CI/CD pipeline.
-
-Please let me know as a comment or email (info@martin-thoma.de) if there are
-other pre-commit hooks you like!

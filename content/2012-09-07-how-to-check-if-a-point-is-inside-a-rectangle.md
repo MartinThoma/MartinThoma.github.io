@@ -49,8 +49,6 @@ $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$
 
 
 ## Python
-<div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div>
-
 ```python
 from typing import Tuple
 from dataclasses import dataclass
@@ -65,36 +63,37 @@ class Point:
 Rectangle = Tuple[Point, Point, Point, Point]
 
 
-def is_p_in_rectangle(r: Rectangle, P: Point) -> bool:
+def triangle_area(a: Point, b: Point, c: Point) -> float:
+    return 0.5 * abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))
+
+
+def is_p_in_rectangle(r: Rectangle, P: Point, epsilon: float = 1e-9) -> bool:
+    """
+    >>> r = (Point(0, 0), Point(4, 0), Point(4, 2), Point(0, 2))
+    >>> is_p_in_rectangle(r, Point(1, 1))
+    True
+    >>> is_p_in_rectangle(r, Point(5, 1))
+    False
+    """
     area_rectangle = 0.5 * abs(
         #   y_A      y_C      x_D      x_B
         (r[0].y - r[2].y) * (r[3].x - r[1].x)
         #    y_B     y_D       x_A     x_C
         + (r[1].y - r[3].y) * (r[0].x - r[2].x)
     )
-
-    ABP = 0.5 * (
-        r[0].x * (r[1].y - r[2].y)
-        + r[1].x * (r[2].y - r[0].y)
-        + r[2].x * (r[0].y - r[1].y)
+    A, B, C, D = r
+    areas = (
+        triangle_area(A, B, P)
+        + triangle_area(B, C, P)
+        + triangle_area(C, D, P)
+        + triangle_area(D, A, P)
     )
-    BCP = 0.5 * (
-        r[1].x * (r[2].y - r[3].y)
-        + r[2].x * (r[3].y - r[1].y)
-        + r[3].x * (r[1].y - r[2].y)
-    )
-    CDP = 0.5 * (
-        r[2].x * (r[3].y - r[0].y)
-        + r[3].x * (r[0].y - r[2].y)
-        + r[0].x * (r[2].y - r[3].y)
-    )
-    DAP = 0.5 * (
-        r[3].x * (r[0].y - r[1].y)
-        + r[0].x * (r[1].y - r[3].y)
-        + r[1].x * (r[3].y - r[0].y)
-    )
-    return area_rectangle == (ABP + BCP + CDP + DAP)
+    return abs(areas - area_rectangle) < epsilon
 ```
+
+An earlier version of this code computed the four triangles from the corners of
+the rectangle alone, without using P, and compared floats with `==`. Jan found
+this error; the code above fixes it.
 
 ## Triangle
 The same idea can easily be adopted to triangles:

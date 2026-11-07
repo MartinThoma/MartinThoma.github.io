@@ -84,8 +84,6 @@ Source: <a href="http://www.texample.net/tikz/examples/computer-science-mindmap/
 </figure>
 Source: <a href="http://www.texample.net/tikz/examples/spherical-and-cartesian-grids/">texample.net</a>
 
-Do you know more? Please leave a comment!
-
 <h2>See also</h2>
 <ul>
   <li><a href="http://tex.stackexchange.com/q/61437/5645">Penrose tiling in TikZ</a></li>

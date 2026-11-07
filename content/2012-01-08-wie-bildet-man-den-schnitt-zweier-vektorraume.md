@@ -84,8 +84,6 @@ heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%
 Die Basis für $U_2$ ist also $$\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}$$
 
 <h2>Zassenhaus-Algorithmus</h2>
-Bemerkung: Ich habe für den Zassenhaus-Algorithmus leider die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).
-
 Man transponiert die Basisvektoren von $U_1$ und $U_2$ und schreibt sie in eine Matrix:
 $$\left( \begin{array}{c | c}
   U_1^T & U_1^T \\
@@ -93,7 +91,7 @@ $$\left( \begin{array}{c | c}
   U_2^T & 0
 \end{array} \right)$$
 
-Natürlich nimmt man für $U_1$ die einfachere der beiden Basen. Dann löst man das ganze wieder mit Gauß:
+Natürlich nimmt man für $U_1$ und $U_2$ die einfacheren Basen von oben. Dann löst man das ganze wieder mit Gauß. Im ersten Schritt zieht man von jeder der drei unteren Zeilen die entsprechende obere Zeile ab:
 
 $$\left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & 4 & 1 & 0 & 0 & 4 \\
@@ -102,7 +100,7 @@ $$\left( \begin{array}{c c c c | c c c c}
   \hline
   1 & 0 & 0 & - \frac{29}{38} & 0 & 0 & 0 & 0 \\
   0 & 1 & 0 & \frac{49}{38} & 0 & 0 & 0 & 0 \\
-  0 & 0 & 1 & \frac{1}{38} & 0 & 0 & 0 & 0
+  0 & 0 & 1 & \frac{1}{2} & 0 & 0 & 0 & 0
 \end{array} \right) \rightsquigarrow
 \left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & 4 & 1 & 0 & 0 & 4 \\
@@ -110,31 +108,37 @@ $$\left( \begin{array}{c c c c | c c c c}
   0 & 0 & 1 &-2 & 0 & 0 & 1 &-2 \\
   \hline
   0 & 0 & 0 & - \frac{181}{38} & -1 & 0 & 0 & -4 \\
-  0 & 0 & 0 & -  \frac{65}{38} & 0 & -1 & 0 & -3 \\
-  0 & 0 & 0 & 1 & 0 & 0 & - \frac{38}{75} & \frac{76}{75}
+  0 & 0 & 0 & - \frac{65}{38} & 0 & -1 & 0 & -3 \\
+  0 & 0 & 0 & \frac{5}{2} & 0 & 0 & -1 & 2
 \end{array} \right) \rightsquigarrow $$
+
+Die letzte Zeile wird mit $\frac{2}{5}$ multipliziert und nach oben geschoben. Mit ihr eliminiert man die vierte Spalte in den beiden anderen unteren Zeilen:
 
 $$\left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & 4 & 1 & 0 & 0 & 4 \\
   0 & 1 & 0 & 3 & 0 & 1 & 0 & 3 \\
   0 & 0 & 1 &-2 & 0 & 0 & 1 &-2 \\
-  0 & 0 & 0 & 1 & 0 & 0 & - \frac{38}{75} & \frac{76}{75} \\
+  0 & 0 & 0 & 1 & 0 & 0 & - \frac{2}{5} & \frac{4}{5} \\
   \hline
-  0 & 0 & 0 & 0 & -1 & 0 & \frac{181}{75} & \frac{62}{75} \\
-  0 & 0 & 0 & 0 & 0 & -1 & - \frac{13}{15} & \frac{26}{15}
+  0 & 0 & 0 & 0 & -1 & 0 & - \frac{181}{95} & - \frac{18}{95} \\
+  0 & 0 & 0 & 0 & 0 & -1 & - \frac{13}{19} & - \frac{31}{19}
 \end{array} \right) \rightsquigarrow
 \left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & 4 & 1 & 0 & 0 & 4 \\
   0 & 1 & 0 & 3 & 0 & 1 & 0 & 3 \\
   0 & 0 & 1 &-2 & 0 & 0 & 1 &-2 \\
-  0 & 0 & 0 & 1 & 0 & 0 & - \frac{38}{75} & \frac{76}{75} \\
+  0 & 0 & 0 & 1 & 0 & 0 & - \frac{2}{5} & \frac{4}{5} \\
   \hline
-  0 & 0 & 0 & 0 & -1 & 0 & 181 & 62 \\
-  0 & 0 & 0 & 0 & 0 & 1 &  13 & - 26
+  0 & 0 & 0 & 0 & 95 & 0 & 181 & 18 \\
+  0 & 0 & 0 & 0 & 0 & 19 & 13 & 31
 \end{array} \right)$$
 
-Rechts unten steht nun die Basis für $U_1 \cap U_2 = \left [ \left \{ \begin{pmatrix} -1 \\ 0 \\ 181 \\ 62 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 13 \\ -26 \end{pmatrix}   \right \} \right ]$.
+(Im letzten Schritt wurden die beiden unteren Zeilen mit $-95$ bzw. $-19$ multipliziert.)
+
+Rechts unten steht nun die Basis für $U_1 \cap U_2 = \left [ \left \{ \begin{pmatrix} 95 \\ 0 \\ 181 \\ 18 \end{pmatrix}, \begin{pmatrix} 0 \\ 19 \\ 13 \\ 31 \end{pmatrix}   \right \} \right ]$.
 Zusätzlich steht links oben die Basis für $U_1 + U_2$. Wenn man das noch etwas umformt ist es die Standardbasis des $\mathbb{R}^4$.
+
+Zur Probe: Beide Vektoren liegen in $U_1$, denn für jeden Vektor aus $U_1$ gilt $x_4 = 4 x_1 + 3 x_2 - 2 x_3$ (also $380 - 362 = 18$ und $57 - 26 = 31$). Sie liegen auch in $U_2$, denn dort gilt $x_4 = -\frac{29}{38} x_1 + \frac{49}{38} x_2 + \frac{1}{2} x_3$ (also $-\frac{145}{2} + \frac{181}{2} = 18$ und $\frac{49}{2} + \frac{13}{2} = 31$). Auch die Dimensionen passen: $\dim(U_1 \cap U_2) = \dim U_1 + \dim U_2 - \dim(U_1 + U_2) = 3 + 3 - 4 = 2$.
 
 <h2>Methode 2</h2>
 <h3>Angabe</h3>
@@ -143,48 +147,50 @@ $$U_1 = \left [
 \right ]$$
 
 $$U_2 = \left [
-\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{38} \end{pmatrix} \right \}
+\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}
 \right ]$$
 
 <h3>Rechnung</h3>
 Es gilt:
 $x \in U_1 \cap U_2$
 $\Leftrightarrow x \in U_1 \land x \in U_2$
-$\Leftrightarrow x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3 = d \cdot y_1 + e \cdot y_2 + f \cdot y_3$ mit $a, b, c, d, e, f  \in \mathbb{R}$.
+$\Leftrightarrow x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3 = -(d \cdot y_1 + e \cdot y_2 + f \cdot y_3)$ mit $a, b, c, d, e, f  \in \mathbb{R}$, also $a \cdot x_1 + b \cdot x_2 + c \cdot x_3 + d \cdot y_1 + e \cdot y_2 + f \cdot y_3 = 0$.
 $$\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 1 & 0 & 0 & 1\\
-4 & 3 & 2 & -\frac{29}{38} & \frac{49}{38} & \frac{1}{38}
+4 & 3 & -2 & -\frac{29}{38} & \frac{49}{38} & \frac{1}{2}
 \end{pmatrix}
 \rightsquigarrow
 \begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 1 & 0 & 0 & 1\\
-0 & 0 & 0 & -\frac{181}{38} & -\frac{65}{38} & -\frac{75}{38}
+0 & 0 & 0 & -\frac{181}{38} & -\frac{65}{38} & \frac{5}{2}
 \end{pmatrix}$$
 $$\rightsquigarrow  \begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 1 & 0 & 0 & 1\\
-0 & 0 & 0 & 1 & \frac{65}{181} & \frac{75}{181}
+0 & 0 & 0 & 1 & \frac{65}{181} & -\frac{95}{181}
 \end{pmatrix}
 \rightsquigarrow
 \begin{pmatrix}
-1 & 0 & 0 & 0 & -\frac{65}{181} & -\frac{75}{181}\\
+1 & 0 & 0 & 0 & -\frac{65}{181} & \frac{95}{181}\\
 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 1 & 0 & 0 & 1\\
-0 & 0 & 0 & 1 & \frac{65}{181} & \frac{75}{181}
+0 & 0 & 0 & 1 & \frac{65}{181} & -\frac{95}{181}
 \end{pmatrix}$$
 
 Nun führt der $-1$ - Trick zu dieser Lösung:
-$$\mathcal{L} = \left [ \left \{ \begin{pmatrix} -\frac{65}{181} \\ 1 \\ 0 \\ \frac{65}{181} \\ -1 \\ 0\end{pmatrix}, \begin{pmatrix} -\frac{75}{181} \\ 0 \\ 1 \\ \frac{75}{181} \\ 0 \\ -1 \end{pmatrix}   \right \} \right ] =
-\left [ \left \{ \begin{pmatrix} -65 \\ 181 \\ 0 \\ 65 \\ -181 \\ 0\end{pmatrix}, \begin{pmatrix} -75 \\ 0 \\ 181 \\ 75 \\ 0 \\ -181 \end{pmatrix}   \right \} \right ]$$
+$$\mathcal{L} = \left [ \left \{ \begin{pmatrix} -\frac{65}{181} \\ 1 \\ 0 \\ \frac{65}{181} \\ -1 \\ 0\end{pmatrix}, \begin{pmatrix} \frac{95}{181} \\ 0 \\ 1 \\ -\frac{95}{181} \\ 0 \\ -1 \end{pmatrix}   \right \} \right ] =
+\left [ \left \{ \begin{pmatrix} -65 \\ 181 \\ 0 \\ 65 \\ -181 \\ 0\end{pmatrix}, \begin{pmatrix} 95 \\ 0 \\ 181 \\ -95 \\ 0 \\ -181 \end{pmatrix}   \right \} \right ]$$
 
-Das ist also die Lösung für Belegungen von a, b, c, d, e, f, sodass der resultierende Vektor sowohl in $U_1$, als auch in $U_2$ ist.
+Das ist also die Lösung für Belegungen von a, b, c, d, e, f, sodass der resultierende Vektor sowohl in $U_1$, als auch in $U_2$ ist. Setzt man $a, b, c$ in $x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3$ ein, erhält man
 
-Allerdings sieht es so aus, als hätte ich mich irgendwo verrechnet… Sieht jemand den Fehler?
+$$U_1 \cap U_2 = \left [ \left \{ \begin{pmatrix} -65 \\ 181 \\ 0 \\ 283 \end{pmatrix}, \begin{pmatrix} 95 \\ 0 \\ 181 \\ 18 \end{pmatrix} \right \} \right ]$$
+
+Das ist derselbe Raum wie beim Zassenhaus-Algorithmus, nur mit einer anderen Basis: Der zweite Vektor kommt dort direkt vor, und $\begin{pmatrix} -65 \\ 181 \\ 0 \\ 283 \end{pmatrix} = -\frac{13}{19} \begin{pmatrix} 95 \\ 0 \\ 181 \\ 18 \end{pmatrix} + \frac{181}{19} \begin{pmatrix} 0 \\ 19 \\ 13 \\ 31 \end{pmatrix}$.
 
 <h2>Siehe auch</h2>
 <a href="http://werkzeuge.wieschoo.com/zassenalgo.php">Interaktiver Zassenhaus-Algorithmus</a>

@@ -49,4 +49,10 @@ This algorithm is in $\mathcal{O}(n^2)$ time complexity (it does need a constant
 <h3>Triangularization</h3>
 When you have a lot of queries, you might want to divide your polygon into convex polygons. The easiest way to do this might be dividing $N$ into triangles.
 
+<figure>
+    <a href="../images/2013/11/polygon-triangulation.svg"><img src="../images/2013/11/polygon-triangulation.svg" alt="A non-convex polygon with 9 corners split into 7 triangles by dashed diagonals; the point P lies in the highlighted triangle" width="480" height="370" loading="lazy"></a>
+    <figcaption>A non-convex 9-gon split into 7 triangles. P lies in the highlighted one.</figcaption>
+</figure>
+
+
 That way, you can check for every triangle if $P$ is inside of it. I assume that the number of triangles is not bigger than $n$. As the check is in constant time for one triangle, you would have an algorithm that needs $\mathcal{O}(n)$ time and space for its checks (+ some preprocessing which is done only once).

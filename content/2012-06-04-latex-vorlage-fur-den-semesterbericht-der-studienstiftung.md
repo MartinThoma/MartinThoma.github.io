@@ -11,7 +11,7 @@ featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben.
 
-Damit sich andere Stipendiaten nicht auch jedes Mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
+Damit sich andere Stipendiaten nicht auch jedes Mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben (info@martin-thoma.de).
 
 <h2>Wozu dient der Semesterbericht?</h2>
 Im Daidalosnet steht dazu:

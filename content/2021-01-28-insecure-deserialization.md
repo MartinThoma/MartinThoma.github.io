@@ -35,7 +35,7 @@ case, this means that you want to include another file. For example, you could
 have a logging configuration that you want to use in multiple places. In more
 extreme cases, the external entities could be not in local files but only
 available over the internet. To be honest, I don’t know why you would want
-that. Please leave a comment if you know!
+that.
 
 Most serialization formats are not powerful enough to represent arbitrary
 objects you can have. There are differences in how powerful those formats are.

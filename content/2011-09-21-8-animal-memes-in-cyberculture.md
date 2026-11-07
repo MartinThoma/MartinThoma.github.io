@@ -53,6 +53,3 @@ Animals are quite often in some web memes:
     <a href="../images/2011/09/courage-wolf-vs-zombies-300x300.jpg"><img src="../images/2011/09/courage-wolf-vs-zombies-300x300.jpg" alt="Courage Wolf vs. Zombies" width="300" height="300" loading="lazy"></a>
     <figcaption>Courage Wolf vs. Zombies</figcaption>
 </figure>
-
-Do you know more? Do you know some better ones of the described ones?
-Please, post a comment!

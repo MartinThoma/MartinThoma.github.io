@@ -71,10 +71,28 @@ In Banachräumen kann man auch nachweisen, dass eine Folge eine Cauchy-Folge ist
 
 $\forall_{\varepsilon > 0} \exists_{n_0 \in \mathbb{N}}: \forall_{n,m\in\mathbb{N}, n>n_0, m>n_0}: |a_m- a_n| < \varepsilon$
 
+Das Cauchy-Kriterium ist praktisch, wenn die Folge nicht monoton ist und man den Grenzwert nicht kennt: Man muss nur zeigen, dass die Folgenglieder beliebig nahe beieinander liegen.
+
 <strong>Beispiel:</strong>
-Mir fällt gerade kein Beispiel ein, bei dem man die Konvergenz schöner über das Cauchy-Kriterium zeigen kann als
-über die Beschränktheit / Monotonie. Falls dir eines einfällt, kannst du es ja in den Kommentar schreiben.
-(mit <span class="code">&#091;latex&#093; \lim_{n \rightarrow \infty} 123 &#091;/latex&#093;</span> wird es auch als LaTeX dargestellt 😉)
+<div class="example">Sei $(a_n)_{n \in \mathbb{N}}$ definiert durch $a_n := \sum_{k=1}^n \frac{\sin(k)}{k^2}$.
+
+Diese Folge ist nicht monoton: $\sin(k)$ wechselt immer wieder das Vorzeichen, so ist $a_1 \approx 0{,}841$, $a_3 \approx 1{,}085$ und $a_4 \approx 1{,}037$. Mit Beschränktheit und Monotonie kommt man hier also nicht weiter. Den Grenzwert (etwa $1{,}014$) muss man für das Cauchy-Kriterium aber gar nicht kennen.
+
+Für $m > n \geq 1$ gilt wegen $|\sin(k)| \leq 1$ und $\frac{1}{k^2} \leq \frac{1}{k(k-1)} = \frac{1}{k-1} - \frac{1}{k}$:
+
+\begin{align}
+|a_m - a_n| &= \left| \sum_{k=n+1}^m \frac{\sin(k)}{k^2} \right|
+             \leq \sum_{k=n+1}^m \frac{1}{k^2}
+             \leq \sum_{k=n+1}^m \left( \frac{1}{k-1} - \frac{1}{k} \right) \\
+            &= \frac{1}{n} - \frac{1}{m} < \frac{1}{n}
+\end{align}
+
+(Die Summe in der Mitte ist eine Teleskopsumme: Bis auf den ersten und den letzten Term heben sich alle Terme weg.)
+
+Sei nun $\varepsilon > 0$ und $n_0 \in \mathbb{N}$ mit $n_0 \geq \frac{1}{\varepsilon}$. Dann gilt für alle $m > n > n_0$ (für $n > m$ vertauscht man die Rollen, für $m = n$ ist $|a_m - a_n| = 0$):
+$|a_m - a_n| < \frac{1}{n} < \frac{1}{n_0} \leq \varepsilon$
+
+$(a_n)_{n \in \mathbb{N}}$ ist also eine Cauchy-Folge in $\mathbb{R}$ und konvergiert damit.</div>
 
 <h2>Weiteres</h2>
 

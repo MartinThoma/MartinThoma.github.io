@@ -61,8 +61,8 @@ Show the user a pop-up which displays which information is filled in (with check
     </tr>
 </table>
 
-If you have another browser, feel free to <a href="http://martin-thoma.de/autofill-phishing/?hidden=margin">test it</a> and leave a comment what is (not)
-affected. Alternatively, you can send an Email to `info@martin-thoma.de`.
+If you have another browser, feel free to <a href="http://martin-thoma.de/autofill-phishing/?hidden=margin">test it</a> and send an Email to `info@martin-thoma.de` what is (not)
+affected.
 
 
 ## See also

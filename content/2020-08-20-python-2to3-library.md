@@ -116,6 +116,10 @@ Python 2 creates a list when you call `range(10)` whereas Python 3 creates a
 range object for the same code. In some rare cases, you actually need the list
 and thus need to change it to `list(range(10))`.
 
+## input and raw\_input
+
+Python 2 has `input` and `raw_input` , but Python 3 only has `input`. The raw\_input of Python 2 is like the input of Python 3.
+
 ## input and raw_input
 
 Python 2 has [input](https://docs.python.org/2/library/functions.html#input) and [raw_input](https://docs.python.org/2/library/functions.html#raw_input), but Python 3 only has [input](https://docs.python.org/3/library/functions.html#input). The `raw_input` of Python 2 is like the `input` of Python 3.
@@ -227,6 +231,8 @@ to support and when you want to drop the support. It’s best to link this to
 bigger projects, e.g. the last 3 major Python versions.
 
 You should also know that the Python release cycle was changed in [PEP-602](https://www.python.org/dev/peps/pep-0602/).
+
+[NEP-29](https://numpy.org/neps/nep-0029-deprecation_policy.html) is the version support policy of NumPy and hopefully, all of the Scientific Python packages will follow it as well.
 
 ## Remove Python 2 Compatibility
 

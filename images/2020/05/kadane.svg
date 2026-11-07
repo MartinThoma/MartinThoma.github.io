@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" width="660" height="400" role="img" aria-labelledby="t d">
+<title id="t">Kadane's algorithm on an example array</title>
+<desc id="d">Bars show the array [9, -5, -5, -2, 1, 2, -1, 4, 5, 0, 1]. The maximum subarray goes from index 4 to 10 and has the sum 12. Below, the table lists current_sum and max_sum after each element. current_sum restarts at index 4 because the element alone is bigger than the running sum plus the element.</desc>
+<style>
+text{font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif}.mono,.mono tspan{font-family:ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace}
+.f-ink{fill:#1c2320}.s-ink{stroke:#1c2320}
+.f-muted{fill:#5b6660}.s-muted{stroke:#5b6660}
+.f-faint{fill:#9aa39e}.s-faint{stroke:#9aa39e}
+.f-hair{fill:#d4d7da}.s-hair{stroke:#d4d7da}
+.f-sunk{fill:#ebebed}.s-sunk{stroke:#ebebed}
+.f-bg{fill:#ffffff}.s-bg{stroke:#ffffff}
+.f-acc{fill:#1f7a45}.s-acc{stroke:#1f7a45}
+.f-soft{fill:#e0efe6}.s-soft{stroke:#e0efe6}
+.f-warn{fill:#b35c00}.s-warn{stroke:#b35c00}
+.f-softwarn{fill:#fbe9d7}.s-softwarn{stroke:#fbe9d7}
+.f-bad{fill:#b3261e}.s-bad{stroke:#b3261e}
+.f-softbad{fill:#f8dedc}.s-softbad{stroke:#f8dedc}
+.f-blue{fill:#2a78d6}.s-blue{stroke:#2a78d6}
+.f-softblue{fill:#dbe8f8}.s-softblue{stroke:#dbe8f8}
+.f-c1{fill:#2a78d6}.s-c1{stroke:#2a78d6}
+.f-c2{fill:#eb6834}.s-c2{stroke:#eb6834}
+.f-c3{fill:#1baf7a}.s-c3{stroke:#1baf7a}
+.f-c4{fill:#eda100}.s-c4{stroke:#eda100}
+.f-c5{fill:#e87ba4}.s-c5{stroke:#e87ba4}
+@media (prefers-color-scheme: dark){
+.f-ink{fill:#e7ede9}.s-ink{stroke:#e7ede9}
+.f-muted{fill:#9aa8a0}.s-muted{stroke:#9aa8a0}
+.f-faint{fill:#6b756f}.s-faint{stroke:#6b756f}
+.f-hair{fill:#3a3d44}.s-hair{stroke:#3a3d44}
+.f-sunk{fill:#26282e}.s-sunk{stroke:#26282e}
+.f-bg{fill:#1b1d22}.s-bg{stroke:#1b1d22}
+.f-acc{fill:#4fc07d}.s-acc{stroke:#4fc07d}
+.f-soft{fill:#1f3d2b}.s-soft{stroke:#1f3d2b}
+.f-warn{fill:#f0a050}.s-warn{stroke:#f0a050}
+.f-softwarn{fill:#4a3420}.s-softwarn{stroke:#4a3420}
+.f-bad{fill:#f07a70}.s-bad{stroke:#f07a70}
+.f-softbad{fill:#4a2422}.s-softbad{stroke:#4a2422}
+.f-blue{fill:#3987e5}.s-blue{stroke:#3987e5}
+.f-softblue{fill:#1d3150}.s-softblue{stroke:#1d3150}
+.f-c1{fill:#3987e5}.s-c1{stroke:#3987e5}
+.f-c2{fill:#d95926}.s-c2{stroke:#d95926}
+.f-c3{fill:#199e70}.s-c3{stroke:#199e70}
+.f-c4{fill:#c98500}.s-c4{stroke:#c98500}
+.f-c5{fill:#d55181}.s-c5{stroke:#d55181}
+}
+</style>
+<defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-ink" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-muted" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-acc" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-warn" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-bad" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-blue" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+<rect x="130" y="64.5" width="40" height="85.5" rx="3" class="f-faint" />
+<text x="150" y="52.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="150" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >0</text>
+<rect x="178" y="150" width="40" height="47.5" rx="3" class="f-faint" />
+<text x="198" y="209.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >-5</text>
+<text x="198" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >1</text>
+<rect x="226" y="150" width="40" height="47.5" rx="3" class="f-faint" />
+<text x="246" y="209.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >-5</text>
+<text x="246" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >2</text>
+<rect x="274" y="150" width="40" height="19" rx="3" class="f-faint" />
+<text x="294" y="181" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >-2</text>
+<text x="294" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >3</text>
+<rect x="322" y="140.5" width="40" height="9.5" rx="3" class="f-acc" />
+<text x="342" y="128.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >1</text>
+<text x="342" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >4</text>
+<rect x="370" y="131" width="40" height="19" rx="3" class="f-acc" />
+<text x="390" y="119" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >2</text>
+<text x="390" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >5</text>
+<rect x="418" y="150" width="40" height="9.5" rx="3" class="f-acc" />
+<text x="438" y="171.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >-1</text>
+<text x="438" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >6</text>
+<rect x="466" y="112" width="40" height="38" rx="3" class="f-acc" />
+<text x="486" y="100" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >4</text>
+<text x="486" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >7</text>
+<rect x="514" y="102.5" width="40" height="47.5" rx="3" class="f-acc" />
+<text x="534" y="90.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >5</text>
+<text x="534" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >8</text>
+<text x="582" y="138" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >0</text>
+<text x="582" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >9</text>
+<rect x="610" y="140.5" width="40" height="9.5" rx="3" class="f-acc" />
+<text x="630" y="128.5" class="f-ink" font-size="14" dominant-baseline="central" text-anchor="middle" >1</text>
+<text x="630" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="middle" >10</text>
+<line x1="124" y1="150" x2="656" y2="150" class="s-muted" stroke-width="1.5" stroke-linecap="round" />
+<text x="114" y="236" class="f-muted" font-size="12" dominant-baseline="central" text-anchor="end" >index</text>
+<text x="114" y="150" class="f-muted" font-size="14" dominant-baseline="central" text-anchor="end" >nums</text>
+<path d="M322 52 L322 44 L650 44 L650 52" class="s-acc" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<text x="486" y="28" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" font-weight="700" >maximum subarray: sum = 12</text>
+<text x="114" y="280" class="f-muted mono" font-size="14" dominant-baseline="central" text-anchor="end" >current_sum</text>
+<text x="150" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="198" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >4</text>
+<text x="246" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >-1</text>
+<text x="294" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >-2</text>
+<rect x="324" y="266" width="36" height="28" rx="4" class="f-softwarn s-warn" stroke-width="1.5" />
+<text x="342" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" font-weight="700" >1</text>
+<text x="390" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >3</text>
+<text x="438" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >2</text>
+<text x="486" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >6</text>
+<text x="534" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >11</text>
+<text x="582" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >11</text>
+<text x="630" y="280" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >12</text>
+<text x="114" y="320" class="f-muted mono" font-size="14" dominant-baseline="central" text-anchor="end" >max_sum</text>
+<text x="150" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="198" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="246" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="294" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="342" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="390" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="438" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="486" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >9</text>
+<text x="534" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >11</text>
+<text x="582" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >11</text>
+<text x="630" y="320" class="f-ink" font-size="15" dominant-baseline="central" text-anchor="middle" >12</text>
+<text x="342" y="366" class="f-warn" font-size="13" dominant-baseline="central" dx="-6">↑ restart: nums[i] &gt; current_sum + nums[i]</text>
+</svg>

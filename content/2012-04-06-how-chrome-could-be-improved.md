@@ -62,6 +62,6 @@ Firefox offers a tool which helps to identify passwords, that get reused often. 
 </figure>
 
 <h2>Material</h2>
-I've used <a href="http://www.famfamfam.com/lab/icons/silk/">famfamfam slik icons</a>. For the menus I've used Sans, 14pt, no hinting but Antialiasing. If someone has better options, it would be great if you posted it as a comment.
+I've used <a href="http://www.famfamfam.com/lab/icons/silk/">famfamfam slik icons</a>. For the menus I've used Sans, 14pt, no hinting but Antialiasing.
 
 If you just want to see if your problem has already been submitted, go to the <a href="http://code.google.com/p/chromium/issues/list">issue-list</a>.

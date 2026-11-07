@@ -175,6 +175,3 @@ Output:
 <li><a href="http://tex.stackexchange.com/questions/19813/creating-a-custom-songbook-with-the-songs-package">Creating a custom songbook with the songs package</a></li>
 <li><a href="http://homepage2.nifty.com/tonomu/score/musixtex/musixtexe.html">MusiXTeX</a></li>
 </ul>
-
-
-If you've made some more complex examples with LaTeX, I'd be happy if you added them in the comments.

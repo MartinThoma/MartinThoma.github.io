@@ -161,7 +161,6 @@ You might also want to have a look at cross-validation.
 I'm not aware of public datasets for document classification, but you can easily
 create one by scraping Wikipedia categories / subreddits.
 
-Leave a comment if I forgot something / you know more details 🙂
 
 
 ## Literature

@@ -108,8 +108,7 @@ building the kind of model you want to have. A valid outcome of the PoC is that
 it is (currently) not possible.
 
 The two parts that can consume arbitrarily much time are data cleaning and model
-optimization. Even after the PoC. If you're interested in that topic, ping me
-in the comments.
+optimization. Even after the PoC.
 
 <figure>
     <a href="../images/2019/12/data-warehouse-analytics.png"><img src="../images/2019/12/data-warehouse-analytics.png" alt="Relationship between Data Warehouse, Reports, Dashboards and Notebooks" width="512" height="507" loading="lazy"></a>
@@ -138,7 +137,6 @@ in a batch-way and have a continuously running service for inference.
 They might build things like <a href="https://milinda.pathirage.org/kappa-architecture.com/" class="label label-danger">Kappa Architectures</a> or <a href="https://en.wikipedia.org/wiki/Lambda_architecture" class="label label-danger">Lambda Architectures</a>. To
 do so, many cloud technologies can be used (see "Cloud Service Overview").
 
-If you wish to get more information about this part, ping me in the comments.
 
 
 ## Cloud Service Overview

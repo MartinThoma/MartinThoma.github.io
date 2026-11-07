@@ -161,6 +161,13 @@ of “stable tokens” are
 Coin](https://coinmarketcap.com/de/currencies/usd-coin/). Both are ERC20
 tokens on the Ethereum blockchain.
 
+## Other Coins
+
+You might have noticed that I put Dogecoin, Theta, Klay, and Iota outside of the boxes:
+
+* [Dogecoin](https://coinmarketcap.com/currencies/dogecoin/) is a fork of Litecoin (LTC) and thus should be put in the “Digital Currency” section. The reason why I put it aside is the fact that [it looks so much like a joke](https://www.reddit.com/r/dogecoin/comments/1u5sew/difference_dogecoin_vs_litecoin/). [Some people love it](https://hackernoon.com/in-the-btc-vs-usd-battle-my-moneys-on-doge-heres-why-6m3y33rx), though.
+* For [Klay](https://coinmarketcap.com/currencies/klaytn/), [Theta](https://coinmarketcap.com/currencies/theta/), and [Iota](https://coinmarketcap.com/currencies/iota/) I suspect that they are utility coins, but I wasn’t certain what you can do with the actual coin at the time of writing.
+
 ## Summary
 
 To get a rough understanding of a crypto project, you can ask the following

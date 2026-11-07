@@ -305,7 +305,7 @@ Webseite machen.
 ## Und nun?
 
 Bitte gebt mir Feedback zu den verschiedenen Ideen. Insbesondere Lehrer und
-aktuelle Schüler: `info@martin-thoma.de`, in den Kommentaren unten, oder via
+aktuelle Schüler: `info@martin-thoma.de` oder via
 Twitter an [`@_martinthoma`](https://twitter.com/_martinthoma). Als Hashtag
 schlage ich [`#SchuleOnlineRocks`](https://twitter.com/hashtag/SchuleOnlineRocks) vor;
 [schule-online.rocks](http://schule-online.rocks/) verweist hier her.

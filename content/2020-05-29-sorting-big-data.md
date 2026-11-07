@@ -210,6 +210,12 @@ Again, same idea as with the mergesort and the heapsort approach:
 The difference in this case is the chunking. That part already does a great
 deal of the sorting which makes the combining step trivial.
 
+<figure>
+    <a href="../images/2020/05/external-sorting-strategies.svg"><img src="../images/2020/05/external-sorting-strategies.svg" alt="Two pipelines: merge sort splits into arbitrary chunks, sorts them and needs a k-way merge; radix sort splits by prefix, sorts the chunks and only pastes them together" width="700" height="400" loading="lazy"></a>
+    <figcaption>Merge sort has to merge the sorted chunks. Splitting by prefix makes the last step a simple concatenation.</figcaption>
+</figure>
+
+
 Timing:
 
 1. Chunking: 290.4s

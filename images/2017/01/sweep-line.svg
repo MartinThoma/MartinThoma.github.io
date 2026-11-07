@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" width="660" height="400" role="img" aria-labelledby="t d">
+<title id="t">The sweep line algorithm</title>
+<desc id="d">Six line segments a to f and a vertical sweep line at x = 330 that moves from left to right. Segments that the sweep line currently crosses are active and kept in a data structure ordered from top to bottom. Segments left of the line are done, those right of it are not reached yet. Intersections left of the sweep line are already found. The dots on the axis are the event points: the segment end points.</desc>
+<style>
+text{font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif}.mono,.mono tspan{font-family:ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace}
+.f-ink{fill:#1c2320}.s-ink{stroke:#1c2320}
+.f-muted{fill:#5b6660}.s-muted{stroke:#5b6660}
+.f-faint{fill:#9aa39e}.s-faint{stroke:#9aa39e}
+.f-hair{fill:#d4d7da}.s-hair{stroke:#d4d7da}
+.f-sunk{fill:#ebebed}.s-sunk{stroke:#ebebed}
+.f-bg{fill:#ffffff}.s-bg{stroke:#ffffff}
+.f-acc{fill:#1f7a45}.s-acc{stroke:#1f7a45}
+.f-soft{fill:#e0efe6}.s-soft{stroke:#e0efe6}
+.f-warn{fill:#b35c00}.s-warn{stroke:#b35c00}
+.f-softwarn{fill:#fbe9d7}.s-softwarn{stroke:#fbe9d7}
+.f-bad{fill:#b3261e}.s-bad{stroke:#b3261e}
+.f-softbad{fill:#f8dedc}.s-softbad{stroke:#f8dedc}
+.f-blue{fill:#2a78d6}.s-blue{stroke:#2a78d6}
+.f-softblue{fill:#dbe8f8}.s-softblue{stroke:#dbe8f8}
+.f-c1{fill:#2a78d6}.s-c1{stroke:#2a78d6}
+.f-c2{fill:#eb6834}.s-c2{stroke:#eb6834}
+.f-c3{fill:#1baf7a}.s-c3{stroke:#1baf7a}
+.f-c4{fill:#eda100}.s-c4{stroke:#eda100}
+.f-c5{fill:#e87ba4}.s-c5{stroke:#e87ba4}
+@media (prefers-color-scheme: dark){
+.f-ink{fill:#e7ede9}.s-ink{stroke:#e7ede9}
+.f-muted{fill:#9aa8a0}.s-muted{stroke:#9aa8a0}
+.f-faint{fill:#6b756f}.s-faint{stroke:#6b756f}
+.f-hair{fill:#3a3d44}.s-hair{stroke:#3a3d44}
+.f-sunk{fill:#26282e}.s-sunk{stroke:#26282e}
+.f-bg{fill:#1b1d22}.s-bg{stroke:#1b1d22}
+.f-acc{fill:#4fc07d}.s-acc{stroke:#4fc07d}
+.f-soft{fill:#1f3d2b}.s-soft{stroke:#1f3d2b}
+.f-warn{fill:#f0a050}.s-warn{stroke:#f0a050}
+.f-softwarn{fill:#4a3420}.s-softwarn{stroke:#4a3420}
+.f-bad{fill:#f07a70}.s-bad{stroke:#f07a70}
+.f-softbad{fill:#4a2422}.s-softbad{stroke:#4a2422}
+.f-blue{fill:#3987e5}.s-blue{stroke:#3987e5}
+.f-softblue{fill:#1d3150}.s-softblue{stroke:#1d3150}
+.f-c1{fill:#3987e5}.s-c1{stroke:#3987e5}
+.f-c2{fill:#d95926}.s-c2{stroke:#d95926}
+.f-c3{fill:#199e70}.s-c3{stroke:#199e70}
+.f-c4{fill:#c98500}.s-c4{stroke:#c98500}
+.f-c5{fill:#d55181}.s-c5{stroke:#d55181}
+}
+</style>
+<defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-ink" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-muted" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-acc" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-warn" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-bad" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-blue" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+<rect x="20" y="30" width="310" height="300" rx="6" class="f-sunk" />
+<text x="30" y="46" class="f-muted" font-size="13" dominant-baseline="central" >processed</text>
+<text x="640" y="46" class="f-muted" font-size="13" dominant-baseline="central" text-anchor="end" >not reached yet</text>
+<line x1="40" y1="90" x2="300" y2="250" class="s-muted" stroke-width="2" stroke-linecap="round" />
+<circle cx="40" cy="90" r="3.5" class="f-muted" />
+<circle cx="300" cy="250" r="3.5" class="f-muted" />
+<text x="26" y="90" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >a</text>
+<line x1="80" y1="270" x2="420" y2="60" class="s-blue" stroke-width="3" stroke-linecap="round" />
+<circle cx="80" cy="270" r="3.5" class="f-blue" />
+<circle cx="420" cy="60" r="3.5" class="f-blue" />
+<text x="66" y="270" class="f-blue" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >b</text>
+<line x1="180" y1="170" x2="560" y2="210" class="s-blue" stroke-width="3" stroke-linecap="round" />
+<circle cx="180" cy="170" r="3.5" class="f-blue" />
+<circle cx="560" cy="210" r="3.5" class="f-blue" />
+<text x="166" y="170" class="f-blue" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >c</text>
+<line x1="260" y1="300" x2="520" y2="110" class="s-blue" stroke-width="3" stroke-linecap="round" />
+<circle cx="260" cy="300" r="3.5" class="f-blue" />
+<circle cx="520" cy="110" r="3.5" class="f-blue" />
+<text x="246" y="300" class="f-blue" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >d</text>
+<line x1="380" y1="270" x2="600" y2="300" class="s-faint" stroke-width="2" stroke-linecap="round" />
+<circle cx="380" cy="270" r="3.5" class="f-faint" />
+<circle cx="600" cy="300" r="3.5" class="f-faint" />
+<text x="366" y="270" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >e</text>
+<line x1="470" y1="50" x2="610" y2="130" class="s-faint" stroke-width="2" stroke-linecap="round" />
+<circle cx="470" cy="50" r="3.5" class="f-faint" />
+<circle cx="610" cy="130" r="3.5" class="f-faint" />
+<text x="456" y="50" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >f</text>
+<circle cx="206" cy="192.2" r="6" class="f-acc s-acc" stroke-width="2" />
+<circle cx="232.9" cy="175.6" r="6" class="f-acc s-acc" stroke-width="2" />
+<circle cx="405.4" cy="193.7" r="6" class="f-bg s-faint" stroke-width="2" />
+<line x1="330" y1="22" x2="330" y2="338" class="s-bad" stroke-width="2.5" stroke-linecap="round" />
+<line x1="336" y1="28" x2="374" y2="28" class="s-bad" stroke-width="2" stroke-linecap="round" marker-end="url(#m-bad)" />
+<text x="324" y="352" class="f-bad" font-size="14" dominant-baseline="central" text-anchor="end" >sweep line</text>
+<circle cx="330" cy="115.6" r="4" class="f-bad" />
+<circle cx="330" cy="185.8" r="4" class="f-bad" />
+<circle cx="330" cy="248.8" r="4" class="f-bad" />
+<line x1="20" y1="376" x2="640" y2="376" class="s-muted" stroke-width="1.2" stroke-linecap="round" marker-end="url(#m-muted)" />
+<circle cx="40" cy="376" r="3.5" class="f-muted" />
+<circle cx="300" cy="376" r="3.5" class="f-muted" />
+<circle cx="80" cy="376" r="3.5" class="f-muted" />
+<circle cx="420" cy="376" r="3.5" class="f-faint" />
+<circle cx="180" cy="376" r="3.5" class="f-muted" />
+<circle cx="560" cy="376" r="3.5" class="f-faint" />
+<circle cx="260" cy="376" r="3.5" class="f-muted" />
+<circle cx="520" cy="376" r="3.5" class="f-faint" />
+<circle cx="380" cy="376" r="3.5" class="f-faint" />
+<circle cx="600" cy="376" r="3.5" class="f-faint" />
+<circle cx="470" cy="376" r="3.5" class="f-faint" />
+<circle cx="610" cy="376" r="3.5" class="f-faint" />
+<text x="640" y="362" class="f-muted" font-size="14" dominant-baseline="central" text-anchor="end" font-style="italic" >x</text>
+<text x="344" y="316" font-size="14" dominant-baseline="central" xml:space="preserve"><tspan class="f-muted">active (top → bottom): </tspan><tspan class="f-blue" font-weight="700">b, c, d</tspan></text>
+</svg>
