@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Boost your productivity and make tests easier to reproduce" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Testing, API, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/api-testing-with-insomnia/" />
+<meta property="og:title" content="API Testing with Insomnia"/>
+<meta property="og:url" content="https://martin-thoma.com/api-testing-with-insomnia/" />
+<meta property="og:description" content="Boost your productivity and make tests easier to reproduce" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-08-30T03:09:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/08/api-testing-with-insomnia-1.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="845" />
+
+        <title>API Testing with Insomnia  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../api-testing-with-insomnia/">API Testing with Insomnia</a></h1>
+    <p class="meta">
+<time datetime="2021-08-30T03:09:00+02:00">Aug 30, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#api-ref">API
+            <span>5</span>
+</a></li>
+        <li><a href="../tags/#testing-ref">Testing
+            <span>14</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-basics" title="The Basics">The Basics</a></li><li><a class="toc-href" href="#getting-started-with-insomnia" title="Getting started with&nbsp;Insomnia">Getting started with&nbsp;Insomnia</a></li><li><a class="toc-href" href="#create-a-get-request" title="Create a GET&nbsp;request">Create a GET&nbsp;request</a></li><li><a class="toc-href" href="#the-headers-tab" title="The Headers&nbsp;Tab">The Headers&nbsp;Tab</a></li><li><a class="toc-href" href="#the-timeline-tab" title="The Timeline&nbsp;Tab">The Timeline&nbsp;Tab</a></li><li><a class="toc-href" href="#the-response-history-overview" title="The Response History&nbsp;Overview">The Response History&nbsp;Overview</a></li><li><a class="toc-href" href="#using-environments" title="Using Environments">Using Environments</a></li><li><a class="toc-href" href="#chaining-requests" title="Chaining Requests">Chaining Requests</a></li><li><a class="toc-href" href="#sharing-requests" title="Sharing Requests">Sharing Requests</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2021/08/api-testing-with-insomnia-1.jpg"><img alt="An overview of Insomnia. The StackExchange API was imported via this OpenAPI Specification as an example. The screenshot was taken by Martin&nbsp;Thoma." height="422" src="../images/2021/08/api-testing-with-insomnia-1.jpg" width="800"/></a>
+<figcaption>An overview of Insomnia. The StackExchange API was imported via this <a href="https://github.com/openapis/api-specs/tree/master/stackexchange">OpenAPI Specification</a> as an example. The screenshot was taken by Martin Thoma.</figcaption>
+</figure>
+<p>Testing is a crucial part of software development. It comes in different flavors such as unit testing, stress testing, acceptance testing, smoke testing. &ldquo;Just giving it a shot&rdquo; is probably the simplest of them all, but crucial to be convinced that things work as they should.</p>
+<p>After reading this article, you will know how to use Insomnia for API testing. We will go through the request collection interface of Insomnia, look at environments, and request chaining. Let&rsquo;s get started!</p>
+<h2 id="the-basics">The Basics</h2>
+<p>If you don&rsquo;t know what an endpoint, HTTP methods, or status codes are, please feel free to refresh your knowledge:</p>
+<p><a href="../api-testing-with-httpie/"><strong>API Testing with HTTPie</strong> <em>Testing is a crucial part of software development. It comes in different flavors such as unit testing, stress testing&hellip;</em></a></p>
+<h2 id="getting-started-with-insomnia">Getting started with&nbsp;Insomnia</h2>
+<p>You can download and install Insomnia for free (<a href="https://insomnia.rest/download">link</a>). There is a paid version with additional features, but you will not need it for now.</p>
+<p>First, create a &ldquo;request collection&rdquo;:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-2.png"><img alt="Create a new &ldquo;Request Collection&rdquo;. If you have an OpenAPI / Swagger spec YAML file, you can import it here. The screenshot is taken from Insomnia by Martin&nbsp;Thoma" height="591" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-2.png" width="665"/></a>
+<figcaption>Create a new &ldquo;Request Collection&rdquo;. If you have an OpenAPI / Swagger spec YAML file, you can import it here. The screenshot is taken from Insomnia by Martin Thoma</figcaption>
+</figure>
+<h2 id="create-a-get-request">Create a GET&nbsp;request</h2>
+<p>Click on &ldquo;New Request&rdquo; or hit Ctrl + N and enter &ldquo;Get names gender&rdquo; as the request name. Enter <code>https://api.genderize.io/</code> for the URL and go to the &ldquo;Query&rdquo; tab. Enter &ldquo;name&rdquo; as &ldquo;New name&rdquo; and &ldquo;Andreas&rdquo; as value. Hit the purple &ldquo;Send&rdquo; button:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-3.png"><img alt="You can see the name of the request on the left. It shows you that it is a GET request. The query parameters are also easy to see. The response code of the server is shown in bright green. Next to it is the response time and the size of the response content. Screenshot by Martin&nbsp;Thoma." height="553" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-3.png" width="800"/></a>
+<figcaption>You can see the name of the request on the left. It shows you that it is a GET request. The query parameters are also easy to see. The response code of the server is shown in bright green. Next to it is the response time and the size of the response content. Screenshot by Martin Thoma.</figcaption>
+</figure>
+<h2 id="the-headers-tab">The Headers&nbsp;Tab</h2>
+<p>Click on the &ldquo;Headers&rdquo; tab to see the response headers:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-4.png"><img alt="The response headers typically show you metadata about the server and its configuration, e.g. nginx/1.16.1, the Date, and some rate-limiting tags. The &ldquo;X-&rdquo; indicates that it&rsquo;s something custom which might not be widespread. The headers show you meta-data about the content, e.g. the Content-Type, Content-Length. Screenshot by Martin&nbsp;Thoma." height="553" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-4.png" width="800"/></a>
+<figcaption>The response headers typically show you metadata about the server and its configuration, e.g. nginx/1.16.1, the Date, and some rate-limiting tags. The &ldquo;X-&rdquo; indicates that it&rsquo;s something custom which might not be widespread. The headers show you meta-data about the content, e.g. the Content-Type, Content-Length. Screenshot by Martin Thoma.</figcaption>
+</figure>
+<h2 id="the-timeline-tab">The Timeline&nbsp;Tab</h2>
+<p>The timeline tab shows you the sequence of the request and response. I actually never use this one:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-5.png"><img alt="Insomnia&rsquo;s Timeline tab for the genderize.io request: the log of the connection, the sent request headers and the received response headers" height="555" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-5.png" width="800"/></a>
+<figcaption>Screenshot was taken by Martin Thoma</figcaption>
+</figure>
+<h2 id="the-response-history-overview">The Response History&nbsp;Overview</h2>
+<p>Send a few more requests with different names. Then look at the bright green status code&hairsp;&mdash;&hairsp;at the very right, there is something like &ldquo;A Minute Ago&rdquo; / &ldquo;Just Now&rdquo;. If you click on it, you can see the response history:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-6.png"><img alt="The response history is useful if you test the same endpoint again and again. Here you can see if the response might have become crazy slow or if the response body just increased a lot. Screenshot by Martin&nbsp;Thoma." height="554" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-6.png" width="800"/></a>
+<figcaption>The response history is useful if you test the same endpoint again and again. Here you can see if the response might have become crazy slow or if the response body just increased a lot. Screenshot by Martin Thoma.</figcaption>
+</figure>
+<p>If you click on any of those responses, you can look at the actual response, the headers, and the timeline.</p>
+<h2 id="using-environments">Using Environments</h2>
+<p>Now that you have seen some of the basics of the UI, it&rsquo;s time to use a core feature: Environments. If you look at the top left, just below &ldquo;Dashboard&rdquo;, you can see &ldquo;No Environment&rdquo;. Let&rsquo;s click on that and hit &ldquo;Manage Environments&rdquo;. Alternatively, hit Ctrl+E. Look at the &ldquo;Sub Environments&rdquo;, click on the &ldquo;+&rdquo; and click on &ldquo;Environment&rdquo;:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-7.png"><img alt="We called the environment &ldquo;Peter&rdquo; and added the variable &ldquo;name&rdquo; with the value &ldquo;Peter&rdquo; to it. You can see that the 3 lines of content are just a regular JSON dictionary. The screenshot was taken by Martin&nbsp;Thoma." height="146" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-7.png" width="800"/></a>
+<figcaption>We called the environment &ldquo;Peter&rdquo; and added the variable &ldquo;name&rdquo; with the value &ldquo;Peter&rdquo; to it. You can see that the 3 lines of content are just a regular JSON dictionary. The screenshot was taken by Martin Thoma.</figcaption>
+</figure>
+<p>Now duplicate the environment and create a &ldquo;Karen&rdquo; environment:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-8.png"><img alt="Insomnia&rsquo;s &ldquo;Manage Environments&rdquo; dialog with the sub environments Peter and Karen; Karen sets the variable name to &ldquo;Karen&rdquo;" height="176" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-8.png" width="800"/></a>
+<figcaption>The screenshot was taken by Martin Thoma.</figcaption>
+</figure>
+<p>Close the &ldquo;Manage Environments&rdquo; window. Use the &ldquo;Peter&rdquo; environment:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-9.png"><img alt="Insomnia&rsquo;s environment dropdown with the options Use Peter, Use Karen, No Environment and Manage Environments" height="434" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-9.png" width="614"/></a>
+<figcaption>The screenshot was taken by Martin Thoma.</figcaption>
+</figure>
+<p>Now go to the &ldquo;Query&rdquo; tab to the &ldquo;name&rdquo; key. The value probably was &ldquo;Peter&rdquo;&hairsp;&mdash;&hairsp;remove it. Hit Ctrl + Space. You should see a ton of options:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-10.png"><img alt="Auto-Complete options. The screenshot was taken by Martin&nbsp;Thoma." height="450" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-10.png" width="800"/></a>
+<figcaption>Auto-Complete options. The screenshot was taken by Martin Thoma.</figcaption>
+</figure>
+<p>Select <code>_.name</code>. You could also have entered <code>_.name</code> directly. Now when you send the request, it uses the value of the &ldquo;name&rdquo; variable from your environment.</p>
+<p>That means if you change the environment, the request you send will change.</p>
+<p>This is incredibly useful. You might want to test different runtime environments such as dev, staging, integration, pre-production, production. You might want to test the responses for different users. Just create environments for those cases.</p>
+<h2 id="chaining-requests">Chaining Requests</h2>
+<p>Most APIs need some form of authentication. Typically, that means that you log in and receive a bearer token. This token has to be sent in all further requests.</p>
+<p>To do that, go to &ldquo;Header&rdquo; and enter the key &ldquo;Authorization&rdquo;. As a value, you enter &ldquo;Bearer &ldquo; and hit Ctrl+Space. Then enter &ldquo;Response &rarr; Body attribute&rdquo;:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-11.png"><img alt="The response body attribute is not filled out. Screenshot by Martin&nbsp;Thoma" height="203" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-11.png" width="800"/></a>
+<figcaption>The response body attribute is not filled out. Screenshot by Martin Thoma</figcaption>
+</figure>
+<p>When you click on the red block, you get this:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-12.png"><img alt="Insomnia&rsquo;s &ldquo;Edit Tag&rdquo; dialog for a response reference: function, attribute &ldquo;Body Attribute&rdquo;, request, JSONPath filter, trigger behavior and live preview" height="650" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-12.png" width="800"/></a>
+<figcaption>Screenshot by Martin Thoma</figcaption>
+</figure>
+<p>We only have one &ldquo;Request&rdquo; so far and no API where we need authentication, but it&rsquo;s good enough for demonstration. Select the request. In the &ldquo;Filter&rdquo; field, enter <code>$</code>. Now you should see something in the live preview:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-13.png"><img alt="Insomnia&rsquo;s &ldquo;Edit Tag&rdquo; dialog with the request &ldquo;Get names gender&rdquo; selected and the JSONPath filter $; the live preview shows the JSON response" height="648" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-13.png" width="800"/></a>
+</figure>
+<p>The syntax we use here is called <a href="https://restfulapi.net/json-jsonpath/">JSONPath</a>. If you enter <code>$.gender</code> the value this macro will get will be &ldquo;male&rdquo;. For access tokens, you might use something like <code>$.access</code>. It depends on the response of the server and what you want to re-use.</p>
+<h2 id="sharing-requests">Sharing Requests</h2>
+<p>Insomnia can both import and export <code>curl</code> commands. <code>curl</code> is a very powerful tool to send HTTP requests. It&rsquo;s free and almost every developer will know it. A lot of tools rely on it.</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-14.png"><img alt="A right-click on the request shows the &ldquo;Copy as a Curl&rdquo; and &ldquo;Generate code&rdquo; parts to share the&nbsp;request" height="480" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-14.png" width="800"/></a>
+<figcaption>A right-click on the request shows the &ldquo;Copy as a Curl&rdquo; and &ldquo;Generate code&rdquo; parts to share the request</figcaption>
+</figure>
+<p>Although &ldquo;Copy as Curl&rdquo; is a good option, your developers might prefer others. For example, I like Python code with the <code>requests</code> library. To get that, click on &ldquo;Generate Code&rdquo;:</p>
+<figure>
+<a href="../images/2021/08/api-testing-with-insomnia-15.png"><img alt="Generate code to send the request which was just sent by Insomnia. Ask your devs what they prefer. Under &ldquo;Shell&rdquo; is the option &ldquo;HTTPie&rdquo; which is nice as&nbsp;well." height="318" loading="lazy" src="../images/2021/08/api-testing-with-insomnia-15.png" width="800"/></a>
+<figcaption>Generate code to send the request which was just sent by Insomnia. Ask your devs what they prefer. Under &ldquo;Shell&rdquo; is the option &ldquo;HTTPie&rdquo; which is nice as well.</figcaption>
+</figure>
+<h2 id="summary">Summary</h2>
+<p>You have seen how to create custom requests. Using environments and request chaining, you can get way more out of those single requests. We have looked at different meta-information such as the request timeline. Finally, you have seen how to share requests with developers.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Smart Home 101: Sensors, Actors, Rules, Protocols, and Hubs" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="House, Devices, My bits and bytes, " />
+
+<link rel="canonical" href="https://martin-thoma.com/the-ultimate-smart-home-starter-guide/" />
+<meta property="og:title" content="The Ultimate Smart Home Starter Guide"/>
+<meta property="og:url" content="https://martin-thoma.com/the-ultimate-smart-home-starter-guide/" />
+<meta property="og:description" content="Smart Home 101: Sensors, Actors, Rules, Protocols, and Hubs" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-11-08T17:33:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/11/the-ultimate-smart-home-starter-guide-1.png" />
+<meta property="og:image:width" content="1941" />
+<meta property="og:image:height" content="1264" />
+
+        <title>The Ultimate Smart Home Starter Guide  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../the-ultimate-smart-home-starter-guide/">The Ultimate Smart Home Starter Guide</a></h1>
+    <p class="meta">
+<time datetime="2021-11-08T17:33:00+01:00">Nov 8, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#devices-ref">Devices
+            <span>8</span>
+</a></li>
+        <li><a href="../tags/#house-ref">House
+            <span>41</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-basic-concepts" title="The Basic&nbsp;Concepts">The Basic&nbsp;Concepts</a></li><li><a class="toc-href" href="#sensors" title="Sensors">Sensors</a><ul><li><a class="toc-href" href="#software-sensors" title="Software Sensors">Software Sensors</a></li><li><a class="toc-href" href="#hardware-sensors" title="Hardware Sensors">Hardware Sensors</a></li></ul></li><li><a class="toc-href" href="#actors" title="Actors">Actors</a></li><li><a class="toc-href" href="#rules-tie-sensors-and-actors-together" title="Rules&hairsp;&mdash;&hairsp;Tie Sensors and Actors&nbsp;together">Rules&hairsp;&mdash;&hairsp;Tie Sensors and Actors&nbsp;together</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#smart-home-hubs" title="Smart Home&nbsp;Hubs">Smart Home&nbsp;Hubs</a><ul><li><a class="toc-href" href="#local-hubs" title="Local Hubs">Local Hubs</a></li><li><a class="toc-href" href="#smart-home-management-apps" title="Smart Home Management Apps">Smart Home Management Apps</a></li><li><a class="toc-href" href="#cloud-hubs" title="Cloud Hubs">Cloud Hubs</a></li></ul></li><li><a class="toc-href" href="#where-can-i-get-help" title="Where can I get&nbsp;help?">Where can I get&nbsp;help?</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-1.png"><img alt="The five big components of Smart Homes are Sensors, Actors, Protocols, Rules, and Interfaces. Don&rsquo;t worry, I&rsquo;ll explain that! Image by Martin&nbsp;Thoma" height="521" src="../images/2021/11/the-ultimate-smart-home-starter-guide-1.png" width="800"/></a>
+<figcaption>The five big components of Smart Homes are Sensors, Actors, Protocols, Rules, and Interfaces. Don&rsquo;t worry, I&rsquo;ll explain that! Image by Martin Thoma</figcaption>
+</figure>
+<p>I&rsquo;ve recently started looking into smart home topics and felt overwhelmed. There is a plethora of different devices, manufacturers, and systems. After reading this article you will understand what the important components are and have an overview to put everything into context. Let&rsquo;s start!</p>
+<h2 id="the-basic-concepts">The Basic&nbsp;Concepts</h2>
+<p>A smart home consists of five groups of devices and software:</p>
+<p><strong>Sensors</strong> are devices or Software that gather information. Examples are temperature sensors, motion sensors, or a clock.</p>
+<p><strong>Actors</strong> are devices or software that can do something. Examples are light bulbs, smart curtains, and door openers.</p>
+<p><strong>Rules</strong> are software that takes the sensors' input and tells actors what to do. An example is to turn on the light if motion is detected and if it&rsquo;s dark. If the time is between 6 am and 10 pm, the light should be bright. Otherwise, it should be less bright.</p>
+<p><strong>Protocols</strong> let the devices speak one language. Common examples are WiFi, Bluetooth, Zigbee, and Z-Wave. Those protocols are typically also connected with a signal frequency. The frequency determines physical properties that cannot be changed, for example how easily walls are passed or how high the data rate can get.</p>
+<p><strong>Hubs</strong> are the control centers of your smart home. They allow you to connect to your smart devices via the mentioned protocols and create rules around them. They make it smart. They provide the <strong>interface</strong> you&rsquo;re using most of the time. The physical interface might be a smartphone, a desktop computer, a tablet, or a combination of those devices. What matters more than the input device is the structure of how you can create rules. Very often those hubs come with their own device on which the software runs, but some allow you to install it on any computer.</p>
+<p>You might also see the <strong>Internet of Things</strong> (IoT) being mentioned. Smart home is a part of that. For example, industrial applications or mobility solutions like electric car charging stations are part of the Internet of Things, but definitely not a part of Smart Homes.</p>
+<p><strong>Home Automation</strong> is tightly coupled with Smart Home topics. Those two terms are often used interchangeably. One example of home automation that is not a part of the smart home topics is time-based lights. They go on at the same time, not considering if anybody is around. The core part of smart homes is &ldquo;sense and react&rdquo;: You can connect a lot of different devices and build something more interesting with them. But the borders are blurred for those two terms. Looking at <a href="https://books.google.com/ngrams/graph?content=home+automation%2Csmart+home&amp;year_start=1980&amp;year_end=2019&amp;corpus=26&amp;smoothing=3">Google n-grams</a>, the term &ldquo;smart home&rdquo; was probably coined in 1998 and kicked off around 2011 whereas home automation was probably already around in the 1980s. The term &ldquo;smart home&rdquo; also dominates in <a href="https://trends.google.de/trends/explore?q=smart+home%2Chome+automation">Google Trends</a>.</p>
+<h2 id="sensors">Sensors</h2>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-2.jpg"><img alt="A contact sensor, a motion sensor, and a thermometer/hygrometer combination (left to right). Image by Martin&nbsp;Thoma." height="423" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-2.jpg" width="800"/></a>
+<figcaption>A contact sensor, a motion sensor, and a thermometer/hygrometer combination (left to right). Image by Martin Thoma.</figcaption>
+</figure>
+<p>When we think about sensors, we mostly think about hardware. Devices you need to buy. But there are also software sensors that provide valuable input.</p>
+<h3 id="software-sensors">Software Sensors</h3>
+<p>In contrast to the hardware sensors, you typically don&rsquo;t own a special device for software sensors. For example, a clock is built into most computers.</p>
+<ul>
+<li><strong>Clock</strong>: The time and the date are probably the most interesting software sensor. Your daily schedule depends heavily on the weekday and the time of the day.</li>
+<li><strong>Device Version</strong>: Various devices could have the possibility to tell you if there is a version update available. This is a binary sensor: Is there an update for a specific device or not?</li>
+<li><strong>Connectivity</strong>: Is there a connection to another device or not? For example, can something in your home connect to your smartphone?</li>
+<li><strong>Virtual Switches</strong>: You might want to enable something manually at some point. For example, when guests are at the house. Then you can just toggle a switch on your phone to trigger something. It&rsquo;s just software.</li>
+<li><strong>Presence Sensors</strong>: If my phone is connected to the home wifi, the virtual presence sensor detects that I am at home.</li>
+</ul>
+<h3 id="hardware-sensors">Hardware Sensors</h3>
+<p>Hardware sensors are the eyes and ears of your smart home. They are often connected with actors, e.g. you will not be able to buy a door microphone without a door speaker. There might also be multiple sensors in one device (multi-sensors), e.g. a temperature sensor and a humidity sensor.</p>
+<p>You need to make sure that your sensors are able to connect with the hub. That means you need to look at the <strong>protocol</strong> being used to connect: Is it Zigbee, Z-Wave, WiFi, Bluetooth, or via Infrared (IR)? Please have a look at the &ldquo;protocols&rdquo; section for that.</p>
+<p>The next interesting question is the <strong>energy supply</strong>. Is the device connected to the outlet or does it use a battery? Is it an AA, AAA, CR2032, or CR123A battery?</p>
+<p>Let&rsquo;s jump to sensor device classes:</p>
+<p><strong>Switches</strong> come in many shapes. A <strong>push button</strong> can be used for a doorbell or as a reminder to buy something. A <strong>toggle switch</strong> like the Kasa WiFi Light Switch can be used to turn the light on/off. A <strong>rotary switch</strong> is typically used for dimming the lights.</p>
+<p><strong>Contact sensors</strong> tell you if the window/door is open. There are many devices, e.g. by Linkind, Aqara, Ecolink, Silvercrest (Lidl). All of them use Zigbee. One thing to watch out for is the delay between the action (opening/closing a door) and the sensor's signal. Garage door sensors seem to be popular as well.</p>
+<p><strong>Motion detection</strong> can help to tell if somebody is in the room. Is somebody at the front door? Again, there are plenty of devices, e.g. by Ikea, Philips, HomeSeer, and Aeotec.</p>
+<p>You typically want to do something with lights, hence measuring how bright it is comes in handy. The devices are often called <strong>ambient light sensors</strong> (ALS).</p>
+<p>A <strong>vibration sensor</strong> can detect if somebody is knocking on the door.</p>
+<p>The next three sensors are about feeling well at home:</p>
+<p><strong>Thermometers</strong> measure the temperature. It is simply interesting to me to see the temperature in different rooms throughout the day. Devices that support this are the FRITZ!DECT 440 and the SONOFF SNZB-02.</p>
+<p><strong>Hygrometers</strong> measure the amount of water in the air&hairsp;&mdash;&hairsp;the humidity. The SONOFF SNZB-02 is an example.</p>
+<p><strong>Air quality</strong> is important, especially in your bedroom. There are many different types of sensors, e.g. a PM2.5 particle sensor, CO₂ sensors, or a formaldehyde sensor.</p>
+<p>There are many more, but three that I think are most interesting:</p>
+<p><strong>Cameras</strong> are interesting in a security context. You could connect those with motion sensors. If you get motion at a time/location where you don&rsquo;t expect it, the camera allows you to directly have a look. I&rsquo;m not a fan of cameras in my house that are connected to the internet, though.</p>
+<p><strong>Accelerometers</strong> are in your smartphone and measure if and how the device is moving. Given this information, it&rsquo;s possible to tell which activity the person is doing.</p>
+<p><strong>Microphones</strong> are necessary if you want to use a voice assistant. They can also be used for other interactions, e.g. turning stuff on when you clap. Similar to cameras, I&rsquo;m not a big fan of this in private spaces.</p>
+<h2 id="actors">Actors</h2>
+<p>An actor is anything that can <strong>do</strong> something. In contrast to a sensor that only gets information about the environment, an actor can change something. There is a crazy amount of actors, but let&rsquo;s focus on the most common ones.</p>
+<p><strong>Lights</strong> are certainly the most important type of actor. There are lights that you can simply turn on/off, but very often you can also adjust the brightness. There are white lights where you can change the color temperature from cold-white to warm-white and, of course, there are RGB lights where you can change it to any color you want.</p>
+<p><strong>Thermostats</strong> are a combination of a sensor and an actor: A thermometer that measures the room temperature and an actor which adjusts it.</p>
+<p><strong>Outlets</strong> can be controlled via WiFi. You can decide when the outlet gives power. This is one of the most common ways to make non-smart devices smart. And, of course, they are typically called &ldquo;smart outlets&rdquo;.</p>
+<p><strong>Door openers,</strong> also called &ldquo;Smart locks&rdquo;, allow you to get into your home with your smartphone. They could also open your garage for you.</p>
+<p><strong>Robo-cleaners</strong> are one of the most useful devices in my opinion. You can let them run when you&rsquo;re outside and always have a pretty clean floor. Some newer robotic vacuum cleaners also have a mop. The dominant manufacturer here is Roborock.</p>
+<p>In the garden, you could automate sprinklers and have a robot for cutting the grass.</p>
+<p>If you want to see more actors, have a look at the <a href="https://developers.google.com/assistant/smarthome/guides">Smart Home Device Types</a> overview by Google.</p>
+<h2 id="rules-tie-sensors-and-actors-together">Rules&hairsp;&mdash;&hairsp;Tie Sensors and Actors&nbsp;together</h2>
+<table>
+<caption>Examples of smart home rules</caption>
+<thead><tr><th>Trigger</th><th>Condition</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>Sun rises</td><td></td><td>Turn lights off</td></tr>
+<tr><td>Sun sets</td><td>Somebody is at home</td><td>Turn lights on</td></tr>
+<tr><td>Vacation mode started</td><td></td><td>Turn heater off</td></tr>
+</tbody>
+</table>
+<p>Now that you have a couple of sensors and actors, you want to combine them with <strong>rules</strong>. Those are called <strong>automations</strong> or <strong>scripts</strong> in some software. In several apps you can read &ldquo;Tap-to-run&rdquo; for scripts which are executed by tapping on a button. In contrast, automations have a non-manual trigger.</p>
+<p>Rules are built with software, but the software needs to run on hardware. Hence those two are typically more strongly connected than they need to be. Think about it similar to MacBook Air and macOS. The MacBook Air is hardware and macOS is software, but both are very strongly coupled. In contrast to PCs and laptops that run Windows / Linux. For those, you have way better mix-and-match capabilities.</p>
+<p>In this comparison, I see the rules as a general concept of what you want to achieve. In order to implement them, you need a <strong>smart home hub</strong>. We will come to the hubs later, let&rsquo;s first understand the concepts.</p>
+<p><strong>Automations</strong> have triggers, conditions, and actions. A <strong>trigger</strong> could be sunrise, a detected motion, a contact sensor telling you that a door or a window was opened, a weather forecast telling you that it is going to rain. A <strong>condition</strong> could be &ldquo;the sun is not shining&rdquo; or &ldquo;somebody is at home&rdquo;. They can also be combined with logical operators like <code>and</code> or <code>or</code>. An <strong>action</strong> could be to turn on various lights, turn on the robotic vacuum cleaner, or turn off the electricity.</p>
+<p><strong>Scenes</strong> group together various actions. An example is the light configuration when you have a movie night. They are strictly speaking not necessary, but they make things simpler. Instead of having a complex action in an automation, you can just say &ldquo;trigger the relaxed evening scene&rdquo;. And when you add more devices, you can just change the scene instead of adjusting many different automations.</p>
+<h2 id="protocols">Protocols</h2>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-5.png"><img alt="The most relevant smart home protocols. Image by Martin&nbsp;Thoma" height="439" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-5.png" width="800"/></a>
+<figcaption>The most relevant smart home protocols. Image by Martin Thoma</figcaption>
+</figure>
+<p>What we got so far is sensors, actors, and ideas on how we want to connect those via rules. But we also need all of those devices to talk with a central hub. Information needs to flow.</p>
+<p>Hubs help smart devices work together. They are the central point where information flows together. To do so, they need to support as many protocols as possible.</p>
+<p>Protocols are the language two devices speak with each other. The most relevant smart home protocols are:</p>
+<p><strong>WiFi (2.45 GHz or 5.8 GHz)</strong> is what we typically use to browse the web. The devices are directly connected to your router. The fact that everybody already has a WiFi router at home makes it attractive. However, WiFi and typical private routers were designed for a few devices which have a high data load. In a smart home, you have many devices which don&rsquo;t need a lot of interaction.</p>
+<p><strong>Bluetooth</strong> is a crazy standard with many different aspects. We typically use it for audio transfer and sometimes for small gadgets. <strong>Bluetooth Low Energy (2.45 GHz),</strong> in short BLE, was introduced with Bluetooth 4.0. With the Bluetooth 5.0 standard, the BLE mode has a way higher reach&hairsp;&mdash;&hairsp;50 m with Bluetooth 4.0 compared to 200 m with Bluetooth 5.0 in BLE mode. I&rsquo;m not sure about how well BLE works with a smart home setup. In the context of smart homes, Bluetooth is often used to set devices up.</p>
+<p><strong>Z-Wave (0.9 GHz)</strong> is a closed standard that operates on a lower frequency. This means it could use less power and have a higher range, but also a lower transmission rate. The actual figures are astonishingly hard to get; I&rsquo;m uncertain how it actually plays out.</p>
+<p><strong>Zigbee (2.45 GHz)</strong> is an open standard that is similar to Z-Wave. The fact that the standard is open means that there might be less quality control, but also no additional fees and hence cheaper devices. Looking at <a href="https://books.google.com/ngrams/graph?content=zigbee%2Cz-wave%2Cbluetooth+low+energy&amp;year_start=2001&amp;year_end=2019&amp;corpus=26&amp;smoothing=3&amp;direct_url=t1%3B%2Czigbee%3B%2Cc0%3B.t1%3B%2Cz+-+wave%3B%2Cc0%3B.t1%3B%2Cbluetooth+low+energy%3B%2Cc0">Google nGram</a> and <a href="https://trends.google.com/trends/explore?q=Zigbee%2Cz-wave%2C%2Fm%2F05my_f_">Google Trends</a>, Zigbee seems to have won the race so far.</p>
+<p><strong>Thread (2.4 GHz)</strong> was initially developed by Google in 2014. It seems to me that the main selling point of Thread was security, although I don&rsquo;t know what the issues of Z-Wave and Zigbee were/are. There are a couple of Thread devices, but it seems to me that it never has taken off. However, it is impressive how many companies are in the Thread Group: Google, Apple, IKEA, Samsung, Siemens, Osram, Silicon Labs, Qualcomm,&nbsp;&hellip;</p>
+<p><strong>Matter (2.4 GHz)</strong>, formerly known as CHIP, is the new kid on the block. Although <a href="https://matter-smarthome.de/en/overview-products-compatible-with-matter/">currently, no device works with matter</a>, eventually <a href="https://matter-smarthome.de/en/matter-faq-en/">all new devices might support matter</a> in the future. Matter is a standardization effort. I see this in the same light as smartphone charging cables or cables for data exchange. USB has replaced a lot of competing other standards.</p>
+<p>As you can see, the 2.45 GHz frequency is used by many protocols. This can lead to interference. I&rsquo;ve noticed that my WiFi and Bluetooth range dropped after I bought the Zigbee stick. There are ways around interference, but I can see that Z-Wave has a big advantage there.</p>
+<p>The lower the frequency, the less <strong>energy</strong> the signal needs and the higher the range is&hairsp;&mdash;&hairsp;but the lower the <strong>data rate</strong> is. For many smart devices, the amount of data you need to send is minimal. Only for audio and video signals does the data rate matter.</p>
+<p>What matters is <strong>latency</strong>: How long do you have to wait for the first response? How long does it take until your voice assistant reacts? For Bluetooth, apparently, the latency goes up the more devices you have. For Zigbee, it is not that extreme, and Thread seems not to care about the number of devices&hairsp;&mdash;&hairsp;it has a constant latency.</p>
+<p>The <strong>maximum number of devices</strong> is also limited by the protocol. I&rsquo;ve heard that household routers break at around 50 devices, Z-Wave can have 232 per hub, Thread supports a whopping 11753 devices, Zigbee goes crazy with 65000 but might become unusable way earlier, Bluetooth has a theoretical maximum of 32767 devices (<a href="https://youtu.be/3zaTIRiFemQ?t=1336">source</a>).</p>
+<p>The source I&rsquo;ve just linked actually is a pretty nice YouTube video:</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/3zaTIRiFemQ" title="YouTube video player" width="560"></iframe>
+<p>However, even if the protocol is supported, there are problems reported. For example, the Xiaomi Hub apparently only connects to Zigbee devices by Xiaomi. Very disappointing.</p>
+<p>Sadly, it&rsquo;s pretty hard to really know if devices work together. The Connectivity Standards Alliance (formerly known as Zigbee Alliance) tries to fix this. They create <strong>application profiles</strong> that can then be followed. Prime members of this alliance are Amazon, Apple, Ikea, SmartThings, Tuya. Hence I would expect that products of those companies typically work well in the Zigbee ecosystem. I&rsquo;ve seen many Lidl (Silvercrest) and Osram products in there and have only seen two Xiaomi Mi products.</p>
+<p>I&rsquo;m looking forward to <strong>Matter</strong> and hope the situation becomes better.</p>
+<h2 id="smart-home-hubs">Smart Home&nbsp;Hubs</h2>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-6.jpg"><img alt="Your smart home hub needs to run on a device. That could be something pre-built like a SmartThings Hub or a Philips Hue Bridge. Or it could be a mini-computer like a Raspberry Pi. Photo by Jainath Ponnala on&nbsp;Unsplash" height="533" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-6.jpg" width="800"/></a>
+<figcaption>Your smart home hub needs to run on a device. That could be something pre-built like a SmartThings Hub or a Philips Hue Bridge. Or it could be a mini-computer like a Raspberry Pi. Photo by <a href="https://unsplash.com/@jainath">Jainath Ponnala</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p>We have sensors that get information about the environment, actors that can change the environment, ideas for rules how we want to connect those, and protocols so that the devices can talk with a central hub. Let&rsquo;s talk about options for that central hub!</p>
+<p>The <strong>connectivity</strong> is key: Devices could use WiFi, Zigbee, Z-Wave, Bluetooth, Thread, or Matter. They need to be able to talk to the hub. If you don&rsquo;t have a hub that has the necessary support for the mentioned protocols, you need a gateway connected to the hub.</p>
+<p>The hub needs to expose an interface via WiFi so that you can use your smartphone or your desktop computer for <strong>device management</strong>: Adding devices to your smart home.</p>
+<p>Do you want the communication to stay in your local home network with a <strong>local hub</strong> or if you are ok with the devices talking to the internet with a <strong>cloud hub</strong>? Privacy and robustness are the relevant aspects. Which companies do you trust in having your data? Do you trust any? Is your internet reliable enough so that you don&rsquo;t care what happens in case of an internet outage?</p>
+<p>A big plus for the cloud hubs is <strong>voice assistants</strong> like Amazon's Alexa, Apple&rsquo;s Siri, and the Google one. I don&rsquo;t have experience with <a href="https://www.yourtechdiet.com/blogs/open-source-voice-assistants/#Rhasspy">open-source voice assistants</a>. They are a very convenient interface.</p>
+<p>Talking about <strong>interfaces</strong>: Typically, those hubs either provide an app or you can access them via IP. So they run a local webserver. You need to think about two types of usage: Setting things up and using them day-to-day. For daily usage, you have some kind of dashboard. Most of the time, there are tiles that you can configure.</p>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-7.png"><img alt="How you want your smart home to communicate: All communication to the internet should be controlled by your local hub. The devices themselves should typically not communicate via WiFi, but via specialized protocols such as Z-Wave or Zigbee. They can build a mesh over those protocols. That means every device can extend the range of the network. Typically, you manage your smart home via a Management App, but some hubs also allow management via a web interface (Image by Martin&nbsp;Thoma)" height="507" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-7.png" width="800"/></a>
+<figcaption>How you want your smart home to communicate: All communication to the internet should be controlled by your local hub. The devices themselves should typically not communicate via WiFi, but via specialized protocols such as Z-Wave or Zigbee. They can build a mesh over those protocols. That means every device can extend the range of the network. Typically, you manage your smart home via a Management App, but some hubs also allow management via a web interface (Image by Martin Thoma)</figcaption>
+</figure>
+<p>Another point that might be confusing is the terminology: Hub, Gateway, and Bridge are the same thing. Philips calls its product &ldquo;Hue Bridge&rdquo;, Lidl has the &ldquo;Silvercrest Gateway&rdquo;, and Samsung has the &ldquo;SmartThings Hub&rdquo;. The core part is that all of them are the contact point for a managing app.</p>
+<h3 id="local-hubs">Local Hubs</h3>
+<p>Local hubs operate on a device in your home. This has <strong>privacy</strong> advantages and you have things under your control. You are independent of the operations of any company&hairsp;&mdash;&hairsp;but you are responsible for the operation yourself. You need to make sure to make backups and run upgrades. You are responsible for security considerations. You need to buy the hardware on which it runs. This can be any computer or Raspberry Pi, but also mini computers like Intel NUC. And don&rsquo;t forget the connectivity, e.g. a ConBee II stick for Zigbee or a Z-Wave stick. Maybe also Bluetooth?</p>
+<p><a href="https://en.wikipedia.org/wiki/Home_Assistant"><strong>Home Assistant</strong></a> is a free and open-source project written in Python. It has <a href="https://github.com/home-assistant/core/graphs/contributors">thousands of contributors</a> and <a href="https://analytics.home-assistant.io/">over 90k active installations</a>. The user interface could be nicer, but you can do most things. It is great for software developers and people who love to tinker. Home Assistant is software and you need to get the hardware&hairsp;&mdash;&hairsp;any computer can do it; I run it on my Raspberry Pi 2. You can also get the <a href="https://www.home-assistant.io/blue/">Home Assistant Blue</a>.</p>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-8.png"><img alt="Example for the Home Assistant 2021.10.4 User Interface seen on a&nbsp;Laptop." height="410" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-8.png" width="800"/></a>
+<figcaption>Example for the Home Assistant 2021.10.4 User Interface seen on a Laptop.</figcaption>
+</figure>
+<p><a href="https://en.wikipedia.org/wiki/OpenHAB"><strong>openHAB</strong></a> (short for open Home Automation Bus) is an open-source project written in Java. Similar to Home Assistant, you can install it on any device you want, e.g. a Raspberry Pi. The <a href="https://github.com/openhab/openhab-core">code is on GitHub</a> and the development is backed by the <a href="https://www.openhabfoundation.org/">openHAB Foundation e.V</a>. Just like with Home Assistant, you need to make sure that you have the necessary hardware and gateways.</p>
+<p><a href="https://hubitat.com/"><strong>Hubitat</strong></a> is developed by <a href="https://www.linkedin.com/company/hubitat-inc/">Hubitat Inc</a> in the US. It&rsquo;s self-hosted and does not rely on cloud services to work. The Hubitat Elevation Hub costs \$160 USD (140 EUR) and brings Z-Wave and Zigbee support. It has an Ethernet jack (RJ45). It doesn&rsquo;t have subscription fees. <a href="https://www.youtube.com/watch?v=bbbs9B0l79c">According to Matt Ferrell</a>, it works with Ikea, IFTTT, Philips Hue, SmartThings, Sonos, and many more. It has a lot of customization options.</p>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-9.jpg"><img alt="A white Apple HomePod. Photo by Nicolas Lafargue on&nbsp;Unsplash" height="533" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-9.jpg" width="800"/></a>
+<figcaption>A white Apple HomePod. Photo by <a href="https://unsplash.com/@nicolaslafargue">Nicolas Lafargue</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p><a href="https://en.wikipedia.org/wiki/HomeKit"><strong>HomeKit</strong></a> is developed by Apple. It runs locally on a <em>home hub</em>. This home hub might be an Apple TV, an iPad, or a HomePod mini. At the same time, you can use cloud features, e.g. accessing the functions when you&rsquo;re not at home. I&rsquo;m uncertain how much information this actually gives away. Apparently, you can only have one condition in automations (<a href="https://youtu.be/NNpko9jUZo8?t=510">source</a>). That severely limits the number of scenarios you can implement.</p>
+<p><a href="https://homeseer.com/"><strong>HomeSeer</strong></a> is developed by HomeSeer Technologies LLC in the US. They have various devices starting at 130 USD (120 EUR). But you have to pay for software components and maybe a subscription fee, although things run locally. It seemed a bit weird to me, so I didn&rsquo;t have a closer look.</p>
+<h3 id="smart-home-management-apps">Smart Home Management Apps</h3>
+<p>The apps in this category are probably your first touchpoint with smart homes. They give you the possibility to add your devices to your hub.</p>
+<p>Typically, the devices you can add are rather device categories. So you might see an option to add a &ldquo;Zigbee Smart Lamp&rdquo; which works for multiple manufacturers.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.tuya.smartlife&amp;hl=de&amp;gl=US"><strong>Smart Life</strong></a> and <strong>Tuya</strong> were my first contact point with smart home topics. I needed a smart power outlet and the Smart Life App allowed me to control it. You can add a crazy amount of device types:</p>
+<ul>
+<li>6 sockets</li>
+<li>4 power strips</li>
+<li>24 switches</li>
+<li>1 doorbell</li>
+<li>48 lamps and light modulators</li>
+<li>75 sensors</li>
+<li>27 large home appliances such as washing machines, air conditioners, refrigerators</li>
+<li>10 gateways</li>
+<li>&hellip;</li>
+</ul>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-10.jpg"><img alt="The Smart Life App has three big sections: (1) Home (2) Smart (3) Me. You can add devices under &ldquo;Home&rdquo;, add automations under &ldquo;Smart&rdquo;, and look up / configure general settings under &ldquo;Me&rdquo;. Screenshots were taken by Martin&nbsp;Thoma." height="505" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-10.jpg" width="800"/></a>
+<figcaption>The Smart Life App has three big sections: (1) Home (2) Smart (3) Me. You can add devices under &ldquo;Home&rdquo;, add automations under &ldquo;Smart&rdquo;, and lookup / configure general settings under &ldquo;Me&rdquo;. Screenshots were taken by Martin Thoma.</figcaption>
+</figure>
+<p>The <a href="https://play.google.com/store/apps/details?id=com.lampux.ledbrighter&amp;hl=de&amp;gl=US">Lepro LampUX</a> App looks just like the Smart Life App&hairsp;&mdash;&hairsp;except that it has a tab for advertisement.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.lidlhome.smart&amp;hl=de&amp;gl=US"><strong>Lidl Home</strong></a> is the app to control your Silvercrest devices. They have smart lights, motion and contact sensors, and a thermostat. In the app, I see 4 devices in the &ldquo;Plug and Socket&rdquo; category, 18 devices in the &ldquo;Lighting&rdquo; category, 2 Sensors, 1 Gateway, and 8 others.</p>
+<figure>
+<a href="../images/2021/11/the-ultimate-smart-home-starter-guide-11.jpg"><img alt="The Lidl Home App is structured just like Smart Life. Screenshots were taken by Martin&nbsp;Thoma." height="505" loading="lazy" src="../images/2021/11/the-ultimate-smart-home-starter-guide-11.jpg" width="800"/></a>
+<figcaption>The Lidl Home App is structured just like Smart Life. Screenshots were taken by Martin Thoma.</figcaption>
+</figure>
+<p>Similar apps are <a href="https://play.google.com/store/apps/details?id=com.ikea.tradfri.lighting&amp;hl=de&amp;gl=US">Ikea Home Smart</a> and <a href="https://play.google.com/store/apps/details?id=com.philips.lighting.hue2&amp;hl=de&amp;gl=US">Philips Hue</a>.</p>
+<h3 id="cloud-hubs">Cloud Hubs</h3>
+<p>Cloud hubs still have a local device, but most things happen in the cloud. They are typically more convenient when they work, but you have to worry about <strong>privacy</strong>, you have to rely on them getting the <strong>security</strong> right, availability of <strong>internet</strong>, and <strong>service continuity</strong>. Especially the last thing is super unclear. What happens if Google suddenly decides they don&rsquo;t want to operate their smart home services? Then you might have a lot of expensive trash.</p>
+<p><a href="https://en.wikipedia.org/wiki/SmartThings"><strong>SmartThings</strong></a> is used by 62 million users and belongs to Samsung. As a device, I have seen the Aeotec Smart Home Hub for 110 EUR. The device supports Zigbee 3.0, Z-Wave, and WiFi. Their compatibility seems to be great.</p>
+<p><strong>Amazon</strong> with its iconic voice assistant Alexa also offers quite a lot in the smart home area. Their devices are called Echo (e.g. Echo Show 5). Alexa skills and routines are the way to create new voice commands. But I think you need to run things in the cloud to process those voice commands.</p>
+<p>Google Home also has various devices, e.g. Google Nest Hub. However, I&rsquo;m really uncertain if they offer anything besides the voice assistant &ldquo;OK Google&rdquo;. A search for &ldquo;Google Home Dashboard&rdquo; didn&rsquo;t really show anything, hence I&rsquo;m not sure how it fits into the ecosystem.</p>
+<h2 id="where-can-i-get-help">Where can I get&nbsp;help?</h2>
+<p>If you have a rather open question or want to have a discussion, try Reddit: <a href="https://www.reddit.com/r/smarthome/">/r/smarthome</a> and <a href="https://www.reddit.com/r/homeautomation/">/r/homeautomation</a></p>
+<p>If you have specific questions, try StackExchange:</p>
+<ul>
+<li>Do you have a specific question about a device? Try <a href="https://iot.stackexchange.com/">IoT.SE</a></li>
+<li>Is your question about home automation? Try <a href="https://diy.stackexchange.com/questions/tagged/home-automation">DIY.SE</a></li>
+</ul>
+<p>If you want help or discussions around a hub, try those:</p>
+<ul>
+<li>The <a href="https://discord.com/channels/330944238910963714/332167321311510530">Home Assistant Discord</a></li>
+<li><a href="https://community.openhab.org/">OpenHAB community</a></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You have seen examples for sensors and actors, ideas for rules connecting those into something smart. We went into the annoying details of protocols allowing those devices to speak with each other and various options for hubs to create automations.</p>
+<p>Smart homes promise to make our lives simpler, save money, and add living quality. In this series, I&rsquo;ll explore how much there is to it. The next article will be about use cases/applications within a smart home. I also want to look into ioBroker/MQTT, IFTTT, the various voice assistants. Stay tuned!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#my-bits-and-bytes-ref">My bits and bytes</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

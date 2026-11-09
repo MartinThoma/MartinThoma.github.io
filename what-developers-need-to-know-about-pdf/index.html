@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Standards, functions, usage, terminology" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="PDF, Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/what-developers-need-to-know-about-pdf/" />
+<meta property="og:title" content="What developers need to know about PDF"/>
+<meta property="og:url" content="https://martin-thoma.com/what-developers-need-to-know-about-pdf/" />
+<meta property="og:description" content="Standards, functions, usage, terminology" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-10-03T12:01:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/pdf.png" />
+
+        <title>What developers need to know about PDF  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../what-developers-need-to-know-about-pdf/">What developers need to know about PDF</a></h1>
+    <p class="meta">
+<time datetime="2021-10-03T12:01:00+02:00">Okt 3, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#pdf-ref">PDF
+            <span>9</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#pdf-format-versions" title="PDF Format&nbsp;Versions">PDF Format&nbsp;Versions</a></li><li><a class="toc-href" href="#image-only-vs-searchable-vs-digitally-created" title="Image-Only vs Searchable vs Digitally-created">Image-Only vs Searchable vs Digitally-created</a></li><li><a class="toc-href" href="#archivability-pdfa" title="Archivability: PDF/A">Archivability: PDF/A</a></li><li><a class="toc-href" href="#universal-accessibility-pdfua" title="Universal Accessibility: PDF/UA">Universal Accessibility: PDF/UA</a></li><li><a class="toc-href" href="#printing-pdfx" title="Printing: PDF/X">Printing: PDF/X</a></li><li><a class="toc-href" href="#variable-data-and-transactional-printing-pdfvt" title="Variable Data and Transactional Printing: PDF/VT">Variable Data and Transactional Printing: PDF/VT</a></li><li><a class="toc-href" href="#engineering-pdfe" title="Engineering: PDF/E">Engineering: PDF/E</a></li><li><a class="toc-href" href="#pdf-and-python" title="PDF and&nbsp;Python">PDF and&nbsp;Python</a><ul><li><a class="toc-href" href="#reading-pdf-files-with-python" title="Reading PDF files with&nbsp;Python">Reading PDF files with&nbsp;Python</a></li><li><a class="toc-href" href="#reading-tables-from-pdf-files" title="Reading Tables from PDF&nbsp;files">Reading Tables from PDF&nbsp;files</a></li><li><a class="toc-href" href="#creating-pdf-files-with-python" title="Creating PDF files with&nbsp;Python">Creating PDF files with&nbsp;Python</a></li></ul></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>PDF is a file format that was created to print in exactly the same way everywhere. It was not intended to be a format for data exchange. Nowadays, it is used in all organizations. You can create presentations with it, you can save documents like your thesis, you can create bills and forms.</p>
+<p>Throughout my career, I had the dubious pleasure of reading PDF files multiple times. In this article, I&rsquo;ll share some learnings with you. Let&rsquo;s go!</p>
+<h2 id="pdf-format-versions">PDF Format&nbsp;Versions</h2>
+<p>PDF is an evolving format. Adobe started developing the format in 1991, released it in 1993, and it became an ISO standard in 2008. Some important versions are:</p>
+<ul>
+<li>PDF 1.3: <a href="https://stackoverflow.com/q/9640141/562769">JavaScript Actions</a>, <a href="https://www.pdfa.org/pdf-and-digital-signatures/">Digital signatures</a></li>
+<li>PDF 1.4: Transparency, JBIG2Decode was introduced</li>
+<li>PDF 1.5: JPXDecode, <a href="https://en.wikipedia.org/wiki/XFA">XFA</a> was introduced, HTML 4 Form format</li>
+<li>PDF 1.6: OpenType font support, interactive 3D documents</li>
+<li>PDF 1.7: Basis for parts of PDF/A-2</li>
+<li>PDF 2.0: XFA was deprecated</li>
+</ul>
+<h2 id="image-only-vs-searchable-vs-digitally-created">Image-Only vs Searchable vs Digitally-created</h2>
+<p>When you use a scanner, you get an image. The format of the image file could be JPG or PDF. However, the PDF simply contains the image. You cannot copy the text and you cannot search within the document. Search engines will have a harder time finding the contents. Such PDFs are called <strong>image-only PDFs</strong>.</p>
+<p>You can apply optical character recognition (OCR) to an image. Machine Learning algorithms try to recognize the characters and put them behind the image. The resulting PDF still looks the same as the image-only PDF, but now you can search for content. The OCR algorithm might have made a mistake, so you might not be able to copy everything and some things you copy might be wrong. Such PDFs are called <strong>searchable PDFs</strong>. Many scanners can directly create searchable PDFs.</p>
+<p>You can create a PDF via Microsoft Word or other document writing tools. When you do this, then the resulting PDF will have text which others can copy. It is easy to search content within the PDF with standard PDF viewers. The reason for that is that the data is directly within the PDF. The <strong>digitally-created PDF</strong> is sometimes also called <em>digitally-born</em> or a <a href="https://pdf.abbyy.com/pdf-types/"><em>True PDF</em></a>.</p>
+<h2 id="archivability-pdfa">Archivability: PDF/A</h2>
+<p>PDF is perceived as static content, similar to a piece of paper. However, there are two reasons why one PDF might look different on different devices or at different times:</p>
+<ol>
+<li>Active Content: PDF can contain JavaScript and PostScript</li>
+<li>Attachments: The attachments could contain anything</li>
+</ol>
+<p>To fix this issue, the standards PDF/A-1, PDF/A-2, and PDF/A-3 were developed. All of them are PDF files, but they are restricted to be suitable for long-term archives.</p>
+<p>PDF/A-1 is based on PDF 1.4 and parts of PDF/A-2 are based on PDF 1.7.</p>
+<p>There is software that can automatically convert files to PDF/A, but it is not possible to guarantee for all cases that the resulting file looks exactly the same as the original. It&rsquo;s a good idea to check if the software vendor you are using is a member of the <a href="https://en.wikipedia.org/wiki/PDF_Association">PDF Association</a>.</p>
+<h2 id="universal-accessibility-pdfua">Universal Accessibility: PDF/UA</h2>
+<p>People with disabilities also want to read PDF files. To help assistive tools like screen readers, semantics need to be added. The PDF/UA (universal accessibility) standard is similar to the <a href="https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines">Web Content Accessibility Guidelines</a>. For example, images need to have alternative text which describes their content. PDF tags should group the content of the PDF file into semantic sections.</p>
+<p>If you want to know more, I recommend reading <a href="https://www.pdflib.com/fileadmin/pdflib/pdf/whitepaper/Whitepaper-Technical-Introduction-to-PDFUA.pdf">A Technical Introduction to PDF/UA</a>.</p>
+<h2 id="printing-pdfx">Printing: PDF/X</h2>
+<p>PDF/X is a standard based on PDF, restricting it to make it more useful for printing.</p>
+<ul>
+<li>PDF/X-1a was based on PDF 1.3</li>
+<li>PDF/X-3: Color management</li>
+<li>PDF/X-4: Transparency</li>
+<li>PDF/X-5: More flexibility</li>
+<li>PDF/X-6: Based on PDF 2.0</li>
+</ul>
+<p>A good explanation is given in <a href="https://www.pdfa.org/wp-content/uploads/2017/05/PDFX-in-a-Nutshell.pdf">PDF/X in a Nutshell</a>.</p>
+<h2 id="variable-data-and-transactional-printing-pdfvt">Variable Data and Transactional Printing: PDF/VT</h2>
+<p>PDF/VT is based on PDF/X and is good for invoices and advertisement. Imagine a PDF with complex graphics, but one part is just your name in it. Instead of re-creating the PDF all the time with only this string changing, the PDF just contains a variable for it.</p>
+<p>The best explanation I have seen is by <a href="https://www.prepressure.com/pdf/basics/pdfvt-file-format-specifications">prepressure.com</a> and by Dov Isaacs in his talk &ldquo;<a href="https://www.youtube.com/watch?v=vqC6KFQTfZI&amp;t=471s">A Technical Introduction to PDF/VT</a>&rdquo;.</p>
+<h2 id="engineering-pdfe">Engineering: PDF/E</h2>
+<p>PDF/E is for Engineering and pretty specialized as you can see with this quote <a href="https://en.wikipedia.org/wiki/PDF/E">from Wikipedia</a>:</p>
+<blockquote>
+<p>[PDF/E is] for the creation of documents used in geospatial, construction and manufacturing workflows and is based on the PDF Reference version 1.6 [&hellip;].</p>
+</blockquote>
+<h2 id="pdf-and-python">PDF and&nbsp;Python</h2>
+<p>I spent a lot of time diving into the various libraries to interact with PDF files in Python. The following should give you a brief overview of the libraries I have worked with.</p>
+<h3 id="reading-pdf-files-with-python">Reading PDF files with&nbsp;Python</h3>
+<p>Do you want to know <a href="https://stackoverflow.com/a/63518022/562769">how to extract text from a PDF file</a>? I got you:</p>
+<p><a href="https://pypi.org/project/PyMuPDF/">PyMuPDF</a> is based on the C-library <a href="https://en.wikipedia.org/wiki/MuPDF">MuPDF</a> which is dual-licensed under the <a href="https://en.wikipedia.org/wiki/GNU_Affero_General_Public_License">GNU Affero General Public License</a> and commercial permissive license.</p>
+<p>You can read the text of a PDF like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fitz</span>  <span class="c1"># this is pymupdf</span>
+
+<span class="k">with</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"my.pdf"</span><span class="p">)</span> <span class="k">as</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>Acceptable alternatives might be:</p>
+<ul>
+<li><a href="https://pypi.org/project/pdfminer.six/">pdfminer.six</a>: It&rsquo;s a pure Python module</li>
+<li><a href="https://pypi.org/project/PyPDF3/">PyPDF3</a> (<a href="https://github.com/sfneal/PyPDF3">GitHub</a>): Although the last uploaded version is from 2021, I&rsquo;m uncertain if this is more maintenance or actually actively developed🤔 I also don&rsquo;t know anybody who uses this, and the number of GitHub stars are suspiciously low.</li>
+</ul>
+<p>The following are projects I recommend NOT to use for text extraction:</p>
+<ul>
+<li><a href="https://pypi.org/project/PyPDF2/">PyPDF2</a>: A lot of tutorials still use this, but the project was dead: the last update was from 2016. <em>Update:</em> In April 2022, I became the maintainer of PyPDF2 and in December 2022 we moved it back to <a href="https://pypi.org/project/pypdf/">pypdf</a>. Use pypdf (see <a href="../the-python-pdf-ecosystem-in-2024/">The Python PDF Ecosystem in 2024</a>).</li>
+<li><a href="https://pypi.org/project/PyPDF4/">PyPDF4</a>: This project never really started. There was just one release and it was in 2018.</li>
+<li><a href="https://pypi.org/project/pdfminer">pdfminer</a>: The last updated version is from 2019. The project is dead.</li>
+<li><a href="https://github.com/pikepdf/pikepdf">pikepdf</a> is based on the C++ library <a href="https://github.com/qpdf/qpdf">qpdf</a> which is Apache 2.0 licensed. The project makes a pretty good impression, but <a href="https://pikepdf.readthedocs.io/en/latest/topics/content_streams.html#extracting-text-from-pdfs">pikepdf doesn&rsquo;t support reading text from PDF files</a>.</li>
+</ul>
+<h3 id="reading-tables-from-pdf-files">Reading Tables from PDF&nbsp;files</h3>
+<p>I&rsquo;ve spent quite some time with this problem and it&rsquo;s ridiculously hard. You have to know that tables are not a single semantic object in PDF. They are rather absolutely positioned text. In the worst case, every single letter could be absolutely positioned. That&rsquo;s just a nightmare, especially if you have non-trivial structures like tables within tables, merged cells, invisible borders, text overflowing a column,&nbsp;&hellip;</p>
+<p>Having said that, there is <a href="https://pypi.org/project/camelot-py/">Camelot</a> and the Java project <a href="https://tabula.technology/">Tabula</a> with the Python wrapper <a href="https://pypi.org/project/tabula-py/">tabula-py</a>. I&rsquo;ve found examples for both where it worked well, examples where either of them or both failed. It&rsquo;s simply a hard problem 🤷</p>
+<h3 id="creating-pdf-files-with-python">Creating PDF files with&nbsp;Python</h3>
+<p>There are a couple of different ways and I cannot say that I&rsquo;m really happy with any of them.</p>
+<p>When it comes to the quality of the produced PDF, I was most happy with going over <strong>LaTeX to PDF</strong>. The results LaTeX can generate are simply beautiful; have a look at my <a href="https://github.com/MartinThoma/latex-examples">LaTeX examples</a>. However, calling <code>pdflatex</code> via a subprocess just feels wrong. It is a pain to set LaTeX up when you want the full TeX Live support. It worked well, though.</p>
+<p>A simpler approach converts <strong>HTML to PDF</strong>. I was reasonably happy with <a href="https://pypi.org/project/wkhtmltopdf/">wkhtmltopdf</a>. I&rsquo;ve also seen <a href="https://pypi.org/project/pdfkit/">pdfkit</a> to make using wkhtmltopdf easier. I&rsquo;ve also stumbled a couple of years ago over <a href="https://pypi.org/project/weasyprint/">weasyprint</a>, but that didn&rsquo;t work for me. I don&rsquo;t remember why.</p>
+<p><a href="https://pypi.org/project/reportlab/">Reportlab</a> is a common approach to <strong>generate PDF files directly from Python</strong>. As an alternative, I would give <a href="https://github.com/pikepdf/pikepdf">pikepdf</a> a shot if I needed to do this again.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

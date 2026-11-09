@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="It saved me hundreds of hours as a data scientist" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Data Science, Python, Machine Learning, " />
+
+<link rel="canonical" href="https://martin-thoma.com/data-science-pattern-1-the-progress-serializer/" />
+<meta property="og:title" content="Data Science Pattern #1: The Progress Serializer"/>
+<meta property="og:url" content="https://martin-thoma.com/data-science-pattern-1-the-progress-serializer/" />
+<meta property="og:description" content="It saved me hundreds of hours as a data scientist" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-04-01T09:55:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2023/04/data-science-pattern-1-the-progress-serializer-1.png" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="544" />
+
+        <title>Data Science Pattern #1: The Progress Serializer  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../data-science-pattern-1-the-progress-serializer/">Data Science Pattern #1: The Progress Serializer</a></h1>
+    <p class="meta">
+<time datetime="2023-04-01T09:55:00+02:00">Apr 1, 2023</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#data-science-ref">Data Science
+            <span>16</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-straight-forward-approach" title="The Straight-forward approach">The Straight-forward approach</a></li><li><a class="toc-href" href="#the-progress-serializer-pattern" title="The Progress Serializer Pattern">The Progress Serializer Pattern</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#what-other-patterns-are-there" title="What other patterns are&nbsp;there?">What other patterns are&nbsp;there?</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2023/04/data-science-pattern-1-the-progress-serializer-1.png"><img alt="Forgetting that a value might be None / NULL is one of the most common issues. But also dividing by 0 or expecting a list to be non-empty happens when you clean data. Without a way to resume work, you have to start from the beginning." height="218" src="../images/2023/04/data-science-pattern-1-the-progress-serializer-1.png" width="800"/></a>
+<figcaption>Forgetting that a value might be None / NULL is one of the most common issues. But also dividing by 0 or expecting a list to be non-empty happens when you clean data. Without a way to resume work, you have to start from the beginning.</figcaption>
+</figure>
+<p>Data cleaning and preprocessing is a necessary and time-consuming task in data science. I typically do this in iterations with a subset of the original dataset. Once I think I have found all the issues, I run the cleaning code on the complete dataset.</p>
+<p>There are several different ways to create the cleaned dataset. Assuming you can clean the data by looking at single elements in isolation, I&rsquo;ll walk you through different approaches. Let&rsquo;s go!</p>
+<h2 id="the-straight-forward-approach">The Straight-forward approach</h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clean_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">cleaned_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="n">cleaned_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cleaned_data</span>
+</code></pre></div>
+<p>If the <code>clean</code> function throws an exception, you lose all the work. You have to fix the issue and run <code>clean_data</code> from the start.</p>
+<p>If running <code>clean_data</code> is quick (e.g. less than 20 minutes), it&rsquo;s fine. If not, you might want to use the progress serializer pattern.</p>
+<h2 id="the-progress-serializer-pattern">The Progress Serializer Pattern</h2>
+<p>The progress serializer pattern makes sure that no progress is lost, even if the data cleanup didn&rsquo;t run completely.</p>
+<p>To apply this pattern, you need a way to store the progress and to resume later from that state. It could look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save_data_entry</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+    <span class="c1"># what you do here depends heavily on your data</span>
+    <span class="c1"># - You might store every single element to disk</span>
+    <span class="c1">#   e.g. when you deal with image/video/audio files</span>
+    <span class="c1"># - You might use a database for pretty much any type of data</span>
+    <span class="c1"># - You might use a custom format, e.g. a JSON or a pickle file</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_processed</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Indicate if an entry was already processed."""</span>
+    <span class="c1"># This function needs to be way quicker than clean(element)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_processed</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="n">save_data_entry</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+</code></pre></div>
+<p>You could also make sure the <code>data</code> is always in the same order and just store the current index <code>i</code>.</p>
+<p>Keep in mind that saving the cleaned data and checking if something was already processed takes some time.</p>
+<p>This pattern is easiest to apply with a database. You can just have one column <code>cleaned_at</code> e.g. with an optional datetime. Then you just load the data where <code>cleaned_at IS NULL or cleaned_at &lt; '2022-01-23'</code>, where the date is the one of your latest iteration of the cleaning script.</p>
+<h2 id="summary">Summary</h2>
+<p>You&rsquo;ve learned about the progress serializer pattern.</p>
+<p><strong>What problem does it solve?</strong> Long-running tasks can be interrupted either by programming mistakes, by the running process being terminated (e.g. because you closed the terminal), or by the operating system deciding that now is the best time to restart.</p>
+<p><strong>How does it work?</strong> You need two ingredients: (1) Store the progress (2) make sure you can resume at that point without the need to do the work again.</p>
+<h2 id="what-other-patterns-are-there">What other patterns are&nbsp;there?</h2>
+<p>There are a couple of other patterns about which I want to write articles:</p>
+<ul>
+<li>
+<h1 id="2-progress-bars">2: Progress Bars</h1>
+</li>
+<li>
+<h1 id="3-batch-processing">3: Batch Processing</h1>
+</li>
+<li>
+<h1 id="4-sampling">4: Sampling</h1>
+</li>
+<li>
+<h1 id="5-the-pipeline">5: The Pipeline</h1>
+</li>
+<li>
+<h1 id="6-caching">6: Caching</h1>
+</li>
+<li>
+<h1 id="7-pre-computation">7: Pre-computation</h1>
+</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#machine-learning-ref">Machine Learning</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

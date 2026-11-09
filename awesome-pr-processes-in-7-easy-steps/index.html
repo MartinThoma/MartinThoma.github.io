@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="In this article I’ll describe some patterns I’ve noticed that help to make the pull request (PR) process smooth and productive." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Software Engineering, Version Control, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/awesome-pr-processes-in-7-easy-steps/" />
+<meta property="og:title" content="Awesome PR processes in 7 easy steps"/>
+<meta property="og:url" content="https://martin-thoma.com/awesome-pr-processes-in-7-easy-steps/" />
+<meta property="og:description" content="In this article I’ll describe some patterns I’ve noticed that help to make the pull request (PR) process smooth and productive." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2024-11-16T09:08:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2024/11/awesome-pr-processes-in-7-easy-steps-1.png" />
+<meta property="og:image:width" content="1243" />
+<meta property="og:image:height" content="715" />
+
+        <title>Awesome PR processes in 7 easy steps  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../awesome-pr-processes-in-7-easy-steps/">Awesome PR processes in 7 easy steps</a></h1>
+    <p class="meta">
+<time datetime="2024-11-16T09:08:00+01:00">Nov 16, 2024</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>85</span>
+</a></li>
+        <li><a href="../tags/#version-control-ref">Version Control
+            <span>10</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#no-1-keep-changes-minimal" title="&numero; 1: Keep changes&nbsp;minimal">&numero; 1: Keep changes&nbsp;minimal</a></li><li><a class="toc-href" href="#no-2-document-intention" title="&numero; 2: Document Intention">&numero; 2: Document Intention</a></li><li><a class="toc-href" href="#no-3-ask-for-specific-feedback" title="&numero; 3: Ask for specific&nbsp;Feedback">&numero; 3: Ask for specific&nbsp;Feedback</a></li><li><a class="toc-href" href="#no-4-add-tests-or-proof-of-testing" title="&numero; 4: Add Tests or Proof of&nbsp;Testing">&numero; 4: Add Tests or Proof of&nbsp;Testing</a></li><li><a class="toc-href" href="#no-5-use-prefixes-in-titles" title="&numero; 5: Use prefixes in&nbsp;titles">&numero; 5: Use prefixes in&nbsp;titles</a></li><li><a class="toc-href" href="#no-6-establish-a-commenting-culture-in-the-team" title="&numero; 6: Establish a Commenting Culture in the Team">&numero; 6: Establish a Commenting Culture in the Team</a></li><li><a class="toc-href" href="#no-7-prs-have-top-priority" title="&numero; 7: PRs have top&nbsp;priority">&numero; 7: PRs have top&nbsp;priority</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2024/11/awesome-pr-processes-in-7-easy-steps-1.png"><img alt="The anatomy of a PR: It has an author, a title, and a summary." height="460" src="../images/2024/11/awesome-pr-processes-in-7-easy-steps-1.png" width="800"/></a>
+<figcaption>The anatomy of a PR: It has an author, a title, and a summary.</figcaption>
+</figure>
+<p>In this article I&rsquo;ll describe some patterns I&rsquo;ve noticed that help to make the pull request (PR) process smooth and productive.</p>
+<h2 id="no-1-keep-changes-minimal">&numero; 1: Keep changes&nbsp;minimal</h2>
+<p>It&rsquo;s easier to review one file than ten. It&rsquo;s easier to review 30 lines of code than 300.</p>
+<p>But it&rsquo;s not only that. If you make many unrelated changes, it&rsquo;s hard for reviewers to wrap their head around those changes. Why did you do them? Why are they necessary?</p>
+<p>Even worse: Every single change might be something to discuss.</p>
+<p>For this reason, it&rsquo;s helpful to only do stylistic changes in lines that you have to touch anyway. If you notice an issue on your way, rather open another PR to fix that issue.</p>
+<p>One way to reduce PR sizes quite a lot is to <strong>make a separate PR with tests</strong> that should already succeed. Maybe the behavior was changed just slightly and one of your tests would look almost the same for an old version. Then you can make a first PR to add the test that should work and provide value on its own. In the second PR you make the adjustments to that test.</p>
+<p>Another way to reduce PR sizes is to make <strong>refactoring PRs</strong>. When you add a complex new feature you might need to restructure the code. This restructuring does not change the behavior of the code, but makes it more flexible so that your actual changes can get added.</p>
+<h2 id="no-2-document-intention">&numero; 2: Document Intention</h2>
+<p>A PR has a title and a summary. Use both to describe your intention. Not what you did or how you did it &mdash; both are documented in the code. But what did you try to achieve?</p>
+<p>This is not only important for the reviewer, but also for you in the future. You might stumble over a line of code and go back in the commit history. When you wonder why you made this PR, you should give yourself enough context.</p>
+<p>Let&rsquo;s have a look at some random ones:</p>
+<figure>
+<a href="../images/2024/11/awesome-pr-processes-in-7-easy-steps-2.png"><img alt="You can see that the PR is massive&hairsp;&mdash;&hairsp;I&rsquo;d typically try to get PRs &amp;lt; 300 lines. The title is short and in the context of the project it might be pretty clear. In the summary the author gives the historic context with references, but I would lack the knowledge of what &ldquo;unreachable&rdquo; is good for in the first place. I like the summary of changes. Except for the size, I think this is an excellent PR." height="481" loading="lazy" src="../images/2024/11/awesome-pr-processes-in-7-easy-steps-2.png" width="800"/></a>
+<figcaption>You can see that the PR is massive &mdash; I&rsquo;d typically try to get PRs &lt; 300 lines. The title is short and in the context of the project it might be pretty clear. In the summary the author gives the historic context with references, but I would lack the knowledge of what &ldquo;unreachable&rdquo; is good for in the first place. I like the summary of changes. Except for the size, I think this is an excellent PR.</figcaption>
+</figure>
+<figure>
+<a href="../images/2024/11/awesome-pr-processes-in-7-easy-steps-3.png"><img alt="This is a negative example of a PR: Using abbreviations might be fine if it&rsquo;s clear to everybody what it means, but I would typically write that out in the summary to ensure people get the context. I would avoid using &ldquo;update&rdquo; as it&rsquo;s one of the weakest descriptions. Why was it updated? Updated in which sense? Given the summary, I&rsquo;d use the title &ldquo;Support IPP 2022.0.0&rdquo;." height="312" loading="lazy" src="../images/2024/11/awesome-pr-processes-in-7-easy-steps-3.png" width="800"/></a>
+<figcaption>This is a negative example of a PR: Using abbreviations might be fine if it&rsquo;s clear to everybody what it means, but I would typically write that out in the summary to ensure people get the context. I would avoid using &ldquo;update&rdquo; as it&rsquo;s one of the weakest descriptions. Why was it updated? Updated in which sense? Given the summary, I&rsquo;d use the title &ldquo;Support IPP 2022.0.0&rdquo;.</figcaption>
+</figure>
+<h2 id="no-3-ask-for-specific-feedback">&numero; 3: Ask for specific&nbsp;Feedback</h2>
+<p>What should the reviewer do? Some examples might be:</p>
+<ul>
+<li><strong>Checking if Acceptance Criteria (ACs) are fulfilled</strong>: You can list those explicitly</li>
+<li><strong>Correctness of a specific part</strong>: Maybe you have doubts if you did an aspect of the PR correctly. Point that out!</li>
+<li><strong>Maintainability and Code Style</strong></li>
+<li><strong>Knowledge Sharing</strong>: Maybe you don&rsquo;t really need feedback, but rather want your reviewer to get familiar with a certain part of the code or a specific way to write code / tests.</li>
+</ul>
+<p>This is done pretty well on <a href="https://codereview.stackexchange.com/">Code Review Stack Exchange</a>.</p>
+<h2 id="no-4-add-tests-or-proof-of-testing">&numero; 4: Add Tests or Proof of&nbsp;Testing</h2>
+<p>A test can show very clearly how a feature is intended to be used. Additionally, it ensures that it keeps working in future.</p>
+<p>In some cases you cannot write tests or the effort would be unreasonable. For example, when I write code for Django Admin I typically try to attach a screenshot that shows the change. This is typically easier and better than writing a unit test.</p>
+<p>In both cases: When I&rsquo;m reviewing code and I have doubts if something works, a test or proof of testing does wonders. It then means that I have to be rather certain that something does not work. So it tips the scales for approval of the PR.</p>
+<h2 id="no-5-use-prefixes-in-titles">&numero; 5: Use prefixes in&nbsp;titles</h2>
+<p>I first came across this in the <a href="https://docs.scipy.org/doc/scipy/dev/contributor/development_workflow.html#writing-the-commit-message">scipy development workflow</a>:</p>
+<div class="highlight"><pre><span></span><code>API: an (incompatible) API change
+BENCH: changes to the benchmark suite
+BLD: change related to building SciPy
+BUG: bug fix
+DEP: deprecate something, or remove a deprecated object
+DEV: development tool or utility
+DOC: documentation
+ENH: enhancement
+MAINT: maintenance commit (refactoring, typos, etc.)
+REV: revert an earlier commit
+STY: style fix (whitespace, PEP8)
+TST: addition or modification of tests
+REL: related to releasing SciPy
+</code></pre></div>
+<p>Examples for PR titles in that project are:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ENH</span><span class="o">:</span><span class="w"> </span><span class="n">differentiate</span><span class="o">:</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">jacobian</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">hessian</span>
+<span class="n">TST</span><span class="o">:</span><span class="w"> </span><span class="n">optimize</span><span class="o">.</span><span class="na">linprog</span><span class="o">/</span><span class="n">milp</span><span class="o">:</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">reports</span>
+<span class="n">API</span><span class="o">:</span><span class="w"> </span><span class="n">stats</span><span class="o">.{</span><span class="n">PermutationMethod</span><span class="o">,</span><span class="n">BootstrapMethod</span><span class="o">}:</span><span class="w"> </span><span class="n">transition</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">(</span><span class="n">SPEC</span><span class="w"> </span><span class="mi">7</span><span class="o">)</span>
+<span class="n">MAINT</span><span class="o">:</span><span class="w"> </span><span class="n">linalg</span><span class="o">.</span><span class="na">interpolative</span><span class="o">:</span><span class="w"> </span><span class="n">normalize</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">default_rng</span>
+<span class="n">MAINT</span><span class="o">:</span><span class="w"> </span><span class="n">bump</span><span class="w"> </span><span class="n">array</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">extra</span>
+<span class="n">BUG</span><span class="o">:</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">distance_wrap</span><span class="w"> </span><span class="n">directives</span>
+</code></pre></div>
+<p>The prefix sets the expectation for the PR. In companies, you might have a tracking system and use the ticket number as the prefix.</p>
+<h2 id="no-6-establish-a-commenting-culture-in-the-team">&numero; 6: Establish a Commenting Culture in the Team</h2>
+<p>If a PR is long it happens regularly to me that 95% of the PR is obviously good and should be merged. There is just a small part where I&rsquo;m uncertain about which means I will not approve the PR.</p>
+<p>It&rsquo;s good to add comments on that part in such situations. It shows the PR author that you have a look and might give them ideas how to improve the PR to make it easier to review.</p>
+<p>The comments should be full sentences and be constructive. If you can make an explicit suggestion to fix an issue, do it!</p>
+<p><a href="https://medium.com/@yukas/how-to-write-good-pull-requests-comments-ce17ec3f5f36"><strong>3 rules of a good pull request comment</strong> <em>Nowadays it seems all the development happens on Github. There is so called Github flow where you submit pull requests&hellip;</em></a></p>
+<h2 id="no-7-prs-have-top-priority">&numero; 7: PRs have top&nbsp;priority</h2>
+<p>An open and ready PR should almost always have priority. Before you start any new work, ensure that others can finish their stuff. It might be that you have doubts about the change&hairsp;&mdash;&hairsp;that&rsquo;s why we have rule &numero;6. Ask the PR author about that. Dangling PRs are frustrating and demotivating. Don&rsquo;t do that to your team.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

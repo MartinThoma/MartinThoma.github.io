@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Five libraries that make your console beautiful" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Command Line, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/designing-beautiful-command-line-applications-with-python/" />
+<meta property="og:title" content="Designing Beautiful Command-Line Applications With Python"/>
+<meta property="og:url" content="https://martin-thoma.com/designing-beautiful-command-line-applications-with-python/" />
+<meta property="og:description" content="Five libraries that make your console beautiful" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2022-02-09T18:06:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2022/02/designing-beautiful-command-line-applications-with-python-2.png" />
+<meta property="og:image:width" content="1498" />
+<meta property="og:image:height" content="331" />
+
+        <title>Designing Beautiful Command-Line Applications With Python  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../designing-beautiful-command-line-applications-with-python/">Designing Beautiful Command-Line Applications With Python</a></h1>
+    <p class="meta">
+<time datetime="2022-02-09T18:06:00+01:00">Feb 9, 2022</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#command-line-ref">Command Line
+            <span>14</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#no1-and-2-use-click-or-typer-for-clis" title="&numero;1 and 2: Use click or Typer for&nbsp;CLIs">&numero;1 and 2: Use click or Typer for&nbsp;CLIs</a></li><li><a class="toc-href" href="#no3-use-rich-for-output-formatting" title="&numero;3: Use rich for output formatting">&numero;3: Use rich for output formatting</a><ul><li><a class="toc-href" href="#progress-bars" title="Progress Bars">Progress Bars</a></li><li><a class="toc-href" href="#tables" title="Tables">Tables</a></li><li><a class="toc-href" href="#syntax-highlighting" title="Syntax Highlighting">Syntax Highlighting</a></li><li><a class="toc-href" href="#trees" title="Trees">Trees</a></li><li><a class="toc-href" href="#prompts-and-confirmations" title="Prompts and Confirmations">Prompts and Confirmations</a></li><li><a class="toc-href" href="#bonus-rich-in-the-repl" title="Bonus: Rich in the&nbsp;REPL">Bonus: Rich in the&nbsp;REPL</a></li></ul></li><li><a class="toc-href" href="#no4-use-textual-for-tui-applications" title="&numero;4: Use textual for TUI applications">&numero;4: Use textual for TUI applications</a></li><li><a class="toc-href" href="#no5-graphs-in-the-terminal" title="&numero;5: Graphs in the&nbsp;Terminal">&numero;5: Graphs in the&nbsp;Terminal</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-1.gif"><img alt="Textual allows you to create such amazing terminal applications with interactive elements that react on the mouse cursor position. Absolutely mindboggling that this is possible. Image from the README of&nbsp;textual." height="650" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-1.gif" width="800"/></a>
+<figcaption>Textual allows you to create such amazing terminal applications with interactive elements that react on the mouse cursor position. Absolutely mindboggling that this is possible. Image from the <a href="https://github.com/Textualize/textual#creating-widgets">README of textual</a>.</figcaption>
+</figure>
+<p>A lot of people still write their command-line applications with Argparse or even Optparse plus <code>input()</code>. Creating outputs is often done directly with <code>print</code> and formatting strings&hairsp;&mdash;&hairsp;which gets really hairy when you want to print tables or have some color/emphasis.</p>
+<p>There are five libraries that allow you to do WAY better. I can promise the last two will surprise you&hairsp;&mdash;&hairsp;let&rsquo;s get started!</p>
+<h2 id="no1-and-2-use-click-or-typer-for-clis">&numero;1 and 2: Use click or Typer for&nbsp;CLIs</h2>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-2.png"><img alt="Terminal output of a Typer example&rsquo;s --help: usage line, description, options and the two commands print and spread" height="177" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-2.png" width="800"/></a>
+</figure>
+<p><a href="https://pypi.org/project/click/">click</a> is a library in the Flask ecosystem for creating non-interactive command-line interfaces. It parses command-line arguments/options but uses decorators in a very clever way to do so. Especially the options for creating subcommands are top-notch.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">click</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Awesome app doing awesome things."""</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">"--count"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"How much love you want"</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">spread</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Spread the love."""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> loves you ❤️"</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"print"</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">"filepath"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">"--show-meta"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">show_meta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Print the file."""</span>
+    <span class="k">if</span> <span class="n">show_meta</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File path: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">()</span>
+</code></pre></div>
+<p>which looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">click</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="c1">--help</span>
+<span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">click</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">COMMAND</span><span class="w"> </span><span class="o">[</span><span class="n">ARGS</span><span class="o">]</span><span class="p">...</span>
+
+<span class="n">Awesome</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">doing</span><span class="w"> </span><span class="n">awesome</span><span class="w"> </span><span class="n">things</span><span class="p">.</span>
+
+<span class="nl">Options</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">--help  Show this message and exit.</span>
+
+<span class="nl">Commands</span><span class="p">:</span>
+<span class="w">  </span><span class="k">print</span><span class="w">   </span><span class="k">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">file</span><span class="p">.</span>
+<span class="w">  </span><span class="n">spread</span><span class="w">  </span><span class="n">Spread</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">love</span><span class="p">.</span>
+
+<span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">click</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="c1">--help</span>
+<span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">click</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="k">FILE</span>
+
+<span class="k">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">file</span><span class="p">.</span>
+
+<span class="nl">Options</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">--show-meta</span>
+<span class="w">  </span><span class="c1">--help       Show this message and exit.</span>
+</code></pre></div>
+<p><a href="https://pypi.org/project/typer/">Typer</a> is a library in the FastAPI ecosystem and very similar to click. In fact, it uses click under the hood. Typer makes great use of type annotations to allow you to create beautiful command-line interfaces with very little effort.</p>
+<h2 id="no3-use-rich-for-output-formatting">&numero;3: Use rich for output formatting</h2>
+<p><a href="https://pypi.org/project/rich/">Rich</a> is a Python library for rich text and beautiful formatting in the terminal. Its documentation is excellent, so I&rsquo;ll use pretty much just examples from there.</p>
+<h3 id="progress-bars">Progress Bars</h3>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-3.png"><img alt="Three rich progress bars in the terminal: Downloading, Processing and Cooking with percentages and remaining time" height="70" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-3.png" width="800"/></a>
+</figure>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.progress</span><span class="w"> </span><span class="kn">import</span> <span class="n">Progress</span>
+
+<span class="k">with</span> <span class="n">Progress</span><span class="p">()</span> <span class="k">as</span> <span class="n">progress</span><span class="p">:</span>
+    <span class="n">task1</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">"[red]Downloading..."</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">task2</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">"[green]Processing..."</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">task3</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">"[cyan]Cooking..."</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">progress</span><span class="o">.</span><span class="n">finished</span><span class="p">:</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">task2</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">task3</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</code></pre></div>
+<p>There is also the basic example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rich.progress</span><span class="w"> </span><span class="kn">import</span> <span class="n">track</span>
+
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">track</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Processing..."</span><span class="p">):</span>
+    <span class="n">do_work</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="tables">Tables</h3>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-4.png"><img alt="A rich table in the terminal titled &ldquo;Star Wars Movies&rdquo; with the columns Released, Title and Box Office" height="170" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-4.png" width="800"/></a>
+</figure>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Star Wars Movies"</span><span class="p">)</span>
+
+<span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"Released"</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">"right"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"cyan"</span><span class="p">,</span> <span class="n">no_wrap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"Title"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"magenta"</span><span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"Box Office"</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">"right"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"green"</span><span class="p">)</span>
+
+<span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+    <span class="s2">"Dec 20, 2019"</span><span class="p">,</span> <span class="s2">"Star Wars: The Rise of Skywalker"</span><span class="p">,</span> <span class="s2">"$952,110,690"</span>
+<span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s2">"May 25, 2018"</span><span class="p">,</span> <span class="s2">"Solo: A Star Wars Story"</span><span class="p">,</span> <span class="s2">"$393,151,347"</span><span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+    <span class="s2">"Dec 15, 2017"</span><span class="p">,</span> <span class="s2">"Star Wars Ep. V111: The Last Jedi"</span><span class="p">,</span> <span class="s2">"$1,332,539,889"</span>
+<span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s2">"Dec 16, 2016"</span><span class="p">,</span> <span class="s2">"Rogue One: A Star Wars Story"</span><span class="p">,</span> <span class="s2">"$1,332,439,889"</span><span class="p">)</span>
+
+<span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">()</span>
+<span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="syntax-highlighting">Syntax Highlighting</h3>
+<p>Syntax highlighting in the console is AMAZING. Apparently <a href="https://rich.readthedocs.io/en/latest/reference/syntax.html">rich.syntax.Syntax</a> uses pygments under the hood, so you can choose between many different <a href="https://pygments.org/styles/">syntax highlighting themes</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">typer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.syntax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Syntax</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">"""Print a python file."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">syntax</span> <span class="o">=</span> <span class="n">Syntax</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="s2">"python"</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s2">"solarized-dark"</span><span class="p">,</span> <span class="n">line_numbers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">()</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">syntax</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</code></pre></div>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-5.png"><img alt="Python source code printed with syntax highlighting and line numbers in the terminal by rich" height="255" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-5.png" width="800"/></a>
+</figure>
+<h3 id="trees">Trees</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rich.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tree</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="nb">print</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="s2">"Life"</span><span class="p">)</span>
+
+<span class="n">prokaryota</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Prokaryota"</span><span class="p">)</span>
+<span class="n">prokaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Eubacteria"</span><span class="p">)</span>
+<span class="n">prokaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Archaebacteria"</span><span class="p">)</span>
+
+<span class="n">eukaryota</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Eukaryota"</span><span class="p">)</span>
+<span class="n">eukaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Protozoa"</span><span class="p">)</span>
+<span class="n">eukaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Chordata"</span><span class="p">)</span>
+<span class="n">plantae</span> <span class="o">=</span> <span class="n">eukaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Plantae"</span><span class="p">)</span>
+<span class="n">plantae</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"glaucophytes"</span><span class="p">)</span>
+<span class="n">plantae</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"[red]red algae"</span><span class="p">)</span>
+<span class="n">plantae</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"[green][bold]green algae"</span><span class="p">)</span>
+<span class="n">plantae</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"land plants 🌳"</span><span class="p">)</span>
+<span class="n">eukaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Fungi"</span><span class="p">)</span>
+<span class="n">eukaryota</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Animalia"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</code></pre></div>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-6.png"><img alt="A tree of life printed by rich in the terminal, with colored leaves such as red algae and green algae" height="279" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-6.png" width="800"/></a>
+</figure>
+<h3 id="prompts-and-confirmations">Prompts and Confirmations</h3>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-7.png"><img alt="Interactive rich prompts in the terminal: asking for the name with a default, a yes/no confirmation that rejects invalid input, and a choice of the age group" height="193" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-7.png" width="800"/></a>
+</figure>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rich.prompt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prompt</span><span class="p">,</span> <span class="n">Confirm</span>
+
+<span class="n">is_correct</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">is_correct</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Prompt</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="s2">"Enter your name"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"Martin"</span><span class="p">)</span>
+    <span class="n">is_correct</span> <span class="o">=</span> <span class="n">Confirm</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Is your name '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">'?"</span><span class="p">)</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="n">Prompt</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span>
+    <span class="s2">"What is your age group"</span><span class="p">,</span>
+    <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">"&lt;18"</span><span class="p">,</span> <span class="s2">"18-25"</span><span class="p">,</span> <span class="s2">"25-35"</span><span class="p">,</span> <span class="s2">"&gt;35"</span><span class="p">],</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"25-35"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"You are </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> and your age is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="bonus-rich-in-the-repl">Bonus: Rich in the&nbsp;REPL</h3>
+<p>If you want pretty printing directly in the Python REPL, try this:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="n">pretty</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pretty</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s2">"Rich and pretty"</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+</code></pre></div>
+<p>Rich also provides an <code>inspect</code> function which is excellent to figure out what a given object can do:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="n">inspect</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">rich.color</span><span class="w"> </span><span class="kn">import</span> <span class="n">Color</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">inspect</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-8.png"><img alt="Output of rich&rsquo;s inspect(color, methods=True): a box with the attributes and methods of rich.color.Color and their docstrings" height="753" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-8.png" width="645"/></a>
+</figure>
+<h2 id="no4-use-textual-for-tui-applications">&numero;4: Use textual for TUI applications</h2>
+<p><a href="https://pypi.org/project/textual/">Textual</a> is a TUI (Text User Interface) framework for Python. It allows you to interact with mouse movements/clicks, have components that listen to keypresses, re-render parts of the screen. I&rsquo;ve always thought this was only possible in GUI development. Crazy. I love it.</p>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-9.png"><img alt="Textual allows you to define independent elements of the user interface&hairsp;&mdash;&hairsp;so-called widgets. The image is from the README of&nbsp;textual." height="556" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-9.png" width="800"/></a>
+<figcaption>Textual allows you to define independent elements of the user interface &mdash; so-called widgets. The image is from the <a href="https://github.com/Textualize/textual#widgets">README of textual</a>.</figcaption>
+</figure>
+<p>The following code from the README of textual generates the interactive example from the very top:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rich.panel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Panel</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.reactive</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reactive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.widget</span><span class="w"> </span><span class="kn">import</span> <span class="n">Widget</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Hover</span><span class="p">(</span><span class="n">Widget</span><span class="p">):</span>
+    <span class="n">mouse_over</span> <span class="o">=</span> <span class="n">Reactive</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Panel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Panel</span><span class="p">(</span>
+            <span class="s2">"Hello [b]World[/b]"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">(</span><span class="s2">"on red"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_over</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_over</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_over</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HoverApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Demonstrates custom widgets"""</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_mount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">hovers</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hover</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">dock</span><span class="p">(</span><span class="o">*</span><span class="n">hovers</span><span class="p">,</span> <span class="n">edge</span><span class="o">=</span><span class="s2">"top"</span><span class="p">)</span>
+
+
+<span class="n">HoverApp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s2">"textual.log"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="no5-graphs-in-the-terminal">&numero;5: Graphs in the&nbsp;Terminal</h2>
+<figure>
+<a href="../images/2022/02/designing-beautiful-command-line-applications-with-python-10.png"><img alt="Image by Savino Piccolomo on PyPI (Permission was granted for this&nbsp;post)" height="416" loading="lazy" src="../images/2022/02/designing-beautiful-command-line-applications-with-python-10.png" width="800"/></a>
+<figcaption>Image by <a href="https://pypi.org/project/plotext/">Savino Piccolomo on PyPI</a> (Permission was granted for this post)</figcaption>
+</figure>
+<p>If the capabilities of rich and textual weren&rsquo;t crazy enough for you, give <code>plotext</code> a shot. <code>plotext</code> plots directly on terminal: the syntax is very similar to matplotlib, it has no dependencies (except for an optional dependency required for image plotting) and can save plots as text or as colored HTML 🤯</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">plotext</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># &lt;--- this is plotext, not matplotlib!</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">sin</span><span class="p">()</span>  <span class="c1"># sinusoidal signal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Scatter Plot"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><a href="https://stackoverflow.com/questions/37288421/how-to-plot-a-chart-in-the-terminal"><strong>How to plot a chart in the terminal?</strong> <em>I'm researching ML/Theano and recently came across this script&hellip;</em></a></p>
+<h2 id="summary">Summary</h2>
+<p><code>click/typer</code> allows you to create a nice static interface to your application, <code>rich</code> gives you a lot of formatting options like progress bars and tables. If you want to stay on the terminal but get GUI-like features, give <code>textual</code> and <code>plotext</code> a try.</p>
+<p>Now that you know how to create nice terminal applications with Python, you should make sure that your terminal is shiny as well:</p>
+<p><a href="../amazing-terminal/"><strong>How to get an amazing Terminal</strong> <em>In Windows and Linux; including prompts, fonts, and colors</em></a></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

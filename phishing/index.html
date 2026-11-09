@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="What it is, subtypes like Spear-phishing, and how to protect against it" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, AppSec, Phishing, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/phishing/" />
+<meta property="og:title" content="Phishing 😈"/>
+<meta property="og:url" content="https://martin-thoma.com/phishing/" />
+<meta property="og:description" content="What it is, subtypes like Spear-phishing, and how to protect against it" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2025-04-21T10:01:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/scam.png" />
+
+        <title>Phishing 😈  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../phishing/">Phishing 😈</a></h1>
+    <p class="meta">
+<time datetime="2025-04-21T10:01:00+02:00">Apr 21, 2025</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec
+            <span>19</span>
+</a></li>
+        <li><a href="../tags/#phishing-ref">Phishing
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>63</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#sub-types-of-phishing" title="Sub-Types of&nbsp;Phishing">Sub-Types of&nbsp;Phishing</a></li><li><a class="toc-href" href="#why-it-matters" title="Why it&nbsp;matters">Why it&nbsp;matters</a></li><li><a class="toc-href" href="#how-phishing-works" title="How Phishing&nbsp;works">How Phishing&nbsp;works</a><ul><li><a class="toc-href" href="#the-grandson-fraud-scheme" title="The Grandson Fraud&nbsp;Scheme">The Grandson Fraud&nbsp;Scheme</a></li><li><a class="toc-href" href="#the-ceo-fraud-scheme" title="The CEO Fraud&nbsp;Scheme">The CEO Fraud&nbsp;Scheme</a></li><li><a class="toc-href" href="#the-mandate-fraud-scheme" title="The Mandate Fraud&nbsp;Scheme">The Mandate Fraud&nbsp;Scheme</a></li></ul></li><li><a class="toc-href" href="#the-attackers-tools" title="The attackers" tools'="">The attackers' tools</a></li><li><a class="toc-href" href="#how-to-defend-yourself" title="How to defend&nbsp;yourself">How to defend&nbsp;yourself</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Phishing is a type of scam in which the attacker disguises himself/herself as a trustworthy entity to make the victim perform an action. For example, the attacker could present himself as your bank, asking for your password. Typically, this is done via email or SMS.</p>
+<p>Phishing belongs to the bigger group of <strong>social engineering</strong> attacks. In Social Engineering, the abused weak points of a security system are not of technical nature, but the people within a system.</p>
+<p>After reading this article, you will know what phishing is. You will know several sub-types of phishing and how to prevent those attacks from affecting your organization. Let&rsquo;s go!</p>
+<h2 id="sub-types-of-phishing">Sub-Types of&nbsp;Phishing</h2>
+<p>In <strong>spear-phishing</strong> attacks, the attacker has a very specific target. In contrast to regular phishing attacks in which they just want to scam anybody, in spear-phishing they want YOU. This means the attacker will prepare for you. The attacker will know the names/habits of trustworthy people in your environment. If a spear-phishing attack targets an executive, it&rsquo;s also called <strong>whaling</strong>.</p>
+<p><strong>Catphishing</strong> or <strong>Catfishing</strong> attacks build a close personal relationship with the victim.</p>
+<h2 id="why-it-matters">Why it&nbsp;matters</h2>
+<ul>
+<li><strong>2011</strong>: <strong>RSA SecurID</strong> was affected by a phishing attack which cost them <strong>\$66.3 million USD</strong> (<a href="https://en.wikipedia.org/wiki/RSA_SecurID#March_2011_system_compromise">source</a>).</li>
+<li><strong>2015</strong>: In December in Ukraine, <strong>230,000 people were without electricity</strong> for up to six hours. This was done with a spear-phishing attack (<a href="https://en.wikipedia.org/wiki/December_2015_Ukraine_power_grid_cyberattack">source</a>)</li>
+<li><strong>2015</strong>: Xoom lost <strong>\$30.8 million USD by employee impersonation</strong> (<a href="https://www.reuters.com/article/us-xoom-fraud/xoom-says-30-8-million-transferred-fraudulently-to-overseas-accounts-idUSKBN0KE1WA20150105">source</a>).</li>
+<li><strong>2016</strong>: Crelan Bank lost <strong>70 million EUR</strong> by falling for a whale phishing attack (<a href="https://www.brusselstimes.com/news/belgium-all-news/36335/belgian-bank-crelan-hit-by-a-70-million-eur-fraud/">source</a>, <a href="https://www.standaard.be/cnt/dmf20160120_02079337">source</a>)</li>
+<li><strong>2016</strong>: The German car part manufacturer Leoni lost <strong>40 million EUR</strong> to a CEO scam. The scammer impersonated employees and asked others for strict confidentiality (<a href="https://www.faz.net/aktuell/wirtschaft/unternehmen/autozulieferer-leoni-um-millionensumme-betrogen-14390918.html">source</a>).</li>
+<li><strong>2016</strong>: FBI warns that CEO scams caused losses up to <strong>\$2.3 billion USD</strong> (<a href="https://www.fbi.gov/contact-us/field-offices/phoenix/news/press-releases/fbi-warns-of-dramatic-increase-in-business-e-mail-scams">source</a>)</li>
+<li><strong>2018</strong>: The plane part manufacturer FACC lost <strong>54 million EUR</strong>. The fraudsters impersonated the chairman of the board and asked for a strictly confidential transaction (<a href="https://www.reuters.com/article/us-facc-fraud-lawsuit/facc-sues-former-ceo-cfo-for-11-million-over-cyber-fraud-failings-idUSKBN1O91JY">source</a>, <a href="https://www.nachrichten.at/wirtschaft/wirtschaftsraumooe/Wie-der-FACC-50-Millionen-abhanden-kamen;art467,2109585">source 2</a>)</li>
+<li><strong>2018</strong>: The french cinema chain Path&eacute; lost <strong>19 million EUR</strong> (<a href="https://www.bankinfosecurity.com/blogs/french-cinema-chain-fires-dutch-executives-over-ceo-fraud-p-2681">source</a>)</li>
+<li><strong>2019</strong>: The actor Lincoln Lewis was impersonated by a woman from Australia. The victim knew Lewis from school. By chat messages, she was made to believe to get into a relationship with Lewis. The victim and the attacker exchanged intimate photos that were used to blackmail the victim. In the end, the <strong>victim committed suicide</strong> (<a href="https://www.abc.net.au/news/2019-04-09/lincoln-lewis-warns-of-social-media-catfish-dangers/10985118">source</a>)</li>
+<li><strong>2019</strong>: Google and Facebook lost <strong>123 million USD</strong> to scammers by falling for mandate fraud. The scammers forged emails (<a href="https://www.cnbc.com/2019/03/27/phishing-email-scam-stole-100-million-from-facebook-and-google.html">source 1</a>, <a href="https://www.independent.co.uk/news/world/americas/google-facebook-scam-fake-invoice-wire-fraud-guilty-a8840071.html">source 2</a>).</li>
+<li><strong>2020</strong>: Many different attackers use Amazon Prime Day to lure people into logging in at websites that imitate Amazon (<a href="https://www.securitymagazine.com/articles/93593-amazon-prime-day-leads-to-spike-in-phishing-attempts">source 1</a>, <a href="https://www.mcafee.com/blogs/consumer/consumer-threat-notices/amazon-prime-day-phishing-scams/">source 2</a>, <a href="https://portswigger.net/daily-swig/phishing-in-the-amazon-internet-shoppers-urged-to-look-out-for-prime-day-scams">source 3</a>)</li>
+</ul>
+<h2 id="how-phishing-works">How Phishing&nbsp;works</h2>
+<p>Social Engineering attacks always need a good understanding of how people think to be successful. There are a couple of well-known schemes.</p>
+<h3 id="the-grandson-fraud-scheme">The Grandson Fraud&nbsp;Scheme</h3>
+<p>This phishing attack targets elderly people. The scammer calls them and claims to be either their grandson or somebody close to their grandson. They claim to be in some kind of emergency situation. Maybe abroad and their stuff got stolen. Or in prison. Hence they put <strong>emotional pressure</strong> on the victim to prevent them from thinking about this situation.</p>
+<h3 id="the-ceo-fraud-scheme">The CEO Fraud&nbsp;Scheme</h3>
+<p>In CEO fraud, also called <strong>CEO spoofing</strong> or <strong>Business Email Compromise (BEC)</strong>, the attacker claims to be the CEO. They give reasons why money should be transferred to the people that can do those transfers. For example, he wants to buy gift cards for the employees as a Christmas present.</p>
+<p>In this case, employees are scammed. Time pressure is put on the employees. If questions from the employee are typically discouraged in the company culture, this type of fraud has a bigger chance to be successful. The attacker uses knowledge about internal information such as business partners or current projects.</p>
+<h3 id="the-mandate-fraud-scheme">The Mandate Fraud&nbsp;Scheme</h3>
+<p>The attacker claims to be a business partner of the attacked company. They might say that their bank details have changed. They might just send an invoice over a non-existing service.</p>
+<h2 id="the-attackers-tools">The attackers' tools</h2>
+<p><strong>Fake websites</strong> are likely the most commonly used tool. The attacker creates a website that looks identical to the original website of a bank, Amazon, or just any other interesting target. Once you enter your credentials, the attacker has them. They might forward you to the original website. You might wonder why you&rsquo;re not logged in, but nothing bad seemed to have happened. There are tools like site cloners available in <a href="https://en.wikipedia.org/wiki/Kali_Linux">Kali Linux</a> that make this kind of attack incredibly easy.</p>
+<p>The most useful technique to a phishing attacker is probably to forge a faked email sender's address. This is called <strong>email spoofing</strong>. Imagine if you received an email from your CEO asking for all credentials you have to check for potential alternatives to existing systems. You check the email, and the sender seems to be your CEO. Although it was not sent by him/her. You can read more about that in my dedicated article:</p>
+<p><a href="../email-spoofing/"><strong>Email Spoofing 😈</strong> <em>Email spoofing is the creation of emails with a forged sender address. Faking the senders&rsquo; address is often a part of a&hellip;</em></a></p>
+<p><strong>Deepfakes</strong> are another technique you must be aware of. It&rsquo;s a machine learning technique in which deep neural networks are used to create videos from still images. Imagine the attacker getting image and video footage of your CEO. Then they figure out when your boss is on vacation / not in the office. The attacker then calls you via video call. You might not know the number or the method of the call might look weird, but you can see your boss and hear his voice. The attacker then tells you that there will be a new CTO&hairsp;&mdash;&hairsp;but because the old one may not know about it, it has to be kept a secret. You should just give him as many permissions as possible, so that the new CTO gets a good impression of the overall system.</p>
+<p>It already happened: in 2024, an employee of the engineering firm Arup in Hong Kong transferred about 25 million USD after a video call with deepfakes of the CFO and other colleagues (<a href="https://edition.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk/index.html">source</a>).</p>
+<h2 id="how-to-defend-yourself">How to defend&nbsp;yourself</h2>
+<p>There are a couple of approaches to defend yourself and your organization:</p>
+<ol>
+<li><strong>Identification</strong>: Make it as hard as possible to impersonate you or your website. If possible, use cryptographic signatures in emails. Use certificates on websites. Make sure people know about certificates and what it means if a certificate is not valid.</li>
+<li><strong>Policy</strong>: Never ask your users for their passwords.</li>
+<li><strong>Least privilege</strong>: If people don&rsquo;t have many permissions, the harm they can do is limited. Keeping the permissions of people as restricted as possible is desirable from a security point of view.</li>
+<li><strong>Train people</strong>: Spread awareness of those attacks.</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>Every single organization and person is vulnerable to phishing attacks. There is no technical defense if people work around it. The best one can do is to raise people&rsquo;s awareness.</p>
+<p>If you want to get a simple understanding of how those scams can work, you could watch the Netflix series <a href="https://en.wikipedia.org/wiki/Jamtara_%E2%80%93_Sabka_Number_Ayega">Jamtara&hairsp;&mdash;&hairsp;Sabka Number Ayega</a>.</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="../password-hashing/">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <a href="../credential-stuffing/">Credential Stuffing</a> 😈🐝</li>
+<li>Part 16: <a href="../multi-factor-authentication/">Multi-Factor Authentication</a> (MFA/2FA) 😇</li>
+<li>Part 17: <a href="../redos/">ReDoS</a> 😈</li>
+<li>Part 18: <a href="../backdoors/">Backdoors</a> 😈</li>
+<li>Part 19: <strong>Phishing</strong> 😈</li>
+</ul>
+<p>The following articles are about to come:</p>
+<ul>
+<li>Secure Messaging 😇</li>
+<li>Cryptojacking 😈</li>
+<li>Backups 😇</li>
+<li>CSRF 😈</li>
+<li>Cookies 😇</li>
+<li>Clipboard Hijacking 😈</li>
+<li>Certificates 😇</li>
+<li>Content Security Policy (CSP) 😇</li>
+<li>Server-Side Request Forgery (SSRF) 😈</li>
+<li>JSON Web Tokens (JWT) 😇</li>
+<li>Social Engineering 😈</li>
+<li>Font Manipulation 😈</li>
+<li>(Sub)domain Takeover 😈</li>
+<li>Virtual Private Networks (VPNs) 😇</li>
+<li>Brute Force Attacks 😈</li>
+<li>Network Scanning 😈</li>
+<li>Mobile Device Management (MDM) 😇</li>
+<li>Cryptotrojans 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Race Condition Attacks in Blockchains 😈</li>
+<li>Network Separation 😇</li>
+<li>3 Applications of garbled fonts most developers don&rsquo;t know 😇</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

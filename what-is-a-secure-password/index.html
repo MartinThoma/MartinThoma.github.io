@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Cybersecurity for non-developers" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, Password, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/what-is-a-secure-password/" />
+<meta property="og:title" content="What Is a Secure Password?"/>
+<meta property="og:url" content="https://martin-thoma.com/what-is-a-secure-password/" />
+<meta property="og:description" content="Cybersecurity for non-developers" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-02-10T18:02:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/cybersecurity.png" />
+
+        <title>What Is a Secure Password?  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../what-is-a-secure-password/">What Is a Secure Password?</a></h1>
+    <p class="meta">
+<time datetime="2021-02-10T18:02:00+01:00">Feb 10, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#password-ref">Password
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>63</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-attackers-perspective" title="The Attacker&rsquo;s Perspective">The Attacker&rsquo;s Perspective</a><ul><li><a class="toc-href" href="#personalized-attack" title="Personalized Attack">Personalized Attack</a></li><li><a class="toc-href" href="#non-personalized-attack" title="Non-Personalized Attack">Non-Personalized Attack</a></li><li><a class="toc-href" href="#give-me-ze-toolz" title="Give me ze&nbsp;Toolz!">Give me ze&nbsp;Toolz!</a></li></ul></li><li><a class="toc-href" href="#a-recipe-for-secure-passwords-wikipedia" title="A recipe for Secure Passwords: Wikipedia">A recipe for Secure Passwords: Wikipedia</a></li><li><a class="toc-href" href="#diceware" title="Diceware">Diceware</a></li><li><a class="toc-href" href="#related-topics" title="Related Topics">Related Topics</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Passwords are the keys to the locks that secure our accounts: Your email, bank and investment account, social media, company portals, and many more use password-based authentication. They all ask you to create a secure password and sometimes give you rules like this:</p>
+<ul>
+<li>Minimum of 8 characters</li>
+<li>At least one digit, lower case letter, upper case letter, special character</li>
+<li>No consecutive 3 digits</li>
+</ul>
+<p>However, I have seen some non-developers struggle to find a good password. <strong>After reading this article, you should be able to come up with secure strong passwords that you can memorize</strong>.</p>
+<h2 id="the-attackers-perspective">The Attacker&rsquo;s Perspective</h2>
+<blockquote>
+<p>Feel free to ignore this (more technical) section and jump directly to the Secure Password recipe. This section is not required to understand how to create secure passwords.</p>
+</blockquote>
+<p>You want to protect yourself against two scenarios:</p>
+<ol>
+<li>The attacker wants to get access to your account. They can&rsquo;t break the web service, so they try to see if you used a bad password.</li>
+<li>The attacker broke a part of the web service. The password was stored as a hash (similar to encryption, but <a href="../encryption-vs-encoding-vs-hashing/">not the same</a>). They want to get your password from that hash.</li>
+</ol>
+<p>In both scenarios, the attacker might use the information they have from you or run a more general, non-personalized attack.</p>
+<h3 id="personalized-attack">Personalized Attack</h3>
+<p>Think about which information is easy to get from you:</p>
+<ul>
+<li>First and last name</li>
+<li>Name of children, partner, close friends, family, pets (e.g. via Facebook)</li>
+<li>Birthday of you/your partner</li>
+<li>Places you have lived at or which are important to you.</li>
+</ul>
+<p>All of those are for sure not secure. Not even when you combine that, e.g. a city you have lived in + your birth year.</p>
+<p>People and companies might get this information easily with social engineering. For example, think of those nice innocent online quizzes:</p>
+<ul>
+<li>&ldquo;Which Superhero Are You?&rdquo; can ask for your name, your birthday, pets.</li>
+<li>&ldquo;Are you and your partner compatible?&rdquo; and any other couple quiz can easily ask for birthdays, names, hobbies, important places, family structure, friends,&nbsp;&hellip;</li>
+</ul>
+<p>By providing half-interesting information which gets advertised on Twitter / Facebook, you can get first information about interesting employees:</p>
+<ul>
+<li>&ldquo;Download our e-book about SCRUM!&rdquo;&hairsp;&mdash;&hairsp;but fill in your name, employer, your role, and how long you&rsquo;re in that position first.</li>
+<li>&ldquo;5 actions to improve your remote office&rdquo;</li>
+</ul>
+<p>There are many other ways to gather a lot of information about people. I&rsquo;ll write a blog post about social engineering, I promise.</p>
+<h3 id="non-personalized-attack">Non-Personalized Attack</h3>
+<p>There are some words that people like to make use of in their passwords:</p>
+<ul>
+<li>Common English words: password, sex, admin</li>
+<li>Common English sentences: iloveyou</li>
+<li>Letter sequences: abc, asdf (also longer ones like abcd 🙄)</li>
+<li>Digit sequences: 1234</li>
+</ul>
+<p>Attackers use lists of leaked passwords. Troy Hunt collected <a href="https://www.troyhunt.com/the-773-million-record-collection-1-data-reach/">21 million leaked passwords</a> &mdash;&hairsp;all of them are insecure now.</p>
+<p>Additionally, there are dictionary attacks. Just as the term indicates, a dictionary is used to hack the password. These dictionaries are not simply used directly, but instead, simple combination rules are applied:</p>
+<ul>
+<li>Replace single characters with digits / special characters. Leetspeak is popular, e.g. replacing <code>a -&gt; @</code>, <code>o -&gt; 0</code>, <code>i -&gt; 1/!</code>, <code>t -&gt; 7</code>.</li>
+<li>Combining two words</li>
+</ul>
+<p>The point of those is that some rules are way more complex than others. For example, getting all 2-word combinations out of a 100k dictionary gives (100k)&sup2; = 10,000,000,000 possibilities. Replacing digits by the four rules above, assuming that every word has on average two of those gives about 4x the dictionary size. Hence only 400k possibilities. You want the attacker to go through many, hence taking two words is way more complex than replacing single characters.</p>
+<h3 id="give-me-ze-toolz">Give me ze&nbsp;Toolz!</h3>
+<p>You take some of your passwords and get the MD5 hash of them:</p>
+<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">"import hashlib as h; print(h.md5(b'love').hexdigest())"</span>
+<span class="n">b5c0b187fe309af0f4d35982fd961d7e</span>
+</code></pre></div>
+<p>Add them to a text file <code>hashes.txt</code>:</p>
+<div class="highlight"><pre><span></span><code>b5c0b187fe309af0f4d35982fd961d7e
+4d1f35512954cb227b25bbd92e15bc7b
+b339b1d1144a5f210e86e9833aca18ff
+d171e07e33050531aa70ad66f09ac142
+</code></pre></div>
+<p>Then install <a href="https://hashcat.net/hashcat/">hashcat</a>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>hashcat<span class="w">  </span><span class="c1"># on Mac using Homebrew</span>
+$<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>hashcat<span class="w">  </span><span class="c1"># on Ubuntu</span>
+</code></pre></div>
+<p>And run it with <a href="https://github.com/dwyl/english-words/blob/master/words.txt">this English wordlist</a>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>hashes.txt<span class="w"> </span>words.txt<span class="w"> </span>-r<span class="w"> </span>/usr/share/hashcat/rules/dive.rule<span class="w"> </span>-o<span class="w"> </span>cracked.txt<span class="w"> </span>-O
+
+<span class="c1"># -m 0: It's an MD5 hash</span>
+<span class="c1"># -a 0: Use the "straight" attack mode</span>
+<span class="c1"># -r /usr/share/hashcat/rules/dive.rule: Use those rules</span>
+<span class="c1">#             to derive passwords from given words</span>
+<span class="c1"># -O Limit password length</span>
+</code></pre></div>
+<p>On my 5-year-old laptop, it takes less than 1 second to crack the first 3 and about 16 seconds to crack the last one:</p>
+<div class="highlight"><pre><span></span><code><span class="n">b5c0b187fe309af0f4d35982fd961d7e</span><span class="o">:</span><span class="n">love</span>
+<span class="n">b339b1d1144a5f210e86e9833aca18ff</span><span class="o">:</span><span class="n">Cracking</span>
+<span class="mi">4</span><span class="n">d1f35512954cb227b25bbd92e15bc7b</span><span class="o">:</span><span class="n">cracking</span>
+<span class="n">d171e07e33050531aa70ad66f09ac142</span><span class="o">:</span><span class="n">Cr</span><span class="err">@</span><span class="n">ck1ng</span>
+</code></pre></div>
+<h2 id="a-recipe-for-secure-passwords-wikipedia">A recipe for Secure Passwords: Wikipedia</h2>
+<p>Now you might wonder how you actually come up with secure passwords. One simple method is to use a list of many words (30k or more) and pick 4 words at random. That gives (30k)⁴ = 810 &middot; 10&sup1;⁵.</p>
+<p>In comparison, most people do this: Pick one word out of maybe 30k words in your active vocabulary that have at least 6 characters, add one digit, and replace up to three characters, then there are about 30k &middot; 10 &middot; 2 &middot; 2 &middot; 2 = 2.4 &middot; 10⁶ possibilities. That is WAY less than 810 &middot; 10&sup1;⁵.</p>
+<p>Now assume it would take 1/10 second to crack 2.4 &middot; 10⁶. Then it would take 1070 years to crack the 4 random words. And it becomes way more extreme if you either pick more words or have a longer wordlist. Additionally, you can take a word list from your mother tongue. For example, if the Wikipedia in your language is big enough, you can use article names as the word list. As a random process to pick articles, you can click on &ldquo;random article&rdquo;.</p>
+<p>To summarize:</p>
+<ol>
+<li>Pick a Wikipedia which is in a language you know and has at least 50k articles (<a href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">comparison</a>)</li>
+<li>Click on &ldquo;random article&rdquo;. Write down the full name of the article.</li>
+<li>Repeat step (2) for 4 times in total.</li>
+</ol>
+<p>Now you have your password. For example, I would just have gotten <code>MojstranaFrederick WoltmannSoraruStorm Eleanor</code>. 46 characters&hairsp;&mdash;&hairsp;quite a beast. That is the biggest disadvantage of the Wikipedia Recipe for secure passwords.</p>
+<h2 id="diceware">Diceware</h2>
+<p><a href="https://en.wikipedia.org/wiki/Diceware">Diceware</a> uses exactly the same principle but uses a word list. The list contains 6⁵ = 7776 common English words. The process for generating a password is:</p>
+<ol>
+<li>You throw 5 dice and then you can look up one word</li>
+<li>Repeat that at least 6 times</li>
+</ol>
+<p>Here are some wordlists I can recommend:</p>
+<ul>
+<li><a href="https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt">English (5 dice)</a> by <a href="https://en.wikipedia.org/wiki/Electronic_Frontier_Foundation">EFF</a></li>
+<li><a href="https://theworld.com/~reinhold/diceware_german.txt">German (5 dice)</a> by Arnold Reinhold</li>
+<li><a href="https://theworld.com/~reinhold/DW-Espanol-1P.pdf">Spanish (5 dice)</a> by Manuel Palao</li>
+<li>and <a href="https://theworld.com/~reinhold/diceware.html">many more</a></li>
+</ul>
+<p>I got <code>basics-crawfish-undaunted-persuader-diagnosis-swimwear</code>. So 54 characters. You also don&rsquo;t want to type that often. But think about how hard this is to remember and how hard it is to remember many of the &ldquo;random&rdquo; passwords you come up with.</p>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><strong>Password Managers</strong>: You should definitely use a password manager! The main purpose of the password manager is to prevent password re-use. Every single service should have its own password. <strong>NEVER re-use a password</strong>. By using a password manager, you can automatically let it create super-strong passwords. And you only have to remember the password of the password manager.</li>
+<li><a href="../multi-factor-authentication/"><strong>Multi-Factor Authentication (MFA) / Two-Factor Authentication (2FA)</strong></a>: Some services allow you to use another factor to authenticate, e.g. an app or an SMS. This increases your security a lot. Use it.</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

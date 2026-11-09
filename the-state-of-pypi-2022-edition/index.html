@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Let’s see how the Python Package Index evolved in 2022" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, PyPI, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/the-state-of-pypi-2022-edition/" />
+<meta property="og:title" content="The State of PyPI — 2022 Edition"/>
+<meta property="og:url" content="https://martin-thoma.com/the-state-of-pypi-2022-edition/" />
+<meta property="og:description" content="Let’s see how the Python Package Index evolved in 2022" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2022-01-31T05:32:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2022/01/the-state-of-pypi-2022-edition-1.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="907" />
+
+        <title>The State of PyPI — 2022 Edition  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../the-state-of-pypi-2022-edition/">The State of PyPI — 2022 Edition</a></h1>
+    <p class="meta">
+<time datetime="2022-01-31T05:32:00+01:00">Jan 31, 2022</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#pypi-ref">PyPI
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#context-of-this-analysis" title="Context of this&nbsp;Analysis">Context of this&nbsp;Analysis</a></li><li><a class="toc-href" href="#methodology-data-cleaning" title="Methodology: Data&nbsp;Cleaning">Methodology: Data&nbsp;Cleaning</a></li><li><a class="toc-href" href="#ecosystems" title="Ecosystems">Ecosystems</a><ul><li><a class="toc-href" href="#web-frameworks" title="Web Frameworks">Web Frameworks</a></li><li><a class="toc-href" href="#machine-learning-and-data-analysis" title="Machine Learning and Data&nbsp;Analysis">Machine Learning and Data&nbsp;Analysis</a></li><li><a class="toc-href" href="#companies" title="Companies">Companies</a></li><li><a class="toc-href" href="#testing" title="Testing">Testing</a></li><li><a class="toc-href" href="#tooling" title="Tooling">Tooling</a></li><li><a class="toc-href" href="#tools-around-data-formats" title="Tools around data&nbsp;formats">Tools around data&nbsp;formats</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li></ul></li><li><a class="toc-href" href="#package-authors" title="Package Authors">Package Authors</a></li><li><a class="toc-href" href="#licenses" title="Licenses">Licenses</a></li><li><a class="toc-href" href="#big-packages" title="Big Packages">Big Packages</a></li><li><a class="toc-href" href="#ridiculous-stuff" title="Ridiculous Stuff">Ridiculous Stuff</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#file-names" title="File Names">File Names</a><ul><li><a class="toc-href" href="#readme" title="README">README</a></li><li><a class="toc-href" href="#license" title="License">License</a></li><li><a class="toc-href" href="#should-this-be-in-here" title="Should this be in&nbsp;here?">Should this be in&nbsp;here?</a></li></ul></li><li><a class="toc-href" href="#what-have-we-seen" title="What have we&nbsp;seen?">What have we&nbsp;seen?</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2022/01/the-state-of-pypi-2022-edition-1.jpg"><img alt="An overview of the keywords of Python packages. Created with wordcloud by Martin&nbsp;Thoma." height="454" src="../images/2022/01/the-state-of-pypi-2022-edition-1.jpg" width="800"/></a>
+<figcaption>An overview of the keywords of Python packages. Created with <a href="https://pypi.org/project/wordcloud/">wordcloud</a> by Martin Thoma.</figcaption>
+</figure>
+<p>PyPI, the python package index, is the default package repository for Python. It&rsquo;s completely open and free to use for anybody. Anybody can contribute packages. PyPI is also the default package index for Python: When you run <code>pip install flake8</code> the package manager will typically look <a href="https://pypi.org/">on PyPI</a> for flake8.</p>
+<p>What kind of packages are on PyPI? Continue to find out 😄</p>
+<h2 id="context-of-this-analysis">Context of this&nbsp;Analysis</h2>
+<p>It&rsquo;s the third time that I run such an analysis. The first was in January 2015 (<a href="../analyzing-pypi-metadata/">source</a>) and the second one was in January 2020 (<a href="../pypi-2020/">source</a>).</p>
+<h2 id="methodology-data-cleaning">Methodology: Data&nbsp;Cleaning</h2>
+<p>I&rsquo;ve essentially downloaded the complete data. Well, only the meta-data and the latest package versions. The <strong>metadata is about 3.4 GB</strong> of data and the latest versions of <strong>all packages are around 200 GB</strong> of data.</p>
+<p>As everybody can upload packages on PyPI, there are a lot of unusable packages.</p>
+<p>At the time of this data dump, there were 53,408 packages that classified themselves as Alpha-stage or even earlier. Several hundred packages had &ldquo;Example Author&rdquo; or similar in the author field. More than 800 package names contained the string &ldquo;example&rdquo;. Almost 2000 packages indicated that the readers were trying an example from a &ldquo;Head First&rdquo; book.</p>
+<p>A lot of packages never reach a point where they are useful to anybody. Even more are abandoned. I consider a package which isn&rsquo;t updated for more than a year abandoned. There were over 129k packages which didn&rsquo;t receive any edit in 2021 or 2022. This includes the PyPDF2 package which is still pretty wide-spread.</p>
+<p>All of those packages were removed and ignored in the follow-up analysis. This left <strong>78,950 packages</strong> (<a href="https://github.com/MartinThoma/algorithms/blob/master/PyPI/2022-01/pypi-packages.csv">complete list</a>). For those packages I could imagine that people actually use them.</p>
+<h2 id="ecosystems">Ecosystems</h2>
+<figure>
+<a href="../images/2022/01/the-state-of-pypi-2022-edition-3.png"><img alt="A lot of people build web services with the Flask framework. But it&rsquo;s not only that. A lot of people build extensions, tools, and training material around Flask as well. This is how you get ecosystems. Image by Martin&nbsp;Thoma." height="403" loading="lazy" src="../images/2022/01/the-state-of-pypi-2022-edition-3.png" width="800"/></a>
+<figcaption>A lot of people build web services with the Flask framework. But it&rsquo;s not only that. A lot of people build extensions, tools, and training material around Flask as well. This is how you get ecosystems. Image by Martin Thoma.</figcaption>
+</figure>
+<p>There are several ecosystems within Python. It&rsquo;s typically driven by one application or framework for which many people write extensions/plugins. In fact, there are so many ecosystems that I cannot enumerate them all. Hence I will only present the biggest ones. To be in those, the ecosystem has to have at least 100 packages that belong to it.</p>
+<p>Please remember that a huge number of packages typically means that the ecosystem is a bit older, but it can also mean that many important features are missing. I didn&rsquo;t analyze how mature those packages are or if they are maintained at all.</p>
+<h3 id="web-frameworks">Web Frameworks</h3>
+<figure>
+<a href="../images/2022/01/the-state-of-pypi-2022-edition-4.png"><img alt="FastAPI is a rising star in the world of Python web frameworks. Screenshot created via carbon.now.sh" height="429" loading="lazy" src="../images/2022/01/the-state-of-pypi-2022-edition-4.png" width="800"/></a>
+<figcaption>FastAPI is a rising star in the world of Python web frameworks. Screenshot created via <a href="https://carbon.now.sh/">carbon.now.sh</a></figcaption>
+</figure>
+<p>WSGI made it easy to create a web framework in Python. The biggest one for sure is <strong>Django</strong> (2,757 packages) with the batteries-included philosophy. Microframeworks try to provide the bare minimum. This category contains <strong>Flask</strong> (548 packages), <strong>FastAPI</strong> (182 packages), Tornado (50 packages), and <strong>Bottle</strong> (31 packages).</p>
+<p><strong>Plone</strong> (398 packages which contain either &ldquo;collective&rdquo; or &ldquo;plone&rdquo;) is a CMS just like <strong>Wagtail</strong> (92 packages) or <strong>Django-CMS</strong> (10 packages).</p>
+<p><a href="https://plotly.com/dash/"><strong>Dash</strong></a> (34 packages) is a framework for building data apps by plotly. I guess it&rsquo;s similar to <a href="https://streamlit.io/"><strong>streamlit</strong></a> (57 packages).</p>
+<h3 id="machine-learning-and-data-analysis">Machine Learning and Data&nbsp;Analysis</h3>
+<figure>
+<a href="../images/2022/01/the-state-of-pypi-2022-edition-5.png"><img alt="Creating neural networks with Keras is trivial. Keras uses Tensorflow under the hood. Screenshot created via carbon.now.sh" height="426" loading="lazy" src="../images/2022/01/the-state-of-pypi-2022-edition-5.png" width="800"/></a>
+<figcaption>Creating neural networks with Keras is trivial. Keras uses Tensorflow under the hood. Screenshot created via <a href="https://carbon.now.sh/">carbon.now.sh</a></figcaption>
+</figure>
+<p>In the machine learning space, we have ecosystems around the deep learning libraries <a href="https://pytorch.org/"><strong>Torch</strong></a> (735 packages), <strong>Keras</strong> (135 packages), and <a href="https://www.tensorflow.org/"><strong>Tensorflow</strong></a> (327 packages).</p>
+<p>For data analysis, there is <a href="https://jupyter.org/"><strong>Jupyter</strong></a> (850 packages) and <a href="https://pandas.pydata.org/"><strong>Pandas</strong></a> (383 packages).</p>
+<p>For robotic process automation (RPA), there is <a href="https://robotframework.org/"><strong>robotframework</strong></a> (108 packages).</p>
+<p>As general libraries, there is <strong>scikit</strong> (202 packages, including sklearn), <strong>numpy</strong> (248 packages), and <strong>scipy</strong> (68 packages).</p>
+<h3 id="companies">Companies</h3>
+<p>When a company provides popular services, developers will write supplementary packages to simplify their lives.</p>
+<p>For cloud computing, the dominant players are <strong>AWS</strong> (1,213 AWS/boto packages), <strong>Google Cloud Platform</strong> (59 packages), and <strong>Microsoft Azure</strong> (448 packages).</p>
+<p>Other packages are around <strong>Alibaba</strong> (474 packages), <strong>Discord</strong> (414 packages), <strong>Slack</strong> (100 packages), and <strong>Sentry</strong> (62 packages).</p>
+<h3 id="testing">Testing</h3>
+<figure>
+<a href="../images/2022/01/the-state-of-pypi-2022-edition-6.png"><img alt="pytest makes testing super easy. You just use the assert statement, but you get nice output that tells you what&rsquo;s going on. Don&rsquo;t miss my series on testing with Python&nbsp;😁" height="315" loading="lazy" src="../images/2022/01/the-state-of-pypi-2022-edition-6.png" width="800"/></a>
+<figcaption>pytest makes testing super easy. You just use the assert statement, but you get nice output that tells you what&rsquo;s going on. Don&rsquo;t miss my series on <a href="../unit-testing-basics/">testing with Python</a> 😁</figcaption>
+</figure>
+<p>The testing world pretty much consolidated around <strong>pytest</strong> (386 packages) for writing unit tests, <strong>mypy</strong> (484 packages) for type checking, and the static linter <strong>Flake8</strong> (125 packages).</p>
+<h3 id="tooling">Tooling</h3>
+<ul>
+<li>over 100 packages contain &lsquo;pip&rsquo;</li>
+<li>231 packages contain &lsquo;redis&rsquo;</li>
+<li>282 packages contain &lsquo;docker&rsquo;</li>
+</ul>
+<h3 id="tools-around-data-formats">Tools around data&nbsp;formats</h3>
+<p>Reading and writing data is a common and cumbersome task. There are several packages that simplify working with SQL (1,116 packages), JSON (1,064 packages), PDF (580 packages), and Markdown (381 packages).</p>
+<h3 id="other">Other</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Odoo">Odoo</a>: According to Wikipedia, Odoo is a suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management. 3,283 packages contain &lsquo;odoo&rsquo;.</li>
+<li>AsyncIO: Working in an asynchronous way has a couple of benefits that many people don&rsquo;t want to miss. However, switching from a synchronous implementation to an asynchronous one is not always that easy. 8313 packages or their descriptions contain &ldquo;aio&rdquo; or &ldquo;asyncio&rdquo;.</li>
+<li><a href="https://micropython.org/">MicroPython</a>: Did you know that CPython is only the most common implementation of the Python standard? MicroPython is another one that is tailored towards microcontrollers. There are 47 packages for this Python runtime.</li>
+</ul>
+<h2 id="package-authors">Package Authors</h2>
+<p>Who creates packages on PyPI?</p>
+<p>Sadly, the &ldquo;author&rdquo; meta field was not filled out for 3,995 packages. In several cases, it&rsquo;s also filled with nonsense that indicates that the package should probably not be taken seriously (521x Example Author). Others, like hfpython (473 packages)&hairsp;&mdash;&hairsp;Head First&hairsp;&mdash;&hairsp;might come from examples from learning material.</p>
+<p>There are a couple of organizations that created a lot of packages: Various <strong>Odoo</strong> Community Associations (combined 4,446 packages), <strong>Amazon</strong> Web Services (438 packages), <strong>Microsoft</strong> Corporation (272 packages), and Alibaba Cloud SDK (368 packages).</p>
+<p>There are also foundations like <strong>OpenStack</strong> (260 packages) and The <strong>Apache Software Foundation</strong> (152 packages). Even single contributors like Vlad Emelianov (307 packages, mostly type stubs for boto3) make notable amounts of packages.</p>
+<h2 id="licenses">Licenses</h2>
+<p>One of the pain points of single developers working in their free time on projects is to choose the proper license. It&rsquo;s not fun. It feels like work. But without having a clear license, it might be impossible for others to use your software.</p>
+<p>Many developers did not bother to give any license information (24,299 packages), some refer to a file (2,732). The most common choices are <strong>MIT</strong> (24,234), <strong>APACHE LICENSE 2.0</strong> (7,889), <strong>AGPL-3</strong> (4,193), <strong>BSD</strong> (2,474), <strong>GPLv3</strong> (2,751), <strong>BSD-3-CLAUSE</strong> (1,799). All other licenses are used by fewer than 1000 packages or in too many different spellings.</p>
+<h2 id="big-packages">Big Packages</h2>
+<p>75% of the packages on PyPI are below 56 KB in size.
+95% of the packages on PyPI are below 2,328 KB in size.
+99% of the packages on PyPI are less than 27 MB.</p>
+<p>You can see that a minority of packages consume most of the space. And the ones above 500 MB are:</p>
+<ul>
+<li><code>mxnet-cu102==1.7.0.post0</code>: 895 MB (<a href="https://pypi.org/project/mxnet-cu102/">pypi</a>)</li>
+<li><code>torch==1.4.0</code>: 753 MB (<a href="https://pypi.org/project/torch/#files">pypi</a>)</li>
+<li><code>daal-static==2021.2.3</code>: 623 MB (<a href="https://pypi.org/project/daal-static/#files">pypi</a>)</li>
+</ul>
+<p>The default limit is at 100 MB, but you can <a href="https://github.com/pypa/pypi-support/labels/limit%20request">ask for more</a>.</p>
+<h2 id="ridiculous-stuff">Ridiculous Stuff</h2>
+<p>The <a href="https://pypi.org/project/program-to-get-any-string-as-user-input-and-output-code-for-the-string-reverse-the-string-and-code-using-alphabet-position/">longest package name</a> has 122 characters. The same package has the longest release_url (152 characters), the longest package URL (148 characters).</p>
+<p>The <a href="https://pypi.org/project/softwarefabrica.django.utils/">longest version string</a> has 70 characters, the <a href="https://pypi.org/project/okapi/">longest summary</a> is 4570 characters long.</p>
+<p>Finally, something that looks serious: The <a href="https://pypi.org/project/khmer/">khmer package</a> lists 70 authors in 1105 characters.</p>
+<h2 id="security">Security</h2>
+<p>Open package repositories such as PyPI (but also Composer in PHP) have a problem with malicious packages and typo squatting.</p>
+<p>For PyPI, there are several examples such as jeIlyfish vs jellyfish and <a href="https://snyk.io/blog/malicious-packages-found-to-be-typo-squatting-in-pypi/">python3-dateutil vs dateutil</a>.</p>
+<p>It&rsquo;s hard to estimate how severe that issue is.</p>
+<p>I&rsquo;ve tried to find malware via clamscan, but I only got 45 false-positives (e.g. <a href="https://pypi.org/project/bgmi/">bgmi</a>, <a href="https://pypi.org/project/cp-mn-bd-01-mimicat/">cp-mn-bd-01-mimicat</a>). I&rsquo;ve checked those tar.gz files via <a href="https://www.virustotal.com/gui/home/upload">virustotal</a>.</p>
+<p>There are several attack vectors:</p>
+<ul>
+<li><strong>Typosquatting</strong>: Your developers want to use <code>jellyfish</code>, but do write <code>jelyfish</code> (just one &ldquo;l&rdquo;). While there are no ways to completely prevent it, one can add a link to the GitHub repository and the PyPI package in the README (e.g. <a href="https://pypi.org/project/flake8-simplify/">as a badge like here</a>). GitHub and its stars/forks allow you to reason at least a little bit easier which one is the correct one.</li>
+<li><strong>Dependency confusion</strong>: You have an internal package <code>bmw-ci</code>. It&rsquo;s not expected to be on pypi.org, but to be loaded from your internal package repository. However, an angry former employee knows that and uploads his version of that package on pypi. As pip searches first on pypi.org and then in your private repository, the attacker&rsquo;s package is installed.</li>
+<li><strong>Trojan horse</strong>: You&rsquo;re installing a package which has some nice functionality, but the author is an attacker.</li>
+<li><strong>Supply chain attack</strong>: You&rsquo;re making use of the package <code>awesome-foobar</code> and the author is a good guy. However, it&rsquo;s just a free-time project for that author. The author does not have the time or knowledge to take security seriously. An attacker figures out his password and uploads a new version of the package that contains malware.</li>
+</ul>
+<p>And many things that malicious software can do:</p>
+<ul>
+<li><strong>Data stealing malware</strong>: Grab ssh keys, get your crypto wallet keys, get your bank account passwords, log your passwords, send your private photos,&nbsp;&hellip;</li>
+<li><strong>Ransomware</strong>: Encrypting your data and demanding a ransom</li>
+<li><strong>Backdoors</strong>: Allowing the attacker to access your computer</li>
+</ul>
+<p>A serious issue with PyPI is that you cannot report packages easily (<a href="https://github.com/pypa/warehouse/issues/3896">#3896</a>). <em>Update:</em> Since 2024, PyPI has a &ldquo;Report project as malware&rdquo; button.</p>
+<h2 id="file-names">File Names</h2>
+<p>There are a couple of file names you would expect to appear in most packages: <code>__init__.py</code>, <code>PKG-INFO</code>, <code>setup.py</code>, <code>setup.cfg</code>. Let&rsquo;s see what else we&rsquo;ve got:</p>
+<h3 id="readme">README</h3>
+<p>It&rsquo;s most of the time a <code>README.md</code>. More than 3x the amount of <code>README.rst</code>.</p>
+<h3 id="license">License</h3>
+<p>Most people prefer <code>LICENSE</code> over <code>LICENSE.txt</code></p>
+<h3 id="should-this-be-in-here">Should this be in&nbsp;here?</h3>
+<p>People ship files that should not be in the package. The most obvious one is&nbsp;<code>.gitignore</code>, but also rendered documentation.</p>
+<h2 id="what-have-we-seen">What have we&nbsp;seen?</h2>
+<p>The Python ecosystem is thriving with several thousands of actively developed packages. It&rsquo;s a mix of single contributors, open organizations, and corporations who contribute.</p>
+<p>PyPI contains a lot of packages for <strong>data science</strong> and <strong>web development</strong>, but also <strong>security tools</strong>.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

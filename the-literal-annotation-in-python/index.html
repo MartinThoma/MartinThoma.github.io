@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Are you up-to-date with Python’s type annotation development?" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, mypy, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/the-literal-annotation-in-python/" />
+<meta property="og:title" content="The ‘Literal’ Annotation in Python"/>
+<meta property="og:url" content="https://martin-thoma.com/the-literal-annotation-in-python/" />
+<meta property="og:description" content="Are you up-to-date with Python’s type annotation development?" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-01-08T17:35:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/python.png" />
+
+        <title>The ‘Literal’ Annotation in Python  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../the-literal-annotation-in-python/">The ‘Literal’ Annotation in Python</a></h1>
+    <p class="meta">
+<time datetime="2021-01-08T17:35:00+01:00">Jan 8, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#mypy-ref">mypy
+            <span>4</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#literal-annotation-example" title="Literal Annotation Example">Literal Annotation Example</a></li><li><a class="toc-href" href="#enum-in-python" title="Enum in&nbsp;Python">Enum in&nbsp;Python</a></li><li><a class="toc-href" href="#pydantic-and-literal" title="Pydantic and&nbsp;Literal">Pydantic and&nbsp;Literal</a></li><li><a class="toc-href" href="#what-should-i-use-in-new-code" title="What should I use in new&nbsp;code?">What should I use in new&nbsp;code?</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">imputation</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">"fill0"</span><span class="p">,</span> <span class="s2">"fillmean"</span><span class="p">]</span>
+<span class="p">):</span> <span class="o">...</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"foo.txt"</span><span class="p">,</span> <span class="s2">"q"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
+</code></pre></div>
+<p>Python keeps developing via Python Enhancement Proposals (PEPs). <a href="https://www.python.org/dev/peps/pep-0586/">PEP 586</a> added a feature I love: Literal Types 😍</p>
+<p>After reading this article you will know how to use that feature.</p>
+<p>If you happen to be new to type annotations, I recommend reading my <a href="../type-annotations/">introduction to type annotations in Python</a>.</p>
+<h2 id="literal-annotation-example">Literal Annotation Example</h2>
+<p>The <code>Literal</code> type needs at least one parameter, e.g. <code>Literal["foo"]</code>. That means that the annotated variable can only take the string <code>"foo"</code>. If you want to accept <code>"bar"</code> as well, you need to write <code>Literal["foo", "bar"]</code>.</p>
+<p>A complete example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+<span class="c1"># If you are on Python 3.7 and upgrading is not an option,</span>
+<span class="c1">#   $ pip install typing_extensions</span>
+<span class="c1"># to install the backport. Then import it:</span>
+<span class="c1">#   from typing_extensions import Literal</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_bool_str</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"raise"</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"raise"</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"on"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"off"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">default</span> <span class="o">==</span> <span class="s2">"raise"</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"It's unclear: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<p>We could also have annotated <code>default</code> with <code>Union[str, bool]</code>, but that would allow a big range of other values and different behavior.</p>
+<p>Please note that you need to run <code>mypy</code> during development (best in your CI pipeline) to find such issues. It will NOT help you during runtime. Read my <a href="../type-annotations/">introduction to type annotations in Python</a> for more about that.</p>
+<h2 id="enum-in-python">Enum in&nbsp;Python</h2>
+<p>Instead of using a Literal type, you could use an enum:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DefaultBehaviour</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RAISE</span> <span class="o">=</span> <span class="s2">"raise"</span>
+    <span class="n">BOOL</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_bool_str</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">DefaultBehaviour</span> <span class="o">=</span> <span class="n">DefaultBehaviour</span><span class="o">.</span><span class="n">RAISE</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"on"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"off"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">default</span> <span class="o">==</span> <span class="n">DefaultBehaviour</span><span class="o">.</span><span class="n">RAISE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"It's unclear: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<p>You can see that this changes the code in multiple places. For this reason, it might be harder to use Enums for type annotations in an existing codebase.</p>
+<h2 id="pydantic-and-literal">Pydantic and&nbsp;Literal</h2>
+<p>When it comes to (de)serialization and data validation, I recently fell in love with <a href="https://pydantic-docs.helpmanual.io/">pydantic</a> 😍</p>
+<p>Let&rsquo;s test how pydantic deals with Literals:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">roles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">"Registered"</span><span class="p">,</span> <span class="s2">"Moderator"</span><span class="p">,</span> <span class="s2">"Admin"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
+    <span class="p">)</span>
+
+
+<span class="n">jon_doe</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">parse_obj</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Jon Doe"</span><span class="p">,</span> <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[]})</span>
+<span class="n">jon_skeet</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">parse_obj</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Jon Skeet"</span><span class="p">,</span> <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Registered"</span><span class="p">,</span> <span class="s2">"Admin"</span><span class="p">]}</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jon_skeet</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+
+<span class="c1"># This fails - as expected!</span>
+<span class="c1"># unexpected value; permitted: 'Registered', 'Moderator', 'Admin'</span>
+<span class="c1"># (type=value_error.const;</span>
+<span class="c1">#  given=foo;</span>
+<span class="c1">#  permitted=('Registered', 'Moderator', 'Admin')</span>
+<span class="c1"># )</span>
+<span class="n">User</span><span class="o">.</span><span class="n">parse_obj</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Jon Doe"</span><span class="p">,</span> <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">]})</span>
+</code></pre></div>
+<p>It works like a charm 🎉</p>
+<h2 id="what-should-i-use-in-new-code">What should I use in new&nbsp;code?</h2>
+<p>One important part of type annotations is editor support. You want the editor to be able to autocomplete as much as possible. For VS Code + Pylance, I can say that Enums give better autocompletion:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EnumRoles</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">REGISTERED</span> <span class="o">=</span> <span class="s2">"Registered"</span>
+    <span class="n">MODERATOR</span> <span class="o">=</span> <span class="s2">"Moderator"</span>
+    <span class="n">ADMIN</span> <span class="o">=</span> <span class="s2">"ADMIN"</span>
+
+
+<span class="n">LiteralRoles</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"Registered"</span><span class="p">,</span> <span class="s2">"Moderator"</span><span class="p">,</span> <span class="s2">"Admin"</span><span class="p">]</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">role_literal</span><span class="p">:</span> <span class="n">LiteralRoles</span>
+    <span class="n">role_enum</span><span class="p">:</span> <span class="n">EnumRoles</span>
+
+
+<span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"foo"</span><span class="p">,</span> <span class="n">role_literal</span><span class="o">=</span><span class="s2">"Moderator"</span><span class="p">,</span> <span class="n">role_enum</span><span class="o">=</span><span class="n">EnumRoles</span><span class="o">.</span><span class="n">MODERATOR</span><span class="p">)</span>
+</code></pre></div>
+<p>In principle, both allow the developer to see the list of allowed values. The editor support could be very similar&hairsp;&mdash;&hairsp;but it isn&rsquo;t. Hence I would prefer Enums for new code. It&rsquo;s not a strong preference, though.</p>
+<p>Here is a similar discussion for TypeScript: <a href="https://stackoverflow.com/q/49761972/562769">Difference between string enums and string literal types in TS</a></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

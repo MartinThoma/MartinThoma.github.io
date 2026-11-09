@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-labelledby="t d">
+<title id="t">Block structure of the Strassen algorithm</title>
+<desc id="d">Both n×n matrices A and B are split into four n/2×n/2 blocks. Strassen computes seven products M1 to M7 of sums of these blocks and combines them into the four blocks of C = A·B. The usual block multiplication needs eight products.</desc>
+<style>
+text{font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif}.mono,.mono tspan{font-family:ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace}
+.f-ink{fill:#1c2320}.s-ink{stroke:#1c2320}
+.f-muted{fill:#5b6660}.s-muted{stroke:#5b6660}
+.f-faint{fill:#9aa39e}.s-faint{stroke:#9aa39e}
+.f-hair{fill:#d4d7da}.s-hair{stroke:#d4d7da}
+.f-sunk{fill:#ebebed}.s-sunk{stroke:#ebebed}
+.f-bg{fill:#ffffff}.s-bg{stroke:#ffffff}
+.f-acc{fill:#1f7a45}.s-acc{stroke:#1f7a45}
+.f-soft{fill:#e0efe6}.s-soft{stroke:#e0efe6}
+.f-warn{fill:#b35c00}.s-warn{stroke:#b35c00}
+.f-softwarn{fill:#fbe9d7}.s-softwarn{stroke:#fbe9d7}
+.f-bad{fill:#b3261e}.s-bad{stroke:#b3261e}
+.f-softbad{fill:#f8dedc}.s-softbad{stroke:#f8dedc}
+.f-blue{fill:#2a78d6}.s-blue{stroke:#2a78d6}
+.f-softblue{fill:#dbe8f8}.s-softblue{stroke:#dbe8f8}
+.f-c1{fill:#2a78d6}.s-c1{stroke:#2a78d6}
+.f-c2{fill:#eb6834}.s-c2{stroke:#eb6834}
+.f-c3{fill:#1baf7a}.s-c3{stroke:#1baf7a}
+.f-c4{fill:#eda100}.s-c4{stroke:#eda100}
+.f-c5{fill:#e87ba4}.s-c5{stroke:#e87ba4}
+@media (prefers-color-scheme: dark){
+.f-ink{fill:#e7ede9}.s-ink{stroke:#e7ede9}
+.f-muted{fill:#9aa8a0}.s-muted{stroke:#9aa8a0}
+.f-faint{fill:#6b756f}.s-faint{stroke:#6b756f}
+.f-hair{fill:#3a3d44}.s-hair{stroke:#3a3d44}
+.f-sunk{fill:#26282e}.s-sunk{stroke:#26282e}
+.f-bg{fill:#1b1d22}.s-bg{stroke:#1b1d22}
+.f-acc{fill:#4fc07d}.s-acc{stroke:#4fc07d}
+.f-soft{fill:#1f3d2b}.s-soft{stroke:#1f3d2b}
+.f-warn{fill:#f0a050}.s-warn{stroke:#f0a050}
+.f-softwarn{fill:#4a3420}.s-softwarn{stroke:#4a3420}
+.f-bad{fill:#f07a70}.s-bad{stroke:#f07a70}
+.f-softbad{fill:#4a2422}.s-softbad{stroke:#4a2422}
+.f-blue{fill:#3987e5}.s-blue{stroke:#3987e5}
+.f-softblue{fill:#1d3150}.s-softblue{stroke:#1d3150}
+.f-c1{fill:#3987e5}.s-c1{stroke:#3987e5}
+.f-c2{fill:#d95926}.s-c2{stroke:#d95926}
+.f-c3{fill:#199e70}.s-c3{stroke:#199e70}
+.f-c4{fill:#c98500}.s-c4{stroke:#c98500}
+.f-c5{fill:#d55181}.s-c5{stroke:#d55181}
+}
+</style>
+<defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-ink" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-muted" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-acc" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-warn" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-bad" d="M0 0 L10 5 L0 10 z"/></marker><marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="f-blue" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+<rect x="80" y="24" width="60" height="60" rx="0" class="f-softblue s-blue" stroke-width="1.5" />
+<text x="110" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >A₁₁</text>
+<rect x="140" y="24" width="60" height="60" rx="0" class="f-soft s-acc" stroke-width="1.5" />
+<text x="170" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >A₁₂</text>
+<rect x="80" y="84" width="60" height="60" rx="0" class="f-softwarn s-warn" stroke-width="1.5" />
+<text x="110" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >A₂₁</text>
+<rect x="140" y="84" width="60" height="60" rx="0" class="f-softbad s-bad" stroke-width="1.5" />
+<text x="170" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >A₂₂</text>
+<text x="140" y="162" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >A</text>
+<text x="232" y="84" class="f-ink" font-size="34" dominant-baseline="central" text-anchor="middle" >·</text>
+<rect x="264" y="24" width="60" height="60" rx="0" class="f-softblue s-blue" stroke-width="1.5" />
+<text x="294" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >B₁₁</text>
+<rect x="324" y="24" width="60" height="60" rx="0" class="f-soft s-acc" stroke-width="1.5" />
+<text x="354" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >B₁₂</text>
+<rect x="264" y="84" width="60" height="60" rx="0" class="f-softwarn s-warn" stroke-width="1.5" />
+<text x="294" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >B₂₁</text>
+<rect x="324" y="84" width="60" height="60" rx="0" class="f-softbad s-bad" stroke-width="1.5" />
+<text x="354" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >B₂₂</text>
+<text x="324" y="162" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >B</text>
+<text x="416" y="84" class="f-ink" font-size="28" dominant-baseline="central" text-anchor="middle" >=</text>
+<rect x="450" y="24" width="60" height="60" rx="0" class="f-softblue s-blue" stroke-width="1.5" />
+<text x="480" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >C₁₁</text>
+<rect x="510" y="24" width="60" height="60" rx="0" class="f-soft s-acc" stroke-width="1.5" />
+<text x="540" y="54" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >C₁₂</text>
+<rect x="450" y="84" width="60" height="60" rx="0" class="f-softwarn s-warn" stroke-width="1.5" />
+<text x="480" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >C₂₁</text>
+<rect x="510" y="84" width="60" height="60" rx="0" class="f-softbad s-bad" stroke-width="1.5" />
+<text x="540" y="114" class="f-ink" font-size="17" dominant-baseline="central" text-anchor="middle" font-weight="600" >C₂₂</text>
+<text x="510" y="162" class="f-muted" font-size="16" dominant-baseline="central" text-anchor="middle" font-weight="700" >C</text>
+<text x="60" y="194" class="f-muted" font-size="14" dominant-baseline="central" font-weight="600" >7 multiplications</text>
+<text x="60" y="222" class="f-ink" font-size="16" dominant-baseline="central" >M₁ = (A₁₁ + A₂₂)(B₁₁ + B₂₂)</text>
+<text x="60" y="249" class="f-ink" font-size="16" dominant-baseline="central" >M₂ = (A₂₁ + A₂₂) B₁₁</text>
+<text x="60" y="276" class="f-ink" font-size="16" dominant-baseline="central" >M₃ = A₁₁ (B₁₂ − B₂₂)</text>
+<text x="60" y="303" class="f-ink" font-size="16" dominant-baseline="central" >M₄ = A₂₂ (B₂₁ − B₁₁)</text>
+<text x="60" y="330" class="f-ink" font-size="16" dominant-baseline="central" >M₅ = (A₁₁ + A₁₂) B₂₂</text>
+<text x="60" y="357" class="f-ink" font-size="16" dominant-baseline="central" >M₆ = (A₂₁ − A₁₁)(B₁₁ + B₁₂)</text>
+<text x="60" y="384" class="f-ink" font-size="16" dominant-baseline="central" >M₇ = (A₁₂ − A₂₂)(B₂₁ + B₂₂)</text>
+<text x="410" y="194" class="f-muted" font-size="14" dominant-baseline="central" font-weight="600" >additions only</text>
+<rect x="398" y="210" width="8" height="22" rx="2" class="f-softblue s-blue" stroke-width="1" />
+<text x="414" y="222" class="f-ink" font-size="16" dominant-baseline="central" >C₁₁ = M₁ + M₄ − M₅ + M₇</text>
+<rect x="398" y="237" width="8" height="22" rx="2" class="f-soft s-acc" stroke-width="1" />
+<text x="414" y="249" class="f-ink" font-size="16" dominant-baseline="central" >C₁₂ = M₃ + M₅</text>
+<rect x="398" y="264" width="8" height="22" rx="2" class="f-softwarn s-warn" stroke-width="1" />
+<text x="414" y="276" class="f-ink" font-size="16" dominant-baseline="central" >C₂₁ = M₂ + M₄</text>
+<rect x="398" y="291" width="8" height="22" rx="2" class="f-softbad s-bad" stroke-width="1" />
+<text x="414" y="303" class="f-ink" font-size="16" dominant-baseline="central" >C₂₂ = M₁ − M₂ + M₃ + M₆</text>
+</svg>

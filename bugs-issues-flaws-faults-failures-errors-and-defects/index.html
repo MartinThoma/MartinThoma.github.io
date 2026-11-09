@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="So many things that can go wrong" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Bugs, Software Engineering, Terminology, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/bugs-issues-flaws-faults-failures-errors-and-defects/" />
+<meta property="og:title" content="Bugs, Issues, Flaws, Faults, Failures, Errors, and Defects"/>
+<meta property="og:url" content="https://martin-thoma.com/bugs-issues-flaws-faults-failures-errors-and-defects/" />
+<meta property="og:description" content="So many things that can go wrong" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-09-04T17:48:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/09/bugs-issues-flaws-faults-failures-errors-and-defects-1.png" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="1150" />
+
+        <title>Bugs, Issues, Flaws, Faults, Failures, Errors, and Defects  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../bugs-issues-flaws-faults-failures-errors-and-defects/">Bugs, Issues, Flaws, Faults, Failures, Errors, and Defects</a></h1>
+    <p class="meta">
+<time datetime="2021-09-04T17:48:00+02:00">Sep 4, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#bugs-ref">Bugs
+            <span>8</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>85</span>
+</a></li>
+        <li><a href="../tags/#terminology-ref">Terminology
+            <span>7</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#unit-errors-imperial-vs-metric" title="Unit Errors&hairsp;&mdash;&hairsp;Imperial vs&nbsp;Metric">Unit Errors&hairsp;&mdash;&hairsp;Imperial vs&nbsp;Metric</a></li><li><a class="toc-href" href="#off-by-one-errors" title="Off-by-One Errors">Off-by-One Errors</a></li><li><a class="toc-href" href="#race-conditions" title="Race Conditions">Race Conditions</a></li><li><a class="toc-href" href="#uninitialized-resources" title="Uninitialized resources">Uninitialized resources</a></li><li><a class="toc-href" href="#non-functional-issues" title="Non-functional issues">Non-functional issues</a></li><li><a class="toc-href" href="#human-error" title="Human Error">Human Error</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2021/09/bugs-issues-flaws-faults-failures-errors-and-defects-1.png"><img alt="Issues are a pretty general term which I also like to use as a super category of the rest. An error is a mistake. If the mistake reaches the user, it is a fault. The fault is the cause of a failure. It&rsquo;s called defect if it&rsquo;s found during development time, bug when it&rsquo;s found while testing and failure when the user finds it. Image created by Martin&nbsp;Thoma." height="460" src="../images/2021/09/bugs-issues-flaws-faults-failures-errors-and-defects-1.png" width="800"/></a>
+<figcaption>Issues are a pretty general term which I also like to use as a super category of the rest. An error is a mistake. If the mistake reaches the user, it is a fault. The fault is the cause of a failure. It&rsquo;s called defect if it&rsquo;s found during development time, bug when it&rsquo;s found while testing and failure when the user finds it. Image created by Martin Thoma.</figcaption>
+</figure>
+<p>Bug, issue, flaw, fault, failure, error, and defect are often used synonymously, but there are differences:</p>
+<ul>
+<li>An <strong>error</strong> is a mistake, e.g. a programming error or a usage error. Not every mistake leads to follow-up issues.</li>
+<li>A <strong>defect</strong> is an error found during the development phase whereas a <strong>bug</strong> is a defect found during testing phase. Not all programming errors are detectable. Hence not all errors cause defects/bugs.</li>
+<li>A <strong>failure</strong> is when the system does not meet its requirements. It&rsquo;s an error that reached a user.</li>
+<li>A <strong>fault</strong> is the cause of a failure. It could be a programming error or it could be misuse of the system by the user.</li>
+<li>An <strong>issue</strong> can be anything&hairsp;&mdash;&hairsp;even something that was specified and is correct according to the specification. It might be something that bothers the user or something that makes development harder. It could be a design choice that leads to errors.</li>
+<li>A <strong>flaw</strong> typically refers to an issue in the architecture of the software or the design / specification of the overall system. Flaws are not directly wrong, but cause issues.</li>
+</ul>
+<p>For example, if you put Diesel in a gasoline car, the car will stop working. The fact that the motor isn&rsquo;t working anymore is a failure. The fault was to put Diesel in the car. Users and testers typically report failures, developers need to find the faults.</p>
+<p>Sources: <a href="https://www.360logica.com/blog/difference-between-defect-error-bug-failure-and-fault/">360logica.com</a>, <a href="https://sqa.stackexchange.com/a/26838/4288">ISTQB foundation level material</a>, <a href="https://stackoverflow.com/q/6323049/562769">Understanding what Fault, Error and Failure mean</a>, <a href="https://softwareengineering.stackexchange.com/q/215687/25699">Difference between bug, defect and flaw</a>, <a href="https://www.synopsys.com/blogs/software-security/security-flaws-vs-bugs/">Security bugs and flaws</a></p>
+<p>Let&rsquo;s use all of those words in one scenario: Imagine a car driver who goes to a mechanic complaining that the car does not run. The user reports a failure. <strong>The car failed to run</strong>. The technician inspects the car and confirms it. He figures out that there is Diesel in the gasoline engine&hairsp;&mdash;&hairsp;he identified the cause: It&rsquo;s the user&rsquo;s <strong>fault&hairsp;&mdash;&hairsp;the cause</strong> of the failure is that they put Diesel in the gasoline engine! Now we try to find the reason why the fault was made. It was <strong>human error</strong>&hairsp;&mdash;&hairsp;the driver was not paying attention. But <strong>it&rsquo;s an issue</strong> that you can put Diesel in a gasoline engine at all.</p>
+<p>Let&rsquo;s look at some examples of interesting or common programming errors!</p>
+<h2 id="unit-errors-imperial-vs-metric">Unit Errors&hairsp;&mdash;&hairsp;Imperial vs&nbsp;Metric</h2>
+<p>When you deal with physical systems, units matter. It matters if you drive 100 miles or 100 km per hour. The <a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a> team learned that the hard way: One team used imperial units while the other one used metric units. This mismatch in communication between two software components brought the spacecraft too close to Mars, where it was destroyed in the atmosphere. It&rsquo;s a loss of 327.6 million USD.</p>
+<p>This type of error can be prevented by using unit libraries like <a href="https://pint.readthedocs.io/en/latest/">Python&rsquo;s pint</a> that do unit conversions for you. Once again, strong types are the rescue 😉</p>
+<h2 id="off-by-one-errors">Off-by-One Errors</h2>
+<p>Off-by-one errors are super common: Less than or less than or equal? Greater than or greater than or equal? Less or greater? They are logic errors that can often be found by calling the function with example input and checking the actual output against the expected output. Those off-by-one errors can also easily lead to infinite loops.</p>
+<p>Off-by-one errors can be detected by good unit tests. Mutation testing can help to make the test suite detect those:</p>
+<p><a href="../mutation-testing/"><strong>Mutation Testing with Python</strong> <em>Test the tests &mdash; automatically, by applying common mistakes</em></a></p>
+<h2 id="race-conditions">Race Conditions</h2>
+<p>A race condition occurs when two or more threads / processes work on the same data. Suddenly the timing when which part of which process executes becomes important. If you&rsquo;re lucky, it could be that everything works as desired. But if the timing is bad, several phenomena can occur:</p>
+<ul>
+<li>Dirty Read</li>
+<li>Non-repeatable reads</li>
+<li>Phantom Read</li>
+</ul>
+<p>In the database world you can choose between different transaction isolation levels to prevent those, such as REPEATABLE READ or SERIALIZABLE (<a href="../how-concurrency-can-break-your-software/">more details</a>).</p>
+<p>Those errors are notoriously hard to find, because they depend on the timing of multiple systems. For this reason, they are also sometimes called <a href="https://en.wikipedia.org/wiki/Heisenbug">Heisenbugs</a>: If you inspect them, they are gone.</p>
+<h2 id="uninitialized-resources">Uninitialized resources</h2>
+<p>Uninitialized resources (e.g. Nullpointer Exception or <code>KeyError</code> in Python) I think are mostly covered by line coverage in unit tests and type checking tools like mypy.</p>
+<h2 id="non-functional-issues">Non-functional issues</h2>
+<p>One of the most common non-functional bugs is that the code is <strong>too slow</strong>. You can get a grasp of this with <code>pytest-benchmark</code>, but the problem is that it depends on the hardware and what you run at the same time on the machine.</p>
+<p>Another one I see often with browsers is that it is <strong>too memory-intensive</strong>. I guess that is a problem for smartphones as well.</p>
+<p>Speaking of smartphones, <strong>too power-intensive</strong> is certainly another one.</p>
+<h2 id="human-error">Human Error</h2>
+<p>Stating the root cause of a failure is human error is lazy in my opinion. It often means we give up on improving the system. However, I think distinguishing four types of &ldquo;human error&rdquo; might lead to more interesting conclusions:</p>
+<ul>
+<li><strong>Slips</strong>&hairsp;&mdash;&hairsp;Failures of Attention: Maybe we need to make a warning more prominent, remove clutter from an interface, or have more people for the job.</li>
+<li><strong>Lapses</strong>&hairsp;&mdash;&hairsp;Failures of Memory: If people forgot to do something, it might be that they have too many things to remember or that it was too long ago. Having training more often or simplifying the work could help.</li>
+<li><strong>Mistakes</strong>&hairsp;&mdash;&hairsp;Unintentional decision making errors: If people break a rule or procedure, they might lack knowledge or understanding about the process.</li>
+<li><strong>Violation</strong>&hairsp;&mdash;&hairsp;Intentionally doing the wrong thing: If people break a rule or procedure on purpose, they might not be aware of the consequences or their normal workflow would be significantly slower if they followed the rules all the time.</li>
+</ul>
+<p>The UK Health and Safety Executive created an overview for <a href="https://www.hse.gov.uk/construction/lwit/assets/downloads/human-failure.pdf">Understanding Human Failure</a>.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

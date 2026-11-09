@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--- Static HTML!--->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Classify</title>
+
+    <!-- Startup configuration -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fallback application metadata for legacy browsers -->
+    <meta name="application-name" content="Write Math">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" sizes="196x196" href="nice-highres.png">
+    <link rel="icon" sizes="128x128" href="niceicon.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="niceicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="niceicon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  };
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.1/es5/startup.js">
+</script>
+    <style>
+        @font-face {
+            font-family: 'STIXGeneral';
+            src:
+            url('fonts/STIXGeneral.woff') format('woff');
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'STIXNonUnicode';
+            src:
+            url('fonts/STIXNonUniIta.woff') format('woff');
+            font-style: italic;
+        }
+    </style>
+        <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
+<script type='text/javascript'>
+    var lines = [];
+    var secret = get_secret();
+    var record_id = 0;
+
+    function get_secret() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for( var i=0; i < 32; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    function accept(id) {
+        $("#button"+id).attr("onclick", "unaccept("+id+");");
+        $("#button"+id).addClass('btn-success');
+        $.ajax({
+          type: "POST",
+          url: "../api/set-accept-partial.php",
+          data: {'symbol_id': id, 'raw_data_id': record_id, 'strokes': 'ALL'},
+          success: function(data)
+            {
+                console.log(data);
+            },
+          dataType: "json",
+          error: function(e) {
+            console.log(e);
+          }
+        });
+    }
+
+    function unaccept(id) {
+        $("#button"+id).attr("onclick", "accept("+id+");");
+        $("#button"+id).removeClass('btn-success');
+        $.ajax({
+          type: "POST",
+          url: "../api/set-unaccept-partial.php",
+          data: {'symbol_id': id, 'raw_data_id': record_id, 'strokes': 'ALL'},
+          success: function(data)
+            {
+                console.log(data);
+            },
+          dataType: "json",
+          error: function(e) {
+            console.log(e);
+          }
+        });
+    }
+
+    window.onload = function() {
+        var canvas = new fabric.Canvas('sheet');
+        canvas.isDrawingMode = true;
+        canvas.freeDrawingBrush.width = 5;
+        canvas.freeDrawingBrush.color = "#ff0000";
+        canvas.on('mouse:down', startRecording);
+
+        function startRecording(event) {
+            // directly add first point
+            var x = event.e.x;
+            var y = event.e.y;
+            var time = new Date().getTime();
+            if (typeof(x) != 'number') {
+                console.log(event);
+                x = event.e.screenX;
+                y = event.e.screenY;
+            }
+            if (typeof(x) != 'number') {
+                x = event.e.touches[0].clientX;
+                y = event.e.touches[0].clientY;
+            }
+            var line = [];
+            line.push({
+                x: x,
+                y: y,
+                time: time
+            });
+            canvas.on("mouse:move", recordMoment);
+            canvas.on("mouse:up", stopRecording);
+
+            function recordMoment(event) {
+                var x = event.e.x;
+                var y = event.e.y;
+                var time = new Date().getTime();
+                if (typeof(x) != 'number') {
+                    x = event.e.screenX;
+                    y = event.e.screenY;
+                }
+                if (typeof(x) != 'number') {
+                    x = event.e.touches[0].clientX;
+                    y = event.e.touches[0].clientY;
+                }
+                line.push({
+                    x: x,
+                    y: y,
+                    time: time
+                });
+            }
+
+            function stopRecording() {
+                lines.push(line);
+                canvas.off("mouse:move", recordMoment);
+                canvas.off("mouse:up", stopRecording);
+                $.ajax({
+                  type: "POST",
+                  url: "http://46.101.148.233/test.php",
+                  data: {'secret': secret, 'classify': JSON.stringify(lines)},
+                  success: function(data)
+                    {
+                        $('#resultlink').removeClass('invisible');
+                         var content = "<table class='table' role='table' name='resulttable' id='resulttable'>";
+                         content += "<thead><tr><th>&alpha;</th><th>&alpha;</th><th>LaTeX</th><th>%</th><th>accept</th></tr></thead><tbody>";
+                         $.each(data, function(index, value) {
+                            probability = value['probability'];
+                            var symbollistrender = value['semantics'].split(";;");
+                            var latex_complete = value['complete_latex'];
+                            var rendered = "";
+                            for (var i = 0; i < symbollistrender.length; i++) {
+                                var arr = symbollistrender[i].split(";");
+                                var system_id = arr[0];
+                                var latex = arr[1];
+                                var unicode_code_point = arr[2];
+                                var font = arr[3];
+                                var font_style = arr[4];
+                                rendered += "<span style='font-family:"+font+";font-style:"+font_style+"'>&#" + unicode_code_point + ";</span>";
+                            };
+
+                            content += "<tr><td>"+rendered+"</td><td>$$"+ latex_complete + "$$</td><td><input id=\"inptxt"+system_id+"\" class=\"form-control\" value='"+ latex_complete + "' disabled/></td><td style='text-align:right'>" + parseFloat(probability*100).toFixed(2) + "</td><td><div class='btn-group' role='group' aria-label='accept'><button type='button' id='button"+system_id+"' class='btn btn-default' aria-label='Left Align' onclick='accept("+system_id+")' data-clipboard-text='"+ latex + "'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></button></div></td></tr>";
+                         });
+                         content += "</tbody></table>";
+                         document.getElementById('classification-results').innerHTML = content;
+
+
+                         $.each(data, function(index, value) {
+                             $.each(value,
+                                    function(symbolbla, probability) {
+                                        var arr = symbolbla.split(";");
+                                        var system_id = arr[0];
+                                        var latex = arr[1];
+                                        var unicode_code_point = arr[2];
+                                        var font = arr[3];
+                                        var font_style = arr[4];
+                                            var client = new ZeroClipboard(document.getElementById("button"+system_id));
+                                    })
+                         });
+                         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                    },
+                  dataType: "json",
+                  error: function(e) {
+                    console.log(e);
+                  }
+                });
+
+
+                // Save data
+/*                $.ajax({
+                  type: "POST",
+                  url: "../api/save-data.php",
+                  data: {'data': JSON.stringify(lines),
+                         'record_id': record_id,
+                         'secret': secret}, // user-agent? other information?
+                  success: function(data)
+                    {
+                        console.log("received data:");  // record_id
+                        console.log(data);
+                        record_id = data;
+                        $('#drawing_info_page').removeAttr('disabled');
+                        $('#download_png_link').removeAttr('disabled');
+                        if ($('#drawing_info_page').hasClass('btn-disabled')) {
+                            $('#drawing_info_page').removeClass('btn-disabled');
+                            $('#drawing_info_page').attr('href', '../view/?raw_data_id='+record_id);
+                        }
+                        if ($('#download_png_link').hasClass('btn-disabled')) {
+                            $('#download_png_link').removeClass('btn-disabled');
+                        }
+                    },
+                  dataType: "json",
+                  error: function(e) {
+                    console.log(e);
+                  }
+                });*/
+            }
+        }
+
+        $("#resultlink").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#resulttable").offset().top - 100
+            }, 600);
+        });
+    }
+
+
+    function addCanvas() {
+        var drawnJSON = document.getElementById('drawnJSON');
+        drawnJSON.value = JSON.stringify(lines);
+        return true;
+    }
+
+    function get_png() {
+        var canvas = document.getElementById("sheet");
+        var img    = canvas.toDataURL("image/png");
+        var adownload = document.getElementById("download_png_link");
+        adownload.href=img;
+    }
+</script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://write-math.com">Write Math</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li   ><a href="http://write-math.com/search">Search</a></li>
+            <li ><a href="http://write-math.com/ranking">Ranking</a></li>
+            <li   ><a href="http://write-math.com/about">About</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="btn-toolbar pull-right">
+    <a href="#" class="btn btn-primary invisible visible-xs" id="resultlink"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> Results</a>
+</div>
+        <h1>Classify</h1>
+      </div>
+                <div class="row">
+        <div class="col-md-6">
+            <form method="post" onsubmit="$('button').prop('disabled', true);return addCanvas();" id="form">
+            <input type="hidden" id="drawnJSON" name="drawnJSON" value="" />
+            <canvas id="sheet" width="400" height="400" style="border:1px solid black;width:400px;height:400px;"></canvas>
+            <div class="btn-group" role="group" aria-label="...">
+<!--                 <button type="submit" class="btn btn-success">Submit</button> -->
+                <a class="btn btn-default btn-disabled" onclick="get_png()" download="symbol.png" id="download_png_link" disabled><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Get PNG</a>
+                <a class="btn btn-default btn-disabled" id="drawing_info_page" disabled><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Drawing</a>
+                <a href="?formula_id=" class="btn btn-danger">Clear</a>
+            </div>
+            </form>
+
+            <h2>Mixed Content Issue</h2>
+            <p>My blog uses https, but the server on which I classify uses http. This is called "mixed content" and it is blocked, as you might give information away. In this case, the only information is your pen-strokes. I will fix this issue, but in between you can disable the check in your browser.</p>
+            <h3>Chrome</h3>
+            <p>Follow <a href="https://stackoverflow.com/a/24434461/562769">these instructions</a></p>
+            <h3>Firefox</h3>
+            <p>Go to <code>about:config</code> and enter <code>security.mixed_content.block_active_content</code>. Set the value to <b>false</b></p>
+        </div>
+        <div class="col-md-6" id="classification-results"></div>
+    </div>
+    </div>
+
+    <script type='text/javascript'>
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+
+        width *= 0.8;
+        height *= 0.8;
+
+        if (width > 400) {
+            width = 400;
+        }
+
+        if (height > 400) {
+            height = 400;
+        }
+
+        var canvas = document.getElementById("sheet");
+        canvas.width = width;
+        canvas.height = height;
+    </script>
+    <script src="vendor/zeroclipboard/zeroclipboard/dist/ZeroClipboard.min.js"></script>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      </body>
+</html>

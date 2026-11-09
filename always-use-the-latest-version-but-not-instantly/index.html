@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="People don’t make security advisories. They might not even explicitly state that there was/is a security issue." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Software Engineering, Security, Software Versioning, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/always-use-the-latest-version-but-not-instantly/" />
+<meta property="og:title" content="Always use the latest version, but not instantly"/>
+<meta property="og:url" content="https://martin-thoma.com/always-use-the-latest-version-but-not-instantly/" />
+<meta property="og:description" content="People don’t make security advisories. They might not even explicitly state that there was/is a security issue." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-07-06T19:49:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/development.png" />
+
+        <title>Always use the latest version, but not instantly  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../always-use-the-latest-version-but-not-instantly/">Always use the latest version, but not instantly</a></h1>
+    <p class="meta">
+<time datetime="2023-07-06T19:49:00+02:00">Jul 6, 2023</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#security-ref">Security
+            <span>63</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>85</span>
+</a></li>
+        <li><a href="../tags/#software-versioning-ref">Software Versioning
+            <span>3</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#always-the-latest-or-dont-touch-running-systems" title="&ldquo;Always the latest&rdquo; or &ldquo;don&rsquo;t touch running systems&rdquo;?">&ldquo;Always the latest&rdquo; or &ldquo;don&rsquo;t touch running systems&rdquo;?</a></li><li><a class="toc-href" href="#no-1-small-updates-are-less-painful-than-big-ones" title="&numero; 1: Small updates are less painful than big&nbsp;ones">&numero; 1: Small updates are less painful than big&nbsp;ones</a></li><li><a class="toc-href" href="#no-2-security-implications-are-not-always-clear" title="&numero; 2: Security implications are not always&nbsp;clear">&numero; 2: Security implications are not always&nbsp;clear</a></li><li><a class="toc-href" href="#no-3-mixed-updates" title="&numero; 3: Mixed&nbsp;updates">&numero; 3: Mixed&nbsp;updates</a></li><li><a class="toc-href" href="#why-i-dont-instantly-use-the-latest-version" title="Why I don&rsquo;t instantly use the latest&nbsp;version">Why I don&rsquo;t instantly use the latest&nbsp;version</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>This is a warning to my fellow software developers. I&rsquo;m writing this article as the current maintainer of pypdf and PyPDF2, probably the most widely used PDF packages in the Python ecosystem. At the same time, I&rsquo;m working as a lead developer at a FinTech company and was working as a software engineer consultant for several years.</p>
+<p>My experience is mainly from the Python ecosystem, but the same ideas are true for any programming language with anonymously developed and shared packages. That especially includes JavaScript, Java, PHP, Ruby, and Rust.</p>
+<h2 id="always-the-latest-or-dont-touch-running-systems">&ldquo;Always the latest&rdquo; or &ldquo;don&rsquo;t touch running systems&rdquo;?</h2>
+<p>Almost all software developers use third-party libraries to create their software systems. It&rsquo;s necessary. At the same time, I think it&rsquo;s completely impossible for anybody to review all the code properly. It&rsquo;s already hard to just check the changelog thoroughly to make sure the updates don&rsquo;t break anything in your own software.</p>
+<p>In that environment, you might be tempted to stick with <strong>the &ldquo;don&rsquo;t touch running systems&rdquo; philosophy</strong>. You only make an update when it&rsquo;s absolutely necessary. That means when you need new functionality, when the package you use does not work with other new packages, or when there is a bug or security issue that affects you.</p>
+<p>In contrast, <strong>the &ldquo;always use the latest version&rdquo; philosophy</strong> is to always try to update. Try to use the latest version&hellip; but not right away. In this article I&rsquo;ll explain why I strongly suggest going with this.</p>
+<h2 id="no-1-small-updates-are-less-painful-than-big-ones">&numero; 1: Small updates are less painful than big&nbsp;ones</h2>
+<p>Software evolves over time. When you make the small updates, you might not even recognize the tiny adjustments you make to your software.</p>
+<p>Professional projects like Django have extensive CHANGELOGs and <a href="https://docs.djangoproject.com/en/dev/internals/release-process/#deprecation-policy">a deprecation process</a>. pypdf has <a href="https://pypdf.readthedocs.io/en/latest/dev/deprecations.html">one as well</a>. If you look at the warnings, you will be able to make the change before it breaks stuff. That doesn&rsquo;t work if you upgrade several major versions at once.</p>
+<h2 id="no-2-security-implications-are-not-always-clear">&numero; 2: Security implications are not always&nbsp;clear</h2>
+<p>Parsing PDF files is pretty hard as the standard is so big. PDF viewers are not strict about the standard, just like browsers are not strict about the HTML standard either. That raises the expectation of users that PDF libraries also handle broken PDFs gracefully, if possible.</p>
+<p>In that context, pypdf had infinite loops a couple of times. If you use them in a script that you execute, it&rsquo;s not too bad. You just interrupt the script and you&rsquo;re fine. But if you&rsquo;re using it on a web server and people can trigger this, it can use your CPU. That raises the risk of a Denial of Service attack and thus breaking Availability.</p>
+<p>When I became the maintainer of pypdf, it was not immediately clear to me that an infinite loop would have this implication. Also, what should I do with that knowledge?</p>
+<p>Now I know that I need to <a href="https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories">create a Security Advisory</a> (<a href="https://github.com/py-pdf/pypdf/security/advisories/GHSA-4vvm-4w3v-6mr8">example</a>): This will let your users know that there is a potentially severe issue. Attackers will also know, but they might also have that knowledge already. The security advisory will also make Dependabot and similar tools trigger an update alert for your users.</p>
+<h2 id="no-3-mixed-updates">&numero; 3: Mixed&nbsp;updates</h2>
+<p>There are tons of projects out there which have only one, maybe two regularly contributing open source developers. They don&rsquo;t have the resources to manage multiple major versions. If there is a known issue, it&rsquo;s fixed in the latest version. Previous versions might also be affected, but don&rsquo;t receive an update.</p>
+<p>Big projects like Django and Ubuntu have the resources to support multiple versions. Small ones don&rsquo;t. And even for the big ones I would be a bit suspicious if that always works.</p>
+<h2 id="why-i-dont-instantly-use-the-latest-version">Why I don&rsquo;t instantly use the latest&nbsp;version</h2>
+<p>Testing is hard and the test coverage of projects is mixed. For huge projects like Python and Django I typically wait until the first patch-update is out. So I wouldn&rsquo;t use <code>django==5.0.0</code>, but wait for <code>django==5.0.1</code>.</p>
+<p>That way others have stumbled over the issues and the community fixed them before I need to do it. At least on my production systems, I don&rsquo;t want those surprises. On testing systems or private projects I prefer to take the latest and greatest 😄</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

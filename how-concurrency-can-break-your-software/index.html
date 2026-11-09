@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Race conditions related to insufficient transaction isolation" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Database, Multithreading, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/how-concurrency-can-break-your-software/" />
+<meta property="og:title" content="How Concurrency can Break your Software"/>
+<meta property="og:url" content="https://martin-thoma.com/how-concurrency-can-break-your-software/" />
+<meta property="og:description" content="Race conditions related to insufficient transaction isolation" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-10-14T16:09:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/10/how-concurrency-can-break-your-software-2.png" />
+<meta property="og:image:width" content="1893" />
+<meta property="og:image:height" content="1005" />
+
+        <title>How Concurrency can Break your Software  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../how-concurrency-can-break-your-software/">How Concurrency can Break your Software</a></h1>
+    <p class="meta">
+<time datetime="2021-10-14T16:09:00+02:00">Okt 14, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#database-ref">Database
+            <span>13</span>
+</a></li>
+        <li><a href="../tags/#multithreading-ref">Multithreading
+            <span>4</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-basics" title="The Basics&nbsp;📚">The Basics&nbsp;📚</a></li><li><a class="toc-href" href="#do-it-yourself" title="Do it Yourself! 🔨">Do it Yourself! 🔨</a></li><li><a class="toc-href" href="#dirty-reads-reading-uncommitted-data" title="Dirty Reads: Reading uncommitted data">Dirty Reads: Reading uncommitted data</a></li><li><a class="toc-href" href="#non-repeatable-reads" title="Non-repeatable Reads&nbsp;🤷">Non-repeatable Reads&nbsp;🤷</a></li><li><a class="toc-href" href="#phantom-reads" title="Phantom Reads&nbsp;👻">Phantom Reads&nbsp;👻</a></li><li><a class="toc-href" href="#lost-update" title="Lost Update">Lost Update</a></li><li><a class="toc-href" href="#how-does-postgres-implement-transaction-isolation-levels" title="How does Postgres implement transaction isolation levels?">How does Postgres implement transaction isolation levels?</a></li><li><a class="toc-href" href="#other-anomalies" title="Other Anomalies">Other Anomalies</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#references" title="References">References</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>We have seen phenomenal improvements in the hardware in the last 30 years. <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore</a> observed that the number of transistors in a dense integrated circuit (IC) doubles roughly every two years, the CPU clock rate increased from 740 kHz in 1970 to 4.9 GHz in 2021, and the types of instructions CPUs can execute got more complex over time. But there are limits to increasing the clock rate and adding more complex instructions. Instead of doing that, CPU manufacturers added the possibility to execute more stuff concurrently. This comes with its own set of problems.</p>
+<p>To me, the most interesting ones are in the context of web services. Most prominently, they are interactions with a central database and are related to <em>transaction isolation</em>. In this article, you will learn what the best-known problems of missing isolation are and which transaction isolation levels fix them. Let&rsquo;s start!</p>
+<h2 id="the-basics">The Basics&nbsp;📚</h2>
+<p>Databases organize multiple operations in <strong><em>transactions</em></strong>. You can imagine a database as a sequence of transactions. If a transaction is part of the database, we say it is <em>committed</em>. If a transaction fails, a <strong><em>rollback</em></strong> is executed. The transaction is undone.</p>
+<p>We want transactions to be <strong><em>atomic</em></strong>&hairsp;&mdash;&hairsp;either a transaction is completely part of the database or not at all. There should not be a partially committed transaction.</p>
+<p>We also want <strong><em>transaction isolation</em></strong>&hairsp;&mdash;&hairsp;concurrent executions of transactions don&rsquo;t lead to different results than serial executions. It should not matter if transactions are executed one after each other or in parallel.</p>
+<p>The problems we will investigate in this article are called <em>read phenomena</em> and they occur when the isolation property is broken. Having stronger isolation comes at a cost. The tradeoff is speed versus guarantees that certain problems don&rsquo;t occur. These guarantees are called transaction isolation levels. Controlling the issues is also called <strong>concurrency control</strong>. There is <strong>optimistic</strong> and <strong>pessimistic</strong> concurrency control. Optimistic concurrency control uses <strong>snapshot</strong> and validation, pessimistic concurrency control uses <strong>locks</strong>. It&rsquo;s called optimistic because it first allows changes to happen and rolls back if necessary. It assumes things will be fine, whereas locks assume that something will go wrong. Depending on what happens more often, it&rsquo;s cheaper to be optimistic or pessimistic.</p>
+<h2 id="do-it-yourself">Do it Yourself! 🔨</h2>
+<p>If you want to execute the following statements, you need PostgreSQL running:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>postgres
+$<span class="w"> </span>psql
+<span class="c1"># CREATE TABLE balances (id varchar PRIMARY KEY, balance int);</span>
+CREATE<span class="w"> </span>TABLE
+
+<span class="c1"># INSERT INTO balances (id, balance) VALUES ('Alice', 500), ('Bob', 500);</span>
+INSERT<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># SELECT * FROM balances;</span>
+
+id<span class="w">   </span><span class="p">|</span><span class="w"> </span>balance
+-------+---------
+Alice<span class="w"> </span><span class="p">|</span><span class="w">     </span><span class="m">500</span>
+Bob<span class="w">   </span><span class="p">|</span><span class="w">     </span><span class="m">500</span>
+</code></pre></div>
+<h2 id="dirty-reads-reading-uncommitted-data">Dirty Reads: Reading uncommitted data</h2>
+<blockquote>
+<p>When transaction T2 sees a non-committed transaction T1, it&rsquo;s called a dirty&nbsp;read.</p>
+</blockquote>
+<p>Imagine this scenario: Alice and Bob are in a relationship. Alice is good at bookkeeping and keeps track of the financial situation, whereas Bob is sometimes not that financially responsible. In this case, he wants to buy a fantasy sword for 600 &euro;. Luckily, their bank rejects transactions if the balance would drop below 0 &euro;. But Alice checks Bob's account in between.</p>
+<p>So we have two transactions:</p>
+<ul>
+<li>T1: Bob tries to pay for the fantasy sword, which fails and gets rolled back.</li>
+<li>T2: Alice checks the account.</li>
+</ul>
+<p>To execute a transaction to another bank, the bank of Alice and Bob runs the following <code>transfer_out</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span>
+<span class="w">    </span><span class="n">transfer_out</span><span class="p">(</span><span class="k">source</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span><span class="w"> </span><span class="k">RETURNS</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">$$</span>
+<span class="k">DECLARE</span>
+<span class="w">    </span><span class="n">source_balance_after</span><span class="w"> </span><span class="nb">int</span><span class="p">;</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">source</span><span class="p">;</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">source_balance_after</span><span class="p">;</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="n">source_balance_after</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">        </span><span class="n">RAISE</span><span class="w"> </span><span class="k">EXCEPTION</span><span class="w"> </span><span class="s1">'Account % does not have enough money'</span><span class="p">,</span><span class="w"> </span><span class="k">source</span><span class="p">;</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<span class="k">END</span>
+<span class="err">$$</span>
+<span class="k">LANGUAGE</span><span class="w"> </span><span class="s1">'plpgsql'</span><span class="w"> </span><span class="p">;</span>
+</code></pre></div>
+<p>Both initially have 500 EUR on their accounts each.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- T1: Bob tries to get that fantasy sword</span>
+<span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span>
+<span class="w">    </span><span class="c1">-- Step 1: Pay for the sword</span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">600</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Step 2: Check if the balance got negative (it did: rollback)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="k">TRANSACTION</span>
+
+<span class="c1">-- T2: Alice checks the accounts</span>
+<span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span>
+<span class="w">    </span><span class="c1">-- Step 1: Read the balance of Bob's account</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Step 2: Read the balance of Alice's account</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Alice'</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="k">TRANSACTION</span>
+</code></pre></div>
+<p>As we have two transactions, those two steps happen concurrently. This means it could be that T1 is first executed completely and then T2, but it could also be that they are interleaved. For example:
+&nbsp;T1.step1 ➔ T2.step1 ➔ T1.step2 ➔ T2.step2</p>
+<figure>
+<a href="../images/2021/10/how-concurrency-can-break-your-software-2.png"><img alt="Alice reads an inconsistent state of the database as transaction T1 is not finished yet. This leads her to the wrong conclusion that Bob went into debt, potentially causing high interest rates. Image created by Martin&nbsp;Thoma" height="425" loading="lazy" src="../images/2021/10/how-concurrency-can-break-your-software-2.png" width="800"/></a>
+<figcaption>Alice reads an inconsistent state of the database as transaction T1 is not finished yet. This leads her to the wrong conclusion that Bob went into debt, potentially causing high interest rates. Image created by Martin Thoma</figcaption>
+</figure>
+<p>As you can see, this is problematic. Alice might now assume that they have less money than they actually have.</p>
+<p>Dirty Reads are prevented with the <strong>READ_COMMITTED</strong> transaction isolation level. As there are so many scenarios where reading uncommitted data is problematic, PostgreSQL does not even allow it:</p>
+<blockquote>
+<p>The SQL standard defines one additional level, READ UNCOMMITTED. In PostgreSQL READ UNCOMMITTED is treated as READ COMMITTED (<a href="https://www.postgresql.org/docs/9.3/sql-set-transaction.html">source</a>)</p>
+</blockquote>
+<h2 id="non-repeatable-reads">Non-repeatable Reads&nbsp;🤷</h2>
+<blockquote>
+<p>When the same row is read twice in one transaction, but does not contain the same information due to a change outside of the transaction, it&rsquo;s a non-repeatable read (aka read&nbsp;skew).</p>
+</blockquote>
+<p>Alice likes to keep track of their financial situation. One part of that is to get the sum of their balances as well as the individual balances. However, this time she is unlucky. She reads the sum of balances before they both pay 400&euro; rent. After that, she reads the individual balances.</p>
+<figure>
+<a href="../images/2021/10/how-concurrency-can-break-your-software-3.png"><img alt="Alice reads the sum of balances before they both pay 400&euro; rent and the individual balances after that. Now she is confused because she doesn&rsquo;t know that a non-repeatable read occurred. Image by Martin&nbsp;Thoma." height="580" loading="lazy" src="../images/2021/10/how-concurrency-can-break-your-software-3.png" width="800"/></a>
+<figcaption>Alice reads the sum of balances before they both pay 400&euro; rent and the individual balances after that. Now she is confused because she doesn&rsquo;t know that a non-repeatable read occurred. Image by Martin Thoma.</figcaption>
+</figure>
+<p>To see it yourself, you need two terminal sessions opened to your PostgreSQL server:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">--  Transaction 2                                 Transaction 1</span>
+<span class="o">#</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="o">#</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="k">committed</span><span class="p">;</span>
+<span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span>
+<span class="o">#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">balance</span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">);</span>
+<span class="w"> </span><span class="k">sum</span>
+<span class="c1">------</span>
+<span class="w"> </span><span class="mi">1000</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="n">transfer_out</span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="n">transfer_out</span><span class="p">(</span><span class="s1">'Bob'</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="p">;</span>
+<span class="w">                                                     </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="w">                                                    </span><span class="c1">-------+---------</span>
+<span class="w">                                                    </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="w">                                                    </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="o">#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">);</span>
+<span class="w">  </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="c1">-------+---------</span>
+<span class="w"> </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="w"> </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+
+<span class="o">#</span><span class="w"> </span><span class="k">END</span><span class="p">;</span>
+<span class="k">COMMIT</span>
+</code></pre></div>
+<p>Non-repeatable Reads are prevented with the <strong>REPEATABLE_READ</strong> transaction isolation level:</p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="o">#</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">repeatable</span><span class="w"> </span><span class="k">read</span><span class="p">;</span>
+<span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span>
+<span class="o">#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">balance</span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">);</span>
+<span class="w"> </span><span class="k">sum</span>
+<span class="c1">------</span>
+<span class="w"> </span><span class="mi">1000</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="n">transfer_out</span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="n">transfer_out</span><span class="p">(</span><span class="s1">'Bob'</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">                                                   </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="p">;</span>
+<span class="w">                                                     </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="w">                                                    </span><span class="c1">-------+---------</span>
+<span class="w">                                                    </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="w">                                                    </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">100</span>
+<span class="o">#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">);</span>
+<span class="w">  </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="c1">-------+---------</span>
+<span class="w"> </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="w"> </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+
+<span class="o">#</span><span class="w"> </span><span class="k">END</span><span class="p">;</span>
+<span class="k">COMMIT</span>
+</code></pre></div>
+<h2 id="phantom-reads">Phantom Reads&nbsp;👻</h2>
+<blockquote>
+<p>If the same query is executed twice during a transaction, but the set of rows differ, a phantom read happened. The disappeared rows are the phantoms.</p>
+</blockquote>
+<p>Phantom Reads are prevented with the SERIALIZABLE isolation level according to the ANSI SQL-92 standard. However, the implementation of the REPEATABLE READ transaction isolation level in PostgreSQL also prevents phantom reads.</p>
+<div class="highlight"><pre><span></span><code><span class="k">start</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="k">committed</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="p">;</span>
+<span class="w">  </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="c1">-------+---------</span>
+<span class="w"> </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="w"> </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+
+<span class="w">                                                   </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span>
+<span class="w">                                                      </span><span class="n">balances</span>
+<span class="w">                                                      </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span>
+<span class="w">                                                   </span><span class="k">VALUES</span>
+<span class="w">                                                      </span><span class="p">(</span><span class="s1">'Charlie'</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+
+<span class="o">#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="p">;</span>
+<span class="w">  </span><span class="n">id</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="c1">---------+---------</span>
+<span class="w"> </span><span class="n">Alice</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="w"> </span><span class="n">Bob</span><span class="w">     </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="w"> </span><span class="n">Charlie</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+
+<span class="k">END</span><span class="p">;</span>
+</code></pre></div>
+<p>Charlie is the phantom here 👻</p>
+<h2 id="lost-update">Lost Update</h2>
+<blockquote>
+<p>When one UPDATE is lost because it is overwritten by another UPDATE of a second transaction, it&rsquo;s called a lost&nbsp;update.</p>
+</blockquote>
+<p>As an example, the following case. The left side and the right side are two different transactions:</p>
+<div class="highlight"><pre><span></span><code><span class="k">start</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="k">committed</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">  </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">balance</span>
+<span class="c1">-------+---------</span>
+<span class="w"> </span><span class="n">Alice</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="w"> </span><span class="n">Bob</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="mi">500</span>
+<span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">;</span>
+
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">balances</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Bob'</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+</code></pre></div>
+<p>If you are in the REPEATABLE_READ isolation level, the second UPDATE will trigger an exception:</p>
+<blockquote>
+<p>ERROR: could not serialize access due to concurrent update</p>
+</blockquote>
+<h2 id="how-does-postgres-implement-transaction-isolation-levels">How does Postgres implement transaction isolation levels?</h2>
+<p>Postgres uses snapshot isolation for all transaction isolation levels (<a href="https://www.postgresql.org/docs/14/transaction-iso.html">source</a>):</p>
+<ul>
+<li>READ_COMMITTED sees a snapshot as of the <strong>start of the current statement</strong> within the transaction</li>
+<li>REPEATABLE_READ sees a snapshot as of the <strong>start of the first non-transaction-control</strong> statement in the transaction.</li>
+<li>SERIALIZABLE is like REPEATABLE_READ, but additionally monitors for conditions that could make the execution of a concurrent set of serializable transactions behave in a manner inconsistent with all possible serial (one at a time) executions of those transactions</li>
+</ul>
+<p>Postgres uses a variant of Multi-Version Concurrency Control (MVCC) which is called Serializable Snapshot Isolation. The core idea is that every update does never overwrite data, but instead adds it to the DB with a transaction ID. When a SELECT is executed, potentially multiple versions can be selected which allows one transaction to have a consistent snapshot. The implementation of the <a href="https://www.interdb.jp/pg/pgsql05.html">SERIALIZABLE isolation level is complex</a>.</p>
+<h2 id="other-anomalies">Other Anomalies</h2>
+<p>If this is not enough for you, I recommend reading <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf">A Critique of ANSI SQL Isolation Levels</a> by Berenson, Bernstein, Gray, Melton, O&rsquo;Neil, and O&rsquo;Neil. They go into detail and point out other anomalies. For example, a <strong>dirty write</strong> is prevented by all isolation levels (even READ_UNCOMMITTED). It&rsquo;s different from a <strong>write skew</strong>. Write skews are prevented in the SERIALIZABLE isolation level in Postgres.</p>
+<h2 id="summary">Summary</h2>
+<p>Here is an overview of which transaction isolation levels prevent which read phenomena:</p>
+<table>
+<thead>
+<tr>
+<th>Isolation Level</th>
+<th>Dirty Read</th>
+<th>Non-repeatable Read</th>
+<th>Phantom Read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ_UNCOMMITTED</td>
+<td>💩 possible</td>
+<td>💩 possible</td>
+<td>💩 possible</td>
+</tr>
+<tr>
+<td>READ_COMMITTED</td>
+<td>✅ prevented</td>
+<td>💩 possible</td>
+<td>💩 possible</td>
+</tr>
+<tr>
+<td>REPEATABLE_READ</td>
+<td>✅ prevented</td>
+<td>✅ prevented</td>
+<td>💩 possible</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>✅ prevented</td>
+<td>✅ prevented</td>
+<td>✅ prevented</td>
+</tr>
+</tbody>
+</table>
+<p>Those isolation levels are defined in the SQL standard. However, various databases might give stronger guarantees. For example, the READ_UNCOMMITTED transaction isolation level is equal to the READ_COMMITTED isolation level in Postgres. Also, the REPEATABLE_READ isolation level already prevents phantom reads in Postgres.</p>
+<h2 id="references">References</h2>
+<p>I&rsquo;ve read/viewed a lot in order to create this article. The most valuable resources were:</p>
+<ul>
+<li><a href="https://vladmihalcea.com/">Vlad Mihalcea</a>: <a href="https://www.youtube.com/watch?v=onYjxRcToto">Transactions and Concurrency Control Patterns</a> at Devoxx on YouTube, 2017.</li>
+<li><a href="https://www.interdb.jp/pg/pgsql05.html">The Internals of PostgreSQL</a></li>
+<li><a href="https://www.sydney.edu.au/engineering/about/our-people/academic-staff/uwe-roehm.html">Uwe R&ouml;hm</a>: <a href="https://db.in.tum.de/teaching/ws1314/transactions/pdf/SnapshotIsolation.pdf?lang=de">Transaction Systems</a> in IN2267, 2014.</li>
+<li>PostgreSQL Docs: <a href="https://www.postgresql.org/docs/14/transaction-iso.html">Transaction Isolation</a></li>
+<li>Berenson, Bernstein, Gray, Melton, O&rsquo;Neil, and O&rsquo;Neil: <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf">A Critique of ANSI SQL Isolation Levels</a>, 1995.&hairsp;&mdash;&hairsp;Adrian Colyer made <a href="https://blog.acolyer.org/2016/02/24/a-critique-of-ansi-sql-isolation-levels/">a nice write-up</a>.</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/tables.js" defer></script>
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

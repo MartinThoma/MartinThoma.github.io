@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Improve your software engineering skills" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Software Engineering, Software Architecture, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/risks-and-benefits-of-the-9-popular-software-design-principles/" />
+<meta property="og:title" content="Risks and Benefits of The 9 Popular Software Design Principles"/>
+<meta property="og:url" content="https://martin-thoma.com/risks-and-benefits-of-the-9-popular-software-design-principles/" />
+<meta property="og:description" content="Improve your software engineering skills" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2022-01-03T15:46:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2022/01/risks-and-benefits-of-the-9-popular-software-design-principles-2.jpg" />
+<meta property="og:image:width" content="683" />
+<meta property="og:image:height" content="365" />
+
+        <title>Risks and Benefits of The 9 Popular Software Design Principles  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../risks-and-benefits-of-the-9-popular-software-design-principles/">Risks and Benefits of The 9 Popular Software Design Principles</a></h1>
+    <p class="meta">
+<time datetime="2022-01-03T15:46:00+01:00">Jan 3, 2022</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-architecture-ref">Software Architecture
+            <span>8</span>
+</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>85</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#no1-dont-repeat-yourself-dry" title="&numero;1: Don&rsquo;t repeat yourself&nbsp;(DRY)">&numero;1: Don&rsquo;t repeat yourself&nbsp;(DRY)</a></li><li><a class="toc-href" href="#no2-you-aint-gonna-need-it-yagni" title="&numero;2: You Ain&rsquo;t Gonna Need It&nbsp;(YAGNI)">&numero;2: You Ain&rsquo;t Gonna Need It&nbsp;(YAGNI)</a></li><li><a class="toc-href" href="#no3-keep-it-simple-and-stupid-kiss" title="&numero;3: Keep it Simple and Stupid&nbsp;(KISS)">&numero;3: Keep it Simple and Stupid&nbsp;(KISS)</a></li><li><a class="toc-href" href="#no4-principle-of-least-surprise" title="&numero;4: Principle of Least&nbsp;Surprise">&numero;4: Principle of Least&nbsp;Surprise</a></li><li><a class="toc-href" href="#no5-separation-of-concerns-soc" title="&numero;5: Separation of Concerns&nbsp;(SoC)">&numero;5: Separation of Concerns&nbsp;(SoC)</a></li><li><a class="toc-href" href="#no6-fail-early-fail-loud" title="&numero;6: Fail early, fail&nbsp;loud">&numero;6: Fail early, fail&nbsp;loud</a></li><li><a class="toc-href" href="#no7-defensive-programming" title="&numero;7: Defensive Programming">&numero;7: Defensive Programming</a></li><li><a class="toc-href" href="#no8-solid" title="&numero;8: SOLID">&numero;8: SOLID</a><ul><li><a class="toc-href" href="#single-responsibility-principle" title="Single-responsibility principle">Single-responsibility principle</a></li><li><a class="toc-href" href="#openclosed-principle" title="Open&ndash;closed principle">Open&ndash;closed principle</a></li><li><a class="toc-href" href="#liskov-substitution-principle" title="Liskov substitution principle">Liskov substitution principle</a></li><li><a class="toc-href" href="#interface-segregation-principle" title="Interface segregation principle">Interface segregation principle</a></li><li><a class="toc-href" href="#dependency-inversion-principle" title="Dependency inversion principle">Dependency inversion principle</a></li></ul></li><li><a class="toc-href" href="#no9-locality-principle" title="&numero;9: Locality Principle">&numero;9: Locality Principle</a></li><li><a class="toc-href" href="#summarizing-it-the-zen-of-python" title="Summarizing it: The Zen of&nbsp;Python">Summarizing it: The Zen of&nbsp;Python</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>Every software developer with a little bit of experience knows that keeping things simple and stupid (KISS) makes sense. Once you have learned to use classes and functions, you don&rsquo;t want to repeat yourself&hairsp;&mdash;&hairsp;keep things DRY.</p>
+<p>The goal of all of those principles is to make software easy to maintain by reducing mental complexity.</p>
+<h2 id="no1-dont-repeat-yourself-dry">&numero;1: Don&rsquo;t repeat yourself&nbsp;(DRY)</h2>
+<figure>
+<a href="../images/2022/01/risks-and-benefits-of-the-9-popular-software-design-principles-2.jpg"><img alt="Source: Generated by Martin Thoma via https://imgflip.com/i/5zpvee" height="365" src="../images/2022/01/risks-and-benefits-of-the-9-popular-software-design-principles-2.jpg" width="683"/></a>
+<figcaption>Source: Generated by Martin Thoma via <a href="https://imgflip.com/i/5zpvee">https://imgflip.com/i/5zpvee</a></figcaption>
+</figure>
+<p>DRY is the core of software development. We structure our code in packages and modules. We factor out functions. We try to make the code reusable so that we hopefully have an easier time maintaining it.</p>
+<p><strong>Benefit</strong>: Complexity reduction. The more code you have, the more you need to maintain. DRY typically leads to less code. This especially means that you only need to adjust one place for typical changes.</p>
+<p><strong>Risk</strong>: If you do it too much, the code typically gets more complex.</p>
+<p><strong>Tooling support</strong>: There are programs to find duplicated code. For Python, there is <code>pylint --disable=all --enable=similarities src</code></p>
+<h2 id="no2-you-aint-gonna-need-it-yagni">&numero;2: You Ain&rsquo;t Gonna Need It&nbsp;(YAGNI)</h2>
+<p>YAGNI is the realization that too much abstraction actually harms maintainability. Java devs, I&rsquo;m looking at you!</p>
+<p><strong>Benefit</strong>: Complexity reduction. Removing abstractions makes it clearer how the code works.</p>
+<p><strong>Risk</strong>: If you apply YAGNI too much and thus make too few abstractions, you will have a hard time extending your software. And junior devs might mess with the code in a bad way.</p>
+<p><strong>Tooling support</strong>: None (maybe one could count references to classes throughout the codebase?)</p>
+<h2 id="no3-keep-it-simple-and-stupid-kiss">&numero;3: Keep it Simple and Stupid&nbsp;(KISS)</h2>
+<p>KISS can apply to many situations. Although some solutions are smart and solve the issue at hand, the dumber solution might be better because there is less potential to introduce issues. This might be less DRY from time to time.</p>
+<h2 id="no4-principle-of-least-surprise">&numero;4: Principle of Least&nbsp;Surprise</h2>
+<p>Design your systems in such a way that the location of a feature implementation as well as the behavior and the side-effects of a component are least surprising. Keep your colleagues in the loop.</p>
+<p><strong>Benefit</strong>: Complexity reduction. You make sure that the mental model of the system fits what people assume naturally.</p>
+<p><strong>Risk</strong>: You might need to violate DRY to get this done.</p>
+<p><strong>Tooling support</strong>: None. However, there are some signs that this was violated: (1) You are explaining the same quirks of your system again and again to new colleagues (2) You need to look the same topic up again and again (3) You feel the need to document a topic that is not inherently complicated.</p>
+<h2 id="no5-separation-of-concerns-soc">&numero;5: Separation of Concerns&nbsp;(SoC)</h2>
+<figure>
+<a href="../images/2022/01/risks-and-benefits-of-the-9-popular-software-design-principles-6.png"><img alt="Three different microservices of a Video Streaming Platform are as loosely coupled as possible. Within those services, the concerns are divided by the function they serve. Image by Martin&nbsp;Thoma" height="458" loading="lazy" src="../images/2022/01/risks-and-benefits-of-the-9-popular-software-design-principles-6.png" width="800"/></a>
+<figcaption>Three different microservices of a Video Streaming Platform are as loosely coupled as possible. Within those services, the concerns are divided by the function they serve. Image by Martin Thoma</figcaption>
+</figure>
+<p>Every package, module, class, or function should only bother about one concern. If you do too many things, you do none of them well.</p>
+<p>It is most clear to me in practice in the separation of a data storage layer, a presentation layer, and a layer that contains the business logic. Other types of concerns might be input validation, data synchronization, authentication,&nbsp;&hellip;</p>
+<p>To phrase it with the Unix philosophy: <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well">Do one thing and do it well</a>.</p>
+<p><strong>Benefit</strong>: Complexity reduction: (1) It&rsquo;s typically more clear where adjustments need to be done. (2) You should have fewer undesired side-effects you need to think about. (3) People can work in parallel without having crazy many merge conflicts.</p>
+<p><strong>Risk</strong>: If you go too crazy on SoC, you will likely violate KISS or YAGNI.</p>
+<p><strong>Tooling support</strong>: You can measure cohesion by counting how many classes/functions from other packages are used. A high number of externally imported functions can indicate violations in SoC. A high number of merge conflicts might also indicate an issue.</p>
+<h2 id="no6-fail-early-fail-loud">&numero;6: Fail early, fail&nbsp;loud</h2>
+<p>As developers, we have to deal with all kinds of errors. And especially for beginners, it&rsquo;s not clear how to deal with them.</p>
+<p>One pattern that has helped me a lot in the past is to <strong>fail early</strong>. Meaning very close to the location where the error can happen, the error should be recognized. Especially user input should be validated directly in the input layer. But also network interactions are a common case where you need to handle error cases.</p>
+<p>The other pattern is to <strong>fail loud</strong>, meaning to throw an exception and create a log message. Don&rsquo;t just return None / NULL. Exceptions are the way to go. Depending on the kind of Exception, you might also want to let the user know.</p>
+<p><strong>Benefit</strong>: Easier maintainability as it&rsquo;s clearer where functionality belongs and how the system should be designed. Easier debuggability as errors happen early.</p>
+<p><strong>Risk</strong>: None.</p>
+<p><strong>Tooling support</strong>: None</p>
+<h2 id="no7-defensive-programming">&numero;7: Defensive Programming</h2>
+<p>Defensive programming is named after defensive driving. Defensive driving is &ldquo;driving to save lives, time, and money, in spite of the conditions around you and the actions of others&rdquo;. Defensive programming is the idea to be robust and correct, in spite of the conditions of the environment and the actions of others. This can mean to be robust against wrong input, e.g. when you have an IBAN field in the database to actually make sure that the content being stored there contains an IBAN. It can also mean to make assertions explicit and raise exceptions if those are violated. It can mean to make calls to APIs idempotent. It can mean to have a high test coverage to be defensive against future breaking changes.</p>
+<p>Three core rules of defensive programming:</p>
+<ul>
+<li>All data is important until proven otherwise.</li>
+<li>All data is tainted until proven otherwise.</li>
+<li>All code is insecure until proven otherwise.</li>
+</ul>
+<p>The alternative to defensive programming is &ldquo;shit in, shit out&rdquo;.</p>
+<p><strong>Benefit</strong>: Higher robustness</p>
+<p><strong>Risk</strong>: Higher maintenance due to more complex/lengthy code base</p>
+<p><strong>Tooling support</strong>: Test coverage to see how much your unit tests cover. If you want to go crazy, try <a href="../mutation-testing/">mutation testing</a>. For infrastructure, there is chaos engineering. Load testing.</p>
+<h2 id="no8-solid">&numero;8: SOLID</h2>
+<p>The SOLID principles give guidance around coupling and cohesion. They are originally formulated around object-oriented programming (OOP), but you can apply them to different abstraction levels than classes as well, e.g. services or functions. I will just call those &ldquo;components&rdquo; later on.</p>
+<p>Two components can be coupled in several ways. For example, one service might need knowledge of how another service internally operates to do its work. The stronger component A depends on component B, the stronger A is coupled with B. Please note that this is a symmetric relationship. For coupling, we don&rsquo;t care about the direction.</p>
+<p>A high cohesion of one module means that its internal parts are strongly connected. They all deal with the same topic.</p>
+<p>Loose coupling and high cohesion between components is what we strive for.</p>
+<h3 id="single-responsibility-principle">Single-responsibility principle</h3>
+<blockquote>
+<p>&ldquo;There should never be more than one reason for a class to&nbsp;change.&rdquo;</p>
+</blockquote>
+<p>The responsibilities of software entities like services, packages, modules, classes, and functions should be clear. They should typically operate on one abstraction level and not do too many things.</p>
+<p>The single-responsibility is one of the tools to achieve separation of concerns.</p>
+<p><strong>Tooling support</strong>: I&rsquo;m not aware of automatic tools to find violations of the single responsibility principle. However, you can try to describe the functionality of the components without the words &ldquo;and&rdquo; / &ldquo;or&rdquo;. If this does not work, you might violate it.</p>
+<h3 id="openclosed-principle">Open&ndash;closed principle</h3>
+<blockquote>
+<p>&ldquo;Software entities&nbsp;&hellip; should be open for extension, but closed for modification.&rdquo;</p>
+</blockquote>
+<p>If you change a component on which others rely, you are potentially breaking their code.</p>
+<h3 id="liskov-substitution-principle">Liskov substitution principle</h3>
+<blockquote>
+<p>&ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing&nbsp;it.&rdquo;</p>
+</blockquote>
+<p><strong>Benefit</strong>: This is a very basic assumption you make in OOP. Just follow it.</p>
+<p><strong>Risk</strong>: None?</p>
+<h3 id="interface-segregation-principle">Interface segregation principle</h3>
+<blockquote>
+<p>&ldquo;Many client-specific interfaces are better than one general-purpose interface.&rdquo;</p>
+</blockquote>
+<p><strong>Benefit</strong>: It&rsquo;s easier to extend the software and reuse interfaces if you can pick and choose. However, if the software is completely in-house, I would rather create bigger interfaces and split once it becomes necessary.</p>
+<p><strong>Risk</strong>: Violation of KISS / YAGNI.</p>
+<h3 id="dependency-inversion-principle">Dependency inversion principle</h3>
+<blockquote>
+<p>&ldquo;Depend upon abstractions, [not] concretions.&rdquo;</p>
+</blockquote>
+<p>In some cases, you want to operate on a more general class of inputs than the one specific type you&rsquo;re currently dealing with. Examples that pop to my mind are WSGI (connecting web servers with web applications), JDBC (database connections), and basically any plugin system (e.g. Flake8). You want to define an interface and depend on that. This interface has then to be implemented by the components.</p>
+<p>Assume you have an application that needs to have access to a relational database. You could now implement all queries for all kinds of relational databases. Or you define that the function receives a database connector that implements the JDBC interface. Now the connector has to be extended and not all functions that need the DB connection. That is the inversion.</p>
+<p><strong>Benefit</strong>: In the long run, this makes the software much easier to maintain as it becomes clearer where functionality lies. It also helps with KISS.</p>
+<p><strong>Risk</strong>: If you overdo it, you might violate KISS. A rule of thumb would be that at least two classes should implement an interface before you create an interface.</p>
+<h2 id="no9-locality-principle">&numero;9: Locality Principle</h2>
+<p>Don&rsquo;t separate things that belong together. If two parts of code are typically edited together, try to keep them as close as possible. At least in the same package, hopefully in the same directory, maybe in the same file&hairsp;&mdash;&hairsp;and if you&rsquo;re lucky they can be in the same class / directly below each other within the file.</p>
+<p><strong>Benefit</strong>: Hopefully fewer merge conflicts. You don&rsquo;t need to switch context when you try to find that other file. When you refactor that piece, you might remember all things that belong to it.</p>
+<p><strong>Risk</strong>: Violating loose coupling or separation of concerns.</p>
+<p><strong>Tooling support</strong>: None so far, but I&rsquo;m thinking about creating one for Python. Basically, I would analyze the git commits.</p>
+<h2 id="summarizing-it-the-zen-of-python">Summarizing it: The Zen of&nbsp;Python</h2>
+<p>I absolutely love <a href="https://en.wikipedia.org/wiki/Zen_of_Python">the Zen of Python</a>. While it is less concrete than several other principles, it is a piece of programming philosophy that is super important:</p>
+<blockquote>
+<p>Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.</p>
+<p>Flat is better than nested.
+Sparse is better than dense.
+Readability counts.</p>
+<p>Special cases aren&rsquo;t special enough to break the rules.
+Although practicality beats purity.</p>
+<p>Errors should never pass silently.
+Unless explicitly silenced.</p>
+<p>In the face of ambiguity, refuse the temptation to guess.
+There should be one&ndash; and preferably only one &ndash;obvious way to do it.
+Although that way may not be obvious at first unless you&rsquo;re Dutch.</p>
+<p>Now is better than never.
+Although never is often better than right now.</p>
+<p>If the implementation is hard to explain, it&rsquo;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.</p>
+<p>Namespaces are one honking great idea&hairsp;&mdash;&hairsp;let&rsquo;s do more of those!</p>
+</blockquote>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

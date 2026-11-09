@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="An elegant solution to change management" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Bitcoin, Blockchain, Cryptocurrency, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/the-bitcoin-script-language/" />
+<meta property="og:title" content="The Bitcoin Script Language"/>
+<meta property="og:url" content="https://martin-thoma.com/the-bitcoin-script-language/" />
+<meta property="og:description" content="An elegant solution to change management" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-04-09T08:59:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/04/the-bitcoin-script-language-2.png" />
+<meta property="og:image:width" content="1473" />
+<meta property="og:image:height" content="1106" />
+
+        <title>The Bitcoin Script Language  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../the-bitcoin-script-language/">The Bitcoin Script Language</a></h1>
+    <p class="meta">
+<time datetime="2021-04-09T08:59:00+02:00">Apr 9, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#bitcoin-ref">Bitcoin
+            <span>3</span>
+</a></li>
+        <li><a href="../tags/#blockchain-ref">Blockchain
+            <span>7</span>
+</a></li>
+        <li><a href="../tags/#cryptocurrency-ref">Cryptocurrency
+            <span>5</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#anatomy-of-a-bitcoin-transaction" title="Anatomy of a Bitcoin Transaction">Anatomy of a Bitcoin Transaction</a></li><li><a class="toc-href" href="#decoding-with-bitcoin-core" title="Decoding With Bitcoin&nbsp;Core">Decoding With Bitcoin&nbsp;Core</a></li><li><a class="toc-href" href="#unlocking-a-transaction" title="Unlocking a Transaction">Unlocking a Transaction</a></li><li><a class="toc-href" href="#hidden-bitcoin-messages" title="Hidden Bitcoin&nbsp;Messages">Hidden Bitcoin&nbsp;Messages</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>The world is changing and developers are not perfect. The first iteration of any software always has some flaws or shortcomings that need to be adjusted after a while. For those two reasons, it is important to have a mechanism for change management. In the case of APIs of central services, you typically have an API version and a deprecation schedule.</p>
+<p>But what do you do in a distributed system? How do you keep the system flexible and secure?</p>
+<p>Bitcoin has an elegant solution to this problem: Bitcoin Script! After reading this article, you will understand it. Let&rsquo;s go!</p>
+<h2 id="anatomy-of-a-bitcoin-transaction">Anatomy of a Bitcoin Transaction</h2>
+<p>New bitcoins are mined with every block that gets added to the blockchain until about the year 2140. Who has access to which bitcoin is determined by tracking unspent transaction output (UTXO):</p>
+<p><a href="../utxo-model/"><strong>The UTXO model</strong> <em>A technical cornerstone of Bitcoin</em></a></p>
+<p>Going to the <a href="https://www.blockchain.com/explorer">Bitcoin block explorer</a> and picking <a href="https://www.blockchain.com/btc/block/00000000000000000004a250beeb23fa5fb47d75491c90b037bfad847d733dc7">the latest block</a>, we see 2,738 transactions in that block. Taking <a href="https://www.blockchain.com/btc/tx/30713d08afa548d3465e380d6e1837354b29a1b6707e2a913b27776cf305fda4">one transaction</a> and <a href="https://blockchain.info/tx/30713d08afa548d3465e380d6e1837354b29a1b6707e2a913b27776cf305fda4?format=hex">showing the raw hex dump</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">010000000001010000000000000000000000000000000000000000000000000000000000000000</span><span class="n">ffffffff5403df550a1b4d696e656420627920416e74506f6f6c373138fd004702c13ba070fabe6d6d6d9986fd3aedb9f8b00fab3c74c2e1d399fd0e6bc1d964aa57a08f78ac2d648002000000000000001eb50000c1377c00ffffffff04653c3a2a000000001976a91411dbe48cc6b617f9c6adaf4d9ed5f625b1c7cb5988ac0000000000000000266a24aa21a9ede0721e21cc17367eb4fcccf94c7e6ebc54757a693515f809307d4d6a31e0c8500000000000000000266a24b9e11b6d6eab9aaf2ccdc3cb05fb15989c512b84c8ef5f498559cd4d66e6104de8f9cdb100000000000000002b6a2952534b424c4f434b3a93320d7a461a95b953bd18e40aa031b5470d6258ccd82011999a5b290031529c0120000000000000000000000000000000000000000000000000000000000000000000000000</span>
+</code></pre></div>
+<p>The structure of this format is as follows:</p>
+<figure>
+<a href="../images/2021/04/the-bitcoin-script-language-2.png"><img alt="Table of the Bitcoin transaction format: version, marker, flag, inputs (TX-ID, TX-Index, unlock script, sequence), outputs (value, lock script), witness and lock time, with type and length of each field" height="601" loading="lazy" src="../images/2021/04/the-bitcoin-script-language-2.png" width="800"/></a>
+<figcaption>Image by Martin Thoma</figcaption>
+</figure>
+<p>The two fields that are interesting for this article are the &ldquo;unlock script&rdquo; and the &ldquo;lock script.&rdquo; When a new transaction is added, it needs to provide an unlock script that matches the referenced UTXO (TX-ID and TX-Index). The output lock script is what you expect others in the future to do to use that output. In a very direct sense, you define the key.</p>
+<p>Those two script fields contain Bitcoin Script. It starts with a one-byte operation code (<code>OP_CODE</code>). This is just a number that is associated with an operation.</p>
+<h2 id="decoding-with-bitcoin-core">Decoding With Bitcoin&nbsp;Core</h2>
+<p>Let&rsquo;s take <a href="https://blockchain.info/tx/7de75c9a33a687de04c9621ec98d60acf6a830fda6b12b027df227d1c72d2808?format=json">this transaction</a> for the following example. First, I decode the hex transaction to:</p>
+<div class="highlight"><pre><span></span><code>{
+    "version_number": 1,
+    "marker": null,
+    "flag": null,
+    "tx_ins": [
+        {
+            "tx_id": "00f645c7443e367330410e526b152fc799c71dafd4971d8ed6ee37babbd581bb",
+            "tx_index": 10,
+            "script": "483045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d0290014104c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e94",
+            "sequence": 4294967295
+        }
+    ],
+    "tx_outs": [
+        {
+            "satoshi": 16939,
+            "script": "a914c29b367fe...bd1b29ef47a687"
+        },
+        "... more outs..."
+    ],
+    "witness": {
+        "stack_items": [
+            []
+        ]
+    },
+    "locktime": 0
+}
+</code></pre></div>
+<p>The interesting part is the binary unlocking script, given in hex notation as <code>script</code> of the first (and only) input.</p>
+<p>You can use the following script (on Ubuntu 20.04) to decode the binary bitcoin script to ASM (assembly language):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download and extract bitcoin-core</span>
+<span class="o">$</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bitcoin</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bitcoin</span><span class="o">-</span><span class="n">core</span><span class="o">-</span><span class="mf">0.20</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">bitcoin</span><span class="o">-</span><span class="mf">0.20</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">$</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="o">-</span><span class="n">xvf</span><span class="w"> </span><span class="n">bitcoin</span><span class="o">-</span><span class="mf">0.20</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">bitcoin</span><span class="o">-</span><span class="mf">0.20</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span>
+
+<span class="c1"># Run the daemon, but do not download blocks</span>
+<span class="o">$</span><span class="w"> </span><span class="o">./</span><span class="n">bitcoind</span><span class="w"> </span><span class="o">-</span><span class="n">daemon</span><span class="w"> </span><span class="o">-</span><span class="n">connect</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
+
+<span class="c1"># Finally! Decode a Bitcoin Script hex-encoded program</span>
+<span class="o">$</span><span class="w"> </span><span class="o">./</span><span class="n">bitcoin</span><span class="o">-</span><span class="n">cli</span><span class="w"> </span><span class="n">decodescript</span><span class="w"> </span><span class="s2">"483045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d0290014104c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e94"</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="s2">"asm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d029001 04c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e94"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nonstandard"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"p2sh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3QEAyVJgyTXivsKQopPiGngaPwFWmzdHLL"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"segwit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"asm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 64c118d91f54d62936c29915c5cb61d39dc3353b005aca55528a714b607800de"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002064c118d91f54d62936c29915c5cb61d39dc3353b005aca55528a714b607800de"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"reqSigs"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"witness_v0_scripthash"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"bc1qvnq33kgl2ntzjdkzny2utjmp6wwuxdfmqpdv542j3fc5kcrcqr0qxaa2gw"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">"p2sh-segwit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3EVPaAaNmZtuP4acv63USoRkSXPez4dX4z"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This is a typical unlocking script (the value of the <code>asm</code> key). The first string is the script signature. The second one is the public key.</p>
+<p>Next, we get the locking script <a href="https://blockchain.info/tx/00f645c7443e367330410e526b152fc799c71dafd4971d8ed6ee37babbd581bb?format=hex">from the transaction</a> (index 10):</p>
+<ol>
+<li><a href="https://blockchain.info/tx/00f645c7443e367330410e526b152fc799c71dafd4971d8ed6ee37babbd581bb?format=hex">Get the hex transaction</a>.</li>
+<li>Put the hex transaction into <a href="https://github.com/MartinThoma/algorithms/blob/master/Bitcoin/decode_transaction.py">my decoding tool</a>.</li>
+<li>Look up the tenth index of <code>tx_outs</code> and look for the <code>script</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>bitcoin-cli<span class="w"> </span>decodescript<span class="w"> </span><span class="s2">"76a9147ddb236e7877d5040e2a59e4be544c65934e573a88ac"</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">"asm"</span>:<span class="w"> </span><span class="s2">"OP_DUP OP_HASH160 7ddb236e7877d5040e2a59e4be544c65934e573a OP_EQUALVERIFY OP_CHECKSIG"</span>,
+<span class="w">  </span><span class="s2">"reqSigs"</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">  </span><span class="s2">"type"</span>:<span class="w"> </span><span class="s2">"pubkeyhash"</span>,
+<span class="w">  </span><span class="s2">"addresses"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="s2">"1CUTyyxgbKvtCdoYmceQJCZLXCde5akiX2"</span>
+<span class="w">  </span><span class="o">]</span>,
+<span class="w">  </span><span class="s2">"p2sh"</span>:<span class="w"> </span><span class="s2">"3Jp8er9Srb9LMkJqk8jPeWafjDztYGLyLn"</span>,
+<span class="w">  </span><span class="s2">"segwit"</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"asm"</span>:<span class="w"> </span><span class="s2">"0 7ddb236e7877d5040e2a59e4be544c65934e573a"</span>,
+<span class="w">    </span><span class="s2">"hex"</span>:<span class="w"> </span><span class="s2">"00147ddb236e7877d5040e2a59e4be544c65934e573a"</span>,
+<span class="w">    </span><span class="s2">"reqSigs"</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">    </span><span class="s2">"type"</span>:<span class="w"> </span><span class="s2">"witness_v0_keyhash"</span>,
+<span class="w">    </span><span class="s2">"addresses"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="s2">"bc1q0hdjxmncwl2sgr32t8jtu4zvvkf5u4e64ucrwj"</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">"p2sh-segwit"</span>:<span class="w"> </span><span class="s2">"37e78P9jyHEZ7dp2as7w817BUPgEEUQDD2"</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>The value for the <code>asm</code> key is a very typical lock script.</p>
+<h2 id="unlocking-a-transaction">Unlocking a Transaction</h2>
+<p>To execute both, we first put the unlock script and then the lock script:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">3045022100</span><span class="n">b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d029001</span>
+<span class="mf">04</span><span class="n">c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e94</span>
+<span class="n">OP_DUP</span>
+<span class="n">OP_HASH160</span>
+<span class="mf">7</span><span class="n">ddb236e7877d5040e2a59e4be544c65934e573a</span>
+<span class="n">OP_EQUALVERIFY</span>
+<span class="n">OP_CHECKSIG</span>
+</code></pre></div>
+<p>This is executed like every program from top to bottom. Bitcoin Script is a stack-based programming language. This means you don&rsquo;t have variables but put everything on a stack.</p>
+<p>You definitely want to execute this. There is <a href="https://wschae.github.io/build/editor.html">an online tool</a>, but <a href="https://bitcoin.stackexchange.com/a/105254/6721">it seems to have bugs</a>. Instead, I recommend using <a href="https://github.com/bitcoin-core/btcdeb">btcdeb</a>. After installing it, you can run:</p>
+<div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">btcc</span><span class="w"> </span><span class="n">3045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d029001</span><span class="w"> </span><span class="n">04c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e94</span><span class="w"> </span><span class="n">OP_DUP</span><span class="w"> </span><span class="n">OP_HASH160</span><span class="w"> </span><span class="n">7ddb236e7877d5040e2a59e4be544c65934e573a</span><span class="w"> </span><span class="n">OP_EQUALVERIFY</span><span class="w"> </span><span class="n">OP_CHECKSIG</span>
+
+<span class="n">483045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d0290014104c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e9476a9147ddb236e7877d5040e2a59e4be544c65934e573a88ac</span>
+
+<span class="n">$</span><span class="w"> </span><span class="n">btcdeb</span><span class="w"> </span><span class="n">483045022100b7393ff959120e3ccb5284e3cf2eaa200235643a1549a4e6faaa911619089e2b02207b677827c7beeb53503e016a8dd29164d07cb79f0f1e058df9b8dfa3568d0290014104c4b7a7f7bb2c899f4aeab75b41567c040ae79506d43ee72f650c95b6319e47402f0ba88d1c5a294d075885442679dc24882ea37c31e0dbc82cfd51ed185d7e9476a9147ddb236e7877d5040e2a59e4be544c65934e573a88ac</span>
+
+<span class="n">btcdeb</span><span class="w"> </span><span class="mf">0.4.21</span><span class="w"> </span><span class="c1">-- type `btcdeb -h` for start up options</span>
+<span class="n">LOG</span><span class="o">:</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="n">segwit</span><span class="w"> </span><span class="n">taproot</span>
+<span class="n">notice</span><span class="o">:</span><span class="w"> </span><span class="n">btcdeb</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">gotten</span><span class="w"> </span><span class="n">quieter</span><span class="p">;</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">temporary</span><span class="p">)</span>
+<span class="mi">7</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">loaded</span><span class="p">.</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n n-Quoted">`help`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">usage</span><span class="w"> </span><span class="n">information</span>
+
+<span class="n">script</span><span class="w">               </span><span class="o">|</span><span class="w">  </span><span class="n">stack</span>
+<span class="o">---------------------+--------</span>
+<span class="n">3045022100b7393ff</span><span class="p">...</span><span class="w"> </span><span class="o">|</span>
+<span class="n">04c4b7a7f7bb2c899</span><span class="p">...</span><span class="w"> </span><span class="o">|</span>
+<span class="n">OP_DUP</span><span class="w">               </span><span class="o">|</span>
+<span class="n">OP_HASH160</span><span class="w">           </span><span class="o">|</span>
+<span class="n">7ddb236e7877d5040</span><span class="p">...</span><span class="w"> </span><span class="o">|</span>
+<span class="n">OP_EQUALVERIFY</span><span class="w">       </span><span class="o">|</span>
+<span class="n">OP_CHECKSIG</span><span class="w">          </span><span class="o">|</span>
+<span class="n">btcdeb</span><span class="o">&gt;</span><span class="w"> </span><span class="n">step</span>
+</code></pre></div>
+<p>The line <code>3045022...</code> means that you put this value on the stack. The line <code>04c4b...</code> is put on top of that. Then <code>OP_DUP</code> is executed. It takes one input: <code>04c4b...</code>. This one is duplicated. So <code>04c4b...</code> is put on the stack twice. We now have:</p>
+<div class="highlight"><pre><span></span><code>script             | stack
+-------------------+-------------
+OP_HASH160         | 04c4b...
+7ddb23...          | 04c4b...
+OP_EQUALVERIFY     | 3045022...
+OP_CHECKSIG        |
+</code></pre></div>
+<p><code>OP_HASH160</code> takes one argument (<code>04c4b...</code>) and applies the hash function to it. Then you have:</p>
+<div class="highlight"><pre><span></span><code>script             | stack
+-------------------+------------
+7ddb23...          | 7ddb23...
+OP_EQUALVERIFY     | 04c4b...
+OP_CHECKSIG        | 3045022...
+</code></pre></div>
+<p>Next, we put <code>7ddb23...</code> additionally on the stack. The <code>OP_EQUALVERIFY</code> takes the two <code>7ddb23...</code> on the stack. As they are the same, it evaluates to <code>True</code> and just continues execution. Otherwise, it would have interrupted and returned <code>False</code>. Finally, <code>OP_CHECKSIG</code> takes the two remaining values, the public key and the signature, and checks if the signature of the transaction is valid for that public key. If it is, then the transaction is unlocked!</p>
+<h2 id="hidden-bitcoin-messages">Hidden Bitcoin&nbsp;Messages</h2>
+<p>As you can put a little bit of data within Bitcoin Script, you can put messages on the blockchain. You just need to make sure that the script still evaluates to <code>True</code>. An interesting one is the <a href="https://www.blockchain.com/btc/tx/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b">first Bitcoin transaction</a>. It contains the input script:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">04</span><span class="n">ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73</span>
+</code></pre></div>
+<p>Now we decode it and convert the hex-encoded part to text:</p>
+<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="o">./</span><span class="n">bitcoin</span><span class="o">-</span><span class="n">cli</span> <span class="n">decodescript</span> <span class="s2">"04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73"</span>
+<span class="p">{</span>
+  <span class="s2">"asm"</span><span class="p">:</span> <span class="s2">"486604799 4 5468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73"</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"nonstandard"</span><span class="p">,</span>
+  <span class="s2">"p2sh"</span><span class="p">:</span> <span class="s2">"3FimpcNzLCfeJB3zxDAExME4w6BLYryx4z"</span><span class="p">,</span>
+  <span class="s2">"segwit"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"asm"</span><span class="p">:</span> <span class="s2">"0 c02688beb2fb8f93780d095ec5ce1a0213fafe72422744f618ab9286e3026020"</span><span class="p">,</span>
+    <span class="s2">"hex"</span><span class="p">:</span> <span class="s2">"0020c02688beb2fb8f93780d095ec5ce1a0213fafe72422744f618ab9286e3026020"</span><span class="p">,</span>
+    <span class="s2">"reqSigs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"witness_v0_scripthash"</span><span class="p">,</span>
+    <span class="s2">"addresses"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">"bc1qcqng304jlw8ex7qdp90vtns6qgfl4lnjggn5fasc4wfgdcczvqsqzq3rpk"</span>
+    <span class="p">],</span>
+    <span class="s2">"p2sh-segwit"</span><span class="p">:</span> <span class="s2">"3Nh7AqMGnHaY2x5Lts4BhV3hrU8ANceMmT"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">$</span> <span class="n">python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">binascii</span><span class="w"> </span><span class="kn">import</span> <span class="n">unhexlify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">unhexlify</span><span class="p">(</span><span class="s2">"5468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73"</span><span class="p">)</span>
+<span class="sa">b</span><span class="s1">'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks'</span>
+</code></pre></div>
+<p>By the way, there are other ways to hide messages (e.g. <a href="https://www.blockchain.com/btc/tx/fc722ce39094500690a4d4676fe475520d6a0af590336b73202010ca260bbd20">look at these public keys</a>: &ldquo;WeRe fine, 8chaN poSt Fake&rdquo;). If you look at <a href="https://www.blockchain.com/btc/tx/057954bb28527ff9c7701c6fd2b7f770163718ded09745da56cc95e7606afe99">this transaction&rsquo;s script</a>, you&rsquo;ll find in the output with index 2: &ldquo;Do not be overcome by evil, but overcome evil with good&hairsp;&mdash;&hairsp;Romans 12:21&rdquo;</p>
+<h2 id="summary">Summary</h2>
+<p>Bitcoin Script is a stack-based programming language for locking and unlocking transactions. It is a clever approach to change management, as it allows for the modification of a core security feature: the &ldquo;approval process&rdquo; for transactions. The fact that it is a very simple stack-based language prevents the script itself from introducing security issues.</p>
+<h2 id="resources">Resources</h2>
+<p>A big thank-you to my friend Rene Pickhardt for helping me understand this topic.</p>
+<ul>
+<li>Rene Pickhardt: &ldquo;<a href="https://www.youtube.com/watch?v=1n4g3eYX1UI">Dissecting a P2PKH Bitcoin Transaction down to the last Byte</a>&rdquo; on YouTube, 2018.</li>
+<li><a href="https://en.bitcoin.it/wiki/Script">Script on bitcoin.it</a>: Various OP codes are explained.</li>
+</ul>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about Blockchain:</p>
+<ul>
+<li>Part 1: <a href="../blockchain/">An Introduction to Blockchain</a></li>
+<li>Part 2: <a href="../blockchain-101/">Blockchain 101</a></li>
+<li>Part 3: <a href="../3-applications-of-hash-functions/">The 3 Applications of Hash Functions</a></li>
+<li>Part 4: <a href="../merkle-trees/">Merkle Trees</a></li>
+<li>Part 5: <strong>The Bitcoin Script Language</strong></li>
+<li>Part 6: <a href="../utxo-model/">The UTXO model</a></li>
+</ul>
+<p>Topics I will consider next:</p>
+<ul>
+<li>Merkle Patricia Tries</li>
+<li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&rsquo;s so important</li>
+<li>Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.</li>
+<li>Smart contracts: What they are and how they work; e.g. with Ethereum as an example</li>
+<li><a href="https://en.wikipedia.org/wiki/Initial_coin_offering">Initial Coin Offering</a> (ICO)</li>
+<li>Bitcoin's consensus algorithm</li>
+<li>Bitcoin and the network: How do people connect?</li>
+<li>Bitcoin Wallets</li>
+<li>Peer-To-Peer Stuff: How Gossip Protocols work</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="The App Store, Play Store, NPM, Dockerhub, PyPI … they are all vulnerable. For exactly the same reasons." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/click-at-your-own-risk-no-app-store-is-safe/" />
+<meta property="og:title" content="Click at Your Own Risk: No App Store is Safe"/>
+<meta property="og:url" content="https://martin-thoma.com/click-at-your-own-risk-no-app-store-is-safe/" />
+<meta property="og:description" content="The App Store, Play Store, NPM, Dockerhub, PyPI … they are all vulnerable. For exactly the same reasons." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2024-03-17T17:57:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2024/03/click-at-your-own-risk-no-app-store-is-safe-1.jpg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="1024" />
+
+        <title>Click at Your Own Risk: No App Store is Safe  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../click-at-your-own-risk-no-app-store-is-safe/">Click at Your Own Risk: No App Store is Safe</a></h1>
+    <p class="meta">
+<time datetime="2024-03-17T17:57:00+01:00">Mär 17, 2024</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#security-ref">Security
+            <span>63</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#reality-check-is-it-that-bad" title="Reality Check: Is it that&nbsp;bad?">Reality Check: Is it that&nbsp;bad?</a></li><li><a class="toc-href" href="#what-are-the-core-problems" title="What are the core problems?">What are the core problems?</a></li><li><a class="toc-href" href="#what-could-software-marketplaces-do-to-fight-malware" title="What could software marketplaces do to fight&nbsp;malware?">What could software marketplaces do to fight&nbsp;malware?</a><ul><li><a class="toc-href" href="#no1-clear-reporting-paths" title="&numero;1: Clear Reporting Paths">&numero;1: Clear Reporting Paths</a></li><li><a class="toc-href" href="#no2-pay-to-publish" title="&numero;2: Pay-to-Publish">&numero;2: Pay-to-Publish</a></li><li><a class="toc-href" href="#no3-identify-uploaders" title="&numero;3: Identify uploaders">&numero;3: Identify uploaders</a></li><li><a class="toc-href" href="#no4-sandboxing-and-permissions" title="&numero;4: Sandboxing and Permissions">&numero;4: Sandboxing and Permissions</a></li></ul></li><li><a class="toc-href" href="#how-malware-scanners-work-under-the-hood" title="How malware scanners work under the&nbsp;hood">How malware scanners work under the&nbsp;hood</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-1.jpg"><img alt="Comic drawing of a man in front of a computer screen showing a warning with a skull" height="800" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-1.jpg" width="800"/></a>
+</figure>
+<p>Why do software marketplaces such as the Android Play Store, the iOS App Store, Docker&rsquo;s Docker Hub, Python&rsquo;s PyPI, or JavaScript&rsquo;s npm have so much malware? Can&rsquo;t they do more against it? Is it just a money question?</p>
+<p>Let me show you the reasons!</p>
+<h2 id="reality-check-is-it-that-bad">Reality Check: Is it that&nbsp;bad?</h2>
+<p>Let me give you some of the titles of stories of malicious apps in software marketplaces:</p>
+<ul>
+<li><strong>Google Play Store</strong> (Android, <a href="https://www.statista.com/statistics/266210/number-of-available-applications-in-the-google-play-store/">2.4 million apps</a>, 1+ billion monthly active users): <a href="https://www.kaspersky.com/blog/malware-in-google-play-2023/49579/">Google Play malware clocks up more than 600 million downloads in 2023</a>, <a href="https://www.bleepingcomputer.com/news/security/android-apps-with-spyware-installed-421-million-times-from-google-play/">spyware installed 421 million times from Google Play</a></li>
+<li><strong>Apple App Store</strong> (iOS, <a href="https://www.statista.com/statistics/779768/number-of-available-apps-in-the-apple-app-store-quarter/">1.6 million apps</a>, 1+ billion monthly active users): <a href="https://9to5mac.com/2022/08/04/fraudulent-chinese-apps-mac-app-store/">fraudulent Chinese apps on the Mac App Store</a>, <a href="https://www.businessinsider.com/apple-removes-harmful-adware-iphone-apps-2019-10">Apple removed 18 harmful apps from the App Store</a>, <a href="https://arstechnica.com/information-technology/2023/02/pig-butchering-scam-apps-sneak-into-apples-app-store-and-google-play/">Pig-butchering scam apps sneak into Apple&rsquo;s App Store</a>, <a href="https://www.intego.com/mac-security-blog/xcodeghost-malware-infected-100-million-ios-users-and-apple-said-nothing/">XcodeGhost Malware Infected 100+ Million iOS Users</a></li>
+<li><strong>Dockerhub</strong> (Docker, <a href="https://www.docker.com/blog/docker-index-shows-continued-massive-developer-adoption-and-activity-to-build-and-share-apps-with-docker/">8.3 million repositories</a>, <a href="https://www.devopsdigest.com/red-hat-universal-base-image-available-on-docker-hub">13.4 million monthly active users</a>): <a href="https://www.bleepingcomputer.com/news/security/docker-hub-repositories-hide-over-1-650-malicious-containers/">Docker Hub repositories hide over 1,650 malicious containers</a>, <a href="https://www.trendmicro.com/vinfo/it/security/news/virtualization-and-cloud/malicious-docker-hub-container-images-cryptocurrency-mining">Malicious Docker Hub Container Images Used for Cryptocurrency Mining</a></li>
+<li><strong>NPM</strong> (JavaScript, <a href="https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager">2.1 million packages</a>, <a href="https://blog.npmjs.org/post/143451680695/how-many-npm-users-are-there.html">1+ million monthly active users</a>): <a href="https://therecord.media/malware-found-in-npm-package-with-millions-of-weekly-downloads">Malware found in npm package with millions of weekly downloads</a></li>
+<li><strong>PyPI</strong> (Python, <a href="https://pypi.org/">0.5 million projects</a>, thousands of active users): <a href="https://thehackernews.com/2023/12/116-malware-packages-found-on-pypi.html">116 Malware Packages Found on PyPI Repository Infecting Windows and Linux Systems</a></li>
+</ul>
+<p>To summarize: Malware is present in every software marketplace. The marketplaces with more users are targeted more often.</p>
+<h2 id="what-are-the-core-problems">What are the core problems?</h2>
+<p>Why is it so hard to create a secure software marketplace?</p>
+<ol>
+<li><strong>Too many app versions</strong>: Every day hundreds of software packages get uploaded to each marketplace. It&rsquo;s just impossible to manually and thoroughly check all of them. Every new version could have malware. So it&rsquo;s not enough to check the app once.</li>
+<li><strong>Rinse and repeat</strong>: Assume malware was detected and removed from the marketplace. Then the attacker can upload the same malware with minor modifications.</li>
+<li><strong>Automatic detection is flawed</strong>: It&rsquo;s very hard to detect malicious software automatically.</li>
+</ol>
+<h2 id="what-could-software-marketplaces-do-to-fight-malware">What could software marketplaces do to fight&nbsp;malware?</h2>
+<h3 id="no1-clear-reporting-paths">&numero;1: Clear Reporting Paths</h3>
+<p>Let users help you to identify malicious software. It sounds simple, but such a reporting path also means the marketplace needs a team dealing with the reports.</p>
+<ul>
+<li>The <a href="https://support.google.com/googleplay/answer/2853570?hl=en&amp;co=GENIE.Platform%3DAndroid&amp;sjid=9305752021454669852-EU">Android Play Store</a> has a button.</li>
+<li>I guess the Apple App Store also has one, but I could not find it. Hence I&rsquo;m rather certain that it&rsquo;s not effective.</li>
+<li>PyPI: <a href="https://pypi.org/security/">Reporting a security issue</a> and <a href="https://blog.pypi.org/posts/2024-03-06-malware-reporting-evolved/">a report button</a></li>
+<li>NPM: <a href="https://docs.npmjs.com/reporting-malware-in-an-npm-package">Reporting malware in an npm package</a></li>
+</ul>
+<h3 id="no2-pay-to-publish">&numero;2: Pay-to-Publish</h3>
+<figure>
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-2.png"><img alt="Implementing a pay-to-publish option is rather easy for many software marketplaces if they already have a payment option. The effectiveness is low because malware can generate a high income. Additionally, this option has the severe drawback of closing the marketplace for some&nbsp;people." height="303" loading="lazy" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-2.png" width="558"/></a>
+<figcaption>Implementing a pay-to-publish option is rather easy for many software marketplaces if they already have a payment option. The effectiveness is low because malware can generate a high income. Additionally, this option has the severe drawback of closing the marketplace for some people.</figcaption>
+</figure>
+<p>The more expensive an action becomes, the more people try to avoid it. That means if app developers needed to pay something for every single app update, they would do it less often. The same goes for malware developers.</p>
+<p>Let&rsquo;s see who employs this tactic:</p>
+<ul>
+<li>Apple App Store: 99 USD/year</li>
+<li>Google Play Store: 25 USD (once)</li>
+<li>PyPI (Python): Free</li>
+<li>NPM (JavaScript): <a href="https://www.npmjs.com/products">Free</a></li>
+</ul>
+<h3 id="no3-identify-uploaders">&numero;3: Identify uploaders</h3>
+<figure>
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-3.png"><img alt="Requiring the identification of users to upload software means that the infrastructure to identify people needs to be created. That is very hard. If it should be effective, identifications need to be done in a similar way as banks do it. This means either eID or Video Identification. I assume this would be effective as it would be a lot harder to upload new versions. In the end, malware creators do not want to have the malware tied to their identities. The big drawback would be the identification: Some users will hate it, and the software store suddenly needs to deal with sensitive data (privacy)." height="303" loading="lazy" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-3.png" width="558"/></a>
+<figcaption>Requiring the identification of users to upload software means that the infrastructure to identify people needs to be created. That is very hard. If it should be effective, identifications need to be done in a similar way as banks do it. This means either <a href="https://en.wikipedia.org/wiki/Electronic_identification">eID</a> or <a href="https://www.binance.com/en/support/faq/%E2%80%8B%E2%80%8Bhow-to-verify-my-binance-account-with-video-identification-45ffb16556c540c6acc1766631efe985">Video Identification</a>. I assume this would be effective as it would be a lot harder to upload new versions. In the end, malware creators do not want to have the malware tied to their identities. The big drawback would be the identification: Some users will hate it, and the software store suddenly needs to deal with sensitive data (privacy).</figcaption>
+</figure>
+<p>When people want to open a bank account in Europe, they have to be identified. The process is not perfect, but it does take some effort to fake this and it&rsquo;s certainly nothing an attacker can do in bulk.</p>
+<p>Similarly, if the software marketplaces would require identification to upload software, uploading malware would become much harder.</p>
+<p>Identifying people makes it impossible for an attacker to re-upload the same malware again and again. They need to do it with other people, which is more time-consuming.</p>
+<p>However, those other people might just be victims of hacks. For example, <a href="https://www.zdnet.com/article/gentoo-github-mirror-hacked-and-considered-compromised/">Gentoo&rsquo;s GitHub mirror was hacked in 2018</a> and <a href="https://www.zdnet.com/article/canonical-github-account-hacked-ubuntu-source-code-safe/">Canonical&rsquo;s GitHub account was hacked in 2019</a>.</p>
+<h3 id="no4-sandboxing-and-permissions">&numero;4: Sandboxing and Permissions</h3>
+<figure>
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-4.png"><img alt="Implementing effective sandboxing is extremely difficult. Android and iOS have done it, but I don&rsquo;t know if there is any option for desktop operating systems (Windows, Mac, Linux). Once a working sandboxing system is implemented, it is extremely effective in limiting malware. The malware needs to be more sneaky. The only drawback is usability: It&rsquo;s hard for users to decide if a given set of permissions is reasonable." height="303" loading="lazy" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-4.png" width="558"/></a>
+<figcaption>Implementing effective sandboxing is extremely difficult. Android and iOS have done it, but I don&rsquo;t know if there is any option for desktop operating systems (Windows, Mac, Linux). Once a working sandboxing system is implemented, it is extremely effective in limiting malware. The malware needs to be more sneaky. The only drawback is usability: It&rsquo;s hard for users to decide if a given set of permissions is reasonable.</figcaption>
+</figure>
+<p>Sandboxing means that the smartphone or server running the software (the <em>platform</em>) allows the software less stuff to do. For example, restricting access to the network is a crucial one or to the local file system.</p>
+<p>The more fine-grained this system is, the easier it is for a user to judge if something fishy might go on. For example, why would a flashlight need network access?</p>
+<figure>
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-5.jpg"><img alt="Android&rsquo;s permission system has quite a lot of options. Many are related to sensors, but also access to some parts of the software like contacts or the calendar." height="482" loading="lazy" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-5.jpg" width="800"/></a>
+<figcaption>Android&rsquo;s permission system has quite a lot of options. Many are related to sensors, but also access to some parts of the software like contacts or the calendar.</figcaption>
+</figure>
+<p>By default, the platform could forbid everything. The user has to give explicit permission to enable that&hairsp;&mdash;&hairsp;outside of the software.</p>
+<h2 id="how-malware-scanners-work-under-the-hood">How malware scanners work under the&nbsp;hood</h2>
+<figure class="ai-generated">
+<a href="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-6.jpg"><img alt="Comic drawing of a man examining a smiling green pill in a parcel with a magnifying glass" height="800" loading="lazy" src="../images/2024/03/click-at-your-own-risk-no-app-store-is-safe-6.jpg" width="800"/></a>
+</figure>
+<p>Malware scanners take a software bundle and make a decision: Is it bad?</p>
+<p>The tricky part is that software cannot decide for arbitrary other software what it does. It&rsquo;s a consequence of <a href="https://en.wikipedia.org/wiki/Halting_problem">the halting problem</a>.</p>
+<p>As a simple example, take Python code. We typically have the code in plain text which gives you way more options for analysis. And let&rsquo;s assume that software is always malware when it accesses the internet. In Python, that is typically done with the <code>requests</code> library. Hence you could search for <code>import requests</code> to determine if you have malware.</p>
+<p>This approach has two problems:</p>
+<ol>
+<li><strong>False positives</strong>: You would identify tons of software as malware which has a legitimate reason to access the internet. For example, an application giving you a weather forecast.</li>
+<li><strong>False negatives</strong>: Attackers can avoid this type of detection.</li>
+</ol>
+<p>For example, attackers could create a new package <code>not_requests</code> that imports requests. Their software would then depend on <code>not_requests</code>. As a response, the automatic check could take the <a href="https://en.wikipedia.org/wiki/Transitive_closure">transitive closure</a> of the package's dependencies (hence all dependencies, including their dependencies).</p>
+<p>Then the attacker does a dynamic import which is also done by plugin systems:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+
+<span class="n">requests</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">)</span>
+</code></pre></div>
+<p>Oh, and before you think the malware scanner could search for the string <code>requests</code>: The attacker can encrypt that string. It doesn&rsquo;t matter that the decryption key is within the shipped code as the goal is only to prevent static analysis from detecting it. In the simplest case, they just apply base64. Or a self-written simple cipher. Nothing hard for a cryptographer to break, but impossible for a machine to automatically decipher when it&rsquo;s part of a large code base.</p>
+<h2 id="summary">Summary</h2>
+<p>Software marketplaces will never be perfectly safe. For that reason, users should be careful which software they install and use.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

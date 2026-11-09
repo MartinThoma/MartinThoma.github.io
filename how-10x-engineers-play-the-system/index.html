@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="And some actually useful tips" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Software Engineering, Work, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/how-10x-engineers-play-the-system/" />
+<meta property="og:title" content="How 10x engineers play the system"/>
+<meta property="og:url" content="https://martin-thoma.com/how-10x-engineers-play-the-system/" />
+<meta property="og:description" content="And some actually useful tips" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2025-01-12T22:57:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2025/01/how-10x-engineers-play-the-system-1.jpg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="1024" />
+
+        <title>How 10x engineers play the system  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../how-10x-engineers-play-the-system/">How 10x engineers play the system</a></h1>
+    <p class="meta">
+<time datetime="2025-01-12T22:57:00+01:00">Jan 12, 2025</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#software-engineering-ref">Software Engineering
+            <span>85</span>
+</a></li>
+        <li><a href="../tags/#work-ref">Work
+            <span>6</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#lines-of-code" title="Lines of&nbsp;Code">Lines of&nbsp;Code</a></li><li><a class="toc-href" href="#number-of-commits" title="Number of&nbsp;Commits">Number of&nbsp;Commits</a></li><li><a class="toc-href" href="#number-of-prs" title="Number of&nbsp;PRs">Number of&nbsp;PRs</a></li><li><a class="toc-href" href="#use-asynchronous-communication-wisely" title="Use Asynchronous Communication Wisely">Use Asynchronous Communication Wisely</a></li><li><a class="toc-href" href="#use-llms-for-code-monkey-work" title="Use LLMs for Code Monkey&nbsp;work">Use LLMs for Code Monkey&nbsp;work</a></li><li><a class="toc-href" href="#learn-your-tools" title="Learn your&nbsp;Tools">Learn your&nbsp;Tools</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure class="ai-generated">
+<a href="../images/2025/01/how-10x-engineers-play-the-system-1.jpg"><img alt="Comic drawing of a monkey with headphones typing on a laptop next to a banana, labeled &ldquo;Code Monkey&rdquo;" height="800" src="../images/2025/01/how-10x-engineers-play-the-system-1.jpg" width="800"/></a>
+</figure>
+<p>I just saw <a href="https://x.com/yegordb/status/1859290734257635439">this Tweet</a>:</p>
+<blockquote>
+<p>~9.5% of software engineers do virtually nothing: <strong>Ghost Engineers</strong> (0.1x-ers)&hairsp;&mdash;&hairsp;Yegor Denisov-Blanch</p>
+</blockquote>
+<p>Although I haven&rsquo;t seen the details of the analysis method, I&rsquo;m rather certain that this analysis to a large degree just looked at lines of code as a performance metric. I&rsquo;m against any performance metric in software engineering as it&rsquo;s just so easy to game the system. Let me show you how to become a 10x engineer 😄</p>
+<p>Please note: Some of those add value, but the amount of value added likely does not correlate with the metric.</p>
+<h2 id="lines-of-code">Lines of&nbsp;Code</h2>
+<ul>
+<li>Make automated <strong>formatting changes</strong>. Change your mind about which type of formatting you like best for extra lines.</li>
+<li>Commit <strong>auto-generated files</strong> like an OpenAPI JSON schema file.</li>
+<li>Make super long <strong>comments.</strong></li>
+</ul>
+<h2 id="number-of-commits">Number of&nbsp;Commits</h2>
+<ul>
+<li>Just work on tiny changes</li>
+<li>Don&rsquo;t finish your work&hairsp;&mdash;&hairsp;just add the fix later</li>
+<li>Add tests in a separate commit</li>
+</ul>
+<h2 id="number-of-prs">Number of&nbsp;PRs</h2>
+<p>Basically the same as for commits. If it&rsquo;s not about merged PRs, then you can just open PRs and close them again 😄</p>
+<p>On a more serious note, there are also some hints that can boost your productivity:</p>
+<h2 id="use-asynchronous-communication-wisely">Use Asynchronous Communication Wisely</h2>
+<p>E-Mails should be seen asynchronously and I tend to see the beginning of a chat conversation the same way. If you&rsquo;re not involved in a chat discussion, it can be valuable to not answer an incoming message right away. I haven&rsquo;t used this on purpose so far, but I&rsquo;ve noticed when I didn&rsquo;t answer a chat message within ~10 minutes, quite often the problem was either resolved or there was valuable additional information.</p>
+<p>However, it&rsquo;s also helpful if you can give tips quickly. So you need to decide if it&rsquo;s better to continue your current work or to interrupt and support a team member.</p>
+<h2 id="use-llms-for-code-monkey-work">Use LLMs for Code Monkey&nbsp;work</h2>
+<p>LLMs such as ChatGPT can do some tedious tasks very well. For example, I tend to forget how to do a negative lookahead with regular expressions (RegEx). Instead of looking it up, I now just ask ChatGPT.</p>
+<p>Another example is formatting diffs. Sometimes test cases fail and the diff output is hard to read. There are nice libraries such as <a href="https://pypi.org/project/pytest-icdiff/">pytest-icdiff</a>, but that doesn&rsquo;t always help.</p>
+<p>The third category is debugging. Sometimes I&rsquo;m stuck with super dumb mistakes as I went blind to a typo. Giving ChatGPT the Traceback and the relevant part of the code typically helps to find the issue.</p>
+<h2 id="learn-your-tools">Learn your&nbsp;Tools</h2>
+<p>It sounds stupid, but there might be some tiny improvements that would help you very often through the day. Things that pop to my mind:</p>
+<ul>
+<li>How to jump to a file within your editor without using the mouse</li>
+<li>How to jump to a line within a file</li>
+<li>Git blame within your editor. Also how to go to the code change before the current change</li>
+<li>Auto-save the current file</li>
+</ul>
+<p>By the way, I&rsquo;m not a big fan of pair programming. But it&rsquo;s nice to learn such small tricks.</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

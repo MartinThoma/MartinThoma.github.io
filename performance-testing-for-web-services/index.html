@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="What it is, aspects to consider, and tools you can use" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Testing, Performance, Web Services, Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/performance-testing-for-web-services/" />
+<meta property="og:title" content="Performance Testing for Web Services"/>
+<meta property="og:url" content="https://martin-thoma.com/performance-testing-for-web-services/" />
+<meta property="og:description" content="What it is, aspects to consider, and tools you can use" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-09-20T17:29:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2021/09/performance-testing-for-web-services-5.png" />
+<meta property="og:image:width" content="1799" />
+<meta property="og:image:height" content="343" />
+
+        <title>Performance Testing for Web Services  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../performance-testing-for-web-services/">Performance Testing for Web Services</a></h1>
+    <p class="meta">
+<time datetime="2021-09-20T17:29:00+02:00">Sep 20, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#performance-ref">Performance
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+        <li><a href="../tags/#testing-ref">Testing
+            <span>14</span>
+</a></li>
+        <li><a href="../tags/#web-services-ref">Web Services
+            <span>5</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#in-which-performance-aspects-are-we-interested" title="In which performance aspects are we interested?">In which performance aspects are we interested?</a></li><li><a class="toc-href" href="#which-resources-might-be-bottlenecks" title="Which Resources might be Bottlenecks?">Which Resources might be Bottlenecks?</a></li><li><a class="toc-href" href="#performance-testing-types" title="Performance Testing&nbsp;Types">Performance Testing&nbsp;Types</a><ul><li><a class="toc-href" href="#load-testing" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#stress-testing" title="Stress Testing">Stress Testing</a></li><li><a class="toc-href" href="#soak-testing" title="Soak Testing">Soak Testing</a></li></ul></li><li><a class="toc-href" href="#load-profiles" title="Load Profiles">Load Profiles</a></li><li><a class="toc-href" href="#testing-tools" title="Testing Tools">Testing Tools</a><ul><li><a class="toc-href" href="#apache-jmeter" title="Apache JMeter">Apache JMeter</a></li><li><a class="toc-href" href="#apache-ab" title="Apache ab">Apache ab</a></li><li><a class="toc-href" href="#stress-and-resource-limits" title="Stress and resource&nbsp;limits">Stress and resource&nbsp;limits</a></li><li><a class="toc-href" href="#locust" title="Locust">Locust</a></li><li><a class="toc-href" href="#k6" title="K6">K6</a></li></ul></li><li><a class="toc-href" href="#digging-into-performance-issues" title="Digging into Performance Issues">Digging into Performance Issues</a><ul><li><a class="toc-href" href="#counting-queries" title="Counting Queries">Counting Queries</a></li><li><a class="toc-href" href="#linear-microservice-cascade" title="Linear Microservice Cascade">Linear Microservice Cascade</a></li><li><a class="toc-href" href="#measure-memory-usage" title="Measure Memory&nbsp;Usage">Measure Memory&nbsp;Usage</a></li><li><a class="toc-href" href="#front-end-performance" title="Front-End Performance">Front-End Performance</a></li><li><a class="toc-href" href="#database-speedups" title="Database Speedups">Database Speedups</a></li></ul></li><li><a class="toc-href" href="#how-many-users-do-we-support" title="How many users do we&nbsp;support?">How many users do we&nbsp;support?</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>We all want software to be reliable and use minimum resources. Those are non-functional requirements and they need to be tested. In this article, we focus on web services. This means requirements like minimum energy consumption or mobile network usage are irrelevant.</p>
+<p>After reading the article you will have a basic understanding of topics that touch performance testing and know some tools that you can use for testing web services.</p>
+<h2 id="in-which-performance-aspects-are-we-interested">In which performance aspects are we interested?</h2>
+<p>We might be interested in three different aspects of performance. Depending on what you&rsquo;re interested in, you will look at different metrics.</p>
+<ul>
+<li><strong>Speed</strong>: How fast does the page load? For speed you might look at page rendering times, at response times of APIs, or throughput for bigger file transfers.</li>
+<li><strong>Stability</strong>: Does the system behave normally? For stability you will look at error rates.</li>
+<li><strong>Scalability</strong>: Which resources do we need to increase and by which amount if the number of our users doubles? For scalability you will look at resource utilization in comparison to different loads.</li>
+</ul>
+<h2 id="which-resources-might-be-bottlenecks">Which Resources might be Bottlenecks?</h2>
+<p>If you want to find bottlenecks for web services, I would look at:</p>
+<ul>
+<li><strong>Database load</strong>: Is the amount of requests we send to the database reasonable? Are the requests themselves fast to execute?</li>
+<li><strong>Peak memory usage</strong>: Is there anything heavy you need to compute? How does that scale?</li>
+<li><strong>Hardware</strong>: I&rsquo;ve heard of cases where the network card was a limiting factor (<a href="https://stackoverflow.com/questions/1209706/whats-the-maximum-number-of-http-connections-i-can-have-open-in-one-windows-ser#comment23076980_1209888">example</a>), although this might be less of an issue with cloud hosted machines.</li>
+<li><strong>CPU</strong>: When CPU utilization is too high, everything will break apart.</li>
+<li><strong>Disk space</strong>: Log files or files which are generated could kill the service on longer runs.</li>
+<li><strong>Connections</strong>: There might be a maximum number of HTTP connections / DB connections. For Postgres, the <a href="https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS">max_connections is 100</a>. nginx workers are limited to 512 concurrent connections by default (<a href="https://www.nginx.com/blog/tuning-nginx/">source</a>).</li>
+</ul>
+<h2 id="performance-testing-types">Performance Testing&nbsp;Types</h2>
+<p>Now that we know what potential issues are, we should talk about common <a href="https://en.wikipedia.org/wiki/Software_performance_testing">performance testing types</a>. The most common ones are <em>load testing</em>, <em>stress testing</em>, and <em>soak testing</em>.</p>
+<h3 id="load-testing">Load Testing</h3>
+<p>The purpose of load testing is to see the behavior of the tested system under an <strong>expected</strong> load. You don&rsquo;t want to break the system here, but you want to have a load which you might get during &ldquo;rush hours&rdquo;. Is the application able to perform as expected under the anticipated load?</p>
+<p>Think of a hospital or an airport where you make emergency tests, but with people who know that it will be a test. You still want to get a high, but not completely unreasonably high number of people in the test.</p>
+<h3 id="stress-testing">Stress Testing</h3>
+<p>After load testing we know how the system behaves under anticipated load. Let&rsquo;s break stuff. When we test the application under <strong>extreme load</strong> to see when/where/how things break, we call it <em>stress testing</em>.</p>
+<p>Is the system stable under load? Do users see failures? Where is the upper limit of the system? Where are limits of the system? Does the system recover after failure? When it fails, is only the system&rsquo;s availability affected or also its correctness?</p>
+<h3 id="soak-testing">Soak Testing</h3>
+<p>Soak testing is trying to answer the question how the system performs over a longer time. We want to confirm that the system is reliable over a long period of time.</p>
+<p>Things that could go wrong and be discovered under soak testing:</p>
+<ul>
+<li>DB Connection exhaustion</li>
+<li>Unexpected restarts</li>
+<li>Resource leaks, e.g. memory leaks</li>
+<li>Logs or other files that bloat the system</li>
+</ul>
+<h2 id="load-profiles">Load Profiles</h2>
+<p>Think of a web service in the context of performance testing as a street system. People want to get from A to B. They need to go through several streets. Some have 5 lanes, others just one. Some allow them to go at 130 km/h (80 mph), others just at 50 km/h (30mph). Depending on the timing, there might be a congestion. If there is a bottleneck where you can drive fast, it might be highly unlikely that you need to wait for somebody to go through it. But the more people are in the road system, the higher the chances are that some people need to wait.</p>
+<p>The road system is your web service. The bottleneck might be a blocking resource call such as a database transaction under a high transaction isolation level. The speed is how fast the transaction is executing.</p>
+<h2 id="testing-tools">Testing Tools</h2>
+<p>There are tons of performance testing and profiling tools. I&rsquo;ll just briefly mention a couple that I&rsquo;ve either used in the past (Apache ab, Locust) or want to use (Apache JMeter, K6).</p>
+<h3 id="apache-jmeter">Apache JMeter</h3>
+<p>Apache JMeter is a protocol-based load testing tool. JMeter simulates traffic and concurrent users. It looks similar to Locust, but more feature-rich.</p>
+<h3 id="apache-ab">Apache ab</h3>
+<p>Apache ab is an HTTP server benchmarking tool. As such, it covers way less of your system than Apache JMeter&hairsp;&mdash;&hairsp;just the HTTP server. I&rsquo;m pretty certain that the HTTP server isn&rsquo;t the problem most of the time.</p>
+<h3 id="stress-and-resource-limits">Stress and resource&nbsp;limits</h3>
+<p>If you want to see how the system behaves when it hits resource limits, you can artificially reduce the resources your application has or apply <a href="https://linux.die.net/man/1/stress">stress</a> to the system.</p>
+<h3 id="locust">Locust</h3>
+<p><a href="https://pypi.org/project/locust/">Locust</a> is a performance testing tool which lets you define web users that send HTTP requests. Locust automatically measures the response times and denotes failures / successes. You do this via a <code>locustfile.py</code> which you simply execute with Python. It looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">locust</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpUser</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">between</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">QuickstartUser</span><span class="p">(</span><span class="n">HttpUser</span><span class="p">):</span>
+    <span class="n">wait_time</span> <span class="o">=</span> <span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s2">"/login"</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="nd">@task</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/hello"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/world"</span><span class="p">)</span>
+
+    <span class="nd">@task</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_item</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/item?id=</span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"/item"</span><span class="p">)</span>
+</code></pre></div>
+<p>Executing <code>locust</code> in the folder with the <code>locustfile.py</code> starts a local web server so that you can interact with Locust via the browser.</p>
+<p>When you start Locust, you can specify how many users you would like to spawn and how fast the users should be generated (&ldquo;hatched&rdquo;):</p>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-4.png"><img alt="Locust&rsquo;s &ldquo;Start new load test&rdquo; form with 200 users, a spawn rate of 1 user per second and the host http://localhost:3000" height="438" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-4.png" width="379"/></a>
+<figcaption>Screenshot taken by Martin Thoma</figcaption>
+</figure>
+<p>The first thing you will notice is the statistics. For every endpoint, you see the number of requests that were made against that endpoint. Locust measures how many of those requests failed, the response time, and the response size. From the response times, it shows you the minimum, median, average, 90-percentile and the maximum.</p>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-5.png"><img alt="Locust&rsquo;s statistics table per endpoint with the number of requests and failures, median, 90th percentile, average, minimum and maximum response time" height="153" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-5.png" width="800"/></a>
+<figcaption>Screenshot taken by Martin Thoma</figcaption>
+</figure>
+<p>In this example, you can see that the <code>/users/registration</code> endpoint failed a couple of times. It also has a pretty high response time&hairsp;&mdash;&hairsp;both, for the maximum and the 90%ile. As the minimum response time is pretty low, this could be an indicator that this endpoint runs into a bottleneck.</p>
+<p>Next, we should look at the failures:</p>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-6.png"><img alt="Locust&rsquo;s failures table: read timeouts for GET /users/{user_id}/ and a custom failure message for POST /users/registration/" height="71" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-6.png" width="800"/></a>
+<figcaption>Screenshot taken by Martin Thoma</figcaption>
+</figure>
+<p>Locust lets you define specific messages via <code>response.failure('failure message')</code> and shows them to you here. It also captures more general issues.</p>
+<p>Looking at the charts can help you to identify breaking points:</p>
+<div class="gallery">
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-7.png"><img alt="Locust chart of the total requests per second: rising to about 13 and then fluctuating around 10, with a few failures" height="157" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-7.png" width="800"/></a>
+</figure>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-8.png"><img alt="Locust chart of the number of users: rising linearly to 10 and then staying constant" height="157" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-8.png" width="800"/></a>
+</figure>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-9.png"><img alt="Locust chart of the response times: the median stays low while the 95th percentile rises to about 3 seconds" height="157" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-9.png" width="800"/></a>
+</figure>
+</div>
+<p>It takes a few seconds as the number of users and the number of requests increase until the response times increase as well.</p>
+<h3 id="k6">K6</h3>
+<p><a href="https://k6.io/">K6</a> is a load testing tool. You can write performance tests as JavaScript files. You can <a href="https://chrome.google.com/webstore/detail/k6-browser-recorder/phjdhndljphphehjpgbmpocddnnmdbda">record usage with a Chrome plugin</a> and <a href="https://grafana.com/grafana/dashboards/2587">visualize the results in Grafana</a>. It seems super flexible and I&rsquo;m looking forward to using it 😀</p>
+<h2 id="digging-into-performance-issues">Digging into Performance Issues</h2>
+<p>When we identified performance issues in a test run, we also want to do something about it. We want to pin-point where the issue comes from so that we can fix it. Here are some tools and techniques I found useful in the past.</p>
+<h3 id="counting-queries">Counting Queries</h3>
+<p>ORMs are amazing, but it can happen way too easily to run into the <a href="https://stackoverflow.com/q/97197/562769">(n+1)-issue</a>. It&rsquo;s quite easy to detect if you write unit tests for those parts and also test for the number of executed SQL queries.</p>
+<h3 id="linear-microservice-cascade">Linear Microservice Cascade</h3>
+<p>If you use a service which in turn uses another service which uses another service&nbsp;&hellip;. well, then you get the load time of the sum of all. This is an architectural issue. It might require heavy rewrites or a lot of caching.</p>
+<h3 id="measure-memory-usage">Measure Memory&nbsp;Usage</h3>
+<p>When working on machine learning / data science topics, it sometimes happened that I needed to multiply large matrices in a production system. To ease my mind, I measured the peak memory usage with valgrind and visualized it with kcachegrind. In the Python world, <a href="https://pypi.org/project/memory-profiler/">memory_profiler</a> helped me. Those tools are called &ldquo;memory profilers&rdquo; and they can show all kinds of things, including call-graphs like this:</p>
+<figure>
+<a href="../images/2021/09/performance-testing-for-web-services-11.png"><img alt="Call-graph created by kcachegrind" height="601" loading="lazy" src="../images/2021/09/performance-testing-for-web-services-11.png" width="512"/></a>
+<figcaption>Call-graph created by kcachegrind</figcaption>
+</figure>
+<p><a href="https://docs.python.org/3/library/resource.html#resource.setrlimit">Setting resource limits</a> artificially low also helped me once to identify where memory becomes an issue.</p>
+<h3 id="front-end-performance">Front-End Performance</h3>
+<p>I&rsquo;ve seen people using <a href="https://en.wikipedia.org/wiki/Google_Lighthouse">Google Lighthouse</a> to find performance issues in the front-end:</p>
+<p><a href="https://developers.google.com/web/updates/2018/05/lighthouse"><strong>Using Lighthouse To Improve Page Load Performance | Web</strong> <em>Lighthouse is an automated tool for improving the quality of your site. You give it a URL, and it provides a list of&hellip;</em></a></p>
+<p>It&rsquo;s typically run from the Chrome dev tools, but you can <a href="https://github.com/GoogleChrome/lighthouse-ci">integrate Lighthouse in your CI</a> and run it automatically as well!</p>
+<h3 id="database-speedups">Database Speedups</h3>
+<p>You might run into the situation that you need to speed up your database. Don&rsquo;t worry, here are 8 hints what you could try:</p>
+<p><a href="../8-techniques-to-speed-up-your-db/"><strong>8 Techniques To Speed up Your Database</strong> <em>&ldquo;If everything seems under control, you&rsquo;re not going fast enough&rdquo;</em></a></p>
+<h2 id="how-many-users-do-we-support">How many users do we&nbsp;support?</h2>
+<p>This is a question every web service needs to answer. Before you can give a number, you need to know the following:</p>
+<ul>
+<li><strong>Realistic Scenario</strong>: Are the virtual users behaving similar enough to the real users?</li>
+<li><strong>Timeouts</strong>: When is a request counted as a failure? Are 3 seconds response times still ok? Are 300 seconds response time ok? Where is the threshold?</li>
+<li><strong>Maximum failure rate</strong>: How many failures are you willing to accept? Having it as a rate, e.g. &ldquo;failures in the last 5 minutes&rdquo;, enables you to run soak tests.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You&rsquo;ve learned the difference between load testing, stress testing, and soak testing. You know that not only speed, but also failures and recovery are important. You know that you can use Apache JMeter, Locust, or K6 to get started. Let&rsquo;s start experimenting!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

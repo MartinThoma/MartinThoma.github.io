@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="offset, limit, order, filtering, performance, and UX" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Web Development, API, Database, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/pagination-done-right/" />
+<meta property="og:title" content="Pagination done right"/>
+<meta property="og:url" content="https://martin-thoma.com/pagination-done-right/" />
+<meta property="og:description" content="offset, limit, order, filtering, performance, and UX" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2024-09-28T08:01:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/db.png" />
+
+        <title>Pagination done right  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../pagination-done-right/">Pagination done right</a></h1>
+    <p class="meta">
+<time datetime="2024-09-28T08:01:00+02:00">Sep 28, 2024</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#api-ref">API
+            <span>5</span>
+</a></li>
+        <li><a href="../tags/#database-ref">Database
+            <span>13</span>
+</a></li>
+        <li><a href="../tags/#web-development-ref">Web Development
+            <span>40</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-basics-offset-limit-and-order" title="The Basics: Offset, limit, and&nbsp;Order!">The Basics: Offset, limit, and&nbsp;Order!</a></li><li><a class="toc-href" href="#filtering" title="Filtering">Filtering</a></li><li><a class="toc-href" href="#performance" title="Performance">Performance</a></li><li><a class="toc-href" href="#ux" title="UX">UX</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <figure>
+<a href="../images/2024/09/pagination-done-right-1.png"><img alt="Pagination: We show the first 50 results on the first page, and continue like that. Until page 40147 is&nbsp;reached." height="196" src="../images/2024/09/pagination-done-right-1.png" width="587"/></a>
+<figcaption>Pagination: We show the first 50 results on the first page, and continue like that. Until page 40147 is reached.</figcaption>
+</figure>
+<p>In times of infinite scrolling, you might be tempted to think that pagination doesn&rsquo;t matter. But even infinite scrolling sites use pagination under the hood for their backends. They automatically load the next &ldquo;page&rdquo; and append it to the bottom.</p>
+<h2 id="the-basics-offset-limit-and-order">The Basics: Offset, limit, and&nbsp;Order!</h2>
+<p>When you implement pagination, you need three elements:</p>
+<ul>
+<li><strong>Offset</strong>: Which element is the first you want to see in the response? For the first call, the offset should be 0.</li>
+<li><strong>Limit</strong>: This limits the maximum amount of elements shown. Even when the user requests something huge, you should have a maximum in the backend that you enforce.</li>
+<li><strong>Order</strong>: It&rsquo;s crucial to choose a consistent ordering. I like to order by creation time, with the oldest object first. This way the user will see the most recent ones at the end and not have skipped anything. However, it depends on your application what is most reasonable.</li>
+</ul>
+<p>The <a href="https://www.postgresql.org/docs/current/queries-limit.html">common terminology</a> is that given an ordered result set, the first <code>offset</code> elements are skipped. Then up to <code>limit</code> elements are shown.</p>
+<h2 id="filtering">Filtering</h2>
+<p>While filtering is typically done in the same context, it&rsquo;s very different. And it can be way more complicated. Filtering deserves its own article 😄</p>
+<h2 id="performance">Performance</h2>
+<p>We need pagination for performance:</p>
+<ul>
+<li><strong>Network transfer times</strong>: The full dataset could be huge. It might take several seconds to transfer everything in one big result set. Even worse, the time is not predictable, so we would have to optimize those endpoints again and again. Instead, we can just paginate and know that the network time is always roughly the same.</li>
+<li><strong>DB speed</strong>: Having a small (offset+limit) helps the DB to be fast. Most of the time the users are only interested in the first few results anyway. Just keep in mind that if the user actually goes to the end, the last pages essentially mean to the DB that it needs to compute the whole result set.</li>
+</ul>
+<h2 id="ux">UX</h2>
+<ul>
+<li><strong>Total element count</strong>: Showing a total element count is nice for users, and it might also be a good idea to return it in your API.</li>
+<li><strong>Show previous and next as buttons</strong>: When I scroll through large datasets, I like it when the buttons exist and when they are always at the same location.</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="Watermarks are hard to remove, signatures are hard to forge, fingerprints trace people against their will" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Security, Cryptography, Security, " />
+
+<link rel="canonical" href="https://martin-thoma.com/watermarks-digital-signatures-and-fingerprinting/" />
+<meta property="og:title" content="Watermarks, Digital Signatures, and Fingerprinting"/>
+<meta property="og:url" content="https://martin-thoma.com/watermarks-digital-signatures-and-fingerprinting/" />
+<meta property="og:description" content="Watermarks are hard to remove, signatures are hard to forge, fingerprints trace people against their will" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-01-07T22:56:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/cybersecurity.png" />
+
+        <title>Watermarks, Digital Signatures, and Fingerprinting  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../watermarks-digital-signatures-and-fingerprinting/">Watermarks, Digital Signatures, and Fingerprinting</a></h1>
+    <p class="meta">
+<time datetime="2023-01-07T22:56:00+01:00">Jan 7, 2023</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#cryptography-ref">Cryptography
+            <span>2</span>
+</a></li>
+        <li><a href="../tags/#security-ref">Security
+            <span>63</span>
+</a></li>
+    </ul>
+</header>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>I see the terms watermark and digital signature being used interchangeably, but they are different:</p>
+<blockquote>
+<p>Good <strong>watermarks</strong> <strong>are hard to remove</strong>, but might be easy to forge. Watermarks help the person who created the work to be able to prove they did it.</p>
+<p><strong>Fingerprints</strong> are used to trace people against their will. The person who created them didn&rsquo;t create them on purpose.</p>
+<p>Good (<strong>digital) signatures</strong> <strong>are hard to forge</strong>, but might be easy to remove. Signatures help the person who received the signature to prove agreement of the signer&hairsp;&mdash;&hairsp;typically to a contract, but also to certificates.</p>
+</blockquote>
+<h2 id="how-is-it-done-in-the-physical-world">How is it done in the physical&nbsp;world?</h2>
+<p>There are two ways to <strong>sign documents</strong>. You can either write your name or you can use a stamp. In former times, a seal was created. All ways are extremely insecure as you essentially only need to see the original to be able to forge a physical signature / stamp / seal.</p>
+<p>Creating watermarks is more time intensive. I also don&rsquo;t know any way to remove a watermark from a physical document.</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/orSFE-bJniw" title="YouTube video player" width="560"></iframe>
+<p>Fingerprints are known to everybody, but did you know that your printer might add them as well? It&rsquo;s called <a href="https://en.wikipedia.org/wiki/Machine_Identification_Code">machine identification code</a> or tracking dots. Those are tiny yellow dots that some printers leave on the page in order to make it identifiable.</p>
+<h2 id="how-is-it-done-in-the-digital-world">How is it done in the digital&nbsp;world?</h2>
+<p>Digital signatures use public key cryptography like the <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem</a> and <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">ECDSA</a>. If implemented right, state-of-the-art digital signatures are impossible to forge. It&rsquo;s hard to explain how they work, but Computerphile does a good job:</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/s22eJ1eVLTU" title="YouTube video player" width="560"></iframe>
+<p>Watermarks are trickier. How do you ensure that somebody does not remove the information that you created some work from the work?</p>
+<p>The simplest way to add a watermark to a file is by changing metadata. However, that is typically easy to remove. For pure images / audio / video, the user could simply take a screenshot / redirect the audio output / record the screen.</p>
+<p>A solution for images that worked for a while was to add an overlay over a key part of the image. However, with recent AI improvements that doesn&rsquo;t help so well anymore.</p>
+<p>For audio, you could also add beats in a certain pattern. The key part is that they must be clear to hear.</p>
+<p>Fingerprints also exist for devices. You can identify browsers by a lot more than just the user agent, see:</p>
+<p><a href="https://en.wikipedia.org/wiki/Device_fingerprint"><strong>Device fingerprint - Wikipedia</strong> <em>A device fingerprint or machine fingerprint is information collected about the software and hardware of a remote&hellip;</em></a></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+    </body>
+</html>

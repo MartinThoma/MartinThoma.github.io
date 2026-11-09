@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="An analysis of PyPI download statistics" />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, PyPI, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/whats-hot-and-what-not-in-python-august-2023/" />
+<meta property="og:title" content="What’s hot and what’s not in Python, August 2023"/>
+<meta property="og:url" content="https://martin-thoma.com/whats-hot-and-what-not-in-python-august-2023/" />
+<meta property="og:description" content="An analysis of PyPI download statistics" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-08-01T22:32:00+02:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/logos/python.png" />
+
+        <title>What’s hot and what’s not in Python, August 2023  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../whats-hot-and-what-not-in-python-august-2023/">What’s hot and what’s not in Python, August 2023</a></h1>
+    <p class="meta">
+<time datetime="2023-08-01T22:32:00+02:00">Aug 1, 2023</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#pypi-ref">PyPI
+            <span>6</span>
+</a></li>
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#top-newcomers" title="Top Newcomers">Top Newcomers</a></li><li><a class="toc-href" href="#top-trending" title="Top Trending">Top Trending</a></li><li><a class="toc-href" href="#falling-fast" title="Falling Fast">Falling Fast</a></li><li><a class="toc-href" href="#bonus-a-small-pdf-update" title="Bonus: A small PDF&nbsp;update">Bonus: A small PDF&nbsp;update</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>The Python Package Index (PyPI) tracks the downloaded packages. I&rsquo;ve checked the monthly statistics for the two time frames:</p>
+<ul>
+<li>1st of June to 30th of June and</li>
+<li>1st of July to 31st of July</li>
+</ul>
+<p>and compared them.</p>
+<p>It&rsquo;s important to realize that download statistics do not tell you anything about the code quality and only give a small indication of popularity. The download statistics get pushed if people regularly download packages through their Continuous Integration (CI) systems for testing their own software. Being a dependency of a popular package certainly helps. And just being an indirect dependency by many packages is typically also not exciting. There is a reason why requests and boto3 are typically in the TOP-10.</p>
+<h2 id="top-newcomers">Top Newcomers</h2>
+<p>In the following, I tried to group packages if multiple newcomers are just the cause of another change.</p>
+<ol>
+<li>&numero; 134, downloaded 30232921x: <a href="https://pypi.org/project/jsonschema-specifications/">jsonschema-specifications</a>. That pulled <a href="https://pypi.org/project/rpds-py/">rpds-py</a> and <a href="https://pypi.org/project/referencing">referencing</a> up as well. And the reason it came up that quickly is because the <a href="https://pypi.org/project/jsonschema/">jsonschema</a> package was popular before. Those <a href="https://github.com/python-jsonschema/jsonschema/commit/bf94d57b2b6d77cc8057be295f077435f4d4020d">became a dependency in February</a>, but only in July were the releases. Yes, multiple releases.</li>
+<li>&numero; 307, downloaded 12068823x: <a href="https://pypi.org/project/annotated-types/"><strong>annotated-types</strong></a>&hairsp;&mdash;&hairsp;<a href="https://peps.python.org/pep-0593/">PEP-593</a> added <code>typing.Annotated</code>. Python is improved by &ldquo;Python Enhancement Proposals&rdquo;&hairsp;&mdash;&hairsp;short: PEPs. This package makes a PEP that was introduced in Python 3.9 usable for normal users. That is exciting 😍</li>
+<li>&numero; 1253, downloaded 1392567x: <a href="https://pypi.org/project/google-re2/">google-re2</a>, a drop-in replacement for the re module. It&rsquo;s been on version 1.0 in 2020 already. I don&rsquo;t know why it suddenly got such a boost in downloads. Likely because something from the Google Cloud packages now depends on it.</li>
+<li>&numero; 1539, downloaded 912974x: <a href="https://pypi.org/project/wexpect/">wexpect</a>, a Windows variant of <a href="https://pexpect.readthedocs.io/en/stable/">pexpect</a>. A module for spawning child applications. This one is even more confusing. It&rsquo;s hardly a newcomer. I&rsquo;m also not aware of any big packages now depending on it.</li>
+<li>&numero; 1921, downloaded 582748x: <a href="https://pypi.org/project/langsmith/">LangSmith</a>, a Python client for interacting with the <a href="https://smith.langchain.com/">LangSmith platform</a>. <a href="https://github.com/langchain-ai/langchain">LangChain</a> is a tool for LLMs. You know, the ChatGPT hype.</li>
+<li>&numero; 2147, downloaded 467417x: <a href="https://pypi.org/project/itables/">itables</a>, Turn your Python DataFrames into Interactive Tables</li>
+<li>&numero; 2212, downloaded 443474x: <a href="https://pypi.org/project/uproot3/">uproot3</a>, is a reader and a writer of the <a href="https://root.cern/">ROOT file format</a>.</li>
+<li>&numero; 2220, downloaded 440534x: <a href="https://pypi.org/project/awkward0/">awkward0</a> a pure Python+Numpy library for manipulating complex data structures as you would Numpy arrays</li>
+<li>&numero; 2240, downloaded 432486x: <a href="https://pypi.org/project/coffea">coffea</a> is a package for the typical needs of a high-energy collider physics (HEP) experiment analysis</li>
+<li>&numero; 2247, downloaded 429644x: <a href="https://pypi.org/project/boost-histogram/">boost-histogram</a>&hairsp;&mdash;&hairsp;Python bindings for Boost::Histogram.</li>
+</ol>
+<h2 id="top-trending">Top Trending</h2>
+<ol>
+<li>+4082, current rank is 282: <a href="https://pypi.org/project/pydantic-core/">pydantic-core</a>&hairsp;&mdash;&hairsp;the data validation library <a href="https://pypi.org/project/pydantic/">pydantic</a> released a 2.0 version which had heavy refactoring and tons of news / podcasts around it. pydantic is used by FastAPI and many other projects. If you don&rsquo;t know it, it&rsquo;s somewhat similar to attrs.</li>
+<li>+2508, current rank is 2089: <a href="https://pypi.org/project/awkward/">awkward</a> is a library for nested, variable-sized data. It&rsquo;s in the <a href="https://github.com/scikit-hep">scikit-hep project</a>.</li>
+<li>+2216, current rank is 637: <a href="https://pypi.org/project/imdbpy/">imdbpy</a> and <a href="https://pypi.org/project/cinemagoer/">cinemagoer</a>. A Python package useful to retrieve and manage the data of the IMDb movie database about movies, people, characters and companies.</li>
+<li>+2095, current rank is 1220: <a href="https://pypi.org/project/logutils/">logutils</a>&hairsp;&mdash;&hairsp;handlers for the Python standard library&rsquo;s logging package.</li>
+<li>+2045, current rank is 2819: <a href="https://pypi.org/project/types-pyserial/">types-pyserial</a>, the type stubs for pyserial, a Python Serial Port Extension.</li>
+<li>+1737, current rank is 3092: <a href="https://pypi.org/project/pyobjc-framework-naturallanguage/">pyobjc-framework-*</a> there are tons of libraries around macOS stuff.</li>
+<li>+1714, current rank is 3237: <a href="https://pypi.org/project/yapsy/">yapsy</a> is a library implementing the core mechanisms needed to build a plugin system into a wider application</li>
+<li>+1664, current rank is 2168: <a href="https://pypi.org/project/aiofile/">aiofile</a>&hairsp;&mdash;&hairsp;Real asynchronous file operations with asyncio support.</li>
+<li>+1614, current rank is 452: <a href="https://pypi.org/project/jupyter-lsp/">jupyter-lsp</a>&hairsp;&mdash;&hairsp;Multi-Language Server WebSocket proxy for your Jupyter</li>
+<li>+1603, current rank is 2494: <a href="https://pypi.org/project/rainbow-logging-handler/">rainbow-logging-handler</a></li>
+</ol>
+<p>I feel like the next time I do this, I need to (1) remove all packages from well-known organizations (2) remove packages on which other popular packages started to depend (3) remove packages which are dependencies of trending newcomers.</p>
+<h2 id="falling-fast">Falling Fast</h2>
+<p>Packages in this category might need support. If you want to become a maintainer, here might be your chance&nbsp;:-)</p>
+<ol>
+<li>-3338, current rank is 4255: <a href="https://pypi.org/project/python-whois/">python-whois</a>&hairsp;&mdash;&hairsp;produce parsed WHOIS data for a given domain</li>
+<li>-2547, current rank is 4963: <a href="https://pypi.org/project/haralyzer/">haralyzer</a>&hairsp;&mdash;&hairsp;Using HAR Files To Analyze Web Pages.</li>
+<li>-2489, current rank is 4907: <a href="https://pypi.org/project/eyes-selenium/">eyes-selenium</a></li>
+<li>-2135, current rank is 4492: <a href="https://pypi.org/project/browsermob-proxy/">browsermob-proxy</a></li>
+<li>-1881, current rank is 4704: <a href="https://pypi.org/project/ssh-python/">ssh-python</a>&hairsp;&mdash;&hairsp;Bindings for libssh C library</li>
+<li>-1687, current rank is 4227: <a href="https://pypi.org/project/transparentpath/">transparentpath</a> use a GCS file system path as if it was local. GCS is Google Cloud Storage.</li>
+<li>-1680, current rank is 3938: <a href="https://pypi.org/project/robotframework-debuglibrary/">robotframework-debuglibrary</a></li>
+<li>-1660, current rank is 4759: <a href="https://pypi.org/project/mozrunner/">mozrunner</a> (also <a href="https://pypi.org/project/mozlog/">mozlog</a>), a supplemental standard library for Mozilla</li>
+<li>-1461, current rank is 3612: <a href="https://pypi.org/project/robotremoteserver/">robotremoteserver</a></li>
+<li>-1426, current rank is 4841: <a href="https://pypi.org/project/openpyxl-stubs/">openpyxl-stubs</a> is actually <a href="https://github.com/MartinThoma/openpyxl-stubs">one of my libraries</a> 😅 I haven&rsquo;t taken care of it as I lost interest. I hope the library adds type annotations on their own.</li>
+</ol>
+<h2 id="bonus-a-small-pdf-update">Bonus: A small PDF&nbsp;update</h2>
+<p>I care about the PDF ecosystem, so here is how the packages developed:</p>
+<p>pypdf family:</p>
+<ul>
+<li><strong>pypdf</strong>: +163, rank now is 1481 🎉 Maybe we make this pass PyPDF2 this year 🤞</li>
+<li><strong>pypdf2</strong>: -31, rank now is 771. The decline is expected in favor of pypdf.</li>
+<li><strong>pypdf3</strong>: +168, rank now is 4291. I don&rsquo;t get why people continue to use that.</li>
+</ul>
+<p>Text extraction / manipulation:</p>
+<ul>
+<li><strong>pdfminer-six</strong>: -49, rank now is 970</li>
+<li><strong>pdfminer</strong>: -133, rank now is 3508</li>
+<li><strong>pdfplumber</strong>: -14, rank now is 2525</li>
+<li><strong>pymupdf</strong>: +154, rank now is 1658. Well-deserved, it&rsquo;s an excellent library.</li>
+<li><strong>pikepdf</strong>: -154, rank now is 1970. Also a pretty good library</li>
+<li><strong>pdfrw</strong>: -297, rank now is 3689</li>
+</ul>
+<p>Generators:</p>
+<ul>
+<li><strong>reportlab</strong>: -33, rank now is 886</li>
+<li><strong>fpdf</strong>: -121, rank now is 1527</li>
+<li><strong>fpdf2</strong>: -308, rank now is 3294&hairsp;&mdash;&hairsp;oh no 😨 People should go to fpdf2. I wonder what they are using now</li>
+<li><strong>weasyprint</strong>: -123, rank now is 1595</li>
+<li><strong>xhtml2pdf</strong>: -68, rank now is 2170</li>
+</ul>
+<p>Others:</p>
+<ul>
+<li>pdf2image: +19, rank now is 1697</li>
+<li>pdfkit: -54, rank now is 1705</li>
+<li>pyhanko: +117, rank now is 2396. Signing of PDFs.</li>
+<li>tabula-py: -95, rank now is 3303</li>
+<li>camelot-py: -49, rank now is 4078</li>
+<li>img2pdf: -716, rank now is 3457</li>
+<li>sphinxcontrib-svg2pdfconverter: -397, rank now is 4146</li>
+<li>pypdftk: -1332, rank now is 4621</li>
+</ul>
+<p>You can get more insights in</p>
+<p><a href="../the-python-pdf-ecosystem-in-2023/"><strong>The Python PDF Ecosystem in 2023</strong> <em>Which libraries should you use for which use case?</em></a></p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

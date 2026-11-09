@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="You might have read the variable modifier volatile in C, C++ or in Java. But do you know what it means? C Programming Language The C Programming language by Kernighan and Ritchie (second edition)..." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="C, Java, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/what-does-volatile-mean/" />
+<meta property="og:title" content="What does volatile mean?"/>
+<meta property="og:url" content="https://martin-thoma.com/what-does-volatile-mean/" />
+<meta property="og:description" content="You might have read the variable modifier volatile in C, C++ or in Java. But do you know what it means? C Programming Language The C Programming language by Kernighan and Ritchie (second edition) contains this keyword only 13 times. Here are the most important ones: [...] declaring it volatile announces …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-03-20T22:19:41+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2012/05/C.png" />
+
+        <title>What does volatile mean?  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../what-does-volatile-mean/">What does volatile mean?</a></h1>
+    <p class="meta">
+<time datetime="2013-03-20T22:19:41+01:00">Mär 20, 2013</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#c-ref">C
+            <span>15</span>
+</a></li>
+        <li><a href="../tags/#java-ref">Java
+            <span>41</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#c-programming-language" title="C Programming Language">C Programming Language</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#when-do-you-need-volatile" title="When do you need volatile?">When do you need volatile?</a><ul><li><a class="toc-href" href="#thermometer" title="Thermometer">Thermometer</a></li><li><a class="toc-href" href="#i-o" title="I / O">I / O</a></li><li><a class="toc-href" href="#signal-handlers-an-example-you-can-run" title="Signal handlers: an example you can run">Signal handlers: an example you can run</a></li><li><a class="toc-href" href="#not-for-threads-in-c-and-c" title="Not for threads in C and C++">Not for threads in C and C++</a></li></ul></li><li><a class="toc-href" href="#further-reading" title="Further reading">Further reading</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>You might have read the variable modifier <code>volatile</code> in C, C++ or in Java. But do you know what it means?</p>
+<h2 id="c-programming-language">C Programming Language</h2>
+<p>The C Programming language by Kernighan and Ritchie (second edition) contains this keyword only 13 times. Here are the most important ones:</p>
+<blockquote>[...] declaring it volatile announces that it has special properties relevant to optimization. Neither qualifier affects the range of values or arithmetic properties of the object. Qualifiers are discussed in Par.A.8.2.</blockquote>
+<p>Page 158</p>
+<blockquote>The purpose of volatile is to force an implementation to suppress optimization that could otherwise occur. For example, for a machine with memory-mapped input/output, a pointer to a device register might be declared as a pointer to volatile, in order to prevent the compiler from removing apparently redundant references through the pointer. Except that it should diagnose explicit attempts to change const objects, a compiler may ignore these qualifiers.</blockquote>
+<p>Page 172</p>
+<h2 id="java">Java</h2>
+<p>Java Language Specification actually covers this quite good:</p>
+<blockquote>The Java programming language allows threads to access shared variables (&sect;17.1).
+As a rule, to ensure that shared variables are consistently and reliably updated, a thread should ensure that it has exclusive use of such variables by obtaining a lock that, conventionally, enforces mutual exclusion for those shared variables.
+
+The Java programming language provides a second mechanism, volatile fields, that is more convenient than locking for some purposes.
+
+A field may be declared volatile, in which case the Java Memory Model ensures that all threads see a consistent value for the variable (&sect;17.4).</blockquote>
+<p>Ok, so in Java it is important for multithreading. The example 8.3.1.4-1 of the <a href="http://docs.oracle.com/javase/specs/">JLS 7.0</a> is also very interesting.</p>
+<blockquote>A write to a volatile field (&sect;8.3.1.4) happens-before every subsequent read of
+that field.</blockquote>
+<blockquote>For the purposes of the Java programming language memory model, a single write to a non-volatile long or double value is treated as two separate writes: one to each 32-bit half. This can result in a situation where a thread sees the first 32 bits of a 64-bit value from one write, and the second 32 bits from another write. Writes and reads of volatile long and double values are always atomic.</blockquote>
+<h2 id="when-do-you-need-volatile">When do you need volatile?</h2>
+<p>In C and C++, <code>volatile</code> tells the compiler that a variable can change, or is read,
+in ways it cannot see in the code. So the compiler must do every read and every
+write exactly as written: it may not keep the value in a CPU register, merge
+accesses or drop them. That is all <code>volatile</code> does. It does not bypass the CPU
+cache, and it does not make an access atomic.</p>
+<h3 id="thermometer">Thermometer</h3>
+<p>Imagine you want to build your own thermometer. The sensor puts the current
+temperature into a device register that is mapped to a memory address. You want
+to print the temperature periodically:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+
+<span class="cm">/* The address of the sensor's register depends on the hardware. */</span>
+<span class="cp">#define TEMPERATURE_REGISTER ((volatile int32_t *)0x40001000)</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">TEMPERATURE_REGISTER</span><span class="p">;</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Temperature: %d &deg;C</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">temperature</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Your program never writes to this address; the hardware does. Without <code>volatile</code>,
+the compiler may assume that memory only changes when the program writes to it,
+and reuse a value it has already read instead of reading the register again.
+<code>volatile</code> forbids that: every <code>*TEMPERATURE_REGISTER</code> really reads the register.</p>
+<h3 id="i-o">I / O</h3>
+<p>Imagine you write an application that wants to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:</p>
+<div class="highlight"><pre><span></span><code><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="n">blocks_ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x40002000</span><span class="p">;</span>
+
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">blocks_ready</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* wait until the device has data */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Nothing in the loop changes <code>*blocks_ready</code>. Without <code>volatile</code>, the compiler may
+read it once and turn the loop into <code>while (1);</code> if the value was 0. Then you
+would never notice when you can read from the disk.</p>
+<h3 id="signal-handlers-an-example-you-can-run">Signal handlers: an example you can run</h3>
+<p>A variable that a signal handler changes is a case you can try on any Linux
+machine:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">sig_atomic_t</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handle_sigint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">sig</span><span class="p">;</span>
+<span class="w">    </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">handle_sigint</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stop</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">n</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Stopped after %lu iterations</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Compile it with <code>gcc -O2 stop.c</code> and press Ctrl+C: the handler sets <code>stop</code> and the
+loop ends. Now remove <code>volatile</code> and compile again: the program no longer stops
+on Ctrl+C. GCC reads <code>stop</code> once before the loop and then jumps in an endless loop,
+because nothing inside the loop changes <code>stop</code> (tested with GCC 13.3). A variable
+that a signal handler writes should have the type <code>volatile sig_atomic_t</code>.</p>
+<p>The C standard names one more case: a local variable that is changed between
+<code>setjmp</code> and <code>longjmp</code> only has a defined value after the <code>longjmp</code> if it is
+<code>volatile</code>.</p>
+<h3 id="not-for-threads-in-c-and-c">Not for threads in C and C++</h3>
+<p>Here C and C++ differ from Java. In Java, <code>volatile</code> makes a write visible to
+other threads and orders it (happens-before, see above). In C and C++, <code>volatile</code>
+gives no such guarantee: accesses are neither atomic nor ordered between threads.
+For data that threads share, use atomics (<code>&lt;stdatomic.h&gt;</code> in C11,
+<code>std::atomic</code> in C++11) or a mutex.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="http://stackoverflow.com/q/3488703/562769">When exactly do you use the volatile keyword in Java?</a></li>
+<li><a href="http://stackoverflow.com/a/3430809/562769">Different meaning in Java and C#</a></li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>

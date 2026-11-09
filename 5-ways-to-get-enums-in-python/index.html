@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta name="description" content="There should be one — and preferably only one — obvious way to do it." />
+        <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Python, Code, " />
+
+<link rel="canonical" href="https://martin-thoma.com/5-ways-to-get-enums-in-python/" />
+<meta property="og:title" content="5 Ways to get Enums in Python"/>
+<meta property="og:url" content="https://martin-thoma.com/5-ways-to-get-enums-in-python/" />
+<meta property="og:description" content="There should be one — and preferably only one — obvious way to do it." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2022-01-24T16:25:00+01:00" />
+<meta property="og:image" content="https://martin-thoma.com/images/2022/01/5-ways-to-get-enums-in-python-2.png" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="738" />
+
+        <title>5 Ways to get Enums in Python  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script>
+// MathJax is large: load it only on pages that contain math outside of code.
+document.addEventListener("DOMContentLoaded", function () {
+  var body = document.body.cloneNode(true);
+  body.querySelectorAll("pre, code, script, style, textarea").forEach(function (e) { e.remove(); });
+  if (!body.querySelector(".math") && !/\$|\\\(|\\\[|\\begin\{/.test(body.textContent)) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML";
+  document.head.appendChild(s);
+});
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../">
+                    <span class="brand-name">Martin Thoma</span>
+<span class="brand-tagline">A blog about Code, Politics, and my life</span>                </a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                    <form class="search" role="search" action="../search/" data-suggest="../search-titles.json" data-siteurl=".." data-images="../images/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="site-search">
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../5-ways-to-get-enums-in-python/">5 Ways to get Enums in Python</a></h1>
+    <p class="meta">
+<time datetime="2022-01-24T16:25:00+01:00">Jan 24, 2022</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#python-ref">Python
+            <span>195</span>
+</a></li>
+    </ul>
+</header>
+
+<details class="toc" open>
+    <summary>Contents<span class="toc-hide" aria-hidden="true">Hide</span></summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#examples-of-enums" title="Examples of&nbsp;Enums">Examples of&nbsp;Enums</a></li><li><a class="toc-href" href="#what-you-want-to-do-with-enums" title="What you want to do with&nbsp;enums">What you want to do with&nbsp;enums</a><ul><li><a class="toc-href" href="#get-editor-support" title="Get editor&nbsp;support">Get editor&nbsp;support</a></li><li><a class="toc-href" href="#nice-representation-when-printing" title="Nice representation when&nbsp;printing">Nice representation when&nbsp;printing</a></li><li><a class="toc-href" href="#iterate-over-all-values" title="Iterate over all&nbsp;values">Iterate over all&nbsp;values</a></li><li><a class="toc-href" href="#exhaustiveness-checks" title="Exhaustiveness Checks">Exhaustiveness Checks</a></li><li><a class="toc-href" href="#semantically-meaningful-comparisons" title="Semantically meaningful comparisons">Semantically meaningful comparisons</a></li><li><a class="toc-href" href="#serialization-and-deserialization" title="Serialization and Deserialization">Serialization and Deserialization</a></li></ul></li><li><a class="toc-href" href="#no-1-the-built-in-enum-module" title="&numero; 1: The built-in Enum&nbsp;module">&numero; 1: The built-in Enum&nbsp;module</a></li><li><a class="toc-href" href="#no-2-plain-class-attributes" title="&numero; 2: Plain class attributes">&numero; 2: Plain class attributes</a></li><li><a class="toc-href" href="#no-3-constants-in-a-module" title="&numero; 3: Constants in a&nbsp;module">&numero; 3: Constants in a&nbsp;module</a></li><li><a class="toc-href" href="#no-4-django-modelschoices" title="&numero; 4: Django models.Choices">&numero; 4: Django models.Choices</a></li><li><a class="toc-href" href="#no-5-typingliteral" title="&numero; 5: typing.Literal">&numero; 5: typing.Literal</a></li><li><a class="toc-href" href="#now-which-one-should-i-take" title="Now&nbsp;&hellip; which one should I&nbsp;take?">Now&nbsp;&hellip; which one should I&nbsp;take?</a></li></ul></div>
+</details>
+<script>
+try {
+    if (localStorage.getItem('toc-sidebar') === 'closed' && matchMedia('screen and (min-width: 64rem)').matches) {
+        document.currentScript.previousElementSibling.open = false;
+    }
+} catch (e) {}
+</script>
+
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p>An Enum is a collection of static values, typically strings or integers. They are used pretty often&hairsp;&mdash;&hairsp;or at least they should be. At <a href="https://cashlink.de/">Cashlink</a>, we typically use them to track steps for longer processes.</p>
+<p>Enums are a way to group constants. Constants are useful to prevent typos as your editor can warn you when a value is not part of an enum, but it cannot warn you that a string or an integer is invalid. Grouping constants in Enums gives you a couple of advantages.</p>
+<p>Before we dive into it, let&rsquo;s look at some applications for enums.</p>
+<h2 id="examples-of-enums">Examples of&nbsp;Enums</h2>
+<ul>
+<li><strong>Statuses</strong>: You&rsquo;re writing a backend and you want to return a status code, this should be an enum. Instead of writing <code>return 404</code> you write <code>return status.HTTP_404_NOT_FOUND</code>. In general, variables that contain a finite set of statuses should probably have an Enum as value. Look for &ldquo;state&rdquo; or &ldquo;status&rdquo;.</li>
+<li><strong>Choices</strong>: It might be salutations a user can choose from or roles of users. Countries of origin, timezones,&nbsp;&hellip;. Look for &ldquo;choice&rdquo; or sometimes just lists within your code.</li>
+<li><strong>Types</strong>: You could have different types of users, subscriptions, products,&nbsp;&hellip;</li>
+<li><strong>Steps</strong>: If you track the user funnel you might have a constant for each step. Depending on that you could have different behavior. The set of all steps could be an Enum.</li>
+<li><strong>Flags</strong>: The Unix permission system which represents Read / Write / Execute as binary flags in a 3-bit sequence is another example of what you would want to do with an Enum.</li>
+</ul>
+<h2 id="what-you-want-to-do-with-enums">What you want to do with&nbsp;enums</h2>
+<h3 id="get-editor-support">Get editor&nbsp;support</h3>
+<p>You can always just use a constant. But when you use an editor, you typically want to get auto-completion by your editor.</p>
+<h3 id="nice-representation-when-printing">Nice representation when&nbsp;printing</h3>
+<p>There should be a good way to convert it to a string. For example, when you print the HTTP status code I think NOT_FOUND is way better than 404.</p>
+<h3 id="iterate-over-all-values">Iterate over all&nbsp;values</h3>
+<p>An enum is a collection of static values. In some cases, you want to loop over all of them.</p>
+<h3 id="exhaustiveness-checks">Exhaustiveness Checks</h3>
+<p>In a lot of codebases you can see this pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'a'</span>:
+<span class="w">    </span>...
+<span class="nv">elif</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'b'</span>:
+<span class="w">    </span>...
+<span class="nv">elif</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'c'</span>:
+<span class="w">    </span>...
+<span class="k">else</span>:
+<span class="w">    </span>#<span class="w"> </span><span class="nv">Safeguard</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">case</span><span class="w"> </span><span class="nv">was</span><span class="w"> </span><span class="nv">forgotten</span>
+<span class="w">    </span><span class="nv">raise</span><span class="w"> </span><span class="nv">NotImplementedError</span><span class="ss">(</span><span class="nv">f</span><span class="s2">"The value {value} should not exist"</span><span class="ss">)</span>
+</code></pre></div>
+<p>I&rsquo;ve also seen <code>ValueError</code> for exactly the same thing.</p>
+<p>Depending on where those values come from, you could compare <code>value</code> against an enum. Then mypy could do an exhaustiveness check, meaning it will understand that there is the possibility to run into the exception. Hence mypy can warn you that you actually forgot a case!</p>
+<h3 id="semantically-meaningful-comparisons">Semantically meaningful comparisons</h3>
+<p>Comparing values is easy, but comparing semantics is hard. We want to compare things of the same kind, not values. For example, we want to compare if a payment we received is equal to the amount we expected. It has to be in the same unit. It makes a huge difference if we expect 1000 Euro or 1000 Indonesian Rupiah. It also makes a huge difference for some people if you speak of biological sex or gender identity. This means that two variables might contain exactly the same value, but not be comparable. At the very least we would expect a comparison to evaluate to <code>False</code>.</p>
+<h3 id="serialization-and-deserialization">Serialization and Deserialization</h3>
+<p>We need to convert data so often to JSON and back from JSON. <a href="https://pydantic-docs.helpmanual.io/">Pydantic</a> is pretty amazing and does a great job coercing to the right values most of the time, but let&rsquo;s check for the given options how well they do.</p>
+<h2 id="no-1-the-built-in-enum-module">&numero; 1: The built-in Enum&nbsp;module</h2>
+<p>The <a href="https://docs.python.org/3/library/enum.html">enum</a> module was introduced with Python 3.4 via <a href="https://www.python.org/dev/peps/pep-0435/">PEP 435</a>. It is the first thing that should pop to your mind when you want to create an Enum:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HttpStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">SUCCESS</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">INTERNAL_SERVER_ERROR</span> <span class="o">=</span> <span class="mi">500</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go"># Printing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">)</span>
+<span class="go">HttpStatus.SUCCESS</span>
+
+<span class="go"># Comparisons</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span> <span class="o">==</span> <span class="mi">404</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mi">404</span>
+<span class="go">True</span>
+
+<span class="go"># Iteration</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">HttpStatus</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">HttpStatus.NOT_FOUND</span>
+<span class="go">HttpStatus.SUCCESS</span>
+<span class="go">HttpStatus.INTERNAL_SERVER_ERROR</span>
+</code></pre></div>
+<p>Integer Flags can be done with <a href="https://docs.python.org/3/library/enum.html#intflag">IntFlag</a>.</p>
+<p>If you want to check for exhaustiveness, you can get this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoReturn</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_never</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">NoReturn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unhandled value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="n">HttpStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">status</span> <span class="ow">is</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"SUCCESS"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">status</span> <span class="ow">is</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"NOT_FOUND"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">assert_never</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>Which gives you this error message:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mypy<span class="w"> </span>main.py
+main.py:35:<span class="w"> </span>error:<span class="w"> </span>Argument<span class="w"> </span><span class="m">1</span><span class="w"> </span>to<span class="w"> </span><span class="s2">"assert_never"</span><span class="w"> </span>has<span class="w"> </span>incompatible<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s2">"Literal[HttpStatus.INTERNAL_SERVER_ERROR]"</span><span class="p">;</span><span class="w"> </span>expected<span class="w"> </span><span class="s2">"NoReturn"</span>
+</code></pre></div>
+<p>You can make Enums JSON-serializable, but you have to give it a little bit of thought:</p>
+<p><a href="https://py.watch/convert-a-python-enum-to-json-5eb5e94ecc9"><strong>Convert a Python Enum to JSON</strong> <em>A trivial way to make a Python Enum which is based on string tokens JSON-serializable is to inherit both str and Enum&hellip;</em>py.watch</a></p>
+<h2 id="no-2-plain-class-attributes">&numero; 2: Plain class attributes</h2>
+<p>You can simply create a class and use its attributes:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HttpStatus</span><span class="p">:</span>
+    <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">SUCCESS</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">INTERNAL_SERVER_ERROR</span> <span class="o">=</span> <span class="mi">500</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go"># Printing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">)</span>
+<span class="go">200</span>
+
+<span class="go"># Comparisons</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span> <span class="o">==</span> <span class="mi">404</span>
+<span class="go">True</span>
+</code></pre></div>
+<p>While something like this is still common in many codebases, the downsides are clear:</p>
+<ol>
+<li>Value comparisons with other enums lead to unexpected results.</li>
+<li>It&rsquo;s way harder to iterate over the values.</li>
+<li>The string representations are just the values that can be hard to read.</li>
+</ol>
+<h2 id="no-3-constants-in-a-module">&numero; 3: Constants in a&nbsp;module</h2>
+<p>You can put the values directly in a module, e.g. <code>http_status_codes.py</code>:</p>
+<div class="highlight"><pre><span></span><code>NOT_FOUND = 404
+SUCCESS = 200
+INTERNAL_SERVER_ERROR = 500
+</code></pre></div>
+<p>This is probably the most lightweight option. You still have all of the disadvantages.</p>
+<p>One real-life example where this is done is the Django REST framework with the HTTP status codes (<a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/status.py">source</a>).</p>
+<h2 id="no-4-django-modelschoices">&numero; 4: Django models.Choices</h2>
+<p>Django has also several ways to create enums, e.g. <a href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#enumeration-types">TextChoices</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HttpStatus</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
+    <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">SUCCESS</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">INTERNAL_SERVER_ERROR</span> <span class="o">=</span> <span class="mi">500</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go"># Iteration</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">HttpStatus</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">404</span>
+<span class="go">200</span>
+<span class="go">500</span>
+
+<span class="go"># Comparisons</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"404"</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span> <span class="o">==</span> <span class="s2">"404"</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="s2">"404"</span>
+<span class="go">True</span>
+
+<span class="go"># Custom functions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">choices</span>
+<span class="go">[('404', 'Not Found'), ('200', 'Success'), ('500', 'Internal Server Error')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">names</span>
+<span class="go">['NOT_FOUND', 'SUCCESS', 'INTERNAL_SERVER_ERROR']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">labels</span>
+<span class="go">['Not Found', 'Success', 'Internal Server Error']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HttpStatus</span><span class="o">.</span><span class="n">values</span>
+<span class="go">['404', '200', '500']</span>
+</code></pre></div>
+<p>There is also <code>models.Choices</code> and <code>models.IntegerChoices</code>.</p>
+<p>Django TextChoices Enums add a couple of functions that might come in handy. I&rsquo;d recommend using them if you use Django. They can be connected to the Django ORM which is pretty nice.</p>
+<p>The Django Choices are also directly JSON-serializable.</p>
+<h2 id="no-5-typingliteral">&numero; 5: typing.Literal</h2>
+<p>The <a href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal type</a> was introduced in <a href="https://www.python.org/dev/peps/pep-0586/">PEP 586</a> as a way to indicate that a variable must have a set of certain values. For example, instead of just stating that a parameter is an integer, you can list the allowed values:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="n">StatusCode</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="mi">404</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">http_status_code</span><span class="p">:</span> <span class="n">StatusCode</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">http_status_code</span>
+</code></pre></div>
+<h2 id="now-which-one-should-i-take">Now&nbsp;&hellip; which one should I&nbsp;take?</h2>
+<p>First, make sure the type of Enum fulfills your needs:</p>
+<figure>
+<a href="../images/2022/01/5-ways-to-get-enums-in-python-2.png"><img alt="Comparison of enum.Enum, constants in a module, attributes in a standard class, Django Choices and typing.Literal regarding editor support, printing, JSON serialization, iteration, comparisons and exhaustiveness checks, rated with emojis: enum.Enum is good at everything except JSON serialization, typing.Literal only applies to exhaustiveness checks" height="295" loading="lazy" src="../images/2022/01/5-ways-to-get-enums-in-python-2.png" width="800"/></a>
+<figcaption>Image by Martin Thoma</figcaption>
+</figure>
+<p>There are also some other choices:</p>
+<ul>
+<li>Do you need to support Python 3.3 or earlier? Then you cannot choose <code>enum.Enum</code>.</li>
+<li>Do you only want to give mypy better capabilities of checking issues? Use <code>typing.Literal</code>!</li>
+<li>Do you use Django? Then Django Choices are your way to go!</li>
+</ul>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://bsky.app/profile/martin-thoma.bsky.social" rel="me" target="_blank">Microblogging</a></li>
+    <li><a href="mailto:info@martin-thoma.de" rel="me">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" rel="me" target="_blank">Code</a></li>
+    <li><a href="https://stackoverflow.com/users/562769/martin-thoma" rel="me" target="_blank">Q&amp;A</a></li>
+</ul>
+</div>
+</aside>
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, Politics, and my life</li>
+            <li><a href="../email-subscription/">E-mail subscription</a></li>
+            <li><a href="../feeds/index.xml">RSS feed</a></li>
+            <li><a href="../pages/privacy/">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="../pages/impressum/">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script src="../theme/js/search-suggest.js" defer></script>
+        <script src="../theme/js/lightbox.js" defer></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+<script src="../theme/js/toc.js" defer></script>
+    </body>
+</html>
